@@ -45,6 +45,7 @@ bool bFixFOV = true;
 bool bEnableConsole = true;
 bool bFixMouseSens = true;
 bool bSkipLogos = true;
+bool bSkipPSO = true;
 float fViewmodelFOVMulti = 1.00f;
 
 // Variables
@@ -125,6 +126,7 @@ void Configuration()
     inipp::get_value(ini.sections["Developer Console"], "Enabled", bEnableConsole);
     inipp::get_value(ini.sections["Fix Mouse Sensitivity"], "Enabled", bFixMouseSens);
     inipp::get_value(ini.sections["Logo Skip"], "Enabled", bSkipLogos);
+    inipp::get_value(ini.sections["Shader Compile Skip"], "Enabled", bSkipPSO);
     inipp::get_value(ini.sections["Viewmodel FOV"], "Multiplier", fViewmodelFOVMulti);      
 
     // Clamp settings
@@ -136,6 +138,7 @@ void Configuration()
     spdlog_confparse(bEnableConsole);
     spdlog_confparse(bFixMouseSens);
     spdlog_confparse(bSkipLogos);
+    spdlog_confparse(bSkipPSO);
     spdlog_confparse(fViewmodelFOVMulti);
 
     spdlog::info("----------");
@@ -153,6 +156,17 @@ void IntroSkip()
         }
         else {
             spdlog::error("Skip Logos: Pattern scan failed.");
+        }
+    }
+    if (bSkipPSO) {
+        std::uint8_t* PsoRet = Memory::PatternScan(exeModule, "41 b0 01 48 8d 05 ? ? ? ? 48 c7 44 24 ? ? ? ? 00 48 89 44 24 ? 48 89 bc 24 ? ? ? ? e8 ? ? ? ?");
+        if (PsoRet) {
+            spdlog::info("Skip PSO Warmup: Address is {:s}+{:x}", sExeName.c_str(), PsoRet - (std::uint8_t*)exeModule);
+            Memory::PatchBytes(PsoRet + 2, "\x00", 1);
+            spdlog::info("Skip PSO Warmup: Patched instruction.");
+        }
+        else {
+            spdlog::error("Skip PSO Warmup: Pattern scan failed.");
         }
     }
 }
