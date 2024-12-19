@@ -17,12 +17,12 @@ namespace SDK
 {
 
 // WidgetBlueprintGeneratedClass W_HintInputController.W_HintInputController_C
-// 0x0010 (0x03E0 - 0x03D0)
+// 0x0010 (0x0378 - 0x0368)
 class UW_HintInputController_C final : public UHintInputController
 {
 public:
-	class UW_HintViewGamepad_C*                   HintViewGamepad;                                   // 0x03D0(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
-	class UW_HintViewKeyboard_C*                  HintViewKeyboard;                                  // 0x03D8(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	class UW_HintViewGamepad_C*                   HintViewGamepad;                                   // 0x0368(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	class UW_HintViewKeyboard_C*                  HintViewKeyboard;                                  // 0x0370(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
 
 public:
 	static class UClass* StaticClass()
@@ -34,10 +34,10 @@ public:
 		return GetDefaultObjImpl<UW_HintInputController_C>();
 	}
 };
-static_assert(alignof(UW_HintInputController_C) == 0x000010, "Wrong alignment on UW_HintInputController_C");
-static_assert(sizeof(UW_HintInputController_C) == 0x0003E0, "Wrong size on UW_HintInputController_C");
-static_assert(offsetof(UW_HintInputController_C, HintViewGamepad) == 0x0003D0, "Member 'UW_HintInputController_C::HintViewGamepad' has a wrong offset!");
-static_assert(offsetof(UW_HintInputController_C, HintViewKeyboard) == 0x0003D8, "Member 'UW_HintInputController_C::HintViewKeyboard' has a wrong offset!");
+static_assert(alignof(UW_HintInputController_C) == 0x000008, "Wrong alignment on UW_HintInputController_C");
+static_assert(sizeof(UW_HintInputController_C) == 0x000378, "Wrong size on UW_HintInputController_C");
+static_assert(offsetof(UW_HintInputController_C, HintViewGamepad) == 0x000368, "Member 'UW_HintInputController_C::HintViewGamepad' has a wrong offset!");
+static_assert(offsetof(UW_HintInputController_C, HintViewKeyboard) == 0x000370, "Member 'UW_HintInputController_C::HintViewKeyboard' has a wrong offset!");
 
 }
 

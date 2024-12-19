@@ -17,131 +17,6 @@
 namespace SDK
 {
 
-// Function RigVM.RigVMUserWorkflowOptions.ReportError
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// class FString                           InMessage                                              (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void URigVMUserWorkflowOptions::ReportError(const class FString& InMessage)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("RigVMUserWorkflowOptions", "ReportError");
-
-	Params::RigVMUserWorkflowOptions_ReportError Parms{};
-
-	Parms.InMessage = std::move(InMessage);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function RigVM.RigVMUserWorkflowOptions.ReportInfo
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// class FString                           InMessage                                              (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void URigVMUserWorkflowOptions::ReportInfo(const class FString& InMessage)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("RigVMUserWorkflowOptions", "ReportInfo");
-
-	Params::RigVMUserWorkflowOptions_ReportInfo Parms{};
-
-	Parms.InMessage = std::move(InMessage);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function RigVM.RigVMUserWorkflowOptions.ReportWarning
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// class FString                           InMessage                                              (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void URigVMUserWorkflowOptions::ReportWarning(const class FString& InMessage)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("RigVMUserWorkflowOptions", "ReportWarning");
-
-	Params::RigVMUserWorkflowOptions_ReportWarning Parms{};
-
-	Parms.InMessage = std::move(InMessage);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function RigVM.RigVMUserWorkflowOptions.IsValid
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool URigVMUserWorkflowOptions::IsValid() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("RigVMUserWorkflowOptions", "IsValid");
-
-	Params::RigVMUserWorkflowOptions_IsValid Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function RigVM.RigVMUserWorkflowOptions.RequiresDialog
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool URigVMUserWorkflowOptions::RequiresDialog() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("RigVMUserWorkflowOptions", "RequiresDialog");
-
-	Params::RigVMUserWorkflowOptions_RequiresDialog Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
 // Function RigVM.RigVM.AddRigVMFunction
 // (Native, Public, HasOutParams)
 // Parameters:
@@ -831,6 +706,131 @@ struct FRigVMStatistics URigVM::GetStatistics() const
 		Func = Class->GetFunction("RigVM", "GetStatistics");
 
 	Params::RigVM_GetStatistics Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function RigVM.RigVMUserWorkflowOptions.ReportError
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class FString                           InMessage                                              (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void URigVMUserWorkflowOptions::ReportError(const class FString& InMessage)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("RigVMUserWorkflowOptions", "ReportError");
+
+	Params::RigVMUserWorkflowOptions_ReportError Parms{};
+
+	Parms.InMessage = std::move(InMessage);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function RigVM.RigVMUserWorkflowOptions.ReportInfo
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class FString                           InMessage                                              (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void URigVMUserWorkflowOptions::ReportInfo(const class FString& InMessage)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("RigVMUserWorkflowOptions", "ReportInfo");
+
+	Params::RigVMUserWorkflowOptions_ReportInfo Parms{};
+
+	Parms.InMessage = std::move(InMessage);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function RigVM.RigVMUserWorkflowOptions.ReportWarning
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class FString                           InMessage                                              (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void URigVMUserWorkflowOptions::ReportWarning(const class FString& InMessage)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("RigVMUserWorkflowOptions", "ReportWarning");
+
+	Params::RigVMUserWorkflowOptions_ReportWarning Parms{};
+
+	Parms.InMessage = std::move(InMessage);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function RigVM.RigVMUserWorkflowOptions.IsValid
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool URigVMUserWorkflowOptions::IsValid() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("RigVMUserWorkflowOptions", "IsValid");
+
+	Params::RigVMUserWorkflowOptions_IsValid Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function RigVM.RigVMUserWorkflowOptions.RequiresDialog
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool URigVMUserWorkflowOptions::RequiresDialog() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("RigVMUserWorkflowOptions", "RequiresDialog");
+
+	Params::RigVMUserWorkflowOptions_RequiresDialog Parms{};
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;

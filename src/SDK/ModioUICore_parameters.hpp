@@ -276,13 +276,13 @@ struct ModioUIMediaDownloadCompletedReceiver_OnModCreatorAvatarDownloadCompleted
 {
 public:
 	struct FModioModID                            ModId;                                             // 0x0000(0x0008)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FModioErrorCode                        ec;                                                // 0x0008(0x0008)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FModioErrorCode                        Ec;                                                // 0x0008(0x0008)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FModioOptionalImage                    Image;                                             // 0x0010(0x0018)(Parm, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioUIMediaDownloadCompletedReceiver_OnModCreatorAvatarDownloadCompleted) == 0x000008, "Wrong alignment on ModioUIMediaDownloadCompletedReceiver_OnModCreatorAvatarDownloadCompleted");
 static_assert(sizeof(ModioUIMediaDownloadCompletedReceiver_OnModCreatorAvatarDownloadCompleted) == 0x000028, "Wrong size on ModioUIMediaDownloadCompletedReceiver_OnModCreatorAvatarDownloadCompleted");
 static_assert(offsetof(ModioUIMediaDownloadCompletedReceiver_OnModCreatorAvatarDownloadCompleted, ModId) == 0x000000, "Member 'ModioUIMediaDownloadCompletedReceiver_OnModCreatorAvatarDownloadCompleted::ModId' has a wrong offset!");
-static_assert(offsetof(ModioUIMediaDownloadCompletedReceiver_OnModCreatorAvatarDownloadCompleted, ec) == 0x000008, "Member 'ModioUIMediaDownloadCompletedReceiver_OnModCreatorAvatarDownloadCompleted::ec' has a wrong offset!");
+static_assert(offsetof(ModioUIMediaDownloadCompletedReceiver_OnModCreatorAvatarDownloadCompleted, Ec) == 0x000008, "Member 'ModioUIMediaDownloadCompletedReceiver_OnModCreatorAvatarDownloadCompleted::Ec' has a wrong offset!");
 static_assert(offsetof(ModioUIMediaDownloadCompletedReceiver_OnModCreatorAvatarDownloadCompleted, Image) == 0x000010, "Member 'ModioUIMediaDownloadCompletedReceiver_OnModCreatorAvatarDownloadCompleted::Image' has a wrong offset!");
 
 // Function ModioUICore.ModioUIMediaDownloadCompletedReceiver.OnModGalleryImageDownloadCompleted
@@ -291,7 +291,7 @@ struct ModioUIMediaDownloadCompletedReceiver_OnModGalleryImageDownloadCompleted 
 {
 public:
 	struct FModioModID                            ModId;                                             // 0x0000(0x0008)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FModioErrorCode                        ec;                                                // 0x0008(0x0008)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FModioErrorCode                        Ec;                                                // 0x0008(0x0008)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         ImageIndex;                                        // 0x0010(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_14[0x4];                                       // 0x0014(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FModioOptionalImage                    Image;                                             // 0x0018(0x0018)(Parm, NativeAccessSpecifierPublic)
@@ -299,7 +299,7 @@ public:
 static_assert(alignof(ModioUIMediaDownloadCompletedReceiver_OnModGalleryImageDownloadCompleted) == 0x000008, "Wrong alignment on ModioUIMediaDownloadCompletedReceiver_OnModGalleryImageDownloadCompleted");
 static_assert(sizeof(ModioUIMediaDownloadCompletedReceiver_OnModGalleryImageDownloadCompleted) == 0x000030, "Wrong size on ModioUIMediaDownloadCompletedReceiver_OnModGalleryImageDownloadCompleted");
 static_assert(offsetof(ModioUIMediaDownloadCompletedReceiver_OnModGalleryImageDownloadCompleted, ModId) == 0x000000, "Member 'ModioUIMediaDownloadCompletedReceiver_OnModGalleryImageDownloadCompleted::ModId' has a wrong offset!");
-static_assert(offsetof(ModioUIMediaDownloadCompletedReceiver_OnModGalleryImageDownloadCompleted, ec) == 0x000008, "Member 'ModioUIMediaDownloadCompletedReceiver_OnModGalleryImageDownloadCompleted::ec' has a wrong offset!");
+static_assert(offsetof(ModioUIMediaDownloadCompletedReceiver_OnModGalleryImageDownloadCompleted, Ec) == 0x000008, "Member 'ModioUIMediaDownloadCompletedReceiver_OnModGalleryImageDownloadCompleted::Ec' has a wrong offset!");
 static_assert(offsetof(ModioUIMediaDownloadCompletedReceiver_OnModGalleryImageDownloadCompleted, ImageIndex) == 0x000010, "Member 'ModioUIMediaDownloadCompletedReceiver_OnModGalleryImageDownloadCompleted::ImageIndex' has a wrong offset!");
 static_assert(offsetof(ModioUIMediaDownloadCompletedReceiver_OnModGalleryImageDownloadCompleted, Image) == 0x000018, "Member 'ModioUIMediaDownloadCompletedReceiver_OnModGalleryImageDownloadCompleted::Image' has a wrong offset!");
 
@@ -309,7 +309,7 @@ struct ModioUIMediaDownloadCompletedReceiver_OnModLogoDownloadCompleted final
 {
 public:
 	struct FModioModID                            ModId;                                             // 0x0000(0x0008)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FModioErrorCode                        ec;                                                // 0x0008(0x0008)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FModioErrorCode                        Ec;                                                // 0x0008(0x0008)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FModioOptionalImage                    Image;                                             // 0x0010(0x0018)(Parm, NativeAccessSpecifierPublic)
 	EModioLogoSize                                LogoSize;                                          // 0x0028(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_29[0x7];                                       // 0x0029(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
@@ -317,7 +317,7 @@ public:
 static_assert(alignof(ModioUIMediaDownloadCompletedReceiver_OnModLogoDownloadCompleted) == 0x000008, "Wrong alignment on ModioUIMediaDownloadCompletedReceiver_OnModLogoDownloadCompleted");
 static_assert(sizeof(ModioUIMediaDownloadCompletedReceiver_OnModLogoDownloadCompleted) == 0x000030, "Wrong size on ModioUIMediaDownloadCompletedReceiver_OnModLogoDownloadCompleted");
 static_assert(offsetof(ModioUIMediaDownloadCompletedReceiver_OnModLogoDownloadCompleted, ModId) == 0x000000, "Member 'ModioUIMediaDownloadCompletedReceiver_OnModLogoDownloadCompleted::ModId' has a wrong offset!");
-static_assert(offsetof(ModioUIMediaDownloadCompletedReceiver_OnModLogoDownloadCompleted, ec) == 0x000008, "Member 'ModioUIMediaDownloadCompletedReceiver_OnModLogoDownloadCompleted::ec' has a wrong offset!");
+static_assert(offsetof(ModioUIMediaDownloadCompletedReceiver_OnModLogoDownloadCompleted, Ec) == 0x000008, "Member 'ModioUIMediaDownloadCompletedReceiver_OnModLogoDownloadCompleted::Ec' has a wrong offset!");
 static_assert(offsetof(ModioUIMediaDownloadCompletedReceiver_OnModLogoDownloadCompleted, Image) == 0x000010, "Member 'ModioUIMediaDownloadCompletedReceiver_OnModLogoDownloadCompleted::Image' has a wrong offset!");
 static_assert(offsetof(ModioUIMediaDownloadCompletedReceiver_OnModLogoDownloadCompleted, LogoSize) == 0x000028, "Member 'ModioUIMediaDownloadCompletedReceiver_OnModLogoDownloadCompleted::LogoSize' has a wrong offset!");
 
@@ -355,13 +355,13 @@ struct ModioUIModInfoReceiver_OnListAllModsRequestCompleted final
 {
 public:
 	class FString                                 RequestIdentifier;                                 // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FModioErrorCode                        ec;                                                // 0x0010(0x0008)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FModioErrorCode                        Ec;                                                // 0x0010(0x0008)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FModioOptionalModInfoList              List;                                              // 0x0018(0x0030)(Parm, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioUIModInfoReceiver_OnListAllModsRequestCompleted) == 0x000008, "Wrong alignment on ModioUIModInfoReceiver_OnListAllModsRequestCompleted");
 static_assert(sizeof(ModioUIModInfoReceiver_OnListAllModsRequestCompleted) == 0x000048, "Wrong size on ModioUIModInfoReceiver_OnListAllModsRequestCompleted");
 static_assert(offsetof(ModioUIModInfoReceiver_OnListAllModsRequestCompleted, RequestIdentifier) == 0x000000, "Member 'ModioUIModInfoReceiver_OnListAllModsRequestCompleted::RequestIdentifier' has a wrong offset!");
-static_assert(offsetof(ModioUIModInfoReceiver_OnListAllModsRequestCompleted, ec) == 0x000010, "Member 'ModioUIModInfoReceiver_OnListAllModsRequestCompleted::ec' has a wrong offset!");
+static_assert(offsetof(ModioUIModInfoReceiver_OnListAllModsRequestCompleted, Ec) == 0x000010, "Member 'ModioUIModInfoReceiver_OnListAllModsRequestCompleted::Ec' has a wrong offset!");
 static_assert(offsetof(ModioUIModInfoReceiver_OnListAllModsRequestCompleted, List) == 0x000018, "Member 'ModioUIModInfoReceiver_OnListAllModsRequestCompleted::List' has a wrong offset!");
 
 // Function ModioUICore.ModioUIModInfoReceiver.OnModInfoRequestCompleted
@@ -370,13 +370,13 @@ struct ModioUIModInfoReceiver_OnModInfoRequestCompleted final
 {
 public:
 	struct FModioModID                            ModId;                                             // 0x0000(0x0008)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FModioErrorCode                        ec;                                                // 0x0008(0x0008)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FModioErrorCode                        Ec;                                                // 0x0008(0x0008)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FModioOptionalModInfo                  Info;                                              // 0x0010(0x01E8)(Parm, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioUIModInfoReceiver_OnModInfoRequestCompleted) == 0x000008, "Wrong alignment on ModioUIModInfoReceiver_OnModInfoRequestCompleted");
 static_assert(sizeof(ModioUIModInfoReceiver_OnModInfoRequestCompleted) == 0x0001F8, "Wrong size on ModioUIModInfoReceiver_OnModInfoRequestCompleted");
 static_assert(offsetof(ModioUIModInfoReceiver_OnModInfoRequestCompleted, ModId) == 0x000000, "Member 'ModioUIModInfoReceiver_OnModInfoRequestCompleted::ModId' has a wrong offset!");
-static_assert(offsetof(ModioUIModInfoReceiver_OnModInfoRequestCompleted, ec) == 0x000008, "Member 'ModioUIModInfoReceiver_OnModInfoRequestCompleted::ec' has a wrong offset!");
+static_assert(offsetof(ModioUIModInfoReceiver_OnModInfoRequestCompleted, Ec) == 0x000008, "Member 'ModioUIModInfoReceiver_OnModInfoRequestCompleted::Ec' has a wrong offset!");
 static_assert(offsetof(ModioUIModInfoReceiver_OnModInfoRequestCompleted, Info) == 0x000010, "Member 'ModioUIModInfoReceiver_OnModInfoRequestCompleted::Info' has a wrong offset!");
 
 // Function ModioUICore.ModioUIModManagementEventReceiver.OnModManagementEvent
@@ -588,14 +588,14 @@ struct ModioUINotification_ConfigureManual final
 {
 public:
 	class FText                                   Title;                                             // 0x0000(0x0018)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	class FText                                   message;                                           // 0x0018(0x0018)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	class FText                                   Message;                                           // 0x0018(0x0018)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 	bool                                          bIsError;                                          // 0x0030(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_31[0x7];                                       // 0x0031(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(ModioUINotification_ConfigureManual) == 0x000008, "Wrong alignment on ModioUINotification_ConfigureManual");
 static_assert(sizeof(ModioUINotification_ConfigureManual) == 0x000038, "Wrong size on ModioUINotification_ConfigureManual");
 static_assert(offsetof(ModioUINotification_ConfigureManual, Title) == 0x000000, "Member 'ModioUINotification_ConfigureManual::Title' has a wrong offset!");
-static_assert(offsetof(ModioUINotification_ConfigureManual, message) == 0x000018, "Member 'ModioUINotification_ConfigureManual::message' has a wrong offset!");
+static_assert(offsetof(ModioUINotification_ConfigureManual, Message) == 0x000018, "Member 'ModioUINotification_ConfigureManual::Message' has a wrong offset!");
 static_assert(offsetof(ModioUINotification_ConfigureManual, bIsError) == 0x000030, "Member 'ModioUINotification_ConfigureManual::bIsError' has a wrong offset!");
 
 // Function ModioUICore.ModioUINotification.GetAsWidget
@@ -637,14 +637,14 @@ struct ModioUINotificationController_DisplayNotificationManual final
 {
 public:
 	class FText                                   Title;                                             // 0x0000(0x0018)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	class FText                                   message;                                           // 0x0018(0x0018)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	class FText                                   Message;                                           // 0x0018(0x0018)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 	bool                                          bIsError;                                          // 0x0030(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_31[0x7];                                       // 0x0031(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(ModioUINotificationController_DisplayNotificationManual) == 0x000008, "Wrong alignment on ModioUINotificationController_DisplayNotificationManual");
 static_assert(sizeof(ModioUINotificationController_DisplayNotificationManual) == 0x000038, "Wrong size on ModioUINotificationController_DisplayNotificationManual");
 static_assert(offsetof(ModioUINotificationController_DisplayNotificationManual, Title) == 0x000000, "Member 'ModioUINotificationController_DisplayNotificationManual::Title' has a wrong offset!");
-static_assert(offsetof(ModioUINotificationController_DisplayNotificationManual, message) == 0x000018, "Member 'ModioUINotificationController_DisplayNotificationManual::message' has a wrong offset!");
+static_assert(offsetof(ModioUINotificationController_DisplayNotificationManual, Message) == 0x000018, "Member 'ModioUINotificationController_DisplayNotificationManual::Message' has a wrong offset!");
 static_assert(offsetof(ModioUINotificationController_DisplayNotificationManual, bIsError) == 0x000030, "Member 'ModioUINotificationController_DisplayNotificationManual::bIsError' has a wrong offset!");
 
 // Function ModioUICore.ModioUINotificationController.DisplayNotificationParams
@@ -664,14 +664,14 @@ struct ModioUINotificationController_HandleDisplayManual final
 {
 public:
 	class FText                                   Title;                                             // 0x0000(0x0018)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	class FText                                   message;                                           // 0x0018(0x0018)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	class FText                                   Message;                                           // 0x0018(0x0018)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 	bool                                          bIsError;                                          // 0x0030(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_31[0x7];                                       // 0x0031(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(ModioUINotificationController_HandleDisplayManual) == 0x000008, "Wrong alignment on ModioUINotificationController_HandleDisplayManual");
 static_assert(sizeof(ModioUINotificationController_HandleDisplayManual) == 0x000038, "Wrong size on ModioUINotificationController_HandleDisplayManual");
 static_assert(offsetof(ModioUINotificationController_HandleDisplayManual, Title) == 0x000000, "Member 'ModioUINotificationController_HandleDisplayManual::Title' has a wrong offset!");
-static_assert(offsetof(ModioUINotificationController_HandleDisplayManual, message) == 0x000018, "Member 'ModioUINotificationController_HandleDisplayManual::message' has a wrong offset!");
+static_assert(offsetof(ModioUINotificationController_HandleDisplayManual, Message) == 0x000018, "Member 'ModioUINotificationController_HandleDisplayManual::Message' has a wrong offset!");
 static_assert(offsetof(ModioUINotificationController_HandleDisplayManual, bIsError) == 0x000030, "Member 'ModioUINotificationController_HandleDisplayManual::bIsError' has a wrong offset!");
 
 // Function ModioUICore.ModioUINotificationController.HandleDisplayNotificationParams
@@ -726,12 +726,12 @@ static_assert(offsetof(ModioUISubscriptionsChangedReceiver_OnSubscriptionsChange
 struct ModioUIUserAvatarDownloadCompletedReceiver_OnUserAvatarDownloadCompleted final
 {
 public:
-	struct FModioErrorCode                        ec;                                                // 0x0000(0x0008)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FModioErrorCode                        Ec;                                                // 0x0000(0x0008)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FModioOptionalImage                    Image;                                             // 0x0008(0x0018)(Parm, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioUIUserAvatarDownloadCompletedReceiver_OnUserAvatarDownloadCompleted) == 0x000008, "Wrong alignment on ModioUIUserAvatarDownloadCompletedReceiver_OnUserAvatarDownloadCompleted");
 static_assert(sizeof(ModioUIUserAvatarDownloadCompletedReceiver_OnUserAvatarDownloadCompleted) == 0x000020, "Wrong size on ModioUIUserAvatarDownloadCompletedReceiver_OnUserAvatarDownloadCompleted");
-static_assert(offsetof(ModioUIUserAvatarDownloadCompletedReceiver_OnUserAvatarDownloadCompleted, ec) == 0x000000, "Member 'ModioUIUserAvatarDownloadCompletedReceiver_OnUserAvatarDownloadCompleted::ec' has a wrong offset!");
+static_assert(offsetof(ModioUIUserAvatarDownloadCompletedReceiver_OnUserAvatarDownloadCompleted, Ec) == 0x000000, "Member 'ModioUIUserAvatarDownloadCompletedReceiver_OnUserAvatarDownloadCompleted::Ec' has a wrong offset!");
 static_assert(offsetof(ModioUIUserAvatarDownloadCompletedReceiver_OnUserAvatarDownloadCompleted, Image) == 0x000008, "Member 'ModioUIUserAvatarDownloadCompletedReceiver_OnUserAvatarDownloadCompleted::Image' has a wrong offset!");
 
 // Function ModioUICore.ModioUIUserChangedReceiver.OnUserChanged
@@ -772,11 +772,11 @@ static_assert(offsetof(ModioUIAsyncLoader_NativeHandleAsyncOperationStateChange,
 struct ModioUISubsystem_DisplayErrorDialog final
 {
 public:
-	struct FModioErrorCode                        errorCode;                                         // 0x0000(0x0008)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FModioErrorCode                        ErrorCode;                                         // 0x0000(0x0008)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioUISubsystem_DisplayErrorDialog) == 0x000008, "Wrong alignment on ModioUISubsystem_DisplayErrorDialog");
 static_assert(sizeof(ModioUISubsystem_DisplayErrorDialog) == 0x000008, "Wrong size on ModioUISubsystem_DisplayErrorDialog");
-static_assert(offsetof(ModioUISubsystem_DisplayErrorDialog, errorCode) == 0x000000, "Member 'ModioUISubsystem_DisplayErrorDialog::errorCode' has a wrong offset!");
+static_assert(offsetof(ModioUISubsystem_DisplayErrorDialog, ErrorCode) == 0x000000, "Member 'ModioUISubsystem_DisplayErrorDialog::ErrorCode' has a wrong offset!");
 
 // Function ModioUICore.ModioUISubsystem.DisplayNotification
 // 0x0010 (0x0010 - 0x0000)
@@ -795,14 +795,14 @@ struct ModioUISubsystem_DisplayNotificationManual final
 {
 public:
 	class FText                                   Title;                                             // 0x0000(0x0018)(Parm, NativeAccessSpecifierPublic)
-	class FText                                   message;                                           // 0x0018(0x0018)(Parm, NativeAccessSpecifierPublic)
+	class FText                                   Message;                                           // 0x0018(0x0018)(Parm, NativeAccessSpecifierPublic)
 	bool                                          bIsError;                                          // 0x0030(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_31[0x7];                                       // 0x0031(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(ModioUISubsystem_DisplayNotificationManual) == 0x000008, "Wrong alignment on ModioUISubsystem_DisplayNotificationManual");
 static_assert(sizeof(ModioUISubsystem_DisplayNotificationManual) == 0x000038, "Wrong size on ModioUISubsystem_DisplayNotificationManual");
 static_assert(offsetof(ModioUISubsystem_DisplayNotificationManual, Title) == 0x000000, "Member 'ModioUISubsystem_DisplayNotificationManual::Title' has a wrong offset!");
-static_assert(offsetof(ModioUISubsystem_DisplayNotificationManual, message) == 0x000018, "Member 'ModioUISubsystem_DisplayNotificationManual::message' has a wrong offset!");
+static_assert(offsetof(ModioUISubsystem_DisplayNotificationManual, Message) == 0x000018, "Member 'ModioUISubsystem_DisplayNotificationManual::Message' has a wrong offset!");
 static_assert(offsetof(ModioUISubsystem_DisplayNotificationManual, bIsError) == 0x000030, "Member 'ModioUISubsystem_DisplayNotificationManual::bIsError' has a wrong offset!");
 
 // Function ModioUICore.ModioUISubsystem.DisplayNotificationParams
@@ -1037,12 +1037,12 @@ static_assert(offsetof(ModioUISubsystem_ShowSearchResults, ReturnValue) == 0x000
 struct ModioUISubsystem_SubscriptionHandler final
 {
 public:
-	struct FModioErrorCode                        errorCode;                                         // 0x0000(0x0008)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FModioErrorCode                        ErrorCode;                                         // 0x0000(0x0008)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FModioModID                            ID;                                                // 0x0008(0x0008)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioUISubsystem_SubscriptionHandler) == 0x000008, "Wrong alignment on ModioUISubsystem_SubscriptionHandler");
 static_assert(sizeof(ModioUISubsystem_SubscriptionHandler) == 0x000010, "Wrong size on ModioUISubsystem_SubscriptionHandler");
-static_assert(offsetof(ModioUISubsystem_SubscriptionHandler, errorCode) == 0x000000, "Member 'ModioUISubsystem_SubscriptionHandler::errorCode' has a wrong offset!");
+static_assert(offsetof(ModioUISubsystem_SubscriptionHandler, ErrorCode) == 0x000000, "Member 'ModioUISubsystem_SubscriptionHandler::ErrorCode' has a wrong offset!");
 static_assert(offsetof(ModioUISubsystem_SubscriptionHandler, ID) == 0x000008, "Member 'ModioUISubsystem_SubscriptionHandler::ID' has a wrong offset!");
 
 // Function ModioUICore.ModioUISubsystem.UninstallHandler
@@ -1050,12 +1050,12 @@ static_assert(offsetof(ModioUISubsystem_SubscriptionHandler, ID) == 0x000008, "M
 struct ModioUISubsystem_UninstallHandler final
 {
 public:
-	struct FModioErrorCode                        errorCode;                                         // 0x0000(0x0008)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FModioErrorCode                        ErrorCode;                                         // 0x0000(0x0008)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FModioModID                            ID;                                                // 0x0008(0x0008)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioUISubsystem_UninstallHandler) == 0x000008, "Wrong alignment on ModioUISubsystem_UninstallHandler");
 static_assert(sizeof(ModioUISubsystem_UninstallHandler) == 0x000010, "Wrong size on ModioUISubsystem_UninstallHandler");
-static_assert(offsetof(ModioUISubsystem_UninstallHandler, errorCode) == 0x000000, "Member 'ModioUISubsystem_UninstallHandler::errorCode' has a wrong offset!");
+static_assert(offsetof(ModioUISubsystem_UninstallHandler, ErrorCode) == 0x000000, "Member 'ModioUISubsystem_UninstallHandler::ErrorCode' has a wrong offset!");
 static_assert(offsetof(ModioUISubsystem_UninstallHandler, ID) == 0x000008, "Member 'ModioUISubsystem_UninstallHandler::ID' has a wrong offset!");
 
 // Function ModioUICore.ModioUISubsystem.UnsubscribeHandler
@@ -1063,12 +1063,12 @@ static_assert(offsetof(ModioUISubsystem_UninstallHandler, ID) == 0x000008, "Memb
 struct ModioUISubsystem_UnsubscribeHandler final
 {
 public:
-	struct FModioErrorCode                        errorCode;                                         // 0x0000(0x0008)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FModioErrorCode                        ErrorCode;                                         // 0x0000(0x0008)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FModioModID                            ID;                                                // 0x0008(0x0008)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioUISubsystem_UnsubscribeHandler) == 0x000008, "Wrong alignment on ModioUISubsystem_UnsubscribeHandler");
 static_assert(sizeof(ModioUISubsystem_UnsubscribeHandler) == 0x000010, "Wrong size on ModioUISubsystem_UnsubscribeHandler");
-static_assert(offsetof(ModioUISubsystem_UnsubscribeHandler, errorCode) == 0x000000, "Member 'ModioUISubsystem_UnsubscribeHandler::errorCode' has a wrong offset!");
+static_assert(offsetof(ModioUISubsystem_UnsubscribeHandler, ErrorCode) == 0x000000, "Member 'ModioUISubsystem_UnsubscribeHandler::ErrorCode' has a wrong offset!");
 static_assert(offsetof(ModioUISubsystem_UnsubscribeHandler, ID) == 0x000008, "Member 'ModioUISubsystem_UnsubscribeHandler::ID' has a wrong offset!");
 
 }

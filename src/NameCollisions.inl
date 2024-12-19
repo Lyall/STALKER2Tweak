@@ -9,15 +9,57 @@
 // FORWARD DECLARATIONS
 
 
-namespace AnimBP_player_dummy { struct FAnimBlueprintGeneratedConstantData; }
-
 namespace AnimBP_Player_DeadBody { struct FAnimBlueprintGeneratedConstantData; }
 
+namespace AnimBP_Codelock { struct FAnimBlueprintGeneratedConstantData; }
 
-namespace AnimBP_Player
+namespace AnimBP_player_dummy { struct FAnimBlueprintGeneratedConstantData; }
+
+namespace AnimBP_Template { struct FAnimBlueprintGeneratedConstantData; }
+
+namespace AnimBP_int_chest { struct FAnimBlueprintGeneratedConstantData; }
+
+
+namespace AnimBP_Human_AKU
 {
 	struct FAnimBlueprintGeneratedMutableData;
 	struct FAnimBlueprintGeneratedConstantData;
+}
+
+namespace AnimBP_Player_Shadow
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace AnimBP_ru_glaunch1
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace AnimBP_Human_bh
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace AnimBP_bloodsucker
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace AnimBP_Human_m16
+{
+	struct FAnimBlueprintGeneratedMutableData;
+	struct FAnimBlueprintGeneratedConstantData;
+}
+
+namespace AnimBP_Human_viper
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
 }
 
 namespace AnimBP_player_bh
@@ -26,32 +68,86 @@ namespace AnimBP_player_bh
 	struct FAnimBlueprintGeneratedMutableData;
 }
 
-namespace AnimBP_Player_Slots
+namespace CtrlRig_Standalone_Cutscene_Eyes_Lookat
+{
+	class URigVMMemory_Literal;
+	class URigVMMemory_Work;
+}
+
+namespace AnimBP_viper_tp
 {
 	struct FAnimBlueprintGeneratedConstantData;
 	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace AnimBP_Human
+{
+	struct FAnimBlueprintGeneratedMutableData;
+	struct FAnimBlueprintGeneratedConstantData;
+}
+
+namespace CtrlRig_Cutscene_Eyes_Lookat_Runtime
+{
+	class URigVMMemory_Work;
+	class URigVMMemory_Literal;
+}
+
+namespace AnimBP_Player_Slots
+{
+	struct FAnimBlueprintGeneratedMutableData;
+	struct FAnimBlueprintGeneratedConstantData;
+}
+
+namespace AnimBP_Fac
+{
+	struct FAnimBlueprintGeneratedMutableData;
+	struct FAnimBlueprintGeneratedConstantData;
 }
 
 namespace AnimBP_Player_WeaponAutoCover
 {
+	struct FAnimBlueprintGeneratedMutableData;
+	struct FAnimBlueprintGeneratedConstantData;
+}
+
+namespace AnimBP_Player
+{
 	struct FAnimBlueprintGeneratedConstantData;
 	struct FAnimBlueprintGeneratedMutableData;
 }
 
-namespace AnimBP_Player_Shadow
+namespace AnimBP_m16_tp
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace AnimBP_AK74_fp
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace AnimBP_Player_AK74
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace AnimBP_BunkerDoor_1
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace AnimBP_AKU_tp
 {
 	struct FAnimBlueprintGeneratedMutableData;
 	struct FAnimBlueprintGeneratedConstantData;
 }
 
-namespace AnimBP_pm_fp
+namespace CtrlRig_Exoskeleton
 {
-	struct FAnimBlueprintGeneratedMutableData;
-	struct FAnimBlueprintGeneratedConstantData;
-}
-
-namespace AnimBP_Player_pm
-{
-	struct FAnimBlueprintGeneratedConstantData;
-	struct FAnimBlueprintGeneratedMutableData;
+	class URigVMMemory_Literal;
+	class URigVMMemory_Work;
 }

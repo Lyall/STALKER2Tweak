@@ -20,9 +20,9 @@ namespace SDK
 // Function MotionTrajectory.MotionTrajectoryComponent.SetSampleRate
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// int32                                   rate                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   Rate                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UMotionTrajectoryComponent::SetSampleRate(int32 rate)
+void UMotionTrajectoryComponent::SetSampleRate(int32 Rate)
 {
 	static class UFunction* Func = nullptr;
 
@@ -31,7 +31,7 @@ void UMotionTrajectoryComponent::SetSampleRate(int32 rate)
 
 	Params::MotionTrajectoryComponent_SetSampleRate Parms{};
 
-	Parms.rate = rate;
+	Parms.Rate = Rate;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;

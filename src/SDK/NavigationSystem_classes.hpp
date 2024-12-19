@@ -10,9 +10,9 @@
 
 #include "Basic.hpp"
 
+#include "NavigationSystem_structs.hpp"
 #include "Engine_structs.hpp"
 #include "Engine_classes.hpp"
-#include "NavigationSystem_structs.hpp"
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
 
@@ -20,28 +20,22 @@
 namespace SDK
 {
 
-// Class NavigationSystem.NavigationInvokerComponent
-// 0x0008 (0x00A8 - 0x00A0)
-class UNavigationInvokerComponent final : public UActorComponent
+// Class NavigationSystem.NavLinkTrivial
+// 0x0000 (0x0050 - 0x0050)
+class UNavLinkTrivial final : public UNavLinkDefinition
 {
-public:
-	float                                         TileGenerationRadius;                              // 0x00A0(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	float                                         TileRemovalRadius;                                 // 0x00A4(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-
 public:
 	static class UClass* StaticClass()
 	{
-		return StaticClassImpl<"NavigationInvokerComponent">();
+		return StaticClassImpl<"NavLinkTrivial">();
 	}
-	static class UNavigationInvokerComponent* GetDefaultObj()
+	static class UNavLinkTrivial* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UNavigationInvokerComponent>();
+		return GetDefaultObjImpl<UNavLinkTrivial>();
 	}
 };
-static_assert(alignof(UNavigationInvokerComponent) == 0x000008, "Wrong alignment on UNavigationInvokerComponent");
-static_assert(sizeof(UNavigationInvokerComponent) == 0x0000A8, "Wrong size on UNavigationInvokerComponent");
-static_assert(offsetof(UNavigationInvokerComponent, TileGenerationRadius) == 0x0000A0, "Member 'UNavigationInvokerComponent::TileGenerationRadius' has a wrong offset!");
-static_assert(offsetof(UNavigationInvokerComponent, TileRemovalRadius) == 0x0000A4, "Member 'UNavigationInvokerComponent::TileRemovalRadius' has a wrong offset!");
+static_assert(alignof(UNavLinkTrivial) == 0x000008, "Wrong alignment on UNavLinkTrivial");
+static_assert(sizeof(UNavLinkTrivial) == 0x000050, "Wrong size on UNavLinkTrivial");
 
 // Class NavigationSystem.NavRelevantComponent
 // 0x0050 (0x00F0 - 0x00A0)
@@ -98,6 +92,31 @@ static_assert(sizeof(UNavModifierComponent) == 0x000190, "Wrong size on UNavModi
 static_assert(offsetof(UNavModifierComponent, AreaClass) == 0x0000F0, "Member 'UNavModifierComponent::AreaClass' has a wrong offset!");
 static_assert(offsetof(UNavModifierComponent, FailsafeExtent) == 0x0000F8, "Member 'UNavModifierComponent::FailsafeExtent' has a wrong offset!");
 
+// Class NavigationSystem.NavSystemConfigOverride
+// 0x0010 (0x02A8 - 0x0298)
+class ANavSystemConfigOverride final : public AActor
+{
+public:
+	class UNavigationSystemConfig*                NavigationSystemConfig;                            // 0x0298(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, Protected, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	ENavSystemOverridePolicy                      OverridePolicy;                                    // 0x02A0(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         bLoadOnClient : 1;                                 // 0x02A1(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, BlueprintVisible, NoDestructor, AdvancedDisplay, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected))
+	uint8                                         Pad_2A2[0x6];                                      // 0x02A2(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		return StaticClassImpl<"NavSystemConfigOverride">();
+	}
+	static class ANavSystemConfigOverride* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<ANavSystemConfigOverride>();
+	}
+};
+static_assert(alignof(ANavSystemConfigOverride) == 0x000008, "Wrong alignment on ANavSystemConfigOverride");
+static_assert(sizeof(ANavSystemConfigOverride) == 0x0002A8, "Wrong size on ANavSystemConfigOverride");
+static_assert(offsetof(ANavSystemConfigOverride, NavigationSystemConfig) == 0x000298, "Member 'ANavSystemConfigOverride::NavigationSystemConfig' has a wrong offset!");
+static_assert(offsetof(ANavSystemConfigOverride, OverridePolicy) == 0x0002A0, "Member 'ANavSystemConfigOverride::OverridePolicy' has a wrong offset!");
+
 // Class NavigationSystem.NavModifierVolume
 // 0x0018 (0x02F0 - 0x02D8)
 class ANavModifierVolume : public AVolume
@@ -126,8 +145,51 @@ static_assert(sizeof(ANavModifierVolume) == 0x0002F0, "Wrong size on ANavModifie
 static_assert(offsetof(ANavModifierVolume, AreaClass) == 0x0002E0, "Member 'ANavModifierVolume::AreaClass' has a wrong offset!");
 static_assert(offsetof(ANavModifierVolume, bMaskFillCollisionUnderneathForNavmesh) == 0x0002E8, "Member 'ANavModifierVolume::bMaskFillCollisionUnderneathForNavmesh' has a wrong offset!");
 
+// Class NavigationSystem.NavigationQueryFilter
+// 0x0020 (0x0048 - 0x0028)
+class UNavigationQueryFilter : public UObject
+{
+public:
+	TArray<struct FNavigationFilterArea>          Areas;                                             // 0x0028(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
+	struct FNavigationFilterFlags                 IncludeFlags;                                      // 0x0038(0x0004)(Edit, NoDestructor, NativeAccessSpecifierPublic)
+	struct FNavigationFilterFlags                 ExcludeFlags;                                      // 0x003C(0x0004)(Edit, NoDestructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_40[0x8];                                       // 0x0040(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		return StaticClassImpl<"NavigationQueryFilter">();
+	}
+	static class UNavigationQueryFilter* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UNavigationQueryFilter>();
+	}
+};
+static_assert(alignof(UNavigationQueryFilter) == 0x000008, "Wrong alignment on UNavigationQueryFilter");
+static_assert(sizeof(UNavigationQueryFilter) == 0x000048, "Wrong size on UNavigationQueryFilter");
+static_assert(offsetof(UNavigationQueryFilter, Areas) == 0x000028, "Member 'UNavigationQueryFilter::Areas' has a wrong offset!");
+static_assert(offsetof(UNavigationQueryFilter, IncludeFlags) == 0x000038, "Member 'UNavigationQueryFilter::IncludeFlags' has a wrong offset!");
+static_assert(offsetof(UNavigationQueryFilter, ExcludeFlags) == 0x00003C, "Member 'UNavigationQueryFilter::ExcludeFlags' has a wrong offset!");
+
+// Class NavigationSystem.RecastFilter_UseDefaultArea
+// 0x0000 (0x0048 - 0x0048)
+class URecastFilter_UseDefaultArea final : public UNavigationQueryFilter
+{
+public:
+	static class UClass* StaticClass()
+	{
+		return StaticClassImpl<"RecastFilter_UseDefaultArea">();
+	}
+	static class URecastFilter_UseDefaultArea* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<URecastFilter_UseDefaultArea>();
+	}
+};
+static_assert(alignof(URecastFilter_UseDefaultArea) == 0x000008, "Wrong alignment on URecastFilter_UseDefaultArea");
+static_assert(sizeof(URecastFilter_UseDefaultArea) == 0x000048, "Wrong size on URecastFilter_UseDefaultArea");
+
 // Class NavigationSystem.NavigationData
-// 0x0228 (0x04C0 - 0x0298)
+// 0x0230 (0x04C8 - 0x0298)
 class ANavigationData : public AActor
 {
 public:
@@ -147,7 +209,7 @@ public:
 	uint32                                        DataVersion;                                       // 0x034C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	uint8                                         Pad_350[0x108];                                    // 0x0350(0x0108)(Fixing Size After Last Property [ Dumper-7 ])
 	TArray<struct FSupportedAreaData>             SupportedAreas;                                    // 0x0458(0x0010)(ZeroConstructor, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_468[0x58];                                     // 0x0468(0x0058)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_468[0x60];                                     // 0x0468(0x0060)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -160,7 +222,7 @@ public:
 	}
 };
 static_assert(alignof(ANavigationData) == 0x000008, "Wrong alignment on ANavigationData");
-static_assert(sizeof(ANavigationData) == 0x0004C0, "Wrong size on ANavigationData");
+static_assert(sizeof(ANavigationData) == 0x0004C8, "Wrong size on ANavigationData");
 static_assert(offsetof(ANavigationData, RenderingComp) == 0x0002A0, "Member 'ANavigationData::RenderingComp' has a wrong offset!");
 static_assert(offsetof(ANavigationData, NavDataConfig) == 0x0002A8, "Member 'ANavigationData::NavDataConfig' has a wrong offset!");
 static_assert(offsetof(ANavigationData, RuntimeGeneration) == 0x000344, "Member 'ANavigationData::RuntimeGeneration' has a wrong offset!");
@@ -168,88 +230,200 @@ static_assert(offsetof(ANavigationData, ObservedPathsTickInterval) == 0x000348, 
 static_assert(offsetof(ANavigationData, DataVersion) == 0x00034C, "Member 'ANavigationData::DataVersion' has a wrong offset!");
 static_assert(offsetof(ANavigationData, SupportedAreas) == 0x000458, "Member 'ANavigationData::SupportedAreas' has a wrong offset!");
 
+// Class NavigationSystem.NavArea
+// 0x0018 (0x0048 - 0x0030)
+class UNavArea : public UNavAreaBase
+{
+public:
+	float                                         DefaultCost;                                       // 0x0030(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         FixedAreaEnteringCost;                             // 0x0034(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	struct FColor                                 DrawColor;                                         // 0x0038(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FNavAgentSelector                      SupportedAgents;                                   // 0x003C(0x0004)(Edit, Config, NoDestructor, NativeAccessSpecifierPublic)
+	uint8                                         bSupportsAgent0 : 1;                               // 0x0040(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bSupportsAgent1 : 1;                               // 0x0040(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bSupportsAgent2 : 1;                               // 0x0040(0x0001)(BitIndex: 0x02, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bSupportsAgent3 : 1;                               // 0x0040(0x0001)(BitIndex: 0x03, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bSupportsAgent4 : 1;                               // 0x0040(0x0001)(BitIndex: 0x04, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bSupportsAgent5 : 1;                               // 0x0040(0x0001)(BitIndex: 0x05, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bSupportsAgent6 : 1;                               // 0x0040(0x0001)(BitIndex: 0x06, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bSupportsAgent7 : 1;                               // 0x0040(0x0001)(BitIndex: 0x07, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bSupportsAgent8 : 1;                               // 0x0041(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bSupportsAgent9 : 1;                               // 0x0041(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bSupportsAgent10 : 1;                              // 0x0041(0x0001)(BitIndex: 0x02, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bSupportsAgent11 : 1;                              // 0x0041(0x0001)(BitIndex: 0x03, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bSupportsAgent12 : 1;                              // 0x0041(0x0001)(BitIndex: 0x04, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bSupportsAgent13 : 1;                              // 0x0041(0x0001)(BitIndex: 0x05, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bSupportsAgent14 : 1;                              // 0x0041(0x0001)(BitIndex: 0x06, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bSupportsAgent15 : 1;                              // 0x0041(0x0001)(BitIndex: 0x07, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         Pad_42[0x6];                                       // 0x0042(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		return StaticClassImpl<"NavArea">();
+	}
+	static class UNavArea* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UNavArea>();
+	}
+};
+static_assert(alignof(UNavArea) == 0x000008, "Wrong alignment on UNavArea");
+static_assert(sizeof(UNavArea) == 0x000048, "Wrong size on UNavArea");
+static_assert(offsetof(UNavArea, DefaultCost) == 0x000030, "Member 'UNavArea::DefaultCost' has a wrong offset!");
+static_assert(offsetof(UNavArea, FixedAreaEnteringCost) == 0x000034, "Member 'UNavArea::FixedAreaEnteringCost' has a wrong offset!");
+static_assert(offsetof(UNavArea, DrawColor) == 0x000038, "Member 'UNavArea::DrawColor' has a wrong offset!");
+static_assert(offsetof(UNavArea, SupportedAgents) == 0x00003C, "Member 'UNavArea::SupportedAgents' has a wrong offset!");
+
+// Class NavigationSystem.NavAreaMeta
+// 0x0000 (0x0048 - 0x0048)
+class UNavAreaMeta : public UNavArea
+{
+public:
+	static class UClass* StaticClass()
+	{
+		return StaticClassImpl<"NavAreaMeta">();
+	}
+	static class UNavAreaMeta* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UNavAreaMeta>();
+	}
+};
+static_assert(alignof(UNavAreaMeta) == 0x000008, "Wrong alignment on UNavAreaMeta");
+static_assert(sizeof(UNavAreaMeta) == 0x000048, "Wrong size on UNavAreaMeta");
+
+// Class NavigationSystem.NavAreaMeta_SwitchByAgent
+// 0x0080 (0x00C8 - 0x0048)
+class UNavAreaMeta_SwitchByAgent final : public UNavAreaMeta
+{
+public:
+	TSubclassOf<class UNavArea>                   Agent0Area;                                        // 0x0048(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSubclassOf<class UNavArea>                   Agent1Area;                                        // 0x0050(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSubclassOf<class UNavArea>                   Agent2Area;                                        // 0x0058(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSubclassOf<class UNavArea>                   Agent3Area;                                        // 0x0060(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSubclassOf<class UNavArea>                   Agent4Area;                                        // 0x0068(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSubclassOf<class UNavArea>                   Agent5Area;                                        // 0x0070(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSubclassOf<class UNavArea>                   Agent6Area;                                        // 0x0078(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSubclassOf<class UNavArea>                   Agent7Area;                                        // 0x0080(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSubclassOf<class UNavArea>                   Agent8Area;                                        // 0x0088(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSubclassOf<class UNavArea>                   Agent9Area;                                        // 0x0090(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSubclassOf<class UNavArea>                   Agent10Area;                                       // 0x0098(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSubclassOf<class UNavArea>                   Agent11Area;                                       // 0x00A0(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSubclassOf<class UNavArea>                   Agent12Area;                                       // 0x00A8(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSubclassOf<class UNavArea>                   Agent13Area;                                       // 0x00B0(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSubclassOf<class UNavArea>                   Agent14Area;                                       // 0x00B8(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSubclassOf<class UNavArea>                   Agent15Area;                                       // 0x00C0(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+public:
+	static class UClass* StaticClass()
+	{
+		return StaticClassImpl<"NavAreaMeta_SwitchByAgent">();
+	}
+	static class UNavAreaMeta_SwitchByAgent* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UNavAreaMeta_SwitchByAgent>();
+	}
+};
+static_assert(alignof(UNavAreaMeta_SwitchByAgent) == 0x000008, "Wrong alignment on UNavAreaMeta_SwitchByAgent");
+static_assert(sizeof(UNavAreaMeta_SwitchByAgent) == 0x0000C8, "Wrong size on UNavAreaMeta_SwitchByAgent");
+static_assert(offsetof(UNavAreaMeta_SwitchByAgent, Agent0Area) == 0x000048, "Member 'UNavAreaMeta_SwitchByAgent::Agent0Area' has a wrong offset!");
+static_assert(offsetof(UNavAreaMeta_SwitchByAgent, Agent1Area) == 0x000050, "Member 'UNavAreaMeta_SwitchByAgent::Agent1Area' has a wrong offset!");
+static_assert(offsetof(UNavAreaMeta_SwitchByAgent, Agent2Area) == 0x000058, "Member 'UNavAreaMeta_SwitchByAgent::Agent2Area' has a wrong offset!");
+static_assert(offsetof(UNavAreaMeta_SwitchByAgent, Agent3Area) == 0x000060, "Member 'UNavAreaMeta_SwitchByAgent::Agent3Area' has a wrong offset!");
+static_assert(offsetof(UNavAreaMeta_SwitchByAgent, Agent4Area) == 0x000068, "Member 'UNavAreaMeta_SwitchByAgent::Agent4Area' has a wrong offset!");
+static_assert(offsetof(UNavAreaMeta_SwitchByAgent, Agent5Area) == 0x000070, "Member 'UNavAreaMeta_SwitchByAgent::Agent5Area' has a wrong offset!");
+static_assert(offsetof(UNavAreaMeta_SwitchByAgent, Agent6Area) == 0x000078, "Member 'UNavAreaMeta_SwitchByAgent::Agent6Area' has a wrong offset!");
+static_assert(offsetof(UNavAreaMeta_SwitchByAgent, Agent7Area) == 0x000080, "Member 'UNavAreaMeta_SwitchByAgent::Agent7Area' has a wrong offset!");
+static_assert(offsetof(UNavAreaMeta_SwitchByAgent, Agent8Area) == 0x000088, "Member 'UNavAreaMeta_SwitchByAgent::Agent8Area' has a wrong offset!");
+static_assert(offsetof(UNavAreaMeta_SwitchByAgent, Agent9Area) == 0x000090, "Member 'UNavAreaMeta_SwitchByAgent::Agent9Area' has a wrong offset!");
+static_assert(offsetof(UNavAreaMeta_SwitchByAgent, Agent10Area) == 0x000098, "Member 'UNavAreaMeta_SwitchByAgent::Agent10Area' has a wrong offset!");
+static_assert(offsetof(UNavAreaMeta_SwitchByAgent, Agent11Area) == 0x0000A0, "Member 'UNavAreaMeta_SwitchByAgent::Agent11Area' has a wrong offset!");
+static_assert(offsetof(UNavAreaMeta_SwitchByAgent, Agent12Area) == 0x0000A8, "Member 'UNavAreaMeta_SwitchByAgent::Agent12Area' has a wrong offset!");
+static_assert(offsetof(UNavAreaMeta_SwitchByAgent, Agent13Area) == 0x0000B0, "Member 'UNavAreaMeta_SwitchByAgent::Agent13Area' has a wrong offset!");
+static_assert(offsetof(UNavAreaMeta_SwitchByAgent, Agent14Area) == 0x0000B8, "Member 'UNavAreaMeta_SwitchByAgent::Agent14Area' has a wrong offset!");
+static_assert(offsetof(UNavAreaMeta_SwitchByAgent, Agent15Area) == 0x0000C0, "Member 'UNavAreaMeta_SwitchByAgent::Agent15Area' has a wrong offset!");
+
 // Class NavigationSystem.RecastNavMesh
-// 0x0100 (0x05C0 - 0x04C0)
+// 0x0100 (0x05C8 - 0x04C8)
 class ARecastNavMesh : public ANavigationData
 {
 public:
-	uint8                                         Pad_4C0[0x18];                                     // 0x04C0(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	uint8                                         bDrawNavBoundsIntersection : 1;                    // 0x04D8(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bDrawNavBounds : 1;                                // 0x04D8(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bDrawDirtyTilesBB : 1;                             // 0x04D8(0x0001)(BitIndex: 0x02, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bDrawTriangleEdges : 1;                            // 0x04D8(0x0001)(BitIndex: 0x03, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bDrawPolyEdges : 1;                                // 0x04D8(0x0001)(BitIndex: 0x04, PropSize: 0x0001 (Edit, Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bDrawFilledPolys : 1;                              // 0x04D8(0x0001)(BitIndex: 0x05, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bDrawNavMeshEdges : 1;                             // 0x04D8(0x0001)(BitIndex: 0x06, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bDrawTileBounds : 1;                               // 0x04D8(0x0001)(BitIndex: 0x07, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bDrawPathCollidingGeometry : 1;                    // 0x04D9(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bDrawTileLabels : 1;                               // 0x04D9(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bDrawPolygonLabels : 1;                            // 0x04D9(0x0001)(BitIndex: 0x02, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bDrawDefaultPolygonCost : 1;                       // 0x04D9(0x0001)(BitIndex: 0x03, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bDrawPolygonFlags : 1;                             // 0x04D9(0x0001)(BitIndex: 0x04, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bDrawLabelsOnPathNodes : 1;                        // 0x04D9(0x0001)(BitIndex: 0x05, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bDrawNavLinks : 1;                                 // 0x04D9(0x0001)(BitIndex: 0x06, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bDrawFailedNavLinks : 1;                           // 0x04D9(0x0001)(BitIndex: 0x07, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bDrawClusters : 1;                                 // 0x04DA(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bDrawOctree : 1;                                   // 0x04DA(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bDrawOctreeDetails : 1;                            // 0x04DA(0x0001)(BitIndex: 0x02, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bDrawMarkedForbiddenPolys : 1;                     // 0x04DA(0x0001)(BitIndex: 0x03, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bDistinctlyDrawTilesBeingBuilt : 1;                // 0x04DA(0x0001)(BitIndex: 0x04, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         Pad_4DB[0x1];                                      // 0x04DB(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         DrawOffset;                                        // 0x04DC(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FRecastNavMeshTileGenerationDebug      TileGenerationDebug;                               // 0x04E0(0x0014)(Edit, NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         bFixedTilePoolSize : 1;                            // 0x04F4(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         Pad_4F5[0x3];                                      // 0x04F5(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         TilePoolSize;                                      // 0x04F8(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         TileSizeUU;                                        // 0x04FC(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         CellSize;                                          // 0x0500(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         CellHeight;                                        // 0x0504(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         AgentRadius;                                       // 0x0508(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         AgentHeight;                                       // 0x050C(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         AgentMaxSlope;                                     // 0x0510(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         AgentMaxStepHeight;                                // 0x0514(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         MinRegionArea;                                     // 0x0518(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         MergeRegionSize;                                   // 0x051C(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         MaxSimplificationError;                            // 0x0520(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         MaxSimultaneousTileGenerationJobsCount;            // 0x0524(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         MaxAsyncBuildTasksEditor;                          // 0x0528(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         MaxAsyncBuildTasksGameThread;                      // 0x052C(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         TileNumberHardLimit;                               // 0x0530(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         PolyRefTileBits;                                   // 0x0534(0x0004)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         PolyRefNavPolyBits;                                // 0x0538(0x0004)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         PolyRefSaltBits;                                   // 0x053C(0x0004)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                NavMeshOriginOffset;                               // 0x0540(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         DefaultDrawDistance;                               // 0x0558(0x0004)(ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         DefaultMaxSearchNodes;                             // 0x055C(0x0004)(ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         DefaultMaxHierarchicalSearchNodes;                 // 0x0560(0x0004)(ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	ERecastPartitioning                           RegionPartitioning;                                // 0x0564(0x0001)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	ERecastPartitioning                           LayerPartitioning;                                 // 0x0565(0x0001)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_566[0x2];                                      // 0x0566(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         RegionChunkSplits;                                 // 0x0568(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         LayerChunkSplits;                                  // 0x056C(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         bSortNavigationAreasByCost : 1;                    // 0x0570(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bIsWorldPartitioned : 1;                           // 0x0570(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bGenerateDetailedMesh : 1;                         // 0x0570(0x0001)(BitIndex: 0x02, PropSize: 0x0001 (Edit, Config, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bPerformVoxelFiltering : 1;                        // 0x0570(0x0001)(BitIndex: 0x03, PropSize: 0x0001 (Edit, Config, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bMarkLowHeightAreas : 1;                           // 0x0570(0x0001)(BitIndex: 0x04, PropSize: 0x0001 (Edit, Config, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bUseExtraTopCellWhenMarkingAreas : 1;              // 0x0570(0x0001)(BitIndex: 0x05, PropSize: 0x0001 (Edit, Config, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bFilterLowSpanSequences : 1;                       // 0x0570(0x0001)(BitIndex: 0x06, PropSize: 0x0001 (Edit, Config, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bFilterLowSpanFromTileCache : 1;                   // 0x0570(0x0001)(BitIndex: 0x07, PropSize: 0x0001 (Edit, Config, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bDoFullyAsyncNavDataGathering : 1;                 // 0x0571(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, Config, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bUseBetterOffsetsFromCorners : 1;                  // 0x0571(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bStoreEmptyTileLayers : 1;                         // 0x0571(0x0001)(BitIndex: 0x02, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bUseVirtualFilters : 1;                            // 0x0571(0x0001)(BitIndex: 0x03, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bUseVirtualGeometryFilteringAndDirtying : 1;       // 0x0571(0x0001)(BitIndex: 0x04, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bAllowNavLinkAsPathEnd : 1;                        // 0x0571(0x0001)(BitIndex: 0x05, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         Pad_572[0x2];                                      // 0x0572(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         TimeSliceFilterLedgeSpansMaxYProcess;              // 0x0574(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	double                                        TimeSliceLongDurationDebug;                        // 0x0578(0x0008)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         bUseVoxelCache : 1;                                // 0x0580(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate))
-	uint8                                         Pad_581[0x3];                                      // 0x0581(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         TileSetUpdateInterval;                             // 0x0584(0x0004)(ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	float                                         HeuristicScale;                                    // 0x0588(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         VerticalDeviationFromGroundCompensation;           // 0x058C(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_590[0x30];                                     // 0x0590(0x0030)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_4C8[0x18];                                     // 0x04C8(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
+	uint8                                         bDrawNavBoundsIntersection : 1;                    // 0x04E0(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bDrawNavBounds : 1;                                // 0x04E0(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bDrawDirtyTilesBB : 1;                             // 0x04E0(0x0001)(BitIndex: 0x02, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bDrawTriangleEdges : 1;                            // 0x04E0(0x0001)(BitIndex: 0x03, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bDrawPolyEdges : 1;                                // 0x04E0(0x0001)(BitIndex: 0x04, PropSize: 0x0001 (Edit, Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bDrawFilledPolys : 1;                              // 0x04E0(0x0001)(BitIndex: 0x05, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bDrawNavMeshEdges : 1;                             // 0x04E0(0x0001)(BitIndex: 0x06, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bDrawTileBounds : 1;                               // 0x04E0(0x0001)(BitIndex: 0x07, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bDrawPathCollidingGeometry : 1;                    // 0x04E1(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bDrawTileLabels : 1;                               // 0x04E1(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bDrawPolygonLabels : 1;                            // 0x04E1(0x0001)(BitIndex: 0x02, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bDrawDefaultPolygonCost : 1;                       // 0x04E1(0x0001)(BitIndex: 0x03, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bDrawPolygonFlags : 1;                             // 0x04E1(0x0001)(BitIndex: 0x04, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bDrawLabelsOnPathNodes : 1;                        // 0x04E1(0x0001)(BitIndex: 0x05, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bDrawNavLinks : 1;                                 // 0x04E1(0x0001)(BitIndex: 0x06, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bDrawFailedNavLinks : 1;                           // 0x04E1(0x0001)(BitIndex: 0x07, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bDrawClusters : 1;                                 // 0x04E2(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bDrawOctree : 1;                                   // 0x04E2(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bDrawOctreeDetails : 1;                            // 0x04E2(0x0001)(BitIndex: 0x02, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bDrawMarkedForbiddenPolys : 1;                     // 0x04E2(0x0001)(BitIndex: 0x03, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bDistinctlyDrawTilesBeingBuilt : 1;                // 0x04E2(0x0001)(BitIndex: 0x04, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         Pad_4E3[0x1];                                      // 0x04E3(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         DrawOffset;                                        // 0x04E4(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FRecastNavMeshTileGenerationDebug      TileGenerationDebug;                               // 0x04E8(0x0014)(Edit, NoDestructor, NativeAccessSpecifierPublic)
+	uint8                                         bFixedTilePoolSize : 1;                            // 0x04FC(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         Pad_4FD[0x3];                                      // 0x04FD(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         TilePoolSize;                                      // 0x0500(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         TileSizeUU;                                        // 0x0504(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         CellSize;                                          // 0x0508(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         CellHeight;                                        // 0x050C(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         AgentRadius;                                       // 0x0510(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         AgentHeight;                                       // 0x0514(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         AgentMaxSlope;                                     // 0x0518(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         AgentMaxStepHeight;                                // 0x051C(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         MinRegionArea;                                     // 0x0520(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         MergeRegionSize;                                   // 0x0524(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         MaxSimplificationError;                            // 0x0528(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         MaxSimultaneousTileGenerationJobsCount;            // 0x052C(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         MaxAsyncBuildTasksEditor;                          // 0x0530(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         MaxAsyncBuildTasksGameThread;                      // 0x0534(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         TileNumberHardLimit;                               // 0x0538(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         PolyRefTileBits;                                   // 0x053C(0x0004)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         PolyRefNavPolyBits;                                // 0x0540(0x0004)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         PolyRefSaltBits;                                   // 0x0544(0x0004)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                NavMeshOriginOffset;                               // 0x0548(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         DefaultDrawDistance;                               // 0x0560(0x0004)(ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         DefaultMaxSearchNodes;                             // 0x0564(0x0004)(ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         DefaultMaxHierarchicalSearchNodes;                 // 0x0568(0x0004)(ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	ERecastPartitioning                           RegionPartitioning;                                // 0x056C(0x0001)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	ERecastPartitioning                           LayerPartitioning;                                 // 0x056D(0x0001)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_56E[0x2];                                      // 0x056E(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         RegionChunkSplits;                                 // 0x0570(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         LayerChunkSplits;                                  // 0x0574(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         bSortNavigationAreasByCost : 1;                    // 0x0578(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bIsWorldPartitioned : 1;                           // 0x0578(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bGenerateDetailedMesh : 1;                         // 0x0578(0x0001)(BitIndex: 0x02, PropSize: 0x0001 (Edit, Config, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bPerformVoxelFiltering : 1;                        // 0x0578(0x0001)(BitIndex: 0x03, PropSize: 0x0001 (Edit, Config, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bMarkLowHeightAreas : 1;                           // 0x0578(0x0001)(BitIndex: 0x04, PropSize: 0x0001 (Edit, Config, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bUseExtraTopCellWhenMarkingAreas : 1;              // 0x0578(0x0001)(BitIndex: 0x05, PropSize: 0x0001 (Edit, Config, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bFilterLowSpanSequences : 1;                       // 0x0578(0x0001)(BitIndex: 0x06, PropSize: 0x0001 (Edit, Config, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bFilterLowSpanFromTileCache : 1;                   // 0x0578(0x0001)(BitIndex: 0x07, PropSize: 0x0001 (Edit, Config, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bDoFullyAsyncNavDataGathering : 1;                 // 0x0579(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, Config, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bUseBetterOffsetsFromCorners : 1;                  // 0x0579(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bStoreEmptyTileLayers : 1;                         // 0x0579(0x0001)(BitIndex: 0x02, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bUseVirtualFilters : 1;                            // 0x0579(0x0001)(BitIndex: 0x03, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bUseVirtualGeometryFilteringAndDirtying : 1;       // 0x0579(0x0001)(BitIndex: 0x04, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bAllowNavLinkAsPathEnd : 1;                        // 0x0579(0x0001)(BitIndex: 0x05, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         Pad_57A[0x2];                                      // 0x057A(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         TimeSliceFilterLedgeSpansMaxYProcess;              // 0x057C(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	double                                        TimeSliceLongDurationDebug;                        // 0x0580(0x0008)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         bUseVoxelCache : 1;                                // 0x0588(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate))
+	uint8                                         Pad_589[0x3];                                      // 0x0589(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         TileSetUpdateInterval;                             // 0x058C(0x0004)(ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	float                                         HeuristicScale;                                    // 0x0590(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         VerticalDeviationFromGroundCompensation;           // 0x0594(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_598[0x30];                                     // 0x0598(0x0030)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	bool K2_ReplaceAreaInTileBounds(const struct FBox& Bounds, TSubclassOf<class UNavArea> OldArea, TSubclassOf<class UNavArea> NewArea, bool ReplaceLinks);
@@ -265,62 +439,77 @@ public:
 	}
 };
 static_assert(alignof(ARecastNavMesh) == 0x000008, "Wrong alignment on ARecastNavMesh");
-static_assert(sizeof(ARecastNavMesh) == 0x0005C0, "Wrong size on ARecastNavMesh");
-static_assert(offsetof(ARecastNavMesh, DrawOffset) == 0x0004DC, "Member 'ARecastNavMesh::DrawOffset' has a wrong offset!");
-static_assert(offsetof(ARecastNavMesh, TileGenerationDebug) == 0x0004E0, "Member 'ARecastNavMesh::TileGenerationDebug' has a wrong offset!");
-static_assert(offsetof(ARecastNavMesh, TilePoolSize) == 0x0004F8, "Member 'ARecastNavMesh::TilePoolSize' has a wrong offset!");
-static_assert(offsetof(ARecastNavMesh, TileSizeUU) == 0x0004FC, "Member 'ARecastNavMesh::TileSizeUU' has a wrong offset!");
-static_assert(offsetof(ARecastNavMesh, CellSize) == 0x000500, "Member 'ARecastNavMesh::CellSize' has a wrong offset!");
-static_assert(offsetof(ARecastNavMesh, CellHeight) == 0x000504, "Member 'ARecastNavMesh::CellHeight' has a wrong offset!");
-static_assert(offsetof(ARecastNavMesh, AgentRadius) == 0x000508, "Member 'ARecastNavMesh::AgentRadius' has a wrong offset!");
-static_assert(offsetof(ARecastNavMesh, AgentHeight) == 0x00050C, "Member 'ARecastNavMesh::AgentHeight' has a wrong offset!");
-static_assert(offsetof(ARecastNavMesh, AgentMaxSlope) == 0x000510, "Member 'ARecastNavMesh::AgentMaxSlope' has a wrong offset!");
-static_assert(offsetof(ARecastNavMesh, AgentMaxStepHeight) == 0x000514, "Member 'ARecastNavMesh::AgentMaxStepHeight' has a wrong offset!");
-static_assert(offsetof(ARecastNavMesh, MinRegionArea) == 0x000518, "Member 'ARecastNavMesh::MinRegionArea' has a wrong offset!");
-static_assert(offsetof(ARecastNavMesh, MergeRegionSize) == 0x00051C, "Member 'ARecastNavMesh::MergeRegionSize' has a wrong offset!");
-static_assert(offsetof(ARecastNavMesh, MaxSimplificationError) == 0x000520, "Member 'ARecastNavMesh::MaxSimplificationError' has a wrong offset!");
-static_assert(offsetof(ARecastNavMesh, MaxSimultaneousTileGenerationJobsCount) == 0x000524, "Member 'ARecastNavMesh::MaxSimultaneousTileGenerationJobsCount' has a wrong offset!");
-static_assert(offsetof(ARecastNavMesh, MaxAsyncBuildTasksEditor) == 0x000528, "Member 'ARecastNavMesh::MaxAsyncBuildTasksEditor' has a wrong offset!");
-static_assert(offsetof(ARecastNavMesh, MaxAsyncBuildTasksGameThread) == 0x00052C, "Member 'ARecastNavMesh::MaxAsyncBuildTasksGameThread' has a wrong offset!");
-static_assert(offsetof(ARecastNavMesh, TileNumberHardLimit) == 0x000530, "Member 'ARecastNavMesh::TileNumberHardLimit' has a wrong offset!");
-static_assert(offsetof(ARecastNavMesh, PolyRefTileBits) == 0x000534, "Member 'ARecastNavMesh::PolyRefTileBits' has a wrong offset!");
-static_assert(offsetof(ARecastNavMesh, PolyRefNavPolyBits) == 0x000538, "Member 'ARecastNavMesh::PolyRefNavPolyBits' has a wrong offset!");
-static_assert(offsetof(ARecastNavMesh, PolyRefSaltBits) == 0x00053C, "Member 'ARecastNavMesh::PolyRefSaltBits' has a wrong offset!");
-static_assert(offsetof(ARecastNavMesh, NavMeshOriginOffset) == 0x000540, "Member 'ARecastNavMesh::NavMeshOriginOffset' has a wrong offset!");
-static_assert(offsetof(ARecastNavMesh, DefaultDrawDistance) == 0x000558, "Member 'ARecastNavMesh::DefaultDrawDistance' has a wrong offset!");
-static_assert(offsetof(ARecastNavMesh, DefaultMaxSearchNodes) == 0x00055C, "Member 'ARecastNavMesh::DefaultMaxSearchNodes' has a wrong offset!");
-static_assert(offsetof(ARecastNavMesh, DefaultMaxHierarchicalSearchNodes) == 0x000560, "Member 'ARecastNavMesh::DefaultMaxHierarchicalSearchNodes' has a wrong offset!");
-static_assert(offsetof(ARecastNavMesh, RegionPartitioning) == 0x000564, "Member 'ARecastNavMesh::RegionPartitioning' has a wrong offset!");
-static_assert(offsetof(ARecastNavMesh, LayerPartitioning) == 0x000565, "Member 'ARecastNavMesh::LayerPartitioning' has a wrong offset!");
-static_assert(offsetof(ARecastNavMesh, RegionChunkSplits) == 0x000568, "Member 'ARecastNavMesh::RegionChunkSplits' has a wrong offset!");
-static_assert(offsetof(ARecastNavMesh, LayerChunkSplits) == 0x00056C, "Member 'ARecastNavMesh::LayerChunkSplits' has a wrong offset!");
-static_assert(offsetof(ARecastNavMesh, TimeSliceFilterLedgeSpansMaxYProcess) == 0x000574, "Member 'ARecastNavMesh::TimeSliceFilterLedgeSpansMaxYProcess' has a wrong offset!");
-static_assert(offsetof(ARecastNavMesh, TimeSliceLongDurationDebug) == 0x000578, "Member 'ARecastNavMesh::TimeSliceLongDurationDebug' has a wrong offset!");
-static_assert(offsetof(ARecastNavMesh, TileSetUpdateInterval) == 0x000584, "Member 'ARecastNavMesh::TileSetUpdateInterval' has a wrong offset!");
-static_assert(offsetof(ARecastNavMesh, HeuristicScale) == 0x000588, "Member 'ARecastNavMesh::HeuristicScale' has a wrong offset!");
-static_assert(offsetof(ARecastNavMesh, VerticalDeviationFromGroundCompensation) == 0x00058C, "Member 'ARecastNavMesh::VerticalDeviationFromGroundCompensation' has a wrong offset!");
+static_assert(sizeof(ARecastNavMesh) == 0x0005C8, "Wrong size on ARecastNavMesh");
+static_assert(offsetof(ARecastNavMesh, DrawOffset) == 0x0004E4, "Member 'ARecastNavMesh::DrawOffset' has a wrong offset!");
+static_assert(offsetof(ARecastNavMesh, TileGenerationDebug) == 0x0004E8, "Member 'ARecastNavMesh::TileGenerationDebug' has a wrong offset!");
+static_assert(offsetof(ARecastNavMesh, TilePoolSize) == 0x000500, "Member 'ARecastNavMesh::TilePoolSize' has a wrong offset!");
+static_assert(offsetof(ARecastNavMesh, TileSizeUU) == 0x000504, "Member 'ARecastNavMesh::TileSizeUU' has a wrong offset!");
+static_assert(offsetof(ARecastNavMesh, CellSize) == 0x000508, "Member 'ARecastNavMesh::CellSize' has a wrong offset!");
+static_assert(offsetof(ARecastNavMesh, CellHeight) == 0x00050C, "Member 'ARecastNavMesh::CellHeight' has a wrong offset!");
+static_assert(offsetof(ARecastNavMesh, AgentRadius) == 0x000510, "Member 'ARecastNavMesh::AgentRadius' has a wrong offset!");
+static_assert(offsetof(ARecastNavMesh, AgentHeight) == 0x000514, "Member 'ARecastNavMesh::AgentHeight' has a wrong offset!");
+static_assert(offsetof(ARecastNavMesh, AgentMaxSlope) == 0x000518, "Member 'ARecastNavMesh::AgentMaxSlope' has a wrong offset!");
+static_assert(offsetof(ARecastNavMesh, AgentMaxStepHeight) == 0x00051C, "Member 'ARecastNavMesh::AgentMaxStepHeight' has a wrong offset!");
+static_assert(offsetof(ARecastNavMesh, MinRegionArea) == 0x000520, "Member 'ARecastNavMesh::MinRegionArea' has a wrong offset!");
+static_assert(offsetof(ARecastNavMesh, MergeRegionSize) == 0x000524, "Member 'ARecastNavMesh::MergeRegionSize' has a wrong offset!");
+static_assert(offsetof(ARecastNavMesh, MaxSimplificationError) == 0x000528, "Member 'ARecastNavMesh::MaxSimplificationError' has a wrong offset!");
+static_assert(offsetof(ARecastNavMesh, MaxSimultaneousTileGenerationJobsCount) == 0x00052C, "Member 'ARecastNavMesh::MaxSimultaneousTileGenerationJobsCount' has a wrong offset!");
+static_assert(offsetof(ARecastNavMesh, MaxAsyncBuildTasksEditor) == 0x000530, "Member 'ARecastNavMesh::MaxAsyncBuildTasksEditor' has a wrong offset!");
+static_assert(offsetof(ARecastNavMesh, MaxAsyncBuildTasksGameThread) == 0x000534, "Member 'ARecastNavMesh::MaxAsyncBuildTasksGameThread' has a wrong offset!");
+static_assert(offsetof(ARecastNavMesh, TileNumberHardLimit) == 0x000538, "Member 'ARecastNavMesh::TileNumberHardLimit' has a wrong offset!");
+static_assert(offsetof(ARecastNavMesh, PolyRefTileBits) == 0x00053C, "Member 'ARecastNavMesh::PolyRefTileBits' has a wrong offset!");
+static_assert(offsetof(ARecastNavMesh, PolyRefNavPolyBits) == 0x000540, "Member 'ARecastNavMesh::PolyRefNavPolyBits' has a wrong offset!");
+static_assert(offsetof(ARecastNavMesh, PolyRefSaltBits) == 0x000544, "Member 'ARecastNavMesh::PolyRefSaltBits' has a wrong offset!");
+static_assert(offsetof(ARecastNavMesh, NavMeshOriginOffset) == 0x000548, "Member 'ARecastNavMesh::NavMeshOriginOffset' has a wrong offset!");
+static_assert(offsetof(ARecastNavMesh, DefaultDrawDistance) == 0x000560, "Member 'ARecastNavMesh::DefaultDrawDistance' has a wrong offset!");
+static_assert(offsetof(ARecastNavMesh, DefaultMaxSearchNodes) == 0x000564, "Member 'ARecastNavMesh::DefaultMaxSearchNodes' has a wrong offset!");
+static_assert(offsetof(ARecastNavMesh, DefaultMaxHierarchicalSearchNodes) == 0x000568, "Member 'ARecastNavMesh::DefaultMaxHierarchicalSearchNodes' has a wrong offset!");
+static_assert(offsetof(ARecastNavMesh, RegionPartitioning) == 0x00056C, "Member 'ARecastNavMesh::RegionPartitioning' has a wrong offset!");
+static_assert(offsetof(ARecastNavMesh, LayerPartitioning) == 0x00056D, "Member 'ARecastNavMesh::LayerPartitioning' has a wrong offset!");
+static_assert(offsetof(ARecastNavMesh, RegionChunkSplits) == 0x000570, "Member 'ARecastNavMesh::RegionChunkSplits' has a wrong offset!");
+static_assert(offsetof(ARecastNavMesh, LayerChunkSplits) == 0x000574, "Member 'ARecastNavMesh::LayerChunkSplits' has a wrong offset!");
+static_assert(offsetof(ARecastNavMesh, TimeSliceFilterLedgeSpansMaxYProcess) == 0x00057C, "Member 'ARecastNavMesh::TimeSliceFilterLedgeSpansMaxYProcess' has a wrong offset!");
+static_assert(offsetof(ARecastNavMesh, TimeSliceLongDurationDebug) == 0x000580, "Member 'ARecastNavMesh::TimeSliceLongDurationDebug' has a wrong offset!");
+static_assert(offsetof(ARecastNavMesh, TileSetUpdateInterval) == 0x00058C, "Member 'ARecastNavMesh::TileSetUpdateInterval' has a wrong offset!");
+static_assert(offsetof(ARecastNavMesh, HeuristicScale) == 0x000590, "Member 'ARecastNavMesh::HeuristicScale' has a wrong offset!");
+static_assert(offsetof(ARecastNavMesh, VerticalDeviationFromGroundCompensation) == 0x000594, "Member 'ARecastNavMesh::VerticalDeviationFromGroundCompensation' has a wrong offset!");
 
-// Class NavigationSystem.NavMeshBoundsVolume
-// 0x0008 (0x02E0 - 0x02D8)
-class ANavMeshBoundsVolume final : public AVolume
+// Class NavigationSystem.RecastNavMeshDataChunk
+// 0x0070 (0x00A0 - 0x0030)
+class URecastNavMeshDataChunk final : public UNavigationDataChunk
 {
 public:
-	struct FNavAgentSelector                      SupportedAgents;                                   // 0x02D8(0x0004)(Edit, NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_2DC[0x4];                                      // 0x02DC(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_30[0x70];                                      // 0x0030(0x0070)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		return StaticClassImpl<"NavMeshBoundsVolume">();
+		return StaticClassImpl<"RecastNavMeshDataChunk">();
 	}
-	static class ANavMeshBoundsVolume* GetDefaultObj()
+	static class URecastNavMeshDataChunk* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<ANavMeshBoundsVolume>();
+		return GetDefaultObjImpl<URecastNavMeshDataChunk>();
 	}
 };
-static_assert(alignof(ANavMeshBoundsVolume) == 0x000008, "Wrong alignment on ANavMeshBoundsVolume");
-static_assert(sizeof(ANavMeshBoundsVolume) == 0x0002E0, "Wrong size on ANavMeshBoundsVolume");
-static_assert(offsetof(ANavMeshBoundsVolume, SupportedAgents) == 0x0002D8, "Member 'ANavMeshBoundsVolume::SupportedAgents' has a wrong offset!");
+static_assert(alignof(URecastNavMeshDataChunk) == 0x000008, "Wrong alignment on URecastNavMeshDataChunk");
+static_assert(sizeof(URecastNavMeshDataChunk) == 0x0000A0, "Wrong size on URecastNavMeshDataChunk");
+
+// Class NavigationSystem.CrowdManagerBase
+// 0x0000 (0x0028 - 0x0028)
+class UCrowdManagerBase : public UObject
+{
+public:
+	static class UClass* StaticClass()
+	{
+		return StaticClassImpl<"CrowdManagerBase">();
+	}
+	static class UCrowdManagerBase* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UCrowdManagerBase>();
+	}
+};
+static_assert(alignof(UCrowdManagerBase) == 0x000008, "Wrong alignment on UCrowdManagerBase");
+static_assert(sizeof(UCrowdManagerBase) == 0x000028, "Wrong size on UCrowdManagerBase");
 
 // Class NavigationSystem.NavigationTestingActor
 // 0x0120 (0x03B8 - 0x0298)
@@ -396,66 +585,34 @@ static_assert(offsetof(ANavigationTestingActor, FilterClass) == 0x000370, "Membe
 static_assert(offsetof(ANavigationTestingActor, ShowStepIndex) == 0x000378, "Member 'ANavigationTestingActor::ShowStepIndex' has a wrong offset!");
 static_assert(offsetof(ANavigationTestingActor, OffsetFromCornersDistance) == 0x00037C, "Member 'ANavigationTestingActor::OffsetFromCornersDistance' has a wrong offset!");
 
-// Class NavigationSystem.CrowdManagerBase
-// 0x0000 (0x0028 - 0x0028)
-class UCrowdManagerBase : public UObject
+// Class NavigationSystem.NavCollision
+// 0x0060 (0x00D0 - 0x0070)
+class UNavCollision final : public UNavCollisionBase
 {
 public:
-	static class UClass* StaticClass()
-	{
-		return StaticClassImpl<"CrowdManagerBase">();
-	}
-	static class UCrowdManagerBase* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UCrowdManagerBase>();
-	}
-};
-static_assert(alignof(UCrowdManagerBase) == 0x000008, "Wrong alignment on UCrowdManagerBase");
-static_assert(sizeof(UCrowdManagerBase) == 0x000028, "Wrong size on UCrowdManagerBase");
-
-// Class NavigationSystem.NavArea
-// 0x0018 (0x0048 - 0x0030)
-class UNavArea : public UNavAreaBase
-{
-public:
-	float                                         DefaultCost;                                       // 0x0030(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         FixedAreaEnteringCost;                             // 0x0034(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	struct FColor                                 DrawColor;                                         // 0x0038(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FNavAgentSelector                      SupportedAgents;                                   // 0x003C(0x0004)(Edit, Config, NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         bSupportsAgent0 : 1;                               // 0x0040(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bSupportsAgent1 : 1;                               // 0x0040(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bSupportsAgent2 : 1;                               // 0x0040(0x0001)(BitIndex: 0x02, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bSupportsAgent3 : 1;                               // 0x0040(0x0001)(BitIndex: 0x03, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bSupportsAgent4 : 1;                               // 0x0040(0x0001)(BitIndex: 0x04, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bSupportsAgent5 : 1;                               // 0x0040(0x0001)(BitIndex: 0x05, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bSupportsAgent6 : 1;                               // 0x0040(0x0001)(BitIndex: 0x06, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bSupportsAgent7 : 1;                               // 0x0040(0x0001)(BitIndex: 0x07, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bSupportsAgent8 : 1;                               // 0x0041(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bSupportsAgent9 : 1;                               // 0x0041(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bSupportsAgent10 : 1;                              // 0x0041(0x0001)(BitIndex: 0x02, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bSupportsAgent11 : 1;                              // 0x0041(0x0001)(BitIndex: 0x03, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bSupportsAgent12 : 1;                              // 0x0041(0x0001)(BitIndex: 0x04, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bSupportsAgent13 : 1;                              // 0x0041(0x0001)(BitIndex: 0x05, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bSupportsAgent14 : 1;                              // 0x0041(0x0001)(BitIndex: 0x06, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bSupportsAgent15 : 1;                              // 0x0041(0x0001)(BitIndex: 0x07, PropSize: 0x0001 (Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         Pad_42[0x6];                                       // 0x0042(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_70[0x10];                                      // 0x0070(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FNavCollisionCylinder>          CylinderCollision;                                 // 0x0080(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<struct FNavCollisionBox>               BoxCollision;                                      // 0x0090(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
+	TSubclassOf<class UNavArea>                   AreaClass;                                         // 0x00A0(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         bGatherConvexGeometry : 1;                         // 0x00A8(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bCreateOnClient : 1;                               // 0x00A8(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         Pad_A9[0x27];                                      // 0x00A9(0x0027)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		return StaticClassImpl<"NavArea">();
+		return StaticClassImpl<"NavCollision">();
 	}
-	static class UNavArea* GetDefaultObj()
+	static class UNavCollision* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UNavArea>();
+		return GetDefaultObjImpl<UNavCollision>();
 	}
 };
-static_assert(alignof(UNavArea) == 0x000008, "Wrong alignment on UNavArea");
-static_assert(sizeof(UNavArea) == 0x000048, "Wrong size on UNavArea");
-static_assert(offsetof(UNavArea, DefaultCost) == 0x000030, "Member 'UNavArea::DefaultCost' has a wrong offset!");
-static_assert(offsetof(UNavArea, FixedAreaEnteringCost) == 0x000034, "Member 'UNavArea::FixedAreaEnteringCost' has a wrong offset!");
-static_assert(offsetof(UNavArea, DrawColor) == 0x000038, "Member 'UNavArea::DrawColor' has a wrong offset!");
-static_assert(offsetof(UNavArea, SupportedAgents) == 0x00003C, "Member 'UNavArea::SupportedAgents' has a wrong offset!");
+static_assert(alignof(UNavCollision) == 0x000008, "Wrong alignment on UNavCollision");
+static_assert(sizeof(UNavCollision) == 0x0000D0, "Wrong size on UNavCollision");
+static_assert(offsetof(UNavCollision, CylinderCollision) == 0x000080, "Member 'UNavCollision::CylinderCollision' has a wrong offset!");
+static_assert(offsetof(UNavCollision, BoxCollision) == 0x000090, "Member 'UNavCollision::BoxCollision' has a wrong offset!");
+static_assert(offsetof(UNavCollision, AreaClass) == 0x0000A0, "Member 'UNavCollision::AreaClass' has a wrong offset!");
 
 // Class NavigationSystem.NavigationGraphNode
 // 0x0000 (0x0298 - 0x0298)
@@ -551,23 +708,6 @@ public:
 static_assert(alignof(INavLinkHostInterface) == 0x000008, "Wrong alignment on INavLinkHostInterface");
 static_assert(sizeof(INavLinkHostInterface) == 0x000028, "Wrong size on INavLinkHostInterface");
 
-// Class NavigationSystem.NavLinkTrivial
-// 0x0000 (0x0050 - 0x0050)
-class UNavLinkTrivial final : public UNavLinkDefinition
-{
-public:
-	static class UClass* StaticClass()
-	{
-		return StaticClassImpl<"NavLinkTrivial">();
-	}
-	static class UNavLinkTrivial* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UNavLinkTrivial>();
-	}
-};
-static_assert(alignof(UNavLinkTrivial) == 0x000008, "Wrong alignment on UNavLinkTrivial");
-static_assert(sizeof(UNavLinkTrivial) == 0x000050, "Wrong size on UNavLinkTrivial");
-
 // Class NavigationSystem.NavNodeInterface
 // 0x0000 (0x0028 - 0x0028)
 class INavNodeInterface final : public IInterface
@@ -586,7 +726,7 @@ static_assert(alignof(INavNodeInterface) == 0x000008, "Wrong alignment on INavNo
 static_assert(sizeof(INavNodeInterface) == 0x000028, "Wrong size on INavNodeInterface");
 
 // Class NavigationSystem.AbstractNavData
-// 0x0000 (0x04C0 - 0x04C0)
+// 0x0000 (0x04C8 - 0x04C8)
 class AAbstractNavData final : public ANavigationData
 {
 public:
@@ -600,75 +740,7 @@ public:
 	}
 };
 static_assert(alignof(AAbstractNavData) == 0x000008, "Wrong alignment on AAbstractNavData");
-static_assert(sizeof(AAbstractNavData) == 0x0004C0, "Wrong size on AAbstractNavData");
-
-// Class NavigationSystem.NavAreaMeta
-// 0x0000 (0x0048 - 0x0048)
-class UNavAreaMeta : public UNavArea
-{
-public:
-	static class UClass* StaticClass()
-	{
-		return StaticClassImpl<"NavAreaMeta">();
-	}
-	static class UNavAreaMeta* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UNavAreaMeta>();
-	}
-};
-static_assert(alignof(UNavAreaMeta) == 0x000008, "Wrong alignment on UNavAreaMeta");
-static_assert(sizeof(UNavAreaMeta) == 0x000048, "Wrong size on UNavAreaMeta");
-
-// Class NavigationSystem.NavAreaMeta_SwitchByAgent
-// 0x0080 (0x00C8 - 0x0048)
-class UNavAreaMeta_SwitchByAgent final : public UNavAreaMeta
-{
-public:
-	TSubclassOf<class UNavArea>                   Agent0Area;                                        // 0x0048(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TSubclassOf<class UNavArea>                   Agent1Area;                                        // 0x0050(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TSubclassOf<class UNavArea>                   Agent2Area;                                        // 0x0058(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TSubclassOf<class UNavArea>                   Agent3Area;                                        // 0x0060(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TSubclassOf<class UNavArea>                   Agent4Area;                                        // 0x0068(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TSubclassOf<class UNavArea>                   Agent5Area;                                        // 0x0070(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TSubclassOf<class UNavArea>                   Agent6Area;                                        // 0x0078(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TSubclassOf<class UNavArea>                   Agent7Area;                                        // 0x0080(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TSubclassOf<class UNavArea>                   Agent8Area;                                        // 0x0088(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TSubclassOf<class UNavArea>                   Agent9Area;                                        // 0x0090(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TSubclassOf<class UNavArea>                   Agent10Area;                                       // 0x0098(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TSubclassOf<class UNavArea>                   Agent11Area;                                       // 0x00A0(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TSubclassOf<class UNavArea>                   Agent12Area;                                       // 0x00A8(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TSubclassOf<class UNavArea>                   Agent13Area;                                       // 0x00B0(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TSubclassOf<class UNavArea>                   Agent14Area;                                       // 0x00B8(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TSubclassOf<class UNavArea>                   Agent15Area;                                       // 0x00C0(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-public:
-	static class UClass* StaticClass()
-	{
-		return StaticClassImpl<"NavAreaMeta_SwitchByAgent">();
-	}
-	static class UNavAreaMeta_SwitchByAgent* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UNavAreaMeta_SwitchByAgent>();
-	}
-};
-static_assert(alignof(UNavAreaMeta_SwitchByAgent) == 0x000008, "Wrong alignment on UNavAreaMeta_SwitchByAgent");
-static_assert(sizeof(UNavAreaMeta_SwitchByAgent) == 0x0000C8, "Wrong size on UNavAreaMeta_SwitchByAgent");
-static_assert(offsetof(UNavAreaMeta_SwitchByAgent, Agent0Area) == 0x000048, "Member 'UNavAreaMeta_SwitchByAgent::Agent0Area' has a wrong offset!");
-static_assert(offsetof(UNavAreaMeta_SwitchByAgent, Agent1Area) == 0x000050, "Member 'UNavAreaMeta_SwitchByAgent::Agent1Area' has a wrong offset!");
-static_assert(offsetof(UNavAreaMeta_SwitchByAgent, Agent2Area) == 0x000058, "Member 'UNavAreaMeta_SwitchByAgent::Agent2Area' has a wrong offset!");
-static_assert(offsetof(UNavAreaMeta_SwitchByAgent, Agent3Area) == 0x000060, "Member 'UNavAreaMeta_SwitchByAgent::Agent3Area' has a wrong offset!");
-static_assert(offsetof(UNavAreaMeta_SwitchByAgent, Agent4Area) == 0x000068, "Member 'UNavAreaMeta_SwitchByAgent::Agent4Area' has a wrong offset!");
-static_assert(offsetof(UNavAreaMeta_SwitchByAgent, Agent5Area) == 0x000070, "Member 'UNavAreaMeta_SwitchByAgent::Agent5Area' has a wrong offset!");
-static_assert(offsetof(UNavAreaMeta_SwitchByAgent, Agent6Area) == 0x000078, "Member 'UNavAreaMeta_SwitchByAgent::Agent6Area' has a wrong offset!");
-static_assert(offsetof(UNavAreaMeta_SwitchByAgent, Agent7Area) == 0x000080, "Member 'UNavAreaMeta_SwitchByAgent::Agent7Area' has a wrong offset!");
-static_assert(offsetof(UNavAreaMeta_SwitchByAgent, Agent8Area) == 0x000088, "Member 'UNavAreaMeta_SwitchByAgent::Agent8Area' has a wrong offset!");
-static_assert(offsetof(UNavAreaMeta_SwitchByAgent, Agent9Area) == 0x000090, "Member 'UNavAreaMeta_SwitchByAgent::Agent9Area' has a wrong offset!");
-static_assert(offsetof(UNavAreaMeta_SwitchByAgent, Agent10Area) == 0x000098, "Member 'UNavAreaMeta_SwitchByAgent::Agent10Area' has a wrong offset!");
-static_assert(offsetof(UNavAreaMeta_SwitchByAgent, Agent11Area) == 0x0000A0, "Member 'UNavAreaMeta_SwitchByAgent::Agent11Area' has a wrong offset!");
-static_assert(offsetof(UNavAreaMeta_SwitchByAgent, Agent12Area) == 0x0000A8, "Member 'UNavAreaMeta_SwitchByAgent::Agent12Area' has a wrong offset!");
-static_assert(offsetof(UNavAreaMeta_SwitchByAgent, Agent13Area) == 0x0000B0, "Member 'UNavAreaMeta_SwitchByAgent::Agent13Area' has a wrong offset!");
-static_assert(offsetof(UNavAreaMeta_SwitchByAgent, Agent14Area) == 0x0000B8, "Member 'UNavAreaMeta_SwitchByAgent::Agent14Area' has a wrong offset!");
-static_assert(offsetof(UNavAreaMeta_SwitchByAgent, Agent15Area) == 0x0000C0, "Member 'UNavAreaMeta_SwitchByAgent::Agent15Area' has a wrong offset!");
+static_assert(sizeof(AAbstractNavData) == 0x0004C8, "Wrong size on AAbstractNavData");
 
 // Class NavigationSystem.NavArea_Default
 // 0x0000 (0x0048 - 0x0048)
@@ -738,80 +810,8 @@ public:
 static_assert(alignof(UNavArea_Obstacle) == 0x000008, "Wrong alignment on UNavArea_Obstacle");
 static_assert(sizeof(UNavArea_Obstacle) == 0x000048, "Wrong size on UNavArea_Obstacle");
 
-// Class NavigationSystem.NavCollision
-// 0x0060 (0x00D0 - 0x0070)
-class UNavCollision final : public UNavCollisionBase
-{
-public:
-	uint8                                         Pad_70[0x10];                                      // 0x0070(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FNavCollisionCylinder>          CylinderCollision;                                 // 0x0080(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
-	TArray<struct FNavCollisionBox>               BoxCollision;                                      // 0x0090(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
-	TSubclassOf<class UNavArea>                   AreaClass;                                         // 0x00A0(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         bGatherConvexGeometry : 1;                         // 0x00A8(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bCreateOnClient : 1;                               // 0x00A8(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         Pad_A9[0x27];                                      // 0x00A9(0x0027)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		return StaticClassImpl<"NavCollision">();
-	}
-	static class UNavCollision* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UNavCollision>();
-	}
-};
-static_assert(alignof(UNavCollision) == 0x000008, "Wrong alignment on UNavCollision");
-static_assert(sizeof(UNavCollision) == 0x0000D0, "Wrong size on UNavCollision");
-static_assert(offsetof(UNavCollision, CylinderCollision) == 0x000080, "Member 'UNavCollision::CylinderCollision' has a wrong offset!");
-static_assert(offsetof(UNavCollision, BoxCollision) == 0x000090, "Member 'UNavCollision::BoxCollision' has a wrong offset!");
-static_assert(offsetof(UNavCollision, AreaClass) == 0x0000A0, "Member 'UNavCollision::AreaClass' has a wrong offset!");
-
-// Class NavigationSystem.NavigationQueryFilter
-// 0x0020 (0x0048 - 0x0028)
-class UNavigationQueryFilter : public UObject
-{
-public:
-	TArray<struct FNavigationFilterArea>          Areas;                                             // 0x0028(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
-	struct FNavigationFilterFlags                 IncludeFlags;                                      // 0x0038(0x0004)(Edit, NoDestructor, NativeAccessSpecifierPublic)
-	struct FNavigationFilterFlags                 ExcludeFlags;                                      // 0x003C(0x0004)(Edit, NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_40[0x8];                                       // 0x0040(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		return StaticClassImpl<"NavigationQueryFilter">();
-	}
-	static class UNavigationQueryFilter* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UNavigationQueryFilter>();
-	}
-};
-static_assert(alignof(UNavigationQueryFilter) == 0x000008, "Wrong alignment on UNavigationQueryFilter");
-static_assert(sizeof(UNavigationQueryFilter) == 0x000048, "Wrong size on UNavigationQueryFilter");
-static_assert(offsetof(UNavigationQueryFilter, Areas) == 0x000028, "Member 'UNavigationQueryFilter::Areas' has a wrong offset!");
-static_assert(offsetof(UNavigationQueryFilter, IncludeFlags) == 0x000038, "Member 'UNavigationQueryFilter::IncludeFlags' has a wrong offset!");
-static_assert(offsetof(UNavigationQueryFilter, ExcludeFlags) == 0x00003C, "Member 'UNavigationQueryFilter::ExcludeFlags' has a wrong offset!");
-
-// Class NavigationSystem.RecastFilter_UseDefaultArea
-// 0x0000 (0x0048 - 0x0048)
-class URecastFilter_UseDefaultArea final : public UNavigationQueryFilter
-{
-public:
-	static class UClass* StaticClass()
-	{
-		return StaticClassImpl<"RecastFilter_UseDefaultArea">();
-	}
-	static class URecastFilter_UseDefaultArea* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<URecastFilter_UseDefaultArea>();
-	}
-};
-static_assert(alignof(URecastFilter_UseDefaultArea) == 0x000008, "Wrong alignment on URecastFilter_UseDefaultArea");
-static_assert(sizeof(URecastFilter_UseDefaultArea) == 0x000048, "Wrong size on URecastFilter_UseDefaultArea");
-
 // Class NavigationSystem.NavigationGraph
-// 0x0000 (0x04C0 - 0x04C0)
+// 0x0000 (0x04C8 - 0x04C8)
 class ANavigationGraph final : public ANavigationData
 {
 public:
@@ -825,14 +825,37 @@ public:
 	}
 };
 static_assert(alignof(ANavigationGraph) == 0x000008, "Wrong alignment on ANavigationGraph");
-static_assert(sizeof(ANavigationGraph) == 0x0004C0, "Wrong size on ANavigationGraph");
+static_assert(sizeof(ANavigationGraph) == 0x0004C8, "Wrong size on ANavigationGraph");
+
+// Class NavigationSystem.NavigationInvokerComponent
+// 0x0008 (0x00A8 - 0x00A0)
+class UNavigationInvokerComponent final : public UActorComponent
+{
+public:
+	float                                         TileGenerationRadius;                              // 0x00A0(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	float                                         TileRemovalRadius;                                 // 0x00A4(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+
+public:
+	static class UClass* StaticClass()
+	{
+		return StaticClassImpl<"NavigationInvokerComponent">();
+	}
+	static class UNavigationInvokerComponent* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UNavigationInvokerComponent>();
+	}
+};
+static_assert(alignof(UNavigationInvokerComponent) == 0x000008, "Wrong alignment on UNavigationInvokerComponent");
+static_assert(sizeof(UNavigationInvokerComponent) == 0x0000A8, "Wrong size on UNavigationInvokerComponent");
+static_assert(offsetof(UNavigationInvokerComponent, TileGenerationRadius) == 0x0000A0, "Member 'UNavigationInvokerComponent::TileGenerationRadius' has a wrong offset!");
+static_assert(offsetof(UNavigationInvokerComponent, TileRemovalRadius) == 0x0000A4, "Member 'UNavigationInvokerComponent::TileRemovalRadius' has a wrong offset!");
 
 // Class NavigationSystem.NavigationPath
 // 0x0060 (0x0088 - 0x0028)
 class UNavigationPath final : public UObject
 {
 public:
-	TMulticastInlineDelegate<void(class UNavigationPath* AffectedPath, ENavPathEvent PathEvent)> PathUpdatedNotifier;                               // 0x0028(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             PathUpdatedNotifier;                               // 0x0028(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 	TArray<struct FVector>                        PathPoints;                                        // 0x0038(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NativeAccessSpecifierPublic)
 	ENavigationOptionFlag                         RecalculateOnInvalidation;                         // 0x0048(0x0001)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_49[0x3F];                                      // 0x0049(0x003F)(Fixing Struct Size After Last Property [ Dumper-7 ])
@@ -899,8 +922,8 @@ public:
 	TArray<class ANavigationData*>                NavDataSet;                                        // 0x00E0(0x0010)(ZeroConstructor, Transient, UObjectWrapper, NativeAccessSpecifierPublic)
 	TArray<class ANavigationData*>                NavDataRegistrationQueue;                          // 0x00F0(0x0010)(ZeroConstructor, Transient, UObjectWrapper, NativeAccessSpecifierPublic)
 	uint8                                         Pad_100[0x10];                                     // 0x0100(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void(class ANavigationData* NavData)> OnNavDataRegisteredEvent;                          // 0x0110(0x0010)(ZeroConstructor, Transient, InstancedReference, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void(class ANavigationData* NavData)> OnNavigationGenerationFinishedDelegate;            // 0x0120(0x0010)(ZeroConstructor, Transient, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnNavDataRegisteredEvent;                          // 0x0110(0x0010)(ZeroConstructor, Transient, InstancedReference, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnNavigationGenerationFinishedDelegate;            // 0x0120(0x0010)(ZeroConstructor, Transient, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 	uint8                                         Pad_130[0xDC];                                     // 0x0130(0x00DC)(Fixing Size After Last Property [ Dumper-7 ])
 	EFNavigationSystemRunMode                     OperationMode;                                     // 0x020C(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	uint8                                         Pad_20D[0x1353];                                   // 0x020D(0x1353)(Fixing Struct Size After Last Property [ Dumper-7 ])
@@ -1076,6 +1099,28 @@ public:
 static_assert(alignof(UNavLinkRenderingComponent) == 0x000010, "Wrong alignment on UNavLinkRenderingComponent");
 static_assert(sizeof(UNavLinkRenderingComponent) == 0x000560, "Wrong size on UNavLinkRenderingComponent");
 
+// Class NavigationSystem.NavMeshBoundsVolume
+// 0x0008 (0x02E0 - 0x02D8)
+class ANavMeshBoundsVolume final : public AVolume
+{
+public:
+	struct FNavAgentSelector                      SupportedAgents;                                   // 0x02D8(0x0004)(Edit, NoDestructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_2DC[0x4];                                      // 0x02DC(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		return StaticClassImpl<"NavMeshBoundsVolume">();
+	}
+	static class ANavMeshBoundsVolume* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<ANavMeshBoundsVolume>();
+	}
+};
+static_assert(alignof(ANavMeshBoundsVolume) == 0x000008, "Wrong alignment on ANavMeshBoundsVolume");
+static_assert(sizeof(ANavMeshBoundsVolume) == 0x0002E0, "Wrong size on ANavMeshBoundsVolume");
+static_assert(offsetof(ANavMeshBoundsVolume, SupportedAgents) == 0x0002D8, "Member 'ANavMeshBoundsVolume::SupportedAgents' has a wrong offset!");
+
 // Class NavigationSystem.NavMeshRenderingComponent
 // 0x0010 (0x05C0 - 0x05B0)
 class UNavMeshRenderingComponent final : public UDebugDrawComponent
@@ -1112,51 +1157,6 @@ public:
 };
 static_assert(alignof(UNavTestRenderingComponent) == 0x000010, "Wrong alignment on UNavTestRenderingComponent");
 static_assert(sizeof(UNavTestRenderingComponent) == 0x0005B0, "Wrong size on UNavTestRenderingComponent");
-
-// Class NavigationSystem.RecastNavMeshDataChunk
-// 0x0070 (0x00A0 - 0x0030)
-class URecastNavMeshDataChunk final : public UNavigationDataChunk
-{
-public:
-	uint8                                         Pad_30[0x70];                                      // 0x0030(0x0070)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		return StaticClassImpl<"RecastNavMeshDataChunk">();
-	}
-	static class URecastNavMeshDataChunk* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<URecastNavMeshDataChunk>();
-	}
-};
-static_assert(alignof(URecastNavMeshDataChunk) == 0x000008, "Wrong alignment on URecastNavMeshDataChunk");
-static_assert(sizeof(URecastNavMeshDataChunk) == 0x0000A0, "Wrong size on URecastNavMeshDataChunk");
-
-// Class NavigationSystem.NavSystemConfigOverride
-// 0x0010 (0x02A8 - 0x0298)
-class ANavSystemConfigOverride final : public AActor
-{
-public:
-	class UNavigationSystemConfig*                NavigationSystemConfig;                            // 0x0298(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, Protected, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	ENavSystemOverridePolicy                      OverridePolicy;                                    // 0x02A0(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         bLoadOnClient : 1;                                 // 0x02A1(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, BlueprintVisible, NoDestructor, AdvancedDisplay, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected))
-	uint8                                         Pad_2A2[0x6];                                      // 0x02A2(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		return StaticClassImpl<"NavSystemConfigOverride">();
-	}
-	static class ANavSystemConfigOverride* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<ANavSystemConfigOverride>();
-	}
-};
-static_assert(alignof(ANavSystemConfigOverride) == 0x000008, "Wrong alignment on ANavSystemConfigOverride");
-static_assert(sizeof(ANavSystemConfigOverride) == 0x0002A8, "Wrong size on ANavSystemConfigOverride");
-static_assert(offsetof(ANavSystemConfigOverride, NavigationSystemConfig) == 0x000298, "Member 'ANavSystemConfigOverride::NavigationSystemConfig' has a wrong offset!");
-static_assert(offsetof(ANavSystemConfigOverride, OverridePolicy) == 0x0002A0, "Member 'ANavSystemConfigOverride::OverridePolicy' has a wrong offset!");
 
 }
 

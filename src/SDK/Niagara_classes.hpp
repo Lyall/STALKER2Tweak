@@ -1544,7 +1544,7 @@ public:
 	uint8                                         Pad_6B9[0x3];                                      // 0x06B9(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	float                                         MaxTimeBeforeForceUpdateTransform;                 // 0x06BC(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_6C0[0x8];                                      // 0x06C0(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void(class UNiagaraComponent* PSystem)> OnSystemFinished;                                  // 0x06C8(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnSystemFinished;                                  // 0x06C8(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 	TWeakObjectPtr<class USceneComponent>         AutoAttachParent;                                  // 0x06D8(0x0008)(Edit, BlueprintVisible, ExportObject, ZeroConstructor, DisableEditOnTemplate, EditConst, InstancedReference, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FName                                   AutoAttachSocketName;                              // 0x06E0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EAttachmentRule                               AutoAttachLocationRule;                            // 0x06E8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -2513,7 +2513,7 @@ static_assert(offsetof(UNiagaraDataInterfaceGrid3DCollectionReader, DIName) == 0
 class UNiagaraDataInterfaceIntRenderTarget2D final : public UNiagaraDataInterfaceRWBase
 {
 public:
-	struct FIntPoint                              size;                                              // 0x0038(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FIntPoint                              Size;                                              // 0x0038(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FNiagaraUserParameterBinding           RenderTargetUserParameter;                         // 0x0040(0x0020)(Edit, NativeAccessSpecifierPublic)
 	TMap<uint64, class UTextureRenderTarget2D*>   ManagedRenderTargets;                              // 0x0060(0x0050)(Transient, DuplicateTransient, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
 
@@ -2529,7 +2529,7 @@ public:
 };
 static_assert(alignof(UNiagaraDataInterfaceIntRenderTarget2D) == 0x000008, "Wrong alignment on UNiagaraDataInterfaceIntRenderTarget2D");
 static_assert(sizeof(UNiagaraDataInterfaceIntRenderTarget2D) == 0x0000B0, "Wrong size on UNiagaraDataInterfaceIntRenderTarget2D");
-static_assert(offsetof(UNiagaraDataInterfaceIntRenderTarget2D, size) == 0x000038, "Member 'UNiagaraDataInterfaceIntRenderTarget2D::size' has a wrong offset!");
+static_assert(offsetof(UNiagaraDataInterfaceIntRenderTarget2D, Size) == 0x000038, "Member 'UNiagaraDataInterfaceIntRenderTarget2D::Size' has a wrong offset!");
 static_assert(offsetof(UNiagaraDataInterfaceIntRenderTarget2D, RenderTargetUserParameter) == 0x000040, "Member 'UNiagaraDataInterfaceIntRenderTarget2D::RenderTargetUserParameter' has a wrong offset!");
 static_assert(offsetof(UNiagaraDataInterfaceIntRenderTarget2D, ManagedRenderTargets) == 0x000060, "Member 'UNiagaraDataInterfaceIntRenderTarget2D::ManagedRenderTargets' has a wrong offset!");
 
@@ -2693,7 +2693,7 @@ static_assert(offsetof(UNiagaraDataInterfaceRasterizationGrid3D, ResetValue) == 
 class UNiagaraDataInterfaceRenderTarget2D final : public UNiagaraDataInterfaceRWBase
 {
 public:
-	struct FIntPoint                              size;                                              // 0x0038(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FIntPoint                              Size;                                              // 0x0038(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	ENiagaraMipMapGeneration                      MipMapGeneration;                                  // 0x0040(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	ENiagaraMipMapGenerationType                  MipMapGenerationType;                              // 0x0041(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	ETextureRenderTargetFormat                    OverrideRenderTargetFormat;                        // 0x0042(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -2716,7 +2716,7 @@ public:
 };
 static_assert(alignof(UNiagaraDataInterfaceRenderTarget2D) == 0x000008, "Wrong alignment on UNiagaraDataInterfaceRenderTarget2D");
 static_assert(sizeof(UNiagaraDataInterfaceRenderTarget2D) == 0x000108, "Wrong size on UNiagaraDataInterfaceRenderTarget2D");
-static_assert(offsetof(UNiagaraDataInterfaceRenderTarget2D, size) == 0x000038, "Member 'UNiagaraDataInterfaceRenderTarget2D::size' has a wrong offset!");
+static_assert(offsetof(UNiagaraDataInterfaceRenderTarget2D, Size) == 0x000038, "Member 'UNiagaraDataInterfaceRenderTarget2D::Size' has a wrong offset!");
 static_assert(offsetof(UNiagaraDataInterfaceRenderTarget2D, MipMapGeneration) == 0x000040, "Member 'UNiagaraDataInterfaceRenderTarget2D::MipMapGeneration' has a wrong offset!");
 static_assert(offsetof(UNiagaraDataInterfaceRenderTarget2D, MipMapGenerationType) == 0x000041, "Member 'UNiagaraDataInterfaceRenderTarget2D::MipMapGenerationType' has a wrong offset!");
 static_assert(offsetof(UNiagaraDataInterfaceRenderTarget2D, OverrideRenderTargetFormat) == 0x000042, "Member 'UNiagaraDataInterfaceRenderTarget2D::OverrideRenderTargetFormat' has a wrong offset!");
@@ -2728,7 +2728,7 @@ static_assert(offsetof(UNiagaraDataInterfaceRenderTarget2D, ManagedRenderTargets
 class UNiagaraDataInterfaceRenderTarget2DArray final : public UNiagaraDataInterfaceRWBase
 {
 public:
-	struct FIntVector                             size;                                              // 0x0038(0x000C)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FIntVector                             Size;                                              // 0x0038(0x000C)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	ETextureRenderTargetFormat                    OverrideRenderTargetFormat;                        // 0x0044(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         bInheritUserParameterSettings : 1;                 // 0x0045(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         bOverrideFormat : 1;                               // 0x0045(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
@@ -2748,7 +2748,7 @@ public:
 };
 static_assert(alignof(UNiagaraDataInterfaceRenderTarget2DArray) == 0x000008, "Wrong alignment on UNiagaraDataInterfaceRenderTarget2DArray");
 static_assert(sizeof(UNiagaraDataInterfaceRenderTarget2DArray) == 0x0000B8, "Wrong size on UNiagaraDataInterfaceRenderTarget2DArray");
-static_assert(offsetof(UNiagaraDataInterfaceRenderTarget2DArray, size) == 0x000038, "Member 'UNiagaraDataInterfaceRenderTarget2DArray::size' has a wrong offset!");
+static_assert(offsetof(UNiagaraDataInterfaceRenderTarget2DArray, Size) == 0x000038, "Member 'UNiagaraDataInterfaceRenderTarget2DArray::Size' has a wrong offset!");
 static_assert(offsetof(UNiagaraDataInterfaceRenderTarget2DArray, OverrideRenderTargetFormat) == 0x000044, "Member 'UNiagaraDataInterfaceRenderTarget2DArray::OverrideRenderTargetFormat' has a wrong offset!");
 static_assert(offsetof(UNiagaraDataInterfaceRenderTarget2DArray, RenderTargetUserParameter) == 0x000048, "Member 'UNiagaraDataInterfaceRenderTarget2DArray::RenderTargetUserParameter' has a wrong offset!");
 static_assert(offsetof(UNiagaraDataInterfaceRenderTarget2DArray, ManagedRenderTargets) == 0x000068, "Member 'UNiagaraDataInterfaceRenderTarget2DArray::ManagedRenderTargets' has a wrong offset!");
@@ -2758,7 +2758,7 @@ static_assert(offsetof(UNiagaraDataInterfaceRenderTarget2DArray, ManagedRenderTa
 class UNiagaraDataInterfaceRenderTargetCube final : public UNiagaraDataInterfaceRWBase
 {
 public:
-	int32                                         size;                                              // 0x0038(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         Size;                                              // 0x0038(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	ETextureRenderTargetFormat                    OverrideRenderTargetFormat;                        // 0x003C(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         bInheritUserParameterSettings : 1;                 // 0x003D(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         bOverrideFormat : 1;                               // 0x003D(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
@@ -2778,7 +2778,7 @@ public:
 };
 static_assert(alignof(UNiagaraDataInterfaceRenderTargetCube) == 0x000008, "Wrong alignment on UNiagaraDataInterfaceRenderTargetCube");
 static_assert(sizeof(UNiagaraDataInterfaceRenderTargetCube) == 0x0000B0, "Wrong size on UNiagaraDataInterfaceRenderTargetCube");
-static_assert(offsetof(UNiagaraDataInterfaceRenderTargetCube, size) == 0x000038, "Member 'UNiagaraDataInterfaceRenderTargetCube::size' has a wrong offset!");
+static_assert(offsetof(UNiagaraDataInterfaceRenderTargetCube, Size) == 0x000038, "Member 'UNiagaraDataInterfaceRenderTargetCube::Size' has a wrong offset!");
 static_assert(offsetof(UNiagaraDataInterfaceRenderTargetCube, OverrideRenderTargetFormat) == 0x00003C, "Member 'UNiagaraDataInterfaceRenderTargetCube::OverrideRenderTargetFormat' has a wrong offset!");
 static_assert(offsetof(UNiagaraDataInterfaceRenderTargetCube, RenderTargetUserParameter) == 0x000040, "Member 'UNiagaraDataInterfaceRenderTargetCube::RenderTargetUserParameter' has a wrong offset!");
 static_assert(offsetof(UNiagaraDataInterfaceRenderTargetCube, ManagedRenderTargets) == 0x000060, "Member 'UNiagaraDataInterfaceRenderTargetCube::ManagedRenderTargets' has a wrong offset!");
@@ -2788,7 +2788,7 @@ static_assert(offsetof(UNiagaraDataInterfaceRenderTargetCube, ManagedRenderTarge
 class UNiagaraDataInterfaceRenderTargetVolume final : public UNiagaraDataInterfaceRWBase
 {
 public:
-	struct FIntVector                             size;                                              // 0x0038(0x000C)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FIntVector                             Size;                                              // 0x0038(0x000C)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	ETextureRenderTargetFormat                    OverrideRenderTargetFormat;                        // 0x0044(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         bInheritUserParameterSettings : 1;                 // 0x0045(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         bOverrideFormat : 1;                               // 0x0045(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
@@ -2808,7 +2808,7 @@ public:
 };
 static_assert(alignof(UNiagaraDataInterfaceRenderTargetVolume) == 0x000008, "Wrong alignment on UNiagaraDataInterfaceRenderTargetVolume");
 static_assert(sizeof(UNiagaraDataInterfaceRenderTargetVolume) == 0x0000B8, "Wrong size on UNiagaraDataInterfaceRenderTargetVolume");
-static_assert(offsetof(UNiagaraDataInterfaceRenderTargetVolume, size) == 0x000038, "Member 'UNiagaraDataInterfaceRenderTargetVolume::size' has a wrong offset!");
+static_assert(offsetof(UNiagaraDataInterfaceRenderTargetVolume, Size) == 0x000038, "Member 'UNiagaraDataInterfaceRenderTargetVolume::Size' has a wrong offset!");
 static_assert(offsetof(UNiagaraDataInterfaceRenderTargetVolume, OverrideRenderTargetFormat) == 0x000044, "Member 'UNiagaraDataInterfaceRenderTargetVolume::OverrideRenderTargetFormat' has a wrong offset!");
 static_assert(offsetof(UNiagaraDataInterfaceRenderTargetVolume, RenderTargetUserParameter) == 0x000048, "Member 'UNiagaraDataInterfaceRenderTargetVolume::RenderTargetUserParameter' has a wrong offset!");
 static_assert(offsetof(UNiagaraDataInterfaceRenderTargetVolume, ManagedRenderTargets) == 0x000068, "Member 'UNiagaraDataInterfaceRenderTargetVolume::ManagedRenderTargets' has a wrong offset!");
@@ -3915,7 +3915,7 @@ public:
 	int32                                         CaptureFrameRate;                                  // 0x0044(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         CaptureFrameCounter;                               // 0x0048(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         TimeOutCounter;                                    // 0x004C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void(bool bSuccess)> CaptureComplete;                                   // 0x0050(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             CaptureComplete;                                   // 0x0050(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 	uint8                                         Pad_60[0x10];                                      // 0x0060(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
 	bool                                          bAdvanceSimulation;                                // 0x0070(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_71[0x3];                                       // 0x0071(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
@@ -3924,6 +3924,8 @@ public:
 public:
 	static class UAsyncNiagaraCaptureSimCache* CaptureNiagaraSimCacheMultiFrame(class UNiagaraSimCache* SimCache, const struct FNiagaraSimCacheCreateParameters& CreateParameters, class UNiagaraComponent* NiagaraComponent, class UNiagaraSimCache** OutSimCache, int32 NumFrames, int32 CaptureRate, bool bAdvanceSimulation_0, float AdvanceDeltaTime_0);
 	static class UAsyncNiagaraCaptureSimCache* CaptureNiagaraSimCacheUntilComplete(class UNiagaraSimCache* SimCache, const struct FNiagaraSimCacheCreateParameters& CreateParameters, class UNiagaraComponent* NiagaraComponent, class UNiagaraSimCache** OutSimCache, int32 CaptureRate, bool bAdvanceSimulation_0, float AdvanceDeltaTime_0);
+
+	void OnCaptureComplete__DelegateSignature(bool bSuccess);
 
 public:
 	static class UClass* StaticClass()

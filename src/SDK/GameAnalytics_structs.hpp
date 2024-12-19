@@ -18,9 +18,9 @@ namespace SDK
 // NumValues: 0x0004
 enum class EGAResourceFlowType : uint8
 {
-	undefined                                = 0,
-	source                                   = 1,
-	sink                                     = 2,
+	Undefined                                = 0,
+	Source                                   = 1,
+	Sink                                     = 2,
 	EGAResourceFlowType_MAX                  = 3,
 };
 
@@ -28,10 +28,10 @@ enum class EGAResourceFlowType : uint8
 // NumValues: 0x0005
 enum class EGAProgressionStatus : uint8
 {
-	undefined                                = 0,
-	start                                    = 1,
-	complete                                 = 2,
-	fail                                     = 3,
+	Undefined                                = 0,
+	Start                                    = 1,
+	Complete                                 = 2,
+	Fail                                     = 3,
 	EGAProgressionStatus_MAX                 = 4,
 };
 
@@ -39,12 +39,12 @@ enum class EGAProgressionStatus : uint8
 // NumValues: 0x0007
 enum class EGAErrorSeverity : uint8
 {
-	undefined                                = 0,
-	debug                                    = 1,
-	info                                     = 2,
-	warning                                  = 3,
-	error                                    = 4,
-	critical                                 = 5,
+	Undefined                                = 0,
+	Debug                                    = 1,
+	Info                                     = 2,
+	Warning                                  = 3,
+	Error                                    = 4,
+	Critical                                 = 5,
 	EGAErrorSeverity_MAX                     = 6,
 };
 
@@ -52,13 +52,13 @@ enum class EGAErrorSeverity : uint8
 // NumValues: 0x0008
 enum class EGAAdAction : uint8
 {
-	undefined                                = 0,
-	clicked                                  = 1,
-	show                                     = 2,
-	failedshow                               = 3,
-	rewardreceived                           = 4,
-	request                                  = 5,
-	loaded                                   = 6,
+	Undefined                                = 0,
+	Clicked                                  = 1,
+	Show                                     = 2,
+	Failedshow                               = 3,
+	Rewardreceived                           = 4,
+	Request                                  = 5,
+	Loaded                                   = 6,
 	EGAAdAction_MAX                          = 7,
 };
 
@@ -66,12 +66,12 @@ enum class EGAAdAction : uint8
 // NumValues: 0x0008
 enum class EGAAdType : uint8
 {
-	undefined                                = 0,
-	video                                    = 1,
-	rewardedvideo                            = 2,
-	playable                                 = 3,
-	interstitial                             = 4,
-	offerwall                                = 5,
+	Undefined                                = 0,
+	Video                                    = 1,
+	Rewardedvideo                            = 2,
+	Playable                                 = 3,
+	Interstitial                             = 4,
+	Offerwall                                = 5,
 	banner                                   = 6,
 	EGAAdType_MAX                            = 7,
 };
@@ -80,13 +80,13 @@ enum class EGAAdType : uint8
 // NumValues: 0x0008
 enum class EGAAdError : uint8
 {
-	undefined                                = 0,
-	unknown                                  = 1,
-	offline                                  = 2,
-	nofill                                   = 3,
-	internalerror                            = 4,
-	invalidrequest                           = 5,
-	unabletoprecache                         = 6,
+	Undefined                                = 0,
+	Unknown                                  = 1,
+	Offline                                  = 2,
+	Nofill                                   = 3,
+	Internalerror                            = 4,
+	Invalidrequest                           = 5,
+	Unabletoprecache                         = 6,
 	EGAAdError_MAX                           = 7,
 };
 

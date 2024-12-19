@@ -10,9 +10,9 @@
 
 #include "Basic.hpp"
 
+#include "InputCore_structs.hpp"
 #include "HeadMountedDisplay_structs.hpp"
 #include "CoreUObject_structs.hpp"
-#include "InputCore_structs.hpp"
 
 
 namespace SDK::Params
@@ -159,7 +159,7 @@ public:
 	bool                                          bTimeWasUsed;                                      // 0x0020(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_21[0x7];                                       // 0x0021(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FRotator                               Orientation;                                       // 0x0028(0x0018)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-	struct FVector                                position;                                          // 0x0040(0x0018)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Position;                                          // 0x0040(0x0018)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bProvidedLinearVelocity;                           // 0x0058(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_59[0x7];                                       // 0x0059(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FVector                                LinearVelocity;                                    // 0x0060(0x0018)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -180,7 +180,7 @@ static_assert(offsetof(HeadMountedDisplayFunctionLibrary_GetControllerTransformF
 static_assert(offsetof(HeadMountedDisplayFunctionLibrary_GetControllerTransformForTime, Time) == 0x000018, "Member 'HeadMountedDisplayFunctionLibrary_GetControllerTransformForTime::Time' has a wrong offset!");
 static_assert(offsetof(HeadMountedDisplayFunctionLibrary_GetControllerTransformForTime, bTimeWasUsed) == 0x000020, "Member 'HeadMountedDisplayFunctionLibrary_GetControllerTransformForTime::bTimeWasUsed' has a wrong offset!");
 static_assert(offsetof(HeadMountedDisplayFunctionLibrary_GetControllerTransformForTime, Orientation) == 0x000028, "Member 'HeadMountedDisplayFunctionLibrary_GetControllerTransformForTime::Orientation' has a wrong offset!");
-static_assert(offsetof(HeadMountedDisplayFunctionLibrary_GetControllerTransformForTime, position) == 0x000040, "Member 'HeadMountedDisplayFunctionLibrary_GetControllerTransformForTime::position' has a wrong offset!");
+static_assert(offsetof(HeadMountedDisplayFunctionLibrary_GetControllerTransformForTime, Position) == 0x000040, "Member 'HeadMountedDisplayFunctionLibrary_GetControllerTransformForTime::Position' has a wrong offset!");
 static_assert(offsetof(HeadMountedDisplayFunctionLibrary_GetControllerTransformForTime, bProvidedLinearVelocity) == 0x000058, "Member 'HeadMountedDisplayFunctionLibrary_GetControllerTransformForTime::bProvidedLinearVelocity' has a wrong offset!");
 static_assert(offsetof(HeadMountedDisplayFunctionLibrary_GetControllerTransformForTime, LinearVelocity) == 0x000060, "Member 'HeadMountedDisplayFunctionLibrary_GetControllerTransformForTime::LinearVelocity' has a wrong offset!");
 static_assert(offsetof(HeadMountedDisplayFunctionLibrary_GetControllerTransformForTime, bProvidedAngularVelocity) == 0x000078, "Member 'HeadMountedDisplayFunctionLibrary_GetControllerTransformForTime::bProvidedAngularVelocity' has a wrong offset!");
@@ -217,7 +217,7 @@ public:
 	struct FRotator                               Orientation;                                       // 0x0010(0x0018)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 	bool                                          bHasPositionalTracking;                            // 0x0028(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_29[0x7];                                       // 0x0029(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                position;                                          // 0x0030(0x0018)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Position;                                          // 0x0030(0x0018)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(HeadMountedDisplayFunctionLibrary_GetDevicePose) == 0x000008, "Wrong alignment on HeadMountedDisplayFunctionLibrary_GetDevicePose");
 static_assert(sizeof(HeadMountedDisplayFunctionLibrary_GetDevicePose) == 0x000048, "Wrong size on HeadMountedDisplayFunctionLibrary_GetDevicePose");
@@ -225,7 +225,7 @@ static_assert(offsetof(HeadMountedDisplayFunctionLibrary_GetDevicePose, XRDevice
 static_assert(offsetof(HeadMountedDisplayFunctionLibrary_GetDevicePose, bIsTracked) == 0x00000C, "Member 'HeadMountedDisplayFunctionLibrary_GetDevicePose::bIsTracked' has a wrong offset!");
 static_assert(offsetof(HeadMountedDisplayFunctionLibrary_GetDevicePose, Orientation) == 0x000010, "Member 'HeadMountedDisplayFunctionLibrary_GetDevicePose::Orientation' has a wrong offset!");
 static_assert(offsetof(HeadMountedDisplayFunctionLibrary_GetDevicePose, bHasPositionalTracking) == 0x000028, "Member 'HeadMountedDisplayFunctionLibrary_GetDevicePose::bHasPositionalTracking' has a wrong offset!");
-static_assert(offsetof(HeadMountedDisplayFunctionLibrary_GetDevicePose, position) == 0x000030, "Member 'HeadMountedDisplayFunctionLibrary_GetDevicePose::position' has a wrong offset!");
+static_assert(offsetof(HeadMountedDisplayFunctionLibrary_GetDevicePose, Position) == 0x000030, "Member 'HeadMountedDisplayFunctionLibrary_GetDevicePose::Position' has a wrong offset!");
 
 // Function HeadMountedDisplay.HeadMountedDisplayFunctionLibrary.GetDeviceWorldPose
 // 0x0050 (0x0050 - 0x0000)
@@ -239,7 +239,7 @@ public:
 	struct FRotator                               Orientation;                                       // 0x0018(0x0018)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 	bool                                          bHasPositionalTracking;                            // 0x0030(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_31[0x7];                                       // 0x0031(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                position;                                          // 0x0038(0x0018)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Position;                                          // 0x0038(0x0018)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(HeadMountedDisplayFunctionLibrary_GetDeviceWorldPose) == 0x000008, "Wrong alignment on HeadMountedDisplayFunctionLibrary_GetDeviceWorldPose");
 static_assert(sizeof(HeadMountedDisplayFunctionLibrary_GetDeviceWorldPose) == 0x000050, "Wrong size on HeadMountedDisplayFunctionLibrary_GetDeviceWorldPose");
@@ -248,7 +248,7 @@ static_assert(offsetof(HeadMountedDisplayFunctionLibrary_GetDeviceWorldPose, XRD
 static_assert(offsetof(HeadMountedDisplayFunctionLibrary_GetDeviceWorldPose, bIsTracked) == 0x000014, "Member 'HeadMountedDisplayFunctionLibrary_GetDeviceWorldPose::bIsTracked' has a wrong offset!");
 static_assert(offsetof(HeadMountedDisplayFunctionLibrary_GetDeviceWorldPose, Orientation) == 0x000018, "Member 'HeadMountedDisplayFunctionLibrary_GetDeviceWorldPose::Orientation' has a wrong offset!");
 static_assert(offsetof(HeadMountedDisplayFunctionLibrary_GetDeviceWorldPose, bHasPositionalTracking) == 0x000030, "Member 'HeadMountedDisplayFunctionLibrary_GetDeviceWorldPose::bHasPositionalTracking' has a wrong offset!");
-static_assert(offsetof(HeadMountedDisplayFunctionLibrary_GetDeviceWorldPose, position) == 0x000038, "Member 'HeadMountedDisplayFunctionLibrary_GetDeviceWorldPose::position' has a wrong offset!");
+static_assert(offsetof(HeadMountedDisplayFunctionLibrary_GetDeviceWorldPose, Position) == 0x000038, "Member 'HeadMountedDisplayFunctionLibrary_GetDeviceWorldPose::Position' has a wrong offset!");
 
 // Function HeadMountedDisplay.HeadMountedDisplayFunctionLibrary.GetHMDData
 // 0x0070 (0x0070 - 0x0000)
@@ -722,14 +722,14 @@ static_assert(offsetof(HeadMountedDisplayFunctionLibrary_UpdateExternalTrackingH
 struct MotionControllerComponent_GetHandJointPosition final
 {
 public:
-	int32                                         jointIndex;                                        // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         JointIndex;                                        // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bValueFound;                                       // 0x0004(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_5[0x3];                                        // 0x0005(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FVector                                ReturnValue;                                       // 0x0008(0x0018)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(MotionControllerComponent_GetHandJointPosition) == 0x000008, "Wrong alignment on MotionControllerComponent_GetHandJointPosition");
 static_assert(sizeof(MotionControllerComponent_GetHandJointPosition) == 0x000020, "Wrong size on MotionControllerComponent_GetHandJointPosition");
-static_assert(offsetof(MotionControllerComponent_GetHandJointPosition, jointIndex) == 0x000000, "Member 'MotionControllerComponent_GetHandJointPosition::jointIndex' has a wrong offset!");
+static_assert(offsetof(MotionControllerComponent_GetHandJointPosition, JointIndex) == 0x000000, "Member 'MotionControllerComponent_GetHandJointPosition::JointIndex' has a wrong offset!");
 static_assert(offsetof(MotionControllerComponent_GetHandJointPosition, bValueFound) == 0x000004, "Member 'MotionControllerComponent_GetHandJointPosition::bValueFound' has a wrong offset!");
 static_assert(offsetof(MotionControllerComponent_GetHandJointPosition, ReturnValue) == 0x000008, "Member 'MotionControllerComponent_GetHandJointPosition::ReturnValue' has a wrong offset!");
 
@@ -1164,7 +1164,7 @@ public:
 	class UTexture*                               Texture;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector                                Translation;                                       // 0x0008(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FRotator                               Rotation;                                          // 0x0020(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-	struct FVector2D                              size;                                              // 0x0038(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              Size;                                              // 0x0038(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FRotator                               DeltaRotation;                                     // 0x0048(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 	bool                                          bClearBeforeAdd;                                   // 0x0060(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_61[0x7];                                       // 0x0061(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
@@ -1174,7 +1174,7 @@ static_assert(sizeof(XRLoadingScreenFunctionLibrary_AddLoadingScreenSplash) == 0
 static_assert(offsetof(XRLoadingScreenFunctionLibrary_AddLoadingScreenSplash, Texture) == 0x000000, "Member 'XRLoadingScreenFunctionLibrary_AddLoadingScreenSplash::Texture' has a wrong offset!");
 static_assert(offsetof(XRLoadingScreenFunctionLibrary_AddLoadingScreenSplash, Translation) == 0x000008, "Member 'XRLoadingScreenFunctionLibrary_AddLoadingScreenSplash::Translation' has a wrong offset!");
 static_assert(offsetof(XRLoadingScreenFunctionLibrary_AddLoadingScreenSplash, Rotation) == 0x000020, "Member 'XRLoadingScreenFunctionLibrary_AddLoadingScreenSplash::Rotation' has a wrong offset!");
-static_assert(offsetof(XRLoadingScreenFunctionLibrary_AddLoadingScreenSplash, size) == 0x000038, "Member 'XRLoadingScreenFunctionLibrary_AddLoadingScreenSplash::size' has a wrong offset!");
+static_assert(offsetof(XRLoadingScreenFunctionLibrary_AddLoadingScreenSplash, Size) == 0x000038, "Member 'XRLoadingScreenFunctionLibrary_AddLoadingScreenSplash::Size' has a wrong offset!");
 static_assert(offsetof(XRLoadingScreenFunctionLibrary_AddLoadingScreenSplash, DeltaRotation) == 0x000048, "Member 'XRLoadingScreenFunctionLibrary_AddLoadingScreenSplash::DeltaRotation' has a wrong offset!");
 static_assert(offsetof(XRLoadingScreenFunctionLibrary_AddLoadingScreenSplash, bClearBeforeAdd) == 0x000060, "Member 'XRLoadingScreenFunctionLibrary_AddLoadingScreenSplash::bClearBeforeAdd' has a wrong offset!");
 

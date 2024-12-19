@@ -228,6 +228,20 @@ void ALevelSequenceActor::HideBurnin()
 }
 
 
+// DelegateFunction LevelSequence.LevelSequenceActor.OnLevelSequenceLoaded__DelegateSignature
+// (Public, Delegate)
+
+void ALevelSequenceActor::OnLevelSequenceLoaded__DelegateSignature()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("LevelSequenceActor", "OnLevelSequenceLoaded__DelegateSignature");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
 // Function LevelSequence.LevelSequenceActor.RemoveBinding
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:

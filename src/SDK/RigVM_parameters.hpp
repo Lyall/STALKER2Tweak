@@ -17,61 +17,6 @@
 namespace SDK::Params
 {
 
-// Function RigVM.RigVMUserWorkflowOptions.ReportError
-// 0x0010 (0x0010 - 0x0000)
-struct RigVMUserWorkflowOptions_ReportError final
-{
-public:
-	class FString                                 InMessage;                                         // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(RigVMUserWorkflowOptions_ReportError) == 0x000008, "Wrong alignment on RigVMUserWorkflowOptions_ReportError");
-static_assert(sizeof(RigVMUserWorkflowOptions_ReportError) == 0x000010, "Wrong size on RigVMUserWorkflowOptions_ReportError");
-static_assert(offsetof(RigVMUserWorkflowOptions_ReportError, InMessage) == 0x000000, "Member 'RigVMUserWorkflowOptions_ReportError::InMessage' has a wrong offset!");
-
-// Function RigVM.RigVMUserWorkflowOptions.ReportInfo
-// 0x0010 (0x0010 - 0x0000)
-struct RigVMUserWorkflowOptions_ReportInfo final
-{
-public:
-	class FString                                 InMessage;                                         // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(RigVMUserWorkflowOptions_ReportInfo) == 0x000008, "Wrong alignment on RigVMUserWorkflowOptions_ReportInfo");
-static_assert(sizeof(RigVMUserWorkflowOptions_ReportInfo) == 0x000010, "Wrong size on RigVMUserWorkflowOptions_ReportInfo");
-static_assert(offsetof(RigVMUserWorkflowOptions_ReportInfo, InMessage) == 0x000000, "Member 'RigVMUserWorkflowOptions_ReportInfo::InMessage' has a wrong offset!");
-
-// Function RigVM.RigVMUserWorkflowOptions.ReportWarning
-// 0x0010 (0x0010 - 0x0000)
-struct RigVMUserWorkflowOptions_ReportWarning final
-{
-public:
-	class FString                                 InMessage;                                         // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(RigVMUserWorkflowOptions_ReportWarning) == 0x000008, "Wrong alignment on RigVMUserWorkflowOptions_ReportWarning");
-static_assert(sizeof(RigVMUserWorkflowOptions_ReportWarning) == 0x000010, "Wrong size on RigVMUserWorkflowOptions_ReportWarning");
-static_assert(offsetof(RigVMUserWorkflowOptions_ReportWarning, InMessage) == 0x000000, "Member 'RigVMUserWorkflowOptions_ReportWarning::InMessage' has a wrong offset!");
-
-// Function RigVM.RigVMUserWorkflowOptions.IsValid
-// 0x0001 (0x0001 - 0x0000)
-struct RigVMUserWorkflowOptions_IsValid final
-{
-public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(RigVMUserWorkflowOptions_IsValid) == 0x000001, "Wrong alignment on RigVMUserWorkflowOptions_IsValid");
-static_assert(sizeof(RigVMUserWorkflowOptions_IsValid) == 0x000001, "Wrong size on RigVMUserWorkflowOptions_IsValid");
-static_assert(offsetof(RigVMUserWorkflowOptions_IsValid, ReturnValue) == 0x000000, "Member 'RigVMUserWorkflowOptions_IsValid::ReturnValue' has a wrong offset!");
-
-// Function RigVM.RigVMUserWorkflowOptions.RequiresDialog
-// 0x0001 (0x0001 - 0x0000)
-struct RigVMUserWorkflowOptions_RequiresDialog final
-{
-public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(RigVMUserWorkflowOptions_RequiresDialog) == 0x000001, "Wrong alignment on RigVMUserWorkflowOptions_RequiresDialog");
-static_assert(sizeof(RigVMUserWorkflowOptions_RequiresDialog) == 0x000001, "Wrong size on RigVMUserWorkflowOptions_RequiresDialog");
-static_assert(offsetof(RigVMUserWorkflowOptions_RequiresDialog, ReturnValue) == 0x000000, "Member 'RigVMUserWorkflowOptions_RequiresDialog::ReturnValue' has a wrong offset!");
-
 // Function RigVM.RigVM.AddRigVMFunction
 // 0x0018 (0x0018 - 0x0000)
 struct RigVM_AddRigVMFunction final
@@ -442,6 +387,61 @@ public:
 static_assert(alignof(RigVM_GetStatistics) == 0x000004, "Wrong alignment on RigVM_GetStatistics");
 static_assert(sizeof(RigVM_GetStatistics) == 0x000038, "Wrong size on RigVM_GetStatistics");
 static_assert(offsetof(RigVM_GetStatistics, ReturnValue) == 0x000000, "Member 'RigVM_GetStatistics::ReturnValue' has a wrong offset!");
+
+// Function RigVM.RigVMUserWorkflowOptions.ReportError
+// 0x0010 (0x0010 - 0x0000)
+struct RigVMUserWorkflowOptions_ReportError final
+{
+public:
+	class FString                                 InMessage;                                         // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(RigVMUserWorkflowOptions_ReportError) == 0x000008, "Wrong alignment on RigVMUserWorkflowOptions_ReportError");
+static_assert(sizeof(RigVMUserWorkflowOptions_ReportError) == 0x000010, "Wrong size on RigVMUserWorkflowOptions_ReportError");
+static_assert(offsetof(RigVMUserWorkflowOptions_ReportError, InMessage) == 0x000000, "Member 'RigVMUserWorkflowOptions_ReportError::InMessage' has a wrong offset!");
+
+// Function RigVM.RigVMUserWorkflowOptions.ReportInfo
+// 0x0010 (0x0010 - 0x0000)
+struct RigVMUserWorkflowOptions_ReportInfo final
+{
+public:
+	class FString                                 InMessage;                                         // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(RigVMUserWorkflowOptions_ReportInfo) == 0x000008, "Wrong alignment on RigVMUserWorkflowOptions_ReportInfo");
+static_assert(sizeof(RigVMUserWorkflowOptions_ReportInfo) == 0x000010, "Wrong size on RigVMUserWorkflowOptions_ReportInfo");
+static_assert(offsetof(RigVMUserWorkflowOptions_ReportInfo, InMessage) == 0x000000, "Member 'RigVMUserWorkflowOptions_ReportInfo::InMessage' has a wrong offset!");
+
+// Function RigVM.RigVMUserWorkflowOptions.ReportWarning
+// 0x0010 (0x0010 - 0x0000)
+struct RigVMUserWorkflowOptions_ReportWarning final
+{
+public:
+	class FString                                 InMessage;                                         // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(RigVMUserWorkflowOptions_ReportWarning) == 0x000008, "Wrong alignment on RigVMUserWorkflowOptions_ReportWarning");
+static_assert(sizeof(RigVMUserWorkflowOptions_ReportWarning) == 0x000010, "Wrong size on RigVMUserWorkflowOptions_ReportWarning");
+static_assert(offsetof(RigVMUserWorkflowOptions_ReportWarning, InMessage) == 0x000000, "Member 'RigVMUserWorkflowOptions_ReportWarning::InMessage' has a wrong offset!");
+
+// Function RigVM.RigVMUserWorkflowOptions.IsValid
+// 0x0001 (0x0001 - 0x0000)
+struct RigVMUserWorkflowOptions_IsValid final
+{
+public:
+	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(RigVMUserWorkflowOptions_IsValid) == 0x000001, "Wrong alignment on RigVMUserWorkflowOptions_IsValid");
+static_assert(sizeof(RigVMUserWorkflowOptions_IsValid) == 0x000001, "Wrong size on RigVMUserWorkflowOptions_IsValid");
+static_assert(offsetof(RigVMUserWorkflowOptions_IsValid, ReturnValue) == 0x000000, "Member 'RigVMUserWorkflowOptions_IsValid::ReturnValue' has a wrong offset!");
+
+// Function RigVM.RigVMUserWorkflowOptions.RequiresDialog
+// 0x0001 (0x0001 - 0x0000)
+struct RigVMUserWorkflowOptions_RequiresDialog final
+{
+public:
+	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(RigVMUserWorkflowOptions_RequiresDialog) == 0x000001, "Wrong alignment on RigVMUserWorkflowOptions_RequiresDialog");
+static_assert(sizeof(RigVMUserWorkflowOptions_RequiresDialog) == 0x000001, "Wrong size on RigVMUserWorkflowOptions_RequiresDialog");
+static_assert(offsetof(RigVMUserWorkflowOptions_RequiresDialog, ReturnValue) == 0x000000, "Member 'RigVMUserWorkflowOptions_RequiresDialog::ReturnValue' has a wrong offset!");
 
 }
 

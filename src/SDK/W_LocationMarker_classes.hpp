@@ -17,9 +17,12 @@ namespace SDK
 {
 
 // WidgetBlueprintGeneratedClass W_LocationMarker.W_LocationMarker_C
-// 0x0000 (0x0340 - 0x0340)
+// 0x0008 (0x0338 - 0x0330)
 class UW_LocationMarker_C final : public UWorldMapMarker
 {
+public:
+	class UImage*                                 MarkerZone;                                        // 0x0330(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+
 public:
 	static class UClass* StaticClass()
 	{
@@ -31,7 +34,8 @@ public:
 	}
 };
 static_assert(alignof(UW_LocationMarker_C) == 0x000008, "Wrong alignment on UW_LocationMarker_C");
-static_assert(sizeof(UW_LocationMarker_C) == 0x000340, "Wrong size on UW_LocationMarker_C");
+static_assert(sizeof(UW_LocationMarker_C) == 0x000338, "Wrong size on UW_LocationMarker_C");
+static_assert(offsetof(UW_LocationMarker_C, MarkerZone) == 0x000330, "Member 'UW_LocationMarker_C::MarkerZone' has a wrong offset!");
 
 }
 

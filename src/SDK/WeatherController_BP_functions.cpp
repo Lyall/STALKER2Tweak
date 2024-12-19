@@ -17,26 +17,6 @@
 namespace SDK
 {
 
-// Function WeatherController_BP.WeatherController_BP_C.ReceiveTick
-// (Event, Public, BlueprintEvent)
-// Parameters:
-// float                                   DeltaSeconds                                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void AWeatherController_BP_C::ReceiveTick(float DeltaSeconds)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("WeatherController_BP_C", "ReceiveTick");
-
-	Params::WeatherController_BP_C_ReceiveTick Parms{};
-
-	Parms.DeltaSeconds = DeltaSeconds;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
 // Function WeatherController_BP.WeatherController_BP_C.ExecuteUbergraph_WeatherController_BP
 // (Final, UbergraphFunction)
 // Parameters:
@@ -52,6 +32,26 @@ void AWeatherController_BP_C::ExecuteUbergraph_WeatherController_BP(int32 EntryP
 	Params::WeatherController_BP_C_ExecuteUbergraph_WeatherController_BP Parms{};
 
 	Parms.EntryPoint = EntryPoint;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function WeatherController_BP.WeatherController_BP_C.ReceiveTick
+// (Event, Public, BlueprintEvent)
+// Parameters:
+// float                                   DeltaSeconds                                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void AWeatherController_BP_C::ReceiveTick(float DeltaSeconds)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("WeatherController_BP_C", "ReceiveTick");
+
+	Params::WeatherController_BP_C_ReceiveTick Parms{};
+
+	Parms.DeltaSeconds = DeltaSeconds;
 
 	UObject::ProcessEvent(Func, &Parms);
 }

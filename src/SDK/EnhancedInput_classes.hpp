@@ -233,7 +233,7 @@ class UEnhancedInputLocalPlayerSubsystem final : public ULocalPlayerSubsystem
 {
 public:
 	uint8                                         Pad_30[0x1A0];                                     // 0x0030(0x01A0)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void()>              ControlMappingsRebuiltDelegate;                    // 0x01D0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             ControlMappingsRebuiltDelegate;                    // 0x01D0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()

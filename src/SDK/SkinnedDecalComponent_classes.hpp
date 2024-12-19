@@ -26,7 +26,7 @@ class USkinnedDecalInstance final : public USceneComponent
 public:
 	int32                                         Index_0;                                           // 0x02A0(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         SubUV;                                             // 0x02A4(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         size;                                              // 0x02A8(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Size;                                              // 0x02A8(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_2AC[0x4];                                      // 0x02AC(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
@@ -47,7 +47,7 @@ static_assert(alignof(USkinnedDecalInstance) == 0x000010, "Wrong alignment on US
 static_assert(sizeof(USkinnedDecalInstance) == 0x0002B0, "Wrong size on USkinnedDecalInstance");
 static_assert(offsetof(USkinnedDecalInstance, Index_0) == 0x0002A0, "Member 'USkinnedDecalInstance::Index_0' has a wrong offset!");
 static_assert(offsetof(USkinnedDecalInstance, SubUV) == 0x0002A4, "Member 'USkinnedDecalInstance::SubUV' has a wrong offset!");
-static_assert(offsetof(USkinnedDecalInstance, size) == 0x0002A8, "Member 'USkinnedDecalInstance::size' has a wrong offset!");
+static_assert(offsetof(USkinnedDecalInstance, Size) == 0x0002A8, "Member 'USkinnedDecalInstance::Size' has a wrong offset!");
 
 // Class SkinnedDecalComponent.SkinnedDecalSampler
 // 0x00C8 (0x0168 - 0x00A0)
@@ -80,7 +80,7 @@ public:
 	void RemoveDecal(const int32 Index_0);
 	void SetMeshComponent(class USkeletalMeshComponent* MeshComponent, bool Child);
 	void SetupMaterials();
-	int32 SpawnDecal(const struct FVector& Location, const struct FQuat& Rotation, class FName BoneName, float size, int32 SubUV, int32 Index_0);
+	int32 SpawnDecal(const struct FVector& Location, const struct FQuat& Rotation, class FName BoneName, float Size, int32 SubUV, int32 Index_0);
 	void UpdateAllDecals();
 	void UpdateInstance(class USkinnedDecalInstance* Instance);
 

@@ -73,8 +73,8 @@ class UBuoyancyComponent final : public UActorComponent
 {
 public:
 	TArray<struct FSphericalPontoon>              Pontoons;                                          // 0x00A0(0x0010)(ZeroConstructor, Deprecated, ContainsInstancedReference, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void(struct FSphericalPontoon& Pontoon)> OnEnteredWaterDelegate;                            // 0x00B0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void(struct FSphericalPontoon& Pontoon)> OnExitedWaterDelegate;                             // 0x00C0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnEnteredWaterDelegate;                            // 0x00B0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnExitedWaterDelegate;                             // 0x00C0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 	struct FBuoyancyData                          BuoyancyData;                                      // 0x00D0(0x0090)(Edit, BlueprintVisible, BlueprintReadOnly, DisableEditOnInstance, ContainsInstancedReference, NativeAccessSpecifierPublic)
 	TArray<class UWaterBodyComponent*>            CurrentWaterBodyComponents;                        // 0x0160(0x0010)(ExportObject, ZeroConstructor, Transient, ContainsInstancedReference, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
 	class UPrimitiveComponent*                    SimulatingComponent;                               // 0x0170(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
@@ -1051,8 +1051,8 @@ class UWaterSubsystem final : public UTickableWorldSubsystem
 public:
 	uint8                                         Pad_40[0x38];                                      // 0x0040(0x0038)(Fixing Size After Last Property [ Dumper-7 ])
 	class ABuoyancyManager*                       BuoyancyManager;                                   // 0x0078(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void(bool bIsUnderWater, float DepthUnderwater)> OnCameraUnderwaterStateChanged;                    // 0x0080(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void()>              OnWaterScalabilityChanged;                         // 0x0090(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnCameraUnderwaterStateChanged;                    // 0x0080(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnWaterScalabilityChanged;                         // 0x0090(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 	class UStaticMesh*                            DefaultRiverMesh;                                  // 0x00A0(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class UStaticMesh*                            DefaultLakeMesh;                                   // 0x00A8(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_B0[0x28];                                      // 0x00B0(0x0028)(Fixing Size After Last Property [ Dumper-7 ])
@@ -1064,7 +1064,7 @@ public:
 	static int32 GetShallowWaterMaxImpulseForces();
 	static int32 GetShallowWaterSimulationRenderTargetSize();
 
-	void PrintToWaterLog(const class FString& message, bool bWarning);
+	void PrintToWaterLog(const class FString& Message, bool bWarning);
 	void SetOceanFloodHeight(float InFloodHeight);
 
 	float GetCameraUnderwaterDepth() const;

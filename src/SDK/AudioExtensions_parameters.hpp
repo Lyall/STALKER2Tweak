@@ -88,12 +88,12 @@ struct AudioParameterControllerInterface_SetIntParameter final
 {
 public:
 	class FName                                   InName;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         inInt;                                             // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         InInt;                                             // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(AudioParameterControllerInterface_SetIntParameter) == 0x000004, "Wrong alignment on AudioParameterControllerInterface_SetIntParameter");
 static_assert(sizeof(AudioParameterControllerInterface_SetIntParameter) == 0x00000C, "Wrong size on AudioParameterControllerInterface_SetIntParameter");
 static_assert(offsetof(AudioParameterControllerInterface_SetIntParameter, InName) == 0x000000, "Member 'AudioParameterControllerInterface_SetIntParameter::InName' has a wrong offset!");
-static_assert(offsetof(AudioParameterControllerInterface_SetIntParameter, inInt) == 0x000008, "Member 'AudioParameterControllerInterface_SetIntParameter::inInt' has a wrong offset!");
+static_assert(offsetof(AudioParameterControllerInterface_SetIntParameter, InInt) == 0x000008, "Member 'AudioParameterControllerInterface_SetIntParameter::InInt' has a wrong offset!");
 
 // Function AudioExtensions.AudioParameterControllerInterface.SetObjectArrayParameter
 // 0x0018 (0x0018 - 0x0000)

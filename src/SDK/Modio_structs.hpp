@@ -151,7 +151,7 @@ enum class EModioModfilePlatform : uint8
 	Mac                                      = 1,
 	Linux                                    = 2,
 	Android                                  = 3,
-	iOS                                      = 4,
+	IOS                                      = 4,
 	XboxOne                                  = 5,
 	XboxSeriesX                              = 6,
 	PS4                                      = 7,
@@ -433,17 +433,6 @@ static_assert(offsetof(FModioFileMetadata, Version) == 0x000038, "Member 'FModio
 static_assert(offsetof(FModioFileMetadata, Changelog) == 0x000048, "Member 'FModioFileMetadata::Changelog' has a wrong offset!");
 static_assert(offsetof(FModioFileMetadata, MetadataBlob) == 0x000058, "Member 'FModioFileMetadata::MetadataBlob' has a wrong offset!");
 
-// ScriptStruct Modio.ModioEntitlementParams
-// 0x0050 (0x0050 - 0x0000)
-struct FModioEntitlementParams final
-{
-public:
-	TMap<class FString, class FString>            ExtendedParameters;                                // 0x0000(0x0050)(Edit, NativeAccessSpecifierPrivate)
-};
-static_assert(alignof(FModioEntitlementParams) == 0x000008, "Wrong alignment on FModioEntitlementParams");
-static_assert(sizeof(FModioEntitlementParams) == 0x000050, "Wrong size on FModioEntitlementParams");
-static_assert(offsetof(FModioEntitlementParams, ExtendedParameters) == 0x000000, "Member 'FModioEntitlementParams::ExtendedParameters' has a wrong offset!");
-
 // ScriptStruct Modio.ModioPagedResult
 // 0x0014 (0x0014 - 0x0000)
 struct FModioPagedResult final
@@ -508,16 +497,16 @@ static_assert(sizeof(FModioUserID) == 0x000008, "Wrong size on FModioUserID");
 struct FModioUser final
 {
 public:
-	struct FModioUserID                           userId;                                            // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 username;                                          // 0x0008(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FModioUserID                           UserId;                                            // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 Username;                                          // 0x0008(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FDateTime                              DateOnline;                                        // 0x0018(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FString                                 ProfileUrl;                                        // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FString                                 DisplayNamePortal;                                 // 0x0030(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FModioUser) == 0x000008, "Wrong alignment on FModioUser");
 static_assert(sizeof(FModioUser) == 0x000040, "Wrong size on FModioUser");
-static_assert(offsetof(FModioUser, userId) == 0x000000, "Member 'FModioUser::userId' has a wrong offset!");
-static_assert(offsetof(FModioUser, username) == 0x000008, "Member 'FModioUser::username' has a wrong offset!");
+static_assert(offsetof(FModioUser, UserId) == 0x000000, "Member 'FModioUser::UserId' has a wrong offset!");
+static_assert(offsetof(FModioUser, Username) == 0x000008, "Member 'FModioUser::Username' has a wrong offset!");
 static_assert(offsetof(FModioUser, DateOnline) == 0x000018, "Member 'FModioUser::DateOnline' has a wrong offset!");
 static_assert(offsetof(FModioUser, ProfileUrl) == 0x000020, "Member 'FModioUser::ProfileUrl' has a wrong offset!");
 static_assert(offsetof(FModioUser, DisplayNamePortal) == 0x000030, "Member 'FModioUser::DisplayNamePortal' has a wrong offset!");
@@ -653,6 +642,83 @@ public:
 static_assert(alignof(FModioFilterParams) == 0x000008, "Wrong alignment on FModioFilterParams");
 static_assert(sizeof(FModioFilterParams) == 0x0000A8, "Wrong size on FModioFilterParams");
 
+// ScriptStruct Modio.ModioMapPreview
+// 0x0050 (0x0050 - 0x0000)
+struct alignas(0x08) FModioMapPreview final
+{
+public:
+	uint8                                         Pad_0[0x50];                                       // 0x0000(0x0050)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(FModioMapPreview) == 0x000008, "Wrong alignment on FModioMapPreview");
+static_assert(sizeof(FModioMapPreview) == 0x000050, "Wrong size on FModioMapPreview");
+
+// ScriptStruct Modio.ModioValidationError
+// 0x0020 (0x0020 - 0x0000)
+struct FModioValidationError final
+{
+public:
+	class FString                                 FieldName;                                         // 0x0000(0x0010)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnTemplate, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 ValidationFailureDescription;                      // 0x0010(0x0010)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnTemplate, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(FModioValidationError) == 0x000008, "Wrong alignment on FModioValidationError");
+static_assert(sizeof(FModioValidationError) == 0x000020, "Wrong size on FModioValidationError");
+static_assert(offsetof(FModioValidationError, FieldName) == 0x000000, "Member 'FModioValidationError::FieldName' has a wrong offset!");
+static_assert(offsetof(FModioValidationError, ValidationFailureDescription) == 0x000010, "Member 'FModioValidationError::ValidationFailureDescription' has a wrong offset!");
+
+// ScriptStruct Modio.ModioUnsigned64
+// 0x0008 (0x0008 - 0x0000)
+struct alignas(0x08) FModioUnsigned64 final
+{
+public:
+	uint8                                         Pad_0[0x8];                                        // 0x0000(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(FModioUnsigned64) == 0x000008, "Wrong alignment on FModioUnsigned64");
+static_assert(sizeof(FModioUnsigned64) == 0x000008, "Wrong size on FModioUnsigned64");
+
+// ScriptStruct Modio.ModioTransactionRecord
+// 0x0018 (0x0018 - 0x0000)
+struct FModioTransactionRecord final
+{
+public:
+	struct FModioModID                            AssociatedMod;                                     // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FModioUnsigned64                       Price;                                             // 0x0008(0x0008)(BlueprintVisible, BlueprintReadOnly, NoDestructor, NativeAccessSpecifierPublic)
+	struct FModioUnsigned64                       UpdatedUserWalletBalance;                          // 0x0010(0x0008)(BlueprintVisible, BlueprintReadOnly, NoDestructor, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(FModioTransactionRecord) == 0x000008, "Wrong alignment on FModioTransactionRecord");
+static_assert(sizeof(FModioTransactionRecord) == 0x000018, "Wrong size on FModioTransactionRecord");
+static_assert(offsetof(FModioTransactionRecord, AssociatedMod) == 0x000000, "Member 'FModioTransactionRecord::AssociatedMod' has a wrong offset!");
+static_assert(offsetof(FModioTransactionRecord, Price) == 0x000008, "Member 'FModioTransactionRecord::Price' has a wrong offset!");
+static_assert(offsetof(FModioTransactionRecord, UpdatedUserWalletBalance) == 0x000010, "Member 'FModioTransactionRecord::UpdatedUserWalletBalance' has a wrong offset!");
+
+// ScriptStruct Modio.ModioOptionalModProgressInfo
+// 0x0058 (0x0058 - 0x0000)
+struct alignas(0x08) FModioOptionalModProgressInfo final
+{
+public:
+	uint8                                         Pad_0[0x58];                                       // 0x0000(0x0058)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(FModioOptionalModProgressInfo) == 0x000008, "Wrong alignment on FModioOptionalModProgressInfo");
+static_assert(sizeof(FModioOptionalModProgressInfo) == 0x000058, "Wrong size on FModioOptionalModProgressInfo");
+
+// ScriptStruct Modio.ModioLogo
+// 0x0050 (0x0050 - 0x0000)
+struct FModioLogo final
+{
+public:
+	class FString                                 Filename;                                          // 0x0000(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 Original;                                          // 0x0010(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 Thumb320x180;                                      // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 Thumb640x360;                                      // 0x0030(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 Thumb1280x720;                                     // 0x0040(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(FModioLogo) == 0x000008, "Wrong alignment on FModioLogo");
+static_assert(sizeof(FModioLogo) == 0x000050, "Wrong size on FModioLogo");
+static_assert(offsetof(FModioLogo, Filename) == 0x000000, "Member 'FModioLogo::Filename' has a wrong offset!");
+static_assert(offsetof(FModioLogo, Original) == 0x000010, "Member 'FModioLogo::Original' has a wrong offset!");
+static_assert(offsetof(FModioLogo, Thumb320x180) == 0x000020, "Member 'FModioLogo::Thumb320x180' has a wrong offset!");
+static_assert(offsetof(FModioLogo, Thumb640x360) == 0x000030, "Member 'FModioLogo::Thumb640x360' has a wrong offset!");
+static_assert(offsetof(FModioLogo, Thumb1280x720) == 0x000040, "Member 'FModioLogo::Thumb1280x720' has a wrong offset!");
+
 // ScriptStruct Modio.ModioModTagInfo
 // 0x0028 (0x0028 - 0x0000)
 struct FModioModTagInfo final
@@ -683,6 +749,32 @@ static_assert(sizeof(FModioModTagOptions) == 0x000028, "Wrong size on FModioModT
 static_assert(offsetof(FModioModTagOptions, PagedResult) == 0x000000, "Member 'FModioModTagOptions::PagedResult' has a wrong offset!");
 static_assert(offsetof(FModioModTagOptions, InternalList) == 0x000018, "Member 'FModioModTagOptions::InternalList' has a wrong offset!");
 
+// ScriptStruct Modio.ModioHeaderImage
+// 0x0020 (0x0020 - 0x0000)
+struct FModioHeaderImage final
+{
+public:
+	class FString                                 Filename;                                          // 0x0000(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 Original;                                          // 0x0010(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(FModioHeaderImage) == 0x000008, "Wrong alignment on FModioHeaderImage");
+static_assert(sizeof(FModioHeaderImage) == 0x000020, "Wrong size on FModioHeaderImage");
+static_assert(offsetof(FModioHeaderImage, Filename) == 0x000000, "Member 'FModioHeaderImage::Filename' has a wrong offset!");
+static_assert(offsetof(FModioHeaderImage, Original) == 0x000010, "Member 'FModioHeaderImage::Original' has a wrong offset!");
+
+// ScriptStruct Modio.ModioModDependency
+// 0x0018 (0x0018 - 0x0000)
+struct FModioModDependency final
+{
+public:
+	struct FModioModID                            ModId;                                             // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 ModName;                                           // 0x0008(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(FModioModDependency) == 0x000008, "Wrong alignment on FModioModDependency");
+static_assert(sizeof(FModioModDependency) == 0x000018, "Wrong size on FModioModDependency");
+static_assert(offsetof(FModioModDependency, ModId) == 0x000000, "Member 'FModioModDependency::ModId' has a wrong offset!");
+static_assert(offsetof(FModioModDependency, ModName) == 0x000008, "Member 'FModioModDependency::ModName' has a wrong offset!");
+
 // ScriptStruct Modio.ModioErrorCode
 // 0x0008 (0x0008 - 0x0000)
 struct alignas(0x08) FModioErrorCode final
@@ -692,26 +784,6 @@ public:
 };
 static_assert(alignof(FModioErrorCode) == 0x000008, "Wrong alignment on FModioErrorCode");
 static_assert(sizeof(FModioErrorCode) == 0x000008, "Wrong size on FModioErrorCode");
-
-// ScriptStruct Modio.ModioOptionalGameInfo
-// 0x0228 (0x0228 - 0x0000)
-struct alignas(0x08) FModioOptionalGameInfo final
-{
-public:
-	uint8                                         Pad_0[0x228];                                      // 0x0000(0x0228)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(FModioOptionalGameInfo) == 0x000008, "Wrong alignment on FModioOptionalGameInfo");
-static_assert(sizeof(FModioOptionalGameInfo) == 0x000228, "Wrong size on FModioOptionalGameInfo");
-
-// ScriptStruct Modio.ModioOptionalImage
-// 0x0018 (0x0018 - 0x0000)
-struct alignas(0x08) FModioOptionalImage final
-{
-public:
-	uint8                                         Pad_0[0x18];                                       // 0x0000(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(FModioOptionalImage) == 0x000008, "Wrong alignment on FModioOptionalImage");
-static_assert(sizeof(FModioOptionalImage) == 0x000018, "Wrong size on FModioOptionalImage");
 
 // ScriptStruct Modio.ModioOptionalTransactionRecord
 // 0x0020 (0x0020 - 0x0000)
@@ -723,126 +795,15 @@ public:
 static_assert(alignof(FModioOptionalTransactionRecord) == 0x000008, "Wrong alignment on FModioOptionalTransactionRecord");
 static_assert(sizeof(FModioOptionalTransactionRecord) == 0x000020, "Wrong size on FModioOptionalTransactionRecord");
 
-// ScriptStruct Modio.ModioOptionalModDependencyList
-// 0x0030 (0x0030 - 0x0000)
-struct alignas(0x08) FModioOptionalModDependencyList final
+// ScriptStruct Modio.ModioOptionalGameInfo
+// 0x0228 (0x0228 - 0x0000)
+struct alignas(0x08) FModioOptionalGameInfo final
 {
 public:
-	uint8                                         Pad_0[0x30];                                       // 0x0000(0x0030)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_0[0x228];                                      // 0x0000(0x0228)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-static_assert(alignof(FModioOptionalModDependencyList) == 0x000008, "Wrong alignment on FModioOptionalModDependencyList");
-static_assert(sizeof(FModioOptionalModDependencyList) == 0x000030, "Wrong size on FModioOptionalModDependencyList");
-
-// ScriptStruct Modio.ModioOptionalModInfo
-// 0x01E8 (0x01E8 - 0x0000)
-struct alignas(0x08) FModioOptionalModInfo final
-{
-public:
-	uint8                                         Pad_0[0x1E8];                                      // 0x0000(0x01E8)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(FModioOptionalModInfo) == 0x000008, "Wrong alignment on FModioOptionalModInfo");
-static_assert(sizeof(FModioOptionalModInfo) == 0x0001E8, "Wrong size on FModioOptionalModInfo");
-
-// ScriptStruct Modio.ModioOptionalModTagOptions
-// 0x0030 (0x0030 - 0x0000)
-struct alignas(0x08) FModioOptionalModTagOptions final
-{
-public:
-	uint8                                         Pad_0[0x30];                                       // 0x0000(0x0030)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(FModioOptionalModTagOptions) == 0x000008, "Wrong alignment on FModioOptionalModTagOptions");
-static_assert(sizeof(FModioOptionalModTagOptions) == 0x000030, "Wrong size on FModioOptionalModTagOptions");
-
-// ScriptStruct Modio.ModioUserList
-// 0x0028 (0x0028 - 0x0000)
-struct FModioUserList final
-{
-public:
-	struct FModioPagedResult                      PagedResult;                                       // 0x0000(0x0014)(BlueprintVisible, BlueprintReadOnly, NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_14[0x4];                                       // 0x0014(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FModioUser>                     InternalList;                                      // 0x0018(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(FModioUserList) == 0x000008, "Wrong alignment on FModioUserList");
-static_assert(sizeof(FModioUserList) == 0x000028, "Wrong size on FModioUserList");
-static_assert(offsetof(FModioUserList, PagedResult) == 0x000000, "Member 'FModioUserList::PagedResult' has a wrong offset!");
-static_assert(offsetof(FModioUserList, InternalList) == 0x000018, "Member 'FModioUserList::InternalList' has a wrong offset!");
-
-// ScriptStruct Modio.ModioOptionalTerms
-// 0x00D8 (0x00D8 - 0x0000)
-struct alignas(0x08) FModioOptionalTerms final
-{
-public:
-	uint8                                         Pad_0[0xD8];                                       // 0x0000(0x00D8)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(FModioOptionalTerms) == 0x000008, "Wrong alignment on FModioOptionalTerms");
-static_assert(sizeof(FModioOptionalTerms) == 0x0000D8, "Wrong size on FModioOptionalTerms");
-
-// ScriptStruct Modio.ModioModCollectionEntry
-// 0x0218 (0x0218 - 0x0000)
-struct alignas(0x08) FModioModCollectionEntry final
-{
-public:
-	uint8                                         Pad_0[0x218];                                      // 0x0000(0x0218)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(FModioModCollectionEntry) == 0x000008, "Wrong alignment on FModioModCollectionEntry");
-static_assert(sizeof(FModioModCollectionEntry) == 0x000218, "Wrong size on FModioModCollectionEntry");
-
-// ScriptStruct Modio.ModioOptionalModInfoList
-// 0x0030 (0x0030 - 0x0000)
-struct alignas(0x08) FModioOptionalModInfoList final
-{
-public:
-	uint8                                         Pad_0[0x30];                                       // 0x0000(0x0030)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(FModioOptionalModInfoList) == 0x000008, "Wrong alignment on FModioOptionalModInfoList");
-static_assert(sizeof(FModioOptionalModInfoList) == 0x000030, "Wrong size on FModioOptionalModInfoList");
-
-// ScriptStruct Modio.ModioModManagementEvent
-// 0x0018 (0x0018 - 0x0000)
-struct FModioModManagementEvent final
-{
-public:
-	struct FModioModID                            ID;                                                // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EModioModManagementEventType                  Event;                                             // 0x0008(0x0001)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FModioErrorCode                        Status;                                            // 0x0010(0x0008)(BlueprintVisible, BlueprintReadOnly, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(FModioModManagementEvent) == 0x000008, "Wrong alignment on FModioModManagementEvent");
-static_assert(sizeof(FModioModManagementEvent) == 0x000018, "Wrong size on FModioModManagementEvent");
-static_assert(offsetof(FModioModManagementEvent, ID) == 0x000000, "Member 'FModioModManagementEvent::ID' has a wrong offset!");
-static_assert(offsetof(FModioModManagementEvent, Event) == 0x000008, "Member 'FModioModManagementEvent::Event' has a wrong offset!");
-static_assert(offsetof(FModioModManagementEvent, Status) == 0x000010, "Member 'FModioModManagementEvent::Status' has a wrong offset!");
-
-// ScriptStruct Modio.ModioModCreationHandle
-// 0x0008 (0x0008 - 0x0000)
-struct alignas(0x08) FModioModCreationHandle final
-{
-public:
-	uint8                                         Pad_0[0x8];                                        // 0x0000(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(FModioModCreationHandle) == 0x000008, "Wrong alignment on FModioModCreationHandle");
-static_assert(sizeof(FModioModCreationHandle) == 0x000008, "Wrong size on FModioModCreationHandle");
-
-// ScriptStruct Modio.ModioOptionalUserList
-// 0x0030 (0x0030 - 0x0000)
-struct alignas(0x08) FModioOptionalUserList final
-{
-public:
-	uint8                                         Pad_0[0x30];                                       // 0x0000(0x0030)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(FModioOptionalUserList) == 0x000008, "Wrong alignment on FModioOptionalUserList");
-static_assert(sizeof(FModioOptionalUserList) == 0x000030, "Wrong size on FModioOptionalUserList");
-
-// ScriptStruct Modio.ModioGameID
-// 0x0008 (0x0008 - 0x0000)
-struct FModioGameID final
-{
-public:
-	int64                                         GameId;                                            // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-};
-static_assert(alignof(FModioGameID) == 0x000008, "Wrong alignment on FModioGameID");
-static_assert(sizeof(FModioGameID) == 0x000008, "Wrong size on FModioGameID");
-static_assert(offsetof(FModioGameID, GameId) == 0x000000, "Member 'FModioGameID::GameId' has a wrong offset!");
+static_assert(alignof(FModioOptionalGameInfo) == 0x000008, "Wrong alignment on FModioOptionalGameInfo");
+static_assert(sizeof(FModioOptionalGameInfo) == 0x000228, "Wrong size on FModioOptionalGameInfo");
 
 // ScriptStruct Modio.ModioIcon
 // 0x0050 (0x0050 - 0x0000)
@@ -863,58 +824,48 @@ static_assert(offsetof(FModioIcon, Thumb64x64) == 0x000020, "Member 'FModioIcon:
 static_assert(offsetof(FModioIcon, Thumb128x128) == 0x000030, "Member 'FModioIcon::Thumb128x128' has a wrong offset!");
 static_assert(offsetof(FModioIcon, Thumb256x256) == 0x000040, "Member 'FModioIcon::Thumb256x256' has a wrong offset!");
 
-// ScriptStruct Modio.ModioLogo
-// 0x0050 (0x0050 - 0x0000)
-struct FModioLogo final
+// ScriptStruct Modio.ModioOptionalImage
+// 0x0018 (0x0018 - 0x0000)
+struct alignas(0x08) FModioOptionalImage final
 {
 public:
-	class FString                                 Filename;                                          // 0x0000(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 Original;                                          // 0x0010(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 Thumb320x180;                                      // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 Thumb640x360;                                      // 0x0030(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 Thumb1280x720;                                     // 0x0040(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_0[0x18];                                       // 0x0000(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-static_assert(alignof(FModioLogo) == 0x000008, "Wrong alignment on FModioLogo");
-static_assert(sizeof(FModioLogo) == 0x000050, "Wrong size on FModioLogo");
-static_assert(offsetof(FModioLogo, Filename) == 0x000000, "Member 'FModioLogo::Filename' has a wrong offset!");
-static_assert(offsetof(FModioLogo, Original) == 0x000010, "Member 'FModioLogo::Original' has a wrong offset!");
-static_assert(offsetof(FModioLogo, Thumb320x180) == 0x000020, "Member 'FModioLogo::Thumb320x180' has a wrong offset!");
-static_assert(offsetof(FModioLogo, Thumb640x360) == 0x000030, "Member 'FModioLogo::Thumb640x360' has a wrong offset!");
-static_assert(offsetof(FModioLogo, Thumb1280x720) == 0x000040, "Member 'FModioLogo::Thumb1280x720' has a wrong offset!");
+static_assert(alignof(FModioOptionalImage) == 0x000008, "Wrong alignment on FModioOptionalImage");
+static_assert(sizeof(FModioOptionalImage) == 0x000018, "Wrong size on FModioOptionalImage");
 
-// ScriptStruct Modio.ModioHeaderImage
-// 0x0020 (0x0020 - 0x0000)
-struct FModioHeaderImage final
+// ScriptStruct Modio.ModioCreateModFileParams
+// 0x0078 (0x0078 - 0x0000)
+struct FModioCreateModFileParams final
 {
 public:
-	class FString                                 Filename;                                          // 0x0000(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 Original;                                          // 0x0010(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 PathToModRootDirectory;                            // 0x0000(0x0010)(Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_10[0x68];                                      // 0x0010(0x0068)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-static_assert(alignof(FModioHeaderImage) == 0x000008, "Wrong alignment on FModioHeaderImage");
-static_assert(sizeof(FModioHeaderImage) == 0x000020, "Wrong size on FModioHeaderImage");
-static_assert(offsetof(FModioHeaderImage, Filename) == 0x000000, "Member 'FModioHeaderImage::Filename' has a wrong offset!");
-static_assert(offsetof(FModioHeaderImage, Original) == 0x000010, "Member 'FModioHeaderImage::Original' has a wrong offset!");
+static_assert(alignof(FModioCreateModFileParams) == 0x000008, "Wrong alignment on FModioCreateModFileParams");
+static_assert(sizeof(FModioCreateModFileParams) == 0x000078, "Wrong size on FModioCreateModFileParams");
+static_assert(offsetof(FModioCreateModFileParams, PathToModRootDirectory) == 0x000000, "Member 'FModioCreateModFileParams::PathToModRootDirectory' has a wrong offset!");
 
-// ScriptStruct Modio.ModioTheme
-// 0x0060 (0x0060 - 0x0000)
-struct FModioTheme final
+// ScriptStruct Modio.ModioOptionalModDependencyList
+// 0x0030 (0x0030 - 0x0000)
+struct alignas(0x08) FModioOptionalModDependencyList final
 {
 public:
-	class FString                                 Primary;                                           // 0x0000(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 Dark;                                              // 0x0010(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 Light;                                             // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 Success;                                           // 0x0030(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 Warning;                                           // 0x0040(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 Danger;                                            // 0x0050(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_0[0x30];                                       // 0x0000(0x0030)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-static_assert(alignof(FModioTheme) == 0x000008, "Wrong alignment on FModioTheme");
-static_assert(sizeof(FModioTheme) == 0x000060, "Wrong size on FModioTheme");
-static_assert(offsetof(FModioTheme, Primary) == 0x000000, "Member 'FModioTheme::Primary' has a wrong offset!");
-static_assert(offsetof(FModioTheme, Dark) == 0x000010, "Member 'FModioTheme::Dark' has a wrong offset!");
-static_assert(offsetof(FModioTheme, Light) == 0x000020, "Member 'FModioTheme::Light' has a wrong offset!");
-static_assert(offsetof(FModioTheme, Success) == 0x000030, "Member 'FModioTheme::Success' has a wrong offset!");
-static_assert(offsetof(FModioTheme, Warning) == 0x000040, "Member 'FModioTheme::Warning' has a wrong offset!");
-static_assert(offsetof(FModioTheme, Danger) == 0x000050, "Member 'FModioTheme::Danger' has a wrong offset!");
+static_assert(alignof(FModioOptionalModDependencyList) == 0x000008, "Wrong alignment on FModioOptionalModDependencyList");
+static_assert(sizeof(FModioOptionalModDependencyList) == 0x000030, "Wrong size on FModioOptionalModDependencyList");
+
+// ScriptStruct Modio.ModioGameID
+// 0x0008 (0x0008 - 0x0000)
+struct FModioGameID final
+{
+public:
+	int64                                         GameId;                                            // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+};
+static_assert(alignof(FModioGameID) == 0x000008, "Wrong alignment on FModioGameID");
+static_assert(sizeof(FModioGameID) == 0x000008, "Wrong size on FModioGameID");
+static_assert(offsetof(FModioGameID, GameId) == 0x000000, "Member 'FModioGameID::GameId' has a wrong offset!");
 
 // ScriptStruct Modio.ModioGameStats
 // 0x0038 (0x0038 - 0x0000)
@@ -939,18 +890,65 @@ static_assert(offsetof(FModioGameStats, ModDownloadsDailyAverage) == 0x000020, "
 static_assert(offsetof(FModioGameStats, ModSubscribersTotal) == 0x000028, "Member 'FModioGameStats::ModSubscribersTotal' has a wrong offset!");
 static_assert(offsetof(FModioGameStats, DateExpires) == 0x000030, "Member 'FModioGameStats::DateExpires' has a wrong offset!");
 
-// ScriptStruct Modio.ModioOtherUrl
-// 0x0020 (0x0020 - 0x0000)
-struct FModioOtherUrl final
+// ScriptStruct Modio.ModioOptionalModInfo
+// 0x01E8 (0x01E8 - 0x0000)
+struct alignas(0x08) FModioOptionalModInfo final
 {
 public:
-	class FString                                 Label;                                             // 0x0000(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 URL;                                               // 0x0010(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_0[0x1E8];                                      // 0x0000(0x01E8)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-static_assert(alignof(FModioOtherUrl) == 0x000008, "Wrong alignment on FModioOtherUrl");
-static_assert(sizeof(FModioOtherUrl) == 0x000020, "Wrong size on FModioOtherUrl");
-static_assert(offsetof(FModioOtherUrl, Label) == 0x000000, "Member 'FModioOtherUrl::Label' has a wrong offset!");
-static_assert(offsetof(FModioOtherUrl, URL) == 0x000010, "Member 'FModioOtherUrl::URL' has a wrong offset!");
+static_assert(alignof(FModioOptionalModInfo) == 0x000008, "Wrong alignment on FModioOptionalModInfo");
+static_assert(sizeof(FModioOptionalModInfo) == 0x0001E8, "Wrong size on FModioOptionalModInfo");
+
+// ScriptStruct Modio.ModioModCollectionEntry
+// 0x0218 (0x0218 - 0x0000)
+struct alignas(0x08) FModioModCollectionEntry final
+{
+public:
+	uint8                                         Pad_0[0x218];                                      // 0x0000(0x0218)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(FModioModCollectionEntry) == 0x000008, "Wrong alignment on FModioModCollectionEntry");
+static_assert(sizeof(FModioModCollectionEntry) == 0x000218, "Wrong size on FModioModCollectionEntry");
+
+// ScriptStruct Modio.ModioOptionalModTagOptions
+// 0x0030 (0x0030 - 0x0000)
+struct alignas(0x08) FModioOptionalModTagOptions final
+{
+public:
+	uint8                                         Pad_0[0x30];                                       // 0x0000(0x0030)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(FModioOptionalModTagOptions) == 0x000008, "Wrong alignment on FModioOptionalModTagOptions");
+static_assert(sizeof(FModioOptionalModTagOptions) == 0x000030, "Wrong size on FModioOptionalModTagOptions");
+
+// ScriptStruct Modio.ModioEditModParams
+// 0x00D0 (0x00D0 - 0x0000)
+struct alignas(0x08) FModioEditModParams final
+{
+public:
+	uint8                                         Pad_0[0xD0];                                       // 0x0000(0x00D0)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(FModioEditModParams) == 0x000008, "Wrong alignment on FModioEditModParams");
+static_assert(sizeof(FModioEditModParams) == 0x0000D0, "Wrong size on FModioEditModParams");
+
+// ScriptStruct Modio.ModioOptionalTerms
+// 0x00D8 (0x00D8 - 0x0000)
+struct alignas(0x08) FModioOptionalTerms final
+{
+public:
+	uint8                                         Pad_0[0xD8];                                       // 0x0000(0x00D8)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(FModioOptionalTerms) == 0x000008, "Wrong alignment on FModioOptionalTerms");
+static_assert(sizeof(FModioOptionalTerms) == 0x0000D8, "Wrong size on FModioOptionalTerms");
+
+// ScriptStruct Modio.ModioOptionalModInfoList
+// 0x0030 (0x0030 - 0x0000)
+struct alignas(0x08) FModioOptionalModInfoList final
+{
+public:
+	uint8                                         Pad_0[0x30];                                       // 0x0000(0x0030)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(FModioOptionalModInfoList) == 0x000008, "Wrong alignment on FModioOptionalModInfoList");
+static_assert(sizeof(FModioOptionalModInfoList) == 0x000030, "Wrong size on FModioOptionalModInfoList");
 
 // ScriptStruct Modio.ModioGamePlatform
 // 0x0003 (0x0003 - 0x0000)
@@ -967,55 +965,31 @@ static_assert(offsetof(FModioGamePlatform, Platform) == 0x000000, "Member 'FModi
 static_assert(offsetof(FModioGamePlatform, Locked) == 0x000001, "Member 'FModioGamePlatform::Locked' has a wrong offset!");
 static_assert(offsetof(FModioGamePlatform, Moderated) == 0x000002, "Member 'FModioGamePlatform::Moderated' has a wrong offset!");
 
-// ScriptStruct Modio.ModioGameInfo
-// 0x0220 (0x0220 - 0x0000)
-struct FModioGameInfo final
+// ScriptStruct Modio.ModioModManagementEvent
+// 0x0018 (0x0018 - 0x0000)
+struct FModioModManagementEvent final
 {
 public:
-	struct FModioGameID                           GameId;                                            // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FDateTime                              DateAdded;                                         // 0x0008(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FDateTime                              DateUpdated;                                       // 0x0010(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FDateTime                              DateLive;                                          // 0x0018(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 UgcName;                                           // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FModioIcon                             Icon;                                              // 0x0030(0x0050)(BlueprintVisible, BlueprintReadOnly, NativeAccessSpecifierPublic)
-	struct FModioLogo                             Logo;                                              // 0x0080(0x0050)(BlueprintVisible, BlueprintReadOnly, NativeAccessSpecifierPublic)
-	struct FModioHeaderImage                      HeaderImage;                                       // 0x00D0(0x0020)(BlueprintVisible, BlueprintReadOnly, NativeAccessSpecifierPublic)
-	class FString                                 Name;                                              // 0x00F0(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 Summary;                                           // 0x0100(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 Instructions;                                      // 0x0110(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 InstructionsUrl;                                   // 0x0120(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 ProfileUrl;                                        // 0x0130(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FModioTheme                            Theme;                                             // 0x0140(0x0060)(BlueprintVisible, BlueprintReadOnly, NativeAccessSpecifierPublic)
-	struct FModioGameStats                        Stats;                                             // 0x01A0(0x0038)(BlueprintVisible, BlueprintReadOnly, NoDestructor, NativeAccessSpecifierPublic)
-	TArray<struct FModioOtherUrl>                 OtherUrls;                                         // 0x01D8(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NativeAccessSpecifierPublic)
-	TArray<EModioModfilePlatform>                 Platforms;                                         // 0x01E8(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NativeAccessSpecifierPublic)
-	EGameMonetizationFlags                        GameMonetizationOptions;                           // 0x01F8(0x0001)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1F9[0x7];                                      // 0x01F9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class FString                                 VirtualTokenName;                                  // 0x0200(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TArray<struct FModioGamePlatform>             PlatformSupport;                                   // 0x0210(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NativeAccessSpecifierPublic)
+	struct FModioModID                            ID;                                                // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EModioModManagementEventType                  Event;                                             // 0x0008(0x0001)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FModioErrorCode                        Status;                                            // 0x0010(0x0008)(BlueprintVisible, BlueprintReadOnly, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(FModioGameInfo) == 0x000008, "Wrong alignment on FModioGameInfo");
-static_assert(sizeof(FModioGameInfo) == 0x000220, "Wrong size on FModioGameInfo");
-static_assert(offsetof(FModioGameInfo, GameId) == 0x000000, "Member 'FModioGameInfo::GameId' has a wrong offset!");
-static_assert(offsetof(FModioGameInfo, DateAdded) == 0x000008, "Member 'FModioGameInfo::DateAdded' has a wrong offset!");
-static_assert(offsetof(FModioGameInfo, DateUpdated) == 0x000010, "Member 'FModioGameInfo::DateUpdated' has a wrong offset!");
-static_assert(offsetof(FModioGameInfo, DateLive) == 0x000018, "Member 'FModioGameInfo::DateLive' has a wrong offset!");
-static_assert(offsetof(FModioGameInfo, UgcName) == 0x000020, "Member 'FModioGameInfo::UgcName' has a wrong offset!");
-static_assert(offsetof(FModioGameInfo, Icon) == 0x000030, "Member 'FModioGameInfo::Icon' has a wrong offset!");
-static_assert(offsetof(FModioGameInfo, Logo) == 0x000080, "Member 'FModioGameInfo::Logo' has a wrong offset!");
-static_assert(offsetof(FModioGameInfo, HeaderImage) == 0x0000D0, "Member 'FModioGameInfo::HeaderImage' has a wrong offset!");
-static_assert(offsetof(FModioGameInfo, Name) == 0x0000F0, "Member 'FModioGameInfo::Name' has a wrong offset!");
-static_assert(offsetof(FModioGameInfo, Summary) == 0x000100, "Member 'FModioGameInfo::Summary' has a wrong offset!");
-static_assert(offsetof(FModioGameInfo, Instructions) == 0x000110, "Member 'FModioGameInfo::Instructions' has a wrong offset!");
-static_assert(offsetof(FModioGameInfo, InstructionsUrl) == 0x000120, "Member 'FModioGameInfo::InstructionsUrl' has a wrong offset!");
-static_assert(offsetof(FModioGameInfo, ProfileUrl) == 0x000130, "Member 'FModioGameInfo::ProfileUrl' has a wrong offset!");
-static_assert(offsetof(FModioGameInfo, Theme) == 0x000140, "Member 'FModioGameInfo::Theme' has a wrong offset!");
-static_assert(offsetof(FModioGameInfo, Stats) == 0x0001A0, "Member 'FModioGameInfo::Stats' has a wrong offset!");
-static_assert(offsetof(FModioGameInfo, OtherUrls) == 0x0001D8, "Member 'FModioGameInfo::OtherUrls' has a wrong offset!");
-static_assert(offsetof(FModioGameInfo, Platforms) == 0x0001E8, "Member 'FModioGameInfo::Platforms' has a wrong offset!");
-static_assert(offsetof(FModioGameInfo, GameMonetizationOptions) == 0x0001F8, "Member 'FModioGameInfo::GameMonetizationOptions' has a wrong offset!");
-static_assert(offsetof(FModioGameInfo, VirtualTokenName) == 0x000200, "Member 'FModioGameInfo::VirtualTokenName' has a wrong offset!");
-static_assert(offsetof(FModioGameInfo, PlatformSupport) == 0x000210, "Member 'FModioGameInfo::PlatformSupport' has a wrong offset!");
+static_assert(alignof(FModioModManagementEvent) == 0x000008, "Wrong alignment on FModioModManagementEvent");
+static_assert(sizeof(FModioModManagementEvent) == 0x000018, "Wrong size on FModioModManagementEvent");
+static_assert(offsetof(FModioModManagementEvent, ID) == 0x000000, "Member 'FModioModManagementEvent::ID' has a wrong offset!");
+static_assert(offsetof(FModioModManagementEvent, Event) == 0x000008, "Member 'FModioModManagementEvent::Event' has a wrong offset!");
+static_assert(offsetof(FModioModManagementEvent, Status) == 0x000010, "Member 'FModioModManagementEvent::Status' has a wrong offset!");
+
+// ScriptStruct Modio.ModioOptionalUserList
+// 0x0030 (0x0030 - 0x0000)
+struct alignas(0x08) FModioOptionalUserList final
+{
+public:
+	uint8                                         Pad_0[0x30];                                       // 0x0000(0x0030)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(FModioOptionalUserList) == 0x000008, "Wrong alignment on FModioOptionalUserList");
+static_assert(sizeof(FModioOptionalUserList) == 0x000030, "Wrong size on FModioOptionalUserList");
 
 // ScriptStruct Modio.ModioOptionalMapPreview
 // 0x0058 (0x0058 - 0x0000)
@@ -1027,6 +1001,16 @@ public:
 static_assert(alignof(FModioOptionalMapPreview) == 0x000008, "Wrong alignment on FModioOptionalMapPreview");
 static_assert(sizeof(FModioOptionalMapPreview) == 0x000058, "Wrong size on FModioOptionalMapPreview");
 
+// ScriptStruct Modio.ModioEmailAddress
+// 0x0010 (0x0010 - 0x0000)
+struct alignas(0x08) FModioEmailAddress final
+{
+public:
+	uint8                                         Pad_0[0x10];                                       // 0x0000(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(FModioEmailAddress) == 0x000008, "Wrong alignment on FModioEmailAddress");
+static_assert(sizeof(FModioEmailAddress) == 0x000010, "Wrong size on FModioEmailAddress");
+
 // ScriptStruct Modio.ModioOptionalModID
 // 0x0010 (0x0010 - 0x0000)
 struct alignas(0x08) FModioOptionalModID final
@@ -1036,6 +1020,18 @@ public:
 };
 static_assert(alignof(FModioOptionalModID) == 0x000008, "Wrong alignment on FModioOptionalModID");
 static_assert(sizeof(FModioOptionalModID) == 0x000010, "Wrong size on FModioOptionalModID");
+
+// ScriptStruct Modio.ModioModProgressInfo
+// 0x0050 (0x0050 - 0x0000)
+struct FModioModProgressInfo final
+{
+public:
+	struct FModioModID                            ID;                                                // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_8[0x48];                                       // 0x0008(0x0048)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(FModioModProgressInfo) == 0x000008, "Wrong alignment on FModioModProgressInfo");
+static_assert(sizeof(FModioModProgressInfo) == 0x000050, "Wrong size on FModioModProgressInfo");
+static_assert(offsetof(FModioModProgressInfo, ID) == 0x000000, "Member 'FModioModProgressInfo::ID' has a wrong offset!");
 
 // ScriptStruct Modio.ModioImageWrapper
 // 0x0010 (0x0010 - 0x0000)
@@ -1048,25 +1044,29 @@ static_assert(alignof(FModioImageWrapper) == 0x000008, "Wrong alignment on FModi
 static_assert(sizeof(FModioImageWrapper) == 0x000010, "Wrong size on FModioImageWrapper");
 static_assert(offsetof(FModioImageWrapper, ImagePath) == 0x000000, "Member 'FModioImageWrapper::ImagePath' has a wrong offset!");
 
-// ScriptStruct Modio.ModioUnsigned64
-// 0x0008 (0x0008 - 0x0000)
-struct alignas(0x08) FModioUnsigned64 final
+// ScriptStruct Modio.ModioModDependencyList
+// 0x0028 (0x0028 - 0x0000)
+struct FModioModDependencyList final
 {
 public:
-	uint8                                         Pad_0[0x8];                                        // 0x0000(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FModioPagedResult                      PagedResult;                                       // 0x0000(0x0014)(BlueprintVisible, BlueprintReadOnly, NoDestructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_14[0x4];                                       // 0x0014(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FModioModDependency>            InternalList;                                      // 0x0018(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(FModioUnsigned64) == 0x000008, "Wrong alignment on FModioUnsigned64");
-static_assert(sizeof(FModioUnsigned64) == 0x000008, "Wrong size on FModioUnsigned64");
+static_assert(alignof(FModioModDependencyList) == 0x000008, "Wrong alignment on FModioModDependencyList");
+static_assert(sizeof(FModioModDependencyList) == 0x000028, "Wrong size on FModioModDependencyList");
+static_assert(offsetof(FModioModDependencyList, PagedResult) == 0x000000, "Member 'FModioModDependencyList::PagedResult' has a wrong offset!");
+static_assert(offsetof(FModioModDependencyList, InternalList) == 0x000018, "Member 'FModioModDependencyList::InternalList' has a wrong offset!");
 
-// ScriptStruct Modio.ModioOptionalModProgressInfo
-// 0x0058 (0x0058 - 0x0000)
-struct alignas(0x08) FModioOptionalModProgressInfo final
+// ScriptStruct Modio.ModioEmailAuthCode
+// 0x0010 (0x0010 - 0x0000)
+struct alignas(0x08) FModioEmailAuthCode final
 {
 public:
-	uint8                                         Pad_0[0x58];                                       // 0x0000(0x0058)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_0[0x10];                                       // 0x0000(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-static_assert(alignof(FModioOptionalModProgressInfo) == 0x000008, "Wrong alignment on FModioOptionalModProgressInfo");
-static_assert(sizeof(FModioOptionalModProgressInfo) == 0x000058, "Wrong size on FModioOptionalModProgressInfo");
+static_assert(alignof(FModioEmailAuthCode) == 0x000008, "Wrong alignment on FModioEmailAuthCode");
+static_assert(sizeof(FModioEmailAuthCode) == 0x000010, "Wrong size on FModioEmailAuthCode");
 
 // ScriptStruct Modio.ModioReportParams
 // 0x0058 (0x0058 - 0x0000)
@@ -1145,37 +1145,16 @@ static_assert(alignof(FModioApiKey) == 0x000008, "Wrong alignment on FModioApiKe
 static_assert(sizeof(FModioApiKey) == 0x000010, "Wrong size on FModioApiKey");
 static_assert(offsetof(FModioApiKey, ApiKey) == 0x000000, "Member 'FModioApiKey::ApiKey' has a wrong offset!");
 
-// ScriptStruct Modio.ModioEmailAddress
-// 0x0010 (0x0010 - 0x0000)
-struct alignas(0x08) FModioEmailAddress final
+// ScriptStruct Modio.ModioEntitlementParams
+// 0x0050 (0x0050 - 0x0000)
+struct FModioEntitlementParams final
 {
 public:
-	uint8                                         Pad_0[0x10];                                       // 0x0000(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	TMap<class FString, class FString>            ExtendedParameters;                                // 0x0000(0x0050)(Edit, NativeAccessSpecifierPrivate)
 };
-static_assert(alignof(FModioEmailAddress) == 0x000008, "Wrong alignment on FModioEmailAddress");
-static_assert(sizeof(FModioEmailAddress) == 0x000010, "Wrong size on FModioEmailAddress");
-
-// ScriptStruct Modio.ModioEmailAuthCode
-// 0x0010 (0x0010 - 0x0000)
-struct alignas(0x08) FModioEmailAuthCode final
-{
-public:
-	uint8                                         Pad_0[0x10];                                       // 0x0000(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(FModioEmailAuthCode) == 0x000008, "Wrong alignment on FModioEmailAuthCode");
-static_assert(sizeof(FModioEmailAuthCode) == 0x000010, "Wrong size on FModioEmailAuthCode");
-
-// ScriptStruct Modio.ModioCreateModFileParams
-// 0x0078 (0x0078 - 0x0000)
-struct FModioCreateModFileParams final
-{
-public:
-	class FString                                 PathToModRootDirectory;                            // 0x0000(0x0010)(Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_10[0x68];                                      // 0x0010(0x0068)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(FModioCreateModFileParams) == 0x000008, "Wrong alignment on FModioCreateModFileParams");
-static_assert(sizeof(FModioCreateModFileParams) == 0x000078, "Wrong size on FModioCreateModFileParams");
-static_assert(offsetof(FModioCreateModFileParams, PathToModRootDirectory) == 0x000000, "Member 'FModioCreateModFileParams::PathToModRootDirectory' has a wrong offset!");
+static_assert(alignof(FModioEntitlementParams) == 0x000008, "Wrong alignment on FModioEntitlementParams");
+static_assert(sizeof(FModioEntitlementParams) == 0x000050, "Wrong size on FModioEntitlementParams");
+static_assert(offsetof(FModioEntitlementParams, ExtendedParameters) == 0x000000, "Member 'FModioEntitlementParams::ExtendedParameters' has a wrong offset!");
 
 // ScriptStruct Modio.ModioCreateModParams
 // 0x00C8 (0x00C8 - 0x0000)
@@ -1193,15 +1172,89 @@ static_assert(offsetof(FModioCreateModParams, PathToLogoFile) == 0x000000, "Memb
 static_assert(offsetof(FModioCreateModParams, Name) == 0x000010, "Member 'FModioCreateModParams::Name' has a wrong offset!");
 static_assert(offsetof(FModioCreateModParams, Summary) == 0x000020, "Member 'FModioCreateModParams::Summary' has a wrong offset!");
 
-// ScriptStruct Modio.ModioEditModParams
-// 0x00D0 (0x00D0 - 0x0000)
-struct alignas(0x08) FModioEditModParams final
+// ScriptStruct Modio.ModioTheme
+// 0x0060 (0x0060 - 0x0000)
+struct FModioTheme final
 {
 public:
-	uint8                                         Pad_0[0xD0];                                       // 0x0000(0x00D0)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class FString                                 Primary;                                           // 0x0000(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 Dark;                                              // 0x0010(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 Light;                                             // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 Success;                                           // 0x0030(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 Warning;                                           // 0x0040(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 Danger;                                            // 0x0050(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(FModioEditModParams) == 0x000008, "Wrong alignment on FModioEditModParams");
-static_assert(sizeof(FModioEditModParams) == 0x0000D0, "Wrong size on FModioEditModParams");
+static_assert(alignof(FModioTheme) == 0x000008, "Wrong alignment on FModioTheme");
+static_assert(sizeof(FModioTheme) == 0x000060, "Wrong size on FModioTheme");
+static_assert(offsetof(FModioTheme, Primary) == 0x000000, "Member 'FModioTheme::Primary' has a wrong offset!");
+static_assert(offsetof(FModioTheme, Dark) == 0x000010, "Member 'FModioTheme::Dark' has a wrong offset!");
+static_assert(offsetof(FModioTheme, Light) == 0x000020, "Member 'FModioTheme::Light' has a wrong offset!");
+static_assert(offsetof(FModioTheme, Success) == 0x000030, "Member 'FModioTheme::Success' has a wrong offset!");
+static_assert(offsetof(FModioTheme, Warning) == 0x000040, "Member 'FModioTheme::Warning' has a wrong offset!");
+static_assert(offsetof(FModioTheme, Danger) == 0x000050, "Member 'FModioTheme::Danger' has a wrong offset!");
+
+// ScriptStruct Modio.ModioOtherUrl
+// 0x0020 (0x0020 - 0x0000)
+struct FModioOtherUrl final
+{
+public:
+	class FString                                 Label;                                             // 0x0000(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 URL;                                               // 0x0010(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(FModioOtherUrl) == 0x000008, "Wrong alignment on FModioOtherUrl");
+static_assert(sizeof(FModioOtherUrl) == 0x000020, "Wrong size on FModioOtherUrl");
+static_assert(offsetof(FModioOtherUrl, Label) == 0x000000, "Member 'FModioOtherUrl::Label' has a wrong offset!");
+static_assert(offsetof(FModioOtherUrl, URL) == 0x000010, "Member 'FModioOtherUrl::URL' has a wrong offset!");
+
+// ScriptStruct Modio.ModioGameInfo
+// 0x0220 (0x0220 - 0x0000)
+struct FModioGameInfo final
+{
+public:
+	struct FModioGameID                           GameId;                                            // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FDateTime                              DateAdded;                                         // 0x0008(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FDateTime                              DateUpdated;                                       // 0x0010(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FDateTime                              DateLive;                                          // 0x0018(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 UgcName;                                           // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FModioIcon                             Icon;                                              // 0x0030(0x0050)(BlueprintVisible, BlueprintReadOnly, NativeAccessSpecifierPublic)
+	struct FModioLogo                             Logo;                                              // 0x0080(0x0050)(BlueprintVisible, BlueprintReadOnly, NativeAccessSpecifierPublic)
+	struct FModioHeaderImage                      HeaderImage;                                       // 0x00D0(0x0020)(BlueprintVisible, BlueprintReadOnly, NativeAccessSpecifierPublic)
+	class FString                                 Name;                                              // 0x00F0(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 Summary;                                           // 0x0100(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 Instructions;                                      // 0x0110(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 InstructionsUrl;                                   // 0x0120(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 ProfileUrl;                                        // 0x0130(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FModioTheme                            Theme;                                             // 0x0140(0x0060)(BlueprintVisible, BlueprintReadOnly, NativeAccessSpecifierPublic)
+	struct FModioGameStats                        Stats;                                             // 0x01A0(0x0038)(BlueprintVisible, BlueprintReadOnly, NoDestructor, NativeAccessSpecifierPublic)
+	TArray<struct FModioOtherUrl>                 OtherUrls;                                         // 0x01D8(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<EModioModfilePlatform>                 Platforms;                                         // 0x01E8(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NativeAccessSpecifierPublic)
+	EGameMonetizationFlags                        GameMonetizationOptions;                           // 0x01F8(0x0001)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1F9[0x7];                                      // 0x01F9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class FString                                 VirtualTokenName;                                  // 0x0200(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TArray<struct FModioGamePlatform>             PlatformSupport;                                   // 0x0210(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(FModioGameInfo) == 0x000008, "Wrong alignment on FModioGameInfo");
+static_assert(sizeof(FModioGameInfo) == 0x000220, "Wrong size on FModioGameInfo");
+static_assert(offsetof(FModioGameInfo, GameId) == 0x000000, "Member 'FModioGameInfo::GameId' has a wrong offset!");
+static_assert(offsetof(FModioGameInfo, DateAdded) == 0x000008, "Member 'FModioGameInfo::DateAdded' has a wrong offset!");
+static_assert(offsetof(FModioGameInfo, DateUpdated) == 0x000010, "Member 'FModioGameInfo::DateUpdated' has a wrong offset!");
+static_assert(offsetof(FModioGameInfo, DateLive) == 0x000018, "Member 'FModioGameInfo::DateLive' has a wrong offset!");
+static_assert(offsetof(FModioGameInfo, UgcName) == 0x000020, "Member 'FModioGameInfo::UgcName' has a wrong offset!");
+static_assert(offsetof(FModioGameInfo, Icon) == 0x000030, "Member 'FModioGameInfo::Icon' has a wrong offset!");
+static_assert(offsetof(FModioGameInfo, Logo) == 0x000080, "Member 'FModioGameInfo::Logo' has a wrong offset!");
+static_assert(offsetof(FModioGameInfo, HeaderImage) == 0x0000D0, "Member 'FModioGameInfo::HeaderImage' has a wrong offset!");
+static_assert(offsetof(FModioGameInfo, Name) == 0x0000F0, "Member 'FModioGameInfo::Name' has a wrong offset!");
+static_assert(offsetof(FModioGameInfo, Summary) == 0x000100, "Member 'FModioGameInfo::Summary' has a wrong offset!");
+static_assert(offsetof(FModioGameInfo, Instructions) == 0x000110, "Member 'FModioGameInfo::Instructions' has a wrong offset!");
+static_assert(offsetof(FModioGameInfo, InstructionsUrl) == 0x000120, "Member 'FModioGameInfo::InstructionsUrl' has a wrong offset!");
+static_assert(offsetof(FModioGameInfo, ProfileUrl) == 0x000130, "Member 'FModioGameInfo::ProfileUrl' has a wrong offset!");
+static_assert(offsetof(FModioGameInfo, Theme) == 0x000140, "Member 'FModioGameInfo::Theme' has a wrong offset!");
+static_assert(offsetof(FModioGameInfo, Stats) == 0x0001A0, "Member 'FModioGameInfo::Stats' has a wrong offset!");
+static_assert(offsetof(FModioGameInfo, OtherUrls) == 0x0001D8, "Member 'FModioGameInfo::OtherUrls' has a wrong offset!");
+static_assert(offsetof(FModioGameInfo, Platforms) == 0x0001E8, "Member 'FModioGameInfo::Platforms' has a wrong offset!");
+static_assert(offsetof(FModioGameInfo, GameMonetizationOptions) == 0x0001F8, "Member 'FModioGameInfo::GameMonetizationOptions' has a wrong offset!");
+static_assert(offsetof(FModioGameInfo, VirtualTokenName) == 0x000200, "Member 'FModioGameInfo::VirtualTokenName' has a wrong offset!");
+static_assert(offsetof(FModioGameInfo, PlatformSupport) == 0x000210, "Member 'FModioGameInfo::PlatformSupport' has a wrong offset!");
 
 // ScriptStruct Modio.ModioInitializeOptions
 // 0x0090 (0x0090 - 0x0000)
@@ -1226,69 +1279,15 @@ static_assert(offsetof(FModioInitializeOptions, PortalInUse) == 0x000019, "Membe
 static_assert(offsetof(FModioInitializeOptions, ExtendedInitializationParameters) == 0x000020, "Member 'FModioInitializeOptions::ExtendedInitializationParameters' has a wrong offset!");
 static_assert(offsetof(FModioInitializeOptions, bUseBackgroundThread) == 0x000070, "Member 'FModioInitializeOptions::bUseBackgroundThread' has a wrong offset!");
 
-// ScriptStruct Modio.ModioModDependency
-// 0x0018 (0x0018 - 0x0000)
-struct FModioModDependency final
+// ScriptStruct Modio.ModioModCreationHandle
+// 0x0008 (0x0008 - 0x0000)
+struct alignas(0x08) FModioModCreationHandle final
 {
 public:
-	struct FModioModID                            ModId;                                             // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 ModName;                                           // 0x0008(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_0[0x8];                                        // 0x0000(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-static_assert(alignof(FModioModDependency) == 0x000008, "Wrong alignment on FModioModDependency");
-static_assert(sizeof(FModioModDependency) == 0x000018, "Wrong size on FModioModDependency");
-static_assert(offsetof(FModioModDependency, ModId) == 0x000000, "Member 'FModioModDependency::ModId' has a wrong offset!");
-static_assert(offsetof(FModioModDependency, ModName) == 0x000008, "Member 'FModioModDependency::ModName' has a wrong offset!");
-
-// ScriptStruct Modio.ModioModDependencyList
-// 0x0028 (0x0028 - 0x0000)
-struct FModioModDependencyList final
-{
-public:
-	struct FModioPagedResult                      PagedResult;                                       // 0x0000(0x0014)(BlueprintVisible, BlueprintReadOnly, NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_14[0x4];                                       // 0x0014(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FModioModDependency>            InternalList;                                      // 0x0018(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(FModioModDependencyList) == 0x000008, "Wrong alignment on FModioModDependencyList");
-static_assert(sizeof(FModioModDependencyList) == 0x000028, "Wrong size on FModioModDependencyList");
-static_assert(offsetof(FModioModDependencyList, PagedResult) == 0x000000, "Member 'FModioModDependencyList::PagedResult' has a wrong offset!");
-static_assert(offsetof(FModioModDependencyList, InternalList) == 0x000018, "Member 'FModioModDependencyList::InternalList' has a wrong offset!");
-
-// ScriptStruct Modio.ModioMapPreview
-// 0x0050 (0x0050 - 0x0000)
-struct alignas(0x08) FModioMapPreview final
-{
-public:
-	uint8                                         Pad_0[0x50];                                       // 0x0000(0x0050)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(FModioMapPreview) == 0x000008, "Wrong alignment on FModioMapPreview");
-static_assert(sizeof(FModioMapPreview) == 0x000050, "Wrong size on FModioMapPreview");
-
-// ScriptStruct Modio.ModioModProgressInfo
-// 0x0050 (0x0050 - 0x0000)
-struct FModioModProgressInfo final
-{
-public:
-	struct FModioModID                            ID;                                                // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_8[0x48];                                       // 0x0008(0x0048)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(FModioModProgressInfo) == 0x000008, "Wrong alignment on FModioModProgressInfo");
-static_assert(sizeof(FModioModProgressInfo) == 0x000050, "Wrong size on FModioModProgressInfo");
-static_assert(offsetof(FModioModProgressInfo, ID) == 0x000000, "Member 'FModioModProgressInfo::ID' has a wrong offset!");
-
-// ScriptStruct Modio.ModioTransactionRecord
-// 0x0018 (0x0018 - 0x0000)
-struct FModioTransactionRecord final
-{
-public:
-	struct FModioModID                            AssociatedMod;                                     // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FModioUnsigned64                       Price;                                             // 0x0008(0x0008)(BlueprintVisible, BlueprintReadOnly, NoDestructor, NativeAccessSpecifierPublic)
-	struct FModioUnsigned64                       UpdatedUserWalletBalance;                          // 0x0010(0x0008)(BlueprintVisible, BlueprintReadOnly, NoDestructor, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(FModioTransactionRecord) == 0x000008, "Wrong alignment on FModioTransactionRecord");
-static_assert(sizeof(FModioTransactionRecord) == 0x000018, "Wrong size on FModioTransactionRecord");
-static_assert(offsetof(FModioTransactionRecord, AssociatedMod) == 0x000000, "Member 'FModioTransactionRecord::AssociatedMod' has a wrong offset!");
-static_assert(offsetof(FModioTransactionRecord, Price) == 0x000008, "Member 'FModioTransactionRecord::Price' has a wrong offset!");
-static_assert(offsetof(FModioTransactionRecord, UpdatedUserWalletBalance) == 0x000010, "Member 'FModioTransactionRecord::UpdatedUserWalletBalance' has a wrong offset!");
+static_assert(alignof(FModioModCreationHandle) == 0x000008, "Wrong alignment on FModioModCreationHandle");
+static_assert(sizeof(FModioModCreationHandle) == 0x000008, "Wrong size on FModioModCreationHandle");
 
 // ScriptStruct Modio.ModioOptionalUser
 // 0x0048 (0x0048 - 0x0000)
@@ -1300,18 +1299,19 @@ public:
 static_assert(alignof(FModioOptionalUser) == 0x000008, "Wrong alignment on FModioOptionalUser");
 static_assert(sizeof(FModioOptionalUser) == 0x000048, "Wrong size on FModioOptionalUser");
 
-// ScriptStruct Modio.ModioValidationError
-// 0x0020 (0x0020 - 0x0000)
-struct FModioValidationError final
+// ScriptStruct Modio.ModioUserList
+// 0x0028 (0x0028 - 0x0000)
+struct FModioUserList final
 {
 public:
-	class FString                                 FieldName;                                         // 0x0000(0x0010)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnTemplate, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 ValidationFailureDescription;                      // 0x0010(0x0010)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnTemplate, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FModioPagedResult                      PagedResult;                                       // 0x0000(0x0014)(BlueprintVisible, BlueprintReadOnly, NoDestructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_14[0x4];                                       // 0x0014(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FModioUser>                     InternalList;                                      // 0x0018(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(FModioValidationError) == 0x000008, "Wrong alignment on FModioValidationError");
-static_assert(sizeof(FModioValidationError) == 0x000020, "Wrong size on FModioValidationError");
-static_assert(offsetof(FModioValidationError, FieldName) == 0x000000, "Member 'FModioValidationError::FieldName' has a wrong offset!");
-static_assert(offsetof(FModioValidationError, ValidationFailureDescription) == 0x000010, "Member 'FModioValidationError::ValidationFailureDescription' has a wrong offset!");
+static_assert(alignof(FModioUserList) == 0x000008, "Wrong alignment on FModioUserList");
+static_assert(sizeof(FModioUserList) == 0x000028, "Wrong size on FModioUserList");
+static_assert(offsetof(FModioUserList, PagedResult) == 0x000000, "Member 'FModioUserList::PagedResult' has a wrong offset!");
+static_assert(offsetof(FModioUserList, InternalList) == 0x000018, "Member 'FModioUserList::InternalList' has a wrong offset!");
 
 }
 

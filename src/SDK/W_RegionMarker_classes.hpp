@@ -17,16 +17,16 @@ namespace SDK
 {
 
 // WidgetBlueprintGeneratedClass W_RegionMarker.W_RegionMarker_C
-// 0x0030 (0x0378 - 0x0348)
+// 0x0030 (0x0368 - 0x0338)
 class UW_RegionMarker_C final : public UWorldMapRegionMarker
 {
 public:
-	class UWidgetAnimation*                       ClickAnim;                                         // 0x0348(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, RepSkip, NoDestructor, HasGetValueTypeHash)
-	class UImage*                                 Image_181;                                         // 0x0350(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
-	class UImage*                                 Image_229;                                         // 0x0358(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
-	class UImage*                                 Image_320;                                         // 0x0360(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
-	class UImage*                                 Image_429;                                         // 0x0368(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
-	class UWidgetSwitcher*                        UnknownSwitcher;                                   // 0x0370(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	class UWidgetAnimation*                       ClickAnim;                                         // 0x0338(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, RepSkip, NoDestructor, HasGetValueTypeHash)
+	class UImage*                                 Image_181;                                         // 0x0340(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	class UImage*                                 Image_229;                                         // 0x0348(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	class UImage*                                 Image_320;                                         // 0x0350(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	class UImage*                                 Image_429;                                         // 0x0358(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	class UWidgetSwitcher*                        UnknownSwitcher;                                   // 0x0360(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
 
 public:
 	static class UClass* StaticClass()
@@ -39,13 +39,13 @@ public:
 	}
 };
 static_assert(alignof(UW_RegionMarker_C) == 0x000008, "Wrong alignment on UW_RegionMarker_C");
-static_assert(sizeof(UW_RegionMarker_C) == 0x000378, "Wrong size on UW_RegionMarker_C");
-static_assert(offsetof(UW_RegionMarker_C, ClickAnim) == 0x000348, "Member 'UW_RegionMarker_C::ClickAnim' has a wrong offset!");
-static_assert(offsetof(UW_RegionMarker_C, Image_181) == 0x000350, "Member 'UW_RegionMarker_C::Image_181' has a wrong offset!");
-static_assert(offsetof(UW_RegionMarker_C, Image_229) == 0x000358, "Member 'UW_RegionMarker_C::Image_229' has a wrong offset!");
-static_assert(offsetof(UW_RegionMarker_C, Image_320) == 0x000360, "Member 'UW_RegionMarker_C::Image_320' has a wrong offset!");
-static_assert(offsetof(UW_RegionMarker_C, Image_429) == 0x000368, "Member 'UW_RegionMarker_C::Image_429' has a wrong offset!");
-static_assert(offsetof(UW_RegionMarker_C, UnknownSwitcher) == 0x000370, "Member 'UW_RegionMarker_C::UnknownSwitcher' has a wrong offset!");
+static_assert(sizeof(UW_RegionMarker_C) == 0x000368, "Wrong size on UW_RegionMarker_C");
+static_assert(offsetof(UW_RegionMarker_C, ClickAnim) == 0x000338, "Member 'UW_RegionMarker_C::ClickAnim' has a wrong offset!");
+static_assert(offsetof(UW_RegionMarker_C, Image_181) == 0x000340, "Member 'UW_RegionMarker_C::Image_181' has a wrong offset!");
+static_assert(offsetof(UW_RegionMarker_C, Image_229) == 0x000348, "Member 'UW_RegionMarker_C::Image_229' has a wrong offset!");
+static_assert(offsetof(UW_RegionMarker_C, Image_320) == 0x000350, "Member 'UW_RegionMarker_C::Image_320' has a wrong offset!");
+static_assert(offsetof(UW_RegionMarker_C, Image_429) == 0x000358, "Member 'UW_RegionMarker_C::Image_429' has a wrong offset!");
+static_assert(offsetof(UW_RegionMarker_C, UnknownSwitcher) == 0x000360, "Member 'UW_RegionMarker_C::UnknownSwitcher' has a wrong offset!");
 
 }
 

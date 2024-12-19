@@ -104,7 +104,7 @@ enum class ELocationZToSpawnEnum : uint8
 struct FChaosDestructionEvent final
 {
 public:
-	struct FVector                                position;                                          // 0x0000(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Position;                                          // 0x0000(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector                                Normal;                                            // 0x0018(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector                                Velocity;                                          // 0x0030(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector                                AngularVelocity;                                   // 0x0048(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -117,7 +117,7 @@ public:
 };
 static_assert(alignof(FChaosDestructionEvent) == 0x000008, "Wrong alignment on FChaosDestructionEvent");
 static_assert(sizeof(FChaosDestructionEvent) == 0x000078, "Wrong size on FChaosDestructionEvent");
-static_assert(offsetof(FChaosDestructionEvent, position) == 0x000000, "Member 'FChaosDestructionEvent::position' has a wrong offset!");
+static_assert(offsetof(FChaosDestructionEvent, Position) == 0x000000, "Member 'FChaosDestructionEvent::Position' has a wrong offset!");
 static_assert(offsetof(FChaosDestructionEvent, Normal) == 0x000018, "Member 'FChaosDestructionEvent::Normal' has a wrong offset!");
 static_assert(offsetof(FChaosDestructionEvent, Velocity) == 0x000030, "Member 'FChaosDestructionEvent::Velocity' has a wrong offset!");
 static_assert(offsetof(FChaosDestructionEvent, AngularVelocity) == 0x000048, "Member 'FChaosDestructionEvent::AngularVelocity' has a wrong offset!");

@@ -12,8 +12,8 @@
 
 #include "Engine_structs.hpp"
 #include "Engine_classes.hpp"
-#include "E_AmLightMeshType_structs.hpp"
 #include "CoreUObject_structs.hpp"
+#include "E_AmLightMeshType_structs.hpp"
 
 
 namespace SDK

@@ -76,7 +76,7 @@ public:
 public:
 	void ClearAllGoals();
 	void SetIKRigGoal(const struct FIKRigGoal& Goal);
-	void SetIKRigGoalPositionAndRotation(const class FName GoalName, const struct FVector& position, const struct FQuat& Rotation, const float PositionAlpha, const float RotationAlpha);
+	void SetIKRigGoalPositionAndRotation(const class FName GoalName, const struct FVector& Position, const struct FQuat& Rotation, const float PositionAlpha, const float RotationAlpha);
 	void SetIKRigGoalTransform(const class FName GoalName, const struct FTransform& Transform, const float PositionAlpha, const float RotationAlpha);
 
 public:

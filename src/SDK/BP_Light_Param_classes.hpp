@@ -10,9 +10,9 @@
 
 #include "Basic.hpp"
 
+#include "Engine_structs.hpp"
 #include "S_LightPresset_structs.hpp"
 #include "BP_Light_Base_classes.hpp"
-#include "Engine_structs.hpp"
 
 
 namespace SDK
@@ -51,7 +51,7 @@ public:
 	void GlassEmissive(bool OnOff);
 	void GlassEmissiveFlick(double LightIntensity);
 	void OnConstruction_Child();
-	void UpdateDecalInnerLightParameters(double Intensity_Decal, double ScaleDecal_Z, double OffsetDecal_Z, double Lenght, bool Fix_Rotate_Decal, bool Turn_OF_Decal, bool Use_location);
+	void UpdateDecalInnerLightParameters(double Intensity_Decal, double ScaleDecalMinusZ, double OffsetDecalMinusZ, double Lenght, bool Fix_Rotate_Decal, bool Turn_OF_Decal, bool Use_location);
 	void UpdateLightParameters(double AttenuationRadius_0, double ShadowBias_0, const double ShadowSlopeBias_0, double ContactShadowLength_0, class UMaterialInterface* LightFunctionMaterial_0, double InnerConeAngle_0, double OuterConeAngle_0, double InnerIntensityMultiplier_0, double Light_Falloff_Exponen);
 	void UserConstructionScript();
 

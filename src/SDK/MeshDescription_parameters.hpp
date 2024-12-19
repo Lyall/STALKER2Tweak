@@ -10,8 +10,8 @@
 
 #include "Basic.hpp"
 
-#include "MeshDescription_structs.hpp"
 #include "CoreUObject_structs.hpp"
+#include "MeshDescription_structs.hpp"
 
 
 namespace SDK::Params
@@ -397,12 +397,12 @@ struct MeshDescriptionBase_SetVertexPosition final
 public:
 	struct FVertexID                              VertexID;                                          // 0x0000(0x0004)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                position;                                          // 0x0008(0x0018)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Position;                                          // 0x0008(0x0018)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(MeshDescriptionBase_SetVertexPosition) == 0x000008, "Wrong alignment on MeshDescriptionBase_SetVertexPosition");
 static_assert(sizeof(MeshDescriptionBase_SetVertexPosition) == 0x000020, "Wrong size on MeshDescriptionBase_SetVertexPosition");
 static_assert(offsetof(MeshDescriptionBase_SetVertexPosition, VertexID) == 0x000000, "Member 'MeshDescriptionBase_SetVertexPosition::VertexID' has a wrong offset!");
-static_assert(offsetof(MeshDescriptionBase_SetVertexPosition, position) == 0x000008, "Member 'MeshDescriptionBase_SetVertexPosition::position' has a wrong offset!");
+static_assert(offsetof(MeshDescriptionBase_SetVertexPosition, Position) == 0x000008, "Member 'MeshDescriptionBase_SetVertexPosition::Position' has a wrong offset!");
 
 // Function MeshDescription.MeshDescriptionBase.GetEdgeConnectedPolygons
 // 0x0018 (0x0018 - 0x0000)

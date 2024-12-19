@@ -10,11 +10,11 @@
 
 #include "Basic.hpp"
 
-#include "Chaos_structs.hpp"
-#include "FieldSystemEngine_structs.hpp"
 #include "Engine_classes.hpp"
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
+#include "FieldSystemEngine_structs.hpp"
+#include "Chaos_structs.hpp"
 
 
 namespace SDK
@@ -80,11 +80,11 @@ public:
 	void AddPersistentField(bool Enabled, EFieldPhysicsType Target, class UFieldSystemMetaData* MetaData, class UFieldNodeBase* Field);
 	void ApplyLinearForce(bool Enabled, const struct FVector& Direction, float Magnitude);
 	void ApplyPhysicsField(bool Enabled, EFieldPhysicsType Target, class UFieldSystemMetaData* MetaData, class UFieldNodeBase* Field);
-	void ApplyRadialForce(bool Enabled, const struct FVector& position, float Magnitude);
-	void ApplyRadialVectorFalloffForce(bool Enabled, const struct FVector& position, float Radius, float Magnitude);
-	void ApplyStayDynamicField(bool Enabled, const struct FVector& position, float Radius);
-	void ApplyStrainField(bool Enabled, const struct FVector& position, float Radius, float Magnitude, int32 Iterations);
-	void ApplyUniformVectorFalloffForce(bool Enabled, const struct FVector& position, const struct FVector& Direction, float Radius, float Magnitude);
+	void ApplyRadialForce(bool Enabled, const struct FVector& Position, float Magnitude);
+	void ApplyRadialVectorFalloffForce(bool Enabled, const struct FVector& Position, float Radius, float Magnitude);
+	void ApplyStayDynamicField(bool Enabled, const struct FVector& Position, float Radius);
+	void ApplyStrainField(bool Enabled, const struct FVector& Position, float Radius, float Magnitude, int32 Iterations);
+	void ApplyUniformVectorFalloffForce(bool Enabled, const struct FVector& Position, const struct FVector& Direction, float Radius, float Magnitude);
 	void RemovePersistentFields();
 	void ResetFieldSystem();
 
@@ -303,14 +303,14 @@ class URadialIntMask final : public UFieldNodeInt
 public:
 	float                                         Radius;                                            // 0x00A0(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_A4[0x4];                                       // 0x00A4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                position;                                          // 0x00A8(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Position;                                          // 0x00A8(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         InteriorValue;                                     // 0x00C0(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         ExteriorValue;                                     // 0x00C4(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	ESetMaskConditionType                         SetMaskCondition;                                  // 0x00C8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_C9[0x7];                                       // 0x00C9(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
-	class URadialIntMask* SetRadialIntMask(float Radius_0, const struct FVector& position_0, int32 InteriorValue_0, int32 ExteriorValue_0, ESetMaskConditionType SetMaskConditionIn);
+	class URadialIntMask* SetRadialIntMask(float Radius_0, const struct FVector& Position_0, int32 InteriorValue_0, int32 ExteriorValue_0, ESetMaskConditionType SetMaskConditionIn);
 
 public:
 	static class UClass* StaticClass()
@@ -325,7 +325,7 @@ public:
 static_assert(alignof(URadialIntMask) == 0x000008, "Wrong alignment on URadialIntMask");
 static_assert(sizeof(URadialIntMask) == 0x0000D0, "Wrong size on URadialIntMask");
 static_assert(offsetof(URadialIntMask, Radius) == 0x0000A0, "Member 'URadialIntMask::Radius' has a wrong offset!");
-static_assert(offsetof(URadialIntMask, position) == 0x0000A8, "Member 'URadialIntMask::position' has a wrong offset!");
+static_assert(offsetof(URadialIntMask, Position) == 0x0000A8, "Member 'URadialIntMask::Position' has a wrong offset!");
 static_assert(offsetof(URadialIntMask, InteriorValue) == 0x0000C0, "Member 'URadialIntMask::InteriorValue' has a wrong offset!");
 static_assert(offsetof(URadialIntMask, ExteriorValue) == 0x0000C4, "Member 'URadialIntMask::ExteriorValue' has a wrong offset!");
 static_assert(offsetof(URadialIntMask, SetMaskCondition) == 0x0000C8, "Member 'URadialIntMask::SetMaskCondition' has a wrong offset!");
@@ -362,7 +362,7 @@ class UWaveScalar final : public UFieldNodeFloat
 public:
 	float                                         Magnitude;                                         // 0x00A0(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_A4[0x4];                                       // 0x00A4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                position;                                          // 0x00A8(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Position;                                          // 0x00A8(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         WaveLength;                                        // 0x00C0(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         Period;                                            // 0x00C4(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EWaveFunctionType                             Function;                                          // 0x00C8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -370,7 +370,7 @@ public:
 	uint8                                         Pad_CA[0x6];                                       // 0x00CA(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
-	class UWaveScalar* SetWaveScalar(float Magnitude_0, const struct FVector& position_0, float WaveLength_0, float Period_0, float Time, EWaveFunctionType Function_0, EFieldFalloffType Falloff_0);
+	class UWaveScalar* SetWaveScalar(float Magnitude_0, const struct FVector& Position_0, float WaveLength_0, float Period_0, float Time, EWaveFunctionType Function_0, EFieldFalloffType Falloff_0);
 
 public:
 	static class UClass* StaticClass()
@@ -385,7 +385,7 @@ public:
 static_assert(alignof(UWaveScalar) == 0x000008, "Wrong alignment on UWaveScalar");
 static_assert(sizeof(UWaveScalar) == 0x0000D0, "Wrong size on UWaveScalar");
 static_assert(offsetof(UWaveScalar, Magnitude) == 0x0000A0, "Member 'UWaveScalar::Magnitude' has a wrong offset!");
-static_assert(offsetof(UWaveScalar, position) == 0x0000A8, "Member 'UWaveScalar::position' has a wrong offset!");
+static_assert(offsetof(UWaveScalar, Position) == 0x0000A8, "Member 'UWaveScalar::Position' has a wrong offset!");
 static_assert(offsetof(UWaveScalar, WaveLength) == 0x0000C0, "Member 'UWaveScalar::WaveLength' has a wrong offset!");
 static_assert(offsetof(UWaveScalar, Period) == 0x0000C4, "Member 'UWaveScalar::Period' has a wrong offset!");
 static_assert(offsetof(UWaveScalar, Function) == 0x0000C8, "Member 'UWaveScalar::Function' has a wrong offset!");
@@ -402,12 +402,12 @@ public:
 	float                                         Default;                                           // 0x00AC(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         Radius;                                            // 0x00B0(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_B4[0x4];                                       // 0x00B4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                position;                                          // 0x00B8(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Position;                                          // 0x00B8(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EFieldFalloffType                             Falloff;                                           // 0x00D0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_D1[0x7];                                       // 0x00D1(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
-	class URadialFalloff* SetRadialFalloff(float Magnitude_0, float MinRange_0, float MaxRange_0, float Default_0, float Radius_0, const struct FVector& position_0, EFieldFalloffType Falloff_0);
+	class URadialFalloff* SetRadialFalloff(float Magnitude_0, float MinRange_0, float MaxRange_0, float Default_0, float Radius_0, const struct FVector& Position_0, EFieldFalloffType Falloff_0);
 
 public:
 	static class UClass* StaticClass()
@@ -426,7 +426,7 @@ static_assert(offsetof(URadialFalloff, MinRange) == 0x0000A4, "Member 'URadialFa
 static_assert(offsetof(URadialFalloff, MaxRange) == 0x0000A8, "Member 'URadialFalloff::MaxRange' has a wrong offset!");
 static_assert(offsetof(URadialFalloff, Default) == 0x0000AC, "Member 'URadialFalloff::Default' has a wrong offset!");
 static_assert(offsetof(URadialFalloff, Radius) == 0x0000B0, "Member 'URadialFalloff::Radius' has a wrong offset!");
-static_assert(offsetof(URadialFalloff, position) == 0x0000B8, "Member 'URadialFalloff::position' has a wrong offset!");
+static_assert(offsetof(URadialFalloff, Position) == 0x0000B8, "Member 'URadialFalloff::Position' has a wrong offset!");
 static_assert(offsetof(URadialFalloff, Falloff) == 0x0000D0, "Member 'URadialFalloff::Falloff' has a wrong offset!");
 
 // Class FieldSystemEngine.PlaneFalloff
@@ -440,13 +440,13 @@ public:
 	float                                         Default;                                           // 0x00AC(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         Distance;                                          // 0x00B0(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_B4[0x4];                                       // 0x00B4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                position;                                          // 0x00B8(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Position;                                          // 0x00B8(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector                                Normal;                                            // 0x00D0(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EFieldFalloffType                             Falloff;                                           // 0x00E8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_E9[0x7];                                       // 0x00E9(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
-	class UPlaneFalloff* SetPlaneFalloff(float Magnitude_0, float MinRange_0, float MaxRange_0, float Default_0, float Distance_0, const struct FVector& position_0, const struct FVector& Normal_0, EFieldFalloffType Falloff_0);
+	class UPlaneFalloff* SetPlaneFalloff(float Magnitude_0, float MinRange_0, float MaxRange_0, float Default_0, float Distance_0, const struct FVector& Position_0, const struct FVector& Normal_0, EFieldFalloffType Falloff_0);
 
 public:
 	static class UClass* StaticClass()
@@ -465,7 +465,7 @@ static_assert(offsetof(UPlaneFalloff, MinRange) == 0x0000A4, "Member 'UPlaneFall
 static_assert(offsetof(UPlaneFalloff, MaxRange) == 0x0000A8, "Member 'UPlaneFalloff::MaxRange' has a wrong offset!");
 static_assert(offsetof(UPlaneFalloff, Default) == 0x0000AC, "Member 'UPlaneFalloff::Default' has a wrong offset!");
 static_assert(offsetof(UPlaneFalloff, Distance) == 0x0000B0, "Member 'UPlaneFalloff::Distance' has a wrong offset!");
-static_assert(offsetof(UPlaneFalloff, position) == 0x0000B8, "Member 'UPlaneFalloff::position' has a wrong offset!");
+static_assert(offsetof(UPlaneFalloff, Position) == 0x0000B8, "Member 'UPlaneFalloff::Position' has a wrong offset!");
 static_assert(offsetof(UPlaneFalloff, Normal) == 0x0000D0, "Member 'UPlaneFalloff::Normal' has a wrong offset!");
 static_assert(offsetof(UPlaneFalloff, Falloff) == 0x0000E8, "Member 'UPlaneFalloff::Falloff' has a wrong offset!");
 
@@ -567,10 +567,10 @@ class URadialVector final : public UFieldNodeVector
 public:
 	float                                         Magnitude;                                         // 0x00A0(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_A4[0x4];                                       // 0x00A4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                position;                                          // 0x00A8(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Position;                                          // 0x00A8(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
-	class URadialVector* SetRadialVector(float Magnitude_0, const struct FVector& position_0);
+	class URadialVector* SetRadialVector(float Magnitude_0, const struct FVector& Position_0);
 
 public:
 	static class UClass* StaticClass()
@@ -585,7 +585,7 @@ public:
 static_assert(alignof(URadialVector) == 0x000008, "Wrong alignment on URadialVector");
 static_assert(sizeof(URadialVector) == 0x0000C0, "Wrong size on URadialVector");
 static_assert(offsetof(URadialVector, Magnitude) == 0x0000A0, "Member 'URadialVector::Magnitude' has a wrong offset!");
-static_assert(offsetof(URadialVector, position) == 0x0000A8, "Member 'URadialVector::position' has a wrong offset!");
+static_assert(offsetof(URadialVector, Position) == 0x0000A8, "Member 'URadialVector::Position' has a wrong offset!");
 
 // Class FieldSystemEngine.RandomVector
 // 0x0008 (0x00A8 - 0x00A0)

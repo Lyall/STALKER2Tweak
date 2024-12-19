@@ -95,14 +95,14 @@ struct FieldSystemComponent_ApplyRadialForce final
 public:
 	bool                                          Enabled;                                           // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                position;                                          // 0x0008(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Position;                                          // 0x0008(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         Magnitude;                                         // 0x0020(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_24[0x4];                                       // 0x0024(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(FieldSystemComponent_ApplyRadialForce) == 0x000008, "Wrong alignment on FieldSystemComponent_ApplyRadialForce");
 static_assert(sizeof(FieldSystemComponent_ApplyRadialForce) == 0x000028, "Wrong size on FieldSystemComponent_ApplyRadialForce");
 static_assert(offsetof(FieldSystemComponent_ApplyRadialForce, Enabled) == 0x000000, "Member 'FieldSystemComponent_ApplyRadialForce::Enabled' has a wrong offset!");
-static_assert(offsetof(FieldSystemComponent_ApplyRadialForce, position) == 0x000008, "Member 'FieldSystemComponent_ApplyRadialForce::position' has a wrong offset!");
+static_assert(offsetof(FieldSystemComponent_ApplyRadialForce, Position) == 0x000008, "Member 'FieldSystemComponent_ApplyRadialForce::Position' has a wrong offset!");
 static_assert(offsetof(FieldSystemComponent_ApplyRadialForce, Magnitude) == 0x000020, "Member 'FieldSystemComponent_ApplyRadialForce::Magnitude' has a wrong offset!");
 
 // Function FieldSystemEngine.FieldSystemComponent.ApplyRadialVectorFalloffForce
@@ -112,14 +112,14 @@ struct FieldSystemComponent_ApplyRadialVectorFalloffForce final
 public:
 	bool                                          Enabled;                                           // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                position;                                          // 0x0008(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Position;                                          // 0x0008(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         Radius;                                            // 0x0020(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         Magnitude;                                         // 0x0024(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FieldSystemComponent_ApplyRadialVectorFalloffForce) == 0x000008, "Wrong alignment on FieldSystemComponent_ApplyRadialVectorFalloffForce");
 static_assert(sizeof(FieldSystemComponent_ApplyRadialVectorFalloffForce) == 0x000028, "Wrong size on FieldSystemComponent_ApplyRadialVectorFalloffForce");
 static_assert(offsetof(FieldSystemComponent_ApplyRadialVectorFalloffForce, Enabled) == 0x000000, "Member 'FieldSystemComponent_ApplyRadialVectorFalloffForce::Enabled' has a wrong offset!");
-static_assert(offsetof(FieldSystemComponent_ApplyRadialVectorFalloffForce, position) == 0x000008, "Member 'FieldSystemComponent_ApplyRadialVectorFalloffForce::position' has a wrong offset!");
+static_assert(offsetof(FieldSystemComponent_ApplyRadialVectorFalloffForce, Position) == 0x000008, "Member 'FieldSystemComponent_ApplyRadialVectorFalloffForce::Position' has a wrong offset!");
 static_assert(offsetof(FieldSystemComponent_ApplyRadialVectorFalloffForce, Radius) == 0x000020, "Member 'FieldSystemComponent_ApplyRadialVectorFalloffForce::Radius' has a wrong offset!");
 static_assert(offsetof(FieldSystemComponent_ApplyRadialVectorFalloffForce, Magnitude) == 0x000024, "Member 'FieldSystemComponent_ApplyRadialVectorFalloffForce::Magnitude' has a wrong offset!");
 
@@ -130,14 +130,14 @@ struct FieldSystemComponent_ApplyStayDynamicField final
 public:
 	bool                                          Enabled;                                           // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                position;                                          // 0x0008(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Position;                                          // 0x0008(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         Radius;                                            // 0x0020(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_24[0x4];                                       // 0x0024(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(FieldSystemComponent_ApplyStayDynamicField) == 0x000008, "Wrong alignment on FieldSystemComponent_ApplyStayDynamicField");
 static_assert(sizeof(FieldSystemComponent_ApplyStayDynamicField) == 0x000028, "Wrong size on FieldSystemComponent_ApplyStayDynamicField");
 static_assert(offsetof(FieldSystemComponent_ApplyStayDynamicField, Enabled) == 0x000000, "Member 'FieldSystemComponent_ApplyStayDynamicField::Enabled' has a wrong offset!");
-static_assert(offsetof(FieldSystemComponent_ApplyStayDynamicField, position) == 0x000008, "Member 'FieldSystemComponent_ApplyStayDynamicField::position' has a wrong offset!");
+static_assert(offsetof(FieldSystemComponent_ApplyStayDynamicField, Position) == 0x000008, "Member 'FieldSystemComponent_ApplyStayDynamicField::Position' has a wrong offset!");
 static_assert(offsetof(FieldSystemComponent_ApplyStayDynamicField, Radius) == 0x000020, "Member 'FieldSystemComponent_ApplyStayDynamicField::Radius' has a wrong offset!");
 
 // Function FieldSystemEngine.FieldSystemComponent.ApplyStrainField
@@ -147,7 +147,7 @@ struct FieldSystemComponent_ApplyStrainField final
 public:
 	bool                                          Enabled;                                           // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                position;                                          // 0x0008(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Position;                                          // 0x0008(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         Radius;                                            // 0x0020(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         Magnitude;                                         // 0x0024(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         Iterations;                                        // 0x0028(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -156,7 +156,7 @@ public:
 static_assert(alignof(FieldSystemComponent_ApplyStrainField) == 0x000008, "Wrong alignment on FieldSystemComponent_ApplyStrainField");
 static_assert(sizeof(FieldSystemComponent_ApplyStrainField) == 0x000030, "Wrong size on FieldSystemComponent_ApplyStrainField");
 static_assert(offsetof(FieldSystemComponent_ApplyStrainField, Enabled) == 0x000000, "Member 'FieldSystemComponent_ApplyStrainField::Enabled' has a wrong offset!");
-static_assert(offsetof(FieldSystemComponent_ApplyStrainField, position) == 0x000008, "Member 'FieldSystemComponent_ApplyStrainField::position' has a wrong offset!");
+static_assert(offsetof(FieldSystemComponent_ApplyStrainField, Position) == 0x000008, "Member 'FieldSystemComponent_ApplyStrainField::Position' has a wrong offset!");
 static_assert(offsetof(FieldSystemComponent_ApplyStrainField, Radius) == 0x000020, "Member 'FieldSystemComponent_ApplyStrainField::Radius' has a wrong offset!");
 static_assert(offsetof(FieldSystemComponent_ApplyStrainField, Magnitude) == 0x000024, "Member 'FieldSystemComponent_ApplyStrainField::Magnitude' has a wrong offset!");
 static_assert(offsetof(FieldSystemComponent_ApplyStrainField, Iterations) == 0x000028, "Member 'FieldSystemComponent_ApplyStrainField::Iterations' has a wrong offset!");
@@ -168,7 +168,7 @@ struct FieldSystemComponent_ApplyUniformVectorFalloffForce final
 public:
 	bool                                          Enabled;                                           // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                position;                                          // 0x0008(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Position;                                          // 0x0008(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector                                Direction;                                         // 0x0020(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         Radius;                                            // 0x0038(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         Magnitude;                                         // 0x003C(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -176,7 +176,7 @@ public:
 static_assert(alignof(FieldSystemComponent_ApplyUniformVectorFalloffForce) == 0x000008, "Wrong alignment on FieldSystemComponent_ApplyUniformVectorFalloffForce");
 static_assert(sizeof(FieldSystemComponent_ApplyUniformVectorFalloffForce) == 0x000040, "Wrong size on FieldSystemComponent_ApplyUniformVectorFalloffForce");
 static_assert(offsetof(FieldSystemComponent_ApplyUniformVectorFalloffForce, Enabled) == 0x000000, "Member 'FieldSystemComponent_ApplyUniformVectorFalloffForce::Enabled' has a wrong offset!");
-static_assert(offsetof(FieldSystemComponent_ApplyUniformVectorFalloffForce, position) == 0x000008, "Member 'FieldSystemComponent_ApplyUniformVectorFalloffForce::position' has a wrong offset!");
+static_assert(offsetof(FieldSystemComponent_ApplyUniformVectorFalloffForce, Position) == 0x000008, "Member 'FieldSystemComponent_ApplyUniformVectorFalloffForce::Position' has a wrong offset!");
 static_assert(offsetof(FieldSystemComponent_ApplyUniformVectorFalloffForce, Direction) == 0x000020, "Member 'FieldSystemComponent_ApplyUniformVectorFalloffForce::Direction' has a wrong offset!");
 static_assert(offsetof(FieldSystemComponent_ApplyUniformVectorFalloffForce, Radius) == 0x000038, "Member 'FieldSystemComponent_ApplyUniformVectorFalloffForce::Radius' has a wrong offset!");
 static_assert(offsetof(FieldSystemComponent_ApplyUniformVectorFalloffForce, Magnitude) == 0x00003C, "Member 'FieldSystemComponent_ApplyUniformVectorFalloffForce::Magnitude' has a wrong offset!");
@@ -248,7 +248,7 @@ struct RadialIntMask_SetRadialIntMask final
 public:
 	float                                         Radius_0;                                          // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                position_0;                                        // 0x0008(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Position_0;                                        // 0x0008(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         InteriorValue_0;                                   // 0x0020(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         ExteriorValue_0;                                   // 0x0024(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	ESetMaskConditionType                         SetMaskConditionIn;                                // 0x0028(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -258,7 +258,7 @@ public:
 static_assert(alignof(RadialIntMask_SetRadialIntMask) == 0x000008, "Wrong alignment on RadialIntMask_SetRadialIntMask");
 static_assert(sizeof(RadialIntMask_SetRadialIntMask) == 0x000038, "Wrong size on RadialIntMask_SetRadialIntMask");
 static_assert(offsetof(RadialIntMask_SetRadialIntMask, Radius_0) == 0x000000, "Member 'RadialIntMask_SetRadialIntMask::Radius_0' has a wrong offset!");
-static_assert(offsetof(RadialIntMask_SetRadialIntMask, position_0) == 0x000008, "Member 'RadialIntMask_SetRadialIntMask::position_0' has a wrong offset!");
+static_assert(offsetof(RadialIntMask_SetRadialIntMask, Position_0) == 0x000008, "Member 'RadialIntMask_SetRadialIntMask::Position_0' has a wrong offset!");
 static_assert(offsetof(RadialIntMask_SetRadialIntMask, InteriorValue_0) == 0x000020, "Member 'RadialIntMask_SetRadialIntMask::InteriorValue_0' has a wrong offset!");
 static_assert(offsetof(RadialIntMask_SetRadialIntMask, ExteriorValue_0) == 0x000024, "Member 'RadialIntMask_SetRadialIntMask::ExteriorValue_0' has a wrong offset!");
 static_assert(offsetof(RadialIntMask_SetRadialIntMask, SetMaskConditionIn) == 0x000028, "Member 'RadialIntMask_SetRadialIntMask::SetMaskConditionIn' has a wrong offset!");
@@ -285,7 +285,7 @@ struct WaveScalar_SetWaveScalar final
 public:
 	float                                         Magnitude_0;                                       // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                position_0;                                        // 0x0008(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Position_0;                                        // 0x0008(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         WaveLength_0;                                      // 0x0020(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         Period_0;                                          // 0x0024(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         Time;                                              // 0x0028(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -297,7 +297,7 @@ public:
 static_assert(alignof(WaveScalar_SetWaveScalar) == 0x000008, "Wrong alignment on WaveScalar_SetWaveScalar");
 static_assert(sizeof(WaveScalar_SetWaveScalar) == 0x000038, "Wrong size on WaveScalar_SetWaveScalar");
 static_assert(offsetof(WaveScalar_SetWaveScalar, Magnitude_0) == 0x000000, "Member 'WaveScalar_SetWaveScalar::Magnitude_0' has a wrong offset!");
-static_assert(offsetof(WaveScalar_SetWaveScalar, position_0) == 0x000008, "Member 'WaveScalar_SetWaveScalar::position_0' has a wrong offset!");
+static_assert(offsetof(WaveScalar_SetWaveScalar, Position_0) == 0x000008, "Member 'WaveScalar_SetWaveScalar::Position_0' has a wrong offset!");
 static_assert(offsetof(WaveScalar_SetWaveScalar, WaveLength_0) == 0x000020, "Member 'WaveScalar_SetWaveScalar::WaveLength_0' has a wrong offset!");
 static_assert(offsetof(WaveScalar_SetWaveScalar, Period_0) == 0x000024, "Member 'WaveScalar_SetWaveScalar::Period_0' has a wrong offset!");
 static_assert(offsetof(WaveScalar_SetWaveScalar, Time) == 0x000028, "Member 'WaveScalar_SetWaveScalar::Time' has a wrong offset!");
@@ -316,7 +316,7 @@ public:
 	float                                         Default_0;                                         // 0x000C(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         Radius_0;                                          // 0x0010(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_14[0x4];                                       // 0x0014(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                position_0;                                        // 0x0018(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Position_0;                                        // 0x0018(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EFieldFalloffType                             Falloff_0;                                         // 0x0030(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_31[0x7];                                       // 0x0031(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	class URadialFalloff*                         ReturnValue;                                       // 0x0038(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -328,7 +328,7 @@ static_assert(offsetof(RadialFalloff_SetRadialFalloff, MinRange_0) == 0x000004, 
 static_assert(offsetof(RadialFalloff_SetRadialFalloff, MaxRange_0) == 0x000008, "Member 'RadialFalloff_SetRadialFalloff::MaxRange_0' has a wrong offset!");
 static_assert(offsetof(RadialFalloff_SetRadialFalloff, Default_0) == 0x00000C, "Member 'RadialFalloff_SetRadialFalloff::Default_0' has a wrong offset!");
 static_assert(offsetof(RadialFalloff_SetRadialFalloff, Radius_0) == 0x000010, "Member 'RadialFalloff_SetRadialFalloff::Radius_0' has a wrong offset!");
-static_assert(offsetof(RadialFalloff_SetRadialFalloff, position_0) == 0x000018, "Member 'RadialFalloff_SetRadialFalloff::position_0' has a wrong offset!");
+static_assert(offsetof(RadialFalloff_SetRadialFalloff, Position_0) == 0x000018, "Member 'RadialFalloff_SetRadialFalloff::Position_0' has a wrong offset!");
 static_assert(offsetof(RadialFalloff_SetRadialFalloff, Falloff_0) == 0x000030, "Member 'RadialFalloff_SetRadialFalloff::Falloff_0' has a wrong offset!");
 static_assert(offsetof(RadialFalloff_SetRadialFalloff, ReturnValue) == 0x000038, "Member 'RadialFalloff_SetRadialFalloff::ReturnValue' has a wrong offset!");
 
@@ -343,7 +343,7 @@ public:
 	float                                         Default_0;                                         // 0x000C(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         Distance_0;                                        // 0x0010(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_14[0x4];                                       // 0x0014(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                position_0;                                        // 0x0018(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Position_0;                                        // 0x0018(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector                                Normal_0;                                          // 0x0030(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EFieldFalloffType                             Falloff_0;                                         // 0x0048(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_49[0x7];                                       // 0x0049(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
@@ -356,7 +356,7 @@ static_assert(offsetof(PlaneFalloff_SetPlaneFalloff, MinRange_0) == 0x000004, "M
 static_assert(offsetof(PlaneFalloff_SetPlaneFalloff, MaxRange_0) == 0x000008, "Member 'PlaneFalloff_SetPlaneFalloff::MaxRange_0' has a wrong offset!");
 static_assert(offsetof(PlaneFalloff_SetPlaneFalloff, Default_0) == 0x00000C, "Member 'PlaneFalloff_SetPlaneFalloff::Default_0' has a wrong offset!");
 static_assert(offsetof(PlaneFalloff_SetPlaneFalloff, Distance_0) == 0x000010, "Member 'PlaneFalloff_SetPlaneFalloff::Distance_0' has a wrong offset!");
-static_assert(offsetof(PlaneFalloff_SetPlaneFalloff, position_0) == 0x000018, "Member 'PlaneFalloff_SetPlaneFalloff::position_0' has a wrong offset!");
+static_assert(offsetof(PlaneFalloff_SetPlaneFalloff, Position_0) == 0x000018, "Member 'PlaneFalloff_SetPlaneFalloff::Position_0' has a wrong offset!");
 static_assert(offsetof(PlaneFalloff_SetPlaneFalloff, Normal_0) == 0x000030, "Member 'PlaneFalloff_SetPlaneFalloff::Normal_0' has a wrong offset!");
 static_assert(offsetof(PlaneFalloff_SetPlaneFalloff, Falloff_0) == 0x000048, "Member 'PlaneFalloff_SetPlaneFalloff::Falloff_0' has a wrong offset!");
 static_assert(offsetof(PlaneFalloff_SetPlaneFalloff, ReturnValue) == 0x000050, "Member 'PlaneFalloff_SetPlaneFalloff::ReturnValue' has a wrong offset!");
@@ -427,13 +427,13 @@ struct RadialVector_SetRadialVector final
 public:
 	float                                         Magnitude_0;                                       // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                position_0;                                        // 0x0008(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Position_0;                                        // 0x0008(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class URadialVector*                          ReturnValue;                                       // 0x0020(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(RadialVector_SetRadialVector) == 0x000008, "Wrong alignment on RadialVector_SetRadialVector");
 static_assert(sizeof(RadialVector_SetRadialVector) == 0x000028, "Wrong size on RadialVector_SetRadialVector");
 static_assert(offsetof(RadialVector_SetRadialVector, Magnitude_0) == 0x000000, "Member 'RadialVector_SetRadialVector::Magnitude_0' has a wrong offset!");
-static_assert(offsetof(RadialVector_SetRadialVector, position_0) == 0x000008, "Member 'RadialVector_SetRadialVector::position_0' has a wrong offset!");
+static_assert(offsetof(RadialVector_SetRadialVector, Position_0) == 0x000008, "Member 'RadialVector_SetRadialVector::Position_0' has a wrong offset!");
 static_assert(offsetof(RadialVector_SetRadialVector, ReturnValue) == 0x000020, "Member 'RadialVector_SetRadialVector::ReturnValue' has a wrong offset!");
 
 // Function FieldSystemEngine.RandomVector.SetRandomVector

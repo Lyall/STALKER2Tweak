@@ -11,15 +11,15 @@
 #include "Basic.hpp"
 
 #include "Engine_classes.hpp"
-#include "Modio_structs.hpp"
-#include "SlateCore_structs.hpp"
 #include "CommonUI_classes.hpp"
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
 #include "UMG_structs.hpp"
 #include "UMG_classes.hpp"
-#include "Slate_structs.hpp"
+#include "SlateCore_structs.hpp"
 #include "ModioUI_structs.hpp"
+#include "Slate_structs.hpp"
+#include "Modio_structs.hpp"
 #include "ModioUICore_structs.hpp"
 #include "ModioUICore_classes.hpp"
 #include "DeveloperSettings_classes.hpp"
@@ -35,7 +35,7 @@ class UModioCommonActivatableWidget : public UCommonActivatableWidget
 public:
 	bool                                          bRoutedSetDataSource;                              // 0x03C8(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 	uint8                                         Pad_3C9[0x1F];                                     // 0x03C9(0x001F)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void(bool bIsFocused)> OnFocusChanged;                                    // 0x03E8(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnFocusChanged;                                    // 0x03E8(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 	bool                                          bAutoBindInputAction;                              // 0x03F8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	bool                                          bAutoFocusOnActivation;                            // 0x03F9(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	uint8                                         Pad_3FA[0x6];                                      // 0x03FA(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
@@ -45,12 +45,14 @@ public:
 public:
 	void BP_BindInputActions();
 	void BP_ListenForInputAction(class UModioCommonButtonBase* Button, const struct FDataTableRowHandle& InputAction, const class FText& DisplayName, const TDelegate<void()>& OnActionFired);
+	void OnModioCommonActivatableWidgetActionFired__DelegateSignature();
 	void BP_SynchronizeProperties();
 	void BP_UnbindInputActions();
 	void ClearListeningInputAction(class UModioCommonButtonBase* Button);
 	void ClearListeningInputActions();
 	void FocusOnDesiredWidget();
 	class FString GetRequestIdentifier();
+	void OnCommonWidgetFocusChanged__DelegateSignature(bool bIsFocused);
 	void OnDataSourceUpdated();
 	void OnViewportResized(const struct FVector2D& NewViewportSize);
 	void SetDataSource(class UObject* NewDataSource);
@@ -160,7 +162,7 @@ public:
 	void HandleSubscribeClicked();
 	void HandleSwitchEnabledClicked();
 	void HideProgress();
-	void OnRatingSubmissionComplete(const struct FModioErrorCode& errorCode, EModioRating SubmittedRating);
+	void OnRatingSubmissionComplete(const struct FModioErrorCode& ErrorCode, EModioRating SubmittedRating);
 	void SetStyle(TSubclassOf<class UModioCommonModDetailsViewStyle> InStyle);
 	void ShowProgress();
 	void ShowStatus();
@@ -217,39 +219,6 @@ static_assert(offsetof(UModioCommonModDetailsView, ModioCommonDescriptionScrollB
 static_assert(offsetof(UModioCommonModDetailsView, SpeedDetailsTextBlock) == 0x0005B8, "Member 'UModioCommonModDetailsView::SpeedDetailsTextBlock' has a wrong offset!");
 static_assert(offsetof(UModioCommonModDetailsView, ModDetailsLoader) == 0x0005C0, "Member 'UModioCommonModDetailsView::ModDetailsLoader' has a wrong offset!");
 static_assert(offsetof(UModioCommonModDetailsView, ErrorWithRetryWidget) == 0x0005C8, "Member 'UModioCommonModDetailsView::ErrorWithRetryWidget' has a wrong offset!");
-
-// Class ModioUI.ModioCommonSearchTabViewStyle
-// 0x0038 (0x0060 - 0x0028)
-class UModioCommonSearchTabViewStyle final : public UObject
-{
-public:
-	TSubclassOf<class UModioCommonBorderStyle>    InternalBackgroundBorderStyle;                     // 0x0028(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TSubclassOf<class UModioCommonBorderStyle>    OverlayBackgroundBorderStyle;                      // 0x0030(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TSubclassOf<class UModioCommonTextStyle>      SearchTabTitleTextStyle;                           // 0x0038(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TSubclassOf<class UModioCommonEditableTextBoxStyle> SearchTextBoxStyle;                                // 0x0040(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TSubclassOf<class UModioCommonButtonStyle>    CloseButtonStyle;                                  // 0x0048(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TSubclassOf<class UModioCommonButtonStyle>    ResetButtonStyle;                                  // 0x0050(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TSubclassOf<class UModioCommonButtonStyle>    SearchButtonStyle;                                 // 0x0058(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-public:
-	static class UClass* StaticClass()
-	{
-		return StaticClassImpl<"ModioCommonSearchTabViewStyle">();
-	}
-	static class UModioCommonSearchTabViewStyle* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UModioCommonSearchTabViewStyle>();
-	}
-};
-static_assert(alignof(UModioCommonSearchTabViewStyle) == 0x000008, "Wrong alignment on UModioCommonSearchTabViewStyle");
-static_assert(sizeof(UModioCommonSearchTabViewStyle) == 0x000060, "Wrong size on UModioCommonSearchTabViewStyle");
-static_assert(offsetof(UModioCommonSearchTabViewStyle, InternalBackgroundBorderStyle) == 0x000028, "Member 'UModioCommonSearchTabViewStyle::InternalBackgroundBorderStyle' has a wrong offset!");
-static_assert(offsetof(UModioCommonSearchTabViewStyle, OverlayBackgroundBorderStyle) == 0x000030, "Member 'UModioCommonSearchTabViewStyle::OverlayBackgroundBorderStyle' has a wrong offset!");
-static_assert(offsetof(UModioCommonSearchTabViewStyle, SearchTabTitleTextStyle) == 0x000038, "Member 'UModioCommonSearchTabViewStyle::SearchTabTitleTextStyle' has a wrong offset!");
-static_assert(offsetof(UModioCommonSearchTabViewStyle, SearchTextBoxStyle) == 0x000040, "Member 'UModioCommonSearchTabViewStyle::SearchTextBoxStyle' has a wrong offset!");
-static_assert(offsetof(UModioCommonSearchTabViewStyle, CloseButtonStyle) == 0x000048, "Member 'UModioCommonSearchTabViewStyle::CloseButtonStyle' has a wrong offset!");
-static_assert(offsetof(UModioCommonSearchTabViewStyle, ResetButtonStyle) == 0x000050, "Member 'UModioCommonSearchTabViewStyle::ResetButtonStyle' has a wrong offset!");
-static_assert(offsetof(UModioCommonSearchTabViewStyle, SearchButtonStyle) == 0x000058, "Member 'UModioCommonSearchTabViewStyle::SearchButtonStyle' has a wrong offset!");
 
 // Class ModioUI.ModioCommonModDetailsViewStyle
 // 0x0078 (0x00A0 - 0x0028)
@@ -438,8 +407,8 @@ public:
 	uint8                                         Pad_481[0x7];                                      // 0x0481(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
-	void HandleEmailAuthCodeSent(const struct FModioErrorCode& errorCode);
-	void HandleEmailAuthenticated(const struct FModioErrorCode& errorCode);
+	void HandleEmailAuthCodeSent(const struct FModioErrorCode& ErrorCode);
+	void HandleEmailAuthenticated(const struct FModioErrorCode& ErrorCode);
 	void OnEmailAuthCodeViewBackClicked();
 	void OnEmailAuthCodeViewCancelClicked();
 	void OnEmailAuthCodeViewSubmitClicked(const class FString& AuthCode);
@@ -511,6 +480,46 @@ public:
 static_assert(alignof(UModioCommonBorderStyle) == 0x000010, "Wrong alignment on UModioCommonBorderStyle");
 static_assert(sizeof(UModioCommonBorderStyle) == 0x000120, "Wrong size on UModioCommonBorderStyle");
 
+// Class ModioUI.ModioCommonButtonStyle
+// 0x0010 (0x08C0 - 0x08B0)
+class UModioCommonButtonStyle : public UCommonButtonStyle
+{
+public:
+	TSubclassOf<class UModioCommonImageStyle>     NormalIconStyle;                                   // 0x08B0(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, ExposeOnSpawn, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSubclassOf<class UModioCommonImageStyle>     FocusedIconStyle;                                  // 0x08B8(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, ExposeOnSpawn, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+public:
+	static class UClass* StaticClass()
+	{
+		return StaticClassImpl<"ModioCommonButtonStyle">();
+	}
+	static class UModioCommonButtonStyle* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UModioCommonButtonStyle>();
+	}
+};
+static_assert(alignof(UModioCommonButtonStyle) == 0x000010, "Wrong alignment on UModioCommonButtonStyle");
+static_assert(sizeof(UModioCommonButtonStyle) == 0x0008C0, "Wrong size on UModioCommonButtonStyle");
+static_assert(offsetof(UModioCommonButtonStyle, NormalIconStyle) == 0x0008B0, "Member 'UModioCommonButtonStyle::NormalIconStyle' has a wrong offset!");
+static_assert(offsetof(UModioCommonButtonStyle, FocusedIconStyle) == 0x0008B8, "Member 'UModioCommonButtonStyle::FocusedIconStyle' has a wrong offset!");
+
+// Class ModioUI.ModioCommonTabButtonStyle
+// 0x0000 (0x08C0 - 0x08C0)
+class UModioCommonTabButtonStyle final : public UModioCommonButtonStyle
+{
+public:
+	static class UClass* StaticClass()
+	{
+		return StaticClassImpl<"ModioCommonTabButtonStyle">();
+	}
+	static class UModioCommonTabButtonStyle* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UModioCommonTabButtonStyle>();
+	}
+};
+static_assert(alignof(UModioCommonTabButtonStyle) == 0x000010, "Wrong alignment on UModioCommonTabButtonStyle");
+static_assert(sizeof(UModioCommonTabButtonStyle) == 0x0008C0, "Wrong size on UModioCommonTabButtonStyle");
+
 // Class ModioUI.ModioCommonBoundActionBar
 // 0x0000 (0x0240 - 0x0240)
 class UModioCommonBoundActionBar final : public UCommonBoundActionBar
@@ -527,44 +536,6 @@ public:
 };
 static_assert(alignof(UModioCommonBoundActionBar) == 0x000008, "Wrong alignment on UModioCommonBoundActionBar");
 static_assert(sizeof(UModioCommonBoundActionBar) == 0x000240, "Wrong size on UModioCommonBoundActionBar");
-
-// Class ModioUI.ModioCommonTabListWidgetBase
-// 0x00A0 (0x0428 - 0x0388)
-class UModioCommonTabListWidgetBase final : public UCommonTabListWidgetBase
-{
-public:
-	uint8                                         Pad_388[0x18];                                     // 0x0388(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void(class UCommonButtonBase* TabButton)> OnTabButtonClicked;                                // 0x03A0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                         Pad_3B0[0x18];                                     // 0x03B0(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	class UCommonActionWidget*                    PreviousTabAction;                                 // 0x03C8(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class UCommonActionWidget*                    NextTabAction;                                     // 0x03D0(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_3D8[0x50];                                     // 0x03D8(0x0050)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	void HandleNavigateToNextTab();
-	void HandleNavigateToPreviousTab();
-	void OnTabSelectedInternal(class FName TabNameID);
-	bool RegisterDynamicTab(const struct FModioCommonTabDescriptor& TabDescriptor);
-	void RemoveAllDynamicTabs();
-	bool SelectTabByIDExtended(class FName TabNameID, bool bSuppressClickFeedback, bool bSuppressOnTabSelectedIfAlreadySelected);
-	void SetNextTabInputActionData(const struct FDataTableRowHandle& InNextTabInputActionData);
-	void SetPreviousTabInputActionData(const struct FDataTableRowHandle& InPreviousTabInputActionData);
-
-public:
-	static class UClass* StaticClass()
-	{
-		return StaticClassImpl<"ModioCommonTabListWidgetBase">();
-	}
-	static class UModioCommonTabListWidgetBase* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UModioCommonTabListWidgetBase>();
-	}
-};
-static_assert(alignof(UModioCommonTabListWidgetBase) == 0x000008, "Wrong alignment on UModioCommonTabListWidgetBase");
-static_assert(sizeof(UModioCommonTabListWidgetBase) == 0x000428, "Wrong size on UModioCommonTabListWidgetBase");
-static_assert(offsetof(UModioCommonTabListWidgetBase, OnTabButtonClicked) == 0x0003A0, "Member 'UModioCommonTabListWidgetBase::OnTabButtonClicked' has a wrong offset!");
-static_assert(offsetof(UModioCommonTabListWidgetBase, PreviousTabAction) == 0x0003C8, "Member 'UModioCommonTabListWidgetBase::PreviousTabAction' has a wrong offset!");
-static_assert(offsetof(UModioCommonTabListWidgetBase, NextTabAction) == 0x0003D0, "Member 'UModioCommonTabListWidgetBase::NextTabAction' has a wrong offset!");
 
 // Class ModioUI.ModioCommonBoundActionButton
 // 0x0000 (0x1710 - 0x1710)
@@ -596,8 +567,8 @@ public:
 	uint8                                         Pad_1729[0x7];                                     // 0x1729(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	class UModioCommonTextBlock*                  TextBlock;                                         // 0x1730(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	class UModioCommonImage*                      Icon;                                              // 0x1738(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	TMulticastInlineDelegate<void(class UCommonButtonBase* Button)> OnButtonBaseFocusReceived;                         // 0x1740(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void(class UCommonButtonBase* Button)> OnButtonBaseFocusLost;                             // 0x1750(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnButtonBaseFocusReceived;                         // 0x1740(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnButtonBaseFocusLost;                             // 0x1750(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 	uint8                                         Pad_1760[0x18];                                    // 0x1760(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
 	TSubclassOf<class UModioCommonButtonStyle>    ModioDefaultStyleClass;                            // 0x1778(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 	class UClass*                                 ModioFocusedStyleClass;                            // 0x1780(0x0008)(ZeroConstructor, Transient, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
@@ -629,29 +600,6 @@ static_assert(offsetof(UModioCommonButtonBase, OnButtonBaseFocusReceived) == 0x0
 static_assert(offsetof(UModioCommonButtonBase, OnButtonBaseFocusLost) == 0x001750, "Member 'UModioCommonButtonBase::OnButtonBaseFocusLost' has a wrong offset!");
 static_assert(offsetof(UModioCommonButtonBase, ModioDefaultStyleClass) == 0x001778, "Member 'UModioCommonButtonBase::ModioDefaultStyleClass' has a wrong offset!");
 static_assert(offsetof(UModioCommonButtonBase, ModioFocusedStyleClass) == 0x001780, "Member 'UModioCommonButtonBase::ModioFocusedStyleClass' has a wrong offset!");
-
-// Class ModioUI.ModioCommonButtonStyle
-// 0x0010 (0x08C0 - 0x08B0)
-class UModioCommonButtonStyle : public UCommonButtonStyle
-{
-public:
-	TSubclassOf<class UModioCommonImageStyle>     NormalIconStyle;                                   // 0x08B0(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, ExposeOnSpawn, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TSubclassOf<class UModioCommonImageStyle>     FocusedIconStyle;                                  // 0x08B8(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, ExposeOnSpawn, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-public:
-	static class UClass* StaticClass()
-	{
-		return StaticClassImpl<"ModioCommonButtonStyle">();
-	}
-	static class UModioCommonButtonStyle* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UModioCommonButtonStyle>();
-	}
-};
-static_assert(alignof(UModioCommonButtonStyle) == 0x000010, "Wrong alignment on UModioCommonButtonStyle");
-static_assert(sizeof(UModioCommonButtonStyle) == 0x0008C0, "Wrong size on UModioCommonButtonStyle");
-static_assert(offsetof(UModioCommonButtonStyle, NormalIconStyle) == 0x0008B0, "Member 'UModioCommonButtonStyle::NormalIconStyle' has a wrong offset!");
-static_assert(offsetof(UModioCommonButtonStyle, FocusedIconStyle) == 0x0008B8, "Member 'UModioCommonButtonStyle::FocusedIconStyle' has a wrong offset!");
 
 // Class ModioUI.ModioCommonCheckBox
 // 0x0040 (0x0E40 - 0x0E00)
@@ -729,10 +677,11 @@ public:
 	EVirtualKeyboardDismissAction                 VirtualKeyboardDismissAction;                      // 0x015B(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         NumberOfCharacters;                                // 0x015C(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_160[0x18];                                     // 0x0160(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void()>              OnCodeSubmitDynamic;                               // 0x0178(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnCodeSubmitDynamic;                               // 0x0178(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 	uint8                                         Pad_188[0x20];                                     // 0x0188(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
+	void OnCodeSubmitDynamic__DelegateSignature();
 	void SetCodeString(const class FString& InCodeString);
 	void SetStyle(TSubclassOf<class UModioCommonCodeInputTextBoxStyle> InStyle);
 
@@ -758,6 +707,26 @@ static_assert(offsetof(UModioCommonCodeInputTextBox, VirtualKeyboardDismissActio
 static_assert(offsetof(UModioCommonCodeInputTextBox, NumberOfCharacters) == 0x00015C, "Member 'UModioCommonCodeInputTextBox::NumberOfCharacters' has a wrong offset!");
 static_assert(offsetof(UModioCommonCodeInputTextBox, OnCodeSubmitDynamic) == 0x000178, "Member 'UModioCommonCodeInputTextBox::OnCodeSubmitDynamic' has a wrong offset!");
 
+// Class ModioUI.ModioCommonUserProfileBase
+// 0x0010 (0x0438 - 0x0428)
+class UModioCommonUserProfileBase : public UModioCommonActivatableWidget
+{
+public:
+	uint8                                         Pad_428[0x10];                                     // 0x0428(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		return StaticClassImpl<"ModioCommonUserProfileBase">();
+	}
+	static class UModioCommonUserProfileBase* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UModioCommonUserProfileBase>();
+	}
+};
+static_assert(alignof(UModioCommonUserProfileBase) == 0x000008, "Wrong alignment on UModioCommonUserProfileBase");
+static_assert(sizeof(UModioCommonUserProfileBase) == 0x000438, "Wrong size on UModioCommonUserProfileBase");
+
 // Class ModioUI.ModioCommonCodeInputTextBoxStyle
 // 0x06B8 (0x06E0 - 0x0028)
 class UModioCommonCodeInputTextBoxStyle final : public UObject
@@ -780,47 +749,6 @@ static_assert(alignof(UModioCommonCodeInputTextBoxStyle) == 0x000010, "Wrong ali
 static_assert(sizeof(UModioCommonCodeInputTextBoxStyle) == 0x0006E0, "Wrong size on UModioCommonCodeInputTextBoxStyle");
 static_assert(offsetof(UModioCommonCodeInputTextBoxStyle, Style) == 0x000030, "Member 'UModioCommonCodeInputTextBoxStyle::Style' has a wrong offset!");
 
-// Class ModioUI.ModioCommonUserProfileBase
-// 0x0010 (0x0438 - 0x0428)
-class UModioCommonUserProfileBase : public UModioCommonActivatableWidget
-{
-public:
-	uint8                                         Pad_428[0x10];                                     // 0x0428(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		return StaticClassImpl<"ModioCommonUserProfileBase">();
-	}
-	static class UModioCommonUserProfileBase* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UModioCommonUserProfileBase>();
-	}
-};
-static_assert(alignof(UModioCommonUserProfileBase) == 0x000008, "Wrong alignment on UModioCommonUserProfileBase");
-static_assert(sizeof(UModioCommonUserProfileBase) == 0x000438, "Wrong size on UModioCommonUserProfileBase");
-
-// Class ModioUI.ModioCommonUserProfileWidget
-// 0x0008 (0x0440 - 0x0438)
-class UModioCommonUserProfileWidget : public UModioCommonUserProfileBase
-{
-public:
-	class UModioCommonButtonBase*                 ProfileButton;                                     // 0x0438(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-
-public:
-	static class UClass* StaticClass()
-	{
-		return StaticClassImpl<"ModioCommonUserProfileWidget">();
-	}
-	static class UModioCommonUserProfileWidget* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UModioCommonUserProfileWidget>();
-	}
-};
-static_assert(alignof(UModioCommonUserProfileWidget) == 0x000008, "Wrong alignment on UModioCommonUserProfileWidget");
-static_assert(sizeof(UModioCommonUserProfileWidget) == 0x000440, "Wrong size on UModioCommonUserProfileWidget");
-static_assert(offsetof(UModioCommonUserProfileWidget, ProfileButton) == 0x000438, "Member 'UModioCommonUserProfileWidget::ProfileButton' has a wrong offset!");
-
 // Class ModioUI.ModioCommonModListBase
 // 0x0000 (0x0428 - 0x0428)
 class UModioCommonModListBase : public UModioCommonActivatableWidget
@@ -837,6 +765,26 @@ public:
 };
 static_assert(alignof(UModioCommonModListBase) == 0x000008, "Wrong alignment on UModioCommonModListBase");
 static_assert(sizeof(UModioCommonModListBase) == 0x000428, "Wrong size on UModioCommonModListBase");
+
+// Class ModioUI.ModioCommonTabButtonInterface
+// 0x0000 (0x0028 - 0x0028)
+class IModioCommonTabButtonInterface final : public IInterface
+{
+public:
+	void SetTabLabelInfo(const struct FModioCommonTabDescriptor& InTabLabelInfo);
+
+public:
+	static class UClass* StaticClass()
+	{
+		return StaticClassImpl<"ModioCommonTabButtonInterface">();
+	}
+	static class IModioCommonTabButtonInterface* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<IModioCommonTabButtonInterface>();
+	}
+};
+static_assert(alignof(IModioCommonTabButtonInterface) == 0x000008, "Wrong alignment on IModioCommonTabButtonInterface");
+static_assert(sizeof(IModioCommonTabButtonInterface) == 0x000028, "Wrong size on IModioCommonTabButtonInterface");
 
 // Class ModioUI.ModioCommonCollectionView
 // 0x0140 (0x0568 - 0x0428)
@@ -861,7 +809,7 @@ public:
 
 public:
 	void ApplySortingAndFiltering(TArray<struct FModioModCollectionEntry>* ModListEntries);
-	void OnFetchExternalCompleted(const struct FModioErrorCode& errorCode);
+	void OnFetchExternalCompleted(const struct FModioErrorCode& ErrorCode);
 	void OnFetchUpdatesClicked();
 	void SetDefaultCategoryFilterParams(bool bUserAuthenticated);
 	void SetNoResultsVisibility(bool bVisible);
@@ -899,26 +847,6 @@ static_assert(offsetof(UModioCommonCollectionView, FetchUpdateButton) == 0x0004A
 static_assert(offsetof(UModioCommonCollectionView, FilterButton) == 0x0004A8, "Member 'UModioCommonCollectionView::FilterButton' has a wrong offset!");
 static_assert(offsetof(UModioCommonCollectionView, FilterCounterTextBlock) == 0x0004B0, "Member 'UModioCommonCollectionView::FilterCounterTextBlock' has a wrong offset!");
 static_assert(offsetof(UModioCommonCollectionView, ModIDsWithErrors) == 0x0004B8, "Member 'UModioCommonCollectionView::ModIDsWithErrors' has a wrong offset!");
-
-// Class ModioUI.ModioCommonTabButtonBase
-// 0x0030 (0x17C0 - 0x1790)
-class UModioCommonTabButtonBase final : public UModioCommonButtonBase
-{
-public:
-	uint8                                         Pad_1790[0x30];                                    // 0x1790(0x0030)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		return StaticClassImpl<"ModioCommonTabButtonBase">();
-	}
-	static class UModioCommonTabButtonBase* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UModioCommonTabButtonBase>();
-	}
-};
-static_assert(alignof(UModioCommonTabButtonBase) == 0x000010, "Wrong alignment on UModioCommonTabButtonBase");
-static_assert(sizeof(UModioCommonTabButtonBase) == 0x0017C0, "Wrong size on UModioCommonTabButtonBase");
 
 // Class ModioUI.ModioCommonCollectionViewStyle
 // 0x0050 (0x0078 - 0x0028)
@@ -958,23 +886,6 @@ static_assert(offsetof(UModioCommonCollectionViewStyle, NumOfErrorsTextStyle) ==
 static_assert(offsetof(UModioCommonCollectionViewStyle, FetchUpdateButtonStyle) == 0x000060, "Member 'UModioCommonCollectionViewStyle::FetchUpdateButtonStyle' has a wrong offset!");
 static_assert(offsetof(UModioCommonCollectionViewStyle, FilterButtonStyle) == 0x000068, "Member 'UModioCommonCollectionViewStyle::FilterButtonStyle' has a wrong offset!");
 static_assert(offsetof(UModioCommonCollectionViewStyle, FilterCounterTextStyle) == 0x000070, "Member 'UModioCommonCollectionViewStyle::FilterCounterTextStyle' has a wrong offset!");
-
-// Class ModioUI.ModioCommonTextStyle
-// 0x0000 (0x01D0 - 0x01D0)
-class UModioCommonTextStyle final : public UCommonTextStyle
-{
-public:
-	static class UClass* StaticClass()
-	{
-		return StaticClassImpl<"ModioCommonTextStyle">();
-	}
-	static class UModioCommonTextStyle* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UModioCommonTextStyle>();
-	}
-};
-static_assert(alignof(UModioCommonTextStyle) == 0x000010, "Wrong alignment on UModioCommonTextStyle");
-static_assert(sizeof(UModioCommonTextStyle) == 0x0001D0, "Wrong size on UModioCommonTextStyle");
 
 // Class ModioUI.ModioCommonComboBoxString
 // 0x0000 (0x18F0 - 0x18F0)
@@ -1047,12 +958,13 @@ public:
 	class FText                                   DialogText;                                        // 0x0040(0x0018)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
 	uint8                                         ButtonsToDisplay;                                  // 0x0058(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_59[0x7];                                       // 0x0059(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void(EModioCommonDialogButtonType ClickedButtonType)> OnDialogButtonClicked;                             // 0x0060(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnDialogButtonClicked;                             // 0x0060(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 	uint8                                         Pad_70[0x18];                                      // 0x0070(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
 	class UObject*                                Owner;                                             // 0x0088(0x0008)(BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	void HandleDialogButtonClicked(EModioCommonDialogButtonType ClickedButtonType);
+	void OnDialogButtonClicked__DelegateSignature(EModioCommonDialogButtonType ClickedButtonType);
 
 public:
 	static class UClass* StaticClass()
@@ -1078,7 +990,7 @@ class UModioCommonDialogLibrary final : public UBlueprintFunctionLibrary
 {
 public:
 	static class UModioCommonDialogInfo* CreateConfirmUninstallDialogInfo(const struct FModioModInfo& ModInfo);
-	static class UModioCommonDialogInfo* CreateErrorDialogInfo(const struct FModioErrorCode& errorCode, const class FText& TitleText);
+	static class UModioCommonDialogInfo* CreateErrorDialogInfo(const struct FModioErrorCode& ErrorCode, const class FText& TitleText);
 	static class UModioCommonDialogInfo* CreateManualDialogInfo(const class FText& TitleText, const class FText& DialogText);
 	static class UModioCommonDialogInfo* CreateUninstallDialogInfo(const struct FModioModInfo& ModInfo);
 
@@ -1167,6 +1079,23 @@ public:
 static_assert(alignof(UModioCommonDialogViewBase) == 0x000008, "Wrong alignment on UModioCommonDialogViewBase");
 static_assert(sizeof(UModioCommonDialogViewBase) == 0x000428, "Wrong size on UModioCommonDialogViewBase");
 
+// Class ModioUI.ModioCommonWrapBox
+// 0x0000 (0x0190 - 0x0190)
+class UModioCommonWrapBox final : public UWrapBox
+{
+public:
+	static class UClass* StaticClass()
+	{
+		return StaticClassImpl<"ModioCommonWrapBox">();
+	}
+	static class UModioCommonWrapBox* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UModioCommonWrapBox>();
+	}
+};
+static_assert(alignof(UModioCommonWrapBox) == 0x000008, "Wrong alignment on UModioCommonWrapBox");
+static_assert(sizeof(UModioCommonWrapBox) == 0x000190, "Wrong size on UModioCommonWrapBox");
+
 // Class ModioUI.ModioCommonDialogView
 // 0x0018 (0x0440 - 0x0428)
 class UModioCommonDialogView final : public UModioCommonDialogViewBase
@@ -1198,7 +1127,7 @@ class UModioCommonImageBase : public UCommonUserWidget
 {
 public:
 	uint8                                         Pad_2A0[0x18];                                     // 0x02A0(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void(bool bSuccess)> OnImageLoadedDynamic;                              // 0x02B8(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnImageLoadedDynamic;                              // 0x02B8(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 	bool                                          bLoadFailed;                                       // 0x02C8(0x0001)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	bool                                          bIsLoading;                                        // 0x02C9(0x0001)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	uint8                                         Pad_2CA[0x6];                                      // 0x02CA(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
@@ -1208,6 +1137,7 @@ public:
 	void LoadImageFromFileAsync(const struct FModioImageWrapper& ImageLoader);
 	void LoadImageFromGallery(const struct FModioModID& ModId, EModioGallerySize GallerySize, int32 Index_0);
 	void LoadImageFromLogo(const struct FModioModID& ModId, EModioLogoSize LogoSize);
+	void OnImageLoadedDynamicDelegate__DelegateSignature(bool bSuccess);
 	void OnLoadNewImageError();
 	void OnStartLoadNewImage();
 	void SetImageTexture(class UTexture2DDynamic* Texture);
@@ -1329,7 +1259,7 @@ class UModioCommonEditableTextBox final : public UEditableTextBox
 {
 public:
 	TSubclassOf<class UModioCommonEditableTextBoxStyle> ModioStyle;                                        // 0x1270(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, Protected, ExposeOnSpawn, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	TMulticastInlineDelegate<void(class FText& Text)> OnEditableTextChanged;                             // 0x1278(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnEditableTextChanged;                             // 0x1278(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 	uint8                                         Pad_1288[0x18];                                    // 0x1288(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
@@ -1416,9 +1346,9 @@ static_assert(offsetof(UModioCommonEditableTextBoxStyle, HintIconPadding) == 0x0
 class UModioCommonEmailAuthCodeViewBase : public UModioCommonActivatableWidget
 {
 public:
-	TMulticastInlineDelegate<void()>              OnBackClicked;                                     // 0x0428(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void(const class FString& AuthCode)> OnSubmitClicked;                                   // 0x0438(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void()>              OnCancelClicked;                                   // 0x0448(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnBackClicked;                                     // 0x0428(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnSubmitClicked;                                   // 0x0438(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnCancelClicked;                                   // 0x0448(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -1435,6 +1365,30 @@ static_assert(sizeof(UModioCommonEmailAuthCodeViewBase) == 0x000458, "Wrong size
 static_assert(offsetof(UModioCommonEmailAuthCodeViewBase, OnBackClicked) == 0x000428, "Member 'UModioCommonEmailAuthCodeViewBase::OnBackClicked' has a wrong offset!");
 static_assert(offsetof(UModioCommonEmailAuthCodeViewBase, OnSubmitClicked) == 0x000438, "Member 'UModioCommonEmailAuthCodeViewBase::OnSubmitClicked' has a wrong offset!");
 static_assert(offsetof(UModioCommonEmailAuthCodeViewBase, OnCancelClicked) == 0x000448, "Member 'UModioCommonEmailAuthCodeViewBase::OnCancelClicked' has a wrong offset!");
+
+// Class ModioUI.ModioSearchResultsParamsUI
+// 0x0068 (0x0090 - 0x0028)
+class UModioSearchResultsParamsUI final : public UObject
+{
+public:
+	struct FModioModCategoryParams                FilterParams;                                      // 0x0028(0x0060)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	EModioCommonSearchViewType                    SearchType;                                        // 0x0088(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_89[0x7];                                       // 0x0089(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		return StaticClassImpl<"ModioSearchResultsParamsUI">();
+	}
+	static class UModioSearchResultsParamsUI* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UModioSearchResultsParamsUI>();
+	}
+};
+static_assert(alignof(UModioSearchResultsParamsUI) == 0x000008, "Wrong alignment on UModioSearchResultsParamsUI");
+static_assert(sizeof(UModioSearchResultsParamsUI) == 0x000090, "Wrong size on UModioSearchResultsParamsUI");
+static_assert(offsetof(UModioSearchResultsParamsUI, FilterParams) == 0x000028, "Member 'UModioSearchResultsParamsUI::FilterParams' has a wrong offset!");
+static_assert(offsetof(UModioSearchResultsParamsUI, SearchType) == 0x000088, "Member 'UModioSearchResultsParamsUI::SearchType' has a wrong offset!");
 
 // Class ModioUI.ModioCommonEmailAuthCodeView
 // 0x0040 (0x0498 - 0x0458)
@@ -1480,59 +1434,12 @@ static_assert(offsetof(UModioCommonEmailAuthCodeView, CancelButton) == 0x000480,
 static_assert(offsetof(UModioCommonEmailAuthCodeView, CodeInputTextBox) == 0x000488, "Member 'UModioCommonEmailAuthCodeView::CodeInputTextBox' has a wrong offset!");
 static_assert(offsetof(UModioCommonEmailAuthCodeView, CustomCodeInputTextBox) == 0x000490, "Member 'UModioCommonEmailAuthCodeView::CustomCodeInputTextBox' has a wrong offset!");
 
-// Class ModioUI.ModioCommonStorageSpaceTrackerUserWidget
-// 0x0058 (0x0480 - 0x0428)
-class UModioCommonStorageSpaceTrackerUserWidget final : public UModioCommonActivatableWidget
-{
-public:
-	TSubclassOf<class UModioCommonStorageSpaceTrackerUserWidgetStyle> ModioStyle;                                        // 0x0428(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, Protected, ExposeOnSpawn, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class UModioCommonStorageSpaceTrackerWidget*  Tracker;                                           // 0x0430(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class UModioCommonImage*                      IconImage;                                         // 0x0438(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class UModioCommonTextBlock*                  UsedSpaceLabelTextBlock;                           // 0x0440(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class UModioCommonTextBlock*                  UsedSpaceTextBlock;                                // 0x0448(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class UModioCommonTextBlock*                  FreeSpaceLabelTextBlock;                           // 0x0450(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class UModioCommonTextBlock*                  FreeSpaceTextBlock;                                // 0x0458(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class UModioCommonTextBlock*                  TotalSpaceLabelTextBlock;                          // 0x0460(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class UModioCommonTextBlock*                  TotalSpaceTextBlock;                               // 0x0468(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class UModioCommonProgressBar*                StorageSpaceProgressBar;                           // 0x0470(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	int32                                         MinDecimals;                                       // 0x0478(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	int32                                         MaxDecimals;                                       // 0x047C(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-
-public:
-	void OnStorageSpaceTrackerUpdated(const struct FModioUnsigned64& UsedSpace, const struct FModioUnsigned64& FreeSpace, const struct FModioUnsigned64& TotalSpace);
-	void SetStyle(TSubclassOf<class UModioCommonStorageSpaceTrackerUserWidgetStyle> InStyle);
-
-public:
-	static class UClass* StaticClass()
-	{
-		return StaticClassImpl<"ModioCommonStorageSpaceTrackerUserWidget">();
-	}
-	static class UModioCommonStorageSpaceTrackerUserWidget* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UModioCommonStorageSpaceTrackerUserWidget>();
-	}
-};
-static_assert(alignof(UModioCommonStorageSpaceTrackerUserWidget) == 0x000008, "Wrong alignment on UModioCommonStorageSpaceTrackerUserWidget");
-static_assert(sizeof(UModioCommonStorageSpaceTrackerUserWidget) == 0x000480, "Wrong size on UModioCommonStorageSpaceTrackerUserWidget");
-static_assert(offsetof(UModioCommonStorageSpaceTrackerUserWidget, ModioStyle) == 0x000428, "Member 'UModioCommonStorageSpaceTrackerUserWidget::ModioStyle' has a wrong offset!");
-static_assert(offsetof(UModioCommonStorageSpaceTrackerUserWidget, Tracker) == 0x000430, "Member 'UModioCommonStorageSpaceTrackerUserWidget::Tracker' has a wrong offset!");
-static_assert(offsetof(UModioCommonStorageSpaceTrackerUserWidget, IconImage) == 0x000438, "Member 'UModioCommonStorageSpaceTrackerUserWidget::IconImage' has a wrong offset!");
-static_assert(offsetof(UModioCommonStorageSpaceTrackerUserWidget, UsedSpaceLabelTextBlock) == 0x000440, "Member 'UModioCommonStorageSpaceTrackerUserWidget::UsedSpaceLabelTextBlock' has a wrong offset!");
-static_assert(offsetof(UModioCommonStorageSpaceTrackerUserWidget, UsedSpaceTextBlock) == 0x000448, "Member 'UModioCommonStorageSpaceTrackerUserWidget::UsedSpaceTextBlock' has a wrong offset!");
-static_assert(offsetof(UModioCommonStorageSpaceTrackerUserWidget, FreeSpaceLabelTextBlock) == 0x000450, "Member 'UModioCommonStorageSpaceTrackerUserWidget::FreeSpaceLabelTextBlock' has a wrong offset!");
-static_assert(offsetof(UModioCommonStorageSpaceTrackerUserWidget, FreeSpaceTextBlock) == 0x000458, "Member 'UModioCommonStorageSpaceTrackerUserWidget::FreeSpaceTextBlock' has a wrong offset!");
-static_assert(offsetof(UModioCommonStorageSpaceTrackerUserWidget, TotalSpaceLabelTextBlock) == 0x000460, "Member 'UModioCommonStorageSpaceTrackerUserWidget::TotalSpaceLabelTextBlock' has a wrong offset!");
-static_assert(offsetof(UModioCommonStorageSpaceTrackerUserWidget, TotalSpaceTextBlock) == 0x000468, "Member 'UModioCommonStorageSpaceTrackerUserWidget::TotalSpaceTextBlock' has a wrong offset!");
-static_assert(offsetof(UModioCommonStorageSpaceTrackerUserWidget, StorageSpaceProgressBar) == 0x000470, "Member 'UModioCommonStorageSpaceTrackerUserWidget::StorageSpaceProgressBar' has a wrong offset!");
-static_assert(offsetof(UModioCommonStorageSpaceTrackerUserWidget, MinDecimals) == 0x000478, "Member 'UModioCommonStorageSpaceTrackerUserWidget::MinDecimals' has a wrong offset!");
-static_assert(offsetof(UModioCommonStorageSpaceTrackerUserWidget, MaxDecimals) == 0x00047C, "Member 'UModioCommonStorageSpaceTrackerUserWidget::MaxDecimals' has a wrong offset!");
-
 // Class ModioUI.ModioCommonEmailAuthLoadingViewBase
 // 0x0010 (0x0438 - 0x0428)
 class UModioCommonEmailAuthLoadingViewBase : public UModioCommonActivatableWidget
 {
 public:
-	TMulticastInlineDelegate<void()>              OnCancelClicked;                                   // 0x0428(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnCancelClicked;                                   // 0x0428(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -1578,9 +1485,9 @@ static_assert(offsetof(UModioCommonEmailAuthLoadingView, CancelButton) == 0x0004
 class UModioCommonEmailAuthViewBase : public UModioCommonActivatableWidget
 {
 public:
-	TMulticastInlineDelegate<void()>              OnBackClicked;                                     // 0x0428(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void()>              OnCancelClicked;                                   // 0x0438(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void(const class FString& EmailAddress)> OnSubmitClicked;                                   // 0x0448(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnBackClicked;                                     // 0x0428(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnCancelClicked;                                   // 0x0438(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnSubmitClicked;                                   // 0x0448(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -1671,9 +1578,10 @@ public:
 	class UModioCommonTextBlock*                  ErrorDescriptionTextBlock;                         // 0x0458(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	class UModioCommonButtonBase*                 RetryButton;                                       // 0x0460(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	uint8                                         Pad_468[0x18];                                     // 0x0468(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void()>              RetryClickedDynamicDelegate;                       // 0x0480(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             RetryClickedDynamicDelegate;                       // 0x0480(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 
 public:
+	void RetryClickedDynamicDelegate__DelegateSignature();
 	void SetStyle(TSubclassOf<class UModioCommonErrorWithRetryWidgetStyle> InStyle);
 
 public:
@@ -1721,64 +1629,6 @@ static_assert(offsetof(UModioCommonErrorWithRetryWidgetStyle, IconImageStyle) ==
 static_assert(offsetof(UModioCommonErrorWithRetryWidgetStyle, ErrorTitleTextBlockStyle) == 0x000030, "Member 'UModioCommonErrorWithRetryWidgetStyle::ErrorTitleTextBlockStyle' has a wrong offset!");
 static_assert(offsetof(UModioCommonErrorWithRetryWidgetStyle, ErrorDescriptionTextBlockStyle) == 0x000038, "Member 'UModioCommonErrorWithRetryWidgetStyle::ErrorDescriptionTextBlockStyle' has a wrong offset!");
 static_assert(offsetof(UModioCommonErrorWithRetryWidgetStyle, RetryButtonStyle) == 0x000040, "Member 'UModioCommonErrorWithRetryWidgetStyle::RetryButtonStyle' has a wrong offset!");
-
-// Class ModioUI.ModioCommonTermsOfUseViewBase
-// 0x0100 (0x0528 - 0x0428)
-class UModioCommonTermsOfUseViewBase : public UModioCommonActivatableWidget
-{
-public:
-	TMulticastInlineDelegate<void()>              OnSubmitClicked;                                   // 0x0428(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void()>              OnCancelClicked;                                   // 0x0438(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void(const class FString& URL)> OnLinkClicked;                                     // 0x0448(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	struct FModioTerms                            Terms;                                             // 0x0458(0x00D0)(BlueprintVisible, BlueprintReadOnly, Transient, NativeAccessSpecifierPublic)
-
-public:
-	static class UClass* StaticClass()
-	{
-		return StaticClassImpl<"ModioCommonTermsOfUseViewBase">();
-	}
-	static class UModioCommonTermsOfUseViewBase* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UModioCommonTermsOfUseViewBase>();
-	}
-};
-static_assert(alignof(UModioCommonTermsOfUseViewBase) == 0x000008, "Wrong alignment on UModioCommonTermsOfUseViewBase");
-static_assert(sizeof(UModioCommonTermsOfUseViewBase) == 0x000528, "Wrong size on UModioCommonTermsOfUseViewBase");
-static_assert(offsetof(UModioCommonTermsOfUseViewBase, OnSubmitClicked) == 0x000428, "Member 'UModioCommonTermsOfUseViewBase::OnSubmitClicked' has a wrong offset!");
-static_assert(offsetof(UModioCommonTermsOfUseViewBase, OnCancelClicked) == 0x000438, "Member 'UModioCommonTermsOfUseViewBase::OnCancelClicked' has a wrong offset!");
-static_assert(offsetof(UModioCommonTermsOfUseViewBase, OnLinkClicked) == 0x000448, "Member 'UModioCommonTermsOfUseViewBase::OnLinkClicked' has a wrong offset!");
-static_assert(offsetof(UModioCommonTermsOfUseViewBase, Terms) == 0x000458, "Member 'UModioCommonTermsOfUseViewBase::Terms' has a wrong offset!");
-
-// Class ModioUI.ModioCommonTermsOfUseView
-// 0x0030 (0x0558 - 0x0528)
-class UModioCommonTermsOfUseView final : public UModioCommonTermsOfUseViewBase
-{
-public:
-	class UModioCommonTextBlock*                  TitleTextBlock;                                    // 0x0528(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class UModioCommonTextBlock*                  ContentTextBlock;                                  // 0x0530(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class UModioCommonButtonBase*                 TermsButton;                                       // 0x0538(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class UModioCommonButtonBase*                 PrivacyButton;                                     // 0x0540(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class UModioCommonButtonBase*                 CancelButton;                                      // 0x0548(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class UModioCommonButtonBase*                 SubmitButton;                                      // 0x0550(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-
-public:
-	static class UClass* StaticClass()
-	{
-		return StaticClassImpl<"ModioCommonTermsOfUseView">();
-	}
-	static class UModioCommonTermsOfUseView* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UModioCommonTermsOfUseView>();
-	}
-};
-static_assert(alignof(UModioCommonTermsOfUseView) == 0x000008, "Wrong alignment on UModioCommonTermsOfUseView");
-static_assert(sizeof(UModioCommonTermsOfUseView) == 0x000558, "Wrong size on UModioCommonTermsOfUseView");
-static_assert(offsetof(UModioCommonTermsOfUseView, TitleTextBlock) == 0x000528, "Member 'UModioCommonTermsOfUseView::TitleTextBlock' has a wrong offset!");
-static_assert(offsetof(UModioCommonTermsOfUseView, ContentTextBlock) == 0x000530, "Member 'UModioCommonTermsOfUseView::ContentTextBlock' has a wrong offset!");
-static_assert(offsetof(UModioCommonTermsOfUseView, TermsButton) == 0x000538, "Member 'UModioCommonTermsOfUseView::TermsButton' has a wrong offset!");
-static_assert(offsetof(UModioCommonTermsOfUseView, PrivacyButton) == 0x000540, "Member 'UModioCommonTermsOfUseView::PrivacyButton' has a wrong offset!");
-static_assert(offsetof(UModioCommonTermsOfUseView, CancelButton) == 0x000548, "Member 'UModioCommonTermsOfUseView::CancelButton' has a wrong offset!");
-static_assert(offsetof(UModioCommonTermsOfUseView, SubmitButton) == 0x000550, "Member 'UModioCommonTermsOfUseView::SubmitButton' has a wrong offset!");
 
 // Class ModioUI.ModioCommonExpandableArea
 // 0x0030 (0x04F0 - 0x04C0)
@@ -1927,9 +1777,9 @@ public:
 	class UWidget*                                ModListLoader;                                     // 0x0560(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	class UModioCommonErrorWithRetryWidget*       ErrorWithRetryWidget;                              // 0x0568(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	uint8                                         Pad_570[0x18];                                     // 0x0570(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void()>              OnSetModsFromModInfoListDynamicStarted;            // 0x0588(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnSetModsFromModInfoListDynamicStarted;            // 0x0588(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 	uint8                                         Pad_598[0x18];                                     // 0x0598(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void()>              OnSetModsFromModInfoListDynamicFinished;           // 0x05B0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnSetModsFromModInfoListDynamicFinished;           // 0x05B0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 	bool                                          bHasSearchedBefore;                                // 0x05C0(0x0001)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	uint8                                         Pad_5C1[0x7];                                      // 0x05C1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	int64                                         CurrentPageIndex;                                  // 0x05C8(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
@@ -1940,6 +1790,8 @@ public:
 public:
 	void HandleNextPageClicked();
 	void HandlePreviousPageClicked();
+	void OnSetModsFromModInfoListDynamicFinished__DelegateSignature();
+	void OnSetModsFromModInfoListDynamicStarted__DelegateSignature();
 	void SetInitialScreenVisibility(bool bIsVisible);
 	void SetNoResultsVisibility(bool bIsVisible);
 	void SetPageNavigationVisibility(bool bIsVisible);
@@ -2122,7 +1974,7 @@ public:
 	void HandleOpenModDetailsClicked();
 	void HandleSubscribeClicked();
 	void HandleSwitchEnabledClicked();
-	void OnRatingSubmissionComplete(const struct FModioErrorCode& errorCode, EModioRating Rating);
+	void OnRatingSubmissionComplete(const struct FModioErrorCode& ErrorCode, EModioRating Rating);
 	void SetStyle(TSubclassOf<class UModioCommonGenericModEntryStyle> InStyle);
 	void SwitchCancelButtonVisibility(bool bIsVisible);
 	void SwitchDisableButtonVisibility(bool bIsVisible);
@@ -2591,8 +2443,8 @@ public:
 	void RequestFullClearSelection(bool bResetPreviouslySelected);
 	void SetFocusOnceListIsPopulated(bool bFocus);
 	void SetModSelectionByID(const struct FModioModID& ModId);
-	void SetModsFromModCollectionEntryArray(const TArray<struct FModioModCollectionEntry>& inArray, bool bAddToExisting);
-	void SetModsFromModInfoArray(const TArray<struct FModioModInfo>& inArray, bool bAddToExisting);
+	void SetModsFromModCollectionEntryArray(const TArray<struct FModioModCollectionEntry>& InArray, bool bAddToExisting);
+	void SetModsFromModInfoArray(const TArray<struct FModioModInfo>& InArray, bool bAddToExisting);
 	void SetModsFromModInfoList(const struct FModioModInfoList& InList, bool bAddToExisting);
 
 public:
@@ -2732,12 +2584,14 @@ class UModioCommonModOperationTrackerWidget final : public UTickableModioCommonW
 {
 public:
 	uint8                                         Pad_160[0x48];                                     // 0x0160(0x0048)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void(const struct FModioUnsigned64& Current, const struct FModioUnsigned64& Total)> OnProgress;                                        // 0x01A8(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnProgress;                                        // 0x01A8(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 	uint8                                         Pad_1B8[0x18];                                     // 0x01B8(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void(const struct FModioUnsigned64& DeltaBytes, double DeltaTime)> OnSpeed;                                           // 0x01D0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnSpeed;                                           // 0x01D0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 	uint8                                         Pad_1E0[0x28];                                     // 0x01E0(0x0028)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
+	void OnCommonModOperationTrackerProgress__DelegateSignature(const struct FModioUnsigned64& Current, const struct FModioUnsigned64& Total);
+	void OnCommonModOperationTrackerSpeed__DelegateSignature(const struct FModioUnsigned64& DeltaBytes, double DeltaTime);
 	void SetTrackAnyMods(bool bInTrackAnyMods);
 	void SetTrackingModID(const struct FModioModID& ModId);
 
@@ -2911,7 +2765,7 @@ class UModioCommonMultiLineEditableTextBox final : public UMultiLineEditableText
 {
 public:
 	TSubclassOf<class UModioCommonMultiLineEditableTextBoxStyle> ModioStyle;                                        // 0x1268(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, Protected, ExposeOnSpawn, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	TMulticastInlineDelegate<void(class FText& Text)> OnMultiLineEditableTextChanged;                    // 0x1270(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnMultiLineEditableTextChanged;                    // 0x1270(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 	bool                                          IsCaretMovedWhenGainFocus;                         // 0x1280(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	bool                                          SelectAllTextWhenFocused;                          // 0x1281(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	bool                                          RevertTextOnEscape;                                // 0x1282(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
@@ -3142,6 +2996,23 @@ static_assert(offsetof(UModioCommonNotificationWidgetStyle, StatusIndicatorImage
 static_assert(offsetof(UModioCommonNotificationWidgetStyle, NotificationTitleTextStyle) == 0x000040, "Member 'UModioCommonNotificationWidgetStyle::NotificationTitleTextStyle' has a wrong offset!");
 static_assert(offsetof(UModioCommonNotificationWidgetStyle, NotificationMessageTextStyle) == 0x000048, "Member 'UModioCommonNotificationWidgetStyle::NotificationMessageTextStyle' has a wrong offset!");
 
+// Class ModioUI.ModioCommonUIAsyncLoader
+// 0x0000 (0x01C8 - 0x01C8)
+class UModioCommonUIAsyncLoader final : public UModioUIAsyncLoader
+{
+public:
+	static class UClass* StaticClass()
+	{
+		return StaticClassImpl<"ModioCommonUIAsyncLoader">();
+	}
+	static class UModioCommonUIAsyncLoader* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UModioCommonUIAsyncLoader>();
+	}
+};
+static_assert(alignof(UModioCommonUIAsyncLoader) == 0x000008, "Wrong alignment on UModioCommonUIAsyncLoader");
+static_assert(sizeof(UModioCommonUIAsyncLoader) == 0x0001C8, "Wrong size on UModioCommonUIAsyncLoader");
+
 // Class ModioUI.ModioCommonProfileImage
 // 0x0020 (0x0310 - 0x02F0)
 class UModioCommonProfileImage final : public UModioCommonDynamicImage
@@ -3320,12 +3191,15 @@ static_assert(offsetof(UModioCommonQuickAccessTabViewStyle, MyCollectionButtonSt
 class UModioCommonReportEmailViewBase : public UModioCommonActivatableWidget
 {
 public:
-	TMulticastInlineDelegate<void()>              OnBackClicked;                                     // 0x0428(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void()>              OnCancelClicked;                                   // 0x0438(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void(const class FString& EmailAddress)> OnSubmitClicked;                                   // 0x0448(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnBackClicked;                                     // 0x0428(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnCancelClicked;                                   // 0x0438(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnSubmitClicked;                                   // 0x0448(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 
 public:
 	bool IsEmailValid(const class FString& Email);
+	void OnModioCommonReportEmailViewBackClicked__DelegateSignature();
+	void OnModioCommonReportEmailViewCancelClicked__DelegateSignature();
+	void OnModioCommonReportEmailViewSubmitClicked__DelegateSignature(const class FString& EmailAddress);
 
 public:
 	static class UClass* StaticClass()
@@ -3385,9 +3259,9 @@ static_assert(offsetof(UModioCommonReportEmailView, CancelButton) == 0x000488, "
 class UModioCommonReportMessageViewBase : public UModioCommonActivatableWidget
 {
 public:
-	TMulticastInlineDelegate<void()>              OnBackClicked;                                     // 0x0428(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void()>              OnCancelClicked;                                   // 0x0438(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void(const class FString& message)> OnSubmitClicked;                                   // 0x0448(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnBackClicked;                                     // 0x0428(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnCancelClicked;                                   // 0x0438(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnSubmitClicked;                                   // 0x0448(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -3450,8 +3324,8 @@ static_assert(offsetof(UModioCommonReportMessageView, CancelButton) == 0x000498,
 class UModioCommonReportReasonViewBase : public UModioCommonActivatableWidget
 {
 public:
-	TMulticastInlineDelegate<void(EModioReportType ReportType)> OnProceedClicked;                                  // 0x0428(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void()>              OnCancelClicked;                                   // 0x0438(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnProceedClicked;                                  // 0x0428(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnCancelClicked;                                   // 0x0438(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -3517,11 +3391,14 @@ static_assert(offsetof(UModioCommonReportReasonView, CancelButton) == 0x0004A0, 
 class UModioCommonReportSummaryViewBase : public UModioCommonActivatableWidget
 {
 public:
-	TMulticastInlineDelegate<void()>              OnBackClicked;                                     // 0x0428(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void()>              OnCancelClicked;                                   // 0x0438(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void()>              OnSubmitClicked;                                   // 0x0448(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnBackClicked;                                     // 0x0428(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnCancelClicked;                                   // 0x0438(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnSubmitClicked;                                   // 0x0448(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 
 public:
+	void OnModioCommonReportSummaryViewBackClicked__DelegateSignature();
+	void OnModioCommonReportSummaryViewCancelClicked__DelegateSignature();
+	void OnModioCommonReportSummaryViewSubmitClicked__DelegateSignature();
 	void SetReportParams(const struct FModioReportParams& ReportParams);
 
 public:
@@ -3615,13 +3492,13 @@ public:
 	class UModioCommonReportSummaryViewBase*      ReportSummaryView;                                 // 0x04C0(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, Transient, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 
 public:
-	void HandleReportSubmit(const struct FModioErrorCode& errorCode);
+	void HandleReportSubmit(const struct FModioErrorCode& ErrorCode);
 	void OnReportEmailViewBackClicked();
 	void OnReportEmailViewCancelClicked();
 	void OnReportEmailViewSubmitClicked(const class FString& Email);
 	void OnReportMessageViewBackClicked();
 	void OnReportMessageViewCancelClicked();
-	void OnReportMessageViewSubmitClicked(const class FString& message);
+	void OnReportMessageViewSubmitClicked(const class FString& Message);
 	void OnReportReasonViewCancelClicked();
 	void OnReportReasonViewProceedClicked(EModioReportType Type);
 	void OnReportSummaryViewBackClicked();
@@ -3999,29 +3876,85 @@ static_assert(offsetof(UModioCommonSearchTabView, CloseButton) == 0x000458, "Mem
 static_assert(offsetof(UModioCommonSearchTabView, SearchButton) == 0x000460, "Member 'UModioCommonSearchTabView::SearchButton' has a wrong offset!");
 static_assert(offsetof(UModioCommonSearchTabView, ResetButton) == 0x000468, "Member 'UModioCommonSearchTabView::ResetButton' has a wrong offset!");
 
-// Class ModioUI.ModioSearchResultsParamsUI
-// 0x0068 (0x0090 - 0x0028)
-class UModioSearchResultsParamsUI final : public UObject
+// Class ModioUI.ModioCommonSearchTabViewStyle
+// 0x0038 (0x0060 - 0x0028)
+class UModioCommonSearchTabViewStyle final : public UObject
 {
 public:
-	struct FModioModCategoryParams                FilterParams;                                      // 0x0028(0x0060)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	EModioCommonSearchViewType                    SearchType;                                        // 0x0088(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_89[0x7];                                       // 0x0089(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	TSubclassOf<class UModioCommonBorderStyle>    InternalBackgroundBorderStyle;                     // 0x0028(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSubclassOf<class UModioCommonBorderStyle>    OverlayBackgroundBorderStyle;                      // 0x0030(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSubclassOf<class UModioCommonTextStyle>      SearchTabTitleTextStyle;                           // 0x0038(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSubclassOf<class UModioCommonEditableTextBoxStyle> SearchTextBoxStyle;                                // 0x0040(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSubclassOf<class UModioCommonButtonStyle>    CloseButtonStyle;                                  // 0x0048(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSubclassOf<class UModioCommonButtonStyle>    ResetButtonStyle;                                  // 0x0050(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSubclassOf<class UModioCommonButtonStyle>    SearchButtonStyle;                                 // 0x0058(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
 	{
-		return StaticClassImpl<"ModioSearchResultsParamsUI">();
+		return StaticClassImpl<"ModioCommonSearchTabViewStyle">();
 	}
-	static class UModioSearchResultsParamsUI* GetDefaultObj()
+	static class UModioCommonSearchTabViewStyle* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UModioSearchResultsParamsUI>();
+		return GetDefaultObjImpl<UModioCommonSearchTabViewStyle>();
 	}
 };
-static_assert(alignof(UModioSearchResultsParamsUI) == 0x000008, "Wrong alignment on UModioSearchResultsParamsUI");
-static_assert(sizeof(UModioSearchResultsParamsUI) == 0x000090, "Wrong size on UModioSearchResultsParamsUI");
-static_assert(offsetof(UModioSearchResultsParamsUI, FilterParams) == 0x000028, "Member 'UModioSearchResultsParamsUI::FilterParams' has a wrong offset!");
-static_assert(offsetof(UModioSearchResultsParamsUI, SearchType) == 0x000088, "Member 'UModioSearchResultsParamsUI::SearchType' has a wrong offset!");
+static_assert(alignof(UModioCommonSearchTabViewStyle) == 0x000008, "Wrong alignment on UModioCommonSearchTabViewStyle");
+static_assert(sizeof(UModioCommonSearchTabViewStyle) == 0x000060, "Wrong size on UModioCommonSearchTabViewStyle");
+static_assert(offsetof(UModioCommonSearchTabViewStyle, InternalBackgroundBorderStyle) == 0x000028, "Member 'UModioCommonSearchTabViewStyle::InternalBackgroundBorderStyle' has a wrong offset!");
+static_assert(offsetof(UModioCommonSearchTabViewStyle, OverlayBackgroundBorderStyle) == 0x000030, "Member 'UModioCommonSearchTabViewStyle::OverlayBackgroundBorderStyle' has a wrong offset!");
+static_assert(offsetof(UModioCommonSearchTabViewStyle, SearchTabTitleTextStyle) == 0x000038, "Member 'UModioCommonSearchTabViewStyle::SearchTabTitleTextStyle' has a wrong offset!");
+static_assert(offsetof(UModioCommonSearchTabViewStyle, SearchTextBoxStyle) == 0x000040, "Member 'UModioCommonSearchTabViewStyle::SearchTextBoxStyle' has a wrong offset!");
+static_assert(offsetof(UModioCommonSearchTabViewStyle, CloseButtonStyle) == 0x000048, "Member 'UModioCommonSearchTabViewStyle::CloseButtonStyle' has a wrong offset!");
+static_assert(offsetof(UModioCommonSearchTabViewStyle, ResetButtonStyle) == 0x000050, "Member 'UModioCommonSearchTabViewStyle::ResetButtonStyle' has a wrong offset!");
+static_assert(offsetof(UModioCommonSearchTabViewStyle, SearchButtonStyle) == 0x000058, "Member 'UModioCommonSearchTabViewStyle::SearchButtonStyle' has a wrong offset!");
+
+// Class ModioUI.ModioCommonStorageSpaceTrackerUserWidget
+// 0x0058 (0x0480 - 0x0428)
+class UModioCommonStorageSpaceTrackerUserWidget final : public UModioCommonActivatableWidget
+{
+public:
+	TSubclassOf<class UModioCommonStorageSpaceTrackerUserWidgetStyle> ModioStyle;                                        // 0x0428(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, Protected, ExposeOnSpawn, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class UModioCommonStorageSpaceTrackerWidget*  Tracker;                                           // 0x0430(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class UModioCommonImage*                      IconImage;                                         // 0x0438(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class UModioCommonTextBlock*                  UsedSpaceLabelTextBlock;                           // 0x0440(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class UModioCommonTextBlock*                  UsedSpaceTextBlock;                                // 0x0448(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class UModioCommonTextBlock*                  FreeSpaceLabelTextBlock;                           // 0x0450(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class UModioCommonTextBlock*                  FreeSpaceTextBlock;                                // 0x0458(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class UModioCommonTextBlock*                  TotalSpaceLabelTextBlock;                          // 0x0460(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class UModioCommonTextBlock*                  TotalSpaceTextBlock;                               // 0x0468(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class UModioCommonProgressBar*                StorageSpaceProgressBar;                           // 0x0470(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	int32                                         MinDecimals;                                       // 0x0478(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	int32                                         MaxDecimals;                                       // 0x047C(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+
+public:
+	void OnStorageSpaceTrackerUpdated(const struct FModioUnsigned64& UsedSpace, const struct FModioUnsigned64& FreeSpace, const struct FModioUnsigned64& TotalSpace);
+	void SetStyle(TSubclassOf<class UModioCommonStorageSpaceTrackerUserWidgetStyle> InStyle);
+
+public:
+	static class UClass* StaticClass()
+	{
+		return StaticClassImpl<"ModioCommonStorageSpaceTrackerUserWidget">();
+	}
+	static class UModioCommonStorageSpaceTrackerUserWidget* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UModioCommonStorageSpaceTrackerUserWidget>();
+	}
+};
+static_assert(alignof(UModioCommonStorageSpaceTrackerUserWidget) == 0x000008, "Wrong alignment on UModioCommonStorageSpaceTrackerUserWidget");
+static_assert(sizeof(UModioCommonStorageSpaceTrackerUserWidget) == 0x000480, "Wrong size on UModioCommonStorageSpaceTrackerUserWidget");
+static_assert(offsetof(UModioCommonStorageSpaceTrackerUserWidget, ModioStyle) == 0x000428, "Member 'UModioCommonStorageSpaceTrackerUserWidget::ModioStyle' has a wrong offset!");
+static_assert(offsetof(UModioCommonStorageSpaceTrackerUserWidget, Tracker) == 0x000430, "Member 'UModioCommonStorageSpaceTrackerUserWidget::Tracker' has a wrong offset!");
+static_assert(offsetof(UModioCommonStorageSpaceTrackerUserWidget, IconImage) == 0x000438, "Member 'UModioCommonStorageSpaceTrackerUserWidget::IconImage' has a wrong offset!");
+static_assert(offsetof(UModioCommonStorageSpaceTrackerUserWidget, UsedSpaceLabelTextBlock) == 0x000440, "Member 'UModioCommonStorageSpaceTrackerUserWidget::UsedSpaceLabelTextBlock' has a wrong offset!");
+static_assert(offsetof(UModioCommonStorageSpaceTrackerUserWidget, UsedSpaceTextBlock) == 0x000448, "Member 'UModioCommonStorageSpaceTrackerUserWidget::UsedSpaceTextBlock' has a wrong offset!");
+static_assert(offsetof(UModioCommonStorageSpaceTrackerUserWidget, FreeSpaceLabelTextBlock) == 0x000450, "Member 'UModioCommonStorageSpaceTrackerUserWidget::FreeSpaceLabelTextBlock' has a wrong offset!");
+static_assert(offsetof(UModioCommonStorageSpaceTrackerUserWidget, FreeSpaceTextBlock) == 0x000458, "Member 'UModioCommonStorageSpaceTrackerUserWidget::FreeSpaceTextBlock' has a wrong offset!");
+static_assert(offsetof(UModioCommonStorageSpaceTrackerUserWidget, TotalSpaceLabelTextBlock) == 0x000460, "Member 'UModioCommonStorageSpaceTrackerUserWidget::TotalSpaceLabelTextBlock' has a wrong offset!");
+static_assert(offsetof(UModioCommonStorageSpaceTrackerUserWidget, TotalSpaceTextBlock) == 0x000468, "Member 'UModioCommonStorageSpaceTrackerUserWidget::TotalSpaceTextBlock' has a wrong offset!");
+static_assert(offsetof(UModioCommonStorageSpaceTrackerUserWidget, StorageSpaceProgressBar) == 0x000470, "Member 'UModioCommonStorageSpaceTrackerUserWidget::StorageSpaceProgressBar' has a wrong offset!");
+static_assert(offsetof(UModioCommonStorageSpaceTrackerUserWidget, MinDecimals) == 0x000478, "Member 'UModioCommonStorageSpaceTrackerUserWidget::MinDecimals' has a wrong offset!");
+static_assert(offsetof(UModioCommonStorageSpaceTrackerUserWidget, MaxDecimals) == 0x00047C, "Member 'UModioCommonStorageSpaceTrackerUserWidget::MaxDecimals' has a wrong offset!");
 
 // Class ModioUI.ModioCommonStorageSpaceTrackerUserWidgetStyle
 // 0x0040 (0x0068 - 0x0028)
@@ -4064,7 +3997,7 @@ class UModioCommonStorageSpaceTrackerWidget final : public UTickableModioCommonW
 {
 public:
 	uint8                                         Pad_160[0x18];                                     // 0x0160(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void(const struct FModioUnsigned64& UsedSpace, const struct FModioUnsigned64& FreeSpace, const struct FModioUnsigned64& TotalSpace)> OnStorageSpaceTrackerUpdated;                      // 0x0178(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnStorageSpaceTrackerUpdated;                      // 0x0178(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -4080,42 +4013,122 @@ static_assert(alignof(UModioCommonStorageSpaceTrackerWidget) == 0x000008, "Wrong
 static_assert(sizeof(UModioCommonStorageSpaceTrackerWidget) == 0x000188, "Wrong size on UModioCommonStorageSpaceTrackerWidget");
 static_assert(offsetof(UModioCommonStorageSpaceTrackerWidget, OnStorageSpaceTrackerUpdated) == 0x000178, "Member 'UModioCommonStorageSpaceTrackerWidget::OnStorageSpaceTrackerUpdated' has a wrong offset!");
 
-// Class ModioUI.ModioCommonTabButtonInterface
-// 0x0000 (0x0028 - 0x0028)
-class IModioCommonTabButtonInterface final : public IInterface
+// Class ModioUI.ModioCommonTabButtonBase
+// 0x0030 (0x17C0 - 0x1790)
+class UModioCommonTabButtonBase final : public UModioCommonButtonBase
 {
 public:
-	void SetTabLabelInfo(const struct FModioCommonTabDescriptor& InTabLabelInfo);
+	uint8                                         Pad_1790[0x30];                                    // 0x1790(0x0030)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		return StaticClassImpl<"ModioCommonTabButtonInterface">();
+		return StaticClassImpl<"ModioCommonTabButtonBase">();
 	}
-	static class IModioCommonTabButtonInterface* GetDefaultObj()
+	static class UModioCommonTabButtonBase* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<IModioCommonTabButtonInterface>();
+		return GetDefaultObjImpl<UModioCommonTabButtonBase>();
 	}
 };
-static_assert(alignof(IModioCommonTabButtonInterface) == 0x000008, "Wrong alignment on IModioCommonTabButtonInterface");
-static_assert(sizeof(IModioCommonTabButtonInterface) == 0x000028, "Wrong size on IModioCommonTabButtonInterface");
+static_assert(alignof(UModioCommonTabButtonBase) == 0x000010, "Wrong alignment on UModioCommonTabButtonBase");
+static_assert(sizeof(UModioCommonTabButtonBase) == 0x0017C0, "Wrong size on UModioCommonTabButtonBase");
 
-// Class ModioUI.ModioCommonTabButtonStyle
-// 0x0000 (0x08C0 - 0x08C0)
-class UModioCommonTabButtonStyle final : public UModioCommonButtonStyle
+// Class ModioUI.ModioCommonTabListWidgetBase
+// 0x00A0 (0x0428 - 0x0388)
+class UModioCommonTabListWidgetBase final : public UCommonTabListWidgetBase
 {
+public:
+	uint8                                         Pad_388[0x18];                                     // 0x0388(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
+	FMulticastInlineDelegateProperty_             OnTabButtonClicked;                                // 0x03A0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	uint8                                         Pad_3B0[0x18];                                     // 0x03B0(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
+	class UCommonActionWidget*                    PreviousTabAction;                                 // 0x03C8(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class UCommonActionWidget*                    NextTabAction;                                     // 0x03D0(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_3D8[0x50];                                     // 0x03D8(0x0050)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	void HandleNavigateToNextTab();
+	void HandleNavigateToPreviousTab();
+	void OnTabButtonClicked__DelegateSignature(class UCommonButtonBase* TabButton);
+	void OnTabSelectedInternal(class FName TabNameID);
+	bool RegisterDynamicTab(const struct FModioCommonTabDescriptor& TabDescriptor);
+	void RemoveAllDynamicTabs();
+	bool SelectTabByIDExtended(class FName TabNameID, bool bSuppressClickFeedback, bool bSuppressOnTabSelectedIfAlreadySelected);
+	void SetNextTabInputActionData(const struct FDataTableRowHandle& InNextTabInputActionData);
+	void SetPreviousTabInputActionData(const struct FDataTableRowHandle& InPreviousTabInputActionData);
+
 public:
 	static class UClass* StaticClass()
 	{
-		return StaticClassImpl<"ModioCommonTabButtonStyle">();
+		return StaticClassImpl<"ModioCommonTabListWidgetBase">();
 	}
-	static class UModioCommonTabButtonStyle* GetDefaultObj()
+	static class UModioCommonTabListWidgetBase* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UModioCommonTabButtonStyle>();
+		return GetDefaultObjImpl<UModioCommonTabListWidgetBase>();
 	}
 };
-static_assert(alignof(UModioCommonTabButtonStyle) == 0x000010, "Wrong alignment on UModioCommonTabButtonStyle");
-static_assert(sizeof(UModioCommonTabButtonStyle) == 0x0008C0, "Wrong size on UModioCommonTabButtonStyle");
+static_assert(alignof(UModioCommonTabListWidgetBase) == 0x000008, "Wrong alignment on UModioCommonTabListWidgetBase");
+static_assert(sizeof(UModioCommonTabListWidgetBase) == 0x000428, "Wrong size on UModioCommonTabListWidgetBase");
+static_assert(offsetof(UModioCommonTabListWidgetBase, OnTabButtonClicked) == 0x0003A0, "Member 'UModioCommonTabListWidgetBase::OnTabButtonClicked' has a wrong offset!");
+static_assert(offsetof(UModioCommonTabListWidgetBase, PreviousTabAction) == 0x0003C8, "Member 'UModioCommonTabListWidgetBase::PreviousTabAction' has a wrong offset!");
+static_assert(offsetof(UModioCommonTabListWidgetBase, NextTabAction) == 0x0003D0, "Member 'UModioCommonTabListWidgetBase::NextTabAction' has a wrong offset!");
+
+// Class ModioUI.ModioCommonTermsOfUseViewBase
+// 0x0100 (0x0528 - 0x0428)
+class UModioCommonTermsOfUseViewBase : public UModioCommonActivatableWidget
+{
+public:
+	FMulticastInlineDelegateProperty_             OnSubmitClicked;                                   // 0x0428(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnCancelClicked;                                   // 0x0438(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnLinkClicked;                                     // 0x0448(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	struct FModioTerms                            Terms;                                             // 0x0458(0x00D0)(BlueprintVisible, BlueprintReadOnly, Transient, NativeAccessSpecifierPublic)
+
+public:
+	static class UClass* StaticClass()
+	{
+		return StaticClassImpl<"ModioCommonTermsOfUseViewBase">();
+	}
+	static class UModioCommonTermsOfUseViewBase* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UModioCommonTermsOfUseViewBase>();
+	}
+};
+static_assert(alignof(UModioCommonTermsOfUseViewBase) == 0x000008, "Wrong alignment on UModioCommonTermsOfUseViewBase");
+static_assert(sizeof(UModioCommonTermsOfUseViewBase) == 0x000528, "Wrong size on UModioCommonTermsOfUseViewBase");
+static_assert(offsetof(UModioCommonTermsOfUseViewBase, OnSubmitClicked) == 0x000428, "Member 'UModioCommonTermsOfUseViewBase::OnSubmitClicked' has a wrong offset!");
+static_assert(offsetof(UModioCommonTermsOfUseViewBase, OnCancelClicked) == 0x000438, "Member 'UModioCommonTermsOfUseViewBase::OnCancelClicked' has a wrong offset!");
+static_assert(offsetof(UModioCommonTermsOfUseViewBase, OnLinkClicked) == 0x000448, "Member 'UModioCommonTermsOfUseViewBase::OnLinkClicked' has a wrong offset!");
+static_assert(offsetof(UModioCommonTermsOfUseViewBase, Terms) == 0x000458, "Member 'UModioCommonTermsOfUseViewBase::Terms' has a wrong offset!");
+
+// Class ModioUI.ModioCommonTermsOfUseView
+// 0x0030 (0x0558 - 0x0528)
+class UModioCommonTermsOfUseView final : public UModioCommonTermsOfUseViewBase
+{
+public:
+	class UModioCommonTextBlock*                  TitleTextBlock;                                    // 0x0528(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class UModioCommonTextBlock*                  ContentTextBlock;                                  // 0x0530(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class UModioCommonButtonBase*                 TermsButton;                                       // 0x0538(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class UModioCommonButtonBase*                 PrivacyButton;                                     // 0x0540(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class UModioCommonButtonBase*                 CancelButton;                                      // 0x0548(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class UModioCommonButtonBase*                 SubmitButton;                                      // 0x0550(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+
+public:
+	static class UClass* StaticClass()
+	{
+		return StaticClassImpl<"ModioCommonTermsOfUseView">();
+	}
+	static class UModioCommonTermsOfUseView* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UModioCommonTermsOfUseView>();
+	}
+};
+static_assert(alignof(UModioCommonTermsOfUseView) == 0x000008, "Wrong alignment on UModioCommonTermsOfUseView");
+static_assert(sizeof(UModioCommonTermsOfUseView) == 0x000558, "Wrong size on UModioCommonTermsOfUseView");
+static_assert(offsetof(UModioCommonTermsOfUseView, TitleTextBlock) == 0x000528, "Member 'UModioCommonTermsOfUseView::TitleTextBlock' has a wrong offset!");
+static_assert(offsetof(UModioCommonTermsOfUseView, ContentTextBlock) == 0x000530, "Member 'UModioCommonTermsOfUseView::ContentTextBlock' has a wrong offset!");
+static_assert(offsetof(UModioCommonTermsOfUseView, TermsButton) == 0x000538, "Member 'UModioCommonTermsOfUseView::TermsButton' has a wrong offset!");
+static_assert(offsetof(UModioCommonTermsOfUseView, PrivacyButton) == 0x000540, "Member 'UModioCommonTermsOfUseView::PrivacyButton' has a wrong offset!");
+static_assert(offsetof(UModioCommonTermsOfUseView, CancelButton) == 0x000548, "Member 'UModioCommonTermsOfUseView::CancelButton' has a wrong offset!");
+static_assert(offsetof(UModioCommonTermsOfUseView, SubmitButton) == 0x000550, "Member 'UModioCommonTermsOfUseView::SubmitButton' has a wrong offset!");
 
 // Class ModioUI.ModioCommonTextBlock
 // 0x0000 (0x0390 - 0x0390)
@@ -4134,22 +4147,22 @@ public:
 static_assert(alignof(UModioCommonTextBlock) == 0x000010, "Wrong alignment on UModioCommonTextBlock");
 static_assert(sizeof(UModioCommonTextBlock) == 0x000390, "Wrong size on UModioCommonTextBlock");
 
-// Class ModioUI.ModioCommonUIAsyncLoader
-// 0x0000 (0x01C8 - 0x01C8)
-class UModioCommonUIAsyncLoader final : public UModioUIAsyncLoader
+// Class ModioUI.ModioCommonTextStyle
+// 0x0000 (0x01D0 - 0x01D0)
+class UModioCommonTextStyle final : public UCommonTextStyle
 {
 public:
 	static class UClass* StaticClass()
 	{
-		return StaticClassImpl<"ModioCommonUIAsyncLoader">();
+		return StaticClassImpl<"ModioCommonTextStyle">();
 	}
-	static class UModioCommonUIAsyncLoader* GetDefaultObj()
+	static class UModioCommonTextStyle* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UModioCommonUIAsyncLoader>();
+		return GetDefaultObjImpl<UModioCommonTextStyle>();
 	}
 };
-static_assert(alignof(UModioCommonUIAsyncLoader) == 0x000008, "Wrong alignment on UModioCommonUIAsyncLoader");
-static_assert(sizeof(UModioCommonUIAsyncLoader) == 0x0001C8, "Wrong size on UModioCommonUIAsyncLoader");
+static_assert(alignof(UModioCommonTextStyle) == 0x000010, "Wrong alignment on UModioCommonTextStyle");
+static_assert(sizeof(UModioCommonTextStyle) == 0x0001D0, "Wrong size on UModioCommonTextStyle");
 
 // Class ModioUI.ModioCommonUISettings
 // 0x0CD8 (0x0D10 - 0x0038)
@@ -4219,12 +4232,33 @@ static_assert(offsetof(UModioCommonUISettings, StorageSpaceTrackerParams) == 0x0
 static_assert(offsetof(UModioCommonUISettings, UserProfileParams) == 0x000CC0, "Member 'UModioCommonUISettings::UserProfileParams' has a wrong offset!");
 static_assert(offsetof(UModioCommonUISettings, ErrorWithRetryParams) == 0x000CE8, "Member 'UModioCommonUISettings::ErrorWithRetryParams' has a wrong offset!");
 
+// Class ModioUI.ModioCommonUserProfileWidget
+// 0x0008 (0x0440 - 0x0438)
+class UModioCommonUserProfileWidget : public UModioCommonUserProfileBase
+{
+public:
+	class UModioCommonButtonBase*                 ProfileButton;                                     // 0x0438(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+
+public:
+	static class UClass* StaticClass()
+	{
+		return StaticClassImpl<"ModioCommonUserProfileWidget">();
+	}
+	static class UModioCommonUserProfileWidget* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UModioCommonUserProfileWidget>();
+	}
+};
+static_assert(alignof(UModioCommonUserProfileWidget) == 0x000008, "Wrong alignment on UModioCommonUserProfileWidget");
+static_assert(sizeof(UModioCommonUserProfileWidget) == 0x000440, "Wrong size on UModioCommonUserProfileWidget");
+static_assert(offsetof(UModioCommonUserProfileWidget, ProfileButton) == 0x000438, "Member 'UModioCommonUserProfileWidget::ProfileButton' has a wrong offset!");
+
 // Class ModioUI.ModioCommonWidgetSwitcher
 // 0x0010 (0x0210 - 0x0200)
 class UModioCommonWidgetSwitcher final : public UCommonActivatableWidgetSwitcher
 {
 public:
-	TMulticastInlineDelegate<void(class UWidget* InActiveWidget, int32 InActiveWidgetIndex)> OnActiveWidgetIndexChanged_BP;                     // 0x0200(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnActiveWidgetIndexChanged_BP;                     // 0x0200(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -4239,23 +4273,6 @@ public:
 static_assert(alignof(UModioCommonWidgetSwitcher) == 0x000008, "Wrong alignment on UModioCommonWidgetSwitcher");
 static_assert(sizeof(UModioCommonWidgetSwitcher) == 0x000210, "Wrong size on UModioCommonWidgetSwitcher");
 static_assert(offsetof(UModioCommonWidgetSwitcher, OnActiveWidgetIndexChanged_BP) == 0x000200, "Member 'UModioCommonWidgetSwitcher::OnActiveWidgetIndexChanged_BP' has a wrong offset!");
-
-// Class ModioUI.ModioCommonWrapBox
-// 0x0000 (0x0190 - 0x0190)
-class UModioCommonWrapBox final : public UWrapBox
-{
-public:
-	static class UClass* StaticClass()
-	{
-		return StaticClassImpl<"ModioCommonWrapBox">();
-	}
-	static class UModioCommonWrapBox* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UModioCommonWrapBox>();
-	}
-};
-static_assert(alignof(UModioCommonWrapBox) == 0x000008, "Wrong alignment on UModioCommonWrapBox");
-static_assert(sizeof(UModioCommonWrapBox) == 0x000190, "Wrong size on UModioCommonWrapBox");
 
 }
 

@@ -22,15 +22,15 @@ namespace SDK
 class UGameAnalytics final : public UObject
 {
 public:
-	static void AddAdEvent(EGAAdAction Action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement);
-	static void AddAdEventWithDuration(EGAAdAction Action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement, int64 Duration);
-	static void AddAdEventWithDurationAndFields(EGAAdAction Action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement, int64 Duration, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields);
-	static void AddAdEventWithDurationAndMergeFields(EGAAdAction Action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement, int64 Duration, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields);
-	static void AddAdEventWithFields(EGAAdAction Action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields);
-	static void AddAdEventWithMergeFields(EGAAdAction Action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields);
-	static void AddAdEventWithNoAdReason(EGAAdAction Action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement, EGAAdError noAdReason);
-	static void AddAdEventWithNoAdReasonAndFields(EGAAdAction Action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement, EGAAdError noAdReason, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields);
-	static void AddAdEventWithNoAdReasonAndMergeFields(EGAAdAction Action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement, EGAAdError noAdReason, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields);
+	static void AddAdEvent(EGAAdAction Action, EGAAdType AdType, const class FString& AdSdkName, const class FString& AdPlacement);
+	static void AddAdEventWithDuration(EGAAdAction Action, EGAAdType AdType, const class FString& AdSdkName, const class FString& AdPlacement, int64 Duration);
+	static void AddAdEventWithDurationAndFields(EGAAdAction Action, EGAAdType AdType, const class FString& AdSdkName, const class FString& AdPlacement, int64 Duration, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields);
+	static void AddAdEventWithDurationAndMergeFields(EGAAdAction Action, EGAAdType AdType, const class FString& AdSdkName, const class FString& AdPlacement, int64 Duration, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields);
+	static void AddAdEventWithFields(EGAAdAction Action, EGAAdType AdType, const class FString& AdSdkName, const class FString& AdPlacement, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields);
+	static void AddAdEventWithMergeFields(EGAAdAction Action, EGAAdType AdType, const class FString& AdSdkName, const class FString& AdPlacement, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields);
+	static void AddAdEventWithNoAdReason(EGAAdAction Action, EGAAdType AdType, const class FString& AdSdkName, const class FString& AdPlacement, EGAAdError NoAdReason);
+	static void AddAdEventWithNoAdReasonAndFields(EGAAdAction Action, EGAAdType AdType, const class FString& AdSdkName, const class FString& AdPlacement, EGAAdError NoAdReason, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields);
+	static void AddAdEventWithNoAdReasonAndMergeFields(EGAAdAction Action, EGAAdType AdType, const class FString& AdSdkName, const class FString& AdPlacement, EGAAdError NoAdReason, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields);
 	static void AddBusinessEvent(const class FString& Currency, int32 Amount, const class FString& ItemType, const class FString& ItemId, const class FString& CartType);
 	static void AddBusinessEventAndAutoFetchReceipt(const class FString& Currency, int32 Amount, const class FString& ItemType, const class FString& ItemId, const class FString& CartType);
 	static void AddBusinessEventAndAutoFetchReceiptWithFields(const class FString& Currency, int32 Amount, const class FString& ItemType, const class FString& ItemId, const class FString& CartType, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields);
@@ -49,9 +49,9 @@ public:
 	static void AddDesignEventWithValue(const class FString& EventId, float Value);
 	static void AddDesignEventWithValueAndFields(const class FString& EventId, float Value, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields);
 	static void AddDesignEventWithValueAndMergeFields(const class FString& EventId, float Value, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields);
-	static void AddErrorEvent(EGAErrorSeverity Severity, const class FString& message);
-	static void AddErrorEventWithFields(EGAErrorSeverity Severity, const class FString& message, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields);
-	static void AddErrorEventWithMergeFields(EGAErrorSeverity Severity, const class FString& message, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields);
+	static void AddErrorEvent(EGAErrorSeverity Severity, const class FString& Message);
+	static void AddErrorEventWithFields(EGAErrorSeverity Severity, const class FString& Message, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields);
+	static void AddErrorEventWithMergeFields(EGAErrorSeverity Severity, const class FString& Message, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields);
 	static void AddProgressionEventWithOne(EGAProgressionStatus ProgressionStatus, const class FString& Progression01);
 	static void AddProgressionEventWithOneAndFields(EGAProgressionStatus ProgressionStatus, const class FString& Progression01, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields);
 	static void AddProgressionEventWithOneAndMergeFields(EGAProgressionStatus ProgressionStatus, const class FString& Progression01, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields);

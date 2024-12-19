@@ -585,9 +585,9 @@ void UAkComponent::SetEarlyReflectionsVolume(float SendVolume)
 // Function AkAudio.AkComponent.SetEnableSpotReflectors
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// bool                                    in_enable                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    In_enable                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UAkComponent::SetEnableSpotReflectors(bool in_enable)
+void UAkComponent::SetEnableSpotReflectors(bool In_enable)
 {
 	static class UFunction* Func = nullptr;
 
@@ -596,7 +596,7 @@ void UAkComponent::SetEnableSpotReflectors(bool in_enable)
 
 	Params::AkComponent_SetEnableSpotReflectors Parms{};
 
-	Parms.in_enable = in_enable;
+	Parms.In_enable = In_enable;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -610,10 +610,10 @@ void UAkComponent::SetEnableSpotReflectors(bool in_enable)
 // Function AkAudio.AkComponent.SetGameObjectRadius
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// float                                   in_outerRadius                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   in_innerRadius                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   In_outerRadius                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   In_innerRadius                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UAkComponent::SetGameObjectRadius(float in_outerRadius, float in_innerRadius)
+void UAkComponent::SetGameObjectRadius(float In_outerRadius, float In_innerRadius)
 {
 	static class UFunction* Func = nullptr;
 
@@ -622,8 +622,8 @@ void UAkComponent::SetGameObjectRadius(float in_outerRadius, float in_innerRadiu
 
 	Params::AkComponent_SetGameObjectRadius Parms{};
 
-	Parms.in_outerRadius = in_outerRadius;
-	Parms.in_innerRadius = in_innerRadius;
+	Parms.In_outerRadius = In_outerRadius;
+	Parms.In_innerRadius = In_innerRadius;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -1533,11 +1533,11 @@ bool UAkCheckBox::IsPressed() const
 // Function AkAudio.AkGameplayStatics.AddOutput
 // (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// struct FAkOutputSettings                in_Settings                                            (ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-// struct FAkOutputDeviceID                out_DeviceID                                           (Parm, OutParm, NoDestructor, NativeAccessSpecifierPublic)
-// TArray<class UAkComponent*>             in_ListenerIDs                                         (Parm, OutParm, ZeroConstructor, ReferenceParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
+// struct FAkOutputSettings                In_Settings                                            (ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+// struct FAkOutputDeviceID                Out_DeviceID                                           (Parm, OutParm, NoDestructor, NativeAccessSpecifierPublic)
+// TArray<class UAkComponent*>             In_ListenerIDs                                         (Parm, OutParm, ZeroConstructor, ReferenceParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
 
-void UAkGameplayStatics::AddOutput(const struct FAkOutputSettings& in_Settings, struct FAkOutputDeviceID* out_DeviceID, TArray<class UAkComponent*>& in_ListenerIDs)
+void UAkGameplayStatics::AddOutput(const struct FAkOutputSettings& In_Settings, struct FAkOutputDeviceID* Out_DeviceID, TArray<class UAkComponent*>& In_ListenerIDs)
 {
 	static class UFunction* Func = nullptr;
 
@@ -1546,8 +1546,8 @@ void UAkGameplayStatics::AddOutput(const struct FAkOutputSettings& in_Settings, 
 
 	Params::AkGameplayStatics_AddOutput Parms{};
 
-	Parms.in_Settings = std::move(in_Settings);
-	Parms.in_ListenerIDs = std::move(in_ListenerIDs);
+	Parms.In_Settings = std::move(In_Settings);
+	Parms.In_ListenerIDs = std::move(In_ListenerIDs);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -1556,10 +1556,10 @@ void UAkGameplayStatics::AddOutput(const struct FAkOutputSettings& in_Settings, 
 
 	Func->FunctionFlags = Flgs;
 
-	in_ListenerIDs = std::move(Parms.in_ListenerIDs);
+	In_ListenerIDs = std::move(Parms.In_ListenerIDs);
 
-	if (out_DeviceID != nullptr)
-		*out_DeviceID = std::move(Parms.out_DeviceID);
+	if (Out_DeviceID != nullptr)
+		*Out_DeviceID = std::move(Parms.Out_DeviceID);
 }
 
 
@@ -2066,9 +2066,9 @@ void UAkGameplayStatics::PostTrigger(class UAkTrigger* TriggerValue, class AActo
 // Function AkAudio.AkGameplayStatics.RemoveOutput
 // (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
-// struct FAkOutputDeviceID                in_OutputDeviceId                                      (Parm, NoDestructor, NativeAccessSpecifierPublic)
+// struct FAkOutputDeviceID                In_OutputDeviceId                                      (Parm, NoDestructor, NativeAccessSpecifierPublic)
 
-void UAkGameplayStatics::RemoveOutput(const struct FAkOutputDeviceID& in_OutputDeviceId)
+void UAkGameplayStatics::RemoveOutput(const struct FAkOutputDeviceID& In_OutputDeviceId)
 {
 	static class UFunction* Func = nullptr;
 
@@ -2077,7 +2077,7 @@ void UAkGameplayStatics::RemoveOutput(const struct FAkOutputDeviceID& in_OutputD
 
 	Params::AkGameplayStatics_RemoveOutput Parms{};
 
-	Parms.in_OutputDeviceId = std::move(in_OutputDeviceId);
+	Parms.In_OutputDeviceId = std::move(In_OutputDeviceId);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -3166,10 +3166,10 @@ void UAkGameplayStatics::UnloadInitBank()
 // Function AkAudio.AkGameplayStatics.UseReverbVolumes
 // (Final, BlueprintCosmetic, Native, Static, Public, BlueprintCallable)
 // Parameters:
-// bool                                    inUseReverbVolumes                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    InUseReverbVolumes                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class AActor*                           Actor                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UAkGameplayStatics::UseReverbVolumes(bool inUseReverbVolumes, class AActor* Actor)
+void UAkGameplayStatics::UseReverbVolumes(bool InUseReverbVolumes, class AActor* Actor)
 {
 	static class UFunction* Func = nullptr;
 
@@ -3178,7 +3178,7 @@ void UAkGameplayStatics::UseReverbVolumes(bool inUseReverbVolumes, class AActor*
 
 	Params::AkGameplayStatics_UseReverbVolumes Parms{};
 
-	Parms.inUseReverbVolumes = inUseReverbVolumes;
+	Parms.InUseReverbVolumes = InUseReverbVolumes;
 	Parms.Actor = Actor;
 
 	auto Flgs = Func->FunctionFlags;
@@ -3472,6 +3472,31 @@ EAkMidiEventType UAkMIDIEventCallbackInfo::GetType()
 }
 
 
+// Function AkAudio.AkXSXInitializationSettings.MigrateMultiCoreRendering
+// (Final, Native, Public)
+// Parameters:
+// bool                                    NewValue                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UAkXSXInitializationSettings::MigrateMultiCoreRendering(bool NewValue)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("AkXSXInitializationSettings", "MigrateMultiCoreRendering");
+
+	Params::AkXSXInitializationSettings_MigrateMultiCoreRendering Parms{};
+
+	Parms.NewValue = NewValue;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
 // Function AkAudio.AkGeometryComponent.ConvertMesh
 // (Final, Native, Public, BlueprintCallable)
 
@@ -3548,31 +3573,6 @@ void UAkGeometryComponent::UpdateGeometry()
 }
 
 
-// Function AkAudio.AkXSXInitializationSettings.MigrateMultiCoreRendering
-// (Final, Native, Public)
-// Parameters:
-// bool                                    NewValue                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UAkXSXInitializationSettings::MigrateMultiCoreRendering(bool NewValue)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("AkXSXInitializationSettings", "MigrateMultiCoreRendering");
-
-	Params::AkXSXInitializationSettings_MigrateMultiCoreRendering Parms{};
-
-	Parms.NewValue = NewValue;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function AkAudio.AkItemBoolPropertiesConv.Conv_FAkBoolPropertyToControlToString
 // (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
 // Parameters:
@@ -3632,9 +3632,9 @@ class FText UAkItemBoolPropertiesConv::Conv_FAkBoolPropertyToControlToText(const
 // Function AkAudio.AkItemBoolProperties.SetSearchText
 // (Final, BlueprintCosmetic, Native, Public, BlueprintCallable)
 // Parameters:
-// class FString                           newText                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FString                           NewText                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UAkItemBoolProperties::SetSearchText(const class FString& newText)
+void UAkItemBoolProperties::SetSearchText(const class FString& NewText)
 {
 	static class UFunction* Func = nullptr;
 
@@ -3643,7 +3643,7 @@ void UAkItemBoolProperties::SetSearchText(const class FString& newText)
 
 	Params::AkItemBoolProperties_SetSearchText Parms{};
 
-	Parms.newText = std::move(newText);
+	Parms.NewText = std::move(NewText);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -3763,9 +3763,9 @@ class FText UAkItemPropertiesConv::Conv_FAkPropertyToControlToText(const struct 
 // Function AkAudio.AkItemProperties.SetSearchText
 // (Final, BlueprintCosmetic, Native, Public, BlueprintCallable)
 // Parameters:
-// class FString                           newText                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FString                           NewText                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UAkItemProperties::SetSearchText(const class FString& newText)
+void UAkItemProperties::SetSearchText(const class FString& NewText)
 {
 	static class UFunction* Func = nullptr;
 
@@ -3774,7 +3774,7 @@ void UAkItemProperties::SetSearchText(const class FString& newText)
 
 	Params::AkItemProperties_SetSearchText Parms{};
 
-	Parms.newText = std::move(newText);
+	Parms.NewText = std::move(NewText);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -3838,9 +3838,9 @@ class FString UAkItemProperties::GetSelectedProperty() const
 // Function AkAudio.AkLateReverbComponent.AssociateAkTextureSetComponent
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class UAkAcousticTextureSetComponent*   textureSetComponent                                    (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UAkAcousticTextureSetComponent*   TextureSetComponent                                    (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UAkLateReverbComponent::AssociateAkTextureSetComponent(class UAkAcousticTextureSetComponent* textureSetComponent)
+void UAkLateReverbComponent::AssociateAkTextureSetComponent(class UAkAcousticTextureSetComponent* TextureSetComponent)
 {
 	static class UFunction* Func = nullptr;
 
@@ -3849,7 +3849,7 @@ void UAkLateReverbComponent::AssociateAkTextureSetComponent(class UAkAcousticTex
 
 	Params::AkLateReverbComponent_AssociateAkTextureSetComponent Parms{};
 
-	Parms.textureSetComponent = textureSetComponent;
+	Parms.TextureSetComponent = TextureSetComponent;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -4082,9 +4082,9 @@ void UAkRoomComponent::SetEnableReverbZone(bool bInEnableReverbZone)
 // Function AkAudio.AkRoomComponent.SetGeometryComponent
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class UAkAcousticTextureSetComponent*   textureSetComponent                                    (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UAkAcousticTextureSetComponent*   TextureSetComponent                                    (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UAkRoomComponent::SetGeometryComponent(class UAkAcousticTextureSetComponent* textureSetComponent)
+void UAkRoomComponent::SetGeometryComponent(class UAkAcousticTextureSetComponent* TextureSetComponent)
 {
 	static class UFunction* Func = nullptr;
 
@@ -4093,7 +4093,7 @@ void UAkRoomComponent::SetGeometryComponent(class UAkAcousticTextureSetComponent
 
 	Params::AkRoomComponent_SetGeometryComponent Parms{};
 
-	Parms.textureSetComponent = textureSetComponent;
+	Parms.TextureSetComponent = TextureSetComponent;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -4547,9 +4547,9 @@ void UAkSurfaceReflectorSetComponent::SendSurfaceReflectorSet()
 // Function AkAudio.AkSurfaceReflectorSetComponent.UpdateAcousticProperties
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// TArray<struct FAkSurfacePoly>           in_AcousticPolys                                       (Parm, ZeroConstructor, NativeAccessSpecifierPublic)
+// TArray<struct FAkSurfacePoly>           In_AcousticPolys                                       (Parm, ZeroConstructor, NativeAccessSpecifierPublic)
 
-void UAkSurfaceReflectorSetComponent::UpdateAcousticProperties(const TArray<struct FAkSurfacePoly>& in_AcousticPolys)
+void UAkSurfaceReflectorSetComponent::UpdateAcousticProperties(const TArray<struct FAkSurfacePoly>& In_AcousticPolys)
 {
 	static class UFunction* Func = nullptr;
 
@@ -4558,7 +4558,7 @@ void UAkSurfaceReflectorSetComponent::UpdateAcousticProperties(const TArray<stru
 
 	Params::AkSurfaceReflectorSetComponent_UpdateAcousticProperties Parms{};
 
-	Parms.in_AcousticPolys = std::move(in_AcousticPolys);
+	Parms.In_AcousticPolys = std::move(In_AcousticPolys);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -5452,9 +5452,9 @@ void UAkWinGDKInitializationSettings::MigrateMultiCoreRendering(bool NewValue)
 // Function AkAudio.AkWwiseTree.SetSearchText
 // (Final, BlueprintCosmetic, Native, Public, BlueprintCallable)
 // Parameters:
-// class FString                           newText                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FString                           NewText                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UAkWwiseTree::SetSearchText(const class FString& newText)
+void UAkWwiseTree::SetSearchText(const class FString& NewText)
 {
 	static class UFunction* Func = nullptr;
 
@@ -5463,7 +5463,7 @@ void UAkWwiseTree::SetSearchText(const class FString& newText)
 
 	Params::AkWwiseTree_SetSearchText Parms{};
 
-	Parms.newText = std::move(newText);
+	Parms.NewText = std::move(NewText);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;

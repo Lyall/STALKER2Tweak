@@ -12,40 +12,12 @@
 
 #include "PhysicsCore_structs.hpp"
 #include "CoreUObject_classes.hpp"
-#include "DeveloperSettings_classes.hpp"
 #include "Chaos_structs.hpp"
+#include "DeveloperSettings_classes.hpp"
 
 
 namespace SDK
 {
-
-// Class PhysicsCore.BodySetupCore
-// 0x0010 (0x0038 - 0x0028)
-class UBodySetupCore : public UObject
-{
-public:
-	class FName                                   BoneName;                                          // 0x0028(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EPhysicsType                                  PhysicsType;                                       // 0x0030(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	ECollisionTraceFlag                           CollisionTraceFlag;                                // 0x0031(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EBodyCollisionResponse                        CollisionReponse;                                  // 0x0032(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_33[0x5];                                       // 0x0033(0x0005)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		return StaticClassImpl<"BodySetupCore">();
-	}
-	static class UBodySetupCore* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UBodySetupCore>();
-	}
-};
-static_assert(alignof(UBodySetupCore) == 0x000008, "Wrong alignment on UBodySetupCore");
-static_assert(sizeof(UBodySetupCore) == 0x000038, "Wrong size on UBodySetupCore");
-static_assert(offsetof(UBodySetupCore, BoneName) == 0x000028, "Member 'UBodySetupCore::BoneName' has a wrong offset!");
-static_assert(offsetof(UBodySetupCore, PhysicsType) == 0x000030, "Member 'UBodySetupCore::PhysicsType' has a wrong offset!");
-static_assert(offsetof(UBodySetupCore, CollisionTraceFlag) == 0x000031, "Member 'UBodySetupCore::CollisionTraceFlag' has a wrong offset!");
-static_assert(offsetof(UBodySetupCore, CollisionReponse) == 0x000032, "Member 'UBodySetupCore::CollisionReponse' has a wrong offset!");
 
 // Class PhysicsCore.PhysicalMaterial
 // 0x0058 (0x0080 - 0x0028)
@@ -116,6 +88,34 @@ public:
 };
 static_assert(alignof(UPhysicalMaterialPropertyBase) == 0x000008, "Wrong alignment on UPhysicalMaterialPropertyBase");
 static_assert(sizeof(UPhysicalMaterialPropertyBase) == 0x000028, "Wrong size on UPhysicalMaterialPropertyBase");
+
+// Class PhysicsCore.BodySetupCore
+// 0x0010 (0x0038 - 0x0028)
+class UBodySetupCore : public UObject
+{
+public:
+	class FName                                   BoneName;                                          // 0x0028(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EPhysicsType                                  PhysicsType;                                       // 0x0030(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	ECollisionTraceFlag                           CollisionTraceFlag;                                // 0x0031(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EBodyCollisionResponse                        CollisionReponse;                                  // 0x0032(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_33[0x5];                                       // 0x0033(0x0005)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		return StaticClassImpl<"BodySetupCore">();
+	}
+	static class UBodySetupCore* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UBodySetupCore>();
+	}
+};
+static_assert(alignof(UBodySetupCore) == 0x000008, "Wrong alignment on UBodySetupCore");
+static_assert(sizeof(UBodySetupCore) == 0x000038, "Wrong size on UBodySetupCore");
+static_assert(offsetof(UBodySetupCore, BoneName) == 0x000028, "Member 'UBodySetupCore::BoneName' has a wrong offset!");
+static_assert(offsetof(UBodySetupCore, PhysicsType) == 0x000030, "Member 'UBodySetupCore::PhysicsType' has a wrong offset!");
+static_assert(offsetof(UBodySetupCore, CollisionTraceFlag) == 0x000031, "Member 'UBodySetupCore::CollisionTraceFlag' has a wrong offset!");
+static_assert(offsetof(UBodySetupCore, CollisionReponse) == 0x000032, "Member 'UBodySetupCore::CollisionReponse' has a wrong offset!");
 
 // Class PhysicsCore.ChaosPhysicalMaterial
 // 0x0020 (0x0048 - 0x0028)

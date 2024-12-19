@@ -56,12 +56,12 @@ static_assert(offsetof(FEngineServicePong, WorldTimeSeconds) == 0x000048, "Membe
 struct FEngineServiceAuthDeny final
 {
 public:
-	class FString                                 username;                                          // 0x0000(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 Username;                                          // 0x0000(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FString                                 UserToDeny;                                        // 0x0010(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FEngineServiceAuthDeny) == 0x000008, "Wrong alignment on FEngineServiceAuthDeny");
 static_assert(sizeof(FEngineServiceAuthDeny) == 0x000020, "Wrong size on FEngineServiceAuthDeny");
-static_assert(offsetof(FEngineServiceAuthDeny, username) == 0x000000, "Member 'FEngineServiceAuthDeny::username' has a wrong offset!");
+static_assert(offsetof(FEngineServiceAuthDeny, Username) == 0x000000, "Member 'FEngineServiceAuthDeny::Username' has a wrong offset!");
 static_assert(offsetof(FEngineServiceAuthDeny, UserToDeny) == 0x000010, "Member 'FEngineServiceAuthDeny::UserToDeny' has a wrong offset!");
 
 // ScriptStruct EngineMessages.EngineServiceAuthGrant
@@ -69,12 +69,12 @@ static_assert(offsetof(FEngineServiceAuthDeny, UserToDeny) == 0x000010, "Member 
 struct FEngineServiceAuthGrant final
 {
 public:
-	class FString                                 username;                                          // 0x0000(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 Username;                                          // 0x0000(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FString                                 UserToGrant;                                       // 0x0010(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FEngineServiceAuthGrant) == 0x000008, "Wrong alignment on FEngineServiceAuthGrant");
 static_assert(sizeof(FEngineServiceAuthGrant) == 0x000020, "Wrong size on FEngineServiceAuthGrant");
-static_assert(offsetof(FEngineServiceAuthGrant, username) == 0x000000, "Member 'FEngineServiceAuthGrant::username' has a wrong offset!");
+static_assert(offsetof(FEngineServiceAuthGrant, Username) == 0x000000, "Member 'FEngineServiceAuthGrant::Username' has a wrong offset!");
 static_assert(offsetof(FEngineServiceAuthGrant, UserToGrant) == 0x000010, "Member 'FEngineServiceAuthGrant::UserToGrant' has a wrong offset!");
 
 // ScriptStruct EngineMessages.EngineServiceExecuteCommand
@@ -83,23 +83,23 @@ struct FEngineServiceExecuteCommand final
 {
 public:
 	class FString                                 Command;                                           // 0x0000(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 username;                                          // 0x0010(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 Username;                                          // 0x0010(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FEngineServiceExecuteCommand) == 0x000008, "Wrong alignment on FEngineServiceExecuteCommand");
 static_assert(sizeof(FEngineServiceExecuteCommand) == 0x000020, "Wrong size on FEngineServiceExecuteCommand");
 static_assert(offsetof(FEngineServiceExecuteCommand, Command) == 0x000000, "Member 'FEngineServiceExecuteCommand::Command' has a wrong offset!");
-static_assert(offsetof(FEngineServiceExecuteCommand, username) == 0x000010, "Member 'FEngineServiceExecuteCommand::username' has a wrong offset!");
+static_assert(offsetof(FEngineServiceExecuteCommand, Username) == 0x000010, "Member 'FEngineServiceExecuteCommand::Username' has a wrong offset!");
 
 // ScriptStruct EngineMessages.EngineServiceTerminate
 // 0x0010 (0x0010 - 0x0000)
 struct FEngineServiceTerminate final
 {
 public:
-	class FString                                 username;                                          // 0x0000(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 Username;                                          // 0x0000(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FEngineServiceTerminate) == 0x000008, "Wrong alignment on FEngineServiceTerminate");
 static_assert(sizeof(FEngineServiceTerminate) == 0x000010, "Wrong size on FEngineServiceTerminate");
-static_assert(offsetof(FEngineServiceTerminate, username) == 0x000000, "Member 'FEngineServiceTerminate::username' has a wrong offset!");
+static_assert(offsetof(FEngineServiceTerminate, Username) == 0x000000, "Member 'FEngineServiceTerminate::Username' has a wrong offset!");
 
 // ScriptStruct EngineMessages.EngineServiceNotification
 // 0x0018 (0x0018 - 0x0000)

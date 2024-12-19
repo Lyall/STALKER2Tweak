@@ -36,6 +36,20 @@ void UGameplayTask::EndTask()
 }
 
 
+// DelegateFunction GameplayTasks.GameplayTask.GenericGameplayTaskDelegate__DelegateSignature
+// (MulticastDelegate, Public, Delegate)
+
+void UGameplayTask::GenericGameplayTaskDelegate__DelegateSignature()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("GameplayTask", "GenericGameplayTaskDelegate__DelegateSignature");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
 // Function GameplayTasks.GameplayTask.ReadyForActivation
 // (Final, Native, Public, BlueprintCallable)
 
@@ -308,6 +322,20 @@ class UGameplayTask_WaitDelay* UGameplayTask_WaitDelay::TaskWaitDelay(TScriptInt
 	Func->FunctionFlags = Flgs;
 
 	return Parms.ReturnValue;
+}
+
+
+// DelegateFunction GameplayTasks.GameplayTask_WaitDelay.TaskDelayDelegate__DelegateSignature
+// (MulticastDelegate, Public, Delegate)
+
+void UGameplayTask_WaitDelay::TaskDelayDelegate__DelegateSignature()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("GameplayTask_WaitDelay", "TaskDelayDelegate__DelegateSignature");
+
+	UObject::ProcessEvent(Func, nullptr);
 }
 
 }

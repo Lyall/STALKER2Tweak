@@ -52,7 +52,7 @@ public:
 	static int32 CountElements(const struct FScriptTypedElementListProxy& ElementList, const TSubclassOf<class IInterface> BaseInterfaceType);
 	static int32 CountElementsOfType(const struct FScriptTypedElementListProxy& ElementList, const class FName ElementTypeName);
 	static struct FScriptTypedElementListProxy CreateScriptElementList(class UTypedElementRegistry* Registry);
-	static void empty(const struct FScriptTypedElementListProxy& ElementList, const int32 Slack);
+	static void Empty(const struct FScriptTypedElementListProxy& ElementList, const int32 Slack);
 	static struct FScriptTypedElementHandle GetElementHandleAt(const struct FScriptTypedElementListProxy& ElementList, const int32 Index_0);
 	static TArray<struct FScriptTypedElementHandle> GetElementHandles(const struct FScriptTypedElementListProxy& ElementList, const TSubclassOf<class IInterface> BaseInterfaceType);
 	static class UObject* GetElementInterface(const struct FScriptTypedElementListProxy& ElementList, const struct FScriptTypedElementHandle& ElementHandle, const TSubclassOf<class IInterface> BaseInterfaceType);
@@ -61,7 +61,7 @@ public:
 	static bool IsValidIndex(const struct FScriptTypedElementListProxy& ElementList, const int32 Index_0);
 	static int32 Num(const struct FScriptTypedElementListProxy& ElementList);
 	static bool Remove(const struct FScriptTypedElementListProxy& ElementList, const struct FScriptTypedElementHandle& ElementHandle);
-	static void Reserve(const struct FScriptTypedElementListProxy& ElementList, const int32 size);
+	static void Reserve(const struct FScriptTypedElementListProxy& ElementList, const int32 Size);
 	static void Reset(const struct FScriptTypedElementListProxy& ElementList);
 	static void Shrink(const struct FScriptTypedElementListProxy& ElementList);
 

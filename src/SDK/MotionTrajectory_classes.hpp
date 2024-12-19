@@ -36,7 +36,7 @@ public:
 	uint8                                         Pad_263[0x5];                                      // 0x0263(0x0005)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
-	void SetSampleRate(int32 rate);
+	void SetSampleRate(int32 Rate);
 
 	struct FTrajectorySampleRange GetHistory() const;
 	struct FTrajectorySampleRange GetTrajectory() const;

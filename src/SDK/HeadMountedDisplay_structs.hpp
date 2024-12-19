@@ -173,7 +173,7 @@ public:
 	struct FGuid                                  ApplicationInstanceID;                             // 0x000C(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	ETrackingStatus                               TrackingStatus;                                    // 0x001C(0x0001)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_1D[0x3];                                       // 0x001D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                position;                                          // 0x0020(0x0018)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Position;                                          // 0x0020(0x0018)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_38[0x8];                                       // 0x0038(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FQuat                                  Rotation;                                          // 0x0040(0x0020)(BlueprintVisible, BlueprintReadOnly, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
@@ -183,7 +183,7 @@ static_assert(offsetof(FXRHMDData, bValid) == 0x000000, "Member 'FXRHMDData::bVa
 static_assert(offsetof(FXRHMDData, DeviceName) == 0x000004, "Member 'FXRHMDData::DeviceName' has a wrong offset!");
 static_assert(offsetof(FXRHMDData, ApplicationInstanceID) == 0x00000C, "Member 'FXRHMDData::ApplicationInstanceID' has a wrong offset!");
 static_assert(offsetof(FXRHMDData, TrackingStatus) == 0x00001C, "Member 'FXRHMDData::TrackingStatus' has a wrong offset!");
-static_assert(offsetof(FXRHMDData, position) == 0x000020, "Member 'FXRHMDData::position' has a wrong offset!");
+static_assert(offsetof(FXRHMDData, Position) == 0x000020, "Member 'FXRHMDData::Position' has a wrong offset!");
 static_assert(offsetof(FXRHMDData, Rotation) == 0x000040, "Member 'FXRHMDData::Rotation' has a wrong offset!");
 
 // ScriptStruct HeadMountedDisplay.XRMotionControllerData

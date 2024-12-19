@@ -207,12 +207,12 @@ void USkinnedDecalSampler::SetupMaterials()
 // struct FVector                          Location                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FQuat                            Rotation                                               (ConstParm, Parm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   size                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   Size                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   SubUV                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   Index_0                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-int32 USkinnedDecalSampler::SpawnDecal(const struct FVector& Location, const struct FQuat& Rotation, class FName BoneName, float size, int32 SubUV, int32 Index_0)
+int32 USkinnedDecalSampler::SpawnDecal(const struct FVector& Location, const struct FQuat& Rotation, class FName BoneName, float Size, int32 SubUV, int32 Index_0)
 {
 	static class UFunction* Func = nullptr;
 
@@ -224,7 +224,7 @@ int32 USkinnedDecalSampler::SpawnDecal(const struct FVector& Location, const str
 	Parms.Location = std::move(Location);
 	Parms.Rotation = std::move(Rotation);
 	Parms.BoneName = BoneName;
-	Parms.size = size;
+	Parms.Size = Size;
 	Parms.SubUV = SubUV;
 	Parms.Index_0 = Index_0;
 

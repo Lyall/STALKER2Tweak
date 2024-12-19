@@ -51,35 +51,28 @@ public:
 static_assert(alignof(UBlendSpacePlayerLibrary) == 0x000008, "Wrong alignment on UBlendSpacePlayerLibrary");
 static_assert(sizeof(UBlendSpacePlayerLibrary) == 0x000028, "Wrong size on UBlendSpacePlayerLibrary");
 
-// Class AnimGraphRuntime.KismetAnimationLibrary
+// Class AnimGraphRuntime.LayeredBoneBlendLibrary
 // 0x0000 (0x0028 - 0x0028)
-class UKismetAnimationLibrary final : public UBlueprintFunctionLibrary
+class ULayeredBoneBlendLibrary final : public UBlueprintFunctionLibrary
 {
 public:
-	static float CalculateDirection(const struct FVector& Velocity, const struct FRotator& BaseRotation);
-	static float K2_CalculateVelocityFromPositionHistory(float DeltaSeconds, const struct FVector& position, struct FPositionHistory& History, int32 NumberOfSamples, float VelocityMin, float VelocityMax);
-	static float K2_CalculateVelocityFromSockets(float DeltaSeconds, class USkeletalMeshComponent* Component, const class FName SocketOrBoneName, const class FName ReferenceSocketOrBone, ERelativeTransformSpace SocketSpace, const struct FVector& OffsetInBoneSpace, struct FPositionHistory& History, int32 NumberOfSamples, float VelocityMin, float VelocityMax, EEasingFuncType EasingType, const struct FRuntimeFloatCurve& CustomCurve);
-	static struct FVector K2_DirectionBetweenSockets(const class USkeletalMeshComponent* Component, const class FName SocketOrBoneNameFrom, const class FName SocketOrBoneNameTo);
-	static float K2_DistanceBetweenTwoSocketsAndMapRange(const class USkeletalMeshComponent* Component, const class FName SocketOrBoneNameA, ERelativeTransformSpace SocketSpaceA, const class FName SocketOrBoneNameB, ERelativeTransformSpace SocketSpaceB, bool bRemapRange, float InRangeMin, float InRangeMax, float OutRangeMin, float OutRangeMax);
-	static float K2_EndProfilingTimer(bool bLog, const class FString& LogPrefix);
-	static struct FTransform K2_LookAt(const struct FTransform& CurrentTransform, const struct FVector& TargetPosition, const struct FVector& LookAtVector, bool bUseUpVector, const struct FVector& UpVector, float ClampConeInDegree);
-	static float K2_MakePerlinNoiseAndRemap(float Value, float RangeOutMin, float RangeOutMax);
-	static struct FVector K2_MakePerlinNoiseVectorAndRemap(float X, float Y, float Z, float RangeOutMinX, float RangeOutMaxX, float RangeOutMinY, float RangeOutMaxY, float RangeOutMinZ, float RangeOutMaxZ);
-	static void K2_StartProfilingTimer();
-	static void K2_TwoBoneIK(const struct FVector& RootPos, const struct FVector& JointPos, const struct FVector& EndPos, const struct FVector& JointTarget, const struct FVector& Effector, struct FVector* OutJointPos, struct FVector* OutEndPos, bool bAllowStretching, float StartStretchRatio, float MaxStretchScale);
+	static void ConvertToLayeredBlendPerBonePure(const struct FAnimNodeReference& Node, struct FLayeredBoneBlendReference* LayeredBoneBlend, bool* Result);
+	static struct FLayeredBoneBlendReference ConvertToLayeredBoneBlend(const struct FAnimNodeReference& Node, EAnimNodeReferenceConversionResult* Result);
+	static int32 GetNumPoses(const struct FLayeredBoneBlendReference& LayeredBoneBlend);
+	static struct FLayeredBoneBlendReference SetBlendMask(const struct FAnimUpdateContext& UpdateContext, const struct FLayeredBoneBlendReference& LayeredBoneBlend, int32 PoseIndex, class FName BlendMaskName);
 
 public:
 	static class UClass* StaticClass()
 	{
-		return StaticClassImpl<"KismetAnimationLibrary">();
+		return StaticClassImpl<"LayeredBoneBlendLibrary">();
 	}
-	static class UKismetAnimationLibrary* GetDefaultObj()
+	static class ULayeredBoneBlendLibrary* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UKismetAnimationLibrary>();
+		return GetDefaultObjImpl<ULayeredBoneBlendLibrary>();
 	}
 };
-static_assert(alignof(UKismetAnimationLibrary) == 0x000008, "Wrong alignment on UKismetAnimationLibrary");
-static_assert(sizeof(UKismetAnimationLibrary) == 0x000028, "Wrong size on UKismetAnimationLibrary");
+static_assert(alignof(ULayeredBoneBlendLibrary) == 0x000008, "Wrong alignment on ULayeredBoneBlendLibrary");
+static_assert(sizeof(ULayeredBoneBlendLibrary) == 0x000028, "Wrong size on ULayeredBoneBlendLibrary");
 
 // Class AnimGraphRuntime.AnimationStateMachineLibrary
 // 0x0000 (0x0028 - 0x0028)
@@ -109,29 +102,6 @@ public:
 };
 static_assert(alignof(UAnimationStateMachineLibrary) == 0x000008, "Wrong alignment on UAnimationStateMachineLibrary");
 static_assert(sizeof(UAnimationStateMachineLibrary) == 0x000028, "Wrong size on UAnimationStateMachineLibrary");
-
-// Class AnimGraphRuntime.LayeredBoneBlendLibrary
-// 0x0000 (0x0028 - 0x0028)
-class ULayeredBoneBlendLibrary final : public UBlueprintFunctionLibrary
-{
-public:
-	static void ConvertToLayeredBlendPerBonePure(const struct FAnimNodeReference& Node, struct FLayeredBoneBlendReference* LayeredBoneBlend, bool* Result);
-	static struct FLayeredBoneBlendReference ConvertToLayeredBoneBlend(const struct FAnimNodeReference& Node, EAnimNodeReferenceConversionResult* Result);
-	static int32 GetNumPoses(const struct FLayeredBoneBlendReference& LayeredBoneBlend);
-	static struct FLayeredBoneBlendReference SetBlendMask(const struct FAnimUpdateContext& UpdateContext, const struct FLayeredBoneBlendReference& LayeredBoneBlend, int32 PoseIndex, class FName BlendMaskName);
-
-public:
-	static class UClass* StaticClass()
-	{
-		return StaticClassImpl<"LayeredBoneBlendLibrary">();
-	}
-	static class ULayeredBoneBlendLibrary* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<ULayeredBoneBlendLibrary>();
-	}
-};
-static_assert(alignof(ULayeredBoneBlendLibrary) == 0x000008, "Wrong alignment on ULayeredBoneBlendLibrary");
-static_assert(sizeof(ULayeredBoneBlendLibrary) == 0x000028, "Wrong size on ULayeredBoneBlendLibrary");
 
 // Class AnimGraphRuntime.AnimExecutionContextLibrary
 // 0x0000 (0x0028 - 0x0028)
@@ -219,6 +189,36 @@ public:
 static_assert(alignof(UAnimSequencerInstance) == 0x000010, "Wrong alignment on UAnimSequencerInstance");
 static_assert(sizeof(UAnimSequencerInstance) == 0x000370, "Wrong size on UAnimSequencerInstance");
 
+// Class AnimGraphRuntime.KismetAnimationLibrary
+// 0x0000 (0x0028 - 0x0028)
+class UKismetAnimationLibrary final : public UBlueprintFunctionLibrary
+{
+public:
+	static float CalculateDirection(const struct FVector& Velocity, const struct FRotator& BaseRotation);
+	static float K2_CalculateVelocityFromPositionHistory(float DeltaSeconds, const struct FVector& Position, struct FPositionHistory& History, int32 NumberOfSamples, float VelocityMin, float VelocityMax);
+	static float K2_CalculateVelocityFromSockets(float DeltaSeconds, class USkeletalMeshComponent* Component, const class FName SocketOrBoneName, const class FName ReferenceSocketOrBone, ERelativeTransformSpace SocketSpace, const struct FVector& OffsetInBoneSpace, struct FPositionHistory& History, int32 NumberOfSamples, float VelocityMin, float VelocityMax, EEasingFuncType EasingType, const struct FRuntimeFloatCurve& CustomCurve);
+	static struct FVector K2_DirectionBetweenSockets(const class USkeletalMeshComponent* Component, const class FName SocketOrBoneNameFrom, const class FName SocketOrBoneNameTo);
+	static float K2_DistanceBetweenTwoSocketsAndMapRange(const class USkeletalMeshComponent* Component, const class FName SocketOrBoneNameA, ERelativeTransformSpace SocketSpaceA, const class FName SocketOrBoneNameB, ERelativeTransformSpace SocketSpaceB, bool bRemapRange, float InRangeMin, float InRangeMax, float OutRangeMin, float OutRangeMax);
+	static float K2_EndProfilingTimer(bool bLog, const class FString& LogPrefix);
+	static struct FTransform K2_LookAt(const struct FTransform& CurrentTransform, const struct FVector& TargetPosition, const struct FVector& LookAtVector, bool bUseUpVector, const struct FVector& UpVector, float ClampConeInDegree);
+	static float K2_MakePerlinNoiseAndRemap(float Value, float RangeOutMin, float RangeOutMax);
+	static struct FVector K2_MakePerlinNoiseVectorAndRemap(float X, float Y, float Z, float RangeOutMinX, float RangeOutMaxX, float RangeOutMinY, float RangeOutMaxY, float RangeOutMinZ, float RangeOutMaxZ);
+	static void K2_StartProfilingTimer();
+	static void K2_TwoBoneIK(const struct FVector& RootPos, const struct FVector& JointPos, const struct FVector& EndPos, const struct FVector& JointTarget, const struct FVector& Effector, struct FVector* OutJointPos, struct FVector* OutEndPos, bool bAllowStretching, float StartStretchRatio, float MaxStretchScale);
+
+public:
+	static class UClass* StaticClass()
+	{
+		return StaticClassImpl<"KismetAnimationLibrary">();
+	}
+	static class UKismetAnimationLibrary* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UKismetAnimationLibrary>();
+	}
+};
+static_assert(alignof(UKismetAnimationLibrary) == 0x000008, "Wrong alignment on UKismetAnimationLibrary");
+static_assert(sizeof(UKismetAnimationLibrary) == 0x000028, "Wrong size on UKismetAnimationLibrary");
+
 // Class AnimGraphRuntime.LinkedAnimGraphLibrary
 // 0x0000 (0x0028 - 0x0028)
 class ULinkedAnimGraphLibrary final : public UBlueprintFunctionLibrary
@@ -247,11 +247,11 @@ static_assert(sizeof(ULinkedAnimGraphLibrary) == 0x000028, "Wrong size on ULinke
 class UPlayMontageCallbackProxy final : public UObject
 {
 public:
-	TMulticastInlineDelegate<void(class FName NotifyName)> OnCompleted;                                       // 0x0028(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void(class FName NotifyName)> OnBlendOut;                                        // 0x0038(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void(class FName NotifyName)> OnInterrupted;                                     // 0x0048(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void(class FName NotifyName)> OnNotifyBegin;                                     // 0x0058(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void(class FName NotifyName)> OnNotifyEnd;                                       // 0x0068(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnCompleted;                                       // 0x0028(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnBlendOut;                                        // 0x0038(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnInterrupted;                                     // 0x0048(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnNotifyBegin;                                     // 0x0058(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnNotifyEnd;                                       // 0x0068(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 	uint8                                         Pad_78[0x30];                                      // 0x0078(0x0030)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:

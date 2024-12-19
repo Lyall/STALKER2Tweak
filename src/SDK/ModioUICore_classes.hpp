@@ -12,8 +12,8 @@
 
 #include "UMG_classes.hpp"
 #include "CoreUObject_classes.hpp"
-#include "Engine_classes.hpp"
 #include "Modio_structs.hpp"
+#include "Engine_classes.hpp"
 #include "ModioUICore_structs.hpp"
 
 
@@ -186,9 +186,9 @@ static_assert(sizeof(IModioUIAuthenticationChangedReceiver) == 0x000028, "Wrong 
 class IModioUIMediaDownloadCompletedReceiver final : public IInterface
 {
 public:
-	void OnModCreatorAvatarDownloadCompleted(const struct FModioModID& ModId, const struct FModioErrorCode& ec, const struct FModioOptionalImage& Image);
-	void OnModGalleryImageDownloadCompleted(const struct FModioModID& ModId, const struct FModioErrorCode& ec, int32 ImageIndex, const struct FModioOptionalImage& Image);
-	void OnModLogoDownloadCompleted(const struct FModioModID& ModId, const struct FModioErrorCode& ec, const struct FModioOptionalImage& Image, EModioLogoSize LogoSize);
+	void OnModCreatorAvatarDownloadCompleted(const struct FModioModID& ModId, const struct FModioErrorCode& Ec, const struct FModioOptionalImage& Image);
+	void OnModGalleryImageDownloadCompleted(const struct FModioModID& ModId, const struct FModioErrorCode& Ec, int32 ImageIndex, const struct FModioOptionalImage& Image);
+	void OnModLogoDownloadCompleted(const struct FModioModID& ModId, const struct FModioErrorCode& Ec, const struct FModioOptionalImage& Image, EModioLogoSize LogoSize);
 
 public:
 	static class UClass* StaticClass()
@@ -229,8 +229,8 @@ static_assert(sizeof(IModioUIModEnableWidget) == 0x000028, "Wrong size on IModio
 class IModioUIModInfoReceiver final : public IInterface
 {
 public:
-	void OnListAllModsRequestCompleted(const class FString& RequestIdentifier, const struct FModioErrorCode& ec, const struct FModioOptionalModInfoList& List);
-	void OnModInfoRequestCompleted(const struct FModioModID& ModId, const struct FModioErrorCode& ec, const struct FModioOptionalModInfo& Info);
+	void OnListAllModsRequestCompleted(const class FString& RequestIdentifier, const struct FModioErrorCode& Ec, const struct FModioOptionalModInfoList& List);
+	void OnModInfoRequestCompleted(const struct FModioModID& ModId, const struct FModioErrorCode& Ec, const struct FModioOptionalModInfo& Info);
 
 public:
 	static class UClass* StaticClass()
@@ -301,7 +301,7 @@ class IModioUINotification final : public IInterface
 {
 public:
 	void Configure(const struct FModioNotificationParams& Params_0);
-	void ConfigureManual(const class FText& Title, const class FText& message, bool bIsError);
+	void ConfigureManual(const class FText& Title, const class FText& Message, bool bIsError);
 	void Display();
 	class UWidget* GetAsWidget();
 	void SetNotificationExpireHandler(const TDelegate<void(class UWidget* NotificationWidget)>& InDelegate);
@@ -325,9 +325,9 @@ class IModioUINotificationController final : public IInterface
 {
 public:
 	void DisplayNotification(const TScriptInterface<class IModioUINotification>& Notification);
-	void DisplayNotificationManual(const class FText& Title, const class FText& message, bool bIsError);
+	void DisplayNotificationManual(const class FText& Title, const class FText& Message, bool bIsError);
 	void DisplayNotificationParams(const struct FModioNotificationParams& Params_0);
-	void HandleDisplayManual(const class FText& Title, const class FText& message, bool bIsError);
+	void HandleDisplayManual(const class FText& Title, const class FText& Message, bool bIsError);
 	void HandleDisplayNotificationParams(const struct FModioNotificationParams& Params_0);
 	void HandleDisplayNotificationWidget(TScriptInterface<class IModioUINotification>* Notification);
 	void RegisterUserWidget(const TScriptInterface<class IModioUINotificationController>& ControllerWidget);
@@ -370,7 +370,7 @@ static_assert(sizeof(IModioUISubscriptionsChangedReceiver) == 0x000028, "Wrong s
 class IModioUIUserAvatarDownloadCompletedReceiver final : public IInterface
 {
 public:
-	void OnUserAvatarDownloadCompleted(const struct FModioErrorCode& ec, const struct FModioOptionalImage& Image);
+	void OnUserAvatarDownloadCompleted(const struct FModioErrorCode& Ec, const struct FModioOptionalImage& Image);
 
 public:
 	static class UClass* StaticClass()
@@ -636,15 +636,15 @@ public:
 	uint8                                         Pad_30[0x1C8];                                     // 0x0030(0x01C8)(Fixing Size After Last Property [ Dumper-7 ])
 	class UUserWidget*                            ModBrowserInstance;                                // 0x01F8(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	uint8                                         Pad_200[0x60];                                     // 0x0200(0x0060)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void(const struct FModioModID& Mod, bool bNewStateIsEnabled)> OnModEnabledChanged;                               // 0x0260(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnModEnabledChanged;                               // 0x0260(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 	TDelegate<void(const struct FModioModID& Mod)> GetModEnabledDelegate;                             // 0x0270(0x0010)(BlueprintVisible, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_280[0x18];                                     // 0x0280(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void CloseModBrowserUI();
-	void DisplayErrorDialog(const struct FModioErrorCode& errorCode);
+	void DisplayErrorDialog(const struct FModioErrorCode& ErrorCode);
 	void DisplayNotification(TScriptInterface<class IModioUINotification>& Notification);
-	void DisplayNotificationManual(const class FText& Title, const class FText& message, bool bIsError);
+	void DisplayNotificationManual(const class FText& Title, const class FText& Message, bool bIsError);
 	void DisplayNotificationParams(const struct FModioNotificationParams& Params_0);
 	void ExecuteOnModBrowserCloseRequestedDelegate();
 	class FText FormatText(const class FText& Input);
@@ -666,9 +666,9 @@ public:
 	void ShowDialog(class UObject* DialogDataSource);
 	class UUserWidget* ShowModBrowserUIForPlayer(TSubclassOf<class UUserWidget> MenuClass, class APlayerController* Controller, TDelegate<void()> OnModBrowserCloseRequestedDelegate);
 	bool ShowSearchResults(const struct FModioModCategoryParams& SearchParameters);
-	void SubscriptionHandler(const struct FModioErrorCode& errorCode, const struct FModioModID& ID);
-	void UninstallHandler(const struct FModioErrorCode& errorCode, const struct FModioModID& ID);
-	void UnsubscribeHandler(const struct FModioErrorCode& errorCode, const struct FModioModID& ID);
+	void SubscriptionHandler(const struct FModioErrorCode& ErrorCode, const struct FModioModID& ID);
+	void UninstallHandler(const struct FModioErrorCode& ErrorCode, const struct FModioModID& ID);
+	void UnsubscribeHandler(const struct FModioErrorCode& ErrorCode, const struct FModioModID& ID);
 
 public:
 	static class UClass* StaticClass()

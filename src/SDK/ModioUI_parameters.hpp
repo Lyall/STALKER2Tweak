@@ -12,11 +12,11 @@
 
 #include "UMG_structs.hpp"
 #include "CoreUObject_structs.hpp"
-#include "SlateCore_structs.hpp"
-#include "Modio_structs.hpp"
-#include "Engine_structs.hpp"
-#include "ModioUI_structs.hpp"
 #include "ModioUICore_structs.hpp"
+#include "Engine_structs.hpp"
+#include "Modio_structs.hpp"
+#include "SlateCore_structs.hpp"
+#include "ModioUI_structs.hpp"
 
 
 namespace SDK::Params
@@ -60,6 +60,17 @@ public:
 static_assert(alignof(ModioCommonActivatableWidget_GetRequestIdentifier) == 0x000008, "Wrong alignment on ModioCommonActivatableWidget_GetRequestIdentifier");
 static_assert(sizeof(ModioCommonActivatableWidget_GetRequestIdentifier) == 0x000010, "Wrong size on ModioCommonActivatableWidget_GetRequestIdentifier");
 static_assert(offsetof(ModioCommonActivatableWidget_GetRequestIdentifier, ReturnValue) == 0x000000, "Member 'ModioCommonActivatableWidget_GetRequestIdentifier::ReturnValue' has a wrong offset!");
+
+// DelegateFunction ModioUI.ModioCommonActivatableWidget.OnCommonWidgetFocusChanged__DelegateSignature
+// 0x0001 (0x0001 - 0x0000)
+struct ModioCommonActivatableWidget_OnCommonWidgetFocusChanged__DelegateSignature final
+{
+public:
+	bool                                          bIsFocused;                                        // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(ModioCommonActivatableWidget_OnCommonWidgetFocusChanged__DelegateSignature) == 0x000001, "Wrong alignment on ModioCommonActivatableWidget_OnCommonWidgetFocusChanged__DelegateSignature");
+static_assert(sizeof(ModioCommonActivatableWidget_OnCommonWidgetFocusChanged__DelegateSignature) == 0x000001, "Wrong size on ModioCommonActivatableWidget_OnCommonWidgetFocusChanged__DelegateSignature");
+static_assert(offsetof(ModioCommonActivatableWidget_OnCommonWidgetFocusChanged__DelegateSignature, bIsFocused) == 0x000000, "Member 'ModioCommonActivatableWidget_OnCommonWidgetFocusChanged__DelegateSignature::bIsFocused' has a wrong offset!");
 
 // Function ModioUI.ModioCommonActivatableWidget.OnViewportResized
 // 0x0010 (0x0010 - 0x0000)
@@ -121,13 +132,13 @@ static_assert(offsetof(ModioCommonModDetailsViewBase_IsUserAuthenticated, Return
 struct ModioCommonModDetailsView_OnRatingSubmissionComplete final
 {
 public:
-	struct FModioErrorCode                        errorCode;                                         // 0x0000(0x0008)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FModioErrorCode                        ErrorCode;                                         // 0x0000(0x0008)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EModioRating                                  SubmittedRating;                                   // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(ModioCommonModDetailsView_OnRatingSubmissionComplete) == 0x000008, "Wrong alignment on ModioCommonModDetailsView_OnRatingSubmissionComplete");
 static_assert(sizeof(ModioCommonModDetailsView_OnRatingSubmissionComplete) == 0x000010, "Wrong size on ModioCommonModDetailsView_OnRatingSubmissionComplete");
-static_assert(offsetof(ModioCommonModDetailsView_OnRatingSubmissionComplete, errorCode) == 0x000000, "Member 'ModioCommonModDetailsView_OnRatingSubmissionComplete::errorCode' has a wrong offset!");
+static_assert(offsetof(ModioCommonModDetailsView_OnRatingSubmissionComplete, ErrorCode) == 0x000000, "Member 'ModioCommonModDetailsView_OnRatingSubmissionComplete::ErrorCode' has a wrong offset!");
 static_assert(offsetof(ModioCommonModDetailsView_OnRatingSubmissionComplete, SubmittedRating) == 0x000008, "Member 'ModioCommonModDetailsView_OnRatingSubmissionComplete::SubmittedRating' has a wrong offset!");
 
 // Function ModioUI.ModioCommonModDetailsView.SetStyle
@@ -256,22 +267,22 @@ static_assert(offsetof(ModioCommonModGalleryEntry_SetStyle, InStyle) == 0x000000
 struct ModioCommonAuthView_HandleEmailAuthCodeSent final
 {
 public:
-	struct FModioErrorCode                        errorCode;                                         // 0x0000(0x0008)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FModioErrorCode                        ErrorCode;                                         // 0x0000(0x0008)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioCommonAuthView_HandleEmailAuthCodeSent) == 0x000008, "Wrong alignment on ModioCommonAuthView_HandleEmailAuthCodeSent");
 static_assert(sizeof(ModioCommonAuthView_HandleEmailAuthCodeSent) == 0x000008, "Wrong size on ModioCommonAuthView_HandleEmailAuthCodeSent");
-static_assert(offsetof(ModioCommonAuthView_HandleEmailAuthCodeSent, errorCode) == 0x000000, "Member 'ModioCommonAuthView_HandleEmailAuthCodeSent::errorCode' has a wrong offset!");
+static_assert(offsetof(ModioCommonAuthView_HandleEmailAuthCodeSent, ErrorCode) == 0x000000, "Member 'ModioCommonAuthView_HandleEmailAuthCodeSent::ErrorCode' has a wrong offset!");
 
 // Function ModioUI.ModioCommonAuthView.HandleEmailAuthenticated
 // 0x0008 (0x0008 - 0x0000)
 struct ModioCommonAuthView_HandleEmailAuthenticated final
 {
 public:
-	struct FModioErrorCode                        errorCode;                                         // 0x0000(0x0008)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FModioErrorCode                        ErrorCode;                                         // 0x0000(0x0008)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioCommonAuthView_HandleEmailAuthenticated) == 0x000008, "Wrong alignment on ModioCommonAuthView_HandleEmailAuthenticated");
 static_assert(sizeof(ModioCommonAuthView_HandleEmailAuthenticated) == 0x000008, "Wrong size on ModioCommonAuthView_HandleEmailAuthenticated");
-static_assert(offsetof(ModioCommonAuthView_HandleEmailAuthenticated, errorCode) == 0x000000, "Member 'ModioCommonAuthView_HandleEmailAuthenticated::errorCode' has a wrong offset!");
+static_assert(offsetof(ModioCommonAuthView_HandleEmailAuthenticated, ErrorCode) == 0x000000, "Member 'ModioCommonAuthView_HandleEmailAuthenticated::ErrorCode' has a wrong offset!");
 
 // Function ModioUI.ModioCommonAuthView.OnEmailAuthCodeViewSubmitClicked
 // 0x0010 (0x0010 - 0x0000)
@@ -331,71 +342,6 @@ static_assert(sizeof(ModioCommonBorder_HandleOnMouseButtonDownEvent) == 0x000190
 static_assert(offsetof(ModioCommonBorder_HandleOnMouseButtonDownEvent, MyGeometry) == 0x000000, "Member 'ModioCommonBorder_HandleOnMouseButtonDownEvent::MyGeometry' has a wrong offset!");
 static_assert(offsetof(ModioCommonBorder_HandleOnMouseButtonDownEvent, MouseEvent) == 0x000040, "Member 'ModioCommonBorder_HandleOnMouseButtonDownEvent::MouseEvent' has a wrong offset!");
 static_assert(offsetof(ModioCommonBorder_HandleOnMouseButtonDownEvent, ReturnValue) == 0x0000D8, "Member 'ModioCommonBorder_HandleOnMouseButtonDownEvent::ReturnValue' has a wrong offset!");
-
-// Function ModioUI.ModioCommonTabListWidgetBase.OnTabSelectedInternal
-// 0x0008 (0x0008 - 0x0000)
-struct ModioCommonTabListWidgetBase_OnTabSelectedInternal final
-{
-public:
-	class FName                                   TabNameID;                                         // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(ModioCommonTabListWidgetBase_OnTabSelectedInternal) == 0x000004, "Wrong alignment on ModioCommonTabListWidgetBase_OnTabSelectedInternal");
-static_assert(sizeof(ModioCommonTabListWidgetBase_OnTabSelectedInternal) == 0x000008, "Wrong size on ModioCommonTabListWidgetBase_OnTabSelectedInternal");
-static_assert(offsetof(ModioCommonTabListWidgetBase_OnTabSelectedInternal, TabNameID) == 0x000000, "Member 'ModioCommonTabListWidgetBase_OnTabSelectedInternal::TabNameID' has a wrong offset!");
-
-// Function ModioUI.ModioCommonTabListWidgetBase.RegisterDynamicTab
-// 0x0038 (0x0038 - 0x0000)
-struct ModioCommonTabListWidgetBase_RegisterDynamicTab final
-{
-public:
-	struct FModioCommonTabDescriptor              TabDescriptor;                                     // 0x0000(0x0030)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0030(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_31[0x7];                                       // 0x0031(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(ModioCommonTabListWidgetBase_RegisterDynamicTab) == 0x000008, "Wrong alignment on ModioCommonTabListWidgetBase_RegisterDynamicTab");
-static_assert(sizeof(ModioCommonTabListWidgetBase_RegisterDynamicTab) == 0x000038, "Wrong size on ModioCommonTabListWidgetBase_RegisterDynamicTab");
-static_assert(offsetof(ModioCommonTabListWidgetBase_RegisterDynamicTab, TabDescriptor) == 0x000000, "Member 'ModioCommonTabListWidgetBase_RegisterDynamicTab::TabDescriptor' has a wrong offset!");
-static_assert(offsetof(ModioCommonTabListWidgetBase_RegisterDynamicTab, ReturnValue) == 0x000030, "Member 'ModioCommonTabListWidgetBase_RegisterDynamicTab::ReturnValue' has a wrong offset!");
-
-// Function ModioUI.ModioCommonTabListWidgetBase.SelectTabByIDExtended
-// 0x000C (0x000C - 0x0000)
-struct ModioCommonTabListWidgetBase_SelectTabByIDExtended final
-{
-public:
-	class FName                                   TabNameID;                                         // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bSuppressClickFeedback;                            // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bSuppressOnTabSelectedIfAlreadySelected;           // 0x0009(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x000A(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_B[0x1];                                        // 0x000B(0x0001)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(ModioCommonTabListWidgetBase_SelectTabByIDExtended) == 0x000004, "Wrong alignment on ModioCommonTabListWidgetBase_SelectTabByIDExtended");
-static_assert(sizeof(ModioCommonTabListWidgetBase_SelectTabByIDExtended) == 0x00000C, "Wrong size on ModioCommonTabListWidgetBase_SelectTabByIDExtended");
-static_assert(offsetof(ModioCommonTabListWidgetBase_SelectTabByIDExtended, TabNameID) == 0x000000, "Member 'ModioCommonTabListWidgetBase_SelectTabByIDExtended::TabNameID' has a wrong offset!");
-static_assert(offsetof(ModioCommonTabListWidgetBase_SelectTabByIDExtended, bSuppressClickFeedback) == 0x000008, "Member 'ModioCommonTabListWidgetBase_SelectTabByIDExtended::bSuppressClickFeedback' has a wrong offset!");
-static_assert(offsetof(ModioCommonTabListWidgetBase_SelectTabByIDExtended, bSuppressOnTabSelectedIfAlreadySelected) == 0x000009, "Member 'ModioCommonTabListWidgetBase_SelectTabByIDExtended::bSuppressOnTabSelectedIfAlreadySelected' has a wrong offset!");
-static_assert(offsetof(ModioCommonTabListWidgetBase_SelectTabByIDExtended, ReturnValue) == 0x00000A, "Member 'ModioCommonTabListWidgetBase_SelectTabByIDExtended::ReturnValue' has a wrong offset!");
-
-// Function ModioUI.ModioCommonTabListWidgetBase.SetNextTabInputActionData
-// 0x0010 (0x0010 - 0x0000)
-struct ModioCommonTabListWidgetBase_SetNextTabInputActionData final
-{
-public:
-	struct FDataTableRowHandle                    InNextTabInputActionData;                          // 0x0000(0x0010)(Parm, NoDestructor, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(ModioCommonTabListWidgetBase_SetNextTabInputActionData) == 0x000008, "Wrong alignment on ModioCommonTabListWidgetBase_SetNextTabInputActionData");
-static_assert(sizeof(ModioCommonTabListWidgetBase_SetNextTabInputActionData) == 0x000010, "Wrong size on ModioCommonTabListWidgetBase_SetNextTabInputActionData");
-static_assert(offsetof(ModioCommonTabListWidgetBase_SetNextTabInputActionData, InNextTabInputActionData) == 0x000000, "Member 'ModioCommonTabListWidgetBase_SetNextTabInputActionData::InNextTabInputActionData' has a wrong offset!");
-
-// Function ModioUI.ModioCommonTabListWidgetBase.SetPreviousTabInputActionData
-// 0x0010 (0x0010 - 0x0000)
-struct ModioCommonTabListWidgetBase_SetPreviousTabInputActionData final
-{
-public:
-	struct FDataTableRowHandle                    InPreviousTabInputActionData;                      // 0x0000(0x0010)(Parm, NoDestructor, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(ModioCommonTabListWidgetBase_SetPreviousTabInputActionData) == 0x000008, "Wrong alignment on ModioCommonTabListWidgetBase_SetPreviousTabInputActionData");
-static_assert(sizeof(ModioCommonTabListWidgetBase_SetPreviousTabInputActionData) == 0x000010, "Wrong size on ModioCommonTabListWidgetBase_SetPreviousTabInputActionData");
-static_assert(offsetof(ModioCommonTabListWidgetBase_SetPreviousTabInputActionData, InPreviousTabInputActionData) == 0x000000, "Member 'ModioCommonTabListWidgetBase_SetPreviousTabInputActionData::InPreviousTabInputActionData' has a wrong offset!");
 
 // Function ModioUI.ModioCommonButtonBase.SetLabel
 // 0x0018 (0x0018 - 0x0000)
@@ -507,6 +453,17 @@ static_assert(alignof(ModioCommonCodeInputTextBox_GetCodeString) == 0x000008, "W
 static_assert(sizeof(ModioCommonCodeInputTextBox_GetCodeString) == 0x000010, "Wrong size on ModioCommonCodeInputTextBox_GetCodeString");
 static_assert(offsetof(ModioCommonCodeInputTextBox_GetCodeString, ReturnValue) == 0x000000, "Member 'ModioCommonCodeInputTextBox_GetCodeString::ReturnValue' has a wrong offset!");
 
+// Function ModioUI.ModioCommonTabButtonInterface.SetTabLabelInfo
+// 0x0030 (0x0030 - 0x0000)
+struct ModioCommonTabButtonInterface_SetTabLabelInfo final
+{
+public:
+	struct FModioCommonTabDescriptor              InTabLabelInfo;                                    // 0x0000(0x0030)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(ModioCommonTabButtonInterface_SetTabLabelInfo) == 0x000008, "Wrong alignment on ModioCommonTabButtonInterface_SetTabLabelInfo");
+static_assert(sizeof(ModioCommonTabButtonInterface_SetTabLabelInfo) == 0x000030, "Wrong size on ModioCommonTabButtonInterface_SetTabLabelInfo");
+static_assert(offsetof(ModioCommonTabButtonInterface_SetTabLabelInfo, InTabLabelInfo) == 0x000000, "Member 'ModioCommonTabButtonInterface_SetTabLabelInfo::InTabLabelInfo' has a wrong offset!");
+
 // Function ModioUI.ModioCommonCollectionView.ApplySortingAndFiltering
 // 0x0010 (0x0010 - 0x0000)
 struct ModioCommonCollectionView_ApplySortingAndFiltering final
@@ -523,11 +480,11 @@ static_assert(offsetof(ModioCommonCollectionView_ApplySortingAndFiltering, ModLi
 struct ModioCommonCollectionView_OnFetchExternalCompleted final
 {
 public:
-	struct FModioErrorCode                        errorCode;                                         // 0x0000(0x0008)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FModioErrorCode                        ErrorCode;                                         // 0x0000(0x0008)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioCommonCollectionView_OnFetchExternalCompleted) == 0x000008, "Wrong alignment on ModioCommonCollectionView_OnFetchExternalCompleted");
 static_assert(sizeof(ModioCommonCollectionView_OnFetchExternalCompleted) == 0x000008, "Wrong size on ModioCommonCollectionView_OnFetchExternalCompleted");
-static_assert(offsetof(ModioCommonCollectionView_OnFetchExternalCompleted, errorCode) == 0x000000, "Member 'ModioCommonCollectionView_OnFetchExternalCompleted::errorCode' has a wrong offset!");
+static_assert(offsetof(ModioCommonCollectionView_OnFetchExternalCompleted, ErrorCode) == 0x000000, "Member 'ModioCommonCollectionView_OnFetchExternalCompleted::ErrorCode' has a wrong offset!");
 
 // Function ModioUI.ModioCommonCollectionView.SetDefaultCategoryFilterParams
 // 0x0001 (0x0001 - 0x0000)
@@ -628,6 +585,17 @@ static_assert(alignof(ModioCommonDialogInfo_HandleDialogButtonClicked) == 0x0000
 static_assert(sizeof(ModioCommonDialogInfo_HandleDialogButtonClicked) == 0x000001, "Wrong size on ModioCommonDialogInfo_HandleDialogButtonClicked");
 static_assert(offsetof(ModioCommonDialogInfo_HandleDialogButtonClicked, ClickedButtonType) == 0x000000, "Member 'ModioCommonDialogInfo_HandleDialogButtonClicked::ClickedButtonType' has a wrong offset!");
 
+// DelegateFunction ModioUI.ModioCommonDialogInfo.OnDialogButtonClicked__DelegateSignature
+// 0x0001 (0x0001 - 0x0000)
+struct ModioCommonDialogInfo_OnDialogButtonClicked__DelegateSignature final
+{
+public:
+	EModioCommonDialogButtonType                  ClickedButtonType;                                 // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(ModioCommonDialogInfo_OnDialogButtonClicked__DelegateSignature) == 0x000001, "Wrong alignment on ModioCommonDialogInfo_OnDialogButtonClicked__DelegateSignature");
+static_assert(sizeof(ModioCommonDialogInfo_OnDialogButtonClicked__DelegateSignature) == 0x000001, "Wrong size on ModioCommonDialogInfo_OnDialogButtonClicked__DelegateSignature");
+static_assert(offsetof(ModioCommonDialogInfo_OnDialogButtonClicked__DelegateSignature, ClickedButtonType) == 0x000000, "Member 'ModioCommonDialogInfo_OnDialogButtonClicked__DelegateSignature::ClickedButtonType' has a wrong offset!");
+
 // Function ModioUI.ModioCommonDialogLibrary.CreateConfirmUninstallDialogInfo
 // 0x01E8 (0x01E8 - 0x0000)
 struct ModioCommonDialogLibrary_CreateConfirmUninstallDialogInfo final
@@ -646,13 +614,13 @@ static_assert(offsetof(ModioCommonDialogLibrary_CreateConfirmUninstallDialogInfo
 struct ModioCommonDialogLibrary_CreateErrorDialogInfo final
 {
 public:
-	struct FModioErrorCode                        errorCode;                                         // 0x0000(0x0008)(ConstParm, Parm, OutParm, ReferenceParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FModioErrorCode                        ErrorCode;                                         // 0x0000(0x0008)(ConstParm, Parm, OutParm, ReferenceParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FText                                   TitleText;                                         // 0x0008(0x0018)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 	class UModioCommonDialogInfo*                 ReturnValue;                                       // 0x0020(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioCommonDialogLibrary_CreateErrorDialogInfo) == 0x000008, "Wrong alignment on ModioCommonDialogLibrary_CreateErrorDialogInfo");
 static_assert(sizeof(ModioCommonDialogLibrary_CreateErrorDialogInfo) == 0x000028, "Wrong size on ModioCommonDialogLibrary_CreateErrorDialogInfo");
-static_assert(offsetof(ModioCommonDialogLibrary_CreateErrorDialogInfo, errorCode) == 0x000000, "Member 'ModioCommonDialogLibrary_CreateErrorDialogInfo::errorCode' has a wrong offset!");
+static_assert(offsetof(ModioCommonDialogLibrary_CreateErrorDialogInfo, ErrorCode) == 0x000000, "Member 'ModioCommonDialogLibrary_CreateErrorDialogInfo::ErrorCode' has a wrong offset!");
 static_assert(offsetof(ModioCommonDialogLibrary_CreateErrorDialogInfo, TitleText) == 0x000008, "Member 'ModioCommonDialogLibrary_CreateErrorDialogInfo::TitleText' has a wrong offset!");
 static_assert(offsetof(ModioCommonDialogLibrary_CreateErrorDialogInfo, ReturnValue) == 0x000020, "Member 'ModioCommonDialogLibrary_CreateErrorDialogInfo::ReturnValue' has a wrong offset!");
 
@@ -764,6 +732,17 @@ static_assert(sizeof(ModioCommonImageBase_LoadImageFromLogo) == 0x000010, "Wrong
 static_assert(offsetof(ModioCommonImageBase_LoadImageFromLogo, ModId) == 0x000000, "Member 'ModioCommonImageBase_LoadImageFromLogo::ModId' has a wrong offset!");
 static_assert(offsetof(ModioCommonImageBase_LoadImageFromLogo, LogoSize) == 0x000008, "Member 'ModioCommonImageBase_LoadImageFromLogo::LogoSize' has a wrong offset!");
 
+// DelegateFunction ModioUI.ModioCommonImageBase.OnImageLoadedDynamicDelegate__DelegateSignature
+// 0x0001 (0x0001 - 0x0000)
+struct ModioCommonImageBase_OnImageLoadedDynamicDelegate__DelegateSignature final
+{
+public:
+	bool                                          bSuccess;                                          // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(ModioCommonImageBase_OnImageLoadedDynamicDelegate__DelegateSignature) == 0x000001, "Wrong alignment on ModioCommonImageBase_OnImageLoadedDynamicDelegate__DelegateSignature");
+static_assert(sizeof(ModioCommonImageBase_OnImageLoadedDynamicDelegate__DelegateSignature) == 0x000001, "Wrong size on ModioCommonImageBase_OnImageLoadedDynamicDelegate__DelegateSignature");
+static_assert(offsetof(ModioCommonImageBase_OnImageLoadedDynamicDelegate__DelegateSignature, bSuccess) == 0x000000, "Member 'ModioCommonImageBase_OnImageLoadedDynamicDelegate__DelegateSignature::bSuccess' has a wrong offset!");
+
 // Function ModioUI.ModioCommonImageBase.SetImageTexture
 // 0x0008 (0x0008 - 0x0000)
 struct ModioCommonImageBase_SetImageTexture final
@@ -868,32 +847,6 @@ public:
 static_assert(alignof(ModioCommonEmailAuthCodeView_GetInputText) == 0x000008, "Wrong alignment on ModioCommonEmailAuthCodeView_GetInputText");
 static_assert(sizeof(ModioCommonEmailAuthCodeView_GetInputText) == 0x000010, "Wrong size on ModioCommonEmailAuthCodeView_GetInputText");
 static_assert(offsetof(ModioCommonEmailAuthCodeView_GetInputText, ReturnValue) == 0x000000, "Member 'ModioCommonEmailAuthCodeView_GetInputText::ReturnValue' has a wrong offset!");
-
-// Function ModioUI.ModioCommonStorageSpaceTrackerUserWidget.OnStorageSpaceTrackerUpdated
-// 0x0018 (0x0018 - 0x0000)
-struct ModioCommonStorageSpaceTrackerUserWidget_OnStorageSpaceTrackerUpdated final
-{
-public:
-	struct FModioUnsigned64                       UsedSpace;                                         // 0x0000(0x0008)(Parm, NoDestructor, NativeAccessSpecifierPublic)
-	struct FModioUnsigned64                       FreeSpace;                                         // 0x0008(0x0008)(Parm, NoDestructor, NativeAccessSpecifierPublic)
-	struct FModioUnsigned64                       TotalSpace;                                        // 0x0010(0x0008)(Parm, NoDestructor, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(ModioCommonStorageSpaceTrackerUserWidget_OnStorageSpaceTrackerUpdated) == 0x000008, "Wrong alignment on ModioCommonStorageSpaceTrackerUserWidget_OnStorageSpaceTrackerUpdated");
-static_assert(sizeof(ModioCommonStorageSpaceTrackerUserWidget_OnStorageSpaceTrackerUpdated) == 0x000018, "Wrong size on ModioCommonStorageSpaceTrackerUserWidget_OnStorageSpaceTrackerUpdated");
-static_assert(offsetof(ModioCommonStorageSpaceTrackerUserWidget_OnStorageSpaceTrackerUpdated, UsedSpace) == 0x000000, "Member 'ModioCommonStorageSpaceTrackerUserWidget_OnStorageSpaceTrackerUpdated::UsedSpace' has a wrong offset!");
-static_assert(offsetof(ModioCommonStorageSpaceTrackerUserWidget_OnStorageSpaceTrackerUpdated, FreeSpace) == 0x000008, "Member 'ModioCommonStorageSpaceTrackerUserWidget_OnStorageSpaceTrackerUpdated::FreeSpace' has a wrong offset!");
-static_assert(offsetof(ModioCommonStorageSpaceTrackerUserWidget_OnStorageSpaceTrackerUpdated, TotalSpace) == 0x000010, "Member 'ModioCommonStorageSpaceTrackerUserWidget_OnStorageSpaceTrackerUpdated::TotalSpace' has a wrong offset!");
-
-// Function ModioUI.ModioCommonStorageSpaceTrackerUserWidget.SetStyle
-// 0x0008 (0x0008 - 0x0000)
-struct ModioCommonStorageSpaceTrackerUserWidget_SetStyle final
-{
-public:
-	TSubclassOf<class UModioCommonStorageSpaceTrackerUserWidgetStyle> InStyle;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(ModioCommonStorageSpaceTrackerUserWidget_SetStyle) == 0x000008, "Wrong alignment on ModioCommonStorageSpaceTrackerUserWidget_SetStyle");
-static_assert(sizeof(ModioCommonStorageSpaceTrackerUserWidget_SetStyle) == 0x000008, "Wrong size on ModioCommonStorageSpaceTrackerUserWidget_SetStyle");
-static_assert(offsetof(ModioCommonStorageSpaceTrackerUserWidget_SetStyle, InStyle) == 0x000000, "Member 'ModioCommonStorageSpaceTrackerUserWidget_SetStyle::InStyle' has a wrong offset!");
 
 // Function ModioUI.ModioCommonEmailAuthView.IsEmailValid
 // 0x0018 (0x0018 - 0x0000)
@@ -1164,13 +1117,13 @@ static_assert(offsetof(ModioCommonModEntryBase_IsUserAuthenticated, ReturnValue)
 struct ModioCommonGenericModEntry_OnRatingSubmissionComplete final
 {
 public:
-	struct FModioErrorCode                        errorCode;                                         // 0x0000(0x0008)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FModioErrorCode                        ErrorCode;                                         // 0x0000(0x0008)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EModioRating                                  Rating;                                            // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(ModioCommonGenericModEntry_OnRatingSubmissionComplete) == 0x000008, "Wrong alignment on ModioCommonGenericModEntry_OnRatingSubmissionComplete");
 static_assert(sizeof(ModioCommonGenericModEntry_OnRatingSubmissionComplete) == 0x000010, "Wrong size on ModioCommonGenericModEntry_OnRatingSubmissionComplete");
-static_assert(offsetof(ModioCommonGenericModEntry_OnRatingSubmissionComplete, errorCode) == 0x000000, "Member 'ModioCommonGenericModEntry_OnRatingSubmissionComplete::errorCode' has a wrong offset!");
+static_assert(offsetof(ModioCommonGenericModEntry_OnRatingSubmissionComplete, ErrorCode) == 0x000000, "Member 'ModioCommonGenericModEntry_OnRatingSubmissionComplete::ErrorCode' has a wrong offset!");
 static_assert(offsetof(ModioCommonGenericModEntry_OnRatingSubmissionComplete, Rating) == 0x000008, "Member 'ModioCommonGenericModEntry_OnRatingSubmissionComplete::Rating' has a wrong offset!");
 
 // Function ModioUI.ModioCommonGenericModEntry.SetStyle
@@ -1671,13 +1624,13 @@ static_assert(offsetof(ModioCommonModListViewInterface_SetModSelectionByID, ModI
 struct ModioCommonModListViewInterface_SetModsFromModCollectionEntryArray final
 {
 public:
-	TArray<struct FModioModCollectionEntry>       inArray;                                           // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
+	TArray<struct FModioModCollectionEntry>       InArray;                                           // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
 	bool                                          bAddToExisting;                                    // 0x0010(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_11[0x7];                                       // 0x0011(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(ModioCommonModListViewInterface_SetModsFromModCollectionEntryArray) == 0x000008, "Wrong alignment on ModioCommonModListViewInterface_SetModsFromModCollectionEntryArray");
 static_assert(sizeof(ModioCommonModListViewInterface_SetModsFromModCollectionEntryArray) == 0x000018, "Wrong size on ModioCommonModListViewInterface_SetModsFromModCollectionEntryArray");
-static_assert(offsetof(ModioCommonModListViewInterface_SetModsFromModCollectionEntryArray, inArray) == 0x000000, "Member 'ModioCommonModListViewInterface_SetModsFromModCollectionEntryArray::inArray' has a wrong offset!");
+static_assert(offsetof(ModioCommonModListViewInterface_SetModsFromModCollectionEntryArray, InArray) == 0x000000, "Member 'ModioCommonModListViewInterface_SetModsFromModCollectionEntryArray::InArray' has a wrong offset!");
 static_assert(offsetof(ModioCommonModListViewInterface_SetModsFromModCollectionEntryArray, bAddToExisting) == 0x000010, "Member 'ModioCommonModListViewInterface_SetModsFromModCollectionEntryArray::bAddToExisting' has a wrong offset!");
 
 // Function ModioUI.ModioCommonModListViewInterface.SetModsFromModInfoArray
@@ -1685,13 +1638,13 @@ static_assert(offsetof(ModioCommonModListViewInterface_SetModsFromModCollectionE
 struct ModioCommonModListViewInterface_SetModsFromModInfoArray final
 {
 public:
-	TArray<struct FModioModInfo>                  inArray;                                           // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
+	TArray<struct FModioModInfo>                  InArray;                                           // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
 	bool                                          bAddToExisting;                                    // 0x0010(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_11[0x7];                                       // 0x0011(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(ModioCommonModListViewInterface_SetModsFromModInfoArray) == 0x000008, "Wrong alignment on ModioCommonModListViewInterface_SetModsFromModInfoArray");
 static_assert(sizeof(ModioCommonModListViewInterface_SetModsFromModInfoArray) == 0x000018, "Wrong size on ModioCommonModListViewInterface_SetModsFromModInfoArray");
-static_assert(offsetof(ModioCommonModListViewInterface_SetModsFromModInfoArray, inArray) == 0x000000, "Member 'ModioCommonModListViewInterface_SetModsFromModInfoArray::inArray' has a wrong offset!");
+static_assert(offsetof(ModioCommonModListViewInterface_SetModsFromModInfoArray, InArray) == 0x000000, "Member 'ModioCommonModListViewInterface_SetModsFromModInfoArray::InArray' has a wrong offset!");
 static_assert(offsetof(ModioCommonModListViewInterface_SetModsFromModInfoArray, bAddToExisting) == 0x000010, "Member 'ModioCommonModListViewInterface_SetModsFromModInfoArray::bAddToExisting' has a wrong offset!");
 
 // Function ModioUI.ModioCommonModListViewInterface.SetModsFromModInfoList
@@ -1780,6 +1733,32 @@ public:
 static_assert(alignof(ModioCommonModOperationTrackerUserWidget_GetNumOfQueuedMods) == 0x000004, "Wrong alignment on ModioCommonModOperationTrackerUserWidget_GetNumOfQueuedMods");
 static_assert(sizeof(ModioCommonModOperationTrackerUserWidget_GetNumOfQueuedMods) == 0x000004, "Wrong size on ModioCommonModOperationTrackerUserWidget_GetNumOfQueuedMods");
 static_assert(offsetof(ModioCommonModOperationTrackerUserWidget_GetNumOfQueuedMods, ReturnValue) == 0x000000, "Member 'ModioCommonModOperationTrackerUserWidget_GetNumOfQueuedMods::ReturnValue' has a wrong offset!");
+
+// DelegateFunction ModioUI.ModioCommonModOperationTrackerWidget.OnCommonModOperationTrackerProgress__DelegateSignature
+// 0x0010 (0x0010 - 0x0000)
+struct ModioCommonModOperationTrackerWidget_OnCommonModOperationTrackerProgress__DelegateSignature final
+{
+public:
+	struct FModioUnsigned64                       Current;                                           // 0x0000(0x0008)(Parm, NoDestructor, NativeAccessSpecifierPublic)
+	struct FModioUnsigned64                       Total;                                             // 0x0008(0x0008)(Parm, NoDestructor, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(ModioCommonModOperationTrackerWidget_OnCommonModOperationTrackerProgress__DelegateSignature) == 0x000008, "Wrong alignment on ModioCommonModOperationTrackerWidget_OnCommonModOperationTrackerProgress__DelegateSignature");
+static_assert(sizeof(ModioCommonModOperationTrackerWidget_OnCommonModOperationTrackerProgress__DelegateSignature) == 0x000010, "Wrong size on ModioCommonModOperationTrackerWidget_OnCommonModOperationTrackerProgress__DelegateSignature");
+static_assert(offsetof(ModioCommonModOperationTrackerWidget_OnCommonModOperationTrackerProgress__DelegateSignature, Current) == 0x000000, "Member 'ModioCommonModOperationTrackerWidget_OnCommonModOperationTrackerProgress__DelegateSignature::Current' has a wrong offset!");
+static_assert(offsetof(ModioCommonModOperationTrackerWidget_OnCommonModOperationTrackerProgress__DelegateSignature, Total) == 0x000008, "Member 'ModioCommonModOperationTrackerWidget_OnCommonModOperationTrackerProgress__DelegateSignature::Total' has a wrong offset!");
+
+// DelegateFunction ModioUI.ModioCommonModOperationTrackerWidget.OnCommonModOperationTrackerSpeed__DelegateSignature
+// 0x0010 (0x0010 - 0x0000)
+struct ModioCommonModOperationTrackerWidget_OnCommonModOperationTrackerSpeed__DelegateSignature final
+{
+public:
+	struct FModioUnsigned64                       DeltaBytes;                                        // 0x0000(0x0008)(Parm, NoDestructor, NativeAccessSpecifierPublic)
+	double                                        DeltaTime;                                         // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(ModioCommonModOperationTrackerWidget_OnCommonModOperationTrackerSpeed__DelegateSignature) == 0x000008, "Wrong alignment on ModioCommonModOperationTrackerWidget_OnCommonModOperationTrackerSpeed__DelegateSignature");
+static_assert(sizeof(ModioCommonModOperationTrackerWidget_OnCommonModOperationTrackerSpeed__DelegateSignature) == 0x000010, "Wrong size on ModioCommonModOperationTrackerWidget_OnCommonModOperationTrackerSpeed__DelegateSignature");
+static_assert(offsetof(ModioCommonModOperationTrackerWidget_OnCommonModOperationTrackerSpeed__DelegateSignature, DeltaBytes) == 0x000000, "Member 'ModioCommonModOperationTrackerWidget_OnCommonModOperationTrackerSpeed__DelegateSignature::DeltaBytes' has a wrong offset!");
+static_assert(offsetof(ModioCommonModOperationTrackerWidget_OnCommonModOperationTrackerSpeed__DelegateSignature, DeltaTime) == 0x000008, "Member 'ModioCommonModOperationTrackerWidget_OnCommonModOperationTrackerSpeed__DelegateSignature::DeltaTime' has a wrong offset!");
 
 // Function ModioUI.ModioCommonModOperationTrackerWidget.SetTrackAnyMods
 // 0x0001 (0x0001 - 0x0000)
@@ -2087,6 +2066,17 @@ static_assert(sizeof(ModioCommonReportEmailViewBase_IsEmailValid) == 0x000018, "
 static_assert(offsetof(ModioCommonReportEmailViewBase_IsEmailValid, Email) == 0x000000, "Member 'ModioCommonReportEmailViewBase_IsEmailValid::Email' has a wrong offset!");
 static_assert(offsetof(ModioCommonReportEmailViewBase_IsEmailValid, ReturnValue) == 0x000010, "Member 'ModioCommonReportEmailViewBase_IsEmailValid::ReturnValue' has a wrong offset!");
 
+// DelegateFunction ModioUI.ModioCommonReportEmailViewBase.OnModioCommonReportEmailViewSubmitClicked__DelegateSignature
+// 0x0010 (0x0010 - 0x0000)
+struct ModioCommonReportEmailViewBase_OnModioCommonReportEmailViewSubmitClicked__DelegateSignature final
+{
+public:
+	class FString                                 EmailAddress;                                      // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(ModioCommonReportEmailViewBase_OnModioCommonReportEmailViewSubmitClicked__DelegateSignature) == 0x000008, "Wrong alignment on ModioCommonReportEmailViewBase_OnModioCommonReportEmailViewSubmitClicked__DelegateSignature");
+static_assert(sizeof(ModioCommonReportEmailViewBase_OnModioCommonReportEmailViewSubmitClicked__DelegateSignature) == 0x000010, "Wrong size on ModioCommonReportEmailViewBase_OnModioCommonReportEmailViewSubmitClicked__DelegateSignature");
+static_assert(offsetof(ModioCommonReportEmailViewBase_OnModioCommonReportEmailViewSubmitClicked__DelegateSignature, EmailAddress) == 0x000000, "Member 'ModioCommonReportEmailViewBase_OnModioCommonReportEmailViewSubmitClicked__DelegateSignature::EmailAddress' has a wrong offset!");
+
 // Function ModioUI.ModioCommonReportEmailView.OnEditableTextBoxTextChanged
 // 0x0018 (0x0018 - 0x0000)
 struct ModioCommonReportEmailView_OnEditableTextBoxTextChanged final
@@ -2136,11 +2126,11 @@ static_assert(offsetof(ModioCommonReportSummaryViewBase_SetReportParams, ReportP
 struct ModioCommonReportView_HandleReportSubmit final
 {
 public:
-	struct FModioErrorCode                        errorCode;                                         // 0x0000(0x0008)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FModioErrorCode                        ErrorCode;                                         // 0x0000(0x0008)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioCommonReportView_HandleReportSubmit) == 0x000008, "Wrong alignment on ModioCommonReportView_HandleReportSubmit");
 static_assert(sizeof(ModioCommonReportView_HandleReportSubmit) == 0x000008, "Wrong size on ModioCommonReportView_HandleReportSubmit");
-static_assert(offsetof(ModioCommonReportView_HandleReportSubmit, errorCode) == 0x000000, "Member 'ModioCommonReportView_HandleReportSubmit::errorCode' has a wrong offset!");
+static_assert(offsetof(ModioCommonReportView_HandleReportSubmit, ErrorCode) == 0x000000, "Member 'ModioCommonReportView_HandleReportSubmit::ErrorCode' has a wrong offset!");
 
 // Function ModioUI.ModioCommonReportView.OnReportEmailViewSubmitClicked
 // 0x0010 (0x0010 - 0x0000)
@@ -2158,11 +2148,11 @@ static_assert(offsetof(ModioCommonReportView_OnReportEmailViewSubmitClicked, Ema
 struct ModioCommonReportView_OnReportMessageViewSubmitClicked final
 {
 public:
-	class FString                                 message;                                           // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 Message;                                           // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioCommonReportView_OnReportMessageViewSubmitClicked) == 0x000008, "Wrong alignment on ModioCommonReportView_OnReportMessageViewSubmitClicked");
 static_assert(sizeof(ModioCommonReportView_OnReportMessageViewSubmitClicked) == 0x000010, "Wrong size on ModioCommonReportView_OnReportMessageViewSubmitClicked");
-static_assert(offsetof(ModioCommonReportView_OnReportMessageViewSubmitClicked, message) == 0x000000, "Member 'ModioCommonReportView_OnReportMessageViewSubmitClicked::message' has a wrong offset!");
+static_assert(offsetof(ModioCommonReportView_OnReportMessageViewSubmitClicked, Message) == 0x000000, "Member 'ModioCommonReportView_OnReportMessageViewSubmitClicked::Message' has a wrong offset!");
 
 // Function ModioUI.ModioCommonReportView.OnReportReasonViewProceedClicked
 // 0x0001 (0x0001 - 0x0000)
@@ -2302,16 +2292,107 @@ static_assert(alignof(ModioCommonSearchTabView_GetFilterParamsWrapper) == 0x0000
 static_assert(sizeof(ModioCommonSearchTabView_GetFilterParamsWrapper) == 0x000060, "Wrong size on ModioCommonSearchTabView_GetFilterParamsWrapper");
 static_assert(offsetof(ModioCommonSearchTabView_GetFilterParamsWrapper, ReturnValue) == 0x000000, "Member 'ModioCommonSearchTabView_GetFilterParamsWrapper::ReturnValue' has a wrong offset!");
 
-// Function ModioUI.ModioCommonTabButtonInterface.SetTabLabelInfo
-// 0x0030 (0x0030 - 0x0000)
-struct ModioCommonTabButtonInterface_SetTabLabelInfo final
+// Function ModioUI.ModioCommonStorageSpaceTrackerUserWidget.OnStorageSpaceTrackerUpdated
+// 0x0018 (0x0018 - 0x0000)
+struct ModioCommonStorageSpaceTrackerUserWidget_OnStorageSpaceTrackerUpdated final
 {
 public:
-	struct FModioCommonTabDescriptor              InTabLabelInfo;                                    // 0x0000(0x0030)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	struct FModioUnsigned64                       UsedSpace;                                         // 0x0000(0x0008)(Parm, NoDestructor, NativeAccessSpecifierPublic)
+	struct FModioUnsigned64                       FreeSpace;                                         // 0x0008(0x0008)(Parm, NoDestructor, NativeAccessSpecifierPublic)
+	struct FModioUnsigned64                       TotalSpace;                                        // 0x0010(0x0008)(Parm, NoDestructor, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(ModioCommonTabButtonInterface_SetTabLabelInfo) == 0x000008, "Wrong alignment on ModioCommonTabButtonInterface_SetTabLabelInfo");
-static_assert(sizeof(ModioCommonTabButtonInterface_SetTabLabelInfo) == 0x000030, "Wrong size on ModioCommonTabButtonInterface_SetTabLabelInfo");
-static_assert(offsetof(ModioCommonTabButtonInterface_SetTabLabelInfo, InTabLabelInfo) == 0x000000, "Member 'ModioCommonTabButtonInterface_SetTabLabelInfo::InTabLabelInfo' has a wrong offset!");
+static_assert(alignof(ModioCommonStorageSpaceTrackerUserWidget_OnStorageSpaceTrackerUpdated) == 0x000008, "Wrong alignment on ModioCommonStorageSpaceTrackerUserWidget_OnStorageSpaceTrackerUpdated");
+static_assert(sizeof(ModioCommonStorageSpaceTrackerUserWidget_OnStorageSpaceTrackerUpdated) == 0x000018, "Wrong size on ModioCommonStorageSpaceTrackerUserWidget_OnStorageSpaceTrackerUpdated");
+static_assert(offsetof(ModioCommonStorageSpaceTrackerUserWidget_OnStorageSpaceTrackerUpdated, UsedSpace) == 0x000000, "Member 'ModioCommonStorageSpaceTrackerUserWidget_OnStorageSpaceTrackerUpdated::UsedSpace' has a wrong offset!");
+static_assert(offsetof(ModioCommonStorageSpaceTrackerUserWidget_OnStorageSpaceTrackerUpdated, FreeSpace) == 0x000008, "Member 'ModioCommonStorageSpaceTrackerUserWidget_OnStorageSpaceTrackerUpdated::FreeSpace' has a wrong offset!");
+static_assert(offsetof(ModioCommonStorageSpaceTrackerUserWidget_OnStorageSpaceTrackerUpdated, TotalSpace) == 0x000010, "Member 'ModioCommonStorageSpaceTrackerUserWidget_OnStorageSpaceTrackerUpdated::TotalSpace' has a wrong offset!");
+
+// Function ModioUI.ModioCommonStorageSpaceTrackerUserWidget.SetStyle
+// 0x0008 (0x0008 - 0x0000)
+struct ModioCommonStorageSpaceTrackerUserWidget_SetStyle final
+{
+public:
+	TSubclassOf<class UModioCommonStorageSpaceTrackerUserWidgetStyle> InStyle;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(ModioCommonStorageSpaceTrackerUserWidget_SetStyle) == 0x000008, "Wrong alignment on ModioCommonStorageSpaceTrackerUserWidget_SetStyle");
+static_assert(sizeof(ModioCommonStorageSpaceTrackerUserWidget_SetStyle) == 0x000008, "Wrong size on ModioCommonStorageSpaceTrackerUserWidget_SetStyle");
+static_assert(offsetof(ModioCommonStorageSpaceTrackerUserWidget_SetStyle, InStyle) == 0x000000, "Member 'ModioCommonStorageSpaceTrackerUserWidget_SetStyle::InStyle' has a wrong offset!");
+
+// DelegateFunction ModioUI.ModioCommonTabListWidgetBase.OnTabButtonClicked__DelegateSignature
+// 0x0008 (0x0008 - 0x0000)
+struct ModioCommonTabListWidgetBase_OnTabButtonClicked__DelegateSignature final
+{
+public:
+	class UCommonButtonBase*                      TabButton;                                         // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(ModioCommonTabListWidgetBase_OnTabButtonClicked__DelegateSignature) == 0x000008, "Wrong alignment on ModioCommonTabListWidgetBase_OnTabButtonClicked__DelegateSignature");
+static_assert(sizeof(ModioCommonTabListWidgetBase_OnTabButtonClicked__DelegateSignature) == 0x000008, "Wrong size on ModioCommonTabListWidgetBase_OnTabButtonClicked__DelegateSignature");
+static_assert(offsetof(ModioCommonTabListWidgetBase_OnTabButtonClicked__DelegateSignature, TabButton) == 0x000000, "Member 'ModioCommonTabListWidgetBase_OnTabButtonClicked__DelegateSignature::TabButton' has a wrong offset!");
+
+// Function ModioUI.ModioCommonTabListWidgetBase.OnTabSelectedInternal
+// 0x0008 (0x0008 - 0x0000)
+struct ModioCommonTabListWidgetBase_OnTabSelectedInternal final
+{
+public:
+	class FName                                   TabNameID;                                         // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(ModioCommonTabListWidgetBase_OnTabSelectedInternal) == 0x000004, "Wrong alignment on ModioCommonTabListWidgetBase_OnTabSelectedInternal");
+static_assert(sizeof(ModioCommonTabListWidgetBase_OnTabSelectedInternal) == 0x000008, "Wrong size on ModioCommonTabListWidgetBase_OnTabSelectedInternal");
+static_assert(offsetof(ModioCommonTabListWidgetBase_OnTabSelectedInternal, TabNameID) == 0x000000, "Member 'ModioCommonTabListWidgetBase_OnTabSelectedInternal::TabNameID' has a wrong offset!");
+
+// Function ModioUI.ModioCommonTabListWidgetBase.RegisterDynamicTab
+// 0x0038 (0x0038 - 0x0000)
+struct ModioCommonTabListWidgetBase_RegisterDynamicTab final
+{
+public:
+	struct FModioCommonTabDescriptor              TabDescriptor;                                     // 0x0000(0x0030)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0030(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_31[0x7];                                       // 0x0031(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(ModioCommonTabListWidgetBase_RegisterDynamicTab) == 0x000008, "Wrong alignment on ModioCommonTabListWidgetBase_RegisterDynamicTab");
+static_assert(sizeof(ModioCommonTabListWidgetBase_RegisterDynamicTab) == 0x000038, "Wrong size on ModioCommonTabListWidgetBase_RegisterDynamicTab");
+static_assert(offsetof(ModioCommonTabListWidgetBase_RegisterDynamicTab, TabDescriptor) == 0x000000, "Member 'ModioCommonTabListWidgetBase_RegisterDynamicTab::TabDescriptor' has a wrong offset!");
+static_assert(offsetof(ModioCommonTabListWidgetBase_RegisterDynamicTab, ReturnValue) == 0x000030, "Member 'ModioCommonTabListWidgetBase_RegisterDynamicTab::ReturnValue' has a wrong offset!");
+
+// Function ModioUI.ModioCommonTabListWidgetBase.SelectTabByIDExtended
+// 0x000C (0x000C - 0x0000)
+struct ModioCommonTabListWidgetBase_SelectTabByIDExtended final
+{
+public:
+	class FName                                   TabNameID;                                         // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bSuppressClickFeedback;                            // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bSuppressOnTabSelectedIfAlreadySelected;           // 0x0009(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x000A(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_B[0x1];                                        // 0x000B(0x0001)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(ModioCommonTabListWidgetBase_SelectTabByIDExtended) == 0x000004, "Wrong alignment on ModioCommonTabListWidgetBase_SelectTabByIDExtended");
+static_assert(sizeof(ModioCommonTabListWidgetBase_SelectTabByIDExtended) == 0x00000C, "Wrong size on ModioCommonTabListWidgetBase_SelectTabByIDExtended");
+static_assert(offsetof(ModioCommonTabListWidgetBase_SelectTabByIDExtended, TabNameID) == 0x000000, "Member 'ModioCommonTabListWidgetBase_SelectTabByIDExtended::TabNameID' has a wrong offset!");
+static_assert(offsetof(ModioCommonTabListWidgetBase_SelectTabByIDExtended, bSuppressClickFeedback) == 0x000008, "Member 'ModioCommonTabListWidgetBase_SelectTabByIDExtended::bSuppressClickFeedback' has a wrong offset!");
+static_assert(offsetof(ModioCommonTabListWidgetBase_SelectTabByIDExtended, bSuppressOnTabSelectedIfAlreadySelected) == 0x000009, "Member 'ModioCommonTabListWidgetBase_SelectTabByIDExtended::bSuppressOnTabSelectedIfAlreadySelected' has a wrong offset!");
+static_assert(offsetof(ModioCommonTabListWidgetBase_SelectTabByIDExtended, ReturnValue) == 0x00000A, "Member 'ModioCommonTabListWidgetBase_SelectTabByIDExtended::ReturnValue' has a wrong offset!");
+
+// Function ModioUI.ModioCommonTabListWidgetBase.SetNextTabInputActionData
+// 0x0010 (0x0010 - 0x0000)
+struct ModioCommonTabListWidgetBase_SetNextTabInputActionData final
+{
+public:
+	struct FDataTableRowHandle                    InNextTabInputActionData;                          // 0x0000(0x0010)(Parm, NoDestructor, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(ModioCommonTabListWidgetBase_SetNextTabInputActionData) == 0x000008, "Wrong alignment on ModioCommonTabListWidgetBase_SetNextTabInputActionData");
+static_assert(sizeof(ModioCommonTabListWidgetBase_SetNextTabInputActionData) == 0x000010, "Wrong size on ModioCommonTabListWidgetBase_SetNextTabInputActionData");
+static_assert(offsetof(ModioCommonTabListWidgetBase_SetNextTabInputActionData, InNextTabInputActionData) == 0x000000, "Member 'ModioCommonTabListWidgetBase_SetNextTabInputActionData::InNextTabInputActionData' has a wrong offset!");
+
+// Function ModioUI.ModioCommonTabListWidgetBase.SetPreviousTabInputActionData
+// 0x0010 (0x0010 - 0x0000)
+struct ModioCommonTabListWidgetBase_SetPreviousTabInputActionData final
+{
+public:
+	struct FDataTableRowHandle                    InPreviousTabInputActionData;                      // 0x0000(0x0010)(Parm, NoDestructor, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(ModioCommonTabListWidgetBase_SetPreviousTabInputActionData) == 0x000008, "Wrong alignment on ModioCommonTabListWidgetBase_SetPreviousTabInputActionData");
+static_assert(sizeof(ModioCommonTabListWidgetBase_SetPreviousTabInputActionData) == 0x000010, "Wrong size on ModioCommonTabListWidgetBase_SetPreviousTabInputActionData");
+static_assert(offsetof(ModioCommonTabListWidgetBase_SetPreviousTabInputActionData, InPreviousTabInputActionData) == 0x000000, "Member 'ModioCommonTabListWidgetBase_SetPreviousTabInputActionData::InPreviousTabInputActionData' has a wrong offset!");
 
 }
 

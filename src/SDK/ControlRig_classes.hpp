@@ -13,15 +13,15 @@
 #include "MovieSceneTracks_structs.hpp"
 #include "MovieSceneTracks_classes.hpp"
 #include "ControlRig_structs.hpp"
+#include "PropertyPath_structs.hpp"
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
 #include "RigVM_structs.hpp"
 #include "RigVM_classes.hpp"
 #include "Constraints_structs.hpp"
 #include "Constraints_classes.hpp"
-#include "LevelSequence_classes.hpp"
-#include "PropertyPath_structs.hpp"
 #include "Engine_classes.hpp"
+#include "LevelSequence_classes.hpp"
 #include "MovieScene_structs.hpp"
 #include "MovieScene_classes.hpp"
 #include "DeveloperSettings_classes.hpp"
@@ -346,6 +346,7 @@ public:
 	bool ExecuteEvent(const class FName& InEventName);
 	class URigHierarchy* GetHierarchy();
 	class URigVM* GetVM();
+	void OnControlSelectedBP__DelegateSignature(class UControlRig* Rig, const struct FRigControlElement& Control, bool bSelected);
 	void RequestConstruction();
 	void RequestInit();
 	void SelectControl(const class FName& InControlName, bool bSelect);
@@ -500,12 +501,12 @@ class UControlRigComponent final : public UPrimitiveComponent
 {
 public:
 	TSubclassOf<class UControlRig>                ControlRigClass;                                   // 0x0560(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void(class UControlRigComponent* Component)> OnPreInitializeDelegate;                           // 0x0568(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void(class UControlRigComponent* Component)> OnPostInitializeDelegate;                          // 0x0578(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void(class UControlRigComponent* Component)> OnPreConstructionDelegate;                         // 0x0588(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void(class UControlRigComponent* Component)> OnPostConstructionDelegate;                        // 0x0598(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void(class UControlRigComponent* Component)> OnPreForwardsSolveDelegate;                        // 0x05A8(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void(class UControlRigComponent* Component)> OnPostForwardsSolveDelegate;                       // 0x05B8(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnPreInitializeDelegate;                           // 0x0568(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnPostInitializeDelegate;                          // 0x0578(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnPreConstructionDelegate;                         // 0x0588(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnPostConstructionDelegate;                        // 0x0598(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnPreForwardsSolveDelegate;                        // 0x05A8(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnPostForwardsSolveDelegate;                       // 0x05B8(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 	TArray<struct FControlRigComponentMappedElement> UserDefinedElements;                               // 0x05C8(0x0010)(Edit, ZeroConstructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
 	TArray<struct FControlRigComponentMappedElement> MappedElements;                                    // 0x05D8(0x0010)(Edit, ZeroConstructor, EditConst, ContainsInstancedReference, NativeAccessSpecifierPublic)
 	bool                                          bEnableLazyEvaluation;                             // 0x05E8(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -531,21 +532,21 @@ public:
 	bool CanExecute();
 	void ClearMappedElements();
 	bool DoesElementExist(class FName Name_0, ERigElementType ElementType);
-	struct FTransform GetBoneTransform(class FName BoneName, EControlRigComponentSpace space);
+	struct FTransform GetBoneTransform(class FName BoneName, EControlRigComponentSpace Space);
 	bool GetControlBool(class FName ControlName);
 	float GetControlFloat(class FName ControlName);
 	int32 GetControlInt(class FName ControlName);
-	struct FTransform GetControlOffset(class FName ControlName, EControlRigComponentSpace space);
-	struct FVector GetControlPosition(class FName ControlName, EControlRigComponentSpace space);
+	struct FTransform GetControlOffset(class FName ControlName, EControlRigComponentSpace Space);
+	struct FVector GetControlPosition(class FName ControlName, EControlRigComponentSpace Space);
 	class UControlRig* GetControlRig();
-	struct FRotator GetControlRotator(class FName ControlName, EControlRigComponentSpace space);
-	struct FVector GetControlScale(class FName ControlName, EControlRigComponentSpace space);
-	struct FTransform GetControlTransform(class FName ControlName, EControlRigComponentSpace space);
+	struct FRotator GetControlRotator(class FName ControlName, EControlRigComponentSpace Space);
+	struct FVector GetControlScale(class FName ControlName, EControlRigComponentSpace Space);
+	struct FTransform GetControlTransform(class FName ControlName, EControlRigComponentSpace Space);
 	struct FVector2D GetControlVector2D(class FName ControlName);
 	TArray<class FName> GetElementNames(ERigElementType ElementType);
-	struct FTransform GetInitialBoneTransform(class FName BoneName, EControlRigComponentSpace space);
-	struct FTransform GetInitialSpaceTransform(class FName SpaceName, EControlRigComponentSpace space);
-	struct FTransform GetSpaceTransform(class FName SpaceName, EControlRigComponentSpace space);
+	struct FTransform GetInitialBoneTransform(class FName BoneName, EControlRigComponentSpace Space);
+	struct FTransform GetInitialSpaceTransform(class FName SpaceName, EControlRigComponentSpace Space);
+	struct FTransform GetSpaceTransform(class FName SpaceName, EControlRigComponentSpace Space);
 	void Initialize();
 	void OnPostConstruction(class UControlRigComponent* Component);
 	void OnPostForwardsSolve(class UControlRigComponent* Component);
@@ -554,19 +555,19 @@ public:
 	void OnPreForwardsSolve(class UControlRigComponent* Component);
 	void OnPreInitialize(class UControlRigComponent* Component);
 	void SetBoneInitialTransformsFromSkeletalMesh(class USkeletalMesh* InSkeletalMesh);
-	void SetBoneTransform(class FName BoneName, const struct FTransform& Transform, EControlRigComponentSpace space, float Weight, bool bPropagateToChildren);
+	void SetBoneTransform(class FName BoneName, const struct FTransform& Transform, EControlRigComponentSpace Space, float Weight, bool bPropagateToChildren);
 	void SetControlBool(class FName ControlName, bool Value);
 	void SetControlFloat(class FName ControlName, float Value);
 	void SetControlInt(class FName ControlName, int32 Value);
-	void SetControlOffset(class FName ControlName, const struct FTransform& OffsetTransform, EControlRigComponentSpace space);
-	void SetControlPosition(class FName ControlName, const struct FVector& Value, EControlRigComponentSpace space);
+	void SetControlOffset(class FName ControlName, const struct FTransform& OffsetTransform, EControlRigComponentSpace Space);
+	void SetControlPosition(class FName ControlName, const struct FVector& Value, EControlRigComponentSpace Space);
 	void SetControlRigClass(TSubclassOf<class UControlRig> InControlRigClass);
-	void SetControlRotator(class FName ControlName, const struct FRotator& Value, EControlRigComponentSpace space);
-	void SetControlScale(class FName ControlName, const struct FVector& Value, EControlRigComponentSpace space);
-	void SetControlTransform(class FName ControlName, const struct FTransform& Value, EControlRigComponentSpace space);
+	void SetControlRotator(class FName ControlName, const struct FRotator& Value, EControlRigComponentSpace Space);
+	void SetControlScale(class FName ControlName, const struct FVector& Value, EControlRigComponentSpace Space);
+	void SetControlTransform(class FName ControlName, const struct FTransform& Value, EControlRigComponentSpace Space);
 	void SetControlVector2D(class FName ControlName, const struct FVector2D& Value);
-	void SetInitialBoneTransform(class FName BoneName, const struct FTransform& InitialTransform, EControlRigComponentSpace space, bool bPropagateToChildren);
-	void SetInitialSpaceTransform(class FName SpaceName, const struct FTransform& InitialTransform, EControlRigComponentSpace space);
+	void SetInitialBoneTransform(class FName BoneName, const struct FTransform& InitialTransform, EControlRigComponentSpace Space, bool bPropagateToChildren);
+	void SetInitialSpaceTransform(class FName SpaceName, const struct FTransform& InitialTransform, EControlRigComponentSpace Space);
 	void SetMappedElements(const TArray<struct FControlRigComponentMappedElement>& NewMappedElements);
 	void SetObjectBinding(class UObject* InObjectToBind);
 	void Update(float DeltaTime);

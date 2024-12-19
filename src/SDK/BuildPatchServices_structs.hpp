@@ -68,13 +68,13 @@ struct FChunkPartData final
 public:
 	struct FGuid                                  Guid;                                              // 0x0000(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint32                                        Offset;                                            // 0x0010(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint32                                        size;                                              // 0x0014(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint32                                        Size;                                              // 0x0014(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FChunkPartData) == 0x000004, "Wrong alignment on FChunkPartData");
 static_assert(sizeof(FChunkPartData) == 0x000018, "Wrong size on FChunkPartData");
 static_assert(offsetof(FChunkPartData, Guid) == 0x000000, "Member 'FChunkPartData::Guid' has a wrong offset!");
 static_assert(offsetof(FChunkPartData, Offset) == 0x000010, "Member 'FChunkPartData::Offset' has a wrong offset!");
-static_assert(offsetof(FChunkPartData, size) == 0x000014, "Member 'FChunkPartData::size' has a wrong offset!");
+static_assert(offsetof(FChunkPartData, Size) == 0x000014, "Member 'FChunkPartData::Size' has a wrong offset!");
 
 // ScriptStruct BuildPatchServices.FileManifestData
 // 0x0068 (0x0068 - 0x0000)

@@ -263,6 +263,46 @@ bool UTypedElementSelectionSet::DeselectElements(const TArray<struct FScriptType
 }
 
 
+// DelegateFunction TypedElementRuntime.TypedElementSelectionSet.OnChangeDynamic__DelegateSignature
+// (MulticastDelegate, Public, Delegate)
+// Parameters:
+// class UTypedElementSelectionSet*        SelectionSet                                           (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UTypedElementSelectionSet::OnChangeDynamic__DelegateSignature(const class UTypedElementSelectionSet* SelectionSet)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("TypedElementSelectionSet", "OnChangeDynamic__DelegateSignature");
+
+	Params::TypedElementSelectionSet_OnChangeDynamic__DelegateSignature Parms{};
+
+	Parms.SelectionSet = SelectionSet;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// DelegateFunction TypedElementRuntime.TypedElementSelectionSet.OnPreChangeDynamic__DelegateSignature
+// (MulticastDelegate, Public, Delegate)
+// Parameters:
+// class UTypedElementSelectionSet*        SelectionSet                                           (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UTypedElementSelectionSet::OnPreChangeDynamic__DelegateSignature(const class UTypedElementSelectionSet* SelectionSet)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("TypedElementSelectionSet", "OnPreChangeDynamic__DelegateSignature");
+
+	Params::TypedElementSelectionSet_OnPreChangeDynamic__DelegateSignature Parms{};
+
+	Parms.SelectionSet = SelectionSet;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
 // Function TypedElementRuntime.TypedElementSelectionSet.RestoreSelectionState
 // (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:

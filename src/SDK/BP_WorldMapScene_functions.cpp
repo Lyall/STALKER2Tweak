@@ -17,81 +17,21 @@
 namespace SDK
 {
 
-// Function BP_WorldMapScene.BP_WorldMapScene_C.SetScale
-// (Event, Public, BlueprintCallable, BlueprintEvent)
+// Function BP_WorldMapScene.BP_WorldMapScene_C.ExecuteUbergraph_BP_WorldMapScene
+// (Final, UbergraphFunction, HasDefaults)
 // Parameters:
-// float                                   InScale                                                (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// int32                                   EntryPoint                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void ABP_WorldMapScene_C::SetScale(float InScale)
+void ABP_WorldMapScene_C::ExecuteUbergraph_BP_WorldMapScene(int32 EntryPoint)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("BP_WorldMapScene_C", "SetScale");
+		Func = Class->GetFunction("BP_WorldMapScene_C", "ExecuteUbergraph_BP_WorldMapScene");
 
-	Params::BP_WorldMapScene_C_SetScale Parms{};
+	Params::BP_WorldMapScene_C_ExecuteUbergraph_BP_WorldMapScene Parms{};
 
-	Parms.InScale = InScale;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function BP_WorldMapScene.BP_WorldMapScene_C.SetOffset
-// (Event, Public, BlueprintCallable, BlueprintEvent)
-// Parameters:
-// struct FVector2D                        InOffset                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void ABP_WorldMapScene_C::SetOffset(const struct FVector2D& InOffset)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("BP_WorldMapScene_C", "SetOffset");
-
-	Params::BP_WorldMapScene_C_SetOffset Parms{};
-
-	Parms.InOffset = std::move(InOffset);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function BP_WorldMapScene.BP_WorldMapScene_C.SetNotSelectedAreaBrightness
-// (Event, Public, BlueprintCallable, BlueprintEvent)
-// Parameters:
-// float                                   InBrightness                                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void ABP_WorldMapScene_C::SetNotSelectedAreaBrightness(float InBrightness)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("BP_WorldMapScene_C", "SetNotSelectedAreaBrightness");
-
-	Params::BP_WorldMapScene_C_SetNotSelectedAreaBrightness Parms{};
-
-	Parms.InBrightness = InBrightness;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function BP_WorldMapScene.BP_WorldMapScene_C.SetMouseUV
-// (Event, Public, BlueprintCallable, BlueprintEvent)
-// Parameters:
-// struct FVector                          InUV                                                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void ABP_WorldMapScene_C::SetMouseUV(const struct FVector& InUV)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("BP_WorldMapScene_C", "SetMouseUV");
-
-	Params::BP_WorldMapScene_C_SetMouseUV Parms{};
-
-	Parms.InUV = std::move(InUV);
+	Parms.EntryPoint = EntryPoint;
 
 	UObject::ProcessEvent(Func, &Parms);
 }
@@ -117,21 +57,81 @@ void ABP_WorldMapScene_C::SetCaptureEveryFrame(bool bIsEnabled)
 }
 
 
-// Function BP_WorldMapScene.BP_WorldMapScene_C.ExecuteUbergraph_BP_WorldMapScene
-// (Final, UbergraphFunction, HasDefaults)
+// Function BP_WorldMapScene.BP_WorldMapScene_C.SetMouseUV
+// (Event, Public, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// int32                                   EntryPoint                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// struct FVector                          InUV                                                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void ABP_WorldMapScene_C::ExecuteUbergraph_BP_WorldMapScene(int32 EntryPoint)
+void ABP_WorldMapScene_C::SetMouseUV(const struct FVector& InUV)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("BP_WorldMapScene_C", "ExecuteUbergraph_BP_WorldMapScene");
+		Func = Class->GetFunction("BP_WorldMapScene_C", "SetMouseUV");
 
-	Params::BP_WorldMapScene_C_ExecuteUbergraph_BP_WorldMapScene Parms{};
+	Params::BP_WorldMapScene_C_SetMouseUV Parms{};
 
-	Parms.EntryPoint = EntryPoint;
+	Parms.InUV = std::move(InUV);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function BP_WorldMapScene.BP_WorldMapScene_C.SetNotSelectedAreaBrightness
+// (Event, Public, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// float                                   InBrightness                                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void ABP_WorldMapScene_C::SetNotSelectedAreaBrightness(float InBrightness)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("BP_WorldMapScene_C", "SetNotSelectedAreaBrightness");
+
+	Params::BP_WorldMapScene_C_SetNotSelectedAreaBrightness Parms{};
+
+	Parms.InBrightness = InBrightness;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function BP_WorldMapScene.BP_WorldMapScene_C.SetOffset
+// (Event, Public, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// struct FVector2D                        InOffset                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void ABP_WorldMapScene_C::SetOffset(const struct FVector2D& InOffset)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("BP_WorldMapScene_C", "SetOffset");
+
+	Params::BP_WorldMapScene_C_SetOffset Parms{};
+
+	Parms.InOffset = std::move(InOffset);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function BP_WorldMapScene.BP_WorldMapScene_C.SetScale
+// (Event, Public, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// float                                   InScale                                                (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void ABP_WorldMapScene_C::SetScale(float InScale)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("BP_WorldMapScene_C", "SetScale");
+
+	Params::BP_WorldMapScene_C_SetScale Parms{};
+
+	Parms.InScale = InScale;
 
 	UObject::ProcessEvent(Func, &Parms);
 }

@@ -67,6 +67,20 @@ void UModioCommonActivatableWidget::BP_ListenForInputAction(class UModioCommonBu
 }
 
 
+// DelegateFunction ModioUI.ModioCommonActivatableWidget.OnModioCommonActivatableWidgetActionFired__DelegateSignature
+// (Public, Delegate)
+
+void UModioCommonActivatableWidget::OnModioCommonActivatableWidgetActionFired__DelegateSignature()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ModioCommonActivatableWidget", "OnModioCommonActivatableWidgetActionFired__DelegateSignature");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
 // Function ModioUI.ModioCommonActivatableWidget.BP_SynchronizeProperties
 // (Event, Public, BlueprintEvent)
 
@@ -185,6 +199,26 @@ class FString UModioCommonActivatableWidget::GetRequestIdentifier()
 	Func->FunctionFlags = Flgs;
 
 	return Parms.ReturnValue;
+}
+
+
+// DelegateFunction ModioUI.ModioCommonActivatableWidget.OnCommonWidgetFocusChanged__DelegateSignature
+// (MulticastDelegate, Public, Delegate)
+// Parameters:
+// bool                                    bIsFocused                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UModioCommonActivatableWidget::OnCommonWidgetFocusChanged__DelegateSignature(bool bIsFocused)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ModioCommonActivatableWidget", "OnCommonWidgetFocusChanged__DelegateSignature");
+
+	Params::ModioCommonActivatableWidget_OnCommonWidgetFocusChanged__DelegateSignature Parms{};
+
+	Parms.bIsFocused = bIsFocused;
+
+	UObject::ProcessEvent(Func, &Parms);
 }
 
 
@@ -534,10 +568,10 @@ void UModioCommonModDetailsView::HideProgress()
 // Function ModioUI.ModioCommonModDetailsView.OnRatingSubmissionComplete
 // (Native, Event, Protected, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// struct FModioErrorCode                  errorCode                                              (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FModioErrorCode                  ErrorCode                                              (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EModioRating                            SubmittedRating                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioCommonModDetailsView::OnRatingSubmissionComplete(const struct FModioErrorCode& errorCode, EModioRating SubmittedRating)
+void UModioCommonModDetailsView::OnRatingSubmissionComplete(const struct FModioErrorCode& ErrorCode, EModioRating SubmittedRating)
 {
 	static class UFunction* Func = nullptr;
 
@@ -546,7 +580,7 @@ void UModioCommonModDetailsView::OnRatingSubmissionComplete(const struct FModioE
 
 	Params::ModioCommonModDetailsView_OnRatingSubmissionComplete Parms{};
 
-	Parms.errorCode = std::move(errorCode);
+	Parms.ErrorCode = std::move(ErrorCode);
 	Parms.SubmittedRating = SubmittedRating;
 
 	auto Flgs = Func->FunctionFlags;
@@ -898,9 +932,9 @@ void UModioCommonModGalleryEntry::SetStyle(TSubclassOf<class UModioCommonModGall
 // Function ModioUI.ModioCommonAuthView.HandleEmailAuthCodeSent
 // (Native, Event, Protected, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// struct FModioErrorCode                  errorCode                                              (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FModioErrorCode                  ErrorCode                                              (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioCommonAuthView::HandleEmailAuthCodeSent(const struct FModioErrorCode& errorCode)
+void UModioCommonAuthView::HandleEmailAuthCodeSent(const struct FModioErrorCode& ErrorCode)
 {
 	static class UFunction* Func = nullptr;
 
@@ -909,7 +943,7 @@ void UModioCommonAuthView::HandleEmailAuthCodeSent(const struct FModioErrorCode&
 
 	Params::ModioCommonAuthView_HandleEmailAuthCodeSent Parms{};
 
-	Parms.errorCode = std::move(errorCode);
+	Parms.ErrorCode = std::move(ErrorCode);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -923,9 +957,9 @@ void UModioCommonAuthView::HandleEmailAuthCodeSent(const struct FModioErrorCode&
 // Function ModioUI.ModioCommonAuthView.HandleEmailAuthenticated
 // (Native, Event, Protected, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// struct FModioErrorCode                  errorCode                                              (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FModioErrorCode                  ErrorCode                                              (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioCommonAuthView::HandleEmailAuthenticated(const struct FModioErrorCode& errorCode)
+void UModioCommonAuthView::HandleEmailAuthenticated(const struct FModioErrorCode& ErrorCode)
 {
 	static class UFunction* Func = nullptr;
 
@@ -934,7 +968,7 @@ void UModioCommonAuthView::HandleEmailAuthenticated(const struct FModioErrorCode
 
 	Params::ModioCommonAuthView_HandleEmailAuthenticated Parms{};
 
-	Parms.errorCode = std::move(errorCode);
+	Parms.ErrorCode = std::move(ErrorCode);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -1208,198 +1242,6 @@ struct FEventReply UModioCommonBorder::HandleOnMouseButtonDownEvent(const struct
 }
 
 
-// Function ModioUI.ModioCommonTabListWidgetBase.HandleNavigateToNextTab
-// (Native, Event, Public, BlueprintCallable, BlueprintEvent)
-
-void UModioCommonTabListWidgetBase::HandleNavigateToNextTab()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ModioCommonTabListWidgetBase", "HandleNavigateToNextTab");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function ModioUI.ModioCommonTabListWidgetBase.HandleNavigateToPreviousTab
-// (Native, Event, Public, BlueprintCallable, BlueprintEvent)
-
-void UModioCommonTabListWidgetBase::HandleNavigateToPreviousTab()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ModioCommonTabListWidgetBase", "HandleNavigateToPreviousTab");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function ModioUI.ModioCommonTabListWidgetBase.OnTabSelectedInternal
-// (Native, Event, Protected, BlueprintCallable, BlueprintEvent)
-// Parameters:
-// class FName                             TabNameID                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UModioCommonTabListWidgetBase::OnTabSelectedInternal(class FName TabNameID)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ModioCommonTabListWidgetBase", "OnTabSelectedInternal");
-
-	Params::ModioCommonTabListWidgetBase_OnTabSelectedInternal Parms{};
-
-	Parms.TabNameID = TabNameID;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function ModioUI.ModioCommonTabListWidgetBase.RegisterDynamicTab
-// (Native, Event, Public, HasOutParams, BlueprintCallable, BlueprintEvent)
-// Parameters:
-// struct FModioCommonTabDescriptor        TabDescriptor                                          (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UModioCommonTabListWidgetBase::RegisterDynamicTab(const struct FModioCommonTabDescriptor& TabDescriptor)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ModioCommonTabListWidgetBase", "RegisterDynamicTab");
-
-	Params::ModioCommonTabListWidgetBase_RegisterDynamicTab Parms{};
-
-	Parms.TabDescriptor = std::move(TabDescriptor);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function ModioUI.ModioCommonTabListWidgetBase.RemoveAllDynamicTabs
-// (Native, Event, Public, BlueprintCallable, BlueprintEvent)
-
-void UModioCommonTabListWidgetBase::RemoveAllDynamicTabs()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ModioCommonTabListWidgetBase", "RemoveAllDynamicTabs");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function ModioUI.ModioCommonTabListWidgetBase.SelectTabByIDExtended
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// class FName                             TabNameID                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bSuppressClickFeedback                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bSuppressOnTabSelectedIfAlreadySelected                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UModioCommonTabListWidgetBase::SelectTabByIDExtended(class FName TabNameID, bool bSuppressClickFeedback, bool bSuppressOnTabSelectedIfAlreadySelected)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ModioCommonTabListWidgetBase", "SelectTabByIDExtended");
-
-	Params::ModioCommonTabListWidgetBase_SelectTabByIDExtended Parms{};
-
-	Parms.TabNameID = TabNameID;
-	Parms.bSuppressClickFeedback = bSuppressClickFeedback;
-	Parms.bSuppressOnTabSelectedIfAlreadySelected = bSuppressOnTabSelectedIfAlreadySelected;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function ModioUI.ModioCommonTabListWidgetBase.SetNextTabInputActionData
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// struct FDataTableRowHandle              InNextTabInputActionData                               (Parm, NoDestructor, NativeAccessSpecifierPublic)
-
-void UModioCommonTabListWidgetBase::SetNextTabInputActionData(const struct FDataTableRowHandle& InNextTabInputActionData)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ModioCommonTabListWidgetBase", "SetNextTabInputActionData");
-
-	Params::ModioCommonTabListWidgetBase_SetNextTabInputActionData Parms{};
-
-	Parms.InNextTabInputActionData = std::move(InNextTabInputActionData);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function ModioUI.ModioCommonTabListWidgetBase.SetPreviousTabInputActionData
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// struct FDataTableRowHandle              InPreviousTabInputActionData                           (Parm, NoDestructor, NativeAccessSpecifierPublic)
-
-void UModioCommonTabListWidgetBase::SetPreviousTabInputActionData(const struct FDataTableRowHandle& InPreviousTabInputActionData)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ModioCommonTabListWidgetBase", "SetPreviousTabInputActionData");
-
-	Params::ModioCommonTabListWidgetBase_SetPreviousTabInputActionData Parms{};
-
-	Parms.InPreviousTabInputActionData = std::move(InPreviousTabInputActionData);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function ModioUI.ModioCommonButtonBase.SetButtonFocus
 // (Final, Native, Public, BlueprintCallable)
 
@@ -1594,6 +1436,20 @@ class FText UModioCommonCheckBox::GetLabelTextBlockText() const
 }
 
 
+// DelegateFunction ModioUI.ModioCommonCodeInputTextBox.OnCodeSubmitDynamic__DelegateSignature
+// (MulticastDelegate, Public, Delegate)
+
+void UModioCommonCodeInputTextBox::OnCodeSubmitDynamic__DelegateSignature()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ModioCommonCodeInputTextBox", "OnCodeSubmitDynamic__DelegateSignature");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
 // Function ModioUI.ModioCommonCodeInputTextBox.SetCodeString
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
@@ -1669,6 +1525,31 @@ class FString UModioCommonCodeInputTextBox::GetCodeString() const
 }
 
 
+// Function ModioUI.ModioCommonTabButtonInterface.SetTabLabelInfo
+// (Native, Event, Public, HasOutParams, BlueprintEvent)
+// Parameters:
+// struct FModioCommonTabDescriptor        InTabLabelInfo                                         (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+
+void IModioCommonTabButtonInterface::SetTabLabelInfo(const struct FModioCommonTabDescriptor& InTabLabelInfo)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ModioCommonTabButtonInterface", "SetTabLabelInfo");
+
+	Params::ModioCommonTabButtonInterface_SetTabLabelInfo Parms{};
+
+	Parms.InTabLabelInfo = std::move(InTabLabelInfo);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
 // Function ModioUI.ModioCommonCollectionView.ApplySortingAndFiltering
 // (Final, Native, Protected, HasOutParams, BlueprintCallable)
 // Parameters:
@@ -1698,9 +1579,9 @@ void UModioCommonCollectionView::ApplySortingAndFiltering(TArray<struct FModioMo
 // Function ModioUI.ModioCommonCollectionView.OnFetchExternalCompleted
 // (Native, Event, Protected, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// struct FModioErrorCode                  errorCode                                              (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FModioErrorCode                  ErrorCode                                              (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioCommonCollectionView::OnFetchExternalCompleted(const struct FModioErrorCode& errorCode)
+void UModioCommonCollectionView::OnFetchExternalCompleted(const struct FModioErrorCode& ErrorCode)
 {
 	static class UFunction* Func = nullptr;
 
@@ -1709,7 +1590,7 @@ void UModioCommonCollectionView::OnFetchExternalCompleted(const struct FModioErr
 
 	Params::ModioCommonCollectionView_OnFetchExternalCompleted Parms{};
 
-	Parms.errorCode = std::move(errorCode);
+	Parms.ErrorCode = std::move(ErrorCode);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -2025,6 +1906,26 @@ void UModioCommonDialogInfo::HandleDialogButtonClicked(EModioCommonDialogButtonT
 }
 
 
+// DelegateFunction ModioUI.ModioCommonDialogInfo.OnDialogButtonClicked__DelegateSignature
+// (MulticastDelegate, Public, Delegate)
+// Parameters:
+// EModioCommonDialogButtonType            ClickedButtonType                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UModioCommonDialogInfo::OnDialogButtonClicked__DelegateSignature(EModioCommonDialogButtonType ClickedButtonType)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ModioCommonDialogInfo", "OnDialogButtonClicked__DelegateSignature");
+
+	Params::ModioCommonDialogInfo_OnDialogButtonClicked__DelegateSignature Parms{};
+
+	Parms.ClickedButtonType = ClickedButtonType;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
 // Function ModioUI.ModioCommonDialogLibrary.CreateConfirmUninstallDialogInfo
 // (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
 // Parameters:
@@ -2056,11 +1957,11 @@ class UModioCommonDialogInfo* UModioCommonDialogLibrary::CreateConfirmUninstallD
 // Function ModioUI.ModioCommonDialogLibrary.CreateErrorDialogInfo
 // (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// struct FModioErrorCode                  errorCode                                              (ConstParm, Parm, OutParm, ReferenceParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FModioErrorCode                  ErrorCode                                              (ConstParm, Parm, OutParm, ReferenceParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class FText                             TitleText                                              (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 // class UModioCommonDialogInfo*           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class UModioCommonDialogInfo* UModioCommonDialogLibrary::CreateErrorDialogInfo(const struct FModioErrorCode& errorCode, const class FText& TitleText)
+class UModioCommonDialogInfo* UModioCommonDialogLibrary::CreateErrorDialogInfo(const struct FModioErrorCode& ErrorCode, const class FText& TitleText)
 {
 	static class UFunction* Func = nullptr;
 
@@ -2069,7 +1970,7 @@ class UModioCommonDialogInfo* UModioCommonDialogLibrary::CreateErrorDialogInfo(c
 
 	Params::ModioCommonDialogLibrary_CreateErrorDialogInfo Parms{};
 
-	Parms.errorCode = std::move(errorCode);
+	Parms.ErrorCode = std::move(ErrorCode);
 	Parms.TitleText = std::move(TitleText);
 
 	auto Flgs = Func->FunctionFlags;
@@ -2298,6 +2199,26 @@ void UModioCommonImageBase::LoadImageFromLogo(const struct FModioModID& ModId, E
 	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
+}
+
+
+// DelegateFunction ModioUI.ModioCommonImageBase.OnImageLoadedDynamicDelegate__DelegateSignature
+// (MulticastDelegate, Public, Delegate)
+// Parameters:
+// bool                                    bSuccess                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UModioCommonImageBase::OnImageLoadedDynamicDelegate__DelegateSignature(bool bSuccess)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ModioCommonImageBase", "OnImageLoadedDynamicDelegate__DelegateSignature");
+
+	Params::ModioCommonImageBase_OnImageLoadedDynamicDelegate__DelegateSignature Parms{};
+
+	Parms.bSuccess = bSuccess;
+
+	UObject::ProcessEvent(Func, &Parms);
 }
 
 
@@ -2602,60 +2523,6 @@ class FString UModioCommonEmailAuthCodeView::GetInputText() const
 }
 
 
-// Function ModioUI.ModioCommonStorageSpaceTrackerUserWidget.OnStorageSpaceTrackerUpdated
-// (Native, Event, Protected, BlueprintEvent)
-// Parameters:
-// struct FModioUnsigned64                 UsedSpace                                              (Parm, NoDestructor, NativeAccessSpecifierPublic)
-// struct FModioUnsigned64                 FreeSpace                                              (Parm, NoDestructor, NativeAccessSpecifierPublic)
-// struct FModioUnsigned64                 TotalSpace                                             (Parm, NoDestructor, NativeAccessSpecifierPublic)
-
-void UModioCommonStorageSpaceTrackerUserWidget::OnStorageSpaceTrackerUpdated(const struct FModioUnsigned64& UsedSpace, const struct FModioUnsigned64& FreeSpace, const struct FModioUnsigned64& TotalSpace)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ModioCommonStorageSpaceTrackerUserWidget", "OnStorageSpaceTrackerUpdated");
-
-	Params::ModioCommonStorageSpaceTrackerUserWidget_OnStorageSpaceTrackerUpdated Parms{};
-
-	Parms.UsedSpace = std::move(UsedSpace);
-	Parms.FreeSpace = std::move(FreeSpace);
-	Parms.TotalSpace = std::move(TotalSpace);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function ModioUI.ModioCommonStorageSpaceTrackerUserWidget.SetStyle
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// TSubclassOf<class UModioCommonStorageSpaceTrackerUserWidgetStyle>InStyle                                                (Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UModioCommonStorageSpaceTrackerUserWidget::SetStyle(TSubclassOf<class UModioCommonStorageSpaceTrackerUserWidgetStyle> InStyle)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ModioCommonStorageSpaceTrackerUserWidget", "SetStyle");
-
-	Params::ModioCommonStorageSpaceTrackerUserWidget_SetStyle Parms{};
-
-	Parms.InStyle = InStyle;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function ModioUI.ModioCommonEmailAuthView.IsEmailValid
 // (Native, Event, Public, BlueprintCallable, BlueprintEvent)
 // Parameters:
@@ -2731,6 +2598,20 @@ void UModioCommonEmailAuthView::SetValidationTextVisibility(ESlateVisibility Vis
 	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
+}
+
+
+// DelegateFunction ModioUI.ModioCommonErrorWithRetryWidget.RetryClickedDynamicDelegate__DelegateSignature
+// (MulticastDelegate, Public, Delegate)
+
+void UModioCommonErrorWithRetryWidget::RetryClickedDynamicDelegate__DelegateSignature()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ModioCommonErrorWithRetryWidget", "RetryClickedDynamicDelegate__DelegateSignature");
+
+	UObject::ProcessEvent(Func, nullptr);
 }
 
 
@@ -2951,6 +2832,34 @@ void UModioCommonFilteredModListView::HandlePreviousPageClicked()
 	UObject::ProcessEvent(Func, nullptr);
 
 	Func->FunctionFlags = Flgs;
+}
+
+
+// DelegateFunction ModioUI.ModioCommonFilteredModListView.OnSetModsFromModInfoListDynamicFinished__DelegateSignature
+// (MulticastDelegate, Public, Delegate)
+
+void UModioCommonFilteredModListView::OnSetModsFromModInfoListDynamicFinished__DelegateSignature()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ModioCommonFilteredModListView", "OnSetModsFromModInfoListDynamicFinished__DelegateSignature");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// DelegateFunction ModioUI.ModioCommonFilteredModListView.OnSetModsFromModInfoListDynamicStarted__DelegateSignature
+// (MulticastDelegate, Public, Delegate)
+
+void UModioCommonFilteredModListView::OnSetModsFromModInfoListDynamicStarted__DelegateSignature()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ModioCommonFilteredModListView", "OnSetModsFromModInfoListDynamicStarted__DelegateSignature");
+
+	UObject::ProcessEvent(Func, nullptr);
 }
 
 
@@ -3527,10 +3436,10 @@ void UModioCommonGenericModEntry::HandleSwitchEnabledClicked()
 // Function ModioUI.ModioCommonGenericModEntry.OnRatingSubmissionComplete
 // (Native, Event, Protected, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// struct FModioErrorCode                  errorCode                                              (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FModioErrorCode                  ErrorCode                                              (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EModioRating                            Rating                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioCommonGenericModEntry::OnRatingSubmissionComplete(const struct FModioErrorCode& errorCode, EModioRating Rating)
+void UModioCommonGenericModEntry::OnRatingSubmissionComplete(const struct FModioErrorCode& ErrorCode, EModioRating Rating)
 {
 	static class UFunction* Func = nullptr;
 
@@ -3539,7 +3448,7 @@ void UModioCommonGenericModEntry::OnRatingSubmissionComplete(const struct FModio
 
 	Params::ModioCommonGenericModEntry_OnRatingSubmissionComplete Parms{};
 
-	Parms.errorCode = std::move(errorCode);
+	Parms.ErrorCode = std::move(ErrorCode);
 	Parms.Rating = Rating;
 
 	auto Flgs = Func->FunctionFlags;
@@ -4727,10 +4636,10 @@ void IModioCommonModListViewInterface::SetModSelectionByID(const struct FModioMo
 // Function ModioUI.ModioCommonModListViewInterface.SetModsFromModCollectionEntryArray
 // (Native, Event, Public, HasOutParams, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// TArray<struct FModioModCollectionEntry> inArray                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
+// TArray<struct FModioModCollectionEntry> InArray                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
 // bool                                    bAddToExisting                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void IModioCommonModListViewInterface::SetModsFromModCollectionEntryArray(const TArray<struct FModioModCollectionEntry>& inArray, bool bAddToExisting)
+void IModioCommonModListViewInterface::SetModsFromModCollectionEntryArray(const TArray<struct FModioModCollectionEntry>& InArray, bool bAddToExisting)
 {
 	static class UFunction* Func = nullptr;
 
@@ -4739,7 +4648,7 @@ void IModioCommonModListViewInterface::SetModsFromModCollectionEntryArray(const 
 
 	Params::ModioCommonModListViewInterface_SetModsFromModCollectionEntryArray Parms{};
 
-	Parms.inArray = std::move(inArray);
+	Parms.InArray = std::move(InArray);
 	Parms.bAddToExisting = bAddToExisting;
 
 	auto Flgs = Func->FunctionFlags;
@@ -4754,10 +4663,10 @@ void IModioCommonModListViewInterface::SetModsFromModCollectionEntryArray(const 
 // Function ModioUI.ModioCommonModListViewInterface.SetModsFromModInfoArray
 // (Native, Event, Public, HasOutParams, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// TArray<struct FModioModInfo>            inArray                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
+// TArray<struct FModioModInfo>            InArray                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
 // bool                                    bAddToExisting                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void IModioCommonModListViewInterface::SetModsFromModInfoArray(const TArray<struct FModioModInfo>& inArray, bool bAddToExisting)
+void IModioCommonModListViewInterface::SetModsFromModInfoArray(const TArray<struct FModioModInfo>& InArray, bool bAddToExisting)
 {
 	static class UFunction* Func = nullptr;
 
@@ -4766,7 +4675,7 @@ void IModioCommonModListViewInterface::SetModsFromModInfoArray(const TArray<stru
 
 	Params::ModioCommonModListViewInterface_SetModsFromModInfoArray Parms{};
 
-	Parms.inArray = std::move(inArray);
+	Parms.InArray = std::move(InArray);
 	Parms.bAddToExisting = bAddToExisting;
 
 	auto Flgs = Func->FunctionFlags;
@@ -4979,6 +4888,50 @@ int32 UModioCommonModOperationTrackerUserWidget::GetNumOfQueuedMods() const
 	Func->FunctionFlags = Flgs;
 
 	return Parms.ReturnValue;
+}
+
+
+// DelegateFunction ModioUI.ModioCommonModOperationTrackerWidget.OnCommonModOperationTrackerProgress__DelegateSignature
+// (MulticastDelegate, Public, Delegate)
+// Parameters:
+// struct FModioUnsigned64                 Current                                                (Parm, NoDestructor, NativeAccessSpecifierPublic)
+// struct FModioUnsigned64                 Total                                                  (Parm, NoDestructor, NativeAccessSpecifierPublic)
+
+void UModioCommonModOperationTrackerWidget::OnCommonModOperationTrackerProgress__DelegateSignature(const struct FModioUnsigned64& Current, const struct FModioUnsigned64& Total)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ModioCommonModOperationTrackerWidget", "OnCommonModOperationTrackerProgress__DelegateSignature");
+
+	Params::ModioCommonModOperationTrackerWidget_OnCommonModOperationTrackerProgress__DelegateSignature Parms{};
+
+	Parms.Current = std::move(Current);
+	Parms.Total = std::move(Total);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// DelegateFunction ModioUI.ModioCommonModOperationTrackerWidget.OnCommonModOperationTrackerSpeed__DelegateSignature
+// (MulticastDelegate, Public, Delegate)
+// Parameters:
+// struct FModioUnsigned64                 DeltaBytes                                             (Parm, NoDestructor, NativeAccessSpecifierPublic)
+// double                                  DeltaTime                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UModioCommonModOperationTrackerWidget::OnCommonModOperationTrackerSpeed__DelegateSignature(const struct FModioUnsigned64& DeltaBytes, double DeltaTime)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ModioCommonModOperationTrackerWidget", "OnCommonModOperationTrackerSpeed__DelegateSignature");
+
+	Params::ModioCommonModOperationTrackerWidget_OnCommonModOperationTrackerSpeed__DelegateSignature Parms{};
+
+	Parms.DeltaBytes = std::move(DeltaBytes);
+	Parms.DeltaTime = DeltaTime;
+
+	UObject::ProcessEvent(Func, &Parms);
 }
 
 
@@ -5749,6 +5702,54 @@ bool UModioCommonReportEmailViewBase::IsEmailValid(const class FString& Email)
 }
 
 
+// DelegateFunction ModioUI.ModioCommonReportEmailViewBase.OnModioCommonReportEmailViewBackClicked__DelegateSignature
+// (MulticastDelegate, Public, Delegate)
+
+void UModioCommonReportEmailViewBase::OnModioCommonReportEmailViewBackClicked__DelegateSignature()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ModioCommonReportEmailViewBase", "OnModioCommonReportEmailViewBackClicked__DelegateSignature");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// DelegateFunction ModioUI.ModioCommonReportEmailViewBase.OnModioCommonReportEmailViewCancelClicked__DelegateSignature
+// (MulticastDelegate, Public, Delegate)
+
+void UModioCommonReportEmailViewBase::OnModioCommonReportEmailViewCancelClicked__DelegateSignature()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ModioCommonReportEmailViewBase", "OnModioCommonReportEmailViewCancelClicked__DelegateSignature");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// DelegateFunction ModioUI.ModioCommonReportEmailViewBase.OnModioCommonReportEmailViewSubmitClicked__DelegateSignature
+// (MulticastDelegate, Public, Delegate)
+// Parameters:
+// class FString                           EmailAddress                                           (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UModioCommonReportEmailViewBase::OnModioCommonReportEmailViewSubmitClicked__DelegateSignature(const class FString& EmailAddress)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ModioCommonReportEmailViewBase", "OnModioCommonReportEmailViewSubmitClicked__DelegateSignature");
+
+	Params::ModioCommonReportEmailViewBase_OnModioCommonReportEmailViewSubmitClicked__DelegateSignature Parms{};
+
+	Parms.EmailAddress = std::move(EmailAddress);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
 // Function ModioUI.ModioCommonReportEmailView.OnEditableTextBoxTextChanged
 // (Native, Event, Public, HasOutParams, BlueprintCallable, BlueprintEvent)
 // Parameters:
@@ -5824,6 +5825,48 @@ void UModioCommonReportMessageView::OnMultiLineTextBoxTextChanged(const class FT
 }
 
 
+// DelegateFunction ModioUI.ModioCommonReportSummaryViewBase.OnModioCommonReportSummaryViewBackClicked__DelegateSignature
+// (MulticastDelegate, Public, Delegate)
+
+void UModioCommonReportSummaryViewBase::OnModioCommonReportSummaryViewBackClicked__DelegateSignature()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ModioCommonReportSummaryViewBase", "OnModioCommonReportSummaryViewBackClicked__DelegateSignature");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// DelegateFunction ModioUI.ModioCommonReportSummaryViewBase.OnModioCommonReportSummaryViewCancelClicked__DelegateSignature
+// (MulticastDelegate, Public, Delegate)
+
+void UModioCommonReportSummaryViewBase::OnModioCommonReportSummaryViewCancelClicked__DelegateSignature()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ModioCommonReportSummaryViewBase", "OnModioCommonReportSummaryViewCancelClicked__DelegateSignature");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// DelegateFunction ModioUI.ModioCommonReportSummaryViewBase.OnModioCommonReportSummaryViewSubmitClicked__DelegateSignature
+// (MulticastDelegate, Public, Delegate)
+
+void UModioCommonReportSummaryViewBase::OnModioCommonReportSummaryViewSubmitClicked__DelegateSignature()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ModioCommonReportSummaryViewBase", "OnModioCommonReportSummaryViewSubmitClicked__DelegateSignature");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
 // Function ModioUI.ModioCommonReportSummaryViewBase.SetReportParams
 // (Native, Event, Public, HasOutParams, BlueprintCallable, BlueprintEvent)
 // Parameters:
@@ -5852,9 +5895,9 @@ void UModioCommonReportSummaryViewBase::SetReportParams(const struct FModioRepor
 // Function ModioUI.ModioCommonReportView.HandleReportSubmit
 // (Native, Event, Protected, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// struct FModioErrorCode                  errorCode                                              (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FModioErrorCode                  ErrorCode                                              (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioCommonReportView::HandleReportSubmit(const struct FModioErrorCode& errorCode)
+void UModioCommonReportView::HandleReportSubmit(const struct FModioErrorCode& ErrorCode)
 {
 	static class UFunction* Func = nullptr;
 
@@ -5863,7 +5906,7 @@ void UModioCommonReportView::HandleReportSubmit(const struct FModioErrorCode& er
 
 	Params::ModioCommonReportView_HandleReportSubmit Parms{};
 
-	Parms.errorCode = std::move(errorCode);
+	Parms.ErrorCode = std::move(ErrorCode);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -5978,9 +6021,9 @@ void UModioCommonReportView::OnReportMessageViewCancelClicked()
 // Function ModioUI.ModioCommonReportView.OnReportMessageViewSubmitClicked
 // (Native, Event, Protected, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// class FString                           message                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FString                           Message                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioCommonReportView::OnReportMessageViewSubmitClicked(const class FString& message)
+void UModioCommonReportView::OnReportMessageViewSubmitClicked(const class FString& Message)
 {
 	static class UFunction* Func = nullptr;
 
@@ -5989,7 +6032,7 @@ void UModioCommonReportView::OnReportMessageViewSubmitClicked(const class FStrin
 
 	Params::ModioCommonReportView_OnReportMessageViewSubmitClicked Parms{};
 
-	Parms.message = std::move(message);
+	Parms.Message = std::move(Message);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -6438,21 +6481,262 @@ struct FModioModCategoryParams UModioCommonSearchTabView::GetFilterParamsWrapper
 }
 
 
-// Function ModioUI.ModioCommonTabButtonInterface.SetTabLabelInfo
-// (Native, Event, Public, HasOutParams, BlueprintEvent)
+// Function ModioUI.ModioCommonStorageSpaceTrackerUserWidget.OnStorageSpaceTrackerUpdated
+// (Native, Event, Protected, BlueprintEvent)
 // Parameters:
-// struct FModioCommonTabDescriptor        InTabLabelInfo                                         (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+// struct FModioUnsigned64                 UsedSpace                                              (Parm, NoDestructor, NativeAccessSpecifierPublic)
+// struct FModioUnsigned64                 FreeSpace                                              (Parm, NoDestructor, NativeAccessSpecifierPublic)
+// struct FModioUnsigned64                 TotalSpace                                             (Parm, NoDestructor, NativeAccessSpecifierPublic)
 
-void IModioCommonTabButtonInterface::SetTabLabelInfo(const struct FModioCommonTabDescriptor& InTabLabelInfo)
+void UModioCommonStorageSpaceTrackerUserWidget::OnStorageSpaceTrackerUpdated(const struct FModioUnsigned64& UsedSpace, const struct FModioUnsigned64& FreeSpace, const struct FModioUnsigned64& TotalSpace)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ModioCommonTabButtonInterface", "SetTabLabelInfo");
+		Func = Class->GetFunction("ModioCommonStorageSpaceTrackerUserWidget", "OnStorageSpaceTrackerUpdated");
 
-	Params::ModioCommonTabButtonInterface_SetTabLabelInfo Parms{};
+	Params::ModioCommonStorageSpaceTrackerUserWidget_OnStorageSpaceTrackerUpdated Parms{};
 
-	Parms.InTabLabelInfo = std::move(InTabLabelInfo);
+	Parms.UsedSpace = std::move(UsedSpace);
+	Parms.FreeSpace = std::move(FreeSpace);
+	Parms.TotalSpace = std::move(TotalSpace);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function ModioUI.ModioCommonStorageSpaceTrackerUserWidget.SetStyle
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// TSubclassOf<class UModioCommonStorageSpaceTrackerUserWidgetStyle>InStyle                                                (Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UModioCommonStorageSpaceTrackerUserWidget::SetStyle(TSubclassOf<class UModioCommonStorageSpaceTrackerUserWidgetStyle> InStyle)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ModioCommonStorageSpaceTrackerUserWidget", "SetStyle");
+
+	Params::ModioCommonStorageSpaceTrackerUserWidget_SetStyle Parms{};
+
+	Parms.InStyle = InStyle;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function ModioUI.ModioCommonTabListWidgetBase.HandleNavigateToNextTab
+// (Native, Event, Public, BlueprintCallable, BlueprintEvent)
+
+void UModioCommonTabListWidgetBase::HandleNavigateToNextTab()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ModioCommonTabListWidgetBase", "HandleNavigateToNextTab");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function ModioUI.ModioCommonTabListWidgetBase.HandleNavigateToPreviousTab
+// (Native, Event, Public, BlueprintCallable, BlueprintEvent)
+
+void UModioCommonTabListWidgetBase::HandleNavigateToPreviousTab()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ModioCommonTabListWidgetBase", "HandleNavigateToPreviousTab");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// DelegateFunction ModioUI.ModioCommonTabListWidgetBase.OnTabButtonClicked__DelegateSignature
+// (MulticastDelegate, Public, Delegate)
+// Parameters:
+// class UCommonButtonBase*                TabButton                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UModioCommonTabListWidgetBase::OnTabButtonClicked__DelegateSignature(class UCommonButtonBase* TabButton)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ModioCommonTabListWidgetBase", "OnTabButtonClicked__DelegateSignature");
+
+	Params::ModioCommonTabListWidgetBase_OnTabButtonClicked__DelegateSignature Parms{};
+
+	Parms.TabButton = TabButton;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function ModioUI.ModioCommonTabListWidgetBase.OnTabSelectedInternal
+// (Native, Event, Protected, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// class FName                             TabNameID                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UModioCommonTabListWidgetBase::OnTabSelectedInternal(class FName TabNameID)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ModioCommonTabListWidgetBase", "OnTabSelectedInternal");
+
+	Params::ModioCommonTabListWidgetBase_OnTabSelectedInternal Parms{};
+
+	Parms.TabNameID = TabNameID;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function ModioUI.ModioCommonTabListWidgetBase.RegisterDynamicTab
+// (Native, Event, Public, HasOutParams, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// struct FModioCommonTabDescriptor        TabDescriptor                                          (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UModioCommonTabListWidgetBase::RegisterDynamicTab(const struct FModioCommonTabDescriptor& TabDescriptor)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ModioCommonTabListWidgetBase", "RegisterDynamicTab");
+
+	Params::ModioCommonTabListWidgetBase_RegisterDynamicTab Parms{};
+
+	Parms.TabDescriptor = std::move(TabDescriptor);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function ModioUI.ModioCommonTabListWidgetBase.RemoveAllDynamicTabs
+// (Native, Event, Public, BlueprintCallable, BlueprintEvent)
+
+void UModioCommonTabListWidgetBase::RemoveAllDynamicTabs()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ModioCommonTabListWidgetBase", "RemoveAllDynamicTabs");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function ModioUI.ModioCommonTabListWidgetBase.SelectTabByIDExtended
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class FName                             TabNameID                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bSuppressClickFeedback                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bSuppressOnTabSelectedIfAlreadySelected                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UModioCommonTabListWidgetBase::SelectTabByIDExtended(class FName TabNameID, bool bSuppressClickFeedback, bool bSuppressOnTabSelectedIfAlreadySelected)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ModioCommonTabListWidgetBase", "SelectTabByIDExtended");
+
+	Params::ModioCommonTabListWidgetBase_SelectTabByIDExtended Parms{};
+
+	Parms.TabNameID = TabNameID;
+	Parms.bSuppressClickFeedback = bSuppressClickFeedback;
+	Parms.bSuppressOnTabSelectedIfAlreadySelected = bSuppressOnTabSelectedIfAlreadySelected;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function ModioUI.ModioCommonTabListWidgetBase.SetNextTabInputActionData
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// struct FDataTableRowHandle              InNextTabInputActionData                               (Parm, NoDestructor, NativeAccessSpecifierPublic)
+
+void UModioCommonTabListWidgetBase::SetNextTabInputActionData(const struct FDataTableRowHandle& InNextTabInputActionData)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ModioCommonTabListWidgetBase", "SetNextTabInputActionData");
+
+	Params::ModioCommonTabListWidgetBase_SetNextTabInputActionData Parms{};
+
+	Parms.InNextTabInputActionData = std::move(InNextTabInputActionData);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function ModioUI.ModioCommonTabListWidgetBase.SetPreviousTabInputActionData
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// struct FDataTableRowHandle              InPreviousTabInputActionData                           (Parm, NoDestructor, NativeAccessSpecifierPublic)
+
+void UModioCommonTabListWidgetBase::SetPreviousTabInputActionData(const struct FDataTableRowHandle& InPreviousTabInputActionData)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ModioCommonTabListWidgetBase", "SetPreviousTabInputActionData");
+
+	Params::ModioCommonTabListWidgetBase_SetPreviousTabInputActionData Parms{};
+
+	Parms.InPreviousTabInputActionData = std::move(InPreviousTabInputActionData);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;

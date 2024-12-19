@@ -48,10 +48,10 @@ class UBinkMediaPlayer final : public UObject
 {
 public:
 	uint8                                         Pad_28[0x8];                                       // 0x0028(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void()>              OnMediaClosed;                                     // 0x0030(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void(const class FString& OpenedUrl)> OnMediaOpened;                                     // 0x0040(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void()>              OnMediaReachedEnd;                                 // 0x0050(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void()>              OnPlaybackSuspended;                               // 0x0060(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnMediaClosed;                                     // 0x0030(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnMediaOpened;                                     // 0x0040(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnMediaReachedEnd;                                 // 0x0050(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnPlaybackSuspended;                               // 0x0060(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 	uint8                                         Looping : 1;                                       // 0x0070(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         StartImmediately : 1;                              // 0x0070(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         DelayedOpen : 1;                                   // 0x0070(0x0001)(BitIndex: 0x02, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
@@ -70,15 +70,15 @@ public:
 
 public:
 	void CloseUrl();
-	void Draw(class UTexture* Texture, bool tonemap, int32 out_nits, float Alpha, bool srgb_decode, bool hdr);
+	void Draw(class UTexture* Texture, bool Tonemap, int32 Out_nits, float Alpha, bool Srgb_decode, bool Hdr);
 	bool OpenUrl(const class FString& NewUrl);
 	bool Pause();
 	bool Play();
 	bool Rewind();
 	bool Seek(const struct FTimespan& InTime);
 	bool SetLooping(bool InLooping);
-	bool SetRate(float rate);
-	void SetVolume(float rate);
+	bool SetRate(float Rate);
+	void SetVolume(float Rate);
 	void Stop();
 
 	bool CanPause() const;
@@ -92,7 +92,7 @@ public:
 	bool IsPaused() const;
 	bool IsPlaying() const;
 	bool IsStopped() const;
-	bool SupportsRate(float rate, bool Unthinned) const;
+	bool SupportsRate(float Rate, bool Unthinned) const;
 	bool SupportsScrubbing() const;
 	bool SupportsSeeking() const;
 
@@ -131,7 +131,7 @@ public:
 	uint8                                         Pad_1F2[0x6];                                      // 0x01F2(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
 	class UBinkMediaPlayer*                       MediaPlayer;                                       // 0x01F8(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EPixelFormat                                  PixelFormat;                                       // 0x0200(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          tonemap;                                           // 0x0201(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          Tonemap;                                           // 0x0201(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_202[0x2];                                      // 0x0202(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
 	float                                         OutputNits;                                        // 0x0204(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         Alpha;                                             // 0x0208(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -158,7 +158,7 @@ static_assert(offsetof(UBinkMediaTexture, AddressX) == 0x0001F0, "Member 'UBinkM
 static_assert(offsetof(UBinkMediaTexture, AddressY) == 0x0001F1, "Member 'UBinkMediaTexture::AddressY' has a wrong offset!");
 static_assert(offsetof(UBinkMediaTexture, MediaPlayer) == 0x0001F8, "Member 'UBinkMediaTexture::MediaPlayer' has a wrong offset!");
 static_assert(offsetof(UBinkMediaTexture, PixelFormat) == 0x000200, "Member 'UBinkMediaTexture::PixelFormat' has a wrong offset!");
-static_assert(offsetof(UBinkMediaTexture, tonemap) == 0x000201, "Member 'UBinkMediaTexture::tonemap' has a wrong offset!");
+static_assert(offsetof(UBinkMediaTexture, Tonemap) == 0x000201, "Member 'UBinkMediaTexture::Tonemap' has a wrong offset!");
 static_assert(offsetof(UBinkMediaTexture, OutputNits) == 0x000204, "Member 'UBinkMediaTexture::OutputNits' has a wrong offset!");
 static_assert(offsetof(UBinkMediaTexture, Alpha) == 0x000208, "Member 'UBinkMediaTexture::Alpha' has a wrong offset!");
 static_assert(offsetof(UBinkMediaTexture, DecodeSRGB) == 0x00020C, "Member 'UBinkMediaTexture::DecodeSRGB' has a wrong offset!");

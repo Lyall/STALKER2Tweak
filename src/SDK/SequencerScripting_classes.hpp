@@ -901,7 +901,7 @@ public:
 	static float GetWorkRangeStart(class UMovieSceneSequence* InSequence);
 	static bool IsReadOnly(class UMovieSceneSequence* Sequence);
 	static TArray<class UObject*> LocateBoundObjects(class UMovieSceneSequence* Sequence, const struct FMovieSceneBindingProxy& InBinding, class UObject* Context);
-	static struct FMovieSceneObjectBindingID MakeBindingID(class UMovieSceneSequence* MasterSequence, const struct FMovieSceneBindingProxy& InBinding, EMovieSceneObjectBindingSpace space);
+	static struct FMovieSceneObjectBindingID MakeBindingID(class UMovieSceneSequence* MasterSequence, const struct FMovieSceneBindingProxy& InBinding, EMovieSceneObjectBindingSpace Space);
 	static struct FSequencerScriptingRange MakeRange(class UMovieSceneSequence* Sequence, int32 StartFrame, int32 Duration);
 	static struct FSequencerScriptingRange MakeRangeSeconds(class UMovieSceneSequence* Sequence, float StartTime, float Duration);
 	static bool RemoveMasterTrack(class UMovieSceneSequence* Sequence, class UMovieSceneTrack* MasterTrack);

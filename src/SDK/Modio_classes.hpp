@@ -10,8 +10,8 @@
 
 #include "Basic.hpp"
 
-#include "Modio_structs.hpp"
 #include "Engine_classes.hpp"
+#include "Modio_structs.hpp"
 #include "CoreUObject_classes.hpp"
 #include "UMG_classes.hpp"
 
@@ -32,7 +32,7 @@ public:
 	static class FString Conv_ModIDToString(const struct FModioModID& ModId);
 	static struct FModioEmailAddress Conv_StringToEmailAddress(const class FString& Email);
 	static struct FModioEmailAuthCode Conv_StringToEmailAuthCode(const class FString& AuthCode);
-	static class FString Conv_UserIDToString(const struct FModioUserID& userId);
+	static class FString Conv_UserIDToString(const struct FModioUserID& UserId);
 	static bool EqualTo(const struct FModioModID& A, const struct FModioModID& B);
 	static int64 GetRawValueFromModID(const struct FModioModID& In);
 	static struct FModioApiKey MakeApiKey(const class FString& ApiKey);
@@ -144,7 +144,7 @@ static_assert(sizeof(UModioErrorCodeLibrary) == 0x000028, "Wrong size on UModioE
 class UModioErrorConditionLibrary final : public UBlueprintFunctionLibrary
 {
 public:
-	static bool ErrorCodeMatches(const struct FModioErrorCode& errorCode, EModioErrorCondition Condition);
+	static bool ErrorCodeMatches(const struct FModioErrorCode& ErrorCode, EModioErrorCondition Condition);
 
 public:
 	static class UClass* StaticClass()
@@ -167,7 +167,7 @@ public:
 	static EModioAvatarSize GetAvatarThumbnailSize();
 	static EModioLogoSize GetLogoFullSize();
 	static EModioLogoSize GetLogoThumbnailSize();
-	static void ListUserSubscriptionAsync(const struct FModioFilterParams& FilterParams, TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalModInfoList& Result)> Callback);
+	static void ListUserSubscriptionAsync(const struct FModioFilterParams& FilterParams, TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalModInfoList& Result)> Callback);
 
 public:
 	static class UClass* StaticClass()
@@ -220,7 +220,7 @@ static_assert(sizeof(UModioFilterParamsLibrary) == 0x000028, "Wrong size on UMod
 class UModioImageLibrary final : public UBlueprintFunctionLibrary
 {
 public:
-	static struct FVector2D GetAvatarSize(class UTexture* avatar, EModioAvatarSize AvatarSize);
+	static struct FVector2D GetAvatarSize(class UTexture* Avatar, EModioAvatarSize AvatarSize);
 	static struct FVector2D GetGallerySize(class UTexture* GalleryImage, EModioGallerySize GallerySize);
 	static struct FVector2D GetLogoSize(class UTexture* Logo, EModioLogoSize LogoSize);
 	static EModioImageState GetState(const struct FModioImageWrapper& Image);
@@ -480,7 +480,7 @@ static_assert(sizeof(UModioReportLibrary) == 0x000028, "Wrong size on UModioRepo
 class UModioSDKLibrary final : public UBlueprintFunctionLibrary
 {
 public:
-	static class FString Conv_Int64ToString(int64 inInt);
+	static class FString Conv_Int64ToString(int64 InInt);
 	static class FText Conv_Int64ToText(int64 Value, bool bAlwaysSign, bool bUseGrouping, int32 MinimumIntegralDigits, int32 MaximumIntegralDigits);
 	static class FText Filesize_ToString(int64 Filesize, int32 MinDecimals, int32 MaxDecimals, EFileSizeUnit Unit, bool bIncludeUnitName);
 	static class FString GetDefaultSessionIdWindows();
@@ -495,7 +495,7 @@ public:
 	static bool IsValidEmailAddressFormat(const class FString& String);
 	static bool IsValidSecurityCodeFormat(const class FString& String);
 	static float Pct_Int64Int64(int64 Dividend, int64 Divisor);
-	static class FText RoundNumberString(const class FText& inputText);
+	static class FText RoundNumberString(const class FText& InputText);
 
 public:
 	static class UClass* StaticClass()
@@ -559,43 +559,43 @@ public:
 	TArray<struct FModioValidationError> GetLastValidationError();
 	bool IsModManagementBusy();
 	bool IsUsingBackgroundThread();
-	void K2_ArchiveModAsync(const struct FModioModID& Mod, TDelegate<void(const struct FModioErrorCode& errorCode)> Callback);
-	void K2_AuthenticateUserEmailAsync(const struct FModioEmailAuthCode& AuthenticationCode, TDelegate<void(const struct FModioErrorCode& errorCode)> Callback);
-	void K2_AuthenticateUserExternalAsync(const struct FModioAuthenticationParams& User, EModioAuthenticationProvider Provider, TDelegate<void(const struct FModioErrorCode& errorCode)> Callback);
-	void K2_ClearUserDataAsync(TDelegate<void(const struct FModioErrorCode& errorCode)> Callback);
+	void K2_ArchiveModAsync(const struct FModioModID& Mod, TDelegate<void(const struct FModioErrorCode& ErrorCode)> Callback);
+	void K2_AuthenticateUserEmailAsync(const struct FModioEmailAuthCode& AuthenticationCode, TDelegate<void(const struct FModioErrorCode& ErrorCode)> Callback);
+	void K2_AuthenticateUserExternalAsync(const struct FModioAuthenticationParams& User, EModioAuthenticationProvider Provider, TDelegate<void(const struct FModioErrorCode& ErrorCode)> Callback);
+	void K2_ClearUserDataAsync(TDelegate<void(const struct FModioErrorCode& ErrorCode)> Callback);
 	struct FModioErrorCode K2_EnableModManagement(TDelegate<void(const struct FModioModManagementEvent& Event)> Callback);
-	void K2_FetchExternalUpdatesAsync(TDelegate<void(const struct FModioErrorCode& errorCode)> OnFetchDone);
-	void K2_ForceUninstallModAsync(const struct FModioModID& ModToRemove, TDelegate<void(const struct FModioErrorCode& errorCode)> Callback);
-	void K2_GetGameInfoAsync(const struct FModioGameID& GameId, TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalGameInfo& GameInfo)> Callback);
+	void K2_FetchExternalUpdatesAsync(TDelegate<void(const struct FModioErrorCode& ErrorCode)> OnFetchDone);
+	void K2_ForceUninstallModAsync(const struct FModioModID& ModToRemove, TDelegate<void(const struct FModioErrorCode& ErrorCode)> Callback);
+	void K2_GetGameInfoAsync(const struct FModioGameID& GameId, TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalGameInfo& GameInfo)> Callback);
 	struct FModioModCreationHandle K2_GetModCreationHandle();
-	void K2_GetModDependenciesAsync(const struct FModioModID& ModId, TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalModDependencyList& Dependencies)> Callback);
-	void K2_GetModInfoAsync(const struct FModioModID& ModId, TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalModInfo& ModInfo)> Callback);
-	void K2_GetModMediaAvatarAsync(const struct FModioModID& ModId, EModioAvatarSize AvatarSize, TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalImage& Path)> Callback);
-	void K2_GetModMediaGalleryImageAsync(const struct FModioModID& ModId, EModioGallerySize GallerySize, int32 Index_0, TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalImage& Path)> Callback);
-	void K2_GetModMediaLogoAsync(const struct FModioModID& ModId, EModioLogoSize LogoSize, TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalImage& Path)> Callback);
-	void K2_GetModTagOptionsAsync(TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalModTagOptions& ModTagOptions)> Callback);
-	void K2_GetMutedUsersAsync(TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalUserList& NewUserList)> Callback);
-	void K2_GetTermsOfUseAsync(TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalTerms& Terms)> Callback);
-	void K2_GetUserMediaAvatarAsync(EModioAvatarSize AvatarSize, TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalImage& Path)> Callback);
-	void K2_InitializeAsync(const struct FModioInitializeOptions& InitializeOptions, TDelegate<void(const struct FModioErrorCode& errorCode)> OnInitComplete);
-	void K2_ListAllModsAsync(const struct FModioFilterParams& Filter, TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalModInfoList& Result)> Callback);
-	void K2_ListUserCreatedModsAsync(const struct FModioFilterParams& Filter, TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalModInfoList& Result)> Callback);
-	void K2_MuteUserAsync(const struct FModioUserID& userId, TDelegate<void(const struct FModioErrorCode& errorCode)> Callback);
-	void K2_PreviewExternalUpdatesAsync(TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalMapPreview& ModioPreviewMap)> OnPreviewDone);
+	void K2_GetModDependenciesAsync(const struct FModioModID& ModId, TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalModDependencyList& Dependencies)> Callback);
+	void K2_GetModInfoAsync(const struct FModioModID& ModId, TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalModInfo& ModInfo)> Callback);
+	void K2_GetModMediaAvatarAsync(const struct FModioModID& ModId, EModioAvatarSize AvatarSize, TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalImage& Path)> Callback);
+	void K2_GetModMediaGalleryImageAsync(const struct FModioModID& ModId, EModioGallerySize GallerySize, int32 Index_0, TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalImage& Path)> Callback);
+	void K2_GetModMediaLogoAsync(const struct FModioModID& ModId, EModioLogoSize LogoSize, TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalImage& Path)> Callback);
+	void K2_GetModTagOptionsAsync(TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalModTagOptions& ModTagOptions)> Callback);
+	void K2_GetMutedUsersAsync(TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalUserList& NewUserList)> Callback);
+	void K2_GetTermsOfUseAsync(TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalTerms& Terms)> Callback);
+	void K2_GetUserMediaAvatarAsync(EModioAvatarSize AvatarSize, TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalImage& Path)> Callback);
+	void K2_InitializeAsync(const struct FModioInitializeOptions& InitializeOptions, TDelegate<void(const struct FModioErrorCode& ErrorCode)> OnInitComplete);
+	void K2_ListAllModsAsync(const struct FModioFilterParams& Filter, TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalModInfoList& Result)> Callback);
+	void K2_ListUserCreatedModsAsync(const struct FModioFilterParams& Filter, TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalModInfoList& Result)> Callback);
+	void K2_MuteUserAsync(const struct FModioUserID& UserId, TDelegate<void(const struct FModioErrorCode& ErrorCode)> Callback);
+	void K2_PreviewExternalUpdatesAsync(TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalMapPreview& ModioPreviewMap)> OnPreviewDone);
 	struct FModioOptionalModProgressInfo K2_QueryCurrentModUpdate();
 	struct FModioOptionalUser K2_QueryUserProfile();
-	void K2_ReportContentAsync(const struct FModioReportParams& Report, TDelegate<void(const struct FModioErrorCode& errorCode)> Callback);
-	void K2_RequestEmailAuthCodeAsync(const struct FModioEmailAddress& EmailAddress, TDelegate<void(const struct FModioErrorCode& errorCode)> Callback);
+	void K2_ReportContentAsync(const struct FModioReportParams& Report, TDelegate<void(const struct FModioErrorCode& ErrorCode)> Callback);
+	void K2_RequestEmailAuthCodeAsync(const struct FModioEmailAddress& EmailAddress, TDelegate<void(const struct FModioErrorCode& ErrorCode)> Callback);
 	void K2_SetLanguage(EModioLanguage Locale);
-	void K2_ShutdownAsync(TDelegate<void(const struct FModioErrorCode& errorCode)> OnShutdownComplete);
-	void K2_SubmitModChangesAsync(const struct FModioModID& Mod, const struct FModioEditModParams& Params_0, TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalModInfo& ModInfo)> Callback);
-	void K2_SubmitModRatingAsync(const struct FModioModID& Mod, EModioRating Rating, TDelegate<void(const struct FModioErrorCode& errorCode)> Callback);
-	void K2_SubmitNewModAsync(const struct FModioModCreationHandle& Handle, const struct FModioCreateModParams& Params_0, TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalModID& NewModID)> Callback);
+	void K2_ShutdownAsync(TDelegate<void(const struct FModioErrorCode& ErrorCode)> OnShutdownComplete);
+	void K2_SubmitModChangesAsync(const struct FModioModID& Mod, const struct FModioEditModParams& Params_0, TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalModInfo& ModInfo)> Callback);
+	void K2_SubmitModRatingAsync(const struct FModioModID& Mod, EModioRating Rating, TDelegate<void(const struct FModioErrorCode& ErrorCode)> Callback);
+	void K2_SubmitNewModAsync(const struct FModioModCreationHandle& Handle, const struct FModioCreateModParams& Params_0, TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalModID& NewModID)> Callback);
 	void K2_SubmitNewModFileForMod(const struct FModioModID& Mod, const struct FModioCreateModFileParams& Params_0);
-	void K2_SubscribeToModAsync(const struct FModioModID& ModToSubscribeTo, TDelegate<void(const struct FModioErrorCode& errorCode)> OnSubscribeComplete);
-	void K2_UnmuteUserAsync(const struct FModioUserID& userId, TDelegate<void(const struct FModioErrorCode& errorCode)> Callback);
-	void K2_UnsubscribeFromModAsync(const struct FModioModID& ModToUnsubscribeFrom, TDelegate<void(const struct FModioErrorCode& errorCode)> OnUnsubscribeComplete);
-	void K2_VerifyUserAuthenticationAsync(TDelegate<void(const struct FModioErrorCode& errorCode)> Callback);
+	void K2_SubscribeToModAsync(const struct FModioModID& ModToSubscribeTo, TDelegate<void(const struct FModioErrorCode& ErrorCode)> OnSubscribeComplete);
+	void K2_UnmuteUserAsync(const struct FModioUserID& UserId, TDelegate<void(const struct FModioErrorCode& ErrorCode)> Callback);
+	void K2_UnsubscribeFromModAsync(const struct FModioModID& ModToUnsubscribeFrom, TDelegate<void(const struct FModioErrorCode& ErrorCode)> OnUnsubscribeComplete);
+	void K2_VerifyUserAuthenticationAsync(TDelegate<void(const struct FModioErrorCode& ErrorCode)> Callback);
 	void KillBackgroundThread();
 	struct FModioErrorCode PrioritizeTransferForMod(const struct FModioModID& ModToPrioritize);
 	TMap<struct FModioModID, struct FModioModCollectionEntry> QuerySystemInstallations();

@@ -1252,14 +1252,14 @@ struct PhysicsControlComponent_SetControlPoint final
 {
 public:
 	class FName                                   Name_0;                                            // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                position;                                          // 0x0008(0x0018)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Position;                                          // 0x0008(0x0018)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          ReturnValue;                                       // 0x0020(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_21[0x7];                                       // 0x0021(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(PhysicsControlComponent_SetControlPoint) == 0x000008, "Wrong alignment on PhysicsControlComponent_SetControlPoint");
 static_assert(sizeof(PhysicsControlComponent_SetControlPoint) == 0x000028, "Wrong size on PhysicsControlComponent_SetControlPoint");
 static_assert(offsetof(PhysicsControlComponent_SetControlPoint, Name_0) == 0x000000, "Member 'PhysicsControlComponent_SetControlPoint::Name_0' has a wrong offset!");
-static_assert(offsetof(PhysicsControlComponent_SetControlPoint, position) == 0x000008, "Member 'PhysicsControlComponent_SetControlPoint::position' has a wrong offset!");
+static_assert(offsetof(PhysicsControlComponent_SetControlPoint, Position) == 0x000008, "Member 'PhysicsControlComponent_SetControlPoint::Position' has a wrong offset!");
 static_assert(offsetof(PhysicsControlComponent_SetControlPoint, ReturnValue) == 0x000020, "Member 'PhysicsControlComponent_SetControlPoint::ReturnValue' has a wrong offset!");
 
 // Function PhysicsControl.PhysicsControlComponent.SetControlsAutoDisable
@@ -1512,7 +1512,7 @@ struct PhysicsControlComponent_SetControlTargetPosition final
 {
 public:
 	class FName                                   Name_0;                                            // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                position;                                          // 0x0008(0x0018)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Position;                                          // 0x0008(0x0018)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         VelocityDeltaTime;                                 // 0x0020(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bEnableControl;                                    // 0x0024(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bApplyControlPointToTarget;                        // 0x0025(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -1522,7 +1522,7 @@ public:
 static_assert(alignof(PhysicsControlComponent_SetControlTargetPosition) == 0x000008, "Wrong alignment on PhysicsControlComponent_SetControlTargetPosition");
 static_assert(sizeof(PhysicsControlComponent_SetControlTargetPosition) == 0x000028, "Wrong size on PhysicsControlComponent_SetControlTargetPosition");
 static_assert(offsetof(PhysicsControlComponent_SetControlTargetPosition, Name_0) == 0x000000, "Member 'PhysicsControlComponent_SetControlTargetPosition::Name_0' has a wrong offset!");
-static_assert(offsetof(PhysicsControlComponent_SetControlTargetPosition, position) == 0x000008, "Member 'PhysicsControlComponent_SetControlTargetPosition::position' has a wrong offset!");
+static_assert(offsetof(PhysicsControlComponent_SetControlTargetPosition, Position) == 0x000008, "Member 'PhysicsControlComponent_SetControlTargetPosition::Position' has a wrong offset!");
 static_assert(offsetof(PhysicsControlComponent_SetControlTargetPosition, VelocityDeltaTime) == 0x000020, "Member 'PhysicsControlComponent_SetControlTargetPosition::VelocityDeltaTime' has a wrong offset!");
 static_assert(offsetof(PhysicsControlComponent_SetControlTargetPosition, bEnableControl) == 0x000024, "Member 'PhysicsControlComponent_SetControlTargetPosition::bEnableControl' has a wrong offset!");
 static_assert(offsetof(PhysicsControlComponent_SetControlTargetPosition, bApplyControlPointToTarget) == 0x000025, "Member 'PhysicsControlComponent_SetControlTargetPosition::bApplyControlPointToTarget' has a wrong offset!");
@@ -1534,7 +1534,7 @@ struct PhysicsControlComponent_SetControlTargetPositionAndOrientation final
 {
 public:
 	class FName                                   Name_0;                                            // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                position;                                          // 0x0008(0x0018)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Position;                                          // 0x0008(0x0018)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FRotator                               Orientation;                                       // 0x0020(0x0018)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 	float                                         VelocityDeltaTime;                                 // 0x0038(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bEnableControl;                                    // 0x003C(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -1545,7 +1545,7 @@ public:
 static_assert(alignof(PhysicsControlComponent_SetControlTargetPositionAndOrientation) == 0x000008, "Wrong alignment on PhysicsControlComponent_SetControlTargetPositionAndOrientation");
 static_assert(sizeof(PhysicsControlComponent_SetControlTargetPositionAndOrientation) == 0x000040, "Wrong size on PhysicsControlComponent_SetControlTargetPositionAndOrientation");
 static_assert(offsetof(PhysicsControlComponent_SetControlTargetPositionAndOrientation, Name_0) == 0x000000, "Member 'PhysicsControlComponent_SetControlTargetPositionAndOrientation::Name_0' has a wrong offset!");
-static_assert(offsetof(PhysicsControlComponent_SetControlTargetPositionAndOrientation, position) == 0x000008, "Member 'PhysicsControlComponent_SetControlTargetPositionAndOrientation::position' has a wrong offset!");
+static_assert(offsetof(PhysicsControlComponent_SetControlTargetPositionAndOrientation, Position) == 0x000008, "Member 'PhysicsControlComponent_SetControlTargetPositionAndOrientation::Position' has a wrong offset!");
 static_assert(offsetof(PhysicsControlComponent_SetControlTargetPositionAndOrientation, Orientation) == 0x000020, "Member 'PhysicsControlComponent_SetControlTargetPositionAndOrientation::Orientation' has a wrong offset!");
 static_assert(offsetof(PhysicsControlComponent_SetControlTargetPositionAndOrientation, VelocityDeltaTime) == 0x000038, "Member 'PhysicsControlComponent_SetControlTargetPositionAndOrientation::VelocityDeltaTime' has a wrong offset!");
 static_assert(offsetof(PhysicsControlComponent_SetControlTargetPositionAndOrientation, bEnableControl) == 0x00003C, "Member 'PhysicsControlComponent_SetControlTargetPositionAndOrientation::bEnableControl' has a wrong offset!");
@@ -1558,7 +1558,7 @@ struct PhysicsControlComponent_SetControlTargetPositions final
 {
 public:
 	TArray<class FName>                           Names;                                             // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-	struct FVector                                position;                                          // 0x0010(0x0018)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Position;                                          // 0x0010(0x0018)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         VelocityDeltaTime;                                 // 0x0028(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bEnableControl;                                    // 0x002C(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bApplyControlPointToTarget;                        // 0x002D(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -1567,7 +1567,7 @@ public:
 static_assert(alignof(PhysicsControlComponent_SetControlTargetPositions) == 0x000008, "Wrong alignment on PhysicsControlComponent_SetControlTargetPositions");
 static_assert(sizeof(PhysicsControlComponent_SetControlTargetPositions) == 0x000030, "Wrong size on PhysicsControlComponent_SetControlTargetPositions");
 static_assert(offsetof(PhysicsControlComponent_SetControlTargetPositions, Names) == 0x000000, "Member 'PhysicsControlComponent_SetControlTargetPositions::Names' has a wrong offset!");
-static_assert(offsetof(PhysicsControlComponent_SetControlTargetPositions, position) == 0x000010, "Member 'PhysicsControlComponent_SetControlTargetPositions::position' has a wrong offset!");
+static_assert(offsetof(PhysicsControlComponent_SetControlTargetPositions, Position) == 0x000010, "Member 'PhysicsControlComponent_SetControlTargetPositions::Position' has a wrong offset!");
 static_assert(offsetof(PhysicsControlComponent_SetControlTargetPositions, VelocityDeltaTime) == 0x000028, "Member 'PhysicsControlComponent_SetControlTargetPositions::VelocityDeltaTime' has a wrong offset!");
 static_assert(offsetof(PhysicsControlComponent_SetControlTargetPositions, bEnableControl) == 0x00002C, "Member 'PhysicsControlComponent_SetControlTargetPositions::bEnableControl' has a wrong offset!");
 static_assert(offsetof(PhysicsControlComponent_SetControlTargetPositions, bApplyControlPointToTarget) == 0x00002D, "Member 'PhysicsControlComponent_SetControlTargetPositions::bApplyControlPointToTarget' has a wrong offset!");
@@ -1578,7 +1578,7 @@ struct PhysicsControlComponent_SetControlTargetPositionsAndOrientations final
 {
 public:
 	TArray<class FName>                           Names;                                             // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-	struct FVector                                position;                                          // 0x0010(0x0018)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Position;                                          // 0x0010(0x0018)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FRotator                               Orientation;                                       // 0x0028(0x0018)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 	float                                         VelocityDeltaTime;                                 // 0x0040(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bEnableControl;                                    // 0x0044(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -1588,7 +1588,7 @@ public:
 static_assert(alignof(PhysicsControlComponent_SetControlTargetPositionsAndOrientations) == 0x000008, "Wrong alignment on PhysicsControlComponent_SetControlTargetPositionsAndOrientations");
 static_assert(sizeof(PhysicsControlComponent_SetControlTargetPositionsAndOrientations) == 0x000048, "Wrong size on PhysicsControlComponent_SetControlTargetPositionsAndOrientations");
 static_assert(offsetof(PhysicsControlComponent_SetControlTargetPositionsAndOrientations, Names) == 0x000000, "Member 'PhysicsControlComponent_SetControlTargetPositionsAndOrientations::Names' has a wrong offset!");
-static_assert(offsetof(PhysicsControlComponent_SetControlTargetPositionsAndOrientations, position) == 0x000010, "Member 'PhysicsControlComponent_SetControlTargetPositionsAndOrientations::position' has a wrong offset!");
+static_assert(offsetof(PhysicsControlComponent_SetControlTargetPositionsAndOrientations, Position) == 0x000010, "Member 'PhysicsControlComponent_SetControlTargetPositionsAndOrientations::Position' has a wrong offset!");
 static_assert(offsetof(PhysicsControlComponent_SetControlTargetPositionsAndOrientations, Orientation) == 0x000028, "Member 'PhysicsControlComponent_SetControlTargetPositionsAndOrientations::Orientation' has a wrong offset!");
 static_assert(offsetof(PhysicsControlComponent_SetControlTargetPositionsAndOrientations, VelocityDeltaTime) == 0x000040, "Member 'PhysicsControlComponent_SetControlTargetPositionsAndOrientations::VelocityDeltaTime' has a wrong offset!");
 static_assert(offsetof(PhysicsControlComponent_SetControlTargetPositionsAndOrientations, bEnableControl) == 0x000044, "Member 'PhysicsControlComponent_SetControlTargetPositionsAndOrientations::bEnableControl' has a wrong offset!");
@@ -1624,7 +1624,7 @@ struct PhysicsControlComponent_SetControlTargetPositionsAndOrientationsInSet fin
 {
 public:
 	class FName                                   SetName;                                           // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                position;                                          // 0x0008(0x0018)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Position;                                          // 0x0008(0x0018)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FRotator                               Orientation;                                       // 0x0020(0x0018)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 	float                                         VelocityDeltaTime;                                 // 0x0038(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bEnableControl;                                    // 0x003C(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -1634,7 +1634,7 @@ public:
 static_assert(alignof(PhysicsControlComponent_SetControlTargetPositionsAndOrientationsInSet) == 0x000008, "Wrong alignment on PhysicsControlComponent_SetControlTargetPositionsAndOrientationsInSet");
 static_assert(sizeof(PhysicsControlComponent_SetControlTargetPositionsAndOrientationsInSet) == 0x000040, "Wrong size on PhysicsControlComponent_SetControlTargetPositionsAndOrientationsInSet");
 static_assert(offsetof(PhysicsControlComponent_SetControlTargetPositionsAndOrientationsInSet, SetName) == 0x000000, "Member 'PhysicsControlComponent_SetControlTargetPositionsAndOrientationsInSet::SetName' has a wrong offset!");
-static_assert(offsetof(PhysicsControlComponent_SetControlTargetPositionsAndOrientationsInSet, position) == 0x000008, "Member 'PhysicsControlComponent_SetControlTargetPositionsAndOrientationsInSet::position' has a wrong offset!");
+static_assert(offsetof(PhysicsControlComponent_SetControlTargetPositionsAndOrientationsInSet, Position) == 0x000008, "Member 'PhysicsControlComponent_SetControlTargetPositionsAndOrientationsInSet::Position' has a wrong offset!");
 static_assert(offsetof(PhysicsControlComponent_SetControlTargetPositionsAndOrientationsInSet, Orientation) == 0x000020, "Member 'PhysicsControlComponent_SetControlTargetPositionsAndOrientationsInSet::Orientation' has a wrong offset!");
 static_assert(offsetof(PhysicsControlComponent_SetControlTargetPositionsAndOrientationsInSet, VelocityDeltaTime) == 0x000038, "Member 'PhysicsControlComponent_SetControlTargetPositionsAndOrientationsInSet::VelocityDeltaTime' has a wrong offset!");
 static_assert(offsetof(PhysicsControlComponent_SetControlTargetPositionsAndOrientationsInSet, bEnableControl) == 0x00003C, "Member 'PhysicsControlComponent_SetControlTargetPositionsAndOrientationsInSet::bEnableControl' has a wrong offset!");
@@ -1668,7 +1668,7 @@ struct PhysicsControlComponent_SetControlTargetPositionsInSet final
 {
 public:
 	class FName                                   SetName;                                           // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                position;                                          // 0x0008(0x0018)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Position;                                          // 0x0008(0x0018)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         VelocityDeltaTime;                                 // 0x0020(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bEnableControl;                                    // 0x0024(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bApplyControlPointToTarget;                        // 0x0025(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -1677,7 +1677,7 @@ public:
 static_assert(alignof(PhysicsControlComponent_SetControlTargetPositionsInSet) == 0x000008, "Wrong alignment on PhysicsControlComponent_SetControlTargetPositionsInSet");
 static_assert(sizeof(PhysicsControlComponent_SetControlTargetPositionsInSet) == 0x000028, "Wrong size on PhysicsControlComponent_SetControlTargetPositionsInSet");
 static_assert(offsetof(PhysicsControlComponent_SetControlTargetPositionsInSet, SetName) == 0x000000, "Member 'PhysicsControlComponent_SetControlTargetPositionsInSet::SetName' has a wrong offset!");
-static_assert(offsetof(PhysicsControlComponent_SetControlTargetPositionsInSet, position) == 0x000008, "Member 'PhysicsControlComponent_SetControlTargetPositionsInSet::position' has a wrong offset!");
+static_assert(offsetof(PhysicsControlComponent_SetControlTargetPositionsInSet, Position) == 0x000008, "Member 'PhysicsControlComponent_SetControlTargetPositionsInSet::Position' has a wrong offset!");
 static_assert(offsetof(PhysicsControlComponent_SetControlTargetPositionsInSet, VelocityDeltaTime) == 0x000020, "Member 'PhysicsControlComponent_SetControlTargetPositionsInSet::VelocityDeltaTime' has a wrong offset!");
 static_assert(offsetof(PhysicsControlComponent_SetControlTargetPositionsInSet, bEnableControl) == 0x000024, "Member 'PhysicsControlComponent_SetControlTargetPositionsInSet::bEnableControl' has a wrong offset!");
 static_assert(offsetof(PhysicsControlComponent_SetControlTargetPositionsInSet, bApplyControlPointToTarget) == 0x000025, "Member 'PhysicsControlComponent_SetControlTargetPositionsInSet::bApplyControlPointToTarget' has a wrong offset!");

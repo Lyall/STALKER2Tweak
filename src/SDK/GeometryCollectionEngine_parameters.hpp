@@ -10,11 +10,11 @@
 
 #include "Basic.hpp"
 
-#include "CoreUObject_structs.hpp"
 #include "GeometryCollectionEngine_structs.hpp"
-#include "Chaos_structs.hpp"
-#include "Engine_structs.hpp"
 #include "ChaosSolverEngine_structs.hpp"
+#include "Engine_structs.hpp"
+#include "CoreUObject_structs.hpp"
+#include "Chaos_structs.hpp"
 
 
 namespace SDK::Params
@@ -330,12 +330,12 @@ struct GeometryCollectionComponent_ApplyKinematicField final
 public:
 	float                                         Radius;                                            // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                position;                                          // 0x0008(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Position;                                          // 0x0008(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(GeometryCollectionComponent_ApplyKinematicField) == 0x000008, "Wrong alignment on GeometryCollectionComponent_ApplyKinematicField");
 static_assert(sizeof(GeometryCollectionComponent_ApplyKinematicField) == 0x000020, "Wrong size on GeometryCollectionComponent_ApplyKinematicField");
 static_assert(offsetof(GeometryCollectionComponent_ApplyKinematicField, Radius) == 0x000000, "Member 'GeometryCollectionComponent_ApplyKinematicField::Radius' has a wrong offset!");
-static_assert(offsetof(GeometryCollectionComponent_ApplyKinematicField, position) == 0x000008, "Member 'GeometryCollectionComponent_ApplyKinematicField::position' has a wrong offset!");
+static_assert(offsetof(GeometryCollectionComponent_ApplyKinematicField, Position) == 0x000008, "Member 'GeometryCollectionComponent_ApplyKinematicField::Position' has a wrong offset!");
 
 // Function GeometryCollectionEngine.GeometryCollectionComponent.ApplyLinearVelocity
 // 0x0020 (0x0020 - 0x0000)
@@ -407,6 +407,28 @@ static_assert(sizeof(GeometryCollectionComponent_GetMassAndExtents) == 0x000040,
 static_assert(offsetof(GeometryCollectionComponent_GetMassAndExtents, ItemIndex) == 0x000000, "Member 'GeometryCollectionComponent_GetMassAndExtents::ItemIndex' has a wrong offset!");
 static_assert(offsetof(GeometryCollectionComponent_GetMassAndExtents, OutMass) == 0x000004, "Member 'GeometryCollectionComponent_GetMassAndExtents::OutMass' has a wrong offset!");
 static_assert(offsetof(GeometryCollectionComponent_GetMassAndExtents, OutExtents) == 0x000008, "Member 'GeometryCollectionComponent_GetMassAndExtents::OutExtents' has a wrong offset!");
+
+// DelegateFunction GeometryCollectionEngine.GeometryCollectionComponent.NotifyGeometryCollectionPhysicsLoadingStateChange__DelegateSignature
+// 0x0008 (0x0008 - 0x0000)
+struct GeometryCollectionComponent_NotifyGeometryCollectionPhysicsLoadingStateChange__DelegateSignature final
+{
+public:
+	class UGeometryCollectionComponent*           FracturedComponent;                                // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(GeometryCollectionComponent_NotifyGeometryCollectionPhysicsLoadingStateChange__DelegateSignature) == 0x000008, "Wrong alignment on GeometryCollectionComponent_NotifyGeometryCollectionPhysicsLoadingStateChange__DelegateSignature");
+static_assert(sizeof(GeometryCollectionComponent_NotifyGeometryCollectionPhysicsLoadingStateChange__DelegateSignature) == 0x000008, "Wrong size on GeometryCollectionComponent_NotifyGeometryCollectionPhysicsLoadingStateChange__DelegateSignature");
+static_assert(offsetof(GeometryCollectionComponent_NotifyGeometryCollectionPhysicsLoadingStateChange__DelegateSignature, FracturedComponent) == 0x000000, "Member 'GeometryCollectionComponent_NotifyGeometryCollectionPhysicsLoadingStateChange__DelegateSignature::FracturedComponent' has a wrong offset!");
+
+// DelegateFunction GeometryCollectionEngine.GeometryCollectionComponent.NotifyGeometryCollectionPhysicsStateChange__DelegateSignature
+// 0x0008 (0x0008 - 0x0000)
+struct GeometryCollectionComponent_NotifyGeometryCollectionPhysicsStateChange__DelegateSignature final
+{
+public:
+	class UGeometryCollectionComponent*           FracturedComponent;                                // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(GeometryCollectionComponent_NotifyGeometryCollectionPhysicsStateChange__DelegateSignature) == 0x000008, "Wrong alignment on GeometryCollectionComponent_NotifyGeometryCollectionPhysicsStateChange__DelegateSignature");
+static_assert(sizeof(GeometryCollectionComponent_NotifyGeometryCollectionPhysicsStateChange__DelegateSignature) == 0x000008, "Wrong size on GeometryCollectionComponent_NotifyGeometryCollectionPhysicsStateChange__DelegateSignature");
+static_assert(offsetof(GeometryCollectionComponent_NotifyGeometryCollectionPhysicsStateChange__DelegateSignature, FracturedComponent) == 0x000000, "Member 'GeometryCollectionComponent_NotifyGeometryCollectionPhysicsStateChange__DelegateSignature::FracturedComponent' has a wrong offset!");
 
 // Function GeometryCollectionEngine.GeometryCollectionComponent.ReceivePhysicsCollision
 // 0x00C0 (0x00C0 - 0x0000)

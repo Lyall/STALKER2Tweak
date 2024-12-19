@@ -17,13 +17,14 @@ namespace SDK
 {
 
 // WidgetBlueprintGeneratedClass W_HubMarker.W_HubMarker_C
-// 0x0018 (0x0358 - 0x0340)
+// 0x0020 (0x0350 - 0x0330)
 class UW_HubMarker_C final : public UWorldMapMarker
 {
 public:
-	class UWidgetAnimation*                       ClickAnim;                                         // 0x0340(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, RepSkip, NoDestructor, HasGetValueTypeHash)
-	class UImage*                                 CollisionZone;                                     // 0x0348(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
-	class UWidgetSwitcher*                        UnknownSwitcher;                                   // 0x0350(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	class UWidgetAnimation*                       ClickAnim;                                         // 0x0330(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, RepSkip, NoDestructor, HasGetValueTypeHash)
+	class UImage*                                 CollisionZone;                                     // 0x0338(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	class UImage*                                 MarkerZone;                                        // 0x0340(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	class UWidgetSwitcher*                        UnknownSwitcher;                                   // 0x0348(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
 
 public:
 	static class UClass* StaticClass()
@@ -36,10 +37,11 @@ public:
 	}
 };
 static_assert(alignof(UW_HubMarker_C) == 0x000008, "Wrong alignment on UW_HubMarker_C");
-static_assert(sizeof(UW_HubMarker_C) == 0x000358, "Wrong size on UW_HubMarker_C");
-static_assert(offsetof(UW_HubMarker_C, ClickAnim) == 0x000340, "Member 'UW_HubMarker_C::ClickAnim' has a wrong offset!");
-static_assert(offsetof(UW_HubMarker_C, CollisionZone) == 0x000348, "Member 'UW_HubMarker_C::CollisionZone' has a wrong offset!");
-static_assert(offsetof(UW_HubMarker_C, UnknownSwitcher) == 0x000350, "Member 'UW_HubMarker_C::UnknownSwitcher' has a wrong offset!");
+static_assert(sizeof(UW_HubMarker_C) == 0x000350, "Wrong size on UW_HubMarker_C");
+static_assert(offsetof(UW_HubMarker_C, ClickAnim) == 0x000330, "Member 'UW_HubMarker_C::ClickAnim' has a wrong offset!");
+static_assert(offsetof(UW_HubMarker_C, CollisionZone) == 0x000338, "Member 'UW_HubMarker_C::CollisionZone' has a wrong offset!");
+static_assert(offsetof(UW_HubMarker_C, MarkerZone) == 0x000340, "Member 'UW_HubMarker_C::MarkerZone' has a wrong offset!");
+static_assert(offsetof(UW_HubMarker_C, UnknownSwitcher) == 0x000348, "Member 'UW_HubMarker_C::UnknownSwitcher' has a wrong offset!");
 
 }
 

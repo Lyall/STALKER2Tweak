@@ -21,9 +21,9 @@ namespace SDK
 class UW_SaveLoadNotificationBackground_C final : public UWidgetBase
 {
 public:
-	class UW_Image_C*                             x1y0_1;                                            // 0x0278(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
-	class UW_Image_C*                             x1y1_1;                                            // 0x0280(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
-	class UW_Image_C*                             x1y2_1;                                            // 0x0288(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	class UW_Image_C*                             X1y0_1;                                            // 0x0278(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	class UW_Image_C*                             X1y1_1;                                            // 0x0280(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	class UW_Image_C*                             X1y2_1;                                            // 0x0288(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
 
 public:
 	static class UClass* StaticClass()
@@ -37,9 +37,9 @@ public:
 };
 static_assert(alignof(UW_SaveLoadNotificationBackground_C) == 0x000008, "Wrong alignment on UW_SaveLoadNotificationBackground_C");
 static_assert(sizeof(UW_SaveLoadNotificationBackground_C) == 0x000290, "Wrong size on UW_SaveLoadNotificationBackground_C");
-static_assert(offsetof(UW_SaveLoadNotificationBackground_C, x1y0_1) == 0x000278, "Member 'UW_SaveLoadNotificationBackground_C::x1y0_1' has a wrong offset!");
-static_assert(offsetof(UW_SaveLoadNotificationBackground_C, x1y1_1) == 0x000280, "Member 'UW_SaveLoadNotificationBackground_C::x1y1_1' has a wrong offset!");
-static_assert(offsetof(UW_SaveLoadNotificationBackground_C, x1y2_1) == 0x000288, "Member 'UW_SaveLoadNotificationBackground_C::x1y2_1' has a wrong offset!");
+static_assert(offsetof(UW_SaveLoadNotificationBackground_C, X1y0_1) == 0x000278, "Member 'UW_SaveLoadNotificationBackground_C::X1y0_1' has a wrong offset!");
+static_assert(offsetof(UW_SaveLoadNotificationBackground_C, X1y1_1) == 0x000280, "Member 'UW_SaveLoadNotificationBackground_C::X1y1_1' has a wrong offset!");
+static_assert(offsetof(UW_SaveLoadNotificationBackground_C, X1y2_1) == 0x000288, "Member 'UW_SaveLoadNotificationBackground_C::X1y2_1' has a wrong offset!");
 
 }
 

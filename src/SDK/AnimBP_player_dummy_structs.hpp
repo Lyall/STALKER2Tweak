@@ -23,21 +23,21 @@ struct AnimBP_player_dummy::FAnimBlueprintGeneratedConstantData final : public F
 {
 public:
 	uint8                                         Pad_1[0x3];                                        // 0x0001(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   m_NameProperty_4;                                  // 0x0004(0x0008)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	class FName                                   m_NameProperty_5;                                  // 0x000C(0x0008)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	class FName                                   __NameProperty_4;                                  // 0x0004(0x0008)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	class FName                                   __NameProperty_5;                                  // 0x000C(0x0008)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_14[0x4];                                       // 0x0014(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FAnimNodeFunctionRef                   m_StructProperty_6;                                // 0x0018(0x0020)(BlueprintVisible, NoDestructor)
-	ERefPoseType                                  m_ByteProperty_7;                                  // 0x0038(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FAnimNodeFunctionRef                   __StructProperty_6;                                // 0x0018(0x0020)(BlueprintVisible, NoDestructor)
+	ERefPoseType                                  __ByteProperty_7;                                  // 0x0038(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_39[0x7];                                       // 0x0039(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FAnimSubsystem_PropertyAccess          AnimBlueprintExtension_PropertyAccess;             // 0x0040(0x0080)()
 	struct FAnimSubsystem_Base                    AnimBlueprintExtension_Base;                       // 0x00C0(0x0018)()
 };
 static_assert(alignof(AnimBP_player_dummy::FAnimBlueprintGeneratedConstantData) == 0x000008, "Wrong alignment on AnimBP_player_dummy::FAnimBlueprintGeneratedConstantData");
 static_assert(sizeof(AnimBP_player_dummy::FAnimBlueprintGeneratedConstantData) == 0x0000D8, "Wrong size on AnimBP_player_dummy::FAnimBlueprintGeneratedConstantData");
-static_assert(offsetof(AnimBP_player_dummy::FAnimBlueprintGeneratedConstantData, m_NameProperty_4) == 0x000004, "Member 'AnimBP_player_dummy::FAnimBlueprintGeneratedConstantData::m_NameProperty_4' has a wrong offset!");
-static_assert(offsetof(AnimBP_player_dummy::FAnimBlueprintGeneratedConstantData, m_NameProperty_5) == 0x00000C, "Member 'AnimBP_player_dummy::FAnimBlueprintGeneratedConstantData::m_NameProperty_5' has a wrong offset!");
-static_assert(offsetof(AnimBP_player_dummy::FAnimBlueprintGeneratedConstantData, m_StructProperty_6) == 0x000018, "Member 'AnimBP_player_dummy::FAnimBlueprintGeneratedConstantData::m_StructProperty_6' has a wrong offset!");
-static_assert(offsetof(AnimBP_player_dummy::FAnimBlueprintGeneratedConstantData, m_ByteProperty_7) == 0x000038, "Member 'AnimBP_player_dummy::FAnimBlueprintGeneratedConstantData::m_ByteProperty_7' has a wrong offset!");
+static_assert(offsetof(AnimBP_player_dummy::FAnimBlueprintGeneratedConstantData, __NameProperty_4) == 0x000004, "Member 'AnimBP_player_dummy::FAnimBlueprintGeneratedConstantData::__NameProperty_4' has a wrong offset!");
+static_assert(offsetof(AnimBP_player_dummy::FAnimBlueprintGeneratedConstantData, __NameProperty_5) == 0x00000C, "Member 'AnimBP_player_dummy::FAnimBlueprintGeneratedConstantData::__NameProperty_5' has a wrong offset!");
+static_assert(offsetof(AnimBP_player_dummy::FAnimBlueprintGeneratedConstantData, __StructProperty_6) == 0x000018, "Member 'AnimBP_player_dummy::FAnimBlueprintGeneratedConstantData::__StructProperty_6' has a wrong offset!");
+static_assert(offsetof(AnimBP_player_dummy::FAnimBlueprintGeneratedConstantData, __ByteProperty_7) == 0x000038, "Member 'AnimBP_player_dummy::FAnimBlueprintGeneratedConstantData::__ByteProperty_7' has a wrong offset!");
 static_assert(offsetof(AnimBP_player_dummy::FAnimBlueprintGeneratedConstantData, AnimBlueprintExtension_PropertyAccess) == 0x000040, "Member 'AnimBP_player_dummy::FAnimBlueprintGeneratedConstantData::AnimBlueprintExtension_PropertyAccess' has a wrong offset!");
 static_assert(offsetof(AnimBP_player_dummy::FAnimBlueprintGeneratedConstantData, AnimBlueprintExtension_Base) == 0x0000C0, "Member 'AnimBP_player_dummy::FAnimBlueprintGeneratedConstantData::AnimBlueprintExtension_Base' has a wrong offset!");
 

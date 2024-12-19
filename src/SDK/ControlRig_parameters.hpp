@@ -2633,6 +2633,23 @@ static_assert(alignof(ControlRig_GetVM) == 0x000008, "Wrong alignment on Control
 static_assert(sizeof(ControlRig_GetVM) == 0x000008, "Wrong size on ControlRig_GetVM");
 static_assert(offsetof(ControlRig_GetVM, ReturnValue) == 0x000000, "Member 'ControlRig_GetVM::ReturnValue' has a wrong offset!");
 
+// SparseDelegateFunction ControlRig.ControlRig.OnControlSelectedBP__DelegateSignature
+// 0x0A50 (0x0A50 - 0x0000)
+struct ControlRig_OnControlSelectedBP__DelegateSignature final
+{
+public:
+	class UControlRig*                            Rig;                                               // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_8[0x8];                                        // 0x0008(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FRigControlElement                     Control;                                           // 0x0010(0x0A30)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	bool                                          bSelected;                                         // 0x0A40(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_A41[0xF];                                      // 0x0A41(0x000F)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(ControlRig_OnControlSelectedBP__DelegateSignature) == 0x000010, "Wrong alignment on ControlRig_OnControlSelectedBP__DelegateSignature");
+static_assert(sizeof(ControlRig_OnControlSelectedBP__DelegateSignature) == 0x000A50, "Wrong size on ControlRig_OnControlSelectedBP__DelegateSignature");
+static_assert(offsetof(ControlRig_OnControlSelectedBP__DelegateSignature, Rig) == 0x000000, "Member 'ControlRig_OnControlSelectedBP__DelegateSignature::Rig' has a wrong offset!");
+static_assert(offsetof(ControlRig_OnControlSelectedBP__DelegateSignature, Control) == 0x000010, "Member 'ControlRig_OnControlSelectedBP__DelegateSignature::Control' has a wrong offset!");
+static_assert(offsetof(ControlRig_OnControlSelectedBP__DelegateSignature, bSelected) == 0x000A40, "Member 'ControlRig_OnControlSelectedBP__DelegateSignature::bSelected' has a wrong offset!");
+
 // Function ControlRig.ControlRig.SelectControl
 // 0x000C (0x000C - 0x0000)
 struct ControlRig_SelectControl final
@@ -3008,14 +3025,14 @@ struct ControlRigComponent_GetBoneTransform final
 {
 public:
 	class FName                                   BoneName;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EControlRigComponentSpace                     space;                                             // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EControlRigComponentSpace                     Space;                                             // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FTransform                             ReturnValue;                                       // 0x0010(0x0060)(Parm, OutParm, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ControlRigComponent_GetBoneTransform) == 0x000010, "Wrong alignment on ControlRigComponent_GetBoneTransform");
 static_assert(sizeof(ControlRigComponent_GetBoneTransform) == 0x000070, "Wrong size on ControlRigComponent_GetBoneTransform");
 static_assert(offsetof(ControlRigComponent_GetBoneTransform, BoneName) == 0x000000, "Member 'ControlRigComponent_GetBoneTransform::BoneName' has a wrong offset!");
-static_assert(offsetof(ControlRigComponent_GetBoneTransform, space) == 0x000008, "Member 'ControlRigComponent_GetBoneTransform::space' has a wrong offset!");
+static_assert(offsetof(ControlRigComponent_GetBoneTransform, Space) == 0x000008, "Member 'ControlRigComponent_GetBoneTransform::Space' has a wrong offset!");
 static_assert(offsetof(ControlRigComponent_GetBoneTransform, ReturnValue) == 0x000010, "Member 'ControlRigComponent_GetBoneTransform::ReturnValue' has a wrong offset!");
 
 // Function ControlRig.ControlRigComponent.GetControlBool
@@ -3064,14 +3081,14 @@ struct ControlRigComponent_GetControlOffset final
 {
 public:
 	class FName                                   ControlName;                                       // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EControlRigComponentSpace                     space;                                             // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EControlRigComponentSpace                     Space;                                             // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FTransform                             ReturnValue;                                       // 0x0010(0x0060)(Parm, OutParm, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ControlRigComponent_GetControlOffset) == 0x000010, "Wrong alignment on ControlRigComponent_GetControlOffset");
 static_assert(sizeof(ControlRigComponent_GetControlOffset) == 0x000070, "Wrong size on ControlRigComponent_GetControlOffset");
 static_assert(offsetof(ControlRigComponent_GetControlOffset, ControlName) == 0x000000, "Member 'ControlRigComponent_GetControlOffset::ControlName' has a wrong offset!");
-static_assert(offsetof(ControlRigComponent_GetControlOffset, space) == 0x000008, "Member 'ControlRigComponent_GetControlOffset::space' has a wrong offset!");
+static_assert(offsetof(ControlRigComponent_GetControlOffset, Space) == 0x000008, "Member 'ControlRigComponent_GetControlOffset::Space' has a wrong offset!");
 static_assert(offsetof(ControlRigComponent_GetControlOffset, ReturnValue) == 0x000010, "Member 'ControlRigComponent_GetControlOffset::ReturnValue' has a wrong offset!");
 
 // Function ControlRig.ControlRigComponent.GetControlPosition
@@ -3080,14 +3097,14 @@ struct ControlRigComponent_GetControlPosition final
 {
 public:
 	class FName                                   ControlName;                                       // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EControlRigComponentSpace                     space;                                             // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EControlRigComponentSpace                     Space;                                             // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FVector                                ReturnValue;                                       // 0x0010(0x0018)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ControlRigComponent_GetControlPosition) == 0x000008, "Wrong alignment on ControlRigComponent_GetControlPosition");
 static_assert(sizeof(ControlRigComponent_GetControlPosition) == 0x000028, "Wrong size on ControlRigComponent_GetControlPosition");
 static_assert(offsetof(ControlRigComponent_GetControlPosition, ControlName) == 0x000000, "Member 'ControlRigComponent_GetControlPosition::ControlName' has a wrong offset!");
-static_assert(offsetof(ControlRigComponent_GetControlPosition, space) == 0x000008, "Member 'ControlRigComponent_GetControlPosition::space' has a wrong offset!");
+static_assert(offsetof(ControlRigComponent_GetControlPosition, Space) == 0x000008, "Member 'ControlRigComponent_GetControlPosition::Space' has a wrong offset!");
 static_assert(offsetof(ControlRigComponent_GetControlPosition, ReturnValue) == 0x000010, "Member 'ControlRigComponent_GetControlPosition::ReturnValue' has a wrong offset!");
 
 // Function ControlRig.ControlRigComponent.GetControlRig
@@ -3107,14 +3124,14 @@ struct ControlRigComponent_GetControlRotator final
 {
 public:
 	class FName                                   ControlName;                                       // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EControlRigComponentSpace                     space;                                             // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EControlRigComponentSpace                     Space;                                             // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FRotator                               ReturnValue;                                       // 0x0010(0x0018)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ControlRigComponent_GetControlRotator) == 0x000008, "Wrong alignment on ControlRigComponent_GetControlRotator");
 static_assert(sizeof(ControlRigComponent_GetControlRotator) == 0x000028, "Wrong size on ControlRigComponent_GetControlRotator");
 static_assert(offsetof(ControlRigComponent_GetControlRotator, ControlName) == 0x000000, "Member 'ControlRigComponent_GetControlRotator::ControlName' has a wrong offset!");
-static_assert(offsetof(ControlRigComponent_GetControlRotator, space) == 0x000008, "Member 'ControlRigComponent_GetControlRotator::space' has a wrong offset!");
+static_assert(offsetof(ControlRigComponent_GetControlRotator, Space) == 0x000008, "Member 'ControlRigComponent_GetControlRotator::Space' has a wrong offset!");
 static_assert(offsetof(ControlRigComponent_GetControlRotator, ReturnValue) == 0x000010, "Member 'ControlRigComponent_GetControlRotator::ReturnValue' has a wrong offset!");
 
 // Function ControlRig.ControlRigComponent.GetControlScale
@@ -3123,14 +3140,14 @@ struct ControlRigComponent_GetControlScale final
 {
 public:
 	class FName                                   ControlName;                                       // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EControlRigComponentSpace                     space;                                             // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EControlRigComponentSpace                     Space;                                             // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FVector                                ReturnValue;                                       // 0x0010(0x0018)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ControlRigComponent_GetControlScale) == 0x000008, "Wrong alignment on ControlRigComponent_GetControlScale");
 static_assert(sizeof(ControlRigComponent_GetControlScale) == 0x000028, "Wrong size on ControlRigComponent_GetControlScale");
 static_assert(offsetof(ControlRigComponent_GetControlScale, ControlName) == 0x000000, "Member 'ControlRigComponent_GetControlScale::ControlName' has a wrong offset!");
-static_assert(offsetof(ControlRigComponent_GetControlScale, space) == 0x000008, "Member 'ControlRigComponent_GetControlScale::space' has a wrong offset!");
+static_assert(offsetof(ControlRigComponent_GetControlScale, Space) == 0x000008, "Member 'ControlRigComponent_GetControlScale::Space' has a wrong offset!");
 static_assert(offsetof(ControlRigComponent_GetControlScale, ReturnValue) == 0x000010, "Member 'ControlRigComponent_GetControlScale::ReturnValue' has a wrong offset!");
 
 // Function ControlRig.ControlRigComponent.GetControlTransform
@@ -3139,14 +3156,14 @@ struct ControlRigComponent_GetControlTransform final
 {
 public:
 	class FName                                   ControlName;                                       // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EControlRigComponentSpace                     space;                                             // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EControlRigComponentSpace                     Space;                                             // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FTransform                             ReturnValue;                                       // 0x0010(0x0060)(Parm, OutParm, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ControlRigComponent_GetControlTransform) == 0x000010, "Wrong alignment on ControlRigComponent_GetControlTransform");
 static_assert(sizeof(ControlRigComponent_GetControlTransform) == 0x000070, "Wrong size on ControlRigComponent_GetControlTransform");
 static_assert(offsetof(ControlRigComponent_GetControlTransform, ControlName) == 0x000000, "Member 'ControlRigComponent_GetControlTransform::ControlName' has a wrong offset!");
-static_assert(offsetof(ControlRigComponent_GetControlTransform, space) == 0x000008, "Member 'ControlRigComponent_GetControlTransform::space' has a wrong offset!");
+static_assert(offsetof(ControlRigComponent_GetControlTransform, Space) == 0x000008, "Member 'ControlRigComponent_GetControlTransform::Space' has a wrong offset!");
 static_assert(offsetof(ControlRigComponent_GetControlTransform, ReturnValue) == 0x000010, "Member 'ControlRigComponent_GetControlTransform::ReturnValue' has a wrong offset!");
 
 // Function ControlRig.ControlRigComponent.GetControlVector2D
@@ -3182,14 +3199,14 @@ struct ControlRigComponent_GetInitialBoneTransform final
 {
 public:
 	class FName                                   BoneName;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EControlRigComponentSpace                     space;                                             // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EControlRigComponentSpace                     Space;                                             // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FTransform                             ReturnValue;                                       // 0x0010(0x0060)(Parm, OutParm, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ControlRigComponent_GetInitialBoneTransform) == 0x000010, "Wrong alignment on ControlRigComponent_GetInitialBoneTransform");
 static_assert(sizeof(ControlRigComponent_GetInitialBoneTransform) == 0x000070, "Wrong size on ControlRigComponent_GetInitialBoneTransform");
 static_assert(offsetof(ControlRigComponent_GetInitialBoneTransform, BoneName) == 0x000000, "Member 'ControlRigComponent_GetInitialBoneTransform::BoneName' has a wrong offset!");
-static_assert(offsetof(ControlRigComponent_GetInitialBoneTransform, space) == 0x000008, "Member 'ControlRigComponent_GetInitialBoneTransform::space' has a wrong offset!");
+static_assert(offsetof(ControlRigComponent_GetInitialBoneTransform, Space) == 0x000008, "Member 'ControlRigComponent_GetInitialBoneTransform::Space' has a wrong offset!");
 static_assert(offsetof(ControlRigComponent_GetInitialBoneTransform, ReturnValue) == 0x000010, "Member 'ControlRigComponent_GetInitialBoneTransform::ReturnValue' has a wrong offset!");
 
 // Function ControlRig.ControlRigComponent.GetInitialSpaceTransform
@@ -3198,14 +3215,14 @@ struct ControlRigComponent_GetInitialSpaceTransform final
 {
 public:
 	class FName                                   SpaceName;                                         // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EControlRigComponentSpace                     space;                                             // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EControlRigComponentSpace                     Space;                                             // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FTransform                             ReturnValue;                                       // 0x0010(0x0060)(Parm, OutParm, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ControlRigComponent_GetInitialSpaceTransform) == 0x000010, "Wrong alignment on ControlRigComponent_GetInitialSpaceTransform");
 static_assert(sizeof(ControlRigComponent_GetInitialSpaceTransform) == 0x000070, "Wrong size on ControlRigComponent_GetInitialSpaceTransform");
 static_assert(offsetof(ControlRigComponent_GetInitialSpaceTransform, SpaceName) == 0x000000, "Member 'ControlRigComponent_GetInitialSpaceTransform::SpaceName' has a wrong offset!");
-static_assert(offsetof(ControlRigComponent_GetInitialSpaceTransform, space) == 0x000008, "Member 'ControlRigComponent_GetInitialSpaceTransform::space' has a wrong offset!");
+static_assert(offsetof(ControlRigComponent_GetInitialSpaceTransform, Space) == 0x000008, "Member 'ControlRigComponent_GetInitialSpaceTransform::Space' has a wrong offset!");
 static_assert(offsetof(ControlRigComponent_GetInitialSpaceTransform, ReturnValue) == 0x000010, "Member 'ControlRigComponent_GetInitialSpaceTransform::ReturnValue' has a wrong offset!");
 
 // Function ControlRig.ControlRigComponent.GetSpaceTransform
@@ -3214,14 +3231,14 @@ struct ControlRigComponent_GetSpaceTransform final
 {
 public:
 	class FName                                   SpaceName;                                         // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EControlRigComponentSpace                     space;                                             // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EControlRigComponentSpace                     Space;                                             // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FTransform                             ReturnValue;                                       // 0x0010(0x0060)(Parm, OutParm, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ControlRigComponent_GetSpaceTransform) == 0x000010, "Wrong alignment on ControlRigComponent_GetSpaceTransform");
 static_assert(sizeof(ControlRigComponent_GetSpaceTransform) == 0x000070, "Wrong size on ControlRigComponent_GetSpaceTransform");
 static_assert(offsetof(ControlRigComponent_GetSpaceTransform, SpaceName) == 0x000000, "Member 'ControlRigComponent_GetSpaceTransform::SpaceName' has a wrong offset!");
-static_assert(offsetof(ControlRigComponent_GetSpaceTransform, space) == 0x000008, "Member 'ControlRigComponent_GetSpaceTransform::space' has a wrong offset!");
+static_assert(offsetof(ControlRigComponent_GetSpaceTransform, Space) == 0x000008, "Member 'ControlRigComponent_GetSpaceTransform::Space' has a wrong offset!");
 static_assert(offsetof(ControlRigComponent_GetSpaceTransform, ReturnValue) == 0x000010, "Member 'ControlRigComponent_GetSpaceTransform::ReturnValue' has a wrong offset!");
 
 // Function ControlRig.ControlRigComponent.OnPostConstruction
@@ -3309,7 +3326,7 @@ public:
 	class FName                                   BoneName;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_8[0x8];                                        // 0x0008(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FTransform                             Transform;                                         // 0x0010(0x0060)(Parm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EControlRigComponentSpace                     space;                                             // 0x0070(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EControlRigComponentSpace                     Space;                                             // 0x0070(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_71[0x3];                                       // 0x0071(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	float                                         Weight;                                            // 0x0074(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bPropagateToChildren;                              // 0x0078(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -3319,7 +3336,7 @@ static_assert(alignof(ControlRigComponent_SetBoneTransform) == 0x000010, "Wrong 
 static_assert(sizeof(ControlRigComponent_SetBoneTransform) == 0x000080, "Wrong size on ControlRigComponent_SetBoneTransform");
 static_assert(offsetof(ControlRigComponent_SetBoneTransform, BoneName) == 0x000000, "Member 'ControlRigComponent_SetBoneTransform::BoneName' has a wrong offset!");
 static_assert(offsetof(ControlRigComponent_SetBoneTransform, Transform) == 0x000010, "Member 'ControlRigComponent_SetBoneTransform::Transform' has a wrong offset!");
-static_assert(offsetof(ControlRigComponent_SetBoneTransform, space) == 0x000070, "Member 'ControlRigComponent_SetBoneTransform::space' has a wrong offset!");
+static_assert(offsetof(ControlRigComponent_SetBoneTransform, Space) == 0x000070, "Member 'ControlRigComponent_SetBoneTransform::Space' has a wrong offset!");
 static_assert(offsetof(ControlRigComponent_SetBoneTransform, Weight) == 0x000074, "Member 'ControlRigComponent_SetBoneTransform::Weight' has a wrong offset!");
 static_assert(offsetof(ControlRigComponent_SetBoneTransform, bPropagateToChildren) == 0x000078, "Member 'ControlRigComponent_SetBoneTransform::bPropagateToChildren' has a wrong offset!");
 
@@ -3371,14 +3388,14 @@ public:
 	class FName                                   ControlName;                                       // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_8[0x8];                                        // 0x0008(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FTransform                             OffsetTransform;                                   // 0x0010(0x0060)(Parm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EControlRigComponentSpace                     space;                                             // 0x0070(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EControlRigComponentSpace                     Space;                                             // 0x0070(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_71[0xF];                                       // 0x0071(0x000F)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(ControlRigComponent_SetControlOffset) == 0x000010, "Wrong alignment on ControlRigComponent_SetControlOffset");
 static_assert(sizeof(ControlRigComponent_SetControlOffset) == 0x000080, "Wrong size on ControlRigComponent_SetControlOffset");
 static_assert(offsetof(ControlRigComponent_SetControlOffset, ControlName) == 0x000000, "Member 'ControlRigComponent_SetControlOffset::ControlName' has a wrong offset!");
 static_assert(offsetof(ControlRigComponent_SetControlOffset, OffsetTransform) == 0x000010, "Member 'ControlRigComponent_SetControlOffset::OffsetTransform' has a wrong offset!");
-static_assert(offsetof(ControlRigComponent_SetControlOffset, space) == 0x000070, "Member 'ControlRigComponent_SetControlOffset::space' has a wrong offset!");
+static_assert(offsetof(ControlRigComponent_SetControlOffset, Space) == 0x000070, "Member 'ControlRigComponent_SetControlOffset::Space' has a wrong offset!");
 
 // Function ControlRig.ControlRigComponent.SetControlPosition
 // 0x0028 (0x0028 - 0x0000)
@@ -3387,14 +3404,14 @@ struct ControlRigComponent_SetControlPosition final
 public:
 	class FName                                   ControlName;                                       // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector                                Value;                                             // 0x0008(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EControlRigComponentSpace                     space;                                             // 0x0020(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EControlRigComponentSpace                     Space;                                             // 0x0020(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_21[0x7];                                       // 0x0021(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(ControlRigComponent_SetControlPosition) == 0x000008, "Wrong alignment on ControlRigComponent_SetControlPosition");
 static_assert(sizeof(ControlRigComponent_SetControlPosition) == 0x000028, "Wrong size on ControlRigComponent_SetControlPosition");
 static_assert(offsetof(ControlRigComponent_SetControlPosition, ControlName) == 0x000000, "Member 'ControlRigComponent_SetControlPosition::ControlName' has a wrong offset!");
 static_assert(offsetof(ControlRigComponent_SetControlPosition, Value) == 0x000008, "Member 'ControlRigComponent_SetControlPosition::Value' has a wrong offset!");
-static_assert(offsetof(ControlRigComponent_SetControlPosition, space) == 0x000020, "Member 'ControlRigComponent_SetControlPosition::space' has a wrong offset!");
+static_assert(offsetof(ControlRigComponent_SetControlPosition, Space) == 0x000020, "Member 'ControlRigComponent_SetControlPosition::Space' has a wrong offset!");
 
 // Function ControlRig.ControlRigComponent.SetControlRigClass
 // 0x0008 (0x0008 - 0x0000)
@@ -3414,14 +3431,14 @@ struct ControlRigComponent_SetControlRotator final
 public:
 	class FName                                   ControlName;                                       // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FRotator                               Value;                                             // 0x0008(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-	EControlRigComponentSpace                     space;                                             // 0x0020(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EControlRigComponentSpace                     Space;                                             // 0x0020(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_21[0x7];                                       // 0x0021(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(ControlRigComponent_SetControlRotator) == 0x000008, "Wrong alignment on ControlRigComponent_SetControlRotator");
 static_assert(sizeof(ControlRigComponent_SetControlRotator) == 0x000028, "Wrong size on ControlRigComponent_SetControlRotator");
 static_assert(offsetof(ControlRigComponent_SetControlRotator, ControlName) == 0x000000, "Member 'ControlRigComponent_SetControlRotator::ControlName' has a wrong offset!");
 static_assert(offsetof(ControlRigComponent_SetControlRotator, Value) == 0x000008, "Member 'ControlRigComponent_SetControlRotator::Value' has a wrong offset!");
-static_assert(offsetof(ControlRigComponent_SetControlRotator, space) == 0x000020, "Member 'ControlRigComponent_SetControlRotator::space' has a wrong offset!");
+static_assert(offsetof(ControlRigComponent_SetControlRotator, Space) == 0x000020, "Member 'ControlRigComponent_SetControlRotator::Space' has a wrong offset!");
 
 // Function ControlRig.ControlRigComponent.SetControlScale
 // 0x0028 (0x0028 - 0x0000)
@@ -3430,14 +3447,14 @@ struct ControlRigComponent_SetControlScale final
 public:
 	class FName                                   ControlName;                                       // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector                                Value;                                             // 0x0008(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EControlRigComponentSpace                     space;                                             // 0x0020(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EControlRigComponentSpace                     Space;                                             // 0x0020(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_21[0x7];                                       // 0x0021(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(ControlRigComponent_SetControlScale) == 0x000008, "Wrong alignment on ControlRigComponent_SetControlScale");
 static_assert(sizeof(ControlRigComponent_SetControlScale) == 0x000028, "Wrong size on ControlRigComponent_SetControlScale");
 static_assert(offsetof(ControlRigComponent_SetControlScale, ControlName) == 0x000000, "Member 'ControlRigComponent_SetControlScale::ControlName' has a wrong offset!");
 static_assert(offsetof(ControlRigComponent_SetControlScale, Value) == 0x000008, "Member 'ControlRigComponent_SetControlScale::Value' has a wrong offset!");
-static_assert(offsetof(ControlRigComponent_SetControlScale, space) == 0x000020, "Member 'ControlRigComponent_SetControlScale::space' has a wrong offset!");
+static_assert(offsetof(ControlRigComponent_SetControlScale, Space) == 0x000020, "Member 'ControlRigComponent_SetControlScale::Space' has a wrong offset!");
 
 // Function ControlRig.ControlRigComponent.SetControlTransform
 // 0x0080 (0x0080 - 0x0000)
@@ -3447,14 +3464,14 @@ public:
 	class FName                                   ControlName;                                       // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_8[0x8];                                        // 0x0008(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FTransform                             Value;                                             // 0x0010(0x0060)(Parm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EControlRigComponentSpace                     space;                                             // 0x0070(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EControlRigComponentSpace                     Space;                                             // 0x0070(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_71[0xF];                                       // 0x0071(0x000F)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(ControlRigComponent_SetControlTransform) == 0x000010, "Wrong alignment on ControlRigComponent_SetControlTransform");
 static_assert(sizeof(ControlRigComponent_SetControlTransform) == 0x000080, "Wrong size on ControlRigComponent_SetControlTransform");
 static_assert(offsetof(ControlRigComponent_SetControlTransform, ControlName) == 0x000000, "Member 'ControlRigComponent_SetControlTransform::ControlName' has a wrong offset!");
 static_assert(offsetof(ControlRigComponent_SetControlTransform, Value) == 0x000010, "Member 'ControlRigComponent_SetControlTransform::Value' has a wrong offset!");
-static_assert(offsetof(ControlRigComponent_SetControlTransform, space) == 0x000070, "Member 'ControlRigComponent_SetControlTransform::space' has a wrong offset!");
+static_assert(offsetof(ControlRigComponent_SetControlTransform, Space) == 0x000070, "Member 'ControlRigComponent_SetControlTransform::Space' has a wrong offset!");
 
 // Function ControlRig.ControlRigComponent.SetControlVector2D
 // 0x0018 (0x0018 - 0x0000)
@@ -3477,7 +3494,7 @@ public:
 	class FName                                   BoneName;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_8[0x8];                                        // 0x0008(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FTransform                             InitialTransform;                                  // 0x0010(0x0060)(Parm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EControlRigComponentSpace                     space;                                             // 0x0070(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EControlRigComponentSpace                     Space;                                             // 0x0070(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bPropagateToChildren;                              // 0x0071(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_72[0xE];                                       // 0x0072(0x000E)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
@@ -3485,7 +3502,7 @@ static_assert(alignof(ControlRigComponent_SetInitialBoneTransform) == 0x000010, 
 static_assert(sizeof(ControlRigComponent_SetInitialBoneTransform) == 0x000080, "Wrong size on ControlRigComponent_SetInitialBoneTransform");
 static_assert(offsetof(ControlRigComponent_SetInitialBoneTransform, BoneName) == 0x000000, "Member 'ControlRigComponent_SetInitialBoneTransform::BoneName' has a wrong offset!");
 static_assert(offsetof(ControlRigComponent_SetInitialBoneTransform, InitialTransform) == 0x000010, "Member 'ControlRigComponent_SetInitialBoneTransform::InitialTransform' has a wrong offset!");
-static_assert(offsetof(ControlRigComponent_SetInitialBoneTransform, space) == 0x000070, "Member 'ControlRigComponent_SetInitialBoneTransform::space' has a wrong offset!");
+static_assert(offsetof(ControlRigComponent_SetInitialBoneTransform, Space) == 0x000070, "Member 'ControlRigComponent_SetInitialBoneTransform::Space' has a wrong offset!");
 static_assert(offsetof(ControlRigComponent_SetInitialBoneTransform, bPropagateToChildren) == 0x000071, "Member 'ControlRigComponent_SetInitialBoneTransform::bPropagateToChildren' has a wrong offset!");
 
 // Function ControlRig.ControlRigComponent.SetInitialSpaceTransform
@@ -3496,14 +3513,14 @@ public:
 	class FName                                   SpaceName;                                         // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_8[0x8];                                        // 0x0008(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FTransform                             InitialTransform;                                  // 0x0010(0x0060)(Parm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EControlRigComponentSpace                     space;                                             // 0x0070(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EControlRigComponentSpace                     Space;                                             // 0x0070(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_71[0xF];                                       // 0x0071(0x000F)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(ControlRigComponent_SetInitialSpaceTransform) == 0x000010, "Wrong alignment on ControlRigComponent_SetInitialSpaceTransform");
 static_assert(sizeof(ControlRigComponent_SetInitialSpaceTransform) == 0x000080, "Wrong size on ControlRigComponent_SetInitialSpaceTransform");
 static_assert(offsetof(ControlRigComponent_SetInitialSpaceTransform, SpaceName) == 0x000000, "Member 'ControlRigComponent_SetInitialSpaceTransform::SpaceName' has a wrong offset!");
 static_assert(offsetof(ControlRigComponent_SetInitialSpaceTransform, InitialTransform) == 0x000010, "Member 'ControlRigComponent_SetInitialSpaceTransform::InitialTransform' has a wrong offset!");
-static_assert(offsetof(ControlRigComponent_SetInitialSpaceTransform, space) == 0x000070, "Member 'ControlRigComponent_SetInitialSpaceTransform::space' has a wrong offset!");
+static_assert(offsetof(ControlRigComponent_SetInitialSpaceTransform, Space) == 0x000070, "Member 'ControlRigComponent_SetInitialSpaceTransform::Space' has a wrong offset!");
 
 // Function ControlRig.ControlRigComponent.SetMappedElements
 // 0x0010 (0x0010 - 0x0000)

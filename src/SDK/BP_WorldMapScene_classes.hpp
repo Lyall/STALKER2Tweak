@@ -28,12 +28,12 @@ public:
 	class USceneComponent*                        DefaultSceneRoot;                                  // 0x02B0(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
 
 public:
-	void SetScale(float InScale);
-	void SetOffset(const struct FVector2D& InOffset);
-	void SetNotSelectedAreaBrightness(float InBrightness);
-	void SetMouseUV(const struct FVector& InUV);
-	void SetCaptureEveryFrame(bool bIsEnabled);
 	void ExecuteUbergraph_BP_WorldMapScene(int32 EntryPoint);
+	void SetCaptureEveryFrame(bool bIsEnabled);
+	void SetMouseUV(const struct FVector& InUV);
+	void SetNotSelectedAreaBrightness(float InBrightness);
+	void SetOffset(const struct FVector2D& InOffset);
+	void SetScale(float InScale);
 
 public:
 	static class UClass* StaticClass()

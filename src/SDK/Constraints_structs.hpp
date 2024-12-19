@@ -27,16 +27,6 @@ enum class EHandleEvent : uint8
 	Max                                      = 3,
 };
 
-// ScriptStruct Constraints.ConstraintTickFunction
-// 0x0018 (0x0040 - 0x0028)
-struct FConstraintTickFunction final : public FTickFunction
-{
-public:
-	uint8                                         Pad_28[0x18];                                      // 0x0028(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(FConstraintTickFunction) == 0x000008, "Wrong alignment on FConstraintTickFunction");
-static_assert(sizeof(FConstraintTickFunction) == 0x000040, "Wrong size on FConstraintTickFunction");
-
 // ScriptStruct Constraints.MovieSceneConstraintChannel
 // 0x0000 (0x0100 - 0x0100)
 struct FMovieSceneConstraintChannel final : public FMovieSceneBoolChannel
@@ -59,6 +49,16 @@ static_assert(sizeof(FConstraintAndActiveChannel) == 0x000138, "Wrong size on FC
 static_assert(offsetof(FConstraintAndActiveChannel, Constraint) == 0x000000, "Member 'FConstraintAndActiveChannel::Constraint' has a wrong offset!");
 static_assert(offsetof(FConstraintAndActiveChannel, ActiveChannel) == 0x000030, "Member 'FConstraintAndActiveChannel::ActiveChannel' has a wrong offset!");
 static_assert(offsetof(FConstraintAndActiveChannel, ConstraintCopyToSpawn) == 0x000130, "Member 'FConstraintAndActiveChannel::ConstraintCopyToSpawn' has a wrong offset!");
+
+// ScriptStruct Constraints.ConstraintTickFunction
+// 0x0018 (0x0040 - 0x0028)
+struct FConstraintTickFunction final : public FTickFunction
+{
+public:
+	uint8                                         Pad_28[0x18];                                      // 0x0028(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(FConstraintTickFunction) == 0x000008, "Wrong alignment on FConstraintTickFunction");
+static_assert(sizeof(FConstraintTickFunction) == 0x000040, "Wrong size on FConstraintTickFunction");
 
 }
 

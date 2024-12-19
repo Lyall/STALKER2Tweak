@@ -23,9 +23,9 @@ class UModioSubmissionExtensionLibrary final : public UBlueprintFunctionLibrary
 public:
 	static bool K2_LoadModFileToMemory(class UModioSubsystem* Target, const struct FModioModID& ModId, TArray<uint8>* ModData);
 	static void K2_SubmitNewModFileForModFromMemory(class UModioSubsystem* Target, const struct FModioModID& Mod, const struct FModioCreateModFileMemoryParams& Params_0);
-	static void K2_SubmitNewModFromMemoryAsync(const struct FModioModCreationHandle& Handle, const struct FModioCreateModParams& Params_0, const TArray<uint8>& PngData, TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalModID& NewModID)> Callback);
+	static void K2_SubmitNewModFromMemoryAsync(const struct FModioModCreationHandle& Handle, const struct FModioCreateModParams& Params_0, const TArray<uint8>& PngData, TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalModID& NewModID)> Callback);
 
-	void K2_SubmitModChangesFromMemoryAsync(const struct FModioModID& Mod, const struct FModioEditModParams& Params_0, const TArray<uint8>& PngData, TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalModInfo& ModInfo)> Callback);
+	void K2_SubmitModChangesFromMemoryAsync(const struct FModioModID& Mod, const struct FModioEditModParams& Params_0, const TArray<uint8>& PngData, TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalModInfo& ModInfo)> Callback);
 
 public:
 	static class UClass* StaticClass()

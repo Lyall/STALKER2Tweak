@@ -14,6 +14,26 @@
 namespace SDK
 {
 
+// ScriptStruct DataflowCore.DataflowConnection
+// 0x0040 (0x0040 - 0x0000)
+struct alignas(0x08) FDataflowConnection
+{
+public:
+	uint8                                         Pad_0[0x40];                                       // 0x0000(0x0040)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(FDataflowConnection) == 0x000008, "Wrong alignment on FDataflowConnection");
+static_assert(sizeof(FDataflowConnection) == 0x000040, "Wrong size on FDataflowConnection");
+
+// ScriptStruct DataflowCore.DataflowOutput
+// 0x0028 (0x0068 - 0x0040)
+struct FDataflowOutput final : public FDataflowConnection
+{
+public:
+	uint8                                         Pad_40[0x28];                                      // 0x0040(0x0028)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(FDataflowOutput) == 0x000008, "Wrong alignment on FDataflowOutput");
+static_assert(sizeof(FDataflowOutput) == 0x000068, "Wrong size on FDataflowOutput");
+
 // ScriptStruct DataflowCore.DataflowNode
 // 0x00D0 (0x00D0 - 0x0000)
 struct alignas(0x08) FDataflowNode
@@ -27,16 +47,6 @@ static_assert(alignof(FDataflowNode) == 0x000008, "Wrong alignment on FDataflowN
 static_assert(sizeof(FDataflowNode) == 0x0000D0, "Wrong size on FDataflowNode");
 static_assert(offsetof(FDataflowNode, bActive) == 0x0000C8, "Member 'FDataflowNode::bActive' has a wrong offset!");
 
-// ScriptStruct DataflowCore.DataflowConnection
-// 0x0040 (0x0040 - 0x0000)
-struct alignas(0x08) FDataflowConnection
-{
-public:
-	uint8                                         Pad_0[0x40];                                       // 0x0000(0x0040)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(FDataflowConnection) == 0x000008, "Wrong alignment on FDataflowConnection");
-static_assert(sizeof(FDataflowConnection) == 0x000040, "Wrong size on FDataflowConnection");
-
 // ScriptStruct DataflowCore.DataflowInput
 // 0x0008 (0x0048 - 0x0040)
 struct FDataflowInput final : public FDataflowConnection
@@ -46,16 +56,6 @@ public:
 };
 static_assert(alignof(FDataflowInput) == 0x000008, "Wrong alignment on FDataflowInput");
 static_assert(sizeof(FDataflowInput) == 0x000048, "Wrong size on FDataflowInput");
-
-// ScriptStruct DataflowCore.DataflowOutput
-// 0x0028 (0x0068 - 0x0040)
-struct FDataflowOutput final : public FDataflowConnection
-{
-public:
-	uint8                                         Pad_40[0x28];                                      // 0x0040(0x0028)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(FDataflowOutput) == 0x000008, "Wrong alignment on FDataflowOutput");
-static_assert(sizeof(FDataflowOutput) == 0x000068, "Wrong size on FDataflowOutput");
 
 }
 

@@ -10,8 +10,8 @@
 
 #include "Basic.hpp"
 
-#include "SlateCore_structs.hpp"
 #include "Engine_structs.hpp"
+#include "SlateCore_structs.hpp"
 #include "GameplayTags_structs.hpp"
 #include "CoreUObject_structs.hpp"
 #include "InputCore_structs.hpp"
@@ -77,26 +77,6 @@ enum class ETransitionCurve : uint8
 	ETransitionCurve_MAX                     = 7,
 };
 
-// ScriptStruct CommonUI.CommonInputTypeInfo
-// 0x0110 (0x0110 - 0x0000)
-struct FCommonInputTypeInfo final
-{
-public:
-	struct FKey                                   Key;                                               // 0x0000(0x0018)(Edit, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	EInputActionState                             OverrrideState;                                    // 0x0018(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bActionRequiresHold;                               // 0x0019(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1A[0x2];                                       // 0x001A(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         HoldTime;                                          // 0x001C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FSlateBrush                            OverrideBrush;                                     // 0x0020(0x00F0)(Edit, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(FCommonInputTypeInfo) == 0x000010, "Wrong alignment on FCommonInputTypeInfo");
-static_assert(sizeof(FCommonInputTypeInfo) == 0x000110, "Wrong size on FCommonInputTypeInfo");
-static_assert(offsetof(FCommonInputTypeInfo, Key) == 0x000000, "Member 'FCommonInputTypeInfo::Key' has a wrong offset!");
-static_assert(offsetof(FCommonInputTypeInfo, OverrrideState) == 0x000018, "Member 'FCommonInputTypeInfo::OverrrideState' has a wrong offset!");
-static_assert(offsetof(FCommonInputTypeInfo, bActionRequiresHold) == 0x000019, "Member 'FCommonInputTypeInfo::bActionRequiresHold' has a wrong offset!");
-static_assert(offsetof(FCommonInputTypeInfo, HoldTime) == 0x00001C, "Member 'FCommonInputTypeInfo::HoldTime' has a wrong offset!");
-static_assert(offsetof(FCommonInputTypeInfo, OverrideBrush) == 0x000020, "Member 'FCommonInputTypeInfo::OverrideBrush' has a wrong offset!");
-
 // ScriptStruct CommonUI.CommonNumberFormattingOptions
 // 0x0014 (0x0014 - 0x0000)
 struct FCommonNumberFormattingOptions final
@@ -118,6 +98,20 @@ static_assert(offsetof(FCommonNumberFormattingOptions, MinimumIntegralDigits) ==
 static_assert(offsetof(FCommonNumberFormattingOptions, MaximumIntegralDigits) == 0x000008, "Member 'FCommonNumberFormattingOptions::MaximumIntegralDigits' has a wrong offset!");
 static_assert(offsetof(FCommonNumberFormattingOptions, MinimumFractionalDigits) == 0x00000C, "Member 'FCommonNumberFormattingOptions::MinimumFractionalDigits' has a wrong offset!");
 static_assert(offsetof(FCommonNumberFormattingOptions, MaximumFractionalDigits) == 0x000010, "Member 'FCommonNumberFormattingOptions::MaximumFractionalDigits' has a wrong offset!");
+
+// ScriptStruct CommonUI.CommonButtonStyleOptionalSlateSound
+// 0x0020 (0x0020 - 0x0000)
+struct FCommonButtonStyleOptionalSlateSound final
+{
+public:
+	bool                                          bHasSound;                                         // 0x0000(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FSlateSound                            Sound;                                             // 0x0008(0x0018)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(FCommonButtonStyleOptionalSlateSound) == 0x000008, "Wrong alignment on FCommonButtonStyleOptionalSlateSound");
+static_assert(sizeof(FCommonButtonStyleOptionalSlateSound) == 0x000020, "Wrong size on FCommonButtonStyleOptionalSlateSound");
+static_assert(offsetof(FCommonButtonStyleOptionalSlateSound, bHasSound) == 0x000000, "Member 'FCommonButtonStyleOptionalSlateSound::bHasSound' has a wrong offset!");
+static_assert(offsetof(FCommonButtonStyleOptionalSlateSound, Sound) == 0x000008, "Member 'FCommonButtonStyleOptionalSlateSound::Sound' has a wrong offset!");
 
 // ScriptStruct CommonUI.CommonRegisteredTabInfo
 // 0x0018 (0x0018 - 0x0000)
@@ -165,20 +159,6 @@ static_assert(sizeof(FCommonInputActionHandlerData) == 0x000020, "Wrong size on 
 static_assert(offsetof(FCommonInputActionHandlerData, InputActionRow) == 0x000000, "Member 'FCommonInputActionHandlerData::InputActionRow' has a wrong offset!");
 static_assert(offsetof(FCommonInputActionHandlerData, State) == 0x000010, "Member 'FCommonInputActionHandlerData::State' has a wrong offset!");
 
-// ScriptStruct CommonUI.CommonButtonStyleOptionalSlateSound
-// 0x0020 (0x0020 - 0x0000)
-struct FCommonButtonStyleOptionalSlateSound final
-{
-public:
-	bool                                          bHasSound;                                         // 0x0000(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FSlateSound                            Sound;                                             // 0x0008(0x0018)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(FCommonButtonStyleOptionalSlateSound) == 0x000008, "Wrong alignment on FCommonButtonStyleOptionalSlateSound");
-static_assert(sizeof(FCommonButtonStyleOptionalSlateSound) == 0x000020, "Wrong size on FCommonButtonStyleOptionalSlateSound");
-static_assert(offsetof(FCommonButtonStyleOptionalSlateSound, bHasSound) == 0x000000, "Member 'FCommonButtonStyleOptionalSlateSound::bHasSound' has a wrong offset!");
-static_assert(offsetof(FCommonButtonStyleOptionalSlateSound, Sound) == 0x000008, "Member 'FCommonButtonStyleOptionalSlateSound::Sound' has a wrong offset!");
-
 // ScriptStruct CommonUI.RichTextIconData
 // 0x0058 (0x0060 - 0x0008)
 struct FRichTextIconData final : public FTableRowBase
@@ -193,6 +173,26 @@ static_assert(sizeof(FRichTextIconData) == 0x000060, "Wrong size on FRichTextIco
 static_assert(offsetof(FRichTextIconData, DisplayName) == 0x000008, "Member 'FRichTextIconData::DisplayName' has a wrong offset!");
 static_assert(offsetof(FRichTextIconData, ResourceObject) == 0x000020, "Member 'FRichTextIconData::ResourceObject' has a wrong offset!");
 static_assert(offsetof(FRichTextIconData, ImageSize) == 0x000050, "Member 'FRichTextIconData::ImageSize' has a wrong offset!");
+
+// ScriptStruct CommonUI.CommonInputTypeInfo
+// 0x0110 (0x0110 - 0x0000)
+struct FCommonInputTypeInfo final
+{
+public:
+	struct FKey                                   Key;                                               // 0x0000(0x0018)(Edit, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	EInputActionState                             OverrrideState;                                    // 0x0018(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bActionRequiresHold;                               // 0x0019(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1A[0x2];                                       // 0x001A(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         HoldTime;                                          // 0x001C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FSlateBrush                            OverrideBrush;                                     // 0x0020(0x00F0)(Edit, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(FCommonInputTypeInfo) == 0x000010, "Wrong alignment on FCommonInputTypeInfo");
+static_assert(sizeof(FCommonInputTypeInfo) == 0x000110, "Wrong size on FCommonInputTypeInfo");
+static_assert(offsetof(FCommonInputTypeInfo, Key) == 0x000000, "Member 'FCommonInputTypeInfo::Key' has a wrong offset!");
+static_assert(offsetof(FCommonInputTypeInfo, OverrrideState) == 0x000018, "Member 'FCommonInputTypeInfo::OverrrideState' has a wrong offset!");
+static_assert(offsetof(FCommonInputTypeInfo, bActionRequiresHold) == 0x000019, "Member 'FCommonInputTypeInfo::bActionRequiresHold' has a wrong offset!");
+static_assert(offsetof(FCommonInputTypeInfo, HoldTime) == 0x00001C, "Member 'FCommonInputTypeInfo::HoldTime' has a wrong offset!");
+static_assert(offsetof(FCommonInputTypeInfo, OverrideBrush) == 0x000020, "Member 'FCommonInputTypeInfo::OverrideBrush' has a wrong offset!");
 
 // ScriptStruct CommonUI.CommonInputActionDataBase
 // 0x03B8 (0x03C0 - 0x0008)

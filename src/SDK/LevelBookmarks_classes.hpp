@@ -12,10 +12,10 @@
 
 #include "DeveloperSettings_classes.hpp"
 #include "Engine_classes.hpp"
+#include "LevelBookmarks_structs.hpp"
 #include "UMG_classes.hpp"
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
-#include "LevelBookmarks_structs.hpp"
 
 
 namespace SDK

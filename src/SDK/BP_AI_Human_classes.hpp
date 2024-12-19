@@ -17,16 +17,15 @@ namespace SDK
 {
 
 // BlueprintGeneratedClass BP_AI_Human.BP_AI_Human_C
-// 0x0030 (0x0AE0 - 0x0AB0)
+// 0x0030 (0x0B00 - 0x0AD0)
 class ABP_AI_Human_C final : public AAgent
 {
 public:
-	uint8                                         Pad_AA8[0x8];                                      // 0x0AA8(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	class USpotLightComponent*                    AdditionalNPCSpotLight;                            // 0x0AB0(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
-	class UStaticMeshComponent*                   FakeLightBeam;                                     // 0x0AB8(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
-	class USpotLightComponent*                    SpotLight;                                         // 0x0AC0(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
-	class UPhysicalAnimationComponent*            PhysicalAnimation;                                 // 0x0AC8(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
-	class ULookAtSourceComponent*                 LookAtSource;                                      // 0x0AD0(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	class USpotLightComponent*                    AdditionalNPCSpotLight;                            // 0x0AD0(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	class UStaticMeshComponent*                   FakeLightBeam;                                     // 0x0AD8(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	class USpotLightComponent*                    SpotLight;                                         // 0x0AE0(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	class UPhysicalAnimationComponent*            PhysicalAnimation;                                 // 0x0AE8(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	class ULookAtSourceComponent*                 LookAtSource;                                      // 0x0AF0(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
 
 public:
 	static class UClass* StaticClass()
@@ -39,12 +38,12 @@ public:
 	}
 };
 static_assert(alignof(ABP_AI_Human_C) == 0x000010, "Wrong alignment on ABP_AI_Human_C");
-static_assert(sizeof(ABP_AI_Human_C) == 0x000AE0, "Wrong size on ABP_AI_Human_C");
-static_assert(offsetof(ABP_AI_Human_C, AdditionalNPCSpotLight) == 0x000AB0, "Member 'ABP_AI_Human_C::AdditionalNPCSpotLight' has a wrong offset!");
-static_assert(offsetof(ABP_AI_Human_C, FakeLightBeam) == 0x000AB8, "Member 'ABP_AI_Human_C::FakeLightBeam' has a wrong offset!");
-static_assert(offsetof(ABP_AI_Human_C, SpotLight) == 0x000AC0, "Member 'ABP_AI_Human_C::SpotLight' has a wrong offset!");
-static_assert(offsetof(ABP_AI_Human_C, PhysicalAnimation) == 0x000AC8, "Member 'ABP_AI_Human_C::PhysicalAnimation' has a wrong offset!");
-static_assert(offsetof(ABP_AI_Human_C, LookAtSource) == 0x000AD0, "Member 'ABP_AI_Human_C::LookAtSource' has a wrong offset!");
+static_assert(sizeof(ABP_AI_Human_C) == 0x000B00, "Wrong size on ABP_AI_Human_C");
+static_assert(offsetof(ABP_AI_Human_C, AdditionalNPCSpotLight) == 0x000AD0, "Member 'ABP_AI_Human_C::AdditionalNPCSpotLight' has a wrong offset!");
+static_assert(offsetof(ABP_AI_Human_C, FakeLightBeam) == 0x000AD8, "Member 'ABP_AI_Human_C::FakeLightBeam' has a wrong offset!");
+static_assert(offsetof(ABP_AI_Human_C, SpotLight) == 0x000AE0, "Member 'ABP_AI_Human_C::SpotLight' has a wrong offset!");
+static_assert(offsetof(ABP_AI_Human_C, PhysicalAnimation) == 0x000AE8, "Member 'ABP_AI_Human_C::PhysicalAnimation' has a wrong offset!");
+static_assert(offsetof(ABP_AI_Human_C, LookAtSource) == 0x000AF0, "Member 'ABP_AI_Human_C::LookAtSource' has a wrong offset!");
 
 }
 

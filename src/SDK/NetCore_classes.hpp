@@ -10,8 +10,8 @@
 
 #include "Basic.hpp"
 
-#include "NetCore_structs.hpp"
 #include "CoreUObject_classes.hpp"
+#include "NetCore_structs.hpp"
 
 
 namespace SDK

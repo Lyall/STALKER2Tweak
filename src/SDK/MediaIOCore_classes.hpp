@@ -10,11 +10,11 @@
 
 #include "Basic.hpp"
 
+#include "MediaIOCore_structs.hpp"
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
-#include "MediaIOCore_structs.hpp"
-#include "ImageWriteQueue_structs.hpp"
 #include "Engine_classes.hpp"
+#include "ImageWriteQueue_structs.hpp"
 
 
 namespace SDK
@@ -25,7 +25,7 @@ namespace SDK
 class UMediaCapture : public UObject
 {
 public:
-	TMulticastInlineDelegate<void()>              OnStateChanged;                                    // 0x0028(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnStateChanged;                                    // 0x0028(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 	uint8                                         Pad_38[0x18];                                      // 0x0038(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
 	class UMediaOutput*                           MediaOutput;                                       // 0x0050(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	uint8                                         Pad_58[0x10];                                      // 0x0058(0x0010)(Fixing Size After Last Property [ Dumper-7 ])

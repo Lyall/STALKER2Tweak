@@ -368,14 +368,14 @@ struct FScriptTypedElementListProxy UTypedElementListLibrary::CreateScriptElemen
 // struct FScriptTypedElementListProxy     ElementList                                            (Parm, NativeAccessSpecifierPublic)
 // int32                                   Slack                                                  (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UTypedElementListLibrary::empty(const struct FScriptTypedElementListProxy& ElementList, const int32 Slack)
+void UTypedElementListLibrary::Empty(const struct FScriptTypedElementListProxy& ElementList, const int32 Slack)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
 		Func = StaticClass()->GetFunction("TypedElementListLibrary", "empty");
 
-	Params::TypedElementListLibrary_empty Parms{};
+	Params::TypedElementListLibrary_Empty Parms{};
 
 	Parms.ElementList = std::move(ElementList);
 	Parms.Slack = Slack;
@@ -633,9 +633,9 @@ bool UTypedElementListLibrary::Remove(const struct FScriptTypedElementListProxy&
 // (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
 // struct FScriptTypedElementListProxy     ElementList                                            (Parm, NativeAccessSpecifierPublic)
-// int32                                   size                                                   (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   Size                                                   (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UTypedElementListLibrary::Reserve(const struct FScriptTypedElementListProxy& ElementList, const int32 size)
+void UTypedElementListLibrary::Reserve(const struct FScriptTypedElementListProxy& ElementList, const int32 Size)
 {
 	static class UFunction* Func = nullptr;
 
@@ -645,7 +645,7 @@ void UTypedElementListLibrary::Reserve(const struct FScriptTypedElementListProxy
 	Params::TypedElementListLibrary_Reserve Parms{};
 
 	Parms.ElementList = std::move(ElementList);
-	Parms.size = size;
+	Parms.Size = Size;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;

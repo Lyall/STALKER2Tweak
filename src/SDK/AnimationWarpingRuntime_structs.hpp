@@ -10,13 +10,24 @@
 
 #include "Basic.hpp"
 
-#include "AnimGraphRuntime_structs.hpp"
 #include "Engine_structs.hpp"
+#include "AnimGraphRuntime_structs.hpp"
 #include "CoreUObject_structs.hpp"
 
 
 namespace SDK
 {
+
+// Enum AnimationWarpingRuntime.EOffsetRootBoneMode
+// NumValues: 0x0005
+enum class EOffsetRootBoneMode : uint8
+{
+	Accumulate                               = 0,
+	Interpolate                              = 1,
+	Hold                                     = 2,
+	Release                                  = 3,
+	EOffsetRootBoneMode_MAX                  = 4,
+};
 
 // Enum AnimationWarpingRuntime.EFootPlacementLockType
 // NumValues: 0x0005
@@ -49,197 +60,6 @@ enum class EActorMovementCompensationMode : uint8
 	EActorMovementCompensationMode_MAX       = 3,
 };
 
-// Enum AnimationWarpingRuntime.EOffsetRootBoneMode
-// NumValues: 0x0005
-enum class EOffsetRootBoneMode : uint8
-{
-	Accumulate                               = 0,
-	Interpolate                              = 1,
-	Hold                                     = 2,
-	Release                                  = 3,
-	EOffsetRootBoneMode_MAX                  = 4,
-};
-
-// ScriptStruct AnimationWarpingRuntime.FootPlacementPelvisSettings
-// 0x0028 (0x0028 - 0x0000)
-struct FFootPlacementPelvisSettings final
-{
-public:
-	float                                         MaxOffset;                                         // 0x0000(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bUseSeparateOffset;                                // 0x0004(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_5[0x3];                                        // 0x0005(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         MaxOffsetUp;                                       // 0x0008(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         MaxOffsetDown;                                     // 0x000C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         LinearStiffness;                                   // 0x0010(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         LinearDamping;                                     // 0x0014(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         HorizontalRebalancingWeight;                       // 0x0018(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         MaxOffsetHorizontal;                               // 0x001C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         HeelLiftRatio;                                     // 0x0020(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EPelvisHeightMode                             PelvisHeightMode;                                  // 0x0024(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EActorMovementCompensationMode                ActorMovementCompensationMode;                     // 0x0025(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bEnableInterpolation;                              // 0x0026(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_27[0x1];                                       // 0x0027(0x0001)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(FFootPlacementPelvisSettings) == 0x000004, "Wrong alignment on FFootPlacementPelvisSettings");
-static_assert(sizeof(FFootPlacementPelvisSettings) == 0x000028, "Wrong size on FFootPlacementPelvisSettings");
-static_assert(offsetof(FFootPlacementPelvisSettings, MaxOffset) == 0x000000, "Member 'FFootPlacementPelvisSettings::MaxOffset' has a wrong offset!");
-static_assert(offsetof(FFootPlacementPelvisSettings, bUseSeparateOffset) == 0x000004, "Member 'FFootPlacementPelvisSettings::bUseSeparateOffset' has a wrong offset!");
-static_assert(offsetof(FFootPlacementPelvisSettings, MaxOffsetUp) == 0x000008, "Member 'FFootPlacementPelvisSettings::MaxOffsetUp' has a wrong offset!");
-static_assert(offsetof(FFootPlacementPelvisSettings, MaxOffsetDown) == 0x00000C, "Member 'FFootPlacementPelvisSettings::MaxOffsetDown' has a wrong offset!");
-static_assert(offsetof(FFootPlacementPelvisSettings, LinearStiffness) == 0x000010, "Member 'FFootPlacementPelvisSettings::LinearStiffness' has a wrong offset!");
-static_assert(offsetof(FFootPlacementPelvisSettings, LinearDamping) == 0x000014, "Member 'FFootPlacementPelvisSettings::LinearDamping' has a wrong offset!");
-static_assert(offsetof(FFootPlacementPelvisSettings, HorizontalRebalancingWeight) == 0x000018, "Member 'FFootPlacementPelvisSettings::HorizontalRebalancingWeight' has a wrong offset!");
-static_assert(offsetof(FFootPlacementPelvisSettings, MaxOffsetHorizontal) == 0x00001C, "Member 'FFootPlacementPelvisSettings::MaxOffsetHorizontal' has a wrong offset!");
-static_assert(offsetof(FFootPlacementPelvisSettings, HeelLiftRatio) == 0x000020, "Member 'FFootPlacementPelvisSettings::HeelLiftRatio' has a wrong offset!");
-static_assert(offsetof(FFootPlacementPelvisSettings, PelvisHeightMode) == 0x000024, "Member 'FFootPlacementPelvisSettings::PelvisHeightMode' has a wrong offset!");
-static_assert(offsetof(FFootPlacementPelvisSettings, ActorMovementCompensationMode) == 0x000025, "Member 'FFootPlacementPelvisSettings::ActorMovementCompensationMode' has a wrong offset!");
-static_assert(offsetof(FFootPlacementPelvisSettings, bEnableInterpolation) == 0x000026, "Member 'FFootPlacementPelvisSettings::bEnableInterpolation' has a wrong offset!");
-
-// ScriptStruct AnimationWarpingRuntime.FootPlacemenLegDefinition
-// 0x0044 (0x0044 - 0x0000)
-struct FFootPlacemenLegDefinition final
-{
-public:
-	struct FBoneReference                         FKFootBone;                                        // 0x0000(0x0010)(Edit, NoDestructor, NativeAccessSpecifierPublic)
-	struct FBoneReference                         IKFootBone;                                        // 0x0010(0x0010)(Edit, NoDestructor, NativeAccessSpecifierPublic)
-	struct FBoneReference                         BallBone;                                          // 0x0020(0x0010)(Edit, NoDestructor, NativeAccessSpecifierPublic)
-	int32                                         NumBonesInLimb;                                    // 0x0030(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   SpeedCurveName;                                    // 0x0034(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   DisableLockCurveName;                              // 0x003C(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(FFootPlacemenLegDefinition) == 0x000004, "Wrong alignment on FFootPlacemenLegDefinition");
-static_assert(sizeof(FFootPlacemenLegDefinition) == 0x000044, "Wrong size on FFootPlacemenLegDefinition");
-static_assert(offsetof(FFootPlacemenLegDefinition, FKFootBone) == 0x000000, "Member 'FFootPlacemenLegDefinition::FKFootBone' has a wrong offset!");
-static_assert(offsetof(FFootPlacemenLegDefinition, IKFootBone) == 0x000010, "Member 'FFootPlacemenLegDefinition::IKFootBone' has a wrong offset!");
-static_assert(offsetof(FFootPlacemenLegDefinition, BallBone) == 0x000020, "Member 'FFootPlacemenLegDefinition::BallBone' has a wrong offset!");
-static_assert(offsetof(FFootPlacemenLegDefinition, NumBonesInLimb) == 0x000030, "Member 'FFootPlacemenLegDefinition::NumBonesInLimb' has a wrong offset!");
-static_assert(offsetof(FFootPlacemenLegDefinition, SpeedCurveName) == 0x000034, "Member 'FFootPlacemenLegDefinition::SpeedCurveName' has a wrong offset!");
-static_assert(offsetof(FFootPlacemenLegDefinition, DisableLockCurveName) == 0x00003C, "Member 'FFootPlacemenLegDefinition::DisableLockCurveName' has a wrong offset!");
-
-// ScriptStruct AnimationWarpingRuntime.FootPlacementPlantSettings
-// 0x0034 (0x0034 - 0x0000)
-struct FFootPlacementPlantSettings final
-{
-public:
-	float                                         SpeedThreshold;                                    // 0x0000(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         DistanceToGround;                                  // 0x0004(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EFootPlacementLockType                        LockType;                                          // 0x0008(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x3];                                        // 0x0009(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         UnplantRadius;                                     // 0x000C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         ReplantRadiusRatio;                                // 0x0010(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         UnplantAngle;                                      // 0x0014(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         ReplantAngleRatio;                                 // 0x0018(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         MaxExtensionRatio;                                 // 0x001C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         MinExtensionRatio;                                 // 0x0020(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         SeparatingDistance;                                // 0x0024(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         UnalignmentSpeedThreshold;                         // 0x0028(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         AnkleTwistReduction;                               // 0x002C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bAdjustHeelBeforePlanting;                         // 0x0030(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_31[0x3];                                       // 0x0031(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(FFootPlacementPlantSettings) == 0x000004, "Wrong alignment on FFootPlacementPlantSettings");
-static_assert(sizeof(FFootPlacementPlantSettings) == 0x000034, "Wrong size on FFootPlacementPlantSettings");
-static_assert(offsetof(FFootPlacementPlantSettings, SpeedThreshold) == 0x000000, "Member 'FFootPlacementPlantSettings::SpeedThreshold' has a wrong offset!");
-static_assert(offsetof(FFootPlacementPlantSettings, DistanceToGround) == 0x000004, "Member 'FFootPlacementPlantSettings::DistanceToGround' has a wrong offset!");
-static_assert(offsetof(FFootPlacementPlantSettings, LockType) == 0x000008, "Member 'FFootPlacementPlantSettings::LockType' has a wrong offset!");
-static_assert(offsetof(FFootPlacementPlantSettings, UnplantRadius) == 0x00000C, "Member 'FFootPlacementPlantSettings::UnplantRadius' has a wrong offset!");
-static_assert(offsetof(FFootPlacementPlantSettings, ReplantRadiusRatio) == 0x000010, "Member 'FFootPlacementPlantSettings::ReplantRadiusRatio' has a wrong offset!");
-static_assert(offsetof(FFootPlacementPlantSettings, UnplantAngle) == 0x000014, "Member 'FFootPlacementPlantSettings::UnplantAngle' has a wrong offset!");
-static_assert(offsetof(FFootPlacementPlantSettings, ReplantAngleRatio) == 0x000018, "Member 'FFootPlacementPlantSettings::ReplantAngleRatio' has a wrong offset!");
-static_assert(offsetof(FFootPlacementPlantSettings, MaxExtensionRatio) == 0x00001C, "Member 'FFootPlacementPlantSettings::MaxExtensionRatio' has a wrong offset!");
-static_assert(offsetof(FFootPlacementPlantSettings, MinExtensionRatio) == 0x000020, "Member 'FFootPlacementPlantSettings::MinExtensionRatio' has a wrong offset!");
-static_assert(offsetof(FFootPlacementPlantSettings, SeparatingDistance) == 0x000024, "Member 'FFootPlacementPlantSettings::SeparatingDistance' has a wrong offset!");
-static_assert(offsetof(FFootPlacementPlantSettings, UnalignmentSpeedThreshold) == 0x000028, "Member 'FFootPlacementPlantSettings::UnalignmentSpeedThreshold' has a wrong offset!");
-static_assert(offsetof(FFootPlacementPlantSettings, AnkleTwistReduction) == 0x00002C, "Member 'FFootPlacementPlantSettings::AnkleTwistReduction' has a wrong offset!");
-static_assert(offsetof(FFootPlacementPlantSettings, bAdjustHeelBeforePlanting) == 0x000030, "Member 'FFootPlacementPlantSettings::bAdjustHeelBeforePlanting' has a wrong offset!");
-
-// ScriptStruct AnimationWarpingRuntime.FootPlacementInterpolationSettings
-// 0x0024 (0x0024 - 0x0000)
-struct FFootPlacementInterpolationSettings final
-{
-public:
-	float                                         UnplantLinearStiffness;                            // 0x0000(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         UnplantLinearDamping;                              // 0x0004(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         UnplantAngularStiffness;                           // 0x0008(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         UnplantAngularDamping;                             // 0x000C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         FloorLinearStiffness;                              // 0x0010(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         FloorLinearDamping;                                // 0x0014(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         FloorAngularStiffness;                             // 0x0018(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         FloorAngularDamping;                               // 0x001C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bEnableFloorInterpolation;                         // 0x0020(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_21[0x3];                                       // 0x0021(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(FFootPlacementInterpolationSettings) == 0x000004, "Wrong alignment on FFootPlacementInterpolationSettings");
-static_assert(sizeof(FFootPlacementInterpolationSettings) == 0x000024, "Wrong size on FFootPlacementInterpolationSettings");
-static_assert(offsetof(FFootPlacementInterpolationSettings, UnplantLinearStiffness) == 0x000000, "Member 'FFootPlacementInterpolationSettings::UnplantLinearStiffness' has a wrong offset!");
-static_assert(offsetof(FFootPlacementInterpolationSettings, UnplantLinearDamping) == 0x000004, "Member 'FFootPlacementInterpolationSettings::UnplantLinearDamping' has a wrong offset!");
-static_assert(offsetof(FFootPlacementInterpolationSettings, UnplantAngularStiffness) == 0x000008, "Member 'FFootPlacementInterpolationSettings::UnplantAngularStiffness' has a wrong offset!");
-static_assert(offsetof(FFootPlacementInterpolationSettings, UnplantAngularDamping) == 0x00000C, "Member 'FFootPlacementInterpolationSettings::UnplantAngularDamping' has a wrong offset!");
-static_assert(offsetof(FFootPlacementInterpolationSettings, FloorLinearStiffness) == 0x000010, "Member 'FFootPlacementInterpolationSettings::FloorLinearStiffness' has a wrong offset!");
-static_assert(offsetof(FFootPlacementInterpolationSettings, FloorLinearDamping) == 0x000014, "Member 'FFootPlacementInterpolationSettings::FloorLinearDamping' has a wrong offset!");
-static_assert(offsetof(FFootPlacementInterpolationSettings, FloorAngularStiffness) == 0x000018, "Member 'FFootPlacementInterpolationSettings::FloorAngularStiffness' has a wrong offset!");
-static_assert(offsetof(FFootPlacementInterpolationSettings, FloorAngularDamping) == 0x00001C, "Member 'FFootPlacementInterpolationSettings::FloorAngularDamping' has a wrong offset!");
-static_assert(offsetof(FFootPlacementInterpolationSettings, bEnableFloorInterpolation) == 0x000020, "Member 'FFootPlacementInterpolationSettings::bEnableFloorInterpolation' has a wrong offset!");
-
-// ScriptStruct AnimationWarpingRuntime.FootPlacementTraceSettings
-// 0x0024 (0x0024 - 0x0000)
-struct FFootPlacementTraceSettings final
-{
-public:
-	float                                         StartOffset;                                       // 0x0000(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         EndOffset;                                         // 0x0004(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         SweepRadius;                                       // 0x0008(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	ETraceTypeQuery                               ComplexTraceChannel;                               // 0x000C(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_D[0x3];                                        // 0x000D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         MaxGroundPenetration;                              // 0x0010(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         SimpleCollisionInfluence;                          // 0x0014(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         MaxHeightGrowThreshhold;                           // 0x0018(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         MaxHeightGrowInterpolation;                        // 0x001C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	ETraceTypeQuery                               SimpleTraceChannel;                                // 0x0020(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bEnabled;                                          // 0x0021(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_22[0x2];                                       // 0x0022(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(FFootPlacementTraceSettings) == 0x000004, "Wrong alignment on FFootPlacementTraceSettings");
-static_assert(sizeof(FFootPlacementTraceSettings) == 0x000024, "Wrong size on FFootPlacementTraceSettings");
-static_assert(offsetof(FFootPlacementTraceSettings, StartOffset) == 0x000000, "Member 'FFootPlacementTraceSettings::StartOffset' has a wrong offset!");
-static_assert(offsetof(FFootPlacementTraceSettings, EndOffset) == 0x000004, "Member 'FFootPlacementTraceSettings::EndOffset' has a wrong offset!");
-static_assert(offsetof(FFootPlacementTraceSettings, SweepRadius) == 0x000008, "Member 'FFootPlacementTraceSettings::SweepRadius' has a wrong offset!");
-static_assert(offsetof(FFootPlacementTraceSettings, ComplexTraceChannel) == 0x00000C, "Member 'FFootPlacementTraceSettings::ComplexTraceChannel' has a wrong offset!");
-static_assert(offsetof(FFootPlacementTraceSettings, MaxGroundPenetration) == 0x000010, "Member 'FFootPlacementTraceSettings::MaxGroundPenetration' has a wrong offset!");
-static_assert(offsetof(FFootPlacementTraceSettings, SimpleCollisionInfluence) == 0x000014, "Member 'FFootPlacementTraceSettings::SimpleCollisionInfluence' has a wrong offset!");
-static_assert(offsetof(FFootPlacementTraceSettings, MaxHeightGrowThreshhold) == 0x000018, "Member 'FFootPlacementTraceSettings::MaxHeightGrowThreshhold' has a wrong offset!");
-static_assert(offsetof(FFootPlacementTraceSettings, MaxHeightGrowInterpolation) == 0x00001C, "Member 'FFootPlacementTraceSettings::MaxHeightGrowInterpolation' has a wrong offset!");
-static_assert(offsetof(FFootPlacementTraceSettings, SimpleTraceChannel) == 0x000020, "Member 'FFootPlacementTraceSettings::SimpleTraceChannel' has a wrong offset!");
-static_assert(offsetof(FFootPlacementTraceSettings, bEnabled) == 0x000021, "Member 'FFootPlacementTraceSettings::bEnabled' has a wrong offset!");
-
-// ScriptStruct AnimationWarpingRuntime.AnimNode_FootPlacement
-// 0x0388 (0x0450 - 0x00C8)
-struct alignas(0x10) FAnimNode_FootPlacement final : public FAnimNode_SkeletalControlBase
-{
-public:
-	EWarpingEvaluationMode                        PlantSpeedMode;                                    // 0x00C8(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_C9[0x3];                                       // 0x00C9(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FBoneReference                         IKFootRootBone;                                    // 0x00CC(0x0010)(Edit, NoDestructor, NativeAccessSpecifierPublic)
-	struct FBoneReference                         PelvisBone;                                        // 0x00DC(0x0010)(Edit, NoDestructor, NativeAccessSpecifierPublic)
-	struct FFootPlacementPelvisSettings           PelvisSettings;                                    // 0x00EC(0x0028)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_114[0x4];                                      // 0x0114(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FFootPlacemenLegDefinition>     LegDefinitions;                                    // 0x0118(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
-	struct FFootPlacementPlantSettings            PlantSettings;                                     // 0x0128(0x0034)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
-	struct FFootPlacementInterpolationSettings    InterpolationSettings;                             // 0x015C(0x0024)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
-	struct FFootPlacementTraceSettings            TraceSettings;                                     // 0x0180(0x0024)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1A4[0x2AC];                                    // 0x01A4(0x02AC)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(FAnimNode_FootPlacement) == 0x000010, "Wrong alignment on FAnimNode_FootPlacement");
-static_assert(sizeof(FAnimNode_FootPlacement) == 0x000450, "Wrong size on FAnimNode_FootPlacement");
-static_assert(offsetof(FAnimNode_FootPlacement, PlantSpeedMode) == 0x0000C8, "Member 'FAnimNode_FootPlacement::PlantSpeedMode' has a wrong offset!");
-static_assert(offsetof(FAnimNode_FootPlacement, IKFootRootBone) == 0x0000CC, "Member 'FAnimNode_FootPlacement::IKFootRootBone' has a wrong offset!");
-static_assert(offsetof(FAnimNode_FootPlacement, PelvisBone) == 0x0000DC, "Member 'FAnimNode_FootPlacement::PelvisBone' has a wrong offset!");
-static_assert(offsetof(FAnimNode_FootPlacement, PelvisSettings) == 0x0000EC, "Member 'FAnimNode_FootPlacement::PelvisSettings' has a wrong offset!");
-static_assert(offsetof(FAnimNode_FootPlacement, LegDefinitions) == 0x000118, "Member 'FAnimNode_FootPlacement::LegDefinitions' has a wrong offset!");
-static_assert(offsetof(FAnimNode_FootPlacement, PlantSettings) == 0x000128, "Member 'FAnimNode_FootPlacement::PlantSettings' has a wrong offset!");
-static_assert(offsetof(FAnimNode_FootPlacement, InterpolationSettings) == 0x00015C, "Member 'FAnimNode_FootPlacement::InterpolationSettings' has a wrong offset!");
-static_assert(offsetof(FAnimNode_FootPlacement, TraceSettings) == 0x000180, "Member 'FAnimNode_FootPlacement::TraceSettings' has a wrong offset!");
-
 // ScriptStruct AnimationWarpingRuntime.AnimNode_OffsetRootBone
 // 0x00C8 (0x0190 - 0x00C8)
 struct alignas(0x10) FAnimNode_OffsetRootBone final : public FAnimNode_SkeletalControlBase
@@ -249,19 +69,6 @@ public:
 };
 static_assert(alignof(FAnimNode_OffsetRootBone) == 0x000010, "Wrong alignment on FAnimNode_OffsetRootBone");
 static_assert(sizeof(FAnimNode_OffsetRootBone) == 0x000190, "Wrong size on FAnimNode_OffsetRootBone");
-
-// ScriptStruct AnimationWarpingRuntime.FootPlacementRootDefinition
-// 0x0020 (0x0020 - 0x0000)
-struct FFootPlacementRootDefinition final
-{
-public:
-	struct FBoneReference                         PelvisBone;                                        // 0x0000(0x0010)(Edit, NoDestructor, NativeAccessSpecifierPublic)
-	struct FBoneReference                         IKRootBone;                                        // 0x0010(0x0010)(Edit, NoDestructor, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(FFootPlacementRootDefinition) == 0x000004, "Wrong alignment on FFootPlacementRootDefinition");
-static_assert(sizeof(FFootPlacementRootDefinition) == 0x000020, "Wrong size on FFootPlacementRootDefinition");
-static_assert(offsetof(FFootPlacementRootDefinition, PelvisBone) == 0x000000, "Member 'FFootPlacementRootDefinition::PelvisBone' has a wrong offset!");
-static_assert(offsetof(FFootPlacementRootDefinition, IKRootBone) == 0x000010, "Member 'FFootPlacementRootDefinition::IKRootBone' has a wrong offset!");
 
 // ScriptStruct AnimationWarpingRuntime.AnimNode_OrientationWarping
 // 0x00D0 (0x0198 - 0x00C8)
@@ -303,6 +110,42 @@ static_assert(offsetof(FAnimNode_OrientationWarping, RotationInterpSpeed) == 0x0
 static_assert(offsetof(FAnimNode_OrientationWarping, WarpingAlpha) == 0x00011C, "Member 'FAnimNode_OrientationWarping::WarpingAlpha' has a wrong offset!");
 static_assert(offsetof(FAnimNode_OrientationWarping, OffsetAlpha) == 0x000120, "Member 'FAnimNode_OrientationWarping::OffsetAlpha' has a wrong offset!");
 static_assert(offsetof(FAnimNode_OrientationWarping, MaxOffsetAngle) == 0x000124, "Member 'FAnimNode_OrientationWarping::MaxOffsetAngle' has a wrong offset!");
+
+// ScriptStruct AnimationWarpingRuntime.FootPlacementInterpolationSettings
+// 0x002C (0x002C - 0x0000)
+struct FFootPlacementInterpolationSettings final
+{
+public:
+	float                                         UnplantLinearStiffness;                            // 0x0000(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         UnplantLinearDamping;                              // 0x0004(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         UnplantAngularStiffness;                           // 0x0008(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         UnplantAngularDamping;                             // 0x000C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         SeparationStiffness;                               // 0x0010(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         SeparationDamping;                                 // 0x0014(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         FloorLinearStiffness;                              // 0x0018(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         FloorLinearDamping;                                // 0x001C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         FloorAngularStiffness;                             // 0x0020(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         FloorAngularDamping;                               // 0x0024(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bEnableFloorInterpolation;                         // 0x0028(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bSmoothRootBone;                                   // 0x0029(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bEnableSeparationInterpolation;                    // 0x002A(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_2B[0x1];                                       // 0x002B(0x0001)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(FFootPlacementInterpolationSettings) == 0x000004, "Wrong alignment on FFootPlacementInterpolationSettings");
+static_assert(sizeof(FFootPlacementInterpolationSettings) == 0x00002C, "Wrong size on FFootPlacementInterpolationSettings");
+static_assert(offsetof(FFootPlacementInterpolationSettings, UnplantLinearStiffness) == 0x000000, "Member 'FFootPlacementInterpolationSettings::UnplantLinearStiffness' has a wrong offset!");
+static_assert(offsetof(FFootPlacementInterpolationSettings, UnplantLinearDamping) == 0x000004, "Member 'FFootPlacementInterpolationSettings::UnplantLinearDamping' has a wrong offset!");
+static_assert(offsetof(FFootPlacementInterpolationSettings, UnplantAngularStiffness) == 0x000008, "Member 'FFootPlacementInterpolationSettings::UnplantAngularStiffness' has a wrong offset!");
+static_assert(offsetof(FFootPlacementInterpolationSettings, UnplantAngularDamping) == 0x00000C, "Member 'FFootPlacementInterpolationSettings::UnplantAngularDamping' has a wrong offset!");
+static_assert(offsetof(FFootPlacementInterpolationSettings, SeparationStiffness) == 0x000010, "Member 'FFootPlacementInterpolationSettings::SeparationStiffness' has a wrong offset!");
+static_assert(offsetof(FFootPlacementInterpolationSettings, SeparationDamping) == 0x000014, "Member 'FFootPlacementInterpolationSettings::SeparationDamping' has a wrong offset!");
+static_assert(offsetof(FFootPlacementInterpolationSettings, FloorLinearStiffness) == 0x000018, "Member 'FFootPlacementInterpolationSettings::FloorLinearStiffness' has a wrong offset!");
+static_assert(offsetof(FFootPlacementInterpolationSettings, FloorLinearDamping) == 0x00001C, "Member 'FFootPlacementInterpolationSettings::FloorLinearDamping' has a wrong offset!");
+static_assert(offsetof(FFootPlacementInterpolationSettings, FloorAngularStiffness) == 0x000020, "Member 'FFootPlacementInterpolationSettings::FloorAngularStiffness' has a wrong offset!");
+static_assert(offsetof(FFootPlacementInterpolationSettings, FloorAngularDamping) == 0x000024, "Member 'FFootPlacementInterpolationSettings::FloorAngularDamping' has a wrong offset!");
+static_assert(offsetof(FFootPlacementInterpolationSettings, bEnableFloorInterpolation) == 0x000028, "Member 'FFootPlacementInterpolationSettings::bEnableFloorInterpolation' has a wrong offset!");
+static_assert(offsetof(FFootPlacementInterpolationSettings, bSmoothRootBone) == 0x000029, "Member 'FFootPlacementInterpolationSettings::bSmoothRootBone' has a wrong offset!");
+static_assert(offsetof(FFootPlacementInterpolationSettings, bEnableSeparationInterpolation) == 0x00002A, "Member 'FFootPlacementInterpolationSettings::bEnableSeparationInterpolation' has a wrong offset!");
 
 // ScriptStruct AnimationWarpingRuntime.SlopeWarpingFootDefinition
 // 0x0028 (0x0028 - 0x0000)
@@ -439,6 +282,177 @@ static_assert(offsetof(FAnimNode_StrideWarping, PelvisIKFootSolver) == 0x000180,
 static_assert(offsetof(FAnimNode_StrideWarping, bOrientStrideDirectionUsingFloorNormal) == 0x0001F0, "Member 'FAnimNode_StrideWarping::bOrientStrideDirectionUsingFloorNormal' has a wrong offset!");
 static_assert(offsetof(FAnimNode_StrideWarping, bCompensateIKUsingFKThighRotation) == 0x0001F1, "Member 'FAnimNode_StrideWarping::bCompensateIKUsingFKThighRotation' has a wrong offset!");
 static_assert(offsetof(FAnimNode_StrideWarping, bClampIKUsingFKLimits) == 0x0001F2, "Member 'FAnimNode_StrideWarping::bClampIKUsingFKLimits' has a wrong offset!");
+
+// ScriptStruct AnimationWarpingRuntime.FootPlacementTraceSettings
+// 0x0018 (0x0018 - 0x0000)
+struct FFootPlacementTraceSettings final
+{
+public:
+	float                                         StartOffset;                                       // 0x0000(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         EndOffset;                                         // 0x0004(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         SweepRadius;                                       // 0x0008(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bDisableComplexTrace;                              // 0x000C(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	ETraceTypeQuery                               ComplexTraceChannel;                               // 0x000D(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E[0x2];                                        // 0x000E(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         MaxGroundPenetration;                              // 0x0010(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	ETraceTypeQuery                               SimpleTraceChannel;                                // 0x0014(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bEnabled;                                          // 0x0015(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_16[0x2];                                       // 0x0016(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(FFootPlacementTraceSettings) == 0x000004, "Wrong alignment on FFootPlacementTraceSettings");
+static_assert(sizeof(FFootPlacementTraceSettings) == 0x000018, "Wrong size on FFootPlacementTraceSettings");
+static_assert(offsetof(FFootPlacementTraceSettings, StartOffset) == 0x000000, "Member 'FFootPlacementTraceSettings::StartOffset' has a wrong offset!");
+static_assert(offsetof(FFootPlacementTraceSettings, EndOffset) == 0x000004, "Member 'FFootPlacementTraceSettings::EndOffset' has a wrong offset!");
+static_assert(offsetof(FFootPlacementTraceSettings, SweepRadius) == 0x000008, "Member 'FFootPlacementTraceSettings::SweepRadius' has a wrong offset!");
+static_assert(offsetof(FFootPlacementTraceSettings, bDisableComplexTrace) == 0x00000C, "Member 'FFootPlacementTraceSettings::bDisableComplexTrace' has a wrong offset!");
+static_assert(offsetof(FFootPlacementTraceSettings, ComplexTraceChannel) == 0x00000D, "Member 'FFootPlacementTraceSettings::ComplexTraceChannel' has a wrong offset!");
+static_assert(offsetof(FFootPlacementTraceSettings, MaxGroundPenetration) == 0x000010, "Member 'FFootPlacementTraceSettings::MaxGroundPenetration' has a wrong offset!");
+static_assert(offsetof(FFootPlacementTraceSettings, SimpleTraceChannel) == 0x000014, "Member 'FFootPlacementTraceSettings::SimpleTraceChannel' has a wrong offset!");
+static_assert(offsetof(FFootPlacementTraceSettings, bEnabled) == 0x000015, "Member 'FFootPlacementTraceSettings::bEnabled' has a wrong offset!");
+
+// ScriptStruct AnimationWarpingRuntime.FootPlacementRootDefinition
+// 0x0020 (0x0020 - 0x0000)
+struct FFootPlacementRootDefinition final
+{
+public:
+	struct FBoneReference                         PelvisBone;                                        // 0x0000(0x0010)(Edit, NoDestructor, NativeAccessSpecifierPublic)
+	struct FBoneReference                         IKRootBone;                                        // 0x0010(0x0010)(Edit, NoDestructor, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(FFootPlacementRootDefinition) == 0x000004, "Wrong alignment on FFootPlacementRootDefinition");
+static_assert(sizeof(FFootPlacementRootDefinition) == 0x000020, "Wrong size on FFootPlacementRootDefinition");
+static_assert(offsetof(FFootPlacementRootDefinition, PelvisBone) == 0x000000, "Member 'FFootPlacementRootDefinition::PelvisBone' has a wrong offset!");
+static_assert(offsetof(FFootPlacementRootDefinition, IKRootBone) == 0x000010, "Member 'FFootPlacementRootDefinition::IKRootBone' has a wrong offset!");
+
+// ScriptStruct AnimationWarpingRuntime.FootPlacementPelvisSettings
+// 0x0030 (0x0030 - 0x0000)
+struct FFootPlacementPelvisSettings final
+{
+public:
+	float                                         MaxOffset;                                         // 0x0000(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bUseSeparateOffset;                                // 0x0004(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_5[0x3];                                        // 0x0005(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         MaxOffsetUp;                                       // 0x0008(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         MaxOffsetDown;                                     // 0x000C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         LinearStiffness;                                   // 0x0010(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         LinearDamping;                                     // 0x0014(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         HorizontalRebalancingWeight;                       // 0x0018(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         MaxOffsetHorizontal;                               // 0x001C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         HeelLiftRatio;                                     // 0x0020(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EPelvisHeightMode                             PelvisHeightMode;                                  // 0x0024(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EActorMovementCompensationMode                ActorMovementCompensationMode;                     // 0x0025(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bEnableInterpolation;                              // 0x0026(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bDisablePelvisOffsetInAir;                         // 0x0027(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   DisablePelvisCurveName;                            // 0x0028(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(FFootPlacementPelvisSettings) == 0x000004, "Wrong alignment on FFootPlacementPelvisSettings");
+static_assert(sizeof(FFootPlacementPelvisSettings) == 0x000030, "Wrong size on FFootPlacementPelvisSettings");
+static_assert(offsetof(FFootPlacementPelvisSettings, MaxOffset) == 0x000000, "Member 'FFootPlacementPelvisSettings::MaxOffset' has a wrong offset!");
+static_assert(offsetof(FFootPlacementPelvisSettings, bUseSeparateOffset) == 0x000004, "Member 'FFootPlacementPelvisSettings::bUseSeparateOffset' has a wrong offset!");
+static_assert(offsetof(FFootPlacementPelvisSettings, MaxOffsetUp) == 0x000008, "Member 'FFootPlacementPelvisSettings::MaxOffsetUp' has a wrong offset!");
+static_assert(offsetof(FFootPlacementPelvisSettings, MaxOffsetDown) == 0x00000C, "Member 'FFootPlacementPelvisSettings::MaxOffsetDown' has a wrong offset!");
+static_assert(offsetof(FFootPlacementPelvisSettings, LinearStiffness) == 0x000010, "Member 'FFootPlacementPelvisSettings::LinearStiffness' has a wrong offset!");
+static_assert(offsetof(FFootPlacementPelvisSettings, LinearDamping) == 0x000014, "Member 'FFootPlacementPelvisSettings::LinearDamping' has a wrong offset!");
+static_assert(offsetof(FFootPlacementPelvisSettings, HorizontalRebalancingWeight) == 0x000018, "Member 'FFootPlacementPelvisSettings::HorizontalRebalancingWeight' has a wrong offset!");
+static_assert(offsetof(FFootPlacementPelvisSettings, MaxOffsetHorizontal) == 0x00001C, "Member 'FFootPlacementPelvisSettings::MaxOffsetHorizontal' has a wrong offset!");
+static_assert(offsetof(FFootPlacementPelvisSettings, HeelLiftRatio) == 0x000020, "Member 'FFootPlacementPelvisSettings::HeelLiftRatio' has a wrong offset!");
+static_assert(offsetof(FFootPlacementPelvisSettings, PelvisHeightMode) == 0x000024, "Member 'FFootPlacementPelvisSettings::PelvisHeightMode' has a wrong offset!");
+static_assert(offsetof(FFootPlacementPelvisSettings, ActorMovementCompensationMode) == 0x000025, "Member 'FFootPlacementPelvisSettings::ActorMovementCompensationMode' has a wrong offset!");
+static_assert(offsetof(FFootPlacementPelvisSettings, bEnableInterpolation) == 0x000026, "Member 'FFootPlacementPelvisSettings::bEnableInterpolation' has a wrong offset!");
+static_assert(offsetof(FFootPlacementPelvisSettings, bDisablePelvisOffsetInAir) == 0x000027, "Member 'FFootPlacementPelvisSettings::bDisablePelvisOffsetInAir' has a wrong offset!");
+static_assert(offsetof(FFootPlacementPelvisSettings, DisablePelvisCurveName) == 0x000028, "Member 'FFootPlacementPelvisSettings::DisablePelvisCurveName' has a wrong offset!");
+
+// ScriptStruct AnimationWarpingRuntime.FootPlacemenLegDefinition
+// 0x004C (0x004C - 0x0000)
+struct FFootPlacemenLegDefinition final
+{
+public:
+	struct FBoneReference                         FKFootBone;                                        // 0x0000(0x0010)(Edit, NoDestructor, NativeAccessSpecifierPublic)
+	struct FBoneReference                         IKFootBone;                                        // 0x0010(0x0010)(Edit, NoDestructor, NativeAccessSpecifierPublic)
+	struct FBoneReference                         BallBone;                                          // 0x0020(0x0010)(Edit, NoDestructor, NativeAccessSpecifierPublic)
+	int32                                         NumBonesInLimb;                                    // 0x0030(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   SpeedCurveName;                                    // 0x0034(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   DisableLockCurveName;                              // 0x003C(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   DisableLegCurveName;                               // 0x0044(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(FFootPlacemenLegDefinition) == 0x000004, "Wrong alignment on FFootPlacemenLegDefinition");
+static_assert(sizeof(FFootPlacemenLegDefinition) == 0x00004C, "Wrong size on FFootPlacemenLegDefinition");
+static_assert(offsetof(FFootPlacemenLegDefinition, FKFootBone) == 0x000000, "Member 'FFootPlacemenLegDefinition::FKFootBone' has a wrong offset!");
+static_assert(offsetof(FFootPlacemenLegDefinition, IKFootBone) == 0x000010, "Member 'FFootPlacemenLegDefinition::IKFootBone' has a wrong offset!");
+static_assert(offsetof(FFootPlacemenLegDefinition, BallBone) == 0x000020, "Member 'FFootPlacemenLegDefinition::BallBone' has a wrong offset!");
+static_assert(offsetof(FFootPlacemenLegDefinition, NumBonesInLimb) == 0x000030, "Member 'FFootPlacemenLegDefinition::NumBonesInLimb' has a wrong offset!");
+static_assert(offsetof(FFootPlacemenLegDefinition, SpeedCurveName) == 0x000034, "Member 'FFootPlacemenLegDefinition::SpeedCurveName' has a wrong offset!");
+static_assert(offsetof(FFootPlacemenLegDefinition, DisableLockCurveName) == 0x00003C, "Member 'FFootPlacemenLegDefinition::DisableLockCurveName' has a wrong offset!");
+static_assert(offsetof(FFootPlacemenLegDefinition, DisableLegCurveName) == 0x000044, "Member 'FFootPlacemenLegDefinition::DisableLegCurveName' has a wrong offset!");
+
+// ScriptStruct AnimationWarpingRuntime.FootPlacementPlantSettings
+// 0x0034 (0x0034 - 0x0000)
+struct FFootPlacementPlantSettings final
+{
+public:
+	float                                         SpeedThreshold;                                    // 0x0000(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         DistanceToGround;                                  // 0x0004(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EFootPlacementLockType                        LockType;                                          // 0x0008(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x3];                                        // 0x0009(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         UnplantRadius;                                     // 0x000C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         ReplantRadiusRatio;                                // 0x0010(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         UnplantAngle;                                      // 0x0014(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         ReplantAngleRatio;                                 // 0x0018(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         MaxExtensionRatio;                                 // 0x001C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         MinExtensionRatio;                                 // 0x0020(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         SeparatingDistance;                                // 0x0024(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         UnalignmentSpeedThreshold;                         // 0x0028(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         AnkleTwistReduction;                               // 0x002C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bReconstructWorldPlantFromVelocity;                // 0x0030(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bAdjustHeelBeforePlanting;                         // 0x0031(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_32[0x2];                                       // 0x0032(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(FFootPlacementPlantSettings) == 0x000004, "Wrong alignment on FFootPlacementPlantSettings");
+static_assert(sizeof(FFootPlacementPlantSettings) == 0x000034, "Wrong size on FFootPlacementPlantSettings");
+static_assert(offsetof(FFootPlacementPlantSettings, SpeedThreshold) == 0x000000, "Member 'FFootPlacementPlantSettings::SpeedThreshold' has a wrong offset!");
+static_assert(offsetof(FFootPlacementPlantSettings, DistanceToGround) == 0x000004, "Member 'FFootPlacementPlantSettings::DistanceToGround' has a wrong offset!");
+static_assert(offsetof(FFootPlacementPlantSettings, LockType) == 0x000008, "Member 'FFootPlacementPlantSettings::LockType' has a wrong offset!");
+static_assert(offsetof(FFootPlacementPlantSettings, UnplantRadius) == 0x00000C, "Member 'FFootPlacementPlantSettings::UnplantRadius' has a wrong offset!");
+static_assert(offsetof(FFootPlacementPlantSettings, ReplantRadiusRatio) == 0x000010, "Member 'FFootPlacementPlantSettings::ReplantRadiusRatio' has a wrong offset!");
+static_assert(offsetof(FFootPlacementPlantSettings, UnplantAngle) == 0x000014, "Member 'FFootPlacementPlantSettings::UnplantAngle' has a wrong offset!");
+static_assert(offsetof(FFootPlacementPlantSettings, ReplantAngleRatio) == 0x000018, "Member 'FFootPlacementPlantSettings::ReplantAngleRatio' has a wrong offset!");
+static_assert(offsetof(FFootPlacementPlantSettings, MaxExtensionRatio) == 0x00001C, "Member 'FFootPlacementPlantSettings::MaxExtensionRatio' has a wrong offset!");
+static_assert(offsetof(FFootPlacementPlantSettings, MinExtensionRatio) == 0x000020, "Member 'FFootPlacementPlantSettings::MinExtensionRatio' has a wrong offset!");
+static_assert(offsetof(FFootPlacementPlantSettings, SeparatingDistance) == 0x000024, "Member 'FFootPlacementPlantSettings::SeparatingDistance' has a wrong offset!");
+static_assert(offsetof(FFootPlacementPlantSettings, UnalignmentSpeedThreshold) == 0x000028, "Member 'FFootPlacementPlantSettings::UnalignmentSpeedThreshold' has a wrong offset!");
+static_assert(offsetof(FFootPlacementPlantSettings, AnkleTwistReduction) == 0x00002C, "Member 'FFootPlacementPlantSettings::AnkleTwistReduction' has a wrong offset!");
+static_assert(offsetof(FFootPlacementPlantSettings, bReconstructWorldPlantFromVelocity) == 0x000030, "Member 'FFootPlacementPlantSettings::bReconstructWorldPlantFromVelocity' has a wrong offset!");
+static_assert(offsetof(FFootPlacementPlantSettings, bAdjustHeelBeforePlanting) == 0x000031, "Member 'FFootPlacementPlantSettings::bAdjustHeelBeforePlanting' has a wrong offset!");
+
+// ScriptStruct AnimationWarpingRuntime.AnimNode_FootPlacement
+// 0x0418 (0x04E0 - 0x00C8)
+struct alignas(0x10) FAnimNode_FootPlacement final : public FAnimNode_SkeletalControlBase
+{
+public:
+	EWarpingEvaluationMode                        PlantSpeedMode;                                    // 0x00C8(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_C9[0x3];                                       // 0x00C9(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FBoneReference                         IKFootRootBone;                                    // 0x00CC(0x0010)(Edit, NoDestructor, NativeAccessSpecifierPublic)
+	struct FBoneReference                         PelvisBone;                                        // 0x00DC(0x0010)(Edit, NoDestructor, NativeAccessSpecifierPublic)
+	struct FFootPlacementPelvisSettings           PelvisSettings;                                    // 0x00EC(0x0030)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_11C[0x4];                                      // 0x011C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FFootPlacemenLegDefinition>     LegDefinitions;                                    // 0x0120(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
+	struct FFootPlacementPlantSettings            PlantSettings;                                     // 0x0130(0x0034)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
+	struct FFootPlacementInterpolationSettings    InterpolationSettings;                             // 0x0164(0x002C)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
+	struct FFootPlacementTraceSettings            TraceSettings;                                     // 0x0190(0x0018)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
+	struct FVector                                BaseTranslationDelta;                              // 0x01A8(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         IsPaused : 1;                                      // 0x01C0(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, BlueprintVisible, BlueprintReadOnly, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         Pad_1C1[0x31F];                                    // 0x01C1(0x031F)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(FAnimNode_FootPlacement) == 0x000010, "Wrong alignment on FAnimNode_FootPlacement");
+static_assert(sizeof(FAnimNode_FootPlacement) == 0x0004E0, "Wrong size on FAnimNode_FootPlacement");
+static_assert(offsetof(FAnimNode_FootPlacement, PlantSpeedMode) == 0x0000C8, "Member 'FAnimNode_FootPlacement::PlantSpeedMode' has a wrong offset!");
+static_assert(offsetof(FAnimNode_FootPlacement, IKFootRootBone) == 0x0000CC, "Member 'FAnimNode_FootPlacement::IKFootRootBone' has a wrong offset!");
+static_assert(offsetof(FAnimNode_FootPlacement, PelvisBone) == 0x0000DC, "Member 'FAnimNode_FootPlacement::PelvisBone' has a wrong offset!");
+static_assert(offsetof(FAnimNode_FootPlacement, PelvisSettings) == 0x0000EC, "Member 'FAnimNode_FootPlacement::PelvisSettings' has a wrong offset!");
+static_assert(offsetof(FAnimNode_FootPlacement, LegDefinitions) == 0x000120, "Member 'FAnimNode_FootPlacement::LegDefinitions' has a wrong offset!");
+static_assert(offsetof(FAnimNode_FootPlacement, PlantSettings) == 0x000130, "Member 'FAnimNode_FootPlacement::PlantSettings' has a wrong offset!");
+static_assert(offsetof(FAnimNode_FootPlacement, InterpolationSettings) == 0x000164, "Member 'FAnimNode_FootPlacement::InterpolationSettings' has a wrong offset!");
+static_assert(offsetof(FAnimNode_FootPlacement, TraceSettings) == 0x000190, "Member 'FAnimNode_FootPlacement::TraceSettings' has a wrong offset!");
+static_assert(offsetof(FAnimNode_FootPlacement, BaseTranslationDelta) == 0x0001A8, "Member 'FAnimNode_FootPlacement::BaseTranslationDelta' has a wrong offset!");
 
 }
 

@@ -25,7 +25,7 @@ class UAnimBP_Player_Shadow_C final : public UAnimInstancePlayerShadow
 {
 public:
 	struct FPointerToUberGraphFrame               UberGraphFrame;                                    // 0x0470(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
-	struct AnimBP_Player_Shadow::FAnimBlueprintGeneratedMutableData m_AnimBlueprintMutables;                           // 0x0478(0x00D8)(HasGetValueTypeHash)
+	struct AnimBP_Player_Shadow::FAnimBlueprintGeneratedMutableData __AnimBlueprintMutables;                           // 0x0478(0x00D8)(HasGetValueTypeHash)
 	struct FAnimSubsystemInstance                 AnimBlueprintExtension_Tag;                        // 0x0550(0x0008)()
 	struct FAnimSubsystemInstance                 AnimBlueprintExtension_PropertyAccess;             // 0x0558(0x0008)()
 	struct FAnimSubsystemInstance                 AnimBlueprintExtension_Base;                       // 0x0560(0x0008)()
@@ -148,7 +148,7 @@ public:
 static_assert(alignof(UAnimBP_Player_Shadow_C) == 0x000010, "Wrong alignment on UAnimBP_Player_Shadow_C");
 static_assert(sizeof(UAnimBP_Player_Shadow_C) == 0x002160, "Wrong size on UAnimBP_Player_Shadow_C");
 static_assert(offsetof(UAnimBP_Player_Shadow_C, UberGraphFrame) == 0x000470, "Member 'UAnimBP_Player_Shadow_C::UberGraphFrame' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_Shadow_C, m_AnimBlueprintMutables) == 0x000478, "Member 'UAnimBP_Player_Shadow_C::m_AnimBlueprintMutables' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_Shadow_C, __AnimBlueprintMutables) == 0x000478, "Member 'UAnimBP_Player_Shadow_C::__AnimBlueprintMutables' has a wrong offset!");
 static_assert(offsetof(UAnimBP_Player_Shadow_C, AnimBlueprintExtension_Tag) == 0x000550, "Member 'UAnimBP_Player_Shadow_C::AnimBlueprintExtension_Tag' has a wrong offset!");
 static_assert(offsetof(UAnimBP_Player_Shadow_C, AnimBlueprintExtension_PropertyAccess) == 0x000558, "Member 'UAnimBP_Player_Shadow_C::AnimBlueprintExtension_PropertyAccess' has a wrong offset!");
 static_assert(offsetof(UAnimBP_Player_Shadow_C, AnimBlueprintExtension_Base) == 0x000560, "Member 'UAnimBP_Player_Shadow_C::AnimBlueprintExtension_Base' has a wrong offset!");

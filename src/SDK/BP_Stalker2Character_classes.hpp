@@ -19,38 +19,38 @@ namespace SDK
 {
 
 // BlueprintGeneratedClass BP_Stalker2Character.BP_Stalker2Character_C
-// 0x00F0 (0x11E0 - 0x10F0)
+// 0x00F0 (0x1210 - 0x1120)
 class ABP_Stalker2Character_C final : public APC
 {
 public:
-	struct FPointerToUberGraphFrame               UberGraphFrame;                                    // 0x10F0(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
-	class USpotLightComponent*                    SpotLight;                                         // 0x10F8(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
-	class USkeletalMeshComponent*                 ShadowMesh;                                        // 0x1100(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
-	class USpotLightComponent*                    SpotLight1;                                        // 0x1108(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
-	class UCapsuleComponent*                      InteractionCollision;                              // 0x1110(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
-	class UCameraComponent*                       Camera;                                            // 0x1118(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
-	class USpringArmComponent*                    SpringArm;                                         // 0x1120(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
-	class UAudioComponent*                        AudioGeiger;                                       // 0x1128(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
-	struct FVector                                GunOffset_0;                                       // 0x1130(0x0018)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	double                                        BaseTurnRate_0;                                    // 0x1148(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	double                                        BaseLookUpRate_0;                                  // 0x1150(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	double                                        ADS_Slowdown;                                      // 0x1158(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	double                                        FOV_Default;                                       // 0x1160(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	double                                        FOV_ADS;                                           // 0x1168(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          isFPP;                                             // 0x1170(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_1171[0x3];                                     // 0x1171(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         IndexZero;                                         // 0x1174(0x0004)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	double                                        SwappingWeaponDelay;                               // 0x1178(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	struct FVector                                FPP_Camera_Default_Location;                       // 0x1180(0x0018)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	struct FVector                                TPP_SpringArm_Default_Location;                    // 0x1198(0x0018)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          ToggleCrouch;                                      // 0x11B0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          ToggleSprint;                                      // 0x11B1(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_11B2[0x6];                                     // 0x11B2(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	double                                        GrenadeThrowingDelay;                              // 0x11B8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          bIsLightOn;                                        // 0x11C0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          startend;                                          // 0x11C1(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_11C2[0x6];                                     // 0x11C2(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                CurrentLocation;                                   // 0x11C8(0x0018)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FPointerToUberGraphFrame               UberGraphFrame;                                    // 0x1120(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
+	class USpotLightComponent*                    SpotLight;                                         // 0x1128(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	class USkeletalMeshComponent*                 ShadowMesh;                                        // 0x1130(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	class USpotLightComponent*                    SpotLight1;                                        // 0x1138(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	class UCapsuleComponent*                      InteractionCollision;                              // 0x1140(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	class UCameraComponent*                       Camera;                                            // 0x1148(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	class USpringArmComponent*                    SpringArm;                                         // 0x1150(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	class UAudioComponent*                        AudioGeiger;                                       // 0x1158(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	struct FVector                                GunOffset_0;                                       // 0x1160(0x0018)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	double                                        BaseTurnRate_0;                                    // 0x1178(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	double                                        BaseLookUpRate_0;                                  // 0x1180(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	double                                        ADS_Slowdown;                                      // 0x1188(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	double                                        FOV_Default;                                       // 0x1190(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	double                                        FOV_ADS;                                           // 0x1198(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          IsFPP;                                             // 0x11A0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_11A1[0x3];                                     // 0x11A1(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         IndexZero;                                         // 0x11A4(0x0004)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	double                                        SwappingWeaponDelay;                               // 0x11A8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FVector                                FPP_Camera_Default_Location;                       // 0x11B0(0x0018)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FVector                                TPP_SpringArm_Default_Location;                    // 0x11C8(0x0018)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          ToggleCrouch;                                      // 0x11E0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          ToggleSprint;                                      // 0x11E1(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_11E2[0x6];                                     // 0x11E2(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	double                                        GrenadeThrowingDelay;                              // 0x11E8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          bIsLightOn;                                        // 0x11F0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          Startend;                                          // 0x11F1(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_11F2[0x6];                                     // 0x11F2(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FVector                                CurrentLocation;                                   // 0x11F8(0x0018)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
 public:
 	void ExecuteUbergraph_BP_Stalker2Character(int32 EntryPoint);
@@ -68,32 +68,32 @@ public:
 	}
 };
 static_assert(alignof(ABP_Stalker2Character_C) == 0x000010, "Wrong alignment on ABP_Stalker2Character_C");
-static_assert(sizeof(ABP_Stalker2Character_C) == 0x0011E0, "Wrong size on ABP_Stalker2Character_C");
-static_assert(offsetof(ABP_Stalker2Character_C, UberGraphFrame) == 0x0010F0, "Member 'ABP_Stalker2Character_C::UberGraphFrame' has a wrong offset!");
-static_assert(offsetof(ABP_Stalker2Character_C, SpotLight) == 0x0010F8, "Member 'ABP_Stalker2Character_C::SpotLight' has a wrong offset!");
-static_assert(offsetof(ABP_Stalker2Character_C, ShadowMesh) == 0x001100, "Member 'ABP_Stalker2Character_C::ShadowMesh' has a wrong offset!");
-static_assert(offsetof(ABP_Stalker2Character_C, SpotLight1) == 0x001108, "Member 'ABP_Stalker2Character_C::SpotLight1' has a wrong offset!");
-static_assert(offsetof(ABP_Stalker2Character_C, InteractionCollision) == 0x001110, "Member 'ABP_Stalker2Character_C::InteractionCollision' has a wrong offset!");
-static_assert(offsetof(ABP_Stalker2Character_C, Camera) == 0x001118, "Member 'ABP_Stalker2Character_C::Camera' has a wrong offset!");
-static_assert(offsetof(ABP_Stalker2Character_C, SpringArm) == 0x001120, "Member 'ABP_Stalker2Character_C::SpringArm' has a wrong offset!");
-static_assert(offsetof(ABP_Stalker2Character_C, AudioGeiger) == 0x001128, "Member 'ABP_Stalker2Character_C::AudioGeiger' has a wrong offset!");
-static_assert(offsetof(ABP_Stalker2Character_C, GunOffset_0) == 0x001130, "Member 'ABP_Stalker2Character_C::GunOffset_0' has a wrong offset!");
-static_assert(offsetof(ABP_Stalker2Character_C, BaseTurnRate_0) == 0x001148, "Member 'ABP_Stalker2Character_C::BaseTurnRate_0' has a wrong offset!");
-static_assert(offsetof(ABP_Stalker2Character_C, BaseLookUpRate_0) == 0x001150, "Member 'ABP_Stalker2Character_C::BaseLookUpRate_0' has a wrong offset!");
-static_assert(offsetof(ABP_Stalker2Character_C, ADS_Slowdown) == 0x001158, "Member 'ABP_Stalker2Character_C::ADS_Slowdown' has a wrong offset!");
-static_assert(offsetof(ABP_Stalker2Character_C, FOV_Default) == 0x001160, "Member 'ABP_Stalker2Character_C::FOV_Default' has a wrong offset!");
-static_assert(offsetof(ABP_Stalker2Character_C, FOV_ADS) == 0x001168, "Member 'ABP_Stalker2Character_C::FOV_ADS' has a wrong offset!");
-static_assert(offsetof(ABP_Stalker2Character_C, isFPP) == 0x001170, "Member 'ABP_Stalker2Character_C::isFPP' has a wrong offset!");
-static_assert(offsetof(ABP_Stalker2Character_C, IndexZero) == 0x001174, "Member 'ABP_Stalker2Character_C::IndexZero' has a wrong offset!");
-static_assert(offsetof(ABP_Stalker2Character_C, SwappingWeaponDelay) == 0x001178, "Member 'ABP_Stalker2Character_C::SwappingWeaponDelay' has a wrong offset!");
-static_assert(offsetof(ABP_Stalker2Character_C, FPP_Camera_Default_Location) == 0x001180, "Member 'ABP_Stalker2Character_C::FPP_Camera_Default_Location' has a wrong offset!");
-static_assert(offsetof(ABP_Stalker2Character_C, TPP_SpringArm_Default_Location) == 0x001198, "Member 'ABP_Stalker2Character_C::TPP_SpringArm_Default_Location' has a wrong offset!");
-static_assert(offsetof(ABP_Stalker2Character_C, ToggleCrouch) == 0x0011B0, "Member 'ABP_Stalker2Character_C::ToggleCrouch' has a wrong offset!");
-static_assert(offsetof(ABP_Stalker2Character_C, ToggleSprint) == 0x0011B1, "Member 'ABP_Stalker2Character_C::ToggleSprint' has a wrong offset!");
-static_assert(offsetof(ABP_Stalker2Character_C, GrenadeThrowingDelay) == 0x0011B8, "Member 'ABP_Stalker2Character_C::GrenadeThrowingDelay' has a wrong offset!");
-static_assert(offsetof(ABP_Stalker2Character_C, bIsLightOn) == 0x0011C0, "Member 'ABP_Stalker2Character_C::bIsLightOn' has a wrong offset!");
-static_assert(offsetof(ABP_Stalker2Character_C, startend) == 0x0011C1, "Member 'ABP_Stalker2Character_C::startend' has a wrong offset!");
-static_assert(offsetof(ABP_Stalker2Character_C, CurrentLocation) == 0x0011C8, "Member 'ABP_Stalker2Character_C::CurrentLocation' has a wrong offset!");
+static_assert(sizeof(ABP_Stalker2Character_C) == 0x001210, "Wrong size on ABP_Stalker2Character_C");
+static_assert(offsetof(ABP_Stalker2Character_C, UberGraphFrame) == 0x001120, "Member 'ABP_Stalker2Character_C::UberGraphFrame' has a wrong offset!");
+static_assert(offsetof(ABP_Stalker2Character_C, SpotLight) == 0x001128, "Member 'ABP_Stalker2Character_C::SpotLight' has a wrong offset!");
+static_assert(offsetof(ABP_Stalker2Character_C, ShadowMesh) == 0x001130, "Member 'ABP_Stalker2Character_C::ShadowMesh' has a wrong offset!");
+static_assert(offsetof(ABP_Stalker2Character_C, SpotLight1) == 0x001138, "Member 'ABP_Stalker2Character_C::SpotLight1' has a wrong offset!");
+static_assert(offsetof(ABP_Stalker2Character_C, InteractionCollision) == 0x001140, "Member 'ABP_Stalker2Character_C::InteractionCollision' has a wrong offset!");
+static_assert(offsetof(ABP_Stalker2Character_C, Camera) == 0x001148, "Member 'ABP_Stalker2Character_C::Camera' has a wrong offset!");
+static_assert(offsetof(ABP_Stalker2Character_C, SpringArm) == 0x001150, "Member 'ABP_Stalker2Character_C::SpringArm' has a wrong offset!");
+static_assert(offsetof(ABP_Stalker2Character_C, AudioGeiger) == 0x001158, "Member 'ABP_Stalker2Character_C::AudioGeiger' has a wrong offset!");
+static_assert(offsetof(ABP_Stalker2Character_C, GunOffset_0) == 0x001160, "Member 'ABP_Stalker2Character_C::GunOffset_0' has a wrong offset!");
+static_assert(offsetof(ABP_Stalker2Character_C, BaseTurnRate_0) == 0x001178, "Member 'ABP_Stalker2Character_C::BaseTurnRate_0' has a wrong offset!");
+static_assert(offsetof(ABP_Stalker2Character_C, BaseLookUpRate_0) == 0x001180, "Member 'ABP_Stalker2Character_C::BaseLookUpRate_0' has a wrong offset!");
+static_assert(offsetof(ABP_Stalker2Character_C, ADS_Slowdown) == 0x001188, "Member 'ABP_Stalker2Character_C::ADS_Slowdown' has a wrong offset!");
+static_assert(offsetof(ABP_Stalker2Character_C, FOV_Default) == 0x001190, "Member 'ABP_Stalker2Character_C::FOV_Default' has a wrong offset!");
+static_assert(offsetof(ABP_Stalker2Character_C, FOV_ADS) == 0x001198, "Member 'ABP_Stalker2Character_C::FOV_ADS' has a wrong offset!");
+static_assert(offsetof(ABP_Stalker2Character_C, IsFPP) == 0x0011A0, "Member 'ABP_Stalker2Character_C::IsFPP' has a wrong offset!");
+static_assert(offsetof(ABP_Stalker2Character_C, IndexZero) == 0x0011A4, "Member 'ABP_Stalker2Character_C::IndexZero' has a wrong offset!");
+static_assert(offsetof(ABP_Stalker2Character_C, SwappingWeaponDelay) == 0x0011A8, "Member 'ABP_Stalker2Character_C::SwappingWeaponDelay' has a wrong offset!");
+static_assert(offsetof(ABP_Stalker2Character_C, FPP_Camera_Default_Location) == 0x0011B0, "Member 'ABP_Stalker2Character_C::FPP_Camera_Default_Location' has a wrong offset!");
+static_assert(offsetof(ABP_Stalker2Character_C, TPP_SpringArm_Default_Location) == 0x0011C8, "Member 'ABP_Stalker2Character_C::TPP_SpringArm_Default_Location' has a wrong offset!");
+static_assert(offsetof(ABP_Stalker2Character_C, ToggleCrouch) == 0x0011E0, "Member 'ABP_Stalker2Character_C::ToggleCrouch' has a wrong offset!");
+static_assert(offsetof(ABP_Stalker2Character_C, ToggleSprint) == 0x0011E1, "Member 'ABP_Stalker2Character_C::ToggleSprint' has a wrong offset!");
+static_assert(offsetof(ABP_Stalker2Character_C, GrenadeThrowingDelay) == 0x0011E8, "Member 'ABP_Stalker2Character_C::GrenadeThrowingDelay' has a wrong offset!");
+static_assert(offsetof(ABP_Stalker2Character_C, bIsLightOn) == 0x0011F0, "Member 'ABP_Stalker2Character_C::bIsLightOn' has a wrong offset!");
+static_assert(offsetof(ABP_Stalker2Character_C, Startend) == 0x0011F1, "Member 'ABP_Stalker2Character_C::Startend' has a wrong offset!");
+static_assert(offsetof(ABP_Stalker2Character_C, CurrentLocation) == 0x0011F8, "Member 'ABP_Stalker2Character_C::CurrentLocation' has a wrong offset!");
 
 }
 

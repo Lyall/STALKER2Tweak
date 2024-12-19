@@ -58,7 +58,7 @@ public:
 	struct FModioModCreationHandle                Handle;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 	struct FModioCreateModParams                  Params_0;                                          // 0x0008(0x00C8)(Parm, NativeAccessSpecifierPublic)
 	TArray<uint8>                                 PngData;                                           // 0x00D0(0x0010)(Parm, ZeroConstructor, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalModID& NewModID)> Callback;                                          // 0x00E0(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalModID& NewModID)> Callback;                                          // 0x00E0(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioSubmissionExtensionLibrary_K2_SubmitNewModFromMemoryAsync) == 0x000008, "Wrong alignment on ModioSubmissionExtensionLibrary_K2_SubmitNewModFromMemoryAsync");
 static_assert(sizeof(ModioSubmissionExtensionLibrary_K2_SubmitNewModFromMemoryAsync) == 0x0000F0, "Wrong size on ModioSubmissionExtensionLibrary_K2_SubmitNewModFromMemoryAsync");
@@ -75,7 +75,7 @@ public:
 	struct FModioModID                            Mod;                                               // 0x0000(0x0008)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FModioEditModParams                    Params_0;                                          // 0x0008(0x00D0)(Parm, NativeAccessSpecifierPublic)
 	TArray<uint8>                                 PngData;                                           // 0x00D8(0x0010)(Parm, ZeroConstructor, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalModInfo& ModInfo)> Callback;                                          // 0x00E8(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalModInfo& ModInfo)> Callback;                                          // 0x00E8(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioSubmissionExtensionLibrary_K2_SubmitModChangesFromMemoryAsync) == 0x000008, "Wrong alignment on ModioSubmissionExtensionLibrary_K2_SubmitModChangesFromMemoryAsync");
 static_assert(sizeof(ModioSubmissionExtensionLibrary_K2_SubmitModChangesFromMemoryAsync) == 0x0000F8, "Wrong size on ModioSubmissionExtensionLibrary_K2_SubmitModChangesFromMemoryAsync");

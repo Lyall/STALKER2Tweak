@@ -21,17 +21,17 @@ namespace SDK
 struct FUVMapSettings final
 {
 public:
-	struct FVector                                size;                                              // 0x0000(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Size;                                              // 0x0000(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              UVTile;                                            // 0x0018(0x0010)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                position;                                          // 0x0028(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Position;                                          // 0x0028(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FRotator                               Rotation;                                          // 0x0040(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 	struct FVector                                Scale;                                             // 0x0058(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FUVMapSettings) == 0x000008, "Wrong alignment on FUVMapSettings");
 static_assert(sizeof(FUVMapSettings) == 0x000070, "Wrong size on FUVMapSettings");
-static_assert(offsetof(FUVMapSettings, size) == 0x000000, "Member 'FUVMapSettings::size' has a wrong offset!");
+static_assert(offsetof(FUVMapSettings, Size) == 0x000000, "Member 'FUVMapSettings::Size' has a wrong offset!");
 static_assert(offsetof(FUVMapSettings, UVTile) == 0x000018, "Member 'FUVMapSettings::UVTile' has a wrong offset!");
-static_assert(offsetof(FUVMapSettings, position) == 0x000028, "Member 'FUVMapSettings::position' has a wrong offset!");
+static_assert(offsetof(FUVMapSettings, Position) == 0x000028, "Member 'FUVMapSettings::Position' has a wrong offset!");
 static_assert(offsetof(FUVMapSettings, Rotation) == 0x000040, "Member 'FUVMapSettings::Rotation' has a wrong offset!");
 static_assert(offsetof(FUVMapSettings, Scale) == 0x000058, "Member 'FUVMapSettings::Scale' has a wrong offset!");
 

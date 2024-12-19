@@ -17,7 +17,7 @@ namespace SDK
 {
 
 // WidgetBlueprintGeneratedClass W_Text.W_Text_C
-// 0x0000 (0x06E0 - 0x06E0)
+// 0x0000 (0x0700 - 0x0700)
 class UW_Text_C final : public UTextWidget
 {
 public:
@@ -31,7 +31,7 @@ public:
 	}
 };
 static_assert(alignof(UW_Text_C) == 0x000010, "Wrong alignment on UW_Text_C");
-static_assert(sizeof(UW_Text_C) == 0x0006E0, "Wrong size on UW_Text_C");
+static_assert(sizeof(UW_Text_C) == 0x000700, "Wrong size on UW_Text_C");
 
 }
 

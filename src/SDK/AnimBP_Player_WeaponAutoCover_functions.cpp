@@ -17,6 +17,26 @@
 namespace SDK
 {
 
+// Function AnimBP_Player_WeaponAutoCover.AnimBP_Player_WeaponAutoCover_C.ExecuteUbergraph_AnimBP_Player_WeaponAutoCover
+// (Final, UbergraphFunction)
+// Parameters:
+// int32                                   EntryPoint                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void UAnimBP_Player_WeaponAutoCover_C::ExecuteUbergraph_AnimBP_Player_WeaponAutoCover(int32 EntryPoint)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("AnimBP_Player_WeaponAutoCover_C", "ExecuteUbergraph_AnimBP_Player_WeaponAutoCover");
+
+	Params::AnimBP_Player_WeaponAutoCover_C_ExecuteUbergraph_AnimBP_Player_WeaponAutoCover Parms{};
+
+	Parms.EntryPoint = EntryPoint;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
 // Function AnimBP_Player_WeaponAutoCover.AnimBP_Player_WeaponAutoCover_C.AnimGraph
 // (HasOutParams, BlueprintCallable, BlueprintEvent)
 // Parameters:
@@ -38,26 +58,6 @@ void UAnimBP_Player_WeaponAutoCover_C::AnimGraph(const struct FPoseLink& Idle, s
 
 	if (AnimGraph_0 != nullptr)
 		*AnimGraph_0 = std::move(Parms.AnimGraph_0);
-}
-
-
-// Function AnimBP_Player_WeaponAutoCover.AnimBP_Player_WeaponAutoCover_C.ExecuteUbergraph_AnimBP_Player_WeaponAutoCover
-// (Final, UbergraphFunction)
-// Parameters:
-// int32                                   EntryPoint                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void UAnimBP_Player_WeaponAutoCover_C::ExecuteUbergraph_AnimBP_Player_WeaponAutoCover(int32 EntryPoint)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("AnimBP_Player_WeaponAutoCover_C", "ExecuteUbergraph_AnimBP_Player_WeaponAutoCover");
-
-	Params::AnimBP_Player_WeaponAutoCover_C_ExecuteUbergraph_AnimBP_Player_WeaponAutoCover Parms{};
-
-	Parms.EntryPoint = EntryPoint;
-
-	UObject::ProcessEvent(Func, &Parms);
 }
 
 }

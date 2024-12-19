@@ -10,89 +10,78 @@
 
 #include "Basic.hpp"
 
-#include "SlateCore_structs.hpp"
 #include "Engine_structs.hpp"
-#include "AkAudio_structs.hpp"
 #include "CoreUObject_structs.hpp"
 #include "Stalker2_structs.hpp"
-#include "InputCore_structs.hpp"
-#include "Niagara_structs.hpp"
-#include "CinematicKeyFrameTracks_structs.hpp"
+#include "AkAudio_structs.hpp"
 #include "GameplayTags_structs.hpp"
+#include "SlateCore_structs.hpp"
+#include "Niagara_structs.hpp"
+#include "InputCore_structs.hpp"
+#include "CinematicKeyFrameTracks_structs.hpp"
 #include "UMG_structs.hpp"
 
 
 namespace SDK::Params
 {
 
-// Function Stalker2.CustomConsoleManagerSD.XGetActorNameByUID
+// Function Stalker2.CustomConsoleManagerMH.XRemoveEffectFromPlayer
+// 0x0010 (0x0010 - 0x0000)
+struct CustomConsoleManagerMH_XRemoveEffectFromPlayer final
+{
+public:
+	class FString                                 EffectPrototypeSID;                                // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(CustomConsoleManagerMH_XRemoveEffectFromPlayer) == 0x000008, "Wrong alignment on CustomConsoleManagerMH_XRemoveEffectFromPlayer");
+static_assert(sizeof(CustomConsoleManagerMH_XRemoveEffectFromPlayer) == 0x000010, "Wrong size on CustomConsoleManagerMH_XRemoveEffectFromPlayer");
+static_assert(offsetof(CustomConsoleManagerMH_XRemoveEffectFromPlayer, EffectPrototypeSID) == 0x000000, "Member 'CustomConsoleManagerMH_XRemoveEffectFromPlayer::EffectPrototypeSID' has a wrong offset!");
+
+// Function Stalker2.CustomConsoleManagerMH.XSetFov
 // 0x0004 (0x0004 - 0x0000)
-struct CustomConsoleManagerSD_XGetActorNameByUID final
+struct CustomConsoleManagerMH_XSetFov final
 {
 public:
-	int32                                         UID;                                               // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         FOV;                                               // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(CustomConsoleManagerSD_XGetActorNameByUID) == 0x000004, "Wrong alignment on CustomConsoleManagerSD_XGetActorNameByUID");
-static_assert(sizeof(CustomConsoleManagerSD_XGetActorNameByUID) == 0x000004, "Wrong size on CustomConsoleManagerSD_XGetActorNameByUID");
-static_assert(offsetof(CustomConsoleManagerSD_XGetActorNameByUID, UID) == 0x000000, "Member 'CustomConsoleManagerSD_XGetActorNameByUID::UID' has a wrong offset!");
+static_assert(alignof(CustomConsoleManagerMH_XSetFov) == 0x000004, "Wrong alignment on CustomConsoleManagerMH_XSetFov");
+static_assert(sizeof(CustomConsoleManagerMH_XSetFov) == 0x000004, "Wrong size on CustomConsoleManagerMH_XSetFov");
+static_assert(offsetof(CustomConsoleManagerMH_XSetFov, FOV) == 0x000000, "Member 'CustomConsoleManagerMH_XSetFov::FOV' has a wrong offset!");
 
-// Function Stalker2.CustomConsoleManagerSD.XTeleportToPlacesOfInterest
-// 0x0010 (0x0010 - 0x0000)
-struct CustomConsoleManagerSD_XTeleportToPlacesOfInterest final
-{
-public:
-	class FString                                 SID;                                               // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(CustomConsoleManagerSD_XTeleportToPlacesOfInterest) == 0x000008, "Wrong alignment on CustomConsoleManagerSD_XTeleportToPlacesOfInterest");
-static_assert(sizeof(CustomConsoleManagerSD_XTeleportToPlacesOfInterest) == 0x000010, "Wrong size on CustomConsoleManagerSD_XTeleportToPlacesOfInterest");
-static_assert(offsetof(CustomConsoleManagerSD_XTeleportToPlacesOfInterest, SID) == 0x000000, "Member 'CustomConsoleManagerSD_XTeleportToPlacesOfInterest::SID' has a wrong offset!");
-
-// Function Stalker2.CustomConsoleManagerOA.XDebugAudioScattererEvents
-// 0x0008 (0x0008 - 0x0000)
-struct CustomConsoleManagerOA_XDebugAudioScattererEvents final
-{
-public:
-	bool                                          bEnabled;                                          // 0x0000(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1[0x3];                                        // 0x0001(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         DrawTime;                                          // 0x0004(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(CustomConsoleManagerOA_XDebugAudioScattererEvents) == 0x000004, "Wrong alignment on CustomConsoleManagerOA_XDebugAudioScattererEvents");
-static_assert(sizeof(CustomConsoleManagerOA_XDebugAudioScattererEvents) == 0x000008, "Wrong size on CustomConsoleManagerOA_XDebugAudioScattererEvents");
-static_assert(offsetof(CustomConsoleManagerOA_XDebugAudioScattererEvents, bEnabled) == 0x000000, "Member 'CustomConsoleManagerOA_XDebugAudioScattererEvents::bEnabled' has a wrong offset!");
-static_assert(offsetof(CustomConsoleManagerOA_XDebugAudioScattererEvents, DrawTime) == 0x000004, "Member 'CustomConsoleManagerOA_XDebugAudioScattererEvents::DrawTime' has a wrong offset!");
-
-// Function Stalker2.CustomConsoleManagerOA.XDebugAudioScattererMap
+// Function Stalker2.CustomConsoleManagerMH.XToggleCustomFov
 // 0x0001 (0x0001 - 0x0000)
-struct CustomConsoleManagerOA_XDebugAudioScattererMap final
+struct CustomConsoleManagerMH_XToggleCustomFov final
 {
 public:
-	bool                                          bEnabled;                                          // 0x0000(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bEnable;                                           // 0x0000(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(CustomConsoleManagerOA_XDebugAudioScattererMap) == 0x000001, "Wrong alignment on CustomConsoleManagerOA_XDebugAudioScattererMap");
-static_assert(sizeof(CustomConsoleManagerOA_XDebugAudioScattererMap) == 0x000001, "Wrong size on CustomConsoleManagerOA_XDebugAudioScattererMap");
-static_assert(offsetof(CustomConsoleManagerOA_XDebugAudioScattererMap, bEnabled) == 0x000000, "Member 'CustomConsoleManagerOA_XDebugAudioScattererMap::bEnabled' has a wrong offset!");
+static_assert(alignof(CustomConsoleManagerMH_XToggleCustomFov) == 0x000001, "Wrong alignment on CustomConsoleManagerMH_XToggleCustomFov");
+static_assert(sizeof(CustomConsoleManagerMH_XToggleCustomFov) == 0x000001, "Wrong size on CustomConsoleManagerMH_XToggleCustomFov");
+static_assert(offsetof(CustomConsoleManagerMH_XToggleCustomFov, bEnable) == 0x000000, "Member 'CustomConsoleManagerMH_XToggleCustomFov::bEnable' has a wrong offset!");
 
-// Function Stalker2.CustomConsoleManagerOA.XHasDLC
+// Function Stalker2.CustomConsoleManagerMH.XToggleHubDoors
 // 0x0008 (0x0008 - 0x0000)
-struct CustomConsoleManagerOA_XHasDLC final
+struct CustomConsoleManagerMH_XToggleHubDoors final
 {
 public:
-	class FName                                   DLCName;                                           // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bLocked;                                           // 0x0000(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1[0x3];                                        // 0x0001(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         Radius;                                            // 0x0004(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(CustomConsoleManagerOA_XHasDLC) == 0x000004, "Wrong alignment on CustomConsoleManagerOA_XHasDLC");
-static_assert(sizeof(CustomConsoleManagerOA_XHasDLC) == 0x000008, "Wrong size on CustomConsoleManagerOA_XHasDLC");
-static_assert(offsetof(CustomConsoleManagerOA_XHasDLC, DLCName) == 0x000000, "Member 'CustomConsoleManagerOA_XHasDLC::DLCName' has a wrong offset!");
+static_assert(alignof(CustomConsoleManagerMH_XToggleHubDoors) == 0x000004, "Wrong alignment on CustomConsoleManagerMH_XToggleHubDoors");
+static_assert(sizeof(CustomConsoleManagerMH_XToggleHubDoors) == 0x000008, "Wrong size on CustomConsoleManagerMH_XToggleHubDoors");
+static_assert(offsetof(CustomConsoleManagerMH_XToggleHubDoors, bLocked) == 0x000000, "Member 'CustomConsoleManagerMH_XToggleHubDoors::bLocked' has a wrong offset!");
+static_assert(offsetof(CustomConsoleManagerMH_XToggleHubDoors, Radius) == 0x000004, "Member 'CustomConsoleManagerMH_XToggleHubDoors::Radius' has a wrong offset!");
 
-// Function Stalker2.CustomConsoleManagerOA.XPlayVideo
+// Function Stalker2.CustomConsoleManagerMH.XApplyMainHandWeaponUpgradeBySID
 // 0x0010 (0x0010 - 0x0000)
-struct CustomConsoleManagerOA_XPlayVideo final
+struct CustomConsoleManagerMH_XApplyMainHandWeaponUpgradeBySID final
 {
 public:
-	class FString                                 Path;                                              // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 UpgradePrototypeSID;                               // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(CustomConsoleManagerOA_XPlayVideo) == 0x000008, "Wrong alignment on CustomConsoleManagerOA_XPlayVideo");
-static_assert(sizeof(CustomConsoleManagerOA_XPlayVideo) == 0x000010, "Wrong size on CustomConsoleManagerOA_XPlayVideo");
-static_assert(offsetof(CustomConsoleManagerOA_XPlayVideo, Path) == 0x000000, "Member 'CustomConsoleManagerOA_XPlayVideo::Path' has a wrong offset!");
+static_assert(alignof(CustomConsoleManagerMH_XApplyMainHandWeaponUpgradeBySID) == 0x000008, "Wrong alignment on CustomConsoleManagerMH_XApplyMainHandWeaponUpgradeBySID");
+static_assert(sizeof(CustomConsoleManagerMH_XApplyMainHandWeaponUpgradeBySID) == 0x000010, "Wrong size on CustomConsoleManagerMH_XApplyMainHandWeaponUpgradeBySID");
+static_assert(offsetof(CustomConsoleManagerMH_XApplyMainHandWeaponUpgradeBySID, UpgradePrototypeSID) == 0x000000, "Member 'CustomConsoleManagerMH_XApplyMainHandWeaponUpgradeBySID::UpgradePrototypeSID' has a wrong offset!");
 
 // Function Stalker2.AbstractProgressBar.SetProgressValue
 // 0x0004 (0x0004 - 0x0000)
@@ -104,31 +93,6 @@ public:
 static_assert(alignof(AbstractProgressBar_SetProgressValue) == 0x000004, "Wrong alignment on AbstractProgressBar_SetProgressValue");
 static_assert(sizeof(AbstractProgressBar_SetProgressValue) == 0x000004, "Wrong size on AbstractProgressBar_SetProgressValue");
 static_assert(offsetof(AbstractProgressBar_SetProgressValue, InProgress) == 0x000000, "Member 'AbstractProgressBar_SetProgressValue::InProgress' has a wrong offset!");
-
-// Function Stalker2.CustomConsoleManagerMB.XSetDrawDebugExplosion
-// 0x0008 (0x0008 - 0x0000)
-struct CustomConsoleManagerMB_XSetDrawDebugExplosion final
-{
-public:
-	bool                                          bDebug;                                            // 0x0000(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1[0x3];                                        // 0x0001(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         DebugTime;                                         // 0x0004(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(CustomConsoleManagerMB_XSetDrawDebugExplosion) == 0x000004, "Wrong alignment on CustomConsoleManagerMB_XSetDrawDebugExplosion");
-static_assert(sizeof(CustomConsoleManagerMB_XSetDrawDebugExplosion) == 0x000008, "Wrong size on CustomConsoleManagerMB_XSetDrawDebugExplosion");
-static_assert(offsetof(CustomConsoleManagerMB_XSetDrawDebugExplosion, bDebug) == 0x000000, "Member 'CustomConsoleManagerMB_XSetDrawDebugExplosion::bDebug' has a wrong offset!");
-static_assert(offsetof(CustomConsoleManagerMB_XSetDrawDebugExplosion, DebugTime) == 0x000004, "Member 'CustomConsoleManagerMB_XSetDrawDebugExplosion::DebugTime' has a wrong offset!");
-
-// Function Stalker2.SettingElement.GetIsEnabledElement
-// 0x0001 (0x0001 - 0x0000)
-struct SettingElement_GetIsEnabledElement final
-{
-public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(SettingElement_GetIsEnabledElement) == 0x000001, "Wrong alignment on SettingElement_GetIsEnabledElement");
-static_assert(sizeof(SettingElement_GetIsEnabledElement) == 0x000001, "Wrong size on SettingElement_GetIsEnabledElement");
-static_assert(offsetof(SettingElement_GetIsEnabledElement, ReturnValue) == 0x000000, "Member 'SettingElement_GetIsEnabledElement::ReturnValue' has a wrong offset!");
 
 // Function Stalker2.AchievementTrigger.OnBeginOverlap
 // 0x0108 (0x0108 - 0x0000)
@@ -179,6 +143,17 @@ static_assert(offsetof(Obj_OnHit, SelfActor) == 0x000000, "Member 'Obj_OnHit::Se
 static_assert(offsetof(Obj_OnHit, OtherActor) == 0x000008, "Member 'Obj_OnHit::OtherActor' has a wrong offset!");
 static_assert(offsetof(Obj_OnHit, NormalImpulse) == 0x000010, "Member 'Obj_OnHit::NormalImpulse' has a wrong offset!");
 static_assert(offsetof(Obj_OnHit, Hit) == 0x000028, "Member 'Obj_OnHit::Hit' has a wrong offset!");
+
+// DelegateFunction Stalker2.Obj.OnObjTurnedToTarget__DelegateSignature
+// 0x0001 (0x0001 - 0x0000)
+struct Obj_OnObjTurnedToTarget__DelegateSignature final
+{
+public:
+	bool                                          bSuccess;                                          // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(Obj_OnObjTurnedToTarget__DelegateSignature) == 0x000001, "Wrong alignment on Obj_OnObjTurnedToTarget__DelegateSignature");
+static_assert(sizeof(Obj_OnObjTurnedToTarget__DelegateSignature) == 0x000001, "Wrong size on Obj_OnObjTurnedToTarget__DelegateSignature");
+static_assert(offsetof(Obj_OnObjTurnedToTarget__DelegateSignature, bSuccess) == 0x000000, "Member 'Obj_OnObjTurnedToTarget__DelegateSignature::bSuccess' has a wrong offset!");
 
 // Function Stalker2.Obj.StartCutsceneSequence
 // 0x0020 (0x0020 - 0x0000)
@@ -314,6 +289,238 @@ static_assert(alignof(Agent_SetCutsceneProceduralEyesWeight) == 0x000004, "Wrong
 static_assert(sizeof(Agent_SetCutsceneProceduralEyesWeight) == 0x000004, "Wrong size on Agent_SetCutsceneProceduralEyesWeight");
 static_assert(offsetof(Agent_SetCutsceneProceduralEyesWeight, Value) == 0x000000, "Member 'Agent_SetCutsceneProceduralEyesWeight::Value' has a wrong offset!");
 
+// Function Stalker2.StrelokBossComponent.OnDashAbilityUsed
+// 0x0001 (0x0001 - 0x0000)
+struct StrelokBossComponent_OnDashAbilityUsed final
+{
+public:
+	bool                                          bAbilityUsed;                                      // 0x0000(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(StrelokBossComponent_OnDashAbilityUsed) == 0x000001, "Wrong alignment on StrelokBossComponent_OnDashAbilityUsed");
+static_assert(sizeof(StrelokBossComponent_OnDashAbilityUsed) == 0x000001, "Wrong size on StrelokBossComponent_OnDashAbilityUsed");
+static_assert(offsetof(StrelokBossComponent_OnDashAbilityUsed, bAbilityUsed) == 0x000000, "Member 'StrelokBossComponent_OnDashAbilityUsed::bAbilityUsed' has a wrong offset!");
+
+// Function Stalker2.HintBase.HoverChangeHintTextColor
+// 0x0018 (0x0018 - 0x0000)
+struct HintBase_HoverChangeHintTextColor final
+{
+public:
+	bool                                          bShow;                                             // 0x0000(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class FString                                 InStylePrefix;                                     // 0x0008(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(HintBase_HoverChangeHintTextColor) == 0x000008, "Wrong alignment on HintBase_HoverChangeHintTextColor");
+static_assert(sizeof(HintBase_HoverChangeHintTextColor) == 0x000018, "Wrong size on HintBase_HoverChangeHintTextColor");
+static_assert(offsetof(HintBase_HoverChangeHintTextColor, bShow) == 0x000000, "Member 'HintBase_HoverChangeHintTextColor::bShow' has a wrong offset!");
+static_assert(offsetof(HintBase_HoverChangeHintTextColor, InStylePrefix) == 0x000008, "Member 'HintBase_HoverChangeHintTextColor::InStylePrefix' has a wrong offset!");
+
+// Function Stalker2.HintBase.PostShowHover
+// 0x0001 (0x0001 - 0x0000)
+struct HintBase_PostShowHover final
+{
+public:
+	bool                                          bInShow;                                           // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(HintBase_PostShowHover) == 0x000001, "Wrong alignment on HintBase_PostShowHover");
+static_assert(sizeof(HintBase_PostShowHover) == 0x000001, "Wrong size on HintBase_PostShowHover");
+static_assert(offsetof(HintBase_PostShowHover, bInShow) == 0x000000, "Member 'HintBase_PostShowHover::bInShow' has a wrong offset!");
+
+// Function Stalker2.HintBase.SetStylePrefix
+// 0x0010 (0x0010 - 0x0000)
+struct HintBase_SetStylePrefix final
+{
+public:
+	class FString                                 InStylePrefix;                                     // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(HintBase_SetStylePrefix) == 0x000008, "Wrong alignment on HintBase_SetStylePrefix");
+static_assert(sizeof(HintBase_SetStylePrefix) == 0x000010, "Wrong size on HintBase_SetStylePrefix");
+static_assert(offsetof(HintBase_SetStylePrefix, InStylePrefix) == 0x000000, "Member 'HintBase_SetStylePrefix::InStylePrefix' has a wrong offset!");
+
+// Function Stalker2.HintBase.SetText
+// 0x0018 (0x0018 - 0x0000)
+struct HintBase_SetText final
+{
+public:
+	class FText                                   InText;                                            // 0x0000(0x0018)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(HintBase_SetText) == 0x000008, "Wrong alignment on HintBase_SetText");
+static_assert(sizeof(HintBase_SetText) == 0x000018, "Wrong size on HintBase_SetText");
+static_assert(offsetof(HintBase_SetText, InText) == 0x000000, "Member 'HintBase_SetText::InText' has a wrong offset!");
+
+// Function Stalker2.HintBase.GetHoverSettings
+// 0x0010 (0x0010 - 0x0000)
+struct HintBase_GetHoverSettings final
+{
+public:
+	TArray<struct FHoverAction>                   ReturnValue;                                       // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(HintBase_GetHoverSettings) == 0x000008, "Wrong alignment on HintBase_GetHoverSettings");
+static_assert(sizeof(HintBase_GetHoverSettings) == 0x000010, "Wrong size on HintBase_GetHoverSettings");
+static_assert(offsetof(HintBase_GetHoverSettings, ReturnValue) == 0x000000, "Member 'HintBase_GetHoverSettings::ReturnValue' has a wrong offset!");
+
+// Function Stalker2.SettingElement.GetIsEnabledElement
+// 0x0001 (0x0001 - 0x0000)
+struct SettingElement_GetIsEnabledElement final
+{
+public:
+	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(SettingElement_GetIsEnabledElement) == 0x000001, "Wrong alignment on SettingElement_GetIsEnabledElement");
+static_assert(sizeof(SettingElement_GetIsEnabledElement) == 0x000001, "Wrong size on SettingElement_GetIsEnabledElement");
+static_assert(offsetof(SettingElement_GetIsEnabledElement, ReturnValue) == 0x000000, "Member 'SettingElement_GetIsEnabledElement::ReturnValue' has a wrong offset!");
+
+// Function Stalker2.SettingsElementPercent.SetValue
+// 0x0008 (0x0008 - 0x0000)
+struct SettingsElementPercent_SetValue final
+{
+public:
+	float                                         InValue;                                           // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bForce;                                            // 0x0004(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_5[0x3];                                        // 0x0005(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(SettingsElementPercent_SetValue) == 0x000004, "Wrong alignment on SettingsElementPercent_SetValue");
+static_assert(sizeof(SettingsElementPercent_SetValue) == 0x000008, "Wrong size on SettingsElementPercent_SetValue");
+static_assert(offsetof(SettingsElementPercent_SetValue, InValue) == 0x000000, "Member 'SettingsElementPercent_SetValue::InValue' has a wrong offset!");
+static_assert(offsetof(SettingsElementPercent_SetValue, bForce) == 0x000004, "Member 'SettingsElementPercent_SetValue::bForce' has a wrong offset!");
+
+// Function Stalker2.AISwarmComponent.OnConstruction
+// 0x0070 (0x0070 - 0x0000)
+struct AISwarmComponent_OnConstruction final
+{
+public:
+	struct FTransform                             Transform;                                         // 0x0000(0x0060)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         SwarmHealth;                                       // 0x0060(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_64[0xC];                                       // 0x0064(0x000C)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(AISwarmComponent_OnConstruction) == 0x000010, "Wrong alignment on AISwarmComponent_OnConstruction");
+static_assert(sizeof(AISwarmComponent_OnConstruction) == 0x000070, "Wrong size on AISwarmComponent_OnConstruction");
+static_assert(offsetof(AISwarmComponent_OnConstruction, Transform) == 0x000000, "Member 'AISwarmComponent_OnConstruction::Transform' has a wrong offset!");
+static_assert(offsetof(AISwarmComponent_OnConstruction, SwarmHealth) == 0x000060, "Member 'AISwarmComponent_OnConstruction::SwarmHealth' has a wrong offset!");
+
+// Function Stalker2.AISwarmComponent.SetDamageTarget
+// 0x0010 (0x0010 - 0x0000)
+struct AISwarmComponent_SetDamageTarget final
+{
+public:
+	const class AActor*                           Target;                                            // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         OffsetToGroundLevel;                               // 0x0008(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         EngageRadius;                                      // 0x000C(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(AISwarmComponent_SetDamageTarget) == 0x000008, "Wrong alignment on AISwarmComponent_SetDamageTarget");
+static_assert(sizeof(AISwarmComponent_SetDamageTarget) == 0x000010, "Wrong size on AISwarmComponent_SetDamageTarget");
+static_assert(offsetof(AISwarmComponent_SetDamageTarget, Target) == 0x000000, "Member 'AISwarmComponent_SetDamageTarget::Target' has a wrong offset!");
+static_assert(offsetof(AISwarmComponent_SetDamageTarget, OffsetToGroundLevel) == 0x000008, "Member 'AISwarmComponent_SetDamageTarget::OffsetToGroundLevel' has a wrong offset!");
+static_assert(offsetof(AISwarmComponent_SetDamageTarget, EngageRadius) == 0x00000C, "Member 'AISwarmComponent_SetDamageTarget::EngageRadius' has a wrong offset!");
+
+// Function Stalker2.AISwarmComponent.Simulate
+// 0x0004 (0x0004 - 0x0000)
+struct AISwarmComponent_Simulate final
+{
+public:
+	float                                         DeltaTime;                                         // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(AISwarmComponent_Simulate) == 0x000004, "Wrong alignment on AISwarmComponent_Simulate");
+static_assert(sizeof(AISwarmComponent_Simulate) == 0x000004, "Wrong size on AISwarmComponent_Simulate");
+static_assert(offsetof(AISwarmComponent_Simulate, DeltaTime) == 0x000000, "Member 'AISwarmComponent_Simulate::DeltaTime' has a wrong offset!");
+
+// Function Stalker2.AISwarmComponent.GetVATAnimationNames
+// 0x0010 (0x0010 - 0x0000)
+struct AISwarmComponent_GetVATAnimationNames final
+{
+public:
+	TArray<class FName>                           ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(AISwarmComponent_GetVATAnimationNames) == 0x000008, "Wrong alignment on AISwarmComponent_GetVATAnimationNames");
+static_assert(sizeof(AISwarmComponent_GetVATAnimationNames) == 0x000010, "Wrong size on AISwarmComponent_GetVATAnimationNames");
+static_assert(offsetof(AISwarmComponent_GetVATAnimationNames, ReturnValue) == 0x000000, "Member 'AISwarmComponent_GetVATAnimationNames::ReturnValue' has a wrong offset!");
+
+// Function Stalker2.Anomaly.OnBeginOverlap
+// 0x0108 (0x0108 - 0x0000)
+struct Anomaly_OnBeginOverlap final
+{
+public:
+	class UPrimitiveComponent*                    OverlappedComponent;                               // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    OtherComp;                                         // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bFromSweep;                                        // 0x001C(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1D[0x3];                                       // 0x001D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FHitResult                             SweepResult;                                       // 0x0020(0x00E8)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(Anomaly_OnBeginOverlap) == 0x000008, "Wrong alignment on Anomaly_OnBeginOverlap");
+static_assert(sizeof(Anomaly_OnBeginOverlap) == 0x000108, "Wrong size on Anomaly_OnBeginOverlap");
+static_assert(offsetof(Anomaly_OnBeginOverlap, OverlappedComponent) == 0x000000, "Member 'Anomaly_OnBeginOverlap::OverlappedComponent' has a wrong offset!");
+static_assert(offsetof(Anomaly_OnBeginOverlap, OtherActor) == 0x000008, "Member 'Anomaly_OnBeginOverlap::OtherActor' has a wrong offset!");
+static_assert(offsetof(Anomaly_OnBeginOverlap, OtherComp) == 0x000010, "Member 'Anomaly_OnBeginOverlap::OtherComp' has a wrong offset!");
+static_assert(offsetof(Anomaly_OnBeginOverlap, OtherBodyIndex) == 0x000018, "Member 'Anomaly_OnBeginOverlap::OtherBodyIndex' has a wrong offset!");
+static_assert(offsetof(Anomaly_OnBeginOverlap, bFromSweep) == 0x00001C, "Member 'Anomaly_OnBeginOverlap::bFromSweep' has a wrong offset!");
+static_assert(offsetof(Anomaly_OnBeginOverlap, SweepResult) == 0x000020, "Member 'Anomaly_OnBeginOverlap::SweepResult' has a wrong offset!");
+
+// Function Stalker2.Anomaly.OnDieSoundFinished
+// 0x0010 (0x0010 - 0x0000)
+struct Anomaly_OnDieSoundFinished final
+{
+public:
+	EAkCallbackType                               CallbackType;                                      // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class UAkCallbackInfo*                        CallbackInfo;                                      // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(Anomaly_OnDieSoundFinished) == 0x000008, "Wrong alignment on Anomaly_OnDieSoundFinished");
+static_assert(sizeof(Anomaly_OnDieSoundFinished) == 0x000010, "Wrong size on Anomaly_OnDieSoundFinished");
+static_assert(offsetof(Anomaly_OnDieSoundFinished, CallbackType) == 0x000000, "Member 'Anomaly_OnDieSoundFinished::CallbackType' has a wrong offset!");
+static_assert(offsetof(Anomaly_OnDieSoundFinished, CallbackInfo) == 0x000008, "Member 'Anomaly_OnDieSoundFinished::CallbackInfo' has a wrong offset!");
+
+// Function Stalker2.Anomaly.OnEndOverlap
+// 0x0020 (0x0020 - 0x0000)
+struct Anomaly_OnEndOverlap final
+{
+public:
+	class UPrimitiveComponent*                    OverlappedComponent;                               // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    OtherComp;                                         // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(Anomaly_OnEndOverlap) == 0x000008, "Wrong alignment on Anomaly_OnEndOverlap");
+static_assert(sizeof(Anomaly_OnEndOverlap) == 0x000020, "Wrong size on Anomaly_OnEndOverlap");
+static_assert(offsetof(Anomaly_OnEndOverlap, OverlappedComponent) == 0x000000, "Member 'Anomaly_OnEndOverlap::OverlappedComponent' has a wrong offset!");
+static_assert(offsetof(Anomaly_OnEndOverlap, OtherActor) == 0x000008, "Member 'Anomaly_OnEndOverlap::OtherActor' has a wrong offset!");
+static_assert(offsetof(Anomaly_OnEndOverlap, OtherComp) == 0x000010, "Member 'Anomaly_OnEndOverlap::OtherComp' has a wrong offset!");
+static_assert(offsetof(Anomaly_OnEndOverlap, OtherBodyIndex) == 0x000018, "Member 'Anomaly_OnEndOverlap::OtherBodyIndex' has a wrong offset!");
+
+// Function Stalker2.Anomaly.OnNiagaraFinished
+// 0x0008 (0x0008 - 0x0000)
+struct Anomaly_OnNiagaraFinished final
+{
+public:
+	class UNiagaraComponent*                      FinishedNiagara;                                   // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(Anomaly_OnNiagaraFinished) == 0x000008, "Wrong alignment on Anomaly_OnNiagaraFinished");
+static_assert(sizeof(Anomaly_OnNiagaraFinished) == 0x000008, "Wrong size on Anomaly_OnNiagaraFinished");
+static_assert(offsetof(Anomaly_OnNiagaraFinished, FinishedNiagara) == 0x000000, "Member 'Anomaly_OnNiagaraFinished::FinishedNiagara' has a wrong offset!");
+
+// Function Stalker2.SoapBubbleAnomaly.OnActorCollided
+// 0x0108 (0x0108 - 0x0000)
+struct SoapBubbleAnomaly_OnActorCollided final
+{
+public:
+	class UPrimitiveComponent*                    OverlappedComponent;                               // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    OtherComp;                                         // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bFromSweep;                                        // 0x001C(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1D[0x3];                                       // 0x001D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FHitResult                             SweepResult;                                       // 0x0020(0x00E8)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(SoapBubbleAnomaly_OnActorCollided) == 0x000008, "Wrong alignment on SoapBubbleAnomaly_OnActorCollided");
+static_assert(sizeof(SoapBubbleAnomaly_OnActorCollided) == 0x000108, "Wrong size on SoapBubbleAnomaly_OnActorCollided");
+static_assert(offsetof(SoapBubbleAnomaly_OnActorCollided, OverlappedComponent) == 0x000000, "Member 'SoapBubbleAnomaly_OnActorCollided::OverlappedComponent' has a wrong offset!");
+static_assert(offsetof(SoapBubbleAnomaly_OnActorCollided, OtherActor) == 0x000008, "Member 'SoapBubbleAnomaly_OnActorCollided::OtherActor' has a wrong offset!");
+static_assert(offsetof(SoapBubbleAnomaly_OnActorCollided, OtherComp) == 0x000010, "Member 'SoapBubbleAnomaly_OnActorCollided::OtherComp' has a wrong offset!");
+static_assert(offsetof(SoapBubbleAnomaly_OnActorCollided, OtherBodyIndex) == 0x000018, "Member 'SoapBubbleAnomaly_OnActorCollided::OtherBodyIndex' has a wrong offset!");
+static_assert(offsetof(SoapBubbleAnomaly_OnActorCollided, bFromSweep) == 0x00001C, "Member 'SoapBubbleAnomaly_OnActorCollided::bFromSweep' has a wrong offset!");
+static_assert(offsetof(SoapBubbleAnomaly_OnActorCollided, SweepResult) == 0x000020, "Member 'SoapBubbleAnomaly_OnActorCollided::SweepResult' has a wrong offset!");
+
 // Function Stalker2.MenuSubViewBase.SelectOptionWidget
 // 0x0008 (0x0008 - 0x0000)
 struct MenuSubViewBase_SelectOptionWidget final
@@ -324,6 +531,28 @@ public:
 static_assert(alignof(MenuSubViewBase_SelectOptionWidget) == 0x000008, "Wrong alignment on MenuSubViewBase_SelectOptionWidget");
 static_assert(sizeof(MenuSubViewBase_SelectOptionWidget) == 0x000008, "Wrong size on MenuSubViewBase_SelectOptionWidget");
 static_assert(offsetof(MenuSubViewBase_SelectOptionWidget, ButtonWidget) == 0x000000, "Member 'MenuSubViewBase_SelectOptionWidget::ButtonWidget' has a wrong offset!");
+
+// Function Stalker2.EquipmentSlots.OnItemMouseEnter
+// 0x0008 (0x0008 - 0x0000)
+struct EquipmentSlots_OnItemMouseEnter final
+{
+public:
+	class UInteractableItemSlotBaseWidget*        ItemWidget;                                        // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(EquipmentSlots_OnItemMouseEnter) == 0x000008, "Wrong alignment on EquipmentSlots_OnItemMouseEnter");
+static_assert(sizeof(EquipmentSlots_OnItemMouseEnter) == 0x000008, "Wrong size on EquipmentSlots_OnItemMouseEnter");
+static_assert(offsetof(EquipmentSlots_OnItemMouseEnter, ItemWidget) == 0x000000, "Member 'EquipmentSlots_OnItemMouseEnter::ItemWidget' has a wrong offset!");
+
+// Function Stalker2.EquipmentSlots.OnItemMouseLeave
+// 0x0008 (0x0008 - 0x0000)
+struct EquipmentSlots_OnItemMouseLeave final
+{
+public:
+	class UInteractableItemSlotBaseWidget*        ItemWidget;                                        // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(EquipmentSlots_OnItemMouseLeave) == 0x000008, "Wrong alignment on EquipmentSlots_OnItemMouseLeave");
+static_assert(sizeof(EquipmentSlots_OnItemMouseLeave) == 0x000008, "Wrong size on EquipmentSlots_OnItemMouseLeave");
+static_assert(offsetof(EquipmentSlots_OnItemMouseLeave, ItemWidget) == 0x000000, "Member 'EquipmentSlots_OnItemMouseLeave::ItemWidget' has a wrong offset!");
 
 // Function Stalker2.InteractionComponent.SetInteractionActive
 // 0x0001 (0x0001 - 0x0000)
@@ -393,188 +622,6 @@ static_assert(alignof(InteractionComponent_HasRelatedQuest) == 0x000001, "Wrong 
 static_assert(sizeof(InteractionComponent_HasRelatedQuest) == 0x000001, "Wrong size on InteractionComponent_HasRelatedQuest");
 static_assert(offsetof(InteractionComponent_HasRelatedQuest, ReturnValue) == 0x000000, "Member 'InteractionComponent_HasRelatedQuest::ReturnValue' has a wrong offset!");
 
-// Function Stalker2.AISwarmComponent.OnConstruction
-// 0x0070 (0x0070 - 0x0000)
-struct AISwarmComponent_OnConstruction final
-{
-public:
-	struct FTransform                             Transform;                                         // 0x0000(0x0060)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         SwarmHealth;                                       // 0x0060(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_64[0xC];                                       // 0x0064(0x000C)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(AISwarmComponent_OnConstruction) == 0x000010, "Wrong alignment on AISwarmComponent_OnConstruction");
-static_assert(sizeof(AISwarmComponent_OnConstruction) == 0x000070, "Wrong size on AISwarmComponent_OnConstruction");
-static_assert(offsetof(AISwarmComponent_OnConstruction, Transform) == 0x000000, "Member 'AISwarmComponent_OnConstruction::Transform' has a wrong offset!");
-static_assert(offsetof(AISwarmComponent_OnConstruction, SwarmHealth) == 0x000060, "Member 'AISwarmComponent_OnConstruction::SwarmHealth' has a wrong offset!");
-
-// Function Stalker2.AISwarmComponent.SetDamageTarget
-// 0x0010 (0x0010 - 0x0000)
-struct AISwarmComponent_SetDamageTarget final
-{
-public:
-	const class AActor*                           Target;                                            // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         OffsetToGroundLevel;                               // 0x0008(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         EngageRadius;                                      // 0x000C(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(AISwarmComponent_SetDamageTarget) == 0x000008, "Wrong alignment on AISwarmComponent_SetDamageTarget");
-static_assert(sizeof(AISwarmComponent_SetDamageTarget) == 0x000010, "Wrong size on AISwarmComponent_SetDamageTarget");
-static_assert(offsetof(AISwarmComponent_SetDamageTarget, Target) == 0x000000, "Member 'AISwarmComponent_SetDamageTarget::Target' has a wrong offset!");
-static_assert(offsetof(AISwarmComponent_SetDamageTarget, OffsetToGroundLevel) == 0x000008, "Member 'AISwarmComponent_SetDamageTarget::OffsetToGroundLevel' has a wrong offset!");
-static_assert(offsetof(AISwarmComponent_SetDamageTarget, EngageRadius) == 0x00000C, "Member 'AISwarmComponent_SetDamageTarget::EngageRadius' has a wrong offset!");
-
-// Function Stalker2.AISwarmComponent.Simulate
-// 0x0004 (0x0004 - 0x0000)
-struct AISwarmComponent_Simulate final
-{
-public:
-	float                                         DeltaTime;                                         // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(AISwarmComponent_Simulate) == 0x000004, "Wrong alignment on AISwarmComponent_Simulate");
-static_assert(sizeof(AISwarmComponent_Simulate) == 0x000004, "Wrong size on AISwarmComponent_Simulate");
-static_assert(offsetof(AISwarmComponent_Simulate, DeltaTime) == 0x000000, "Member 'AISwarmComponent_Simulate::DeltaTime' has a wrong offset!");
-
-// Function Stalker2.AISwarmComponent.GetVATAnimationNames
-// 0x0010 (0x0010 - 0x0000)
-struct AISwarmComponent_GetVATAnimationNames final
-{
-public:
-	TArray<class FName>                           ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(AISwarmComponent_GetVATAnimationNames) == 0x000008, "Wrong alignment on AISwarmComponent_GetVATAnimationNames");
-static_assert(sizeof(AISwarmComponent_GetVATAnimationNames) == 0x000010, "Wrong size on AISwarmComponent_GetVATAnimationNames");
-static_assert(offsetof(AISwarmComponent_GetVATAnimationNames, ReturnValue) == 0x000000, "Member 'AISwarmComponent_GetVATAnimationNames::ReturnValue' has a wrong offset!");
-
-// Function Stalker2.ItemSelectorWeaponSlot.GetHoveredWidgets
-// 0x0010 (0x0010 - 0x0000)
-struct ItemSelectorWeaponSlot_GetHoveredWidgets final
-{
-public:
-	TArray<class UUserWidget*>                    ReturnValue;                                       // 0x0000(0x0010)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(ItemSelectorWeaponSlot_GetHoveredWidgets) == 0x000008, "Wrong alignment on ItemSelectorWeaponSlot_GetHoveredWidgets");
-static_assert(sizeof(ItemSelectorWeaponSlot_GetHoveredWidgets) == 0x000010, "Wrong size on ItemSelectorWeaponSlot_GetHoveredWidgets");
-static_assert(offsetof(ItemSelectorWeaponSlot_GetHoveredWidgets, ReturnValue) == 0x000000, "Member 'ItemSelectorWeaponSlot_GetHoveredWidgets::ReturnValue' has a wrong offset!");
-
-// Function Stalker2.ItemSelectorWeaponSlot.IsAlternativeSlot
-// 0x0001 (0x0001 - 0x0000)
-struct ItemSelectorWeaponSlot_IsAlternativeSlot final
-{
-public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(ItemSelectorWeaponSlot_IsAlternativeSlot) == 0x000001, "Wrong alignment on ItemSelectorWeaponSlot_IsAlternativeSlot");
-static_assert(sizeof(ItemSelectorWeaponSlot_IsAlternativeSlot) == 0x000001, "Wrong size on ItemSelectorWeaponSlot_IsAlternativeSlot");
-static_assert(offsetof(ItemSelectorWeaponSlot_IsAlternativeSlot, ReturnValue) == 0x000000, "Member 'ItemSelectorWeaponSlot_IsAlternativeSlot::ReturnValue' has a wrong offset!");
-
-// Function Stalker2.ItemSelectorWeaponSlot.IsGrenadeSlot
-// 0x0001 (0x0001 - 0x0000)
-struct ItemSelectorWeaponSlot_IsGrenadeSlot final
-{
-public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(ItemSelectorWeaponSlot_IsGrenadeSlot) == 0x000001, "Wrong alignment on ItemSelectorWeaponSlot_IsGrenadeSlot");
-static_assert(sizeof(ItemSelectorWeaponSlot_IsGrenadeSlot) == 0x000001, "Wrong size on ItemSelectorWeaponSlot_IsGrenadeSlot");
-static_assert(offsetof(ItemSelectorWeaponSlot_IsGrenadeSlot, ReturnValue) == 0x000000, "Member 'ItemSelectorWeaponSlot_IsGrenadeSlot::ReturnValue' has a wrong offset!");
-
-// Function Stalker2.ItemSelectorWeaponSlot.IsWeaponSlot
-// 0x0001 (0x0001 - 0x0000)
-struct ItemSelectorWeaponSlot_IsWeaponSlot final
-{
-public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(ItemSelectorWeaponSlot_IsWeaponSlot) == 0x000001, "Wrong alignment on ItemSelectorWeaponSlot_IsWeaponSlot");
-static_assert(sizeof(ItemSelectorWeaponSlot_IsWeaponSlot) == 0x000001, "Wrong size on ItemSelectorWeaponSlot_IsWeaponSlot");
-static_assert(offsetof(ItemSelectorWeaponSlot_IsWeaponSlot, ReturnValue) == 0x000000, "Member 'ItemSelectorWeaponSlot_IsWeaponSlot::ReturnValue' has a wrong offset!");
-
-// Function Stalker2.StrandGenerator.GetFinalStrandData
-// 0x0020 (0x0020 - 0x0000)
-struct StrandGenerator_GetFinalStrandData final
-{
-public:
-	struct FStrandFinalData                       ReturnValue;                                       // 0x0000(0x0020)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(StrandGenerator_GetFinalStrandData) == 0x000008, "Wrong alignment on StrandGenerator_GetFinalStrandData");
-static_assert(sizeof(StrandGenerator_GetFinalStrandData) == 0x000020, "Wrong size on StrandGenerator_GetFinalStrandData");
-static_assert(offsetof(StrandGenerator_GetFinalStrandData, ReturnValue) == 0x000000, "Member 'StrandGenerator_GetFinalStrandData::ReturnValue' has a wrong offset!");
-
-// Function Stalker2.Anomaly.OnBeginOverlap
-// 0x0108 (0x0108 - 0x0000)
-struct Anomaly_OnBeginOverlap final
-{
-public:
-	class UPrimitiveComponent*                    OverlappedComponent;                               // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UPrimitiveComponent*                    OtherComp;                                         // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bFromSweep;                                        // 0x001C(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1D[0x3];                                       // 0x001D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FHitResult                             SweepResult;                                       // 0x0020(0x00E8)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(Anomaly_OnBeginOverlap) == 0x000008, "Wrong alignment on Anomaly_OnBeginOverlap");
-static_assert(sizeof(Anomaly_OnBeginOverlap) == 0x000108, "Wrong size on Anomaly_OnBeginOverlap");
-static_assert(offsetof(Anomaly_OnBeginOverlap, OverlappedComponent) == 0x000000, "Member 'Anomaly_OnBeginOverlap::OverlappedComponent' has a wrong offset!");
-static_assert(offsetof(Anomaly_OnBeginOverlap, OtherActor) == 0x000008, "Member 'Anomaly_OnBeginOverlap::OtherActor' has a wrong offset!");
-static_assert(offsetof(Anomaly_OnBeginOverlap, OtherComp) == 0x000010, "Member 'Anomaly_OnBeginOverlap::OtherComp' has a wrong offset!");
-static_assert(offsetof(Anomaly_OnBeginOverlap, OtherBodyIndex) == 0x000018, "Member 'Anomaly_OnBeginOverlap::OtherBodyIndex' has a wrong offset!");
-static_assert(offsetof(Anomaly_OnBeginOverlap, bFromSweep) == 0x00001C, "Member 'Anomaly_OnBeginOverlap::bFromSweep' has a wrong offset!");
-static_assert(offsetof(Anomaly_OnBeginOverlap, SweepResult) == 0x000020, "Member 'Anomaly_OnBeginOverlap::SweepResult' has a wrong offset!");
-
-// Function Stalker2.Anomaly.OnDieSoundFinished
-// 0x0010 (0x0010 - 0x0000)
-struct Anomaly_OnDieSoundFinished final
-{
-public:
-	EAkCallbackType                               CallbackType;                                      // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UAkCallbackInfo*                        CallbackInfo;                                      // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(Anomaly_OnDieSoundFinished) == 0x000008, "Wrong alignment on Anomaly_OnDieSoundFinished");
-static_assert(sizeof(Anomaly_OnDieSoundFinished) == 0x000010, "Wrong size on Anomaly_OnDieSoundFinished");
-static_assert(offsetof(Anomaly_OnDieSoundFinished, CallbackType) == 0x000000, "Member 'Anomaly_OnDieSoundFinished::CallbackType' has a wrong offset!");
-static_assert(offsetof(Anomaly_OnDieSoundFinished, CallbackInfo) == 0x000008, "Member 'Anomaly_OnDieSoundFinished::CallbackInfo' has a wrong offset!");
-
-// Function Stalker2.Anomaly.OnEndOverlap
-// 0x0020 (0x0020 - 0x0000)
-struct Anomaly_OnEndOverlap final
-{
-public:
-	class UPrimitiveComponent*                    OverlappedComponent;                               // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UPrimitiveComponent*                    OtherComp;                                         // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(Anomaly_OnEndOverlap) == 0x000008, "Wrong alignment on Anomaly_OnEndOverlap");
-static_assert(sizeof(Anomaly_OnEndOverlap) == 0x000020, "Wrong size on Anomaly_OnEndOverlap");
-static_assert(offsetof(Anomaly_OnEndOverlap, OverlappedComponent) == 0x000000, "Member 'Anomaly_OnEndOverlap::OverlappedComponent' has a wrong offset!");
-static_assert(offsetof(Anomaly_OnEndOverlap, OtherActor) == 0x000008, "Member 'Anomaly_OnEndOverlap::OtherActor' has a wrong offset!");
-static_assert(offsetof(Anomaly_OnEndOverlap, OtherComp) == 0x000010, "Member 'Anomaly_OnEndOverlap::OtherComp' has a wrong offset!");
-static_assert(offsetof(Anomaly_OnEndOverlap, OtherBodyIndex) == 0x000018, "Member 'Anomaly_OnEndOverlap::OtherBodyIndex' has a wrong offset!");
-
-// Function Stalker2.Anomaly.OnNiagaraFinished
-// 0x0008 (0x0008 - 0x0000)
-struct Anomaly_OnNiagaraFinished final
-{
-public:
-	class UNiagaraComponent*                      FinishedNiagara;                                   // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(Anomaly_OnNiagaraFinished) == 0x000008, "Wrong alignment on Anomaly_OnNiagaraFinished");
-static_assert(sizeof(Anomaly_OnNiagaraFinished) == 0x000008, "Wrong size on Anomaly_OnNiagaraFinished");
-static_assert(offsetof(Anomaly_OnNiagaraFinished, FinishedNiagara) == 0x000000, "Member 'Anomaly_OnNiagaraFinished::FinishedNiagara' has a wrong offset!");
-
-// Function Stalker2.ExpulsionAnomaly.OnBoltCollided
-// 0x0018 (0x0018 - 0x0000)
-struct ExpulsionAnomaly_OnBoltCollided final
-{
-public:
-	struct FVector                                LocalPoint;                                        // 0x0000(0x0018)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(ExpulsionAnomaly_OnBoltCollided) == 0x000008, "Wrong alignment on ExpulsionAnomaly_OnBoltCollided");
-static_assert(sizeof(ExpulsionAnomaly_OnBoltCollided) == 0x000018, "Wrong size on ExpulsionAnomaly_OnBoltCollided");
-static_assert(offsetof(ExpulsionAnomaly_OnBoltCollided, LocalPoint) == 0x000000, "Member 'ExpulsionAnomaly_OnBoltCollided::LocalPoint' has a wrong offset!");
-
 // Function Stalker2.SingleClickComponent.SetNeededFailedEvent
 // 0x0001 (0x0001 - 0x0000)
 struct SingleClickComponent_SetNeededFailedEvent final
@@ -596,6 +643,20 @@ public:
 static_assert(alignof(SingleClickComponent_CanSendFailedEvent) == 0x000001, "Wrong alignment on SingleClickComponent_CanSendFailedEvent");
 static_assert(sizeof(SingleClickComponent_CanSendFailedEvent) == 0x000001, "Wrong size on SingleClickComponent_CanSendFailedEvent");
 static_assert(offsetof(SingleClickComponent_CanSendFailedEvent, ReturnValue) == 0x000000, "Member 'SingleClickComponent_CanSendFailedEvent::ReturnValue' has a wrong offset!");
+
+// Function Stalker2.VoiceoverSpeechComponent.OnAKEventFinished
+// 0x0010 (0x0010 - 0x0000)
+struct VoiceoverSpeechComponent_OnAKEventFinished final
+{
+public:
+	EAkCallbackType                               CallbackType;                                      // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class UAkCallbackInfo*                        CallbackInfo;                                      // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(VoiceoverSpeechComponent_OnAKEventFinished) == 0x000008, "Wrong alignment on VoiceoverSpeechComponent_OnAKEventFinished");
+static_assert(sizeof(VoiceoverSpeechComponent_OnAKEventFinished) == 0x000010, "Wrong size on VoiceoverSpeechComponent_OnAKEventFinished");
+static_assert(offsetof(VoiceoverSpeechComponent_OnAKEventFinished, CallbackType) == 0x000000, "Member 'VoiceoverSpeechComponent_OnAKEventFinished::CallbackType' has a wrong offset!");
+static_assert(offsetof(VoiceoverSpeechComponent_OnAKEventFinished, CallbackInfo) == 0x000008, "Member 'VoiceoverSpeechComponent_OnAKEventFinished::CallbackInfo' has a wrong offset!");
 
 // Function Stalker2.AbilityEventData.GetAbilityType
 // 0x0001 (0x0001 - 0x0000)
@@ -619,65 +680,6 @@ static_assert(alignof(AbilityEventData_GetActivationTag) == 0x000004, "Wrong ali
 static_assert(sizeof(AbilityEventData_GetActivationTag) == 0x000008, "Wrong size on AbilityEventData_GetActivationTag");
 static_assert(offsetof(AbilityEventData_GetActivationTag, ReturnValue) == 0x000000, "Member 'AbilityEventData_GetActivationTag::ReturnValue' has a wrong offset!");
 
-// Function Stalker2.SpaceRestrictorsCheats.XRestrictorsShowResponse
-// 0x0004 (0x0004 - 0x0000)
-struct SpaceRestrictorsCheats_XRestrictorsShowResponse final
-{
-public:
-	int32                                         UID;                                               // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(SpaceRestrictorsCheats_XRestrictorsShowResponse) == 0x000004, "Wrong alignment on SpaceRestrictorsCheats_XRestrictorsShowResponse");
-static_assert(sizeof(SpaceRestrictorsCheats_XRestrictorsShowResponse) == 0x000004, "Wrong size on SpaceRestrictorsCheats_XRestrictorsShowResponse");
-static_assert(offsetof(SpaceRestrictorsCheats_XRestrictorsShowResponse, UID) == 0x000000, "Member 'SpaceRestrictorsCheats_XRestrictorsShowResponse::UID' has a wrong offset!");
-
-// Function Stalker2.WaterComponent.OnBeginOverlap
-// 0x0010 (0x0010 - 0x0000)
-struct WaterComponent_OnBeginOverlap final
-{
-public:
-	class AActor*                                 OverlappedComponent;                               // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(WaterComponent_OnBeginOverlap) == 0x000008, "Wrong alignment on WaterComponent_OnBeginOverlap");
-static_assert(sizeof(WaterComponent_OnBeginOverlap) == 0x000010, "Wrong size on WaterComponent_OnBeginOverlap");
-static_assert(offsetof(WaterComponent_OnBeginOverlap, OverlappedComponent) == 0x000000, "Member 'WaterComponent_OnBeginOverlap::OverlappedComponent' has a wrong offset!");
-static_assert(offsetof(WaterComponent_OnBeginOverlap, OtherActor) == 0x000008, "Member 'WaterComponent_OnBeginOverlap::OtherActor' has a wrong offset!");
-
-// Function Stalker2.WaterComponent.OnEndOverlap
-// 0x0010 (0x0010 - 0x0000)
-struct WaterComponent_OnEndOverlap final
-{
-public:
-	class AActor*                                 OverlappedComponent;                               // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(WaterComponent_OnEndOverlap) == 0x000008, "Wrong alignment on WaterComponent_OnEndOverlap");
-static_assert(sizeof(WaterComponent_OnEndOverlap) == 0x000010, "Wrong size on WaterComponent_OnEndOverlap");
-static_assert(offsetof(WaterComponent_OnEndOverlap, OverlappedComponent) == 0x000000, "Member 'WaterComponent_OnEndOverlap::OverlappedComponent' has a wrong offset!");
-static_assert(offsetof(WaterComponent_OnEndOverlap, OtherActor) == 0x000008, "Member 'WaterComponent_OnEndOverlap::OtherActor' has a wrong offset!");
-
-// Function Stalker2.FinalCreditsWithVideo.PlayVideo
-// 0x0008 (0x0008 - 0x0000)
-struct FinalCreditsWithVideo_PlayVideo final
-{
-public:
-	class UMediaSource*                           VideoToPlay;                                       // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(FinalCreditsWithVideo_PlayVideo) == 0x000008, "Wrong alignment on FinalCreditsWithVideo_PlayVideo");
-static_assert(sizeof(FinalCreditsWithVideo_PlayVideo) == 0x000008, "Wrong size on FinalCreditsWithVideo_PlayVideo");
-static_assert(offsetof(FinalCreditsWithVideo_PlayVideo, VideoToPlay) == 0x000000, "Member 'FinalCreditsWithVideo_PlayVideo::VideoToPlay' has a wrong offset!");
-
-// Function Stalker2.FinalCreditsWithVideo.GetVideoDuration
-// 0x0004 (0x0004 - 0x0000)
-struct FinalCreditsWithVideo_GetVideoDuration final
-{
-public:
-	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(FinalCreditsWithVideo_GetVideoDuration) == 0x000004, "Wrong alignment on FinalCreditsWithVideo_GetVideoDuration");
-static_assert(sizeof(FinalCreditsWithVideo_GetVideoDuration) == 0x000004, "Wrong size on FinalCreditsWithVideo_GetVideoDuration");
-static_assert(offsetof(FinalCreditsWithVideo_GetVideoDuration, ReturnValue) == 0x000000, "Member 'FinalCreditsWithVideo_GetVideoDuration::ReturnValue' has a wrong offset!");
-
 // Function Stalker2.AnimationUtilitiesBPFunctionLibrary.GetCharacterAnimInstance
 // 0x0010 (0x0010 - 0x0000)
 struct AnimationUtilitiesBPFunctionLibrary_GetCharacterAnimInstance final
@@ -690,6 +692,22 @@ static_assert(alignof(AnimationUtilitiesBPFunctionLibrary_GetCharacterAnimInstan
 static_assert(sizeof(AnimationUtilitiesBPFunctionLibrary_GetCharacterAnimInstance) == 0x000010, "Wrong size on AnimationUtilitiesBPFunctionLibrary_GetCharacterAnimInstance");
 static_assert(offsetof(AnimationUtilitiesBPFunctionLibrary_GetCharacterAnimInstance, Obj) == 0x000000, "Member 'AnimationUtilitiesBPFunctionLibrary_GetCharacterAnimInstance::Obj' has a wrong offset!");
 static_assert(offsetof(AnimationUtilitiesBPFunctionLibrary_GetCharacterAnimInstance, ReturnValue) == 0x000008, "Member 'AnimationUtilitiesBPFunctionLibrary_GetCharacterAnimInstance::ReturnValue' has a wrong offset!");
+
+// Function Stalker2.AnimationUtilitiesBPFunctionLibrary.IsSimulationEnable
+// 0x0018 (0x0018 - 0x0000)
+struct AnimationUtilitiesBPFunctionLibrary_IsSimulationEnable final
+{
+public:
+	class UObject*                                Object;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UGroomAsset*                            GroomAsset;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0010(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_11[0x7];                                       // 0x0011(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(AnimationUtilitiesBPFunctionLibrary_IsSimulationEnable) == 0x000008, "Wrong alignment on AnimationUtilitiesBPFunctionLibrary_IsSimulationEnable");
+static_assert(sizeof(AnimationUtilitiesBPFunctionLibrary_IsSimulationEnable) == 0x000018, "Wrong size on AnimationUtilitiesBPFunctionLibrary_IsSimulationEnable");
+static_assert(offsetof(AnimationUtilitiesBPFunctionLibrary_IsSimulationEnable, Object) == 0x000000, "Member 'AnimationUtilitiesBPFunctionLibrary_IsSimulationEnable::Object' has a wrong offset!");
+static_assert(offsetof(AnimationUtilitiesBPFunctionLibrary_IsSimulationEnable, GroomAsset) == 0x000008, "Member 'AnimationUtilitiesBPFunctionLibrary_IsSimulationEnable::GroomAsset' has a wrong offset!");
+static_assert(offsetof(AnimationUtilitiesBPFunctionLibrary_IsSimulationEnable, ReturnValue) == 0x000010, "Member 'AnimationUtilitiesBPFunctionLibrary_IsSimulationEnable::ReturnValue' has a wrong offset!");
 
 // Function Stalker2.AnimationUtilitiesBPFunctionLibrary.LerpPlayerToInteractable
 // 0x0038 (0x0038 - 0x0000)
@@ -768,27 +786,19 @@ static_assert(offsetof(AnimationUtilitiesBPFunctionLibrary_SetPlayerLockState, P
 static_assert(offsetof(AnimationUtilitiesBPFunctionLibrary_SetPlayerLockState, bLock) == 0x000008, "Member 'AnimationUtilitiesBPFunctionLibrary_SetPlayerLockState::bLock' has a wrong offset!");
 static_assert(offsetof(AnimationUtilitiesBPFunctionLibrary_SetPlayerLockState, InteractionData) == 0x000010, "Member 'AnimationUtilitiesBPFunctionLibrary_SetPlayerLockState::InteractionData' has a wrong offset!");
 
-// Function Stalker2.EquipmentSlots.OnItemMouseEnter
-// 0x0008 (0x0008 - 0x0000)
-struct EquipmentSlots_OnItemMouseEnter final
+// Function Stalker2.PlaySoundQuestNodeListener.OnSoundFinished
+// 0x0010 (0x0010 - 0x0000)
+struct PlaySoundQuestNodeListener_OnSoundFinished final
 {
 public:
-	class UInteractableItemSlotBaseWidget*        ItemWidget;                                        // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EAkCallbackType                               CallbackType;                                      // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class UAkCallbackInfo*                        CallbackInfo;                                      // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(EquipmentSlots_OnItemMouseEnter) == 0x000008, "Wrong alignment on EquipmentSlots_OnItemMouseEnter");
-static_assert(sizeof(EquipmentSlots_OnItemMouseEnter) == 0x000008, "Wrong size on EquipmentSlots_OnItemMouseEnter");
-static_assert(offsetof(EquipmentSlots_OnItemMouseEnter, ItemWidget) == 0x000000, "Member 'EquipmentSlots_OnItemMouseEnter::ItemWidget' has a wrong offset!");
-
-// Function Stalker2.EquipmentSlots.OnItemMouseLeave
-// 0x0008 (0x0008 - 0x0000)
-struct EquipmentSlots_OnItemMouseLeave final
-{
-public:
-	class UInteractableItemSlotBaseWidget*        ItemWidget;                                        // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(EquipmentSlots_OnItemMouseLeave) == 0x000008, "Wrong alignment on EquipmentSlots_OnItemMouseLeave");
-static_assert(sizeof(EquipmentSlots_OnItemMouseLeave) == 0x000008, "Wrong size on EquipmentSlots_OnItemMouseLeave");
-static_assert(offsetof(EquipmentSlots_OnItemMouseLeave, ItemWidget) == 0x000000, "Member 'EquipmentSlots_OnItemMouseLeave::ItemWidget' has a wrong offset!");
+static_assert(alignof(PlaySoundQuestNodeListener_OnSoundFinished) == 0x000008, "Wrong alignment on PlaySoundQuestNodeListener_OnSoundFinished");
+static_assert(sizeof(PlaySoundQuestNodeListener_OnSoundFinished) == 0x000010, "Wrong size on PlaySoundQuestNodeListener_OnSoundFinished");
+static_assert(offsetof(PlaySoundQuestNodeListener_OnSoundFinished, CallbackType) == 0x000000, "Member 'PlaySoundQuestNodeListener_OnSoundFinished::CallbackType' has a wrong offset!");
+static_assert(offsetof(PlaySoundQuestNodeListener_OnSoundFinished, CallbackInfo) == 0x000008, "Member 'PlaySoundQuestNodeListener_OnSoundFinished::CallbackInfo' has a wrong offset!");
 
 // Function Stalker2.EditorTools.GetSkyLightUpdateDeltaTime
 // 0x0004 (0x0004 - 0x0000)
@@ -829,96 +839,84 @@ static_assert(sizeof(EditorTools_IsGameWorld) == 0x000010, "Wrong size on Editor
 static_assert(offsetof(EditorTools_IsGameWorld, GameWorld) == 0x000000, "Member 'EditorTools_IsGameWorld::GameWorld' has a wrong offset!");
 static_assert(offsetof(EditorTools_IsGameWorld, ReturnValue) == 0x000008, "Member 'EditorTools_IsGameWorld::ReturnValue' has a wrong offset!");
 
-// Function Stalker2.FogActor.GetFogParamsForCurrentWeather
-// 0x000C (0x000C - 0x0000)
-struct FogActor_GetFogParamsForCurrentWeather final
+// Function Stalker2.ExpulsionAnomaly.OnBoltCollided
+// 0x0018 (0x0018 - 0x0000)
+struct ExpulsionAnomaly_OnBoltCollided final
 {
 public:
-	struct FFogParams                             ReturnValue;                                       // 0x0000(0x000C)(ConstParm, Parm, OutParm, ReturnParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+	struct FVector                                LocalPoint;                                        // 0x0000(0x0018)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(FogActor_GetFogParamsForCurrentWeather) == 0x000004, "Wrong alignment on FogActor_GetFogParamsForCurrentWeather");
-static_assert(sizeof(FogActor_GetFogParamsForCurrentWeather) == 0x00000C, "Wrong size on FogActor_GetFogParamsForCurrentWeather");
-static_assert(offsetof(FogActor_GetFogParamsForCurrentWeather, ReturnValue) == 0x000000, "Member 'FogActor_GetFogParamsForCurrentWeather::ReturnValue' has a wrong offset!");
+static_assert(alignof(ExpulsionAnomaly_OnBoltCollided) == 0x000008, "Wrong alignment on ExpulsionAnomaly_OnBoltCollided");
+static_assert(sizeof(ExpulsionAnomaly_OnBoltCollided) == 0x000018, "Wrong size on ExpulsionAnomaly_OnBoltCollided");
+static_assert(offsetof(ExpulsionAnomaly_OnBoltCollided, LocalPoint) == 0x000000, "Member 'ExpulsionAnomaly_OnBoltCollided::LocalPoint' has a wrong offset!");
 
-// Function Stalker2.PoppyFieldAnomalyBehaviorComponent.OnBeginOverlap
+// Function Stalker2.StreamingDistanceOverridingVolume.OnTriggerOverlapped
 // 0x0108 (0x0108 - 0x0000)
-struct PoppyFieldAnomalyBehaviorComponent_OnBeginOverlap final
+struct StreamingDistanceOverridingVolume_OnTriggerOverlapped final
 {
 public:
 	class UPrimitiveComponent*                    OverlappedComponent;                               // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class UPrimitiveComponent*                    OtherComp;                                         // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bFromSweep;                                        // 0x001C(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bFromSweep;                                        // 0x001C(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_1D[0x3];                                       // 0x001D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FHitResult                             SweepResult;                                       // 0x0020(0x00E8)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(PoppyFieldAnomalyBehaviorComponent_OnBeginOverlap) == 0x000008, "Wrong alignment on PoppyFieldAnomalyBehaviorComponent_OnBeginOverlap");
-static_assert(sizeof(PoppyFieldAnomalyBehaviorComponent_OnBeginOverlap) == 0x000108, "Wrong size on PoppyFieldAnomalyBehaviorComponent_OnBeginOverlap");
-static_assert(offsetof(PoppyFieldAnomalyBehaviorComponent_OnBeginOverlap, OverlappedComponent) == 0x000000, "Member 'PoppyFieldAnomalyBehaviorComponent_OnBeginOverlap::OverlappedComponent' has a wrong offset!");
-static_assert(offsetof(PoppyFieldAnomalyBehaviorComponent_OnBeginOverlap, OtherActor) == 0x000008, "Member 'PoppyFieldAnomalyBehaviorComponent_OnBeginOverlap::OtherActor' has a wrong offset!");
-static_assert(offsetof(PoppyFieldAnomalyBehaviorComponent_OnBeginOverlap, OtherComp) == 0x000010, "Member 'PoppyFieldAnomalyBehaviorComponent_OnBeginOverlap::OtherComp' has a wrong offset!");
-static_assert(offsetof(PoppyFieldAnomalyBehaviorComponent_OnBeginOverlap, OtherBodyIndex) == 0x000018, "Member 'PoppyFieldAnomalyBehaviorComponent_OnBeginOverlap::OtherBodyIndex' has a wrong offset!");
-static_assert(offsetof(PoppyFieldAnomalyBehaviorComponent_OnBeginOverlap, bFromSweep) == 0x00001C, "Member 'PoppyFieldAnomalyBehaviorComponent_OnBeginOverlap::bFromSweep' has a wrong offset!");
-static_assert(offsetof(PoppyFieldAnomalyBehaviorComponent_OnBeginOverlap, SweepResult) == 0x000020, "Member 'PoppyFieldAnomalyBehaviorComponent_OnBeginOverlap::SweepResult' has a wrong offset!");
+static_assert(alignof(StreamingDistanceOverridingVolume_OnTriggerOverlapped) == 0x000008, "Wrong alignment on StreamingDistanceOverridingVolume_OnTriggerOverlapped");
+static_assert(sizeof(StreamingDistanceOverridingVolume_OnTriggerOverlapped) == 0x000108, "Wrong size on StreamingDistanceOverridingVolume_OnTriggerOverlapped");
+static_assert(offsetof(StreamingDistanceOverridingVolume_OnTriggerOverlapped, OverlappedComponent) == 0x000000, "Member 'StreamingDistanceOverridingVolume_OnTriggerOverlapped::OverlappedComponent' has a wrong offset!");
+static_assert(offsetof(StreamingDistanceOverridingVolume_OnTriggerOverlapped, OtherActor) == 0x000008, "Member 'StreamingDistanceOverridingVolume_OnTriggerOverlapped::OtherActor' has a wrong offset!");
+static_assert(offsetof(StreamingDistanceOverridingVolume_OnTriggerOverlapped, OtherComp) == 0x000010, "Member 'StreamingDistanceOverridingVolume_OnTriggerOverlapped::OtherComp' has a wrong offset!");
+static_assert(offsetof(StreamingDistanceOverridingVolume_OnTriggerOverlapped, OtherBodyIndex) == 0x000018, "Member 'StreamingDistanceOverridingVolume_OnTriggerOverlapped::OtherBodyIndex' has a wrong offset!");
+static_assert(offsetof(StreamingDistanceOverridingVolume_OnTriggerOverlapped, bFromSweep) == 0x00001C, "Member 'StreamingDistanceOverridingVolume_OnTriggerOverlapped::bFromSweep' has a wrong offset!");
+static_assert(offsetof(StreamingDistanceOverridingVolume_OnTriggerOverlapped, SweepResult) == 0x000020, "Member 'StreamingDistanceOverridingVolume_OnTriggerOverlapped::SweepResult' has a wrong offset!");
 
-// Function Stalker2.PoppyFieldAnomalyBehaviorComponent.OnBeginOverlapFlowers
-// 0x0108 (0x0108 - 0x0000)
-struct PoppyFieldAnomalyBehaviorComponent_OnBeginOverlapFlowers final
+// Function Stalker2.FinalCreditsWithVideo.PlayVideo
+// 0x0008 (0x0008 - 0x0000)
+struct FinalCreditsWithVideo_PlayVideo final
 {
 public:
-	class UPrimitiveComponent*                    OverlappedComponent;                               // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UPrimitiveComponent*                    OtherComp;                                         // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bFromSweep;                                        // 0x001C(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1D[0x3];                                       // 0x001D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FHitResult                             SweepResult;                                       // 0x0020(0x00E8)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+	class UMediaSource*                           VideoToPlay;                                       // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(PoppyFieldAnomalyBehaviorComponent_OnBeginOverlapFlowers) == 0x000008, "Wrong alignment on PoppyFieldAnomalyBehaviorComponent_OnBeginOverlapFlowers");
-static_assert(sizeof(PoppyFieldAnomalyBehaviorComponent_OnBeginOverlapFlowers) == 0x000108, "Wrong size on PoppyFieldAnomalyBehaviorComponent_OnBeginOverlapFlowers");
-static_assert(offsetof(PoppyFieldAnomalyBehaviorComponent_OnBeginOverlapFlowers, OverlappedComponent) == 0x000000, "Member 'PoppyFieldAnomalyBehaviorComponent_OnBeginOverlapFlowers::OverlappedComponent' has a wrong offset!");
-static_assert(offsetof(PoppyFieldAnomalyBehaviorComponent_OnBeginOverlapFlowers, OtherActor) == 0x000008, "Member 'PoppyFieldAnomalyBehaviorComponent_OnBeginOverlapFlowers::OtherActor' has a wrong offset!");
-static_assert(offsetof(PoppyFieldAnomalyBehaviorComponent_OnBeginOverlapFlowers, OtherComp) == 0x000010, "Member 'PoppyFieldAnomalyBehaviorComponent_OnBeginOverlapFlowers::OtherComp' has a wrong offset!");
-static_assert(offsetof(PoppyFieldAnomalyBehaviorComponent_OnBeginOverlapFlowers, OtherBodyIndex) == 0x000018, "Member 'PoppyFieldAnomalyBehaviorComponent_OnBeginOverlapFlowers::OtherBodyIndex' has a wrong offset!");
-static_assert(offsetof(PoppyFieldAnomalyBehaviorComponent_OnBeginOverlapFlowers, bFromSweep) == 0x00001C, "Member 'PoppyFieldAnomalyBehaviorComponent_OnBeginOverlapFlowers::bFromSweep' has a wrong offset!");
-static_assert(offsetof(PoppyFieldAnomalyBehaviorComponent_OnBeginOverlapFlowers, SweepResult) == 0x000020, "Member 'PoppyFieldAnomalyBehaviorComponent_OnBeginOverlapFlowers::SweepResult' has a wrong offset!");
+static_assert(alignof(FinalCreditsWithVideo_PlayVideo) == 0x000008, "Wrong alignment on FinalCreditsWithVideo_PlayVideo");
+static_assert(sizeof(FinalCreditsWithVideo_PlayVideo) == 0x000008, "Wrong size on FinalCreditsWithVideo_PlayVideo");
+static_assert(offsetof(FinalCreditsWithVideo_PlayVideo, VideoToPlay) == 0x000000, "Member 'FinalCreditsWithVideo_PlayVideo::VideoToPlay' has a wrong offset!");
 
-// Function Stalker2.PoppyFieldAnomalyBehaviorComponent.OnEndOverlap
+// Function Stalker2.FinalCreditsWithVideo.GetVideoDuration
+// 0x0004 (0x0004 - 0x0000)
+struct FinalCreditsWithVideo_GetVideoDuration final
+{
+public:
+	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(FinalCreditsWithVideo_GetVideoDuration) == 0x000004, "Wrong alignment on FinalCreditsWithVideo_GetVideoDuration");
+static_assert(sizeof(FinalCreditsWithVideo_GetVideoDuration) == 0x000004, "Wrong size on FinalCreditsWithVideo_GetVideoDuration");
+static_assert(offsetof(FinalCreditsWithVideo_GetVideoDuration, ReturnValue) == 0x000000, "Member 'FinalCreditsWithVideo_GetVideoDuration::ReturnValue' has a wrong offset!");
+
+// Function Stalker2.DebugTextWidgetBase.CheckDebugTextBluprint
 // 0x0020 (0x0020 - 0x0000)
-struct PoppyFieldAnomalyBehaviorComponent_OnEndOverlap final
+struct DebugTextWidgetBase_CheckDebugTextBluprint final
 {
 public:
-	class UPrimitiveComponent*                    OverlappedComponent;                               // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UPrimitiveComponent*                    OtherComp;                                         // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class FText                                   Text;                                              // 0x0000(0x0018)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	class UUserWidget*                            InOwnerWidget;                                     // 0x0018(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(PoppyFieldAnomalyBehaviorComponent_OnEndOverlap) == 0x000008, "Wrong alignment on PoppyFieldAnomalyBehaviorComponent_OnEndOverlap");
-static_assert(sizeof(PoppyFieldAnomalyBehaviorComponent_OnEndOverlap) == 0x000020, "Wrong size on PoppyFieldAnomalyBehaviorComponent_OnEndOverlap");
-static_assert(offsetof(PoppyFieldAnomalyBehaviorComponent_OnEndOverlap, OverlappedComponent) == 0x000000, "Member 'PoppyFieldAnomalyBehaviorComponent_OnEndOverlap::OverlappedComponent' has a wrong offset!");
-static_assert(offsetof(PoppyFieldAnomalyBehaviorComponent_OnEndOverlap, OtherActor) == 0x000008, "Member 'PoppyFieldAnomalyBehaviorComponent_OnEndOverlap::OtherActor' has a wrong offset!");
-static_assert(offsetof(PoppyFieldAnomalyBehaviorComponent_OnEndOverlap, OtherComp) == 0x000010, "Member 'PoppyFieldAnomalyBehaviorComponent_OnEndOverlap::OtherComp' has a wrong offset!");
-static_assert(offsetof(PoppyFieldAnomalyBehaviorComponent_OnEndOverlap, OtherBodyIndex) == 0x000018, "Member 'PoppyFieldAnomalyBehaviorComponent_OnEndOverlap::OtherBodyIndex' has a wrong offset!");
+static_assert(alignof(DebugTextWidgetBase_CheckDebugTextBluprint) == 0x000008, "Wrong alignment on DebugTextWidgetBase_CheckDebugTextBluprint");
+static_assert(sizeof(DebugTextWidgetBase_CheckDebugTextBluprint) == 0x000020, "Wrong size on DebugTextWidgetBase_CheckDebugTextBluprint");
+static_assert(offsetof(DebugTextWidgetBase_CheckDebugTextBluprint, Text) == 0x000000, "Member 'DebugTextWidgetBase_CheckDebugTextBluprint::Text' has a wrong offset!");
+static_assert(offsetof(DebugTextWidgetBase_CheckDebugTextBluprint, InOwnerWidget) == 0x000018, "Member 'DebugTextWidgetBase_CheckDebugTextBluprint::InOwnerWidget' has a wrong offset!");
 
-// Function Stalker2.PoppyFieldAnomalyBehaviorComponent.OnEndOverlapFlowers
-// 0x0020 (0x0020 - 0x0000)
-struct PoppyFieldAnomalyBehaviorComponent_OnEndOverlapFlowers final
+// Function Stalker2.DebugTextWidgetBase.FindRengeSettings
+// 0x0050 (0x0050 - 0x0000)
+struct DebugTextWidgetBase_FindRengeSettings final
 {
 public:
-	class UPrimitiveComponent*                    OverlappedComponent;                               // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UPrimitiveComponent*                    OtherComp;                                         // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FUIWarningSettings                     ReturnValue;                                       // 0x0000(0x0050)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(PoppyFieldAnomalyBehaviorComponent_OnEndOverlapFlowers) == 0x000008, "Wrong alignment on PoppyFieldAnomalyBehaviorComponent_OnEndOverlapFlowers");
-static_assert(sizeof(PoppyFieldAnomalyBehaviorComponent_OnEndOverlapFlowers) == 0x000020, "Wrong size on PoppyFieldAnomalyBehaviorComponent_OnEndOverlapFlowers");
-static_assert(offsetof(PoppyFieldAnomalyBehaviorComponent_OnEndOverlapFlowers, OverlappedComponent) == 0x000000, "Member 'PoppyFieldAnomalyBehaviorComponent_OnEndOverlapFlowers::OverlappedComponent' has a wrong offset!");
-static_assert(offsetof(PoppyFieldAnomalyBehaviorComponent_OnEndOverlapFlowers, OtherActor) == 0x000008, "Member 'PoppyFieldAnomalyBehaviorComponent_OnEndOverlapFlowers::OtherActor' has a wrong offset!");
-static_assert(offsetof(PoppyFieldAnomalyBehaviorComponent_OnEndOverlapFlowers, OtherComp) == 0x000010, "Member 'PoppyFieldAnomalyBehaviorComponent_OnEndOverlapFlowers::OtherComp' has a wrong offset!");
-static_assert(offsetof(PoppyFieldAnomalyBehaviorComponent_OnEndOverlapFlowers, OtherBodyIndex) == 0x000018, "Member 'PoppyFieldAnomalyBehaviorComponent_OnEndOverlapFlowers::OtherBodyIndex' has a wrong offset!");
+static_assert(alignof(DebugTextWidgetBase_FindRengeSettings) == 0x000008, "Wrong alignment on DebugTextWidgetBase_FindRengeSettings");
+static_assert(sizeof(DebugTextWidgetBase_FindRengeSettings) == 0x000050, "Wrong size on DebugTextWidgetBase_FindRengeSettings");
+static_assert(offsetof(DebugTextWidgetBase_FindRengeSettings, ReturnValue) == 0x000000, "Member 'DebugTextWidgetBase_FindRengeSettings::ReturnValue' has a wrong offset!");
 
 // Function Stalker2.AnimInstanceValve.SetValveState
 // 0x0001 (0x0001 - 0x0000)
@@ -931,18 +929,139 @@ static_assert(alignof(AnimInstanceValve_SetValveState) == 0x000001, "Wrong align
 static_assert(sizeof(AnimInstanceValve_SetValveState) == 0x000001, "Wrong size on AnimInstanceValve_SetValveState");
 static_assert(offsetof(AnimInstanceValve_SetValveState, ValveState) == 0x000000, "Member 'AnimInstanceValve_SetValveState::ValveState' has a wrong offset!");
 
-// Function Stalker2.GameplayEventListener.OnGameplayEvent
-// 0x0010 (0x0010 - 0x0000)
-struct GameplayEventListener_OnGameplayEvent final
+// Function Stalker2.FogActor.GetFogParamsForCurrentWeather
+// 0x000C (0x000C - 0x0000)
+struct FogActor_GetFogParamsForCurrentWeather final
 {
 public:
-	struct FGameplayTag                           EventTag;                                          // 0x0000(0x0008)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	const class UGameplayEventData*               EventData;                                         // 0x0008(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FFogParams                             ReturnValue;                                       // 0x0000(0x000C)(ConstParm, Parm, OutParm, ReturnParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(GameplayEventListener_OnGameplayEvent) == 0x000008, "Wrong alignment on GameplayEventListener_OnGameplayEvent");
-static_assert(sizeof(GameplayEventListener_OnGameplayEvent) == 0x000010, "Wrong size on GameplayEventListener_OnGameplayEvent");
-static_assert(offsetof(GameplayEventListener_OnGameplayEvent, EventTag) == 0x000000, "Member 'GameplayEventListener_OnGameplayEvent::EventTag' has a wrong offset!");
-static_assert(offsetof(GameplayEventListener_OnGameplayEvent, EventData) == 0x000008, "Member 'GameplayEventListener_OnGameplayEvent::EventData' has a wrong offset!");
+static_assert(alignof(FogActor_GetFogParamsForCurrentWeather) == 0x000004, "Wrong alignment on FogActor_GetFogParamsForCurrentWeather");
+static_assert(sizeof(FogActor_GetFogParamsForCurrentWeather) == 0x00000C, "Wrong size on FogActor_GetFogParamsForCurrentWeather");
+static_assert(offsetof(FogActor_GetFogParamsForCurrentWeather, ReturnValue) == 0x000000, "Member 'FogActor_GetFogParamsForCurrentWeather::ReturnValue' has a wrong offset!");
+
+// Function Stalker2.StrandGenerator.GetFinalStrandData
+// 0x0020 (0x0020 - 0x0000)
+struct StrandGenerator_GetFinalStrandData final
+{
+public:
+	struct FStrandFinalData                       ReturnValue;                                       // 0x0000(0x0020)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(StrandGenerator_GetFinalStrandData) == 0x000008, "Wrong alignment on StrandGenerator_GetFinalStrandData");
+static_assert(sizeof(StrandGenerator_GetFinalStrandData) == 0x000020, "Wrong size on StrandGenerator_GetFinalStrandData");
+static_assert(offsetof(StrandGenerator_GetFinalStrandData, ReturnValue) == 0x000000, "Member 'StrandGenerator_GetFinalStrandData::ReturnValue' has a wrong offset!");
+
+// Function Stalker2.Teleport.OnBeginOverlap
+// 0x0108 (0x0108 - 0x0000)
+struct Teleport_OnBeginOverlap final
+{
+public:
+	class UPrimitiveComponent*                    OverlappedComponent;                               // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    OtherComp;                                         // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bFromSweep;                                        // 0x001C(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1D[0x3];                                       // 0x001D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FHitResult                             SweepResult;                                       // 0x0020(0x00E8)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(Teleport_OnBeginOverlap) == 0x000008, "Wrong alignment on Teleport_OnBeginOverlap");
+static_assert(sizeof(Teleport_OnBeginOverlap) == 0x000108, "Wrong size on Teleport_OnBeginOverlap");
+static_assert(offsetof(Teleport_OnBeginOverlap, OverlappedComponent) == 0x000000, "Member 'Teleport_OnBeginOverlap::OverlappedComponent' has a wrong offset!");
+static_assert(offsetof(Teleport_OnBeginOverlap, OtherActor) == 0x000008, "Member 'Teleport_OnBeginOverlap::OtherActor' has a wrong offset!");
+static_assert(offsetof(Teleport_OnBeginOverlap, OtherComp) == 0x000010, "Member 'Teleport_OnBeginOverlap::OtherComp' has a wrong offset!");
+static_assert(offsetof(Teleport_OnBeginOverlap, OtherBodyIndex) == 0x000018, "Member 'Teleport_OnBeginOverlap::OtherBodyIndex' has a wrong offset!");
+static_assert(offsetof(Teleport_OnBeginOverlap, bFromSweep) == 0x00001C, "Member 'Teleport_OnBeginOverlap::bFromSweep' has a wrong offset!");
+static_assert(offsetof(Teleport_OnBeginOverlap, SweepResult) == 0x000020, "Member 'Teleport_OnBeginOverlap::SweepResult' has a wrong offset!");
+
+// Function Stalker2.SummonAbilityEventData.GetSummonLocations
+// 0x0010 (0x0010 - 0x0000)
+struct SummonAbilityEventData_GetSummonLocations final
+{
+public:
+	TArray<struct FVector>                        ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(SummonAbilityEventData_GetSummonLocations) == 0x000008, "Wrong alignment on SummonAbilityEventData_GetSummonLocations");
+static_assert(sizeof(SummonAbilityEventData_GetSummonLocations) == 0x000010, "Wrong size on SummonAbilityEventData_GetSummonLocations");
+static_assert(offsetof(SummonAbilityEventData_GetSummonLocations, ReturnValue) == 0x000000, "Member 'SummonAbilityEventData_GetSummonLocations::ReturnValue' has a wrong offset!");
+
+// Function Stalker2.SummonAbilityEventData.ShouldSpawnEffects
+// 0x0001 (0x0001 - 0x0000)
+struct SummonAbilityEventData_ShouldSpawnEffects final
+{
+public:
+	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(SummonAbilityEventData_ShouldSpawnEffects) == 0x000001, "Wrong alignment on SummonAbilityEventData_ShouldSpawnEffects");
+static_assert(sizeof(SummonAbilityEventData_ShouldSpawnEffects) == 0x000001, "Wrong size on SummonAbilityEventData_ShouldSpawnEffects");
+static_assert(offsetof(SummonAbilityEventData_ShouldSpawnEffects, ReturnValue) == 0x000000, "Member 'SummonAbilityEventData_ShouldSpawnEffects::ReturnValue' has a wrong offset!");
+
+// Function Stalker2.PsyPhantomComponent.OnBeginOverlap
+// 0x0108 (0x0108 - 0x0000)
+struct PsyPhantomComponent_OnBeginOverlap final
+{
+public:
+	class UPrimitiveComponent*                    OverlappedComponent;                               // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    OtherComp;                                         // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bFromSweep;                                        // 0x001C(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1D[0x3];                                       // 0x001D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FHitResult                             SweepResult;                                       // 0x0020(0x00E8)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(PsyPhantomComponent_OnBeginOverlap) == 0x000008, "Wrong alignment on PsyPhantomComponent_OnBeginOverlap");
+static_assert(sizeof(PsyPhantomComponent_OnBeginOverlap) == 0x000108, "Wrong size on PsyPhantomComponent_OnBeginOverlap");
+static_assert(offsetof(PsyPhantomComponent_OnBeginOverlap, OverlappedComponent) == 0x000000, "Member 'PsyPhantomComponent_OnBeginOverlap::OverlappedComponent' has a wrong offset!");
+static_assert(offsetof(PsyPhantomComponent_OnBeginOverlap, OtherActor) == 0x000008, "Member 'PsyPhantomComponent_OnBeginOverlap::OtherActor' has a wrong offset!");
+static_assert(offsetof(PsyPhantomComponent_OnBeginOverlap, OtherComp) == 0x000010, "Member 'PsyPhantomComponent_OnBeginOverlap::OtherComp' has a wrong offset!");
+static_assert(offsetof(PsyPhantomComponent_OnBeginOverlap, OtherBodyIndex) == 0x000018, "Member 'PsyPhantomComponent_OnBeginOverlap::OtherBodyIndex' has a wrong offset!");
+static_assert(offsetof(PsyPhantomComponent_OnBeginOverlap, bFromSweep) == 0x00001C, "Member 'PsyPhantomComponent_OnBeginOverlap::bFromSweep' has a wrong offset!");
+static_assert(offsetof(PsyPhantomComponent_OnBeginOverlap, SweepResult) == 0x000020, "Member 'PsyPhantomComponent_OnBeginOverlap::SweepResult' has a wrong offset!");
+
+// Function Stalker2.QuickPanel.OnQuickSlotMouseEnter
+// 0x0008 (0x0008 - 0x0000)
+struct QuickPanel_OnQuickSlotMouseEnter final
+{
+public:
+	class UQuickSlot*                             ItemWidget;                                        // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(QuickPanel_OnQuickSlotMouseEnter) == 0x000008, "Wrong alignment on QuickPanel_OnQuickSlotMouseEnter");
+static_assert(sizeof(QuickPanel_OnQuickSlotMouseEnter) == 0x000008, "Wrong size on QuickPanel_OnQuickSlotMouseEnter");
+static_assert(offsetof(QuickPanel_OnQuickSlotMouseEnter, ItemWidget) == 0x000000, "Member 'QuickPanel_OnQuickSlotMouseEnter::ItemWidget' has a wrong offset!");
+
+// Function Stalker2.QuickPanel.OnQuickSlotMouseLeave
+// 0x0008 (0x0008 - 0x0000)
+struct QuickPanel_OnQuickSlotMouseLeave final
+{
+public:
+	class UQuickSlot*                             HoveredWidget;                                     // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(QuickPanel_OnQuickSlotMouseLeave) == 0x000008, "Wrong alignment on QuickPanel_OnQuickSlotMouseLeave");
+static_assert(sizeof(QuickPanel_OnQuickSlotMouseLeave) == 0x000008, "Wrong size on QuickPanel_OnQuickSlotMouseLeave");
+static_assert(offsetof(QuickPanel_OnQuickSlotMouseLeave, HoveredWidget) == 0x000000, "Member 'QuickPanel_OnQuickSlotMouseLeave::HoveredWidget' has a wrong offset!");
+
+// Function Stalker2.QuickPanel.PlayShouldUseAnimationIfRequired
+// 0x0002 (0x0002 - 0x0000)
+struct QuickPanel_PlayShouldUseAnimationIfRequired final
+{
+public:
+	ESortGroup                                    InSortGroup;                                       // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0001(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(QuickPanel_PlayShouldUseAnimationIfRequired) == 0x000001, "Wrong alignment on QuickPanel_PlayShouldUseAnimationIfRequired");
+static_assert(sizeof(QuickPanel_PlayShouldUseAnimationIfRequired) == 0x000002, "Wrong size on QuickPanel_PlayShouldUseAnimationIfRequired");
+static_assert(offsetof(QuickPanel_PlayShouldUseAnimationIfRequired, InSortGroup) == 0x000000, "Member 'QuickPanel_PlayShouldUseAnimationIfRequired::InSortGroup' has a wrong offset!");
+static_assert(offsetof(QuickPanel_PlayShouldUseAnimationIfRequired, ReturnValue) == 0x000001, "Member 'QuickPanel_PlayShouldUseAnimationIfRequired::ReturnValue' has a wrong offset!");
+
+// Function Stalker2.SaveScreenSubView.OnNavigationButtonPressed
+// 0x0004 (0x0004 - 0x0000)
+struct SaveScreenSubView_OnNavigationButtonPressed final
+{
+public:
+	int32                                         InButtonIndex;                                     // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(SaveScreenSubView_OnNavigationButtonPressed) == 0x000004, "Wrong alignment on SaveScreenSubView_OnNavigationButtonPressed");
+static_assert(sizeof(SaveScreenSubView_OnNavigationButtonPressed) == 0x000004, "Wrong size on SaveScreenSubView_OnNavigationButtonPressed");
+static_assert(offsetof(SaveScreenSubView_OnNavigationButtonPressed, InButtonIndex) == 0x000000, "Member 'SaveScreenSubView_OnNavigationButtonPressed::InButtonIndex' has a wrong offset!");
 
 // Function Stalker2.ForceFeedbackSphereComponent.OnBeginOverlap
 // 0x0108 (0x0108 - 0x0000)
@@ -983,39 +1102,6 @@ static_assert(offsetof(ForceFeedbackSphereComponent_OnEndOverlap, OverlappedComp
 static_assert(offsetof(ForceFeedbackSphereComponent_OnEndOverlap, OtherActor) == 0x000008, "Member 'ForceFeedbackSphereComponent_OnEndOverlap::OtherActor' has a wrong offset!");
 static_assert(offsetof(ForceFeedbackSphereComponent_OnEndOverlap, OtherComp) == 0x000010, "Member 'ForceFeedbackSphereComponent_OnEndOverlap::OtherComp' has a wrong offset!");
 static_assert(offsetof(ForceFeedbackSphereComponent_OnEndOverlap, OtherBodyIndex) == 0x000018, "Member 'ForceFeedbackSphereComponent_OnEndOverlap::OtherBodyIndex' has a wrong offset!");
-
-// Function Stalker2.SignalSenderComponent.Send
-// 0x0008 (0x0008 - 0x0000)
-struct SignalSenderComponent_Send final
-{
-public:
-	class UObject*                                DataObject;                                        // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(SignalSenderComponent_Send) == 0x000008, "Wrong alignment on SignalSenderComponent_Send");
-static_assert(sizeof(SignalSenderComponent_Send) == 0x000008, "Wrong size on SignalSenderComponent_Send");
-static_assert(offsetof(SignalSenderComponent_Send, DataObject) == 0x000000, "Member 'SignalSenderComponent_Send::DataObject' has a wrong offset!");
-
-// Function Stalker2.SummonAbilityEventData.GetSummonLocations
-// 0x0010 (0x0010 - 0x0000)
-struct SummonAbilityEventData_GetSummonLocations final
-{
-public:
-	TArray<struct FVector>                        ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(SummonAbilityEventData_GetSummonLocations) == 0x000008, "Wrong alignment on SummonAbilityEventData_GetSummonLocations");
-static_assert(sizeof(SummonAbilityEventData_GetSummonLocations) == 0x000010, "Wrong size on SummonAbilityEventData_GetSummonLocations");
-static_assert(offsetof(SummonAbilityEventData_GetSummonLocations, ReturnValue) == 0x000000, "Member 'SummonAbilityEventData_GetSummonLocations::ReturnValue' has a wrong offset!");
-
-// Function Stalker2.SummonAbilityEventData.ShouldSpawnEffects
-// 0x0001 (0x0001 - 0x0000)
-struct SummonAbilityEventData_ShouldSpawnEffects final
-{
-public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(SummonAbilityEventData_ShouldSpawnEffects) == 0x000001, "Wrong alignment on SummonAbilityEventData_ShouldSpawnEffects");
-static_assert(sizeof(SummonAbilityEventData_ShouldSpawnEffects) == 0x000001, "Wrong size on SummonAbilityEventData_ShouldSpawnEffects");
-static_assert(offsetof(SummonAbilityEventData_ShouldSpawnEffects, ReturnValue) == 0x000000, "Member 'SummonAbilityEventData_ShouldSpawnEffects::ReturnValue' has a wrong offset!");
 
 // Function Stalker2.InteractableObject.PauseSkeletalComponent
 // 0x0001 (0x0001 - 0x0000)
@@ -1193,38 +1279,136 @@ static_assert(alignof(TopazScanner_IsStationary) == 0x000001, "Wrong alignment o
 static_assert(sizeof(TopazScanner_IsStationary) == 0x000001, "Wrong size on TopazScanner_IsStationary");
 static_assert(offsetof(TopazScanner_IsStationary, ReturnValue) == 0x000000, "Member 'TopazScanner_IsStationary::ReturnValue' has a wrong offset!");
 
-// Function Stalker2.StackSplitContextual.OnSplitValueChanged
+// Function Stalker2.BookViewBase.ClickMenuButton
 // 0x0004 (0x0004 - 0x0000)
-struct StackSplitContextual_OnSplitValueChanged final
+struct BookViewBase_ClickMenuButton final
 {
 public:
-	float                                         Value;                                             // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         InButtonIndex;                                     // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(StackSplitContextual_OnSplitValueChanged) == 0x000004, "Wrong alignment on StackSplitContextual_OnSplitValueChanged");
-static_assert(sizeof(StackSplitContextual_OnSplitValueChanged) == 0x000004, "Wrong size on StackSplitContextual_OnSplitValueChanged");
-static_assert(offsetof(StackSplitContextual_OnSplitValueChanged, Value) == 0x000000, "Member 'StackSplitContextual_OnSplitValueChanged::Value' has a wrong offset!");
+static_assert(alignof(BookViewBase_ClickMenuButton) == 0x000004, "Wrong alignment on BookViewBase_ClickMenuButton");
+static_assert(sizeof(BookViewBase_ClickMenuButton) == 0x000004, "Wrong size on BookViewBase_ClickMenuButton");
+static_assert(offsetof(BookViewBase_ClickMenuButton, InButtonIndex) == 0x000000, "Member 'BookViewBase_ClickMenuButton::InButtonIndex' has a wrong offset!");
 
-// Function Stalker2.WaterContactController.IsPathToWaterSurfaceObstructed
+// Function Stalker2.PDASlotPanelBase.ClickArrowButton
+// 0x0008 (0x0008 - 0x0000)
+struct PDASlotPanelBase_ClickArrowButton final
+{
+public:
+	class FName                                   ButtonId;                                          // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(PDASlotPanelBase_ClickArrowButton) == 0x000004, "Wrong alignment on PDASlotPanelBase_ClickArrowButton");
+static_assert(sizeof(PDASlotPanelBase_ClickArrowButton) == 0x000008, "Wrong size on PDASlotPanelBase_ClickArrowButton");
+static_assert(offsetof(PDASlotPanelBase_ClickArrowButton, ButtonId) == 0x000000, "Member 'PDASlotPanelBase_ClickArrowButton::ButtonId' has a wrong offset!");
+
+// Function Stalker2.PDASlotPanelBase.ClickSlot
+// 0x0004 (0x0004 - 0x0000)
+struct PDASlotPanelBase_ClickSlot final
+{
+public:
+	int32                                         QuestSlotIndex;                                    // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(PDASlotPanelBase_ClickSlot) == 0x000004, "Wrong alignment on PDASlotPanelBase_ClickSlot");
+static_assert(sizeof(PDASlotPanelBase_ClickSlot) == 0x000004, "Wrong size on PDASlotPanelBase_ClickSlot");
+static_assert(offsetof(PDASlotPanelBase_ClickSlot, QuestSlotIndex) == 0x000000, "Member 'PDASlotPanelBase_ClickSlot::QuestSlotIndex' has a wrong offset!");
+
+// Function Stalker2.GameplayEventListener.OnGameplayEvent
 // 0x0010 (0x0010 - 0x0000)
-struct WaterContactController_IsPathToWaterSurfaceObstructed final
+struct GameplayEventListener_OnGameplayEvent final
 {
 public:
-	struct FWaterSurfaceObstructionResult         ReturnValue;                                       // 0x0000(0x0010)(ConstParm, Parm, OutParm, ReturnParm, NoDestructor, NativeAccessSpecifierPublic)
+	struct FGameplayTag                           EventTag;                                          // 0x0000(0x0008)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	const class UGameplayEventData*               EventData;                                         // 0x0008(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(WaterContactController_IsPathToWaterSurfaceObstructed) == 0x000008, "Wrong alignment on WaterContactController_IsPathToWaterSurfaceObstructed");
-static_assert(sizeof(WaterContactController_IsPathToWaterSurfaceObstructed) == 0x000010, "Wrong size on WaterContactController_IsPathToWaterSurfaceObstructed");
-static_assert(offsetof(WaterContactController_IsPathToWaterSurfaceObstructed, ReturnValue) == 0x000000, "Member 'WaterContactController_IsPathToWaterSurfaceObstructed::ReturnValue' has a wrong offset!");
+static_assert(alignof(GameplayEventListener_OnGameplayEvent) == 0x000008, "Wrong alignment on GameplayEventListener_OnGameplayEvent");
+static_assert(sizeof(GameplayEventListener_OnGameplayEvent) == 0x000010, "Wrong size on GameplayEventListener_OnGameplayEvent");
+static_assert(offsetof(GameplayEventListener_OnGameplayEvent, EventTag) == 0x000000, "Member 'GameplayEventListener_OnGameplayEvent::EventTag' has a wrong offset!");
+static_assert(offsetof(GameplayEventListener_OnGameplayEvent, EventData) == 0x000008, "Member 'GameplayEventListener_OnGameplayEvent::EventData' has a wrong offset!");
 
-// Function Stalker2.WaterContactController.ProjectOwnerPositionOnWaterSurface
-// 0x0018 (0x0018 - 0x0000)
-struct WaterContactController_ProjectOwnerPositionOnWaterSurface final
+// Function Stalker2.NotesPage.ClickButtonMenu
+// 0x0008 (0x0008 - 0x0000)
+struct NotesPage_ClickButtonMenu final
 {
 public:
-	struct FVector                                ReturnValue;                                       // 0x0000(0x0018)(ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   ButtonId;                                          // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(WaterContactController_ProjectOwnerPositionOnWaterSurface) == 0x000008, "Wrong alignment on WaterContactController_ProjectOwnerPositionOnWaterSurface");
-static_assert(sizeof(WaterContactController_ProjectOwnerPositionOnWaterSurface) == 0x000018, "Wrong size on WaterContactController_ProjectOwnerPositionOnWaterSurface");
-static_assert(offsetof(WaterContactController_ProjectOwnerPositionOnWaterSurface, ReturnValue) == 0x000000, "Member 'WaterContactController_ProjectOwnerPositionOnWaterSurface::ReturnValue' has a wrong offset!");
+static_assert(alignof(NotesPage_ClickButtonMenu) == 0x000004, "Wrong alignment on NotesPage_ClickButtonMenu");
+static_assert(sizeof(NotesPage_ClickButtonMenu) == 0x000008, "Wrong size on NotesPage_ClickButtonMenu");
+static_assert(offsetof(NotesPage_ClickButtonMenu, ButtonId) == 0x000000, "Member 'NotesPage_ClickButtonMenu::ButtonId' has a wrong offset!");
+
+// Function Stalker2.NotesPage.ShowDetails
+// 0x0001 (0x0001 - 0x0000)
+struct NotesPage_ShowDetails final
+{
+public:
+	bool                                          bEmpty;                                            // 0x0000(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(NotesPage_ShowDetails) == 0x000001, "Wrong alignment on NotesPage_ShowDetails");
+static_assert(sizeof(NotesPage_ShowDetails) == 0x000001, "Wrong size on NotesPage_ShowDetails");
+static_assert(offsetof(NotesPage_ShowDetails, bEmpty) == 0x000000, "Member 'NotesPage_ShowDetails::bEmpty' has a wrong offset!");
+
+// Function Stalker2.SignalSenderComponent.Send
+// 0x0008 (0x0008 - 0x0000)
+struct SignalSenderComponent_Send final
+{
+public:
+	class UObject*                                DataObject;                                        // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(SignalSenderComponent_Send) == 0x000008, "Wrong alignment on SignalSenderComponent_Send");
+static_assert(sizeof(SignalSenderComponent_Send) == 0x000008, "Wrong size on SignalSenderComponent_Send");
+static_assert(offsetof(SignalSenderComponent_Send, DataObject) == 0x000000, "Member 'SignalSenderComponent_Send::DataObject' has a wrong offset!");
+
+// Function Stalker2.ExplosionComponent.Explode
+// 0x0004 (0x0004 - 0x0000)
+struct ExplosionComponent_Explode final
+{
+public:
+	struct FUID                                   ExplosionInstigatorUID;                            // 0x0000(0x0004)(ConstParm, Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(ExplosionComponent_Explode) == 0x000004, "Wrong alignment on ExplosionComponent_Explode");
+static_assert(sizeof(ExplosionComponent_Explode) == 0x000004, "Wrong size on ExplosionComponent_Explode");
+static_assert(offsetof(ExplosionComponent_Explode, ExplosionInstigatorUID) == 0x000000, "Member 'ExplosionComponent_Explode::ExplosionInstigatorUID' has a wrong offset!");
+
+// Function Stalker2.ExplosionComponent.ExplodeAtCustomLocation
+// 0x0020 (0x0020 - 0x0000)
+struct ExplosionComponent_ExplodeAtCustomLocation final
+{
+public:
+	struct FVector                                Location;                                          // 0x0000(0x0018)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UObject*                                ExplosionInstigator;                               // 0x0018(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(ExplosionComponent_ExplodeAtCustomLocation) == 0x000008, "Wrong alignment on ExplosionComponent_ExplodeAtCustomLocation");
+static_assert(sizeof(ExplosionComponent_ExplodeAtCustomLocation) == 0x000020, "Wrong size on ExplosionComponent_ExplodeAtCustomLocation");
+static_assert(offsetof(ExplosionComponent_ExplodeAtCustomLocation, Location) == 0x000000, "Member 'ExplosionComponent_ExplodeAtCustomLocation::Location' has a wrong offset!");
+static_assert(offsetof(ExplosionComponent_ExplodeAtCustomLocation, ExplosionInstigator) == 0x000018, "Member 'ExplosionComponent_ExplodeAtCustomLocation::ExplosionInstigator' has a wrong offset!");
+
+// Function Stalker2.ExplosionComponent.ExplodeWithCustomLocation
+// 0x0020 (0x0020 - 0x0000)
+struct ExplosionComponent_ExplodeWithCustomLocation final
+{
+public:
+	struct FVector                                Location;                                          // 0x0000(0x0018)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FUID                                   ExplosionInstigatorUID;                            // 0x0018(0x0004)(ConstParm, Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(ExplosionComponent_ExplodeWithCustomLocation) == 0x000008, "Wrong alignment on ExplosionComponent_ExplodeWithCustomLocation");
+static_assert(sizeof(ExplosionComponent_ExplodeWithCustomLocation) == 0x000020, "Wrong size on ExplosionComponent_ExplodeWithCustomLocation");
+static_assert(offsetof(ExplosionComponent_ExplodeWithCustomLocation, Location) == 0x000000, "Member 'ExplosionComponent_ExplodeWithCustomLocation::Location' has a wrong offset!");
+static_assert(offsetof(ExplosionComponent_ExplodeWithCustomLocation, ExplosionInstigatorUID) == 0x000018, "Member 'ExplosionComponent_ExplodeWithCustomLocation::ExplosionInstigatorUID' has a wrong offset!");
+
+// Function Stalker2.CustomConsoleManagerMB.XSetDrawDebugExplosion
+// 0x0008 (0x0008 - 0x0000)
+struct CustomConsoleManagerMB_XSetDrawDebugExplosion final
+{
+public:
+	bool                                          bDebug;                                            // 0x0000(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1[0x3];                                        // 0x0001(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         DebugTime;                                         // 0x0004(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(CustomConsoleManagerMB_XSetDrawDebugExplosion) == 0x000004, "Wrong alignment on CustomConsoleManagerMB_XSetDrawDebugExplosion");
+static_assert(sizeof(CustomConsoleManagerMB_XSetDrawDebugExplosion) == 0x000008, "Wrong size on CustomConsoleManagerMB_XSetDrawDebugExplosion");
+static_assert(offsetof(CustomConsoleManagerMB_XSetDrawDebugExplosion, bDebug) == 0x000000, "Member 'CustomConsoleManagerMB_XSetDrawDebugExplosion::bDebug' has a wrong offset!");
+static_assert(offsetof(CustomConsoleManagerMB_XSetDrawDebugExplosion, DebugTime) == 0x000004, "Member 'CustomConsoleManagerMB_XSetDrawDebugExplosion::DebugTime' has a wrong offset!");
 
 // Function Stalker2.CustomConsoleManagerMY.XPossessToCharacterByUID
 // 0x0004 (0x0004 - 0x0000)
@@ -1306,76 +1490,40 @@ static_assert(alignof(CustomConsoleManagerPA_XToggleGrenadeDebug) == 0x000004, "
 static_assert(sizeof(CustomConsoleManagerPA_XToggleGrenadeDebug) == 0x000004, "Wrong size on CustomConsoleManagerPA_XToggleGrenadeDebug");
 static_assert(offsetof(CustomConsoleManagerPA_XToggleGrenadeDebug, FlagValue) == 0x000000, "Member 'CustomConsoleManagerPA_XToggleGrenadeDebug::FlagValue' has a wrong offset!");
 
-// Function Stalker2.PDAQuestDetails.StageClick
+// DelegateFunction Stalker2.StackSplitContextual.OnSplitConfirmed__DelegateSignature
 // 0x0008 (0x0008 - 0x0000)
-struct PDAQuestDetails_StageClick final
+struct StackSplitContextual_OnSplitConfirmed__DelegateSignature final
 {
 public:
-	class UPDAQuestTaskSlot*                      InSlot;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         Count;                                             // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FItemUID                               ItemUID;                                           // 0x0004(0x0004)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(PDAQuestDetails_StageClick) == 0x000008, "Wrong alignment on PDAQuestDetails_StageClick");
-static_assert(sizeof(PDAQuestDetails_StageClick) == 0x000008, "Wrong size on PDAQuestDetails_StageClick");
-static_assert(offsetof(PDAQuestDetails_StageClick, InSlot) == 0x000000, "Member 'PDAQuestDetails_StageClick::InSlot' has a wrong offset!");
+static_assert(alignof(StackSplitContextual_OnSplitConfirmed__DelegateSignature) == 0x000004, "Wrong alignment on StackSplitContextual_OnSplitConfirmed__DelegateSignature");
+static_assert(sizeof(StackSplitContextual_OnSplitConfirmed__DelegateSignature) == 0x000008, "Wrong size on StackSplitContextual_OnSplitConfirmed__DelegateSignature");
+static_assert(offsetof(StackSplitContextual_OnSplitConfirmed__DelegateSignature, Count) == 0x000000, "Member 'StackSplitContextual_OnSplitConfirmed__DelegateSignature::Count' has a wrong offset!");
+static_assert(offsetof(StackSplitContextual_OnSplitConfirmed__DelegateSignature, ItemUID) == 0x000004, "Member 'StackSplitContextual_OnSplitConfirmed__DelegateSignature::ItemUID' has a wrong offset!");
 
-// Function Stalker2.PDAQuestDetails.UpdateDescriptionHover
-// 0x0001 (0x0001 - 0x0000)
-struct PDAQuestDetails_UpdateDescriptionHover final
-{
-public:
-	bool                                          bIsHovered;                                        // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(PDAQuestDetails_UpdateDescriptionHover) == 0x000001, "Wrong alignment on PDAQuestDetails_UpdateDescriptionHover");
-static_assert(sizeof(PDAQuestDetails_UpdateDescriptionHover) == 0x000001, "Wrong size on PDAQuestDetails_UpdateDescriptionHover");
-static_assert(offsetof(PDAQuestDetails_UpdateDescriptionHover, bIsHovered) == 0x000000, "Member 'PDAQuestDetails_UpdateDescriptionHover::bIsHovered' has a wrong offset!");
-
-// Function Stalker2.PDAQuestDetails.UpdateStageHover
-// 0x0001 (0x0001 - 0x0000)
-struct PDAQuestDetails_UpdateStageHover final
-{
-public:
-	bool                                          bIsStageHovered;                                   // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(PDAQuestDetails_UpdateStageHover) == 0x000001, "Wrong alignment on PDAQuestDetails_UpdateStageHover");
-static_assert(sizeof(PDAQuestDetails_UpdateStageHover) == 0x000001, "Wrong size on PDAQuestDetails_UpdateStageHover");
-static_assert(offsetof(PDAQuestDetails_UpdateStageHover, bIsStageHovered) == 0x000000, "Member 'PDAQuestDetails_UpdateStageHover::bIsStageHovered' has a wrong offset!");
-
-// Function Stalker2.ExplosionComponent.Explode
+// Function Stalker2.StackSplitContextual.OnSplitValueChanged
 // 0x0004 (0x0004 - 0x0000)
-struct ExplosionComponent_Explode final
+struct StackSplitContextual_OnSplitValueChanged final
 {
 public:
-	struct FUID                                   ExplosionInstigatorUID;                            // 0x0000(0x0004)(ConstParm, Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Value;                                             // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(ExplosionComponent_Explode) == 0x000004, "Wrong alignment on ExplosionComponent_Explode");
-static_assert(sizeof(ExplosionComponent_Explode) == 0x000004, "Wrong size on ExplosionComponent_Explode");
-static_assert(offsetof(ExplosionComponent_Explode, ExplosionInstigatorUID) == 0x000000, "Member 'ExplosionComponent_Explode::ExplosionInstigatorUID' has a wrong offset!");
+static_assert(alignof(StackSplitContextual_OnSplitValueChanged) == 0x000004, "Wrong alignment on StackSplitContextual_OnSplitValueChanged");
+static_assert(sizeof(StackSplitContextual_OnSplitValueChanged) == 0x000004, "Wrong size on StackSplitContextual_OnSplitValueChanged");
+static_assert(offsetof(StackSplitContextual_OnSplitValueChanged, Value) == 0x000000, "Member 'StackSplitContextual_OnSplitValueChanged::Value' has a wrong offset!");
 
-// Function Stalker2.ExplosionComponent.ExplodeAtCustomLocation
-// 0x0020 (0x0020 - 0x0000)
-struct ExplosionComponent_ExplodeAtCustomLocation final
+// Function Stalker2.AnimNotify_PlayInteractablesFX.GetAvailableBones
+// 0x0010 (0x0010 - 0x0000)
+struct AnimNotify_PlayInteractablesFX_GetAvailableBones final
 {
 public:
-	struct FVector                                Location;                                          // 0x0000(0x0018)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UObject*                                ExplosionInstigator;                               // 0x0018(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TArray<class FString>                         ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(ExplosionComponent_ExplodeAtCustomLocation) == 0x000008, "Wrong alignment on ExplosionComponent_ExplodeAtCustomLocation");
-static_assert(sizeof(ExplosionComponent_ExplodeAtCustomLocation) == 0x000020, "Wrong size on ExplosionComponent_ExplodeAtCustomLocation");
-static_assert(offsetof(ExplosionComponent_ExplodeAtCustomLocation, Location) == 0x000000, "Member 'ExplosionComponent_ExplodeAtCustomLocation::Location' has a wrong offset!");
-static_assert(offsetof(ExplosionComponent_ExplodeAtCustomLocation, ExplosionInstigator) == 0x000018, "Member 'ExplosionComponent_ExplodeAtCustomLocation::ExplosionInstigator' has a wrong offset!");
-
-// Function Stalker2.ExplosionComponent.ExplodeWithCustomLocation
-// 0x0020 (0x0020 - 0x0000)
-struct ExplosionComponent_ExplodeWithCustomLocation final
-{
-public:
-	struct FVector                                Location;                                          // 0x0000(0x0018)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FUID                                   ExplosionInstigatorUID;                            // 0x0018(0x0004)(ConstParm, Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(ExplosionComponent_ExplodeWithCustomLocation) == 0x000008, "Wrong alignment on ExplosionComponent_ExplodeWithCustomLocation");
-static_assert(sizeof(ExplosionComponent_ExplodeWithCustomLocation) == 0x000020, "Wrong size on ExplosionComponent_ExplodeWithCustomLocation");
-static_assert(offsetof(ExplosionComponent_ExplodeWithCustomLocation, Location) == 0x000000, "Member 'ExplosionComponent_ExplodeWithCustomLocation::Location' has a wrong offset!");
-static_assert(offsetof(ExplosionComponent_ExplodeWithCustomLocation, ExplosionInstigatorUID) == 0x000018, "Member 'ExplosionComponent_ExplodeWithCustomLocation::ExplosionInstigatorUID' has a wrong offset!");
+static_assert(alignof(AnimNotify_PlayInteractablesFX_GetAvailableBones) == 0x000008, "Wrong alignment on AnimNotify_PlayInteractablesFX_GetAvailableBones");
+static_assert(sizeof(AnimNotify_PlayInteractablesFX_GetAvailableBones) == 0x000010, "Wrong size on AnimNotify_PlayInteractablesFX_GetAvailableBones");
+static_assert(offsetof(AnimNotify_PlayInteractablesFX_GetAvailableBones, ReturnValue) == 0x000000, "Member 'AnimNotify_PlayInteractablesFX_GetAvailableBones::ReturnValue' has a wrong offset!");
 
 // Function Stalker2.FastDialogueView.EndSelectAnswer
 // 0x0001 (0x0001 - 0x0000)
@@ -1398,17 +1546,6 @@ public:
 static_assert(alignof(FastDialogueView_PostSelectAnswer) == 0x000001, "Wrong alignment on FastDialogueView_PostSelectAnswer");
 static_assert(sizeof(FastDialogueView_PostSelectAnswer) == 0x000001, "Wrong size on FastDialogueView_PostSelectAnswer");
 static_assert(offsetof(FastDialogueView_PostSelectAnswer, bIsRightAnswer) == 0x000000, "Member 'FastDialogueView_PostSelectAnswer::bIsRightAnswer' has a wrong offset!");
-
-// Function Stalker2.AnimNotify_PlayInteractablesFX.GetAvailableBones
-// 0x0010 (0x0010 - 0x0000)
-struct AnimNotify_PlayInteractablesFX_GetAvailableBones final
-{
-public:
-	TArray<class FString>                         ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(AnimNotify_PlayInteractablesFX_GetAvailableBones) == 0x000008, "Wrong alignment on AnimNotify_PlayInteractablesFX_GetAvailableBones");
-static_assert(sizeof(AnimNotify_PlayInteractablesFX_GetAvailableBones) == 0x000010, "Wrong size on AnimNotify_PlayInteractablesFX_GetAvailableBones");
-static_assert(offsetof(AnimNotify_PlayInteractablesFX_GetAvailableBones, ReturnValue) == 0x000000, "Member 'AnimNotify_PlayInteractablesFX_GetAvailableBones::ReturnValue' has a wrong offset!");
 
 // Function Stalker2.AnimNotify_RetargetedAkEvent.GetAkComponentForSocket
 // 0x0020 (0x0020 - 0x0000)
@@ -1511,17 +1648,6 @@ static_assert(alignof(FireBreathArchiAnomaly_GetTimeAlpha) == 0x000004, "Wrong a
 static_assert(sizeof(FireBreathArchiAnomaly_GetTimeAlpha) == 0x000004, "Wrong size on FireBreathArchiAnomaly_GetTimeAlpha");
 static_assert(offsetof(FireBreathArchiAnomaly_GetTimeAlpha, ReturnValue) == 0x000000, "Member 'FireBreathArchiAnomaly_GetTimeAlpha::ReturnValue' has a wrong offset!");
 
-// Function Stalker2.PDASlotBase.SetSelectPointTint
-// 0x0010 (0x0010 - 0x0000)
-struct PDASlotBase_SetSelectPointTint final
-{
-public:
-	struct FLinearColor                           InColor;                                           // 0x0000(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(PDASlotBase_SetSelectPointTint) == 0x000004, "Wrong alignment on PDASlotBase_SetSelectPointTint");
-static_assert(sizeof(PDASlotBase_SetSelectPointTint) == 0x000010, "Wrong size on PDASlotBase_SetSelectPointTint");
-static_assert(offsetof(PDASlotBase_SetSelectPointTint, InColor) == 0x000000, "Member 'PDASlotBase_SetSelectPointTint::InColor' has a wrong offset!");
-
 // Function Stalker2.GSCLocalPlayer.XFinishLoginProcess
 // 0x0001 (0x0001 - 0x0000)
 struct GSCLocalPlayer_XFinishLoginProcess final
@@ -1533,87 +1659,70 @@ static_assert(alignof(GSCLocalPlayer_XFinishLoginProcess) == 0x000001, "Wrong al
 static_assert(sizeof(GSCLocalPlayer_XFinishLoginProcess) == 0x000001, "Wrong size on GSCLocalPlayer_XFinishLoginProcess");
 static_assert(offsetof(GSCLocalPlayer_XFinishLoginProcess, bSuccess) == 0x000000, "Member 'GSCLocalPlayer_XFinishLoginProcess::bSuccess' has a wrong offset!");
 
-// Function Stalker2.UserMarkerSelector.HoverButton
-// 0x0008 (0x0008 - 0x0000)
-struct UserMarkerSelector_HoverButton final
+// Function Stalker2.PsyVolumeComponent.OnBeginOverlap
+// 0x0108 (0x0108 - 0x0000)
+struct PsyVolumeComponent_OnBeginOverlap final
 {
 public:
-	class UUserMarkerSelectorButton*              InHoveredButton;                                   // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    OverlappedComponent;                               // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    OtherComp;                                         // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bFromSweep;                                        // 0x001C(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1D[0x3];                                       // 0x001D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FHitResult                             SweepResult;                                       // 0x0020(0x00E8)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(UserMarkerSelector_HoverButton) == 0x000008, "Wrong alignment on UserMarkerSelector_HoverButton");
-static_assert(sizeof(UserMarkerSelector_HoverButton) == 0x000008, "Wrong size on UserMarkerSelector_HoverButton");
-static_assert(offsetof(UserMarkerSelector_HoverButton, InHoveredButton) == 0x000000, "Member 'UserMarkerSelector_HoverButton::InHoveredButton' has a wrong offset!");
+static_assert(alignof(PsyVolumeComponent_OnBeginOverlap) == 0x000008, "Wrong alignment on PsyVolumeComponent_OnBeginOverlap");
+static_assert(sizeof(PsyVolumeComponent_OnBeginOverlap) == 0x000108, "Wrong size on PsyVolumeComponent_OnBeginOverlap");
+static_assert(offsetof(PsyVolumeComponent_OnBeginOverlap, OverlappedComponent) == 0x000000, "Member 'PsyVolumeComponent_OnBeginOverlap::OverlappedComponent' has a wrong offset!");
+static_assert(offsetof(PsyVolumeComponent_OnBeginOverlap, OtherActor) == 0x000008, "Member 'PsyVolumeComponent_OnBeginOverlap::OtherActor' has a wrong offset!");
+static_assert(offsetof(PsyVolumeComponent_OnBeginOverlap, OtherComp) == 0x000010, "Member 'PsyVolumeComponent_OnBeginOverlap::OtherComp' has a wrong offset!");
+static_assert(offsetof(PsyVolumeComponent_OnBeginOverlap, OtherBodyIndex) == 0x000018, "Member 'PsyVolumeComponent_OnBeginOverlap::OtherBodyIndex' has a wrong offset!");
+static_assert(offsetof(PsyVolumeComponent_OnBeginOverlap, bFromSweep) == 0x00001C, "Member 'PsyVolumeComponent_OnBeginOverlap::bFromSweep' has a wrong offset!");
+static_assert(offsetof(PsyVolumeComponent_OnBeginOverlap, SweepResult) == 0x000020, "Member 'PsyVolumeComponent_OnBeginOverlap::SweepResult' has a wrong offset!");
 
-// Function Stalker2.UserMarkerSelector.PressedButton
+// Function Stalker2.PsyVolumeComponent.OnEndOverlap
 // 0x0020 (0x0020 - 0x0000)
-struct UserMarkerSelector_PressedButton final
+struct PsyVolumeComponent_OnEndOverlap final
 {
 public:
-	EMarkerType                                   MarkType;                                          // 0x0000(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                Coordinates;                                       // 0x0008(0x0018)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    OverlappedComponent;                               // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    OtherComp;                                         // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-static_assert(alignof(UserMarkerSelector_PressedButton) == 0x000008, "Wrong alignment on UserMarkerSelector_PressedButton");
-static_assert(sizeof(UserMarkerSelector_PressedButton) == 0x000020, "Wrong size on UserMarkerSelector_PressedButton");
-static_assert(offsetof(UserMarkerSelector_PressedButton, MarkType) == 0x000000, "Member 'UserMarkerSelector_PressedButton::MarkType' has a wrong offset!");
-static_assert(offsetof(UserMarkerSelector_PressedButton, Coordinates) == 0x000008, "Member 'UserMarkerSelector_PressedButton::Coordinates' has a wrong offset!");
+static_assert(alignof(PsyVolumeComponent_OnEndOverlap) == 0x000008, "Wrong alignment on PsyVolumeComponent_OnEndOverlap");
+static_assert(sizeof(PsyVolumeComponent_OnEndOverlap) == 0x000020, "Wrong size on PsyVolumeComponent_OnEndOverlap");
+static_assert(offsetof(PsyVolumeComponent_OnEndOverlap, OverlappedComponent) == 0x000000, "Member 'PsyVolumeComponent_OnEndOverlap::OverlappedComponent' has a wrong offset!");
+static_assert(offsetof(PsyVolumeComponent_OnEndOverlap, OtherActor) == 0x000008, "Member 'PsyVolumeComponent_OnEndOverlap::OtherActor' has a wrong offset!");
+static_assert(offsetof(PsyVolumeComponent_OnEndOverlap, OtherComp) == 0x000010, "Member 'PsyVolumeComponent_OnEndOverlap::OtherComp' has a wrong offset!");
+static_assert(offsetof(PsyVolumeComponent_OnEndOverlap, OtherBodyIndex) == 0x000018, "Member 'PsyVolumeComponent_OnEndOverlap::OtherBodyIndex' has a wrong offset!");
 
-// Function Stalker2.QuickPanel.OnQuickSlotMouseEnter
+// Function Stalker2.PDAQuestTaskContainer.MouseHoverStage
 // 0x0008 (0x0008 - 0x0000)
-struct QuickPanel_OnQuickSlotMouseEnter final
+struct PDAQuestTaskContainer_MouseHoverStage final
 {
 public:
-	class UQuickSlot*                             ItemWidget;                                        // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bHovered;                                          // 0x0000(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1[0x3];                                        // 0x0001(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         IndexOnParent;                                     // 0x0004(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(QuickPanel_OnQuickSlotMouseEnter) == 0x000008, "Wrong alignment on QuickPanel_OnQuickSlotMouseEnter");
-static_assert(sizeof(QuickPanel_OnQuickSlotMouseEnter) == 0x000008, "Wrong size on QuickPanel_OnQuickSlotMouseEnter");
-static_assert(offsetof(QuickPanel_OnQuickSlotMouseEnter, ItemWidget) == 0x000000, "Member 'QuickPanel_OnQuickSlotMouseEnter::ItemWidget' has a wrong offset!");
+static_assert(alignof(PDAQuestTaskContainer_MouseHoverStage) == 0x000004, "Wrong alignment on PDAQuestTaskContainer_MouseHoverStage");
+static_assert(sizeof(PDAQuestTaskContainer_MouseHoverStage) == 0x000008, "Wrong size on PDAQuestTaskContainer_MouseHoverStage");
+static_assert(offsetof(PDAQuestTaskContainer_MouseHoverStage, bHovered) == 0x000000, "Member 'PDAQuestTaskContainer_MouseHoverStage::bHovered' has a wrong offset!");
+static_assert(offsetof(PDAQuestTaskContainer_MouseHoverStage, IndexOnParent) == 0x000004, "Member 'PDAQuestTaskContainer_MouseHoverStage::IndexOnParent' has a wrong offset!");
 
-// Function Stalker2.QuickPanel.OnQuickSlotMouseLeave
+// Function Stalker2.PDAQuestTaskContainer.StageClick
 // 0x0008 (0x0008 - 0x0000)
-struct QuickPanel_OnQuickSlotMouseLeave final
+struct PDAQuestTaskContainer_StageClick final
 {
 public:
-	class UQuickSlot*                             HoveredWidget;                                     // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPDAQuestTaskSlot*                      InSlot;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(QuickPanel_OnQuickSlotMouseLeave) == 0x000008, "Wrong alignment on QuickPanel_OnQuickSlotMouseLeave");
-static_assert(sizeof(QuickPanel_OnQuickSlotMouseLeave) == 0x000008, "Wrong size on QuickPanel_OnQuickSlotMouseLeave");
-static_assert(offsetof(QuickPanel_OnQuickSlotMouseLeave, HoveredWidget) == 0x000000, "Member 'QuickPanel_OnQuickSlotMouseLeave::HoveredWidget' has a wrong offset!");
-
-// Function Stalker2.QuickPanel.PlayShouldUseAnimationIfRequired
-// 0x0002 (0x0002 - 0x0000)
-struct QuickPanel_PlayShouldUseAnimationIfRequired final
-{
-public:
-	ESortGroup                                    InSortGroup;                                       // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0001(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(QuickPanel_PlayShouldUseAnimationIfRequired) == 0x000001, "Wrong alignment on QuickPanel_PlayShouldUseAnimationIfRequired");
-static_assert(sizeof(QuickPanel_PlayShouldUseAnimationIfRequired) == 0x000002, "Wrong size on QuickPanel_PlayShouldUseAnimationIfRequired");
-static_assert(offsetof(QuickPanel_PlayShouldUseAnimationIfRequired, InSortGroup) == 0x000000, "Member 'QuickPanel_PlayShouldUseAnimationIfRequired::InSortGroup' has a wrong offset!");
-static_assert(offsetof(QuickPanel_PlayShouldUseAnimationIfRequired, ReturnValue) == 0x000001, "Member 'QuickPanel_PlayShouldUseAnimationIfRequired::ReturnValue' has a wrong offset!");
-
-// Function Stalker2.PDASlotPanelBase.ClickArrowButton
-// 0x0008 (0x0008 - 0x0000)
-struct PDASlotPanelBase_ClickArrowButton final
-{
-public:
-	class FName                                   ButtonId;                                          // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(PDASlotPanelBase_ClickArrowButton) == 0x000004, "Wrong alignment on PDASlotPanelBase_ClickArrowButton");
-static_assert(sizeof(PDASlotPanelBase_ClickArrowButton) == 0x000008, "Wrong size on PDASlotPanelBase_ClickArrowButton");
-static_assert(offsetof(PDASlotPanelBase_ClickArrowButton, ButtonId) == 0x000000, "Member 'PDASlotPanelBase_ClickArrowButton::ButtonId' has a wrong offset!");
-
-// Function Stalker2.PDASlotPanelBase.ClickSlot
-// 0x0004 (0x0004 - 0x0000)
-struct PDASlotPanelBase_ClickSlot final
-{
-public:
-	int32                                         QuestSlotIndex;                                    // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(PDASlotPanelBase_ClickSlot) == 0x000004, "Wrong alignment on PDASlotPanelBase_ClickSlot");
-static_assert(sizeof(PDASlotPanelBase_ClickSlot) == 0x000004, "Wrong size on PDASlotPanelBase_ClickSlot");
-static_assert(offsetof(PDASlotPanelBase_ClickSlot, QuestSlotIndex) == 0x000000, "Member 'PDASlotPanelBase_ClickSlot::QuestSlotIndex' has a wrong offset!");
+static_assert(alignof(PDAQuestTaskContainer_StageClick) == 0x000008, "Wrong alignment on PDAQuestTaskContainer_StageClick");
+static_assert(sizeof(PDAQuestTaskContainer_StageClick) == 0x000008, "Wrong size on PDAQuestTaskContainer_StageClick");
+static_assert(offsetof(PDAQuestTaskContainer_StageClick, InSlot) == 0x000000, "Member 'PDAQuestTaskContainer_StageClick::InSlot' has a wrong offset!");
 
 // Function Stalker2.CustomConsoleManagerAA.XSetAkVisualizationRadius
 // 0x0004 (0x0004 - 0x0000)
@@ -2175,51 +2284,16 @@ static_assert(alignof(CustomConsoleManagerAA_XTestJournalQuestRewardCategory) ==
 static_assert(sizeof(CustomConsoleManagerAA_XTestJournalQuestRewardCategory) == 0x000010, "Wrong size on CustomConsoleManagerAA_XTestJournalQuestRewardCategory");
 static_assert(offsetof(CustomConsoleManagerAA_XTestJournalQuestRewardCategory, QuestSID) == 0x000000, "Member 'CustomConsoleManagerAA_XTestJournalQuestRewardCategory::QuestSID' has a wrong offset!");
 
-// Function Stalker2.QuestTaskNotification.PlayTaskAnimation
-// 0x0002 (0x0002 - 0x0000)
-struct QuestTaskNotification_PlayTaskAnimation final
+// Function Stalker2.PDASlotBase.SetSelectPointTint
+// 0x0010 (0x0010 - 0x0000)
+struct PDASlotBase_SetSelectPointTint final
 {
 public:
-	EQuestTaskAnimationType                       AnimationType;                                     // 0x0000(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWithSound;                                        // 0x0001(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FLinearColor                           InColor;                                           // 0x0000(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(QuestTaskNotification_PlayTaskAnimation) == 0x000001, "Wrong alignment on QuestTaskNotification_PlayTaskAnimation");
-static_assert(sizeof(QuestTaskNotification_PlayTaskAnimation) == 0x000002, "Wrong size on QuestTaskNotification_PlayTaskAnimation");
-static_assert(offsetof(QuestTaskNotification_PlayTaskAnimation, AnimationType) == 0x000000, "Member 'QuestTaskNotification_PlayTaskAnimation::AnimationType' has a wrong offset!");
-static_assert(offsetof(QuestTaskNotification_PlayTaskAnimation, bWithSound) == 0x000001, "Member 'QuestTaskNotification_PlayTaskAnimation::bWithSound' has a wrong offset!");
-
-// Function Stalker2.QuestTaskNotification.PostPlayTaskAnimation
-// 0x0001 (0x0001 - 0x0000)
-struct QuestTaskNotification_PostPlayTaskAnimation final
-{
-public:
-	EQuestTaskAnimationType                       AnimationType;                                     // 0x0000(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(QuestTaskNotification_PostPlayTaskAnimation) == 0x000001, "Wrong alignment on QuestTaskNotification_PostPlayTaskAnimation");
-static_assert(sizeof(QuestTaskNotification_PostPlayTaskAnimation) == 0x000001, "Wrong size on QuestTaskNotification_PostPlayTaskAnimation");
-static_assert(offsetof(QuestTaskNotification_PostPlayTaskAnimation, AnimationType) == 0x000000, "Member 'QuestTaskNotification_PostPlayTaskAnimation::AnimationType' has a wrong offset!");
-
-// Function Stalker2.SoapBubbleAnomaly.OnActorCollided
-// 0x0108 (0x0108 - 0x0000)
-struct SoapBubbleAnomaly_OnActorCollided final
-{
-public:
-	class UPrimitiveComponent*                    OverlappedComponent;                               // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UPrimitiveComponent*                    OtherComp;                                         // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bFromSweep;                                        // 0x001C(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1D[0x3];                                       // 0x001D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FHitResult                             SweepResult;                                       // 0x0020(0x00E8)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(SoapBubbleAnomaly_OnActorCollided) == 0x000008, "Wrong alignment on SoapBubbleAnomaly_OnActorCollided");
-static_assert(sizeof(SoapBubbleAnomaly_OnActorCollided) == 0x000108, "Wrong size on SoapBubbleAnomaly_OnActorCollided");
-static_assert(offsetof(SoapBubbleAnomaly_OnActorCollided, OverlappedComponent) == 0x000000, "Member 'SoapBubbleAnomaly_OnActorCollided::OverlappedComponent' has a wrong offset!");
-static_assert(offsetof(SoapBubbleAnomaly_OnActorCollided, OtherActor) == 0x000008, "Member 'SoapBubbleAnomaly_OnActorCollided::OtherActor' has a wrong offset!");
-static_assert(offsetof(SoapBubbleAnomaly_OnActorCollided, OtherComp) == 0x000010, "Member 'SoapBubbleAnomaly_OnActorCollided::OtherComp' has a wrong offset!");
-static_assert(offsetof(SoapBubbleAnomaly_OnActorCollided, OtherBodyIndex) == 0x000018, "Member 'SoapBubbleAnomaly_OnActorCollided::OtherBodyIndex' has a wrong offset!");
-static_assert(offsetof(SoapBubbleAnomaly_OnActorCollided, bFromSweep) == 0x00001C, "Member 'SoapBubbleAnomaly_OnActorCollided::bFromSweep' has a wrong offset!");
-static_assert(offsetof(SoapBubbleAnomaly_OnActorCollided, SweepResult) == 0x000020, "Member 'SoapBubbleAnomaly_OnActorCollided::SweepResult' has a wrong offset!");
+static_assert(alignof(PDASlotBase_SetSelectPointTint) == 0x000004, "Wrong alignment on PDASlotBase_SetSelectPointTint");
+static_assert(sizeof(PDASlotBase_SetSelectPointTint) == 0x000010, "Wrong size on PDASlotBase_SetSelectPointTint");
+static_assert(offsetof(PDASlotBase_SetSelectPointTint, InColor) == 0x000000, "Member 'PDASlotBase_SetSelectPointTint::InColor' has a wrong offset!");
 
 // Function Stalker2.CustomConsoleManagerAM.GetRelationBetween
 // 0x0008 (0x0008 - 0x0000)
@@ -2330,31 +2404,6 @@ static_assert(alignof(CustomConsoleManagerAM_XResetAI) == 0x000004, "Wrong align
 static_assert(sizeof(CustomConsoleManagerAM_XResetAI) == 0x000004, "Wrong size on CustomConsoleManagerAM_XResetAI");
 static_assert(offsetof(CustomConsoleManagerAM_XResetAI, UID) == 0x000000, "Member 'CustomConsoleManagerAM_XResetAI::UID' has a wrong offset!");
 
-// Function Stalker2.PDAQuestTaskContainer.MouseHoverStage
-// 0x0008 (0x0008 - 0x0000)
-struct PDAQuestTaskContainer_MouseHoverStage final
-{
-public:
-	bool                                          bHovered;                                          // 0x0000(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1[0x3];                                        // 0x0001(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         IndexOnParent;                                     // 0x0004(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(PDAQuestTaskContainer_MouseHoverStage) == 0x000004, "Wrong alignment on PDAQuestTaskContainer_MouseHoverStage");
-static_assert(sizeof(PDAQuestTaskContainer_MouseHoverStage) == 0x000008, "Wrong size on PDAQuestTaskContainer_MouseHoverStage");
-static_assert(offsetof(PDAQuestTaskContainer_MouseHoverStage, bHovered) == 0x000000, "Member 'PDAQuestTaskContainer_MouseHoverStage::bHovered' has a wrong offset!");
-static_assert(offsetof(PDAQuestTaskContainer_MouseHoverStage, IndexOnParent) == 0x000004, "Member 'PDAQuestTaskContainer_MouseHoverStage::IndexOnParent' has a wrong offset!");
-
-// Function Stalker2.PDAQuestTaskContainer.StageClick
-// 0x0008 (0x0008 - 0x0000)
-struct PDAQuestTaskContainer_StageClick final
-{
-public:
-	class UPDAQuestTaskSlot*                      InSlot;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(PDAQuestTaskContainer_StageClick) == 0x000008, "Wrong alignment on PDAQuestTaskContainer_StageClick");
-static_assert(sizeof(PDAQuestTaskContainer_StageClick) == 0x000008, "Wrong size on PDAQuestTaskContainer_StageClick");
-static_assert(offsetof(PDAQuestTaskContainer_StageClick, InSlot) == 0x000000, "Member 'PDAQuestTaskContainer_StageClick::InSlot' has a wrong offset!");
-
 // Function Stalker2.AttachSelectorView.SetCurrentChooseLine
 // 0x0001 (0x0001 - 0x0000)
 struct AttachSelectorView_SetCurrentChooseLine final
@@ -2365,6 +2414,20 @@ public:
 static_assert(alignof(AttachSelectorView_SetCurrentChooseLine) == 0x000001, "Wrong alignment on AttachSelectorView_SetCurrentChooseLine");
 static_assert(sizeof(AttachSelectorView_SetCurrentChooseLine) == 0x000001, "Wrong size on AttachSelectorView_SetCurrentChooseLine");
 static_assert(offsetof(AttachSelectorView_SetCurrentChooseLine, InCurrentChooseLine) == 0x000000, "Member 'AttachSelectorView_SetCurrentChooseLine::InCurrentChooseLine' has a wrong offset!");
+
+// Function Stalker2.OnAKEventFinished_Proxy.OnSoundFinished
+// 0x0010 (0x0010 - 0x0000)
+struct OnAKEventFinished_Proxy_OnSoundFinished final
+{
+public:
+	EAkCallbackType                               CallbackType;                                      // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class UAkCallbackInfo*                        CallbackInfo;                                      // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(OnAKEventFinished_Proxy_OnSoundFinished) == 0x000008, "Wrong alignment on OnAKEventFinished_Proxy_OnSoundFinished");
+static_assert(sizeof(OnAKEventFinished_Proxy_OnSoundFinished) == 0x000010, "Wrong size on OnAKEventFinished_Proxy_OnSoundFinished");
+static_assert(offsetof(OnAKEventFinished_Proxy_OnSoundFinished, CallbackType) == 0x000000, "Member 'OnAKEventFinished_Proxy_OnSoundFinished::CallbackType' has a wrong offset!");
+static_assert(offsetof(OnAKEventFinished_Proxy_OnSoundFinished, CallbackInfo) == 0x000008, "Member 'OnAKEventFinished_Proxy_OnSoundFinished::CallbackInfo' has a wrong offset!");
 
 // Function Stalker2.CustomConsoleManagerDC.XChangeDropBodyMethod
 // 0x0001 (0x0001 - 0x0000)
@@ -2484,6 +2547,21 @@ static_assert(alignof(CustomConsoleManagerDC_XVideoTeleportPlayerWithFade) == 0x
 static_assert(sizeof(CustomConsoleManagerDC_XVideoTeleportPlayerWithFade) == 0x000004, "Wrong size on CustomConsoleManagerDC_XVideoTeleportPlayerWithFade");
 static_assert(offsetof(CustomConsoleManagerDC_XVideoTeleportPlayerWithFade, Distance) == 0x000000, "Member 'CustomConsoleManagerDC_XVideoTeleportPlayerWithFade::Distance' has a wrong offset!");
 
+// Function Stalker2.CustomConsoleManagerAI2.XSetRelation
+// 0x000C (0x000C - 0x0000)
+struct CustomConsoleManagerAI2_XSetRelation final
+{
+public:
+	int32                                         FirstUID;                                          // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         SecondUID;                                         // 0x0004(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         Relation;                                          // 0x0008(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(CustomConsoleManagerAI2_XSetRelation) == 0x000004, "Wrong alignment on CustomConsoleManagerAI2_XSetRelation");
+static_assert(sizeof(CustomConsoleManagerAI2_XSetRelation) == 0x00000C, "Wrong size on CustomConsoleManagerAI2_XSetRelation");
+static_assert(offsetof(CustomConsoleManagerAI2_XSetRelation, FirstUID) == 0x000000, "Member 'CustomConsoleManagerAI2_XSetRelation::FirstUID' has a wrong offset!");
+static_assert(offsetof(CustomConsoleManagerAI2_XSetRelation, SecondUID) == 0x000004, "Member 'CustomConsoleManagerAI2_XSetRelation::SecondUID' has a wrong offset!");
+static_assert(offsetof(CustomConsoleManagerAI2_XSetRelation, Relation) == 0x000008, "Member 'CustomConsoleManagerAI2_XSetRelation::Relation' has a wrong offset!");
+
 // Function Stalker2.BarbedWireComponent.OnCompHit
 // 0x0118 (0x0118 - 0x0000)
 struct BarbedWireComponent_OnCompHit final
@@ -2543,124 +2621,6 @@ static_assert(offsetof(BarbedWireComponent_OnOverlapEnd, OtherActor) == 0x000008
 static_assert(offsetof(BarbedWireComponent_OnOverlapEnd, OtherComp) == 0x000010, "Member 'BarbedWireComponent_OnOverlapEnd::OtherComp' has a wrong offset!");
 static_assert(offsetof(BarbedWireComponent_OnOverlapEnd, OtherBodyIndex) == 0x000018, "Member 'BarbedWireComponent_OnOverlapEnd::OtherBodyIndex' has a wrong offset!");
 
-// Function Stalker2.CustomConsoleManagerBuild.XSetFreeCameraSpeedMultiplier
-// 0x0004 (0x0004 - 0x0000)
-struct CustomConsoleManagerBuild_XSetFreeCameraSpeedMultiplier final
-{
-public:
-	float                                         SpeedMultiplier;                                   // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(CustomConsoleManagerBuild_XSetFreeCameraSpeedMultiplier) == 0x000004, "Wrong alignment on CustomConsoleManagerBuild_XSetFreeCameraSpeedMultiplier");
-static_assert(sizeof(CustomConsoleManagerBuild_XSetFreeCameraSpeedMultiplier) == 0x000004, "Wrong size on CustomConsoleManagerBuild_XSetFreeCameraSpeedMultiplier");
-static_assert(offsetof(CustomConsoleManagerBuild_XSetFreeCameraSpeedMultiplier, SpeedMultiplier) == 0x000000, "Member 'CustomConsoleManagerBuild_XSetFreeCameraSpeedMultiplier::SpeedMultiplier' has a wrong offset!");
-
-// Function Stalker2.CustomConsoleManagerBuild.XSetNoClipGSC
-// 0x0008 (0x0008 - 0x0000)
-struct CustomConsoleManagerBuild_XSetNoClipGSC final
-{
-public:
-	bool                                          bNoClipGSC;                                        // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1[0x3];                                        // 0x0001(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         Speed;                                             // 0x0004(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(CustomConsoleManagerBuild_XSetNoClipGSC) == 0x000004, "Wrong alignment on CustomConsoleManagerBuild_XSetNoClipGSC");
-static_assert(sizeof(CustomConsoleManagerBuild_XSetNoClipGSC) == 0x000008, "Wrong size on CustomConsoleManagerBuild_XSetNoClipGSC");
-static_assert(offsetof(CustomConsoleManagerBuild_XSetNoClipGSC, bNoClipGSC) == 0x000000, "Member 'CustomConsoleManagerBuild_XSetNoClipGSC::bNoClipGSC' has a wrong offset!");
-static_assert(offsetof(CustomConsoleManagerBuild_XSetNoClipGSC, Speed) == 0x000004, "Member 'CustomConsoleManagerBuild_XSetNoClipGSC::Speed' has a wrong offset!");
-
-// Function Stalker2.CustomConsoleManagerBuild.XSetPlayerSpeedMultiplier
-// 0x0004 (0x0004 - 0x0000)
-struct CustomConsoleManagerBuild_XSetPlayerSpeedMultiplier final
-{
-public:
-	float                                         SpeedMultiplier;                                   // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(CustomConsoleManagerBuild_XSetPlayerSpeedMultiplier) == 0x000004, "Wrong alignment on CustomConsoleManagerBuild_XSetPlayerSpeedMultiplier");
-static_assert(sizeof(CustomConsoleManagerBuild_XSetPlayerSpeedMultiplier) == 0x000004, "Wrong size on CustomConsoleManagerBuild_XSetPlayerSpeedMultiplier");
-static_assert(offsetof(CustomConsoleManagerBuild_XSetPlayerSpeedMultiplier, SpeedMultiplier) == 0x000000, "Member 'CustomConsoleManagerBuild_XSetPlayerSpeedMultiplier::SpeedMultiplier' has a wrong offset!");
-
-// Function Stalker2.CustomConsoleManagerBuild.XSetEntityUnkillableByUID
-// 0x0008 (0x0008 - 0x0000)
-struct CustomConsoleManagerBuild_XSetEntityUnkillableByUID final
-{
-public:
-	int32                                         EntityUID;                                         // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bGodModeState;                                     // 0x0004(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_5[0x3];                                        // 0x0005(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(CustomConsoleManagerBuild_XSetEntityUnkillableByUID) == 0x000004, "Wrong alignment on CustomConsoleManagerBuild_XSetEntityUnkillableByUID");
-static_assert(sizeof(CustomConsoleManagerBuild_XSetEntityUnkillableByUID) == 0x000008, "Wrong size on CustomConsoleManagerBuild_XSetEntityUnkillableByUID");
-static_assert(offsetof(CustomConsoleManagerBuild_XSetEntityUnkillableByUID, EntityUID) == 0x000000, "Member 'CustomConsoleManagerBuild_XSetEntityUnkillableByUID::EntityUID' has a wrong offset!");
-static_assert(offsetof(CustomConsoleManagerBuild_XSetEntityUnkillableByUID, bGodModeState) == 0x000004, "Member 'CustomConsoleManagerBuild_XSetEntityUnkillableByUID::bGodModeState' has a wrong offset!");
-
-// Function Stalker2.CustomConsoleManagerBuild.XSetFactionGodMode
-// 0x0018 (0x0018 - 0x0000)
-struct CustomConsoleManagerBuild_XSetFactionGodMode final
-{
-public:
-	class FString                                 CurrentFactionSelector;                            // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bGodModeState;                                     // 0x0010(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_11[0x7];                                       // 0x0011(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(CustomConsoleManagerBuild_XSetFactionGodMode) == 0x000008, "Wrong alignment on CustomConsoleManagerBuild_XSetFactionGodMode");
-static_assert(sizeof(CustomConsoleManagerBuild_XSetFactionGodMode) == 0x000018, "Wrong size on CustomConsoleManagerBuild_XSetFactionGodMode");
-static_assert(offsetof(CustomConsoleManagerBuild_XSetFactionGodMode, CurrentFactionSelector) == 0x000000, "Member 'CustomConsoleManagerBuild_XSetFactionGodMode::CurrentFactionSelector' has a wrong offset!");
-static_assert(offsetof(CustomConsoleManagerBuild_XSetFactionGodMode, bGodModeState) == 0x000010, "Member 'CustomConsoleManagerBuild_XSetFactionGodMode::bGodModeState' has a wrong offset!");
-
-// Function Stalker2.CustomConsoleManagerBuild.XSetGodModeAllFactions
-// 0x0001 (0x0001 - 0x0000)
-struct CustomConsoleManagerBuild_XSetGodModeAllFactions final
-{
-public:
-	bool                                          bGodModeState;                                     // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(CustomConsoleManagerBuild_XSetGodModeAllFactions) == 0x000001, "Wrong alignment on CustomConsoleManagerBuild_XSetGodModeAllFactions");
-static_assert(sizeof(CustomConsoleManagerBuild_XSetGodModeAllFactions) == 0x000001, "Wrong size on CustomConsoleManagerBuild_XSetGodModeAllFactions");
-static_assert(offsetof(CustomConsoleManagerBuild_XSetGodModeAllFactions, bGodModeState) == 0x000000, "Member 'CustomConsoleManagerBuild_XSetGodModeAllFactions::bGodModeState' has a wrong offset!");
-
-// Function Stalker2.CustomConsoleManagerBuild.XSetGodModeByUID
-// 0x0008 (0x0008 - 0x0000)
-struct CustomConsoleManagerBuild_XSetGodModeByUID final
-{
-public:
-	int32                                         EntityUID;                                         // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bGodModeState;                                     // 0x0004(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_5[0x3];                                        // 0x0005(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(CustomConsoleManagerBuild_XSetGodModeByUID) == 0x000004, "Wrong alignment on CustomConsoleManagerBuild_XSetGodModeByUID");
-static_assert(sizeof(CustomConsoleManagerBuild_XSetGodModeByUID) == 0x000008, "Wrong size on CustomConsoleManagerBuild_XSetGodModeByUID");
-static_assert(offsetof(CustomConsoleManagerBuild_XSetGodModeByUID, EntityUID) == 0x000000, "Member 'CustomConsoleManagerBuild_XSetGodModeByUID::EntityUID' has a wrong offset!");
-static_assert(offsetof(CustomConsoleManagerBuild_XSetGodModeByUID, bGodModeState) == 0x000004, "Member 'CustomConsoleManagerBuild_XSetGodModeByUID::bGodModeState' has a wrong offset!");
-
-// Function Stalker2.CustomConsoleManagerBuild.XSpawnItemInCoordinatesBySID
-// 0x0020 (0x0020 - 0x0000)
-struct CustomConsoleManagerBuild_XSpawnItemInCoordinatesBySID final
-{
-public:
-	class FString                                 ItemPrototypeSID;                                  // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         Px;                                                // 0x0010(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         Py;                                                // 0x0014(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         Pz;                                                // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(CustomConsoleManagerBuild_XSpawnItemInCoordinatesBySID) == 0x000008, "Wrong alignment on CustomConsoleManagerBuild_XSpawnItemInCoordinatesBySID");
-static_assert(sizeof(CustomConsoleManagerBuild_XSpawnItemInCoordinatesBySID) == 0x000020, "Wrong size on CustomConsoleManagerBuild_XSpawnItemInCoordinatesBySID");
-static_assert(offsetof(CustomConsoleManagerBuild_XSpawnItemInCoordinatesBySID, ItemPrototypeSID) == 0x000000, "Member 'CustomConsoleManagerBuild_XSpawnItemInCoordinatesBySID::ItemPrototypeSID' has a wrong offset!");
-static_assert(offsetof(CustomConsoleManagerBuild_XSpawnItemInCoordinatesBySID, Px) == 0x000010, "Member 'CustomConsoleManagerBuild_XSpawnItemInCoordinatesBySID::Px' has a wrong offset!");
-static_assert(offsetof(CustomConsoleManagerBuild_XSpawnItemInCoordinatesBySID, Py) == 0x000014, "Member 'CustomConsoleManagerBuild_XSpawnItemInCoordinatesBySID::Py' has a wrong offset!");
-static_assert(offsetof(CustomConsoleManagerBuild_XSpawnItemInCoordinatesBySID, Pz) == 0x000018, "Member 'CustomConsoleManagerBuild_XSpawnItemInCoordinatesBySID::Pz' has a wrong offset!");
-
-// Function Stalker2.CustomConsoleManagerBuild.XSpawnItemNearPlayerBySID
-// 0x0010 (0x0010 - 0x0000)
-struct CustomConsoleManagerBuild_XSpawnItemNearPlayerBySID final
-{
-public:
-	class FString                                 ItemPrototypeSID;                                  // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(CustomConsoleManagerBuild_XSpawnItemNearPlayerBySID) == 0x000008, "Wrong alignment on CustomConsoleManagerBuild_XSpawnItemNearPlayerBySID");
-static_assert(sizeof(CustomConsoleManagerBuild_XSpawnItemNearPlayerBySID) == 0x000010, "Wrong size on CustomConsoleManagerBuild_XSpawnItemNearPlayerBySID");
-static_assert(offsetof(CustomConsoleManagerBuild_XSpawnItemNearPlayerBySID, ItemPrototypeSID) == 0x000000, "Member 'CustomConsoleManagerBuild_XSpawnItemNearPlayerBySID::ItemPrototypeSID' has a wrong offset!");
-
 // Function Stalker2.BaseInteractableAction.CanInteract
 // 0x0001 (0x0001 - 0x0000)
 struct BaseInteractableAction_CanInteract final
@@ -2671,6 +2631,28 @@ public:
 static_assert(alignof(BaseInteractableAction_CanInteract) == 0x000001, "Wrong alignment on BaseInteractableAction_CanInteract");
 static_assert(sizeof(BaseInteractableAction_CanInteract) == 0x000001, "Wrong size on BaseInteractableAction_CanInteract");
 static_assert(offsetof(BaseInteractableAction_CanInteract, ReturnValue) == 0x000000, "Member 'BaseInteractableAction_CanInteract::ReturnValue' has a wrong offset!");
+
+// Function Stalker2.CustomConsoleManagerDP.XPrintLocalizedTextByKey
+// 0x0010 (0x0010 - 0x0000)
+struct CustomConsoleManagerDP_XPrintLocalizedTextByKey final
+{
+public:
+	class FString                                 StringKey;                                         // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(CustomConsoleManagerDP_XPrintLocalizedTextByKey) == 0x000008, "Wrong alignment on CustomConsoleManagerDP_XPrintLocalizedTextByKey");
+static_assert(sizeof(CustomConsoleManagerDP_XPrintLocalizedTextByKey) == 0x000010, "Wrong size on CustomConsoleManagerDP_XPrintLocalizedTextByKey");
+static_assert(offsetof(CustomConsoleManagerDP_XPrintLocalizedTextByKey, StringKey) == 0x000000, "Member 'CustomConsoleManagerDP_XPrintLocalizedTextByKey::StringKey' has a wrong offset!");
+
+// Function Stalker2.CustomConsoleManagerDP.XTestCrashStackOverflow
+// 0x0004 (0x0004 - 0x0000)
+struct CustomConsoleManagerDP_XTestCrashStackOverflow final
+{
+public:
+	int32                                         Counter;                                           // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(CustomConsoleManagerDP_XTestCrashStackOverflow) == 0x000004, "Wrong alignment on CustomConsoleManagerDP_XTestCrashStackOverflow");
+static_assert(sizeof(CustomConsoleManagerDP_XTestCrashStackOverflow) == 0x000004, "Wrong size on CustomConsoleManagerDP_XTestCrashStackOverflow");
+static_assert(offsetof(CustomConsoleManagerDP_XTestCrashStackOverflow, Counter) == 0x000000, "Member 'CustomConsoleManagerDP_XTestCrashStackOverflow::Counter' has a wrong offset!");
 
 // Function Stalker2.HoldComponent.IsHoldStarted
 // 0x0001 (0x0001 - 0x0000)
@@ -2698,170 +2680,110 @@ static_assert(offsetof(DialogueViewFolder_ChangeSelectFolder, IndexOldFolder) ==
 static_assert(offsetof(DialogueViewFolder_ChangeSelectFolder, AxisMove) == 0x000004, "Member 'DialogueViewFolder_ChangeSelectFolder::AxisMove' has a wrong offset!");
 static_assert(offsetof(DialogueViewFolder_ChangeSelectFolder, ReturnValue) == 0x000008, "Member 'DialogueViewFolder_ChangeSelectFolder::ReturnValue' has a wrong offset!");
 
-// Function Stalker2.NotesPage.ClickButtonMenu
-// 0x0008 (0x0008 - 0x0000)
-struct NotesPage_ClickButtonMenu final
-{
-public:
-	class FName                                   ButtonId;                                          // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(NotesPage_ClickButtonMenu) == 0x000004, "Wrong alignment on NotesPage_ClickButtonMenu");
-static_assert(sizeof(NotesPage_ClickButtonMenu) == 0x000008, "Wrong size on NotesPage_ClickButtonMenu");
-static_assert(offsetof(NotesPage_ClickButtonMenu, ButtonId) == 0x000000, "Member 'NotesPage_ClickButtonMenu::ButtonId' has a wrong offset!");
-
-// Function Stalker2.NotesPage.ShowDetails
-// 0x0001 (0x0001 - 0x0000)
-struct NotesPage_ShowDetails final
-{
-public:
-	bool                                          bEmpty;                                            // 0x0000(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(NotesPage_ShowDetails) == 0x000001, "Wrong alignment on NotesPage_ShowDetails");
-static_assert(sizeof(NotesPage_ShowDetails) == 0x000001, "Wrong size on NotesPage_ShowDetails");
-static_assert(offsetof(NotesPage_ShowDetails, bEmpty) == 0x000000, "Member 'NotesPage_ShowDetails::bEmpty' has a wrong offset!");
-
-// Function Stalker2.CustomConsoleManagerIK.XInputActionBlock
-// 0x0020 (0x0020 - 0x0000)
-struct CustomConsoleManagerIK_XInputActionBlock final
-{
-public:
-	class FString                                 IAName;                                            // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 IMCName;                                           // 0x0010(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(CustomConsoleManagerIK_XInputActionBlock) == 0x000008, "Wrong alignment on CustomConsoleManagerIK_XInputActionBlock");
-static_assert(sizeof(CustomConsoleManagerIK_XInputActionBlock) == 0x000020, "Wrong size on CustomConsoleManagerIK_XInputActionBlock");
-static_assert(offsetof(CustomConsoleManagerIK_XInputActionBlock, IAName) == 0x000000, "Member 'CustomConsoleManagerIK_XInputActionBlock::IAName' has a wrong offset!");
-static_assert(offsetof(CustomConsoleManagerIK_XInputActionBlock, IMCName) == 0x000010, "Member 'CustomConsoleManagerIK_XInputActionBlock::IMCName' has a wrong offset!");
-
-// Function Stalker2.CustomConsoleManagerIK.XInputActionUnlock
-// 0x0020 (0x0020 - 0x0000)
-struct CustomConsoleManagerIK_XInputActionUnlock final
-{
-public:
-	class FString                                 IAName;                                            // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 IMCName;                                           // 0x0010(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(CustomConsoleManagerIK_XInputActionUnlock) == 0x000008, "Wrong alignment on CustomConsoleManagerIK_XInputActionUnlock");
-static_assert(sizeof(CustomConsoleManagerIK_XInputActionUnlock) == 0x000020, "Wrong size on CustomConsoleManagerIK_XInputActionUnlock");
-static_assert(offsetof(CustomConsoleManagerIK_XInputActionUnlock, IAName) == 0x000000, "Member 'CustomConsoleManagerIK_XInputActionUnlock::IAName' has a wrong offset!");
-static_assert(offsetof(CustomConsoleManagerIK_XInputActionUnlock, IMCName) == 0x000010, "Member 'CustomConsoleManagerIK_XInputActionUnlock::IMCName' has a wrong offset!");
-
-// Function Stalker2.CustomConsoleManagerIK.XSetTwelveHourTime
-// 0x0001 (0x0001 - 0x0000)
-struct CustomConsoleManagerIK_XSetTwelveHourTime final
-{
-public:
-	bool                                          bSet;                                              // 0x0000(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(CustomConsoleManagerIK_XSetTwelveHourTime) == 0x000001, "Wrong alignment on CustomConsoleManagerIK_XSetTwelveHourTime");
-static_assert(sizeof(CustomConsoleManagerIK_XSetTwelveHourTime) == 0x000001, "Wrong size on CustomConsoleManagerIK_XSetTwelveHourTime");
-static_assert(offsetof(CustomConsoleManagerIK_XSetTwelveHourTime, bSet) == 0x000000, "Member 'CustomConsoleManagerIK_XSetTwelveHourTime::bSet' has a wrong offset!");
-
-// Function Stalker2.CustomConsoleManagerIK.XSkipTimeHours
+// Function Stalker2.CustomConsoleManagerSD.XGetActorNameByUID
 // 0x0004 (0x0004 - 0x0000)
-struct CustomConsoleManagerIK_XSkipTimeHours final
+struct CustomConsoleManagerSD_XGetActorNameByUID final
 {
 public:
-	uint32                                        Hours;                                             // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         UID;                                               // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(CustomConsoleManagerIK_XSkipTimeHours) == 0x000004, "Wrong alignment on CustomConsoleManagerIK_XSkipTimeHours");
-static_assert(sizeof(CustomConsoleManagerIK_XSkipTimeHours) == 0x000004, "Wrong size on CustomConsoleManagerIK_XSkipTimeHours");
-static_assert(offsetof(CustomConsoleManagerIK_XSkipTimeHours, Hours) == 0x000000, "Member 'CustomConsoleManagerIK_XSkipTimeHours::Hours' has a wrong offset!");
+static_assert(alignof(CustomConsoleManagerSD_XGetActorNameByUID) == 0x000004, "Wrong alignment on CustomConsoleManagerSD_XGetActorNameByUID");
+static_assert(sizeof(CustomConsoleManagerSD_XGetActorNameByUID) == 0x000004, "Wrong size on CustomConsoleManagerSD_XGetActorNameByUID");
+static_assert(offsetof(CustomConsoleManagerSD_XGetActorNameByUID, UID) == 0x000000, "Member 'CustomConsoleManagerSD_XGetActorNameByUID::UID' has a wrong offset!");
 
-// Function Stalker2.CustomConsoleManagerIK.XSwitchPlayerRank
+// Function Stalker2.CustomConsoleManagerSD.XTeleportToPlacesOfInterest
+// 0x0010 (0x0010 - 0x0000)
+struct CustomConsoleManagerSD_XTeleportToPlacesOfInterest final
+{
+public:
+	class FString                                 SID;                                               // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(CustomConsoleManagerSD_XTeleportToPlacesOfInterest) == 0x000008, "Wrong alignment on CustomConsoleManagerSD_XTeleportToPlacesOfInterest");
+static_assert(sizeof(CustomConsoleManagerSD_XTeleportToPlacesOfInterest) == 0x000010, "Wrong size on CustomConsoleManagerSD_XTeleportToPlacesOfInterest");
+static_assert(offsetof(CustomConsoleManagerSD_XTeleportToPlacesOfInterest, SID) == 0x000000, "Member 'CustomConsoleManagerSD_XTeleportToPlacesOfInterest::SID' has a wrong offset!");
+
+// DelegateFunction Stalker2.UpgradeSlot.OnItemMouseEnter__DelegateSignature
+// 0x0010 (0x0010 - 0x0000)
+struct UpgradeSlot_OnItemMouseEnter__DelegateSignature final
+{
+public:
+	class FString                                 UgradeId;                                          // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(UpgradeSlot_OnItemMouseEnter__DelegateSignature) == 0x000008, "Wrong alignment on UpgradeSlot_OnItemMouseEnter__DelegateSignature");
+static_assert(sizeof(UpgradeSlot_OnItemMouseEnter__DelegateSignature) == 0x000010, "Wrong size on UpgradeSlot_OnItemMouseEnter__DelegateSignature");
+static_assert(offsetof(UpgradeSlot_OnItemMouseEnter__DelegateSignature, UgradeId) == 0x000000, "Member 'UpgradeSlot_OnItemMouseEnter__DelegateSignature::UgradeId' has a wrong offset!");
+
+// DelegateFunction Stalker2.UpgradeSlot.OnUpgradeClick__DelegateSignature
+// 0x0018 (0x0018 - 0x0000)
+struct UpgradeSlot_OnUpgradeClick__DelegateSignature final
+{
+public:
+	class FString                                 UgradeId;                                          // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UUpgradeSlot*                           InCurrentSlot;                                     // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(UpgradeSlot_OnUpgradeClick__DelegateSignature) == 0x000008, "Wrong alignment on UpgradeSlot_OnUpgradeClick__DelegateSignature");
+static_assert(sizeof(UpgradeSlot_OnUpgradeClick__DelegateSignature) == 0x000018, "Wrong size on UpgradeSlot_OnUpgradeClick__DelegateSignature");
+static_assert(offsetof(UpgradeSlot_OnUpgradeClick__DelegateSignature, UgradeId) == 0x000000, "Member 'UpgradeSlot_OnUpgradeClick__DelegateSignature::UgradeId' has a wrong offset!");
+static_assert(offsetof(UpgradeSlot_OnUpgradeClick__DelegateSignature, InCurrentSlot) == 0x000010, "Member 'UpgradeSlot_OnUpgradeClick__DelegateSignature::InCurrentSlot' has a wrong offset!");
+
+// Function Stalker2.CustomConsoleManagerMP.XDisplayArtifactSpawnLuckStatus
+// 0x0010 (0x0010 - 0x0000)
+struct CustomConsoleManagerMP_XDisplayArtifactSpawnLuckStatus final
+{
+public:
+	class FString                                 ArtifactSpawnerSID;                                // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(CustomConsoleManagerMP_XDisplayArtifactSpawnLuckStatus) == 0x000008, "Wrong alignment on CustomConsoleManagerMP_XDisplayArtifactSpawnLuckStatus");
+static_assert(sizeof(CustomConsoleManagerMP_XDisplayArtifactSpawnLuckStatus) == 0x000010, "Wrong size on CustomConsoleManagerMP_XDisplayArtifactSpawnLuckStatus");
+static_assert(offsetof(CustomConsoleManagerMP_XDisplayArtifactSpawnLuckStatus, ArtifactSpawnerSID) == 0x000000, "Member 'CustomConsoleManagerMP_XDisplayArtifactSpawnLuckStatus::ArtifactSpawnerSID' has a wrong offset!");
+
+// Function Stalker2.CustomConsoleManagerMP.XSetAimAssistEnabled
 // 0x0001 (0x0001 - 0x0000)
-struct CustomConsoleManagerIK_XSwitchPlayerRank final
+struct CustomConsoleManagerMP_XSetAimAssistEnabled final
 {
 public:
-	ERank                                         Rank;                                              // 0x0000(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bEnabled;                                          // 0x0000(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(CustomConsoleManagerIK_XSwitchPlayerRank) == 0x000001, "Wrong alignment on CustomConsoleManagerIK_XSwitchPlayerRank");
-static_assert(sizeof(CustomConsoleManagerIK_XSwitchPlayerRank) == 0x000001, "Wrong size on CustomConsoleManagerIK_XSwitchPlayerRank");
-static_assert(offsetof(CustomConsoleManagerIK_XSwitchPlayerRank, Rank) == 0x000000, "Member 'CustomConsoleManagerIK_XSwitchPlayerRank::Rank' has a wrong offset!");
+static_assert(alignof(CustomConsoleManagerMP_XSetAimAssistEnabled) == 0x000001, "Wrong alignment on CustomConsoleManagerMP_XSetAimAssistEnabled");
+static_assert(sizeof(CustomConsoleManagerMP_XSetAimAssistEnabled) == 0x000001, "Wrong size on CustomConsoleManagerMP_XSetAimAssistEnabled");
+static_assert(offsetof(CustomConsoleManagerMP_XSetAimAssistEnabled, bEnabled) == 0x000000, "Member 'CustomConsoleManagerMP_XSetAimAssistEnabled::bEnabled' has a wrong offset!");
 
-// Function Stalker2.PossessedObjectComponent.OnSphereComponentBeginOverlap
-// 0x0108 (0x0108 - 0x0000)
-struct PossessedObjectComponent_OnSphereComponentBeginOverlap final
+// Function Stalker2.CustomConsoleManagerMP.XSetArtifactSpawnLuck
+// 0x0004 (0x0004 - 0x0000)
+struct CustomConsoleManagerMP_XSetArtifactSpawnLuck final
 {
 public:
-	class UPrimitiveComponent*                    OverlapComponent;                                  // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UPrimitiveComponent*                    OtherComp;                                         // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bFromSweep;                                        // 0x001C(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1D[0x3];                                       // 0x001D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FHitResult                             SweepResult;                                       // 0x0020(0x00E8)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+	float                                         LuckValue;                                         // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(PossessedObjectComponent_OnSphereComponentBeginOverlap) == 0x000008, "Wrong alignment on PossessedObjectComponent_OnSphereComponentBeginOverlap");
-static_assert(sizeof(PossessedObjectComponent_OnSphereComponentBeginOverlap) == 0x000108, "Wrong size on PossessedObjectComponent_OnSphereComponentBeginOverlap");
-static_assert(offsetof(PossessedObjectComponent_OnSphereComponentBeginOverlap, OverlapComponent) == 0x000000, "Member 'PossessedObjectComponent_OnSphereComponentBeginOverlap::OverlapComponent' has a wrong offset!");
-static_assert(offsetof(PossessedObjectComponent_OnSphereComponentBeginOverlap, OtherActor) == 0x000008, "Member 'PossessedObjectComponent_OnSphereComponentBeginOverlap::OtherActor' has a wrong offset!");
-static_assert(offsetof(PossessedObjectComponent_OnSphereComponentBeginOverlap, OtherComp) == 0x000010, "Member 'PossessedObjectComponent_OnSphereComponentBeginOverlap::OtherComp' has a wrong offset!");
-static_assert(offsetof(PossessedObjectComponent_OnSphereComponentBeginOverlap, OtherBodyIndex) == 0x000018, "Member 'PossessedObjectComponent_OnSphereComponentBeginOverlap::OtherBodyIndex' has a wrong offset!");
-static_assert(offsetof(PossessedObjectComponent_OnSphereComponentBeginOverlap, bFromSweep) == 0x00001C, "Member 'PossessedObjectComponent_OnSphereComponentBeginOverlap::bFromSweep' has a wrong offset!");
-static_assert(offsetof(PossessedObjectComponent_OnSphereComponentBeginOverlap, SweepResult) == 0x000020, "Member 'PossessedObjectComponent_OnSphereComponentBeginOverlap::SweepResult' has a wrong offset!");
+static_assert(alignof(CustomConsoleManagerMP_XSetArtifactSpawnLuck) == 0x000004, "Wrong alignment on CustomConsoleManagerMP_XSetArtifactSpawnLuck");
+static_assert(sizeof(CustomConsoleManagerMP_XSetArtifactSpawnLuck) == 0x000004, "Wrong size on CustomConsoleManagerMP_XSetArtifactSpawnLuck");
+static_assert(offsetof(CustomConsoleManagerMP_XSetArtifactSpawnLuck, LuckValue) == 0x000000, "Member 'CustomConsoleManagerMP_XSetArtifactSpawnLuck::LuckValue' has a wrong offset!");
 
-// Function Stalker2.PossessedObjectComponent.OnSphereComponentHit
-// 0x0118 (0x0118 - 0x0000)
-struct PossessedObjectComponent_OnSphereComponentHit final
+// Function Stalker2.CustomConsoleManagerMP.XSetClosestFaustCloneSwitchValue
+// 0x0008 (0x0008 - 0x0000)
+struct CustomConsoleManagerMP_XSetClosestFaustCloneSwitchValue final
 {
 public:
-	class UPrimitiveComponent*                    HitComp;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UPrimitiveComponent*                    OtherComp;                                         // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                NormalImpulse;                                     // 0x0018(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FHitResult                             Hit;                                               // 0x0030(0x00E8)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+	float                                         SearchRadius;                                      // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         SwitchValue;                                       // 0x0004(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(PossessedObjectComponent_OnSphereComponentHit) == 0x000008, "Wrong alignment on PossessedObjectComponent_OnSphereComponentHit");
-static_assert(sizeof(PossessedObjectComponent_OnSphereComponentHit) == 0x000118, "Wrong size on PossessedObjectComponent_OnSphereComponentHit");
-static_assert(offsetof(PossessedObjectComponent_OnSphereComponentHit, HitComp) == 0x000000, "Member 'PossessedObjectComponent_OnSphereComponentHit::HitComp' has a wrong offset!");
-static_assert(offsetof(PossessedObjectComponent_OnSphereComponentHit, OtherActor) == 0x000008, "Member 'PossessedObjectComponent_OnSphereComponentHit::OtherActor' has a wrong offset!");
-static_assert(offsetof(PossessedObjectComponent_OnSphereComponentHit, OtherComp) == 0x000010, "Member 'PossessedObjectComponent_OnSphereComponentHit::OtherComp' has a wrong offset!");
-static_assert(offsetof(PossessedObjectComponent_OnSphereComponentHit, NormalImpulse) == 0x000018, "Member 'PossessedObjectComponent_OnSphereComponentHit::NormalImpulse' has a wrong offset!");
-static_assert(offsetof(PossessedObjectComponent_OnSphereComponentHit, Hit) == 0x000030, "Member 'PossessedObjectComponent_OnSphereComponentHit::Hit' has a wrong offset!");
+static_assert(alignof(CustomConsoleManagerMP_XSetClosestFaustCloneSwitchValue) == 0x000004, "Wrong alignment on CustomConsoleManagerMP_XSetClosestFaustCloneSwitchValue");
+static_assert(sizeof(CustomConsoleManagerMP_XSetClosestFaustCloneSwitchValue) == 0x000008, "Wrong size on CustomConsoleManagerMP_XSetClosestFaustCloneSwitchValue");
+static_assert(offsetof(CustomConsoleManagerMP_XSetClosestFaustCloneSwitchValue, SearchRadius) == 0x000000, "Member 'CustomConsoleManagerMP_XSetClosestFaustCloneSwitchValue::SearchRadius' has a wrong offset!");
+static_assert(offsetof(CustomConsoleManagerMP_XSetClosestFaustCloneSwitchValue, SwitchValue) == 0x000004, "Member 'CustomConsoleManagerMP_XSetClosestFaustCloneSwitchValue::SwitchValue' has a wrong offset!");
 
-// Function Stalker2.CustomConsoleManagerAI2.XSetHearingParamsOverride
-// 0x0018 (0x0018 - 0x0000)
-struct CustomConsoleManagerAI2_XSetHearingParamsOverride final
+// Function Stalker2.CustomConsoleManagerMP.XWeaponDrag
+// 0x0008 (0x0008 - 0x0000)
+struct CustomConsoleManagerMP_XWeaponDrag final
 {
 public:
 	int32                                         ModelUID;                                          // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class FString                                 PrototypeSID;                                      // 0x0008(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Delay;                                             // 0x0004(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(CustomConsoleManagerAI2_XSetHearingParamsOverride) == 0x000008, "Wrong alignment on CustomConsoleManagerAI2_XSetHearingParamsOverride");
-static_assert(sizeof(CustomConsoleManagerAI2_XSetHearingParamsOverride) == 0x000018, "Wrong size on CustomConsoleManagerAI2_XSetHearingParamsOverride");
-static_assert(offsetof(CustomConsoleManagerAI2_XSetHearingParamsOverride, ModelUID) == 0x000000, "Member 'CustomConsoleManagerAI2_XSetHearingParamsOverride::ModelUID' has a wrong offset!");
-static_assert(offsetof(CustomConsoleManagerAI2_XSetHearingParamsOverride, PrototypeSID) == 0x000008, "Member 'CustomConsoleManagerAI2_XSetHearingParamsOverride::PrototypeSID' has a wrong offset!");
-
-// Function Stalker2.CustomConsoleManagerAI2.XSetRelation
-// 0x000C (0x000C - 0x0000)
-struct CustomConsoleManagerAI2_XSetRelation final
-{
-public:
-	int32                                         FirstUID;                                          // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         SecondUID;                                         // 0x0004(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         Relation;                                          // 0x0008(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(CustomConsoleManagerAI2_XSetRelation) == 0x000004, "Wrong alignment on CustomConsoleManagerAI2_XSetRelation");
-static_assert(sizeof(CustomConsoleManagerAI2_XSetRelation) == 0x00000C, "Wrong size on CustomConsoleManagerAI2_XSetRelation");
-static_assert(offsetof(CustomConsoleManagerAI2_XSetRelation, FirstUID) == 0x000000, "Member 'CustomConsoleManagerAI2_XSetRelation::FirstUID' has a wrong offset!");
-static_assert(offsetof(CustomConsoleManagerAI2_XSetRelation, SecondUID) == 0x000004, "Member 'CustomConsoleManagerAI2_XSetRelation::SecondUID' has a wrong offset!");
-static_assert(offsetof(CustomConsoleManagerAI2_XSetRelation, Relation) == 0x000008, "Member 'CustomConsoleManagerAI2_XSetRelation::Relation' has a wrong offset!");
-
-// Function Stalker2.CustomConsoleManagerAI2.XSetVisionParamsOverride
-// 0x0018 (0x0018 - 0x0000)
-struct CustomConsoleManagerAI2_XSetVisionParamsOverride final
-{
-public:
-	int32                                         ModelUID;                                          // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class FString                                 PrototypeSID;                                      // 0x0008(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(CustomConsoleManagerAI2_XSetVisionParamsOverride) == 0x000008, "Wrong alignment on CustomConsoleManagerAI2_XSetVisionParamsOverride");
-static_assert(sizeof(CustomConsoleManagerAI2_XSetVisionParamsOverride) == 0x000018, "Wrong size on CustomConsoleManagerAI2_XSetVisionParamsOverride");
-static_assert(offsetof(CustomConsoleManagerAI2_XSetVisionParamsOverride, ModelUID) == 0x000000, "Member 'CustomConsoleManagerAI2_XSetVisionParamsOverride::ModelUID' has a wrong offset!");
-static_assert(offsetof(CustomConsoleManagerAI2_XSetVisionParamsOverride, PrototypeSID) == 0x000008, "Member 'CustomConsoleManagerAI2_XSetVisionParamsOverride::PrototypeSID' has a wrong offset!");
+static_assert(alignof(CustomConsoleManagerMP_XWeaponDrag) == 0x000004, "Wrong alignment on CustomConsoleManagerMP_XWeaponDrag");
+static_assert(sizeof(CustomConsoleManagerMP_XWeaponDrag) == 0x000008, "Wrong size on CustomConsoleManagerMP_XWeaponDrag");
+static_assert(offsetof(CustomConsoleManagerMP_XWeaponDrag, ModelUID) == 0x000000, "Member 'CustomConsoleManagerMP_XWeaponDrag::ModelUID' has a wrong offset!");
+static_assert(offsetof(CustomConsoleManagerMP_XWeaponDrag, Delay) == 0x000004, "Member 'CustomConsoleManagerMP_XWeaponDrag::Delay' has a wrong offset!");
 
 // Function Stalker2.Bolt.OnComponentHit
 // 0x0118 (0x0118 - 0x0000)
@@ -2882,16 +2804,16 @@ static_assert(offsetof(Bolt_OnComponentHit, OtherComp) == 0x000010, "Member 'Bol
 static_assert(offsetof(Bolt_OnComponentHit, NormalImpulse) == 0x000018, "Member 'Bolt_OnComponentHit::NormalImpulse' has a wrong offset!");
 static_assert(offsetof(Bolt_OnComponentHit, Hit) == 0x000030, "Member 'Bolt_OnComponentHit::Hit' has a wrong offset!");
 
-// Function Stalker2.BookViewBase.ClickMenuButton
+// Function Stalker2.SpaceRestrictorsCheats.XRestrictorsShowResponse
 // 0x0004 (0x0004 - 0x0000)
-struct BookViewBase_ClickMenuButton final
+struct SpaceRestrictorsCheats_XRestrictorsShowResponse final
 {
 public:
-	int32                                         InButtonIndex;                                     // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         UID;                                               // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(BookViewBase_ClickMenuButton) == 0x000004, "Wrong alignment on BookViewBase_ClickMenuButton");
-static_assert(sizeof(BookViewBase_ClickMenuButton) == 0x000004, "Wrong size on BookViewBase_ClickMenuButton");
-static_assert(offsetof(BookViewBase_ClickMenuButton, InButtonIndex) == 0x000000, "Member 'BookViewBase_ClickMenuButton::InButtonIndex' has a wrong offset!");
+static_assert(alignof(SpaceRestrictorsCheats_XRestrictorsShowResponse) == 0x000004, "Wrong alignment on SpaceRestrictorsCheats_XRestrictorsShowResponse");
+static_assert(sizeof(SpaceRestrictorsCheats_XRestrictorsShowResponse) == 0x000004, "Wrong size on SpaceRestrictorsCheats_XRestrictorsShowResponse");
+static_assert(offsetof(SpaceRestrictorsCheats_XRestrictorsShowResponse, UID) == 0x000000, "Member 'SpaceRestrictorsCheats_XRestrictorsShowResponse::UID' has a wrong offset!");
 
 // Function Stalker2.CustomConsoleManagerVD.XProtectItemContainer
 // 0x0018 (0x0018 - 0x0000)
@@ -2945,94 +2867,6 @@ static_assert(alignof(GSCBPFunctionLibrary_SetAffectNavigationForComponent) == 0
 static_assert(sizeof(GSCBPFunctionLibrary_SetAffectNavigationForComponent) == 0x000010, "Wrong size on GSCBPFunctionLibrary_SetAffectNavigationForComponent");
 static_assert(offsetof(GSCBPFunctionLibrary_SetAffectNavigationForComponent, PrimitiveComponent) == 0x000000, "Member 'GSCBPFunctionLibrary_SetAffectNavigationForComponent::PrimitiveComponent' has a wrong offset!");
 static_assert(offsetof(GSCBPFunctionLibrary_SetAffectNavigationForComponent, bCanAffect) == 0x000008, "Member 'GSCBPFunctionLibrary_SetAffectNavigationForComponent::bCanAffect' has a wrong offset!");
-
-// Function Stalker2.UserMarkerCounter.UpdateMarkerCounterWidget
-// 0x0004 (0x0004 - 0x0000)
-struct UserMarkerCounter_UpdateMarkerCounterWidget final
-{
-public:
-	int32                                         NewAmount;                                         // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(UserMarkerCounter_UpdateMarkerCounterWidget) == 0x000004, "Wrong alignment on UserMarkerCounter_UpdateMarkerCounterWidget");
-static_assert(sizeof(UserMarkerCounter_UpdateMarkerCounterWidget) == 0x000004, "Wrong size on UserMarkerCounter_UpdateMarkerCounterWidget");
-static_assert(offsetof(UserMarkerCounter_UpdateMarkerCounterWidget, NewAmount) == 0x000000, "Member 'UserMarkerCounter_UpdateMarkerCounterWidget::NewAmount' has a wrong offset!");
-
-// Function Stalker2.CustomConsoleManagerOM.XSetCarouselAngle
-// 0x0004 (0x0004 - 0x0000)
-struct CustomConsoleManagerOM_XSetCarouselAngle final
-{
-public:
-	float                                         Angle;                                             // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(CustomConsoleManagerOM_XSetCarouselAngle) == 0x000004, "Wrong alignment on CustomConsoleManagerOM_XSetCarouselAngle");
-static_assert(sizeof(CustomConsoleManagerOM_XSetCarouselAngle) == 0x000004, "Wrong size on CustomConsoleManagerOM_XSetCarouselAngle");
-static_assert(offsetof(CustomConsoleManagerOM_XSetCarouselAngle, Angle) == 0x000000, "Member 'CustomConsoleManagerOM_XSetCarouselAngle::Angle' has a wrong offset!");
-
-// Function Stalker2.CustomConsoleManagerOM.XSetCarouselDebugTrajectory
-// 0x0001 (0x0001 - 0x0000)
-struct CustomConsoleManagerOM_XSetCarouselDebugTrajectory final
-{
-public:
-	bool                                          bEnable;                                           // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(CustomConsoleManagerOM_XSetCarouselDebugTrajectory) == 0x000001, "Wrong alignment on CustomConsoleManagerOM_XSetCarouselDebugTrajectory");
-static_assert(sizeof(CustomConsoleManagerOM_XSetCarouselDebugTrajectory) == 0x000001, "Wrong size on CustomConsoleManagerOM_XSetCarouselDebugTrajectory");
-static_assert(offsetof(CustomConsoleManagerOM_XSetCarouselDebugTrajectory, bEnable) == 0x000000, "Member 'CustomConsoleManagerOM_XSetCarouselDebugTrajectory::bEnable' has a wrong offset!");
-
-// Function Stalker2.CustomConsoleManagerOM.XSetCarouselDuration
-// 0x0004 (0x0004 - 0x0000)
-struct CustomConsoleManagerOM_XSetCarouselDuration final
-{
-public:
-	float                                         Duration;                                          // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(CustomConsoleManagerOM_XSetCarouselDuration) == 0x000004, "Wrong alignment on CustomConsoleManagerOM_XSetCarouselDuration");
-static_assert(sizeof(CustomConsoleManagerOM_XSetCarouselDuration) == 0x000004, "Wrong size on CustomConsoleManagerOM_XSetCarouselDuration");
-static_assert(offsetof(CustomConsoleManagerOM_XSetCarouselDuration, Duration) == 0x000000, "Member 'CustomConsoleManagerOM_XSetCarouselDuration::Duration' has a wrong offset!");
-
-// Function Stalker2.CustomConsoleManagerOM.XSetCarouselForce
-// 0x0004 (0x0004 - 0x0000)
-struct CustomConsoleManagerOM_XSetCarouselForce final
-{
-public:
-	float                                         Force;                                             // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(CustomConsoleManagerOM_XSetCarouselForce) == 0x000004, "Wrong alignment on CustomConsoleManagerOM_XSetCarouselForce");
-static_assert(sizeof(CustomConsoleManagerOM_XSetCarouselForce) == 0x000004, "Wrong size on CustomConsoleManagerOM_XSetCarouselForce");
-static_assert(offsetof(CustomConsoleManagerOM_XSetCarouselForce, Force) == 0x000000, "Member 'CustomConsoleManagerOM_XSetCarouselForce::Force' has a wrong offset!");
-
-// Function Stalker2.CustomConsoleManagerOM.XSetCarouselLiftUpTime
-// 0x0004 (0x0004 - 0x0000)
-struct CustomConsoleManagerOM_XSetCarouselLiftUpTime final
-{
-public:
-	float                                         Time;                                              // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(CustomConsoleManagerOM_XSetCarouselLiftUpTime) == 0x000004, "Wrong alignment on CustomConsoleManagerOM_XSetCarouselLiftUpTime");
-static_assert(sizeof(CustomConsoleManagerOM_XSetCarouselLiftUpTime) == 0x000004, "Wrong size on CustomConsoleManagerOM_XSetCarouselLiftUpTime");
-static_assert(offsetof(CustomConsoleManagerOM_XSetCarouselLiftUpTime, Time) == 0x000000, "Member 'CustomConsoleManagerOM_XSetCarouselLiftUpTime::Time' has a wrong offset!");
-
-// Function Stalker2.CustomConsoleManagerOM.XSetCarouselRotation
-// 0x0004 (0x0004 - 0x0000)
-struct CustomConsoleManagerOM_XSetCarouselRotation final
-{
-public:
-	float                                         Rotation;                                          // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(CustomConsoleManagerOM_XSetCarouselRotation) == 0x000004, "Wrong alignment on CustomConsoleManagerOM_XSetCarouselRotation");
-static_assert(sizeof(CustomConsoleManagerOM_XSetCarouselRotation) == 0x000004, "Wrong size on CustomConsoleManagerOM_XSetCarouselRotation");
-static_assert(offsetof(CustomConsoleManagerOM_XSetCarouselRotation, Rotation) == 0x000000, "Member 'CustomConsoleManagerOM_XSetCarouselRotation::Rotation' has a wrong offset!");
-
-// Function Stalker2.CustomConsoleManagerOM.XSetCarouselTimeToCenter
-// 0x0004 (0x0004 - 0x0000)
-struct CustomConsoleManagerOM_XSetCarouselTimeToCenter final
-{
-public:
-	float                                         Time;                                              // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(CustomConsoleManagerOM_XSetCarouselTimeToCenter) == 0x000004, "Wrong alignment on CustomConsoleManagerOM_XSetCarouselTimeToCenter");
-static_assert(sizeof(CustomConsoleManagerOM_XSetCarouselTimeToCenter) == 0x000004, "Wrong size on CustomConsoleManagerOM_XSetCarouselTimeToCenter");
-static_assert(offsetof(CustomConsoleManagerOM_XSetCarouselTimeToCenter, Time) == 0x000000, "Member 'CustomConsoleManagerOM_XSetCarouselTimeToCenter::Time' has a wrong offset!");
 
 // Function Stalker2.VictoryBPFunctionLibrary.GetAllWidgetsOfClass
 // 0x0028 (0x0028 - 0x0000)
@@ -3399,28 +3233,6 @@ static_assert(offsetof(VictoryBPFunctionLibrary_WidgetIsChildOf, ChildWidget) ==
 static_assert(offsetof(VictoryBPFunctionLibrary_WidgetIsChildOf, PossibleParent) == 0x000008, "Member 'VictoryBPFunctionLibrary_WidgetIsChildOf::PossibleParent' has a wrong offset!");
 static_assert(offsetof(VictoryBPFunctionLibrary_WidgetIsChildOf, ReturnValue) == 0x000010, "Member 'VictoryBPFunctionLibrary_WidgetIsChildOf::ReturnValue' has a wrong offset!");
 
-// Function Stalker2.StreamingDistanceOverridingVolume.OnTriggerOverlapped
-// 0x0108 (0x0108 - 0x0000)
-struct StreamingDistanceOverridingVolume_OnTriggerOverlapped final
-{
-public:
-	class UPrimitiveComponent*                    OverlappedComponent;                               // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UPrimitiveComponent*                    OtherComp;                                         // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bFromSweep;                                        // 0x001C(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1D[0x3];                                       // 0x001D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FHitResult                             SweepResult;                                       // 0x0020(0x00E8)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(StreamingDistanceOverridingVolume_OnTriggerOverlapped) == 0x000008, "Wrong alignment on StreamingDistanceOverridingVolume_OnTriggerOverlapped");
-static_assert(sizeof(StreamingDistanceOverridingVolume_OnTriggerOverlapped) == 0x000108, "Wrong size on StreamingDistanceOverridingVolume_OnTriggerOverlapped");
-static_assert(offsetof(StreamingDistanceOverridingVolume_OnTriggerOverlapped, OverlappedComponent) == 0x000000, "Member 'StreamingDistanceOverridingVolume_OnTriggerOverlapped::OverlappedComponent' has a wrong offset!");
-static_assert(offsetof(StreamingDistanceOverridingVolume_OnTriggerOverlapped, OtherActor) == 0x000008, "Member 'StreamingDistanceOverridingVolume_OnTriggerOverlapped::OtherActor' has a wrong offset!");
-static_assert(offsetof(StreamingDistanceOverridingVolume_OnTriggerOverlapped, OtherComp) == 0x000010, "Member 'StreamingDistanceOverridingVolume_OnTriggerOverlapped::OtherComp' has a wrong offset!");
-static_assert(offsetof(StreamingDistanceOverridingVolume_OnTriggerOverlapped, OtherBodyIndex) == 0x000018, "Member 'StreamingDistanceOverridingVolume_OnTriggerOverlapped::OtherBodyIndex' has a wrong offset!");
-static_assert(offsetof(StreamingDistanceOverridingVolume_OnTriggerOverlapped, bFromSweep) == 0x00001C, "Member 'StreamingDistanceOverridingVolume_OnTriggerOverlapped::bFromSweep' has a wrong offset!");
-static_assert(offsetof(StreamingDistanceOverridingVolume_OnTriggerOverlapped, SweepResult) == 0x000020, "Member 'StreamingDistanceOverridingVolume_OnTriggerOverlapped::SweepResult' has a wrong offset!");
-
 // Function Stalker2.CustomConsoleManagerYK.XTestSetDiscount
 // 0x0001 (0x0001 - 0x0000)
 struct CustomConsoleManagerYK_XTestSetDiscount final
@@ -3497,120 +3309,6 @@ static_assert(offsetof(BulbAnomaly_OnEndOverlap, OtherActor) == 0x000008, "Membe
 static_assert(offsetof(BulbAnomaly_OnEndOverlap, OtherComp) == 0x000010, "Member 'BulbAnomaly_OnEndOverlap::OtherComp' has a wrong offset!");
 static_assert(offsetof(BulbAnomaly_OnEndOverlap, OtherBodyIndex) == 0x000018, "Member 'BulbAnomaly_OnEndOverlap::OtherBodyIndex' has a wrong offset!");
 
-// Function Stalker2.CustomConsoleManagerMP.XDisplayArtifactSpawnLuckStatus
-// 0x0010 (0x0010 - 0x0000)
-struct CustomConsoleManagerMP_XDisplayArtifactSpawnLuckStatus final
-{
-public:
-	class FString                                 ArtifactSpawnerSID;                                // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(CustomConsoleManagerMP_XDisplayArtifactSpawnLuckStatus) == 0x000008, "Wrong alignment on CustomConsoleManagerMP_XDisplayArtifactSpawnLuckStatus");
-static_assert(sizeof(CustomConsoleManagerMP_XDisplayArtifactSpawnLuckStatus) == 0x000010, "Wrong size on CustomConsoleManagerMP_XDisplayArtifactSpawnLuckStatus");
-static_assert(offsetof(CustomConsoleManagerMP_XDisplayArtifactSpawnLuckStatus, ArtifactSpawnerSID) == 0x000000, "Member 'CustomConsoleManagerMP_XDisplayArtifactSpawnLuckStatus::ArtifactSpawnerSID' has a wrong offset!");
-
-// Function Stalker2.CustomConsoleManagerMP.XSetAimAssistEnabled
-// 0x0001 (0x0001 - 0x0000)
-struct CustomConsoleManagerMP_XSetAimAssistEnabled final
-{
-public:
-	bool                                          bEnabled;                                          // 0x0000(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(CustomConsoleManagerMP_XSetAimAssistEnabled) == 0x000001, "Wrong alignment on CustomConsoleManagerMP_XSetAimAssistEnabled");
-static_assert(sizeof(CustomConsoleManagerMP_XSetAimAssistEnabled) == 0x000001, "Wrong size on CustomConsoleManagerMP_XSetAimAssistEnabled");
-static_assert(offsetof(CustomConsoleManagerMP_XSetAimAssistEnabled, bEnabled) == 0x000000, "Member 'CustomConsoleManagerMP_XSetAimAssistEnabled::bEnabled' has a wrong offset!");
-
-// Function Stalker2.CustomConsoleManagerMP.XSetArtifactSpawnLuck
-// 0x0004 (0x0004 - 0x0000)
-struct CustomConsoleManagerMP_XSetArtifactSpawnLuck final
-{
-public:
-	float                                         LuckValue;                                         // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(CustomConsoleManagerMP_XSetArtifactSpawnLuck) == 0x000004, "Wrong alignment on CustomConsoleManagerMP_XSetArtifactSpawnLuck");
-static_assert(sizeof(CustomConsoleManagerMP_XSetArtifactSpawnLuck) == 0x000004, "Wrong size on CustomConsoleManagerMP_XSetArtifactSpawnLuck");
-static_assert(offsetof(CustomConsoleManagerMP_XSetArtifactSpawnLuck, LuckValue) == 0x000000, "Member 'CustomConsoleManagerMP_XSetArtifactSpawnLuck::LuckValue' has a wrong offset!");
-
-// Function Stalker2.CustomConsoleManagerMP.XSetClosestFaustCloneSwitchValue
-// 0x0008 (0x0008 - 0x0000)
-struct CustomConsoleManagerMP_XSetClosestFaustCloneSwitchValue final
-{
-public:
-	float                                         SearchRadius;                                      // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         SwitchValue;                                       // 0x0004(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(CustomConsoleManagerMP_XSetClosestFaustCloneSwitchValue) == 0x000004, "Wrong alignment on CustomConsoleManagerMP_XSetClosestFaustCloneSwitchValue");
-static_assert(sizeof(CustomConsoleManagerMP_XSetClosestFaustCloneSwitchValue) == 0x000008, "Wrong size on CustomConsoleManagerMP_XSetClosestFaustCloneSwitchValue");
-static_assert(offsetof(CustomConsoleManagerMP_XSetClosestFaustCloneSwitchValue, SearchRadius) == 0x000000, "Member 'CustomConsoleManagerMP_XSetClosestFaustCloneSwitchValue::SearchRadius' has a wrong offset!");
-static_assert(offsetof(CustomConsoleManagerMP_XSetClosestFaustCloneSwitchValue, SwitchValue) == 0x000004, "Member 'CustomConsoleManagerMP_XSetClosestFaustCloneSwitchValue::SwitchValue' has a wrong offset!");
-
-// Function Stalker2.CustomConsoleManagerMP.XWeaponDrag
-// 0x0008 (0x0008 - 0x0000)
-struct CustomConsoleManagerMP_XWeaponDrag final
-{
-public:
-	int32                                         ModelUID;                                          // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         Delay;                                             // 0x0004(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(CustomConsoleManagerMP_XWeaponDrag) == 0x000004, "Wrong alignment on CustomConsoleManagerMP_XWeaponDrag");
-static_assert(sizeof(CustomConsoleManagerMP_XWeaponDrag) == 0x000008, "Wrong size on CustomConsoleManagerMP_XWeaponDrag");
-static_assert(offsetof(CustomConsoleManagerMP_XWeaponDrag, ModelUID) == 0x000000, "Member 'CustomConsoleManagerMP_XWeaponDrag::ModelUID' has a wrong offset!");
-static_assert(offsetof(CustomConsoleManagerMP_XWeaponDrag, Delay) == 0x000004, "Member 'CustomConsoleManagerMP_XWeaponDrag::Delay' has a wrong offset!");
-
-// Function Stalker2.StrelokBossComponent.OnDashAbilityUsed
-// 0x0001 (0x0001 - 0x0000)
-struct StrelokBossComponent_OnDashAbilityUsed final
-{
-public:
-	bool                                          bAbilityUsed;                                      // 0x0000(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(StrelokBossComponent_OnDashAbilityUsed) == 0x000001, "Wrong alignment on StrelokBossComponent_OnDashAbilityUsed");
-static_assert(sizeof(StrelokBossComponent_OnDashAbilityUsed) == 0x000001, "Wrong size on StrelokBossComponent_OnDashAbilityUsed");
-static_assert(offsetof(StrelokBossComponent_OnDashAbilityUsed, bAbilityUsed) == 0x000000, "Member 'StrelokBossComponent_OnDashAbilityUsed::bAbilityUsed' has a wrong offset!");
-
-// Function Stalker2.StoreButtonStateDefiner.GetSubsystemOptions
-// 0x0010 (0x0010 - 0x0000)
-struct StoreButtonStateDefiner_GetSubsystemOptions final
-{
-public:
-	TArray<class FName>                           ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(StoreButtonStateDefiner_GetSubsystemOptions) == 0x000008, "Wrong alignment on StoreButtonStateDefiner_GetSubsystemOptions");
-static_assert(sizeof(StoreButtonStateDefiner_GetSubsystemOptions) == 0x000010, "Wrong size on StoreButtonStateDefiner_GetSubsystemOptions");
-static_assert(offsetof(StoreButtonStateDefiner_GetSubsystemOptions, ReturnValue) == 0x000000, "Member 'StoreButtonStateDefiner_GetSubsystemOptions::ReturnValue' has a wrong offset!");
-
-// Function Stalker2.CameraModifier_AbilityCamModifier.UpdateCameraTargetLocation
-// 0x0018 (0x0018 - 0x0000)
-struct CameraModifier_AbilityCamModifier_UpdateCameraTargetLocation final
-{
-public:
-	struct FVector                                NewLocation;                                       // 0x0000(0x0018)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(CameraModifier_AbilityCamModifier_UpdateCameraTargetLocation) == 0x000008, "Wrong alignment on CameraModifier_AbilityCamModifier_UpdateCameraTargetLocation");
-static_assert(sizeof(CameraModifier_AbilityCamModifier_UpdateCameraTargetLocation) == 0x000018, "Wrong size on CameraModifier_AbilityCamModifier_UpdateCameraTargetLocation");
-static_assert(offsetof(CameraModifier_AbilityCamModifier_UpdateCameraTargetLocation, NewLocation) == 0x000000, "Member 'CameraModifier_AbilityCamModifier_UpdateCameraTargetLocation::NewLocation' has a wrong offset!");
-
-// Function Stalker2.Teleport.OnBeginOverlap
-// 0x0108 (0x0108 - 0x0000)
-struct Teleport_OnBeginOverlap final
-{
-public:
-	class UPrimitiveComponent*                    OverlappedComponent;                               // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UPrimitiveComponent*                    OtherComp;                                         // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bFromSweep;                                        // 0x001C(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1D[0x3];                                       // 0x001D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FHitResult                             SweepResult;                                       // 0x0020(0x00E8)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(Teleport_OnBeginOverlap) == 0x000008, "Wrong alignment on Teleport_OnBeginOverlap");
-static_assert(sizeof(Teleport_OnBeginOverlap) == 0x000108, "Wrong size on Teleport_OnBeginOverlap");
-static_assert(offsetof(Teleport_OnBeginOverlap, OverlappedComponent) == 0x000000, "Member 'Teleport_OnBeginOverlap::OverlappedComponent' has a wrong offset!");
-static_assert(offsetof(Teleport_OnBeginOverlap, OtherActor) == 0x000008, "Member 'Teleport_OnBeginOverlap::OtherActor' has a wrong offset!");
-static_assert(offsetof(Teleport_OnBeginOverlap, OtherComp) == 0x000010, "Member 'Teleport_OnBeginOverlap::OtherComp' has a wrong offset!");
-static_assert(offsetof(Teleport_OnBeginOverlap, OtherBodyIndex) == 0x000018, "Member 'Teleport_OnBeginOverlap::OtherBodyIndex' has a wrong offset!");
-static_assert(offsetof(Teleport_OnBeginOverlap, bFromSweep) == 0x00001C, "Member 'Teleport_OnBeginOverlap::bFromSweep' has a wrong offset!");
-static_assert(offsetof(Teleport_OnBeginOverlap, SweepResult) == 0x000020, "Member 'Teleport_OnBeginOverlap::SweepResult' has a wrong offset!");
-
 // Function Stalker2.CustomConsoleManagerPU.XShowPopup
 // 0x0004 (0x0004 - 0x0000)
 struct CustomConsoleManagerPU_XShowPopup final
@@ -3622,421 +3320,64 @@ static_assert(alignof(CustomConsoleManagerPU_XShowPopup) == 0x000004, "Wrong ali
 static_assert(sizeof(CustomConsoleManagerPU_XShowPopup) == 0x000004, "Wrong size on CustomConsoleManagerPU_XShowPopup");
 static_assert(offsetof(CustomConsoleManagerPU_XShowPopup, ButtonsNum) == 0x000000, "Member 'CustomConsoleManagerPU_XShowPopup::ButtonsNum' has a wrong offset!");
 
-// Function Stalker2.CheckBoxWidget.SetChecked
-// 0x0002 (0x0002 - 0x0000)
-struct CheckBoxWidget_SetChecked final
-{
-public:
-	bool                                          bInChecked;                                        // 0x0000(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bBrodcastOnChangeCheck;                            // 0x0001(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(CheckBoxWidget_SetChecked) == 0x000001, "Wrong alignment on CheckBoxWidget_SetChecked");
-static_assert(sizeof(CheckBoxWidget_SetChecked) == 0x000002, "Wrong size on CheckBoxWidget_SetChecked");
-static_assert(offsetof(CheckBoxWidget_SetChecked, bInChecked) == 0x000000, "Member 'CheckBoxWidget_SetChecked::bInChecked' has a wrong offset!");
-static_assert(offsetof(CheckBoxWidget_SetChecked, bBrodcastOnChangeCheck) == 0x000001, "Member 'CheckBoxWidget_SetChecked::bBrodcastOnChangeCheck' has a wrong offset!");
-
-// Function Stalker2.CheckBoxWidget.GetChecked
-// 0x0001 (0x0001 - 0x0000)
-struct CheckBoxWidget_GetChecked final
-{
-public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(CheckBoxWidget_GetChecked) == 0x000001, "Wrong alignment on CheckBoxWidget_GetChecked");
-static_assert(sizeof(CheckBoxWidget_GetChecked) == 0x000001, "Wrong size on CheckBoxWidget_GetChecked");
-static_assert(offsetof(CheckBoxWidget_GetChecked, ReturnValue) == 0x000000, "Member 'CheckBoxWidget_GetChecked::ReturnValue' has a wrong offset!");
-
-// Function Stalker2.CinematicManager.OnFadeScreenEnd
-// 0x001C (0x001C - 0x0000)
-struct CinematicManager_OnFadeScreenEnd final
-{
-public:
-	bool                                          bFadeOut;                                          // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1[0x3];                                        // 0x0001(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FLinearColor                           FadeTargetColor;                                   // 0x0004(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         FadeAmount;                                        // 0x0014(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         FadeTime;                                          // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(CinematicManager_OnFadeScreenEnd) == 0x000004, "Wrong alignment on CinematicManager_OnFadeScreenEnd");
-static_assert(sizeof(CinematicManager_OnFadeScreenEnd) == 0x00001C, "Wrong size on CinematicManager_OnFadeScreenEnd");
-static_assert(offsetof(CinematicManager_OnFadeScreenEnd, bFadeOut) == 0x000000, "Member 'CinematicManager_OnFadeScreenEnd::bFadeOut' has a wrong offset!");
-static_assert(offsetof(CinematicManager_OnFadeScreenEnd, FadeTargetColor) == 0x000004, "Member 'CinematicManager_OnFadeScreenEnd::FadeTargetColor' has a wrong offset!");
-static_assert(offsetof(CinematicManager_OnFadeScreenEnd, FadeAmount) == 0x000014, "Member 'CinematicManager_OnFadeScreenEnd::FadeAmount' has a wrong offset!");
-static_assert(offsetof(CinematicManager_OnFadeScreenEnd, FadeTime) == 0x000018, "Member 'CinematicManager_OnFadeScreenEnd::FadeTime' has a wrong offset!");
-
-// Function Stalker2.CinematicManager.OnKeyFrameSectionEnd
-// 0x0008 (0x0008 - 0x0000)
-struct CinematicManager_OnKeyFrameSectionEnd final
-{
-public:
-	class FName                                   SectionName;                                       // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(CinematicManager_OnKeyFrameSectionEnd) == 0x000004, "Wrong alignment on CinematicManager_OnKeyFrameSectionEnd");
-static_assert(sizeof(CinematicManager_OnKeyFrameSectionEnd) == 0x000008, "Wrong size on CinematicManager_OnKeyFrameSectionEnd");
-static_assert(offsetof(CinematicManager_OnKeyFrameSectionEnd, SectionName) == 0x000000, "Member 'CinematicManager_OnKeyFrameSectionEnd::SectionName' has a wrong offset!");
-
-// Function Stalker2.CinematicManager.OnKeyFrameSectionStart
-// 0x0034 (0x0034 - 0x0000)
-struct CinematicManager_OnKeyFrameSectionStart final
-{
-public:
-	struct FCinematicSectionParams                InCinematicSectionParams;                          // 0x0000(0x0034)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(CinematicManager_OnKeyFrameSectionStart) == 0x000004, "Wrong alignment on CinematicManager_OnKeyFrameSectionStart");
-static_assert(sizeof(CinematicManager_OnKeyFrameSectionStart) == 0x000034, "Wrong size on CinematicManager_OnKeyFrameSectionStart");
-static_assert(offsetof(CinematicManager_OnKeyFrameSectionStart, InCinematicSectionParams) == 0x000000, "Member 'CinematicManager_OnKeyFrameSectionStart::InCinematicSectionParams' has a wrong offset!");
-
-// Function Stalker2.CinematicManager.OnSubtitleSectionStart
+// Function Stalker2.CustomConsoleManagerIK.XInputActionBlock
 // 0x0020 (0x0020 - 0x0000)
-struct CinematicManager_OnSubtitleSectionStart final
+struct CustomConsoleManagerIK_XInputActionBlock final
 {
 public:
-	class FString                                 NPCSID;                                            // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 DialogSID;                                         // 0x0010(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 IAName;                                            // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 IMCName;                                           // 0x0010(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(CinematicManager_OnSubtitleSectionStart) == 0x000008, "Wrong alignment on CinematicManager_OnSubtitleSectionStart");
-static_assert(sizeof(CinematicManager_OnSubtitleSectionStart) == 0x000020, "Wrong size on CinematicManager_OnSubtitleSectionStart");
-static_assert(offsetof(CinematicManager_OnSubtitleSectionStart, NPCSID) == 0x000000, "Member 'CinematicManager_OnSubtitleSectionStart::NPCSID' has a wrong offset!");
-static_assert(offsetof(CinematicManager_OnSubtitleSectionStart, DialogSID) == 0x000010, "Member 'CinematicManager_OnSubtitleSectionStart::DialogSID' has a wrong offset!");
+static_assert(alignof(CustomConsoleManagerIK_XInputActionBlock) == 0x000008, "Wrong alignment on CustomConsoleManagerIK_XInputActionBlock");
+static_assert(sizeof(CustomConsoleManagerIK_XInputActionBlock) == 0x000020, "Wrong size on CustomConsoleManagerIK_XInputActionBlock");
+static_assert(offsetof(CustomConsoleManagerIK_XInputActionBlock, IAName) == 0x000000, "Member 'CustomConsoleManagerIK_XInputActionBlock::IAName' has a wrong offset!");
+static_assert(offsetof(CustomConsoleManagerIK_XInputActionBlock, IMCName) == 0x000010, "Member 'CustomConsoleManagerIK_XInputActionBlock::IMCName' has a wrong offset!");
 
-// Function Stalker2.CinematicManager.OnHapticFeedbackEnd
-// 0x0008 (0x0008 - 0x0000)
-struct CinematicManager_OnHapticFeedbackEnd final
-{
-public:
-	struct FGameplayTag                           ForceFeeedbackEffectTag;                           // 0x0000(0x0008)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(CinematicManager_OnHapticFeedbackEnd) == 0x000004, "Wrong alignment on CinematicManager_OnHapticFeedbackEnd");
-static_assert(sizeof(CinematicManager_OnHapticFeedbackEnd) == 0x000008, "Wrong size on CinematicManager_OnHapticFeedbackEnd");
-static_assert(offsetof(CinematicManager_OnHapticFeedbackEnd, ForceFeeedbackEffectTag) == 0x000000, "Member 'CinematicManager_OnHapticFeedbackEnd::ForceFeeedbackEffectTag' has a wrong offset!");
-
-// Function Stalker2.CinematicManager.OnHapticFeedbackStart
-// 0x0008 (0x0008 - 0x0000)
-struct CinematicManager_OnHapticFeedbackStart final
-{
-public:
-	struct FGameplayTag                           ForceFeeedbackEffectTag;                           // 0x0000(0x0008)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(CinematicManager_OnHapticFeedbackStart) == 0x000004, "Wrong alignment on CinematicManager_OnHapticFeedbackStart");
-static_assert(sizeof(CinematicManager_OnHapticFeedbackStart) == 0x000008, "Wrong size on CinematicManager_OnHapticFeedbackStart");
-static_assert(offsetof(CinematicManager_OnHapticFeedbackStart, ForceFeeedbackEffectTag) == 0x000000, "Member 'CinematicManager_OnHapticFeedbackStart::ForceFeeedbackEffectTag' has a wrong offset!");
-
-// Function Stalker2.ClickerAnomaly.OnBeginParticleOverlap
-// 0x0108 (0x0108 - 0x0000)
-struct ClickerAnomaly_OnBeginParticleOverlap final
-{
-public:
-	class UPrimitiveComponent*                    OverlappedComponent;                               // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UPrimitiveComponent*                    OtherComp;                                         // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bFromSweep;                                        // 0x001C(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1D[0x3];                                       // 0x001D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FHitResult                             SweepResult;                                       // 0x0020(0x00E8)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(ClickerAnomaly_OnBeginParticleOverlap) == 0x000008, "Wrong alignment on ClickerAnomaly_OnBeginParticleOverlap");
-static_assert(sizeof(ClickerAnomaly_OnBeginParticleOverlap) == 0x000108, "Wrong size on ClickerAnomaly_OnBeginParticleOverlap");
-static_assert(offsetof(ClickerAnomaly_OnBeginParticleOverlap, OverlappedComponent) == 0x000000, "Member 'ClickerAnomaly_OnBeginParticleOverlap::OverlappedComponent' has a wrong offset!");
-static_assert(offsetof(ClickerAnomaly_OnBeginParticleOverlap, OtherActor) == 0x000008, "Member 'ClickerAnomaly_OnBeginParticleOverlap::OtherActor' has a wrong offset!");
-static_assert(offsetof(ClickerAnomaly_OnBeginParticleOverlap, OtherComp) == 0x000010, "Member 'ClickerAnomaly_OnBeginParticleOverlap::OtherComp' has a wrong offset!");
-static_assert(offsetof(ClickerAnomaly_OnBeginParticleOverlap, OtherBodyIndex) == 0x000018, "Member 'ClickerAnomaly_OnBeginParticleOverlap::OtherBodyIndex' has a wrong offset!");
-static_assert(offsetof(ClickerAnomaly_OnBeginParticleOverlap, bFromSweep) == 0x00001C, "Member 'ClickerAnomaly_OnBeginParticleOverlap::bFromSweep' has a wrong offset!");
-static_assert(offsetof(ClickerAnomaly_OnBeginParticleOverlap, SweepResult) == 0x000020, "Member 'ClickerAnomaly_OnBeginParticleOverlap::SweepResult' has a wrong offset!");
-
-// Function Stalker2.PlayVideoWidget.GetVideoDuration
-// 0x0004 (0x0004 - 0x0000)
-struct PlayVideoWidget_GetVideoDuration final
-{
-public:
-	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(PlayVideoWidget_GetVideoDuration) == 0x000004, "Wrong alignment on PlayVideoWidget_GetVideoDuration");
-static_assert(sizeof(PlayVideoWidget_GetVideoDuration) == 0x000004, "Wrong size on PlayVideoWidget_GetVideoDuration");
-static_assert(offsetof(PlayVideoWidget_GetVideoDuration, ReturnValue) == 0x000000, "Member 'PlayVideoWidget_GetVideoDuration::ReturnValue' has a wrong offset!");
-
-// Function Stalker2.DataLayerPhysicsComponent.OnDataLayersUpdated
-// 0x0010 (0x0010 - 0x0000)
-struct DataLayerPhysicsComponent_OnDataLayersUpdated final
-{
-public:
-	const class UDataLayerInstance*               DataLayer;                                         // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EDataLayerRuntimeState                        State;                                             // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(DataLayerPhysicsComponent_OnDataLayersUpdated) == 0x000008, "Wrong alignment on DataLayerPhysicsComponent_OnDataLayersUpdated");
-static_assert(sizeof(DataLayerPhysicsComponent_OnDataLayersUpdated) == 0x000010, "Wrong size on DataLayerPhysicsComponent_OnDataLayersUpdated");
-static_assert(offsetof(DataLayerPhysicsComponent_OnDataLayersUpdated, DataLayer) == 0x000000, "Member 'DataLayerPhysicsComponent_OnDataLayersUpdated::DataLayer' has a wrong offset!");
-static_assert(offsetof(DataLayerPhysicsComponent_OnDataLayersUpdated, State) == 0x000008, "Member 'DataLayerPhysicsComponent_OnDataLayersUpdated::State' has a wrong offset!");
-
-// Function Stalker2.OnAKEventFinished_Proxy.OnSoundFinished
-// 0x0010 (0x0010 - 0x0000)
-struct OnAKEventFinished_Proxy_OnSoundFinished final
-{
-public:
-	EAkCallbackType                               CallbackType;                                      // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UAkCallbackInfo*                        CallbackInfo;                                      // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(OnAKEventFinished_Proxy_OnSoundFinished) == 0x000008, "Wrong alignment on OnAKEventFinished_Proxy_OnSoundFinished");
-static_assert(sizeof(OnAKEventFinished_Proxy_OnSoundFinished) == 0x000010, "Wrong size on OnAKEventFinished_Proxy_OnSoundFinished");
-static_assert(offsetof(OnAKEventFinished_Proxy_OnSoundFinished, CallbackType) == 0x000000, "Member 'OnAKEventFinished_Proxy_OnSoundFinished::CallbackType' has a wrong offset!");
-static_assert(offsetof(OnAKEventFinished_Proxy_OnSoundFinished, CallbackInfo) == 0x000008, "Member 'OnAKEventFinished_Proxy_OnSoundFinished::CallbackInfo' has a wrong offset!");
-
-// Function Stalker2.ForceFeedbackSubsystem.BP_StartFeedback
-// 0x0018 (0x0018 - 0x0000)
-struct ForceFeedbackSubsystem_BP_StartFeedback final
-{
-public:
-	struct FGameplayTag                           Trigger;                                           // 0x0000(0x0008)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FForceFeedbackArgs                     Args;                                              // 0x0008(0x0008)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-	float                                         InIntensityMultiplier;                             // 0x0010(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bOverrideStopCurrent;                              // 0x0014(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bStopCurrent;                                      // 0x0015(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0016(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_17[0x1];                                       // 0x0017(0x0001)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(ForceFeedbackSubsystem_BP_StartFeedback) == 0x000008, "Wrong alignment on ForceFeedbackSubsystem_BP_StartFeedback");
-static_assert(sizeof(ForceFeedbackSubsystem_BP_StartFeedback) == 0x000018, "Wrong size on ForceFeedbackSubsystem_BP_StartFeedback");
-static_assert(offsetof(ForceFeedbackSubsystem_BP_StartFeedback, Trigger) == 0x000000, "Member 'ForceFeedbackSubsystem_BP_StartFeedback::Trigger' has a wrong offset!");
-static_assert(offsetof(ForceFeedbackSubsystem_BP_StartFeedback, Args) == 0x000008, "Member 'ForceFeedbackSubsystem_BP_StartFeedback::Args' has a wrong offset!");
-static_assert(offsetof(ForceFeedbackSubsystem_BP_StartFeedback, InIntensityMultiplier) == 0x000010, "Member 'ForceFeedbackSubsystem_BP_StartFeedback::InIntensityMultiplier' has a wrong offset!");
-static_assert(offsetof(ForceFeedbackSubsystem_BP_StartFeedback, bOverrideStopCurrent) == 0x000014, "Member 'ForceFeedbackSubsystem_BP_StartFeedback::bOverrideStopCurrent' has a wrong offset!");
-static_assert(offsetof(ForceFeedbackSubsystem_BP_StartFeedback, bStopCurrent) == 0x000015, "Member 'ForceFeedbackSubsystem_BP_StartFeedback::bStopCurrent' has a wrong offset!");
-static_assert(offsetof(ForceFeedbackSubsystem_BP_StartFeedback, ReturnValue) == 0x000016, "Member 'ForceFeedbackSubsystem_BP_StartFeedback::ReturnValue' has a wrong offset!");
-
-// Function Stalker2.ForceFeedbackSubsystem.SetIntensityMultiplier
-// 0x0004 (0x0004 - 0x0000)
-struct ForceFeedbackSubsystem_SetIntensityMultiplier final
-{
-public:
-	float                                         NewValue;                                          // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(ForceFeedbackSubsystem_SetIntensityMultiplier) == 0x000004, "Wrong alignment on ForceFeedbackSubsystem_SetIntensityMultiplier");
-static_assert(sizeof(ForceFeedbackSubsystem_SetIntensityMultiplier) == 0x000004, "Wrong size on ForceFeedbackSubsystem_SetIntensityMultiplier");
-static_assert(offsetof(ForceFeedbackSubsystem_SetIntensityMultiplier, NewValue) == 0x000000, "Member 'ForceFeedbackSubsystem_SetIntensityMultiplier::NewValue' has a wrong offset!");
-
-// Function Stalker2.ForceFeedbackSubsystem.StopFeedback
-// 0x000C (0x000C - 0x0000)
-struct ForceFeedbackSubsystem_StopFeedback final
-{
-public:
-	struct FGameplayTag                           Trigger;                                           // 0x0000(0x0008)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x3];                                        // 0x0009(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(ForceFeedbackSubsystem_StopFeedback) == 0x000004, "Wrong alignment on ForceFeedbackSubsystem_StopFeedback");
-static_assert(sizeof(ForceFeedbackSubsystem_StopFeedback) == 0x00000C, "Wrong size on ForceFeedbackSubsystem_StopFeedback");
-static_assert(offsetof(ForceFeedbackSubsystem_StopFeedback, Trigger) == 0x000000, "Member 'ForceFeedbackSubsystem_StopFeedback::Trigger' has a wrong offset!");
-static_assert(offsetof(ForceFeedbackSubsystem_StopFeedback, ReturnValue) == 0x000008, "Member 'ForceFeedbackSubsystem_StopFeedback::ReturnValue' has a wrong offset!");
-
-// Function Stalker2.ForceFeedbackSubsystem.GetIntensityMultiplier
-// 0x0004 (0x0004 - 0x0000)
-struct ForceFeedbackSubsystem_GetIntensityMultiplier final
-{
-public:
-	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(ForceFeedbackSubsystem_GetIntensityMultiplier) == 0x000004, "Wrong alignment on ForceFeedbackSubsystem_GetIntensityMultiplier");
-static_assert(sizeof(ForceFeedbackSubsystem_GetIntensityMultiplier) == 0x000004, "Wrong size on ForceFeedbackSubsystem_GetIntensityMultiplier");
-static_assert(offsetof(ForceFeedbackSubsystem_GetIntensityMultiplier, ReturnValue) == 0x000000, "Member 'ForceFeedbackSubsystem_GetIntensityMultiplier::ReturnValue' has a wrong offset!");
-
-// Function Stalker2.CodelockSingleClickComponent.Interact
-// 0x0008 (0x0008 - 0x0000)
-struct CodelockSingleClickComponent_Interact final
-{
-public:
-	class AObj*                                   InteractedActor;                                   // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(CodelockSingleClickComponent_Interact) == 0x000008, "Wrong alignment on CodelockSingleClickComponent_Interact");
-static_assert(sizeof(CodelockSingleClickComponent_Interact) == 0x000008, "Wrong size on CodelockSingleClickComponent_Interact");
-static_assert(offsetof(CodelockSingleClickComponent_Interact, InteractedActor) == 0x000000, "Member 'CodelockSingleClickComponent_Interact::InteractedActor' has a wrong offset!");
-
-// Function Stalker2.InteractableComponent.SetDisplayPriority
-// 0x0001 (0x0001 - 0x0000)
-struct InteractableComponent_SetDisplayPriority final
-{
-public:
-	EDisplayPriority                              NewPriority;                                       // 0x0000(0x0001)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(InteractableComponent_SetDisplayPriority) == 0x000001, "Wrong alignment on InteractableComponent_SetDisplayPriority");
-static_assert(sizeof(InteractableComponent_SetDisplayPriority) == 0x000001, "Wrong size on InteractableComponent_SetDisplayPriority");
-static_assert(offsetof(InteractableComponent_SetDisplayPriority, NewPriority) == 0x000000, "Member 'InteractableComponent_SetDisplayPriority::NewPriority' has a wrong offset!");
-
-// Function Stalker2.InteractableComponent.SetEnabled
-// 0x0001 (0x0001 - 0x0000)
-struct InteractableComponent_SetEnabled final
-{
-public:
-	bool                                          bInEnabled;                                        // 0x0000(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(InteractableComponent_SetEnabled) == 0x000001, "Wrong alignment on InteractableComponent_SetEnabled");
-static_assert(sizeof(InteractableComponent_SetEnabled) == 0x000001, "Wrong size on InteractableComponent_SetEnabled");
-static_assert(offsetof(InteractableComponent_SetEnabled, bInEnabled) == 0x000000, "Member 'InteractableComponent_SetEnabled::bInEnabled' has a wrong offset!");
-
-// Function Stalker2.InteractableComponent.GetDisplayPriority
-// 0x0001 (0x0001 - 0x0000)
-struct InteractableComponent_GetDisplayPriority final
-{
-public:
-	EDisplayPriority                              ReturnValue;                                       // 0x0000(0x0001)(ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(InteractableComponent_GetDisplayPriority) == 0x000001, "Wrong alignment on InteractableComponent_GetDisplayPriority");
-static_assert(sizeof(InteractableComponent_GetDisplayPriority) == 0x000001, "Wrong size on InteractableComponent_GetDisplayPriority");
-static_assert(offsetof(InteractableComponent_GetDisplayPriority, ReturnValue) == 0x000000, "Member 'InteractableComponent_GetDisplayPriority::ReturnValue' has a wrong offset!");
-
-// Function Stalker2.InteractableComponent.GetInteractionType
-// 0x0001 (0x0001 - 0x0000)
-struct InteractableComponent_GetInteractionType final
-{
-public:
-	EInteractionType                              ReturnValue;                                       // 0x0000(0x0001)(ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(InteractableComponent_GetInteractionType) == 0x000001, "Wrong alignment on InteractableComponent_GetInteractionType");
-static_assert(sizeof(InteractableComponent_GetInteractionType) == 0x000001, "Wrong size on InteractableComponent_GetInteractionType");
-static_assert(offsetof(InteractableComponent_GetInteractionType, ReturnValue) == 0x000000, "Member 'InteractableComponent_GetInteractionType::ReturnValue' has a wrong offset!");
-
-// Function Stalker2.InteractableComponent.GetPreventDefaultInteract
-// 0x0001 (0x0001 - 0x0000)
-struct InteractableComponent_GetPreventDefaultInteract final
-{
-public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(InteractableComponent_GetPreventDefaultInteract) == 0x000001, "Wrong alignment on InteractableComponent_GetPreventDefaultInteract");
-static_assert(sizeof(InteractableComponent_GetPreventDefaultInteract) == 0x000001, "Wrong size on InteractableComponent_GetPreventDefaultInteract");
-static_assert(offsetof(InteractableComponent_GetPreventDefaultInteract, ReturnValue) == 0x000000, "Member 'InteractableComponent_GetPreventDefaultInteract::ReturnValue' has a wrong offset!");
-
-// Function Stalker2.HintBase.HoverChangeHintTextColor
-// 0x0018 (0x0018 - 0x0000)
-struct HintBase_HoverChangeHintTextColor final
-{
-public:
-	bool                                          bShow;                                             // 0x0000(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class FString                                 InStylePrefix;                                     // 0x0008(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(HintBase_HoverChangeHintTextColor) == 0x000008, "Wrong alignment on HintBase_HoverChangeHintTextColor");
-static_assert(sizeof(HintBase_HoverChangeHintTextColor) == 0x000018, "Wrong size on HintBase_HoverChangeHintTextColor");
-static_assert(offsetof(HintBase_HoverChangeHintTextColor, bShow) == 0x000000, "Member 'HintBase_HoverChangeHintTextColor::bShow' has a wrong offset!");
-static_assert(offsetof(HintBase_HoverChangeHintTextColor, InStylePrefix) == 0x000008, "Member 'HintBase_HoverChangeHintTextColor::InStylePrefix' has a wrong offset!");
-
-// Function Stalker2.HintBase.PostShowHover
-// 0x0001 (0x0001 - 0x0000)
-struct HintBase_PostShowHover final
-{
-public:
-	bool                                          bInShow;                                           // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(HintBase_PostShowHover) == 0x000001, "Wrong alignment on HintBase_PostShowHover");
-static_assert(sizeof(HintBase_PostShowHover) == 0x000001, "Wrong size on HintBase_PostShowHover");
-static_assert(offsetof(HintBase_PostShowHover, bInShow) == 0x000000, "Member 'HintBase_PostShowHover::bInShow' has a wrong offset!");
-
-// Function Stalker2.HintBase.SetStylePrefix
-// 0x0010 (0x0010 - 0x0000)
-struct HintBase_SetStylePrefix final
-{
-public:
-	class FString                                 InStylePrefix;                                     // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(HintBase_SetStylePrefix) == 0x000008, "Wrong alignment on HintBase_SetStylePrefix");
-static_assert(sizeof(HintBase_SetStylePrefix) == 0x000010, "Wrong size on HintBase_SetStylePrefix");
-static_assert(offsetof(HintBase_SetStylePrefix, InStylePrefix) == 0x000000, "Member 'HintBase_SetStylePrefix::InStylePrefix' has a wrong offset!");
-
-// Function Stalker2.HintBase.SetText
-// 0x0018 (0x0018 - 0x0000)
-struct HintBase_SetText final
-{
-public:
-	class FText                                   InText;                                            // 0x0000(0x0018)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(HintBase_SetText) == 0x000008, "Wrong alignment on HintBase_SetText");
-static_assert(sizeof(HintBase_SetText) == 0x000018, "Wrong size on HintBase_SetText");
-static_assert(offsetof(HintBase_SetText, InText) == 0x000000, "Member 'HintBase_SetText::InText' has a wrong offset!");
-
-// Function Stalker2.HintBase.GetHoverSettings
-// 0x0010 (0x0010 - 0x0000)
-struct HintBase_GetHoverSettings final
-{
-public:
-	TArray<struct FHoverAction>                   ReturnValue;                                       // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(HintBase_GetHoverSettings) == 0x000008, "Wrong alignment on HintBase_GetHoverSettings");
-static_assert(sizeof(HintBase_GetHoverSettings) == 0x000010, "Wrong size on HintBase_GetHoverSettings");
-static_assert(offsetof(HintBase_GetHoverSettings, ReturnValue) == 0x000000, "Member 'HintBase_GetHoverSettings::ReturnValue' has a wrong offset!");
-
-// Function Stalker2.CustomConsoleManagerDP.XPrintLocalizedTextByKey
-// 0x0010 (0x0010 - 0x0000)
-struct CustomConsoleManagerDP_XPrintLocalizedTextByKey final
-{
-public:
-	class FString                                 StringKey;                                         // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(CustomConsoleManagerDP_XPrintLocalizedTextByKey) == 0x000008, "Wrong alignment on CustomConsoleManagerDP_XPrintLocalizedTextByKey");
-static_assert(sizeof(CustomConsoleManagerDP_XPrintLocalizedTextByKey) == 0x000010, "Wrong size on CustomConsoleManagerDP_XPrintLocalizedTextByKey");
-static_assert(offsetof(CustomConsoleManagerDP_XPrintLocalizedTextByKey, StringKey) == 0x000000, "Member 'CustomConsoleManagerDP_XPrintLocalizedTextByKey::StringKey' has a wrong offset!");
-
-// Function Stalker2.CustomConsoleManagerDP.XTestCrashStackOverflow
-// 0x0004 (0x0004 - 0x0000)
-struct CustomConsoleManagerDP_XTestCrashStackOverflow final
-{
-public:
-	int32                                         Counter;                                           // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(CustomConsoleManagerDP_XTestCrashStackOverflow) == 0x000004, "Wrong alignment on CustomConsoleManagerDP_XTestCrashStackOverflow");
-static_assert(sizeof(CustomConsoleManagerDP_XTestCrashStackOverflow) == 0x000004, "Wrong size on CustomConsoleManagerDP_XTestCrashStackOverflow");
-static_assert(offsetof(CustomConsoleManagerDP_XTestCrashStackOverflow, Counter) == 0x000000, "Member 'CustomConsoleManagerDP_XTestCrashStackOverflow::Counter' has a wrong offset!");
-
-// Function Stalker2.ContextualNavLinkProxy.OnStartUsingCustomLink
+// Function Stalker2.CustomConsoleManagerIK.XInputActionUnlock
 // 0x0020 (0x0020 - 0x0000)
-struct ContextualNavLinkProxy_OnStartUsingCustomLink final
+struct CustomConsoleManagerIK_XInputActionUnlock final
 {
 public:
-	class AActor*                                 MovingActor;                                       // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                DestinationPoint;                                  // 0x0008(0x0018)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 IAName;                                            // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 IMCName;                                           // 0x0010(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(ContextualNavLinkProxy_OnStartUsingCustomLink) == 0x000008, "Wrong alignment on ContextualNavLinkProxy_OnStartUsingCustomLink");
-static_assert(sizeof(ContextualNavLinkProxy_OnStartUsingCustomLink) == 0x000020, "Wrong size on ContextualNavLinkProxy_OnStartUsingCustomLink");
-static_assert(offsetof(ContextualNavLinkProxy_OnStartUsingCustomLink, MovingActor) == 0x000000, "Member 'ContextualNavLinkProxy_OnStartUsingCustomLink::MovingActor' has a wrong offset!");
-static_assert(offsetof(ContextualNavLinkProxy_OnStartUsingCustomLink, DestinationPoint) == 0x000008, "Member 'ContextualNavLinkProxy_OnStartUsingCustomLink::DestinationPoint' has a wrong offset!");
+static_assert(alignof(CustomConsoleManagerIK_XInputActionUnlock) == 0x000008, "Wrong alignment on CustomConsoleManagerIK_XInputActionUnlock");
+static_assert(sizeof(CustomConsoleManagerIK_XInputActionUnlock) == 0x000020, "Wrong size on CustomConsoleManagerIK_XInputActionUnlock");
+static_assert(offsetof(CustomConsoleManagerIK_XInputActionUnlock, IAName) == 0x000000, "Member 'CustomConsoleManagerIK_XInputActionUnlock::IAName' has a wrong offset!");
+static_assert(offsetof(CustomConsoleManagerIK_XInputActionUnlock, IMCName) == 0x000010, "Member 'CustomConsoleManagerIK_XInputActionUnlock::IMCName' has a wrong offset!");
 
-// Function Stalker2.DebugTextWidgetBase.CheckDebugTextBluprint
-// 0x0020 (0x0020 - 0x0000)
-struct DebugTextWidgetBase_CheckDebugTextBluprint final
+// Function Stalker2.CustomConsoleManagerIK.XSetTwelveHourTime
+// 0x0001 (0x0001 - 0x0000)
+struct CustomConsoleManagerIK_XSetTwelveHourTime final
 {
 public:
-	class FText                                   Text;                                              // 0x0000(0x0018)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	class UUserWidget*                            InOwnerWidget;                                     // 0x0018(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bSet;                                              // 0x0000(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(DebugTextWidgetBase_CheckDebugTextBluprint) == 0x000008, "Wrong alignment on DebugTextWidgetBase_CheckDebugTextBluprint");
-static_assert(sizeof(DebugTextWidgetBase_CheckDebugTextBluprint) == 0x000020, "Wrong size on DebugTextWidgetBase_CheckDebugTextBluprint");
-static_assert(offsetof(DebugTextWidgetBase_CheckDebugTextBluprint, Text) == 0x000000, "Member 'DebugTextWidgetBase_CheckDebugTextBluprint::Text' has a wrong offset!");
-static_assert(offsetof(DebugTextWidgetBase_CheckDebugTextBluprint, InOwnerWidget) == 0x000018, "Member 'DebugTextWidgetBase_CheckDebugTextBluprint::InOwnerWidget' has a wrong offset!");
+static_assert(alignof(CustomConsoleManagerIK_XSetTwelveHourTime) == 0x000001, "Wrong alignment on CustomConsoleManagerIK_XSetTwelveHourTime");
+static_assert(sizeof(CustomConsoleManagerIK_XSetTwelveHourTime) == 0x000001, "Wrong size on CustomConsoleManagerIK_XSetTwelveHourTime");
+static_assert(offsetof(CustomConsoleManagerIK_XSetTwelveHourTime, bSet) == 0x000000, "Member 'CustomConsoleManagerIK_XSetTwelveHourTime::bSet' has a wrong offset!");
 
-// Function Stalker2.DebugTextWidgetBase.FindRengeSettings
-// 0x0050 (0x0050 - 0x0000)
-struct DebugTextWidgetBase_FindRengeSettings final
+// Function Stalker2.CustomConsoleManagerIK.XSkipTimeHours
+// 0x0004 (0x0004 - 0x0000)
+struct CustomConsoleManagerIK_XSkipTimeHours final
 {
 public:
-	struct FUIWarningSettings                     ReturnValue;                                       // 0x0000(0x0050)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+	float                                         Hours;                                             // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(DebugTextWidgetBase_FindRengeSettings) == 0x000008, "Wrong alignment on DebugTextWidgetBase_FindRengeSettings");
-static_assert(sizeof(DebugTextWidgetBase_FindRengeSettings) == 0x000050, "Wrong size on DebugTextWidgetBase_FindRengeSettings");
-static_assert(offsetof(DebugTextWidgetBase_FindRengeSettings, ReturnValue) == 0x000000, "Member 'DebugTextWidgetBase_FindRengeSettings::ReturnValue' has a wrong offset!");
+static_assert(alignof(CustomConsoleManagerIK_XSkipTimeHours) == 0x000004, "Wrong alignment on CustomConsoleManagerIK_XSkipTimeHours");
+static_assert(sizeof(CustomConsoleManagerIK_XSkipTimeHours) == 0x000004, "Wrong size on CustomConsoleManagerIK_XSkipTimeHours");
+static_assert(offsetof(CustomConsoleManagerIK_XSkipTimeHours, Hours) == 0x000000, "Member 'CustomConsoleManagerIK_XSkipTimeHours::Hours' has a wrong offset!");
 
-// Function Stalker2.DebugTextLenWidget.GetWarningIndex
-// 0x0018 (0x0018 - 0x0000)
-struct DebugTextLenWidget_GetWarningIndex final
+// Function Stalker2.CustomConsoleManagerIK.XSwitchPlayerRank
+// 0x0001 (0x0001 - 0x0000)
+struct CustomConsoleManagerIK_XSwitchPlayerRank final
 {
 public:
-	class FString                                 Text;                                              // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         TextLen;                                           // 0x0010(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         ReturnValue;                                       // 0x0014(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	ERank                                         Rank;                                              // 0x0000(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(DebugTextLenWidget_GetWarningIndex) == 0x000008, "Wrong alignment on DebugTextLenWidget_GetWarningIndex");
-static_assert(sizeof(DebugTextLenWidget_GetWarningIndex) == 0x000018, "Wrong size on DebugTextLenWidget_GetWarningIndex");
-static_assert(offsetof(DebugTextLenWidget_GetWarningIndex, Text) == 0x000000, "Member 'DebugTextLenWidget_GetWarningIndex::Text' has a wrong offset!");
-static_assert(offsetof(DebugTextLenWidget_GetWarningIndex, TextLen) == 0x000010, "Member 'DebugTextLenWidget_GetWarningIndex::TextLen' has a wrong offset!");
-static_assert(offsetof(DebugTextLenWidget_GetWarningIndex, ReturnValue) == 0x000014, "Member 'DebugTextLenWidget_GetWarningIndex::ReturnValue' has a wrong offset!");
+static_assert(alignof(CustomConsoleManagerIK_XSwitchPlayerRank) == 0x000001, "Wrong alignment on CustomConsoleManagerIK_XSwitchPlayerRank");
+static_assert(sizeof(CustomConsoleManagerIK_XSwitchPlayerRank) == 0x000001, "Wrong size on CustomConsoleManagerIK_XSwitchPlayerRank");
+static_assert(offsetof(CustomConsoleManagerIK_XSwitchPlayerRank, Rank) == 0x000000, "Member 'CustomConsoleManagerIK_XSwitchPlayerRank::Rank' has a wrong offset!");
 
 // Function Stalker2.CppMediator.BindInteractPaintMaterial
 // 0x0008 (0x0008 - 0x0000)
@@ -4520,12 +3861,12 @@ struct CppMediator_LogError final
 {
 public:
 	class AActor*                                 Sender;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 errorMessage;                                      // 0x0008(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 ErrorMessage;                                      // 0x0008(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(CppMediator_LogError) == 0x000008, "Wrong alignment on CppMediator_LogError");
 static_assert(sizeof(CppMediator_LogError) == 0x000018, "Wrong size on CppMediator_LogError");
 static_assert(offsetof(CppMediator_LogError, Sender) == 0x000000, "Member 'CppMediator_LogError::Sender' has a wrong offset!");
-static_assert(offsetof(CppMediator_LogError, errorMessage) == 0x000008, "Member 'CppMediator_LogError::errorMessage' has a wrong offset!");
+static_assert(offsetof(CppMediator_LogError, ErrorMessage) == 0x000008, "Member 'CppMediator_LogError::ErrorMessage' has a wrong offset!");
 
 // Function Stalker2.CppMediator.MakeInvalidGUID
 // 0x0004 (0x0004 - 0x0000)
@@ -4949,16 +4290,553 @@ static_assert(alignof(CppMediator_UnbindInteractPaintMaterial) == 0x000008, "Wro
 static_assert(sizeof(CppMediator_UnbindInteractPaintMaterial) == 0x000008, "Wrong size on CppMediator_UnbindInteractPaintMaterial");
 static_assert(offsetof(CppMediator_UnbindInteractPaintMaterial, AffectedActor) == 0x000000, "Member 'CppMediator_UnbindInteractPaintMaterial::AffectedActor' has a wrong offset!");
 
-// Function Stalker2.ShootingWeaponComponent.ShootWithOwnerOverride
-// 0x0008 (0x0008 - 0x0000)
-struct ShootingWeaponComponent_ShootWithOwnerOverride final
+// Function Stalker2.StoreButtonStateDefiner.GetSubsystemOptions
+// 0x0010 (0x0010 - 0x0000)
+struct StoreButtonStateDefiner_GetSubsystemOptions final
 {
 public:
-	class UObject*                                OwnerOverride;                                     // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TArray<class FName>                           ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(ShootingWeaponComponent_ShootWithOwnerOverride) == 0x000008, "Wrong alignment on ShootingWeaponComponent_ShootWithOwnerOverride");
-static_assert(sizeof(ShootingWeaponComponent_ShootWithOwnerOverride) == 0x000008, "Wrong size on ShootingWeaponComponent_ShootWithOwnerOverride");
-static_assert(offsetof(ShootingWeaponComponent_ShootWithOwnerOverride, OwnerOverride) == 0x000000, "Member 'ShootingWeaponComponent_ShootWithOwnerOverride::OwnerOverride' has a wrong offset!");
+static_assert(alignof(StoreButtonStateDefiner_GetSubsystemOptions) == 0x000008, "Wrong alignment on StoreButtonStateDefiner_GetSubsystemOptions");
+static_assert(sizeof(StoreButtonStateDefiner_GetSubsystemOptions) == 0x000010, "Wrong size on StoreButtonStateDefiner_GetSubsystemOptions");
+static_assert(offsetof(StoreButtonStateDefiner_GetSubsystemOptions, ReturnValue) == 0x000000, "Member 'StoreButtonStateDefiner_GetSubsystemOptions::ReturnValue' has a wrong offset!");
+
+// Function Stalker2.CameraModifier_AbilityCamModifier.UpdateCameraTargetLocation
+// 0x0018 (0x0018 - 0x0000)
+struct CameraModifier_AbilityCamModifier_UpdateCameraTargetLocation final
+{
+public:
+	struct FVector                                NewLocation;                                       // 0x0000(0x0018)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(CameraModifier_AbilityCamModifier_UpdateCameraTargetLocation) == 0x000008, "Wrong alignment on CameraModifier_AbilityCamModifier_UpdateCameraTargetLocation");
+static_assert(sizeof(CameraModifier_AbilityCamModifier_UpdateCameraTargetLocation) == 0x000018, "Wrong size on CameraModifier_AbilityCamModifier_UpdateCameraTargetLocation");
+static_assert(offsetof(CameraModifier_AbilityCamModifier_UpdateCameraTargetLocation, NewLocation) == 0x000000, "Member 'CameraModifier_AbilityCamModifier_UpdateCameraTargetLocation::NewLocation' has a wrong offset!");
+
+// Function Stalker2.CustomConsoleManagerOM.XSetCarouselAngle
+// 0x0004 (0x0004 - 0x0000)
+struct CustomConsoleManagerOM_XSetCarouselAngle final
+{
+public:
+	float                                         Angle;                                             // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(CustomConsoleManagerOM_XSetCarouselAngle) == 0x000004, "Wrong alignment on CustomConsoleManagerOM_XSetCarouselAngle");
+static_assert(sizeof(CustomConsoleManagerOM_XSetCarouselAngle) == 0x000004, "Wrong size on CustomConsoleManagerOM_XSetCarouselAngle");
+static_assert(offsetof(CustomConsoleManagerOM_XSetCarouselAngle, Angle) == 0x000000, "Member 'CustomConsoleManagerOM_XSetCarouselAngle::Angle' has a wrong offset!");
+
+// Function Stalker2.CustomConsoleManagerOM.XSetCarouselDebugTrajectory
+// 0x0001 (0x0001 - 0x0000)
+struct CustomConsoleManagerOM_XSetCarouselDebugTrajectory final
+{
+public:
+	bool                                          bEnable;                                           // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(CustomConsoleManagerOM_XSetCarouselDebugTrajectory) == 0x000001, "Wrong alignment on CustomConsoleManagerOM_XSetCarouselDebugTrajectory");
+static_assert(sizeof(CustomConsoleManagerOM_XSetCarouselDebugTrajectory) == 0x000001, "Wrong size on CustomConsoleManagerOM_XSetCarouselDebugTrajectory");
+static_assert(offsetof(CustomConsoleManagerOM_XSetCarouselDebugTrajectory, bEnable) == 0x000000, "Member 'CustomConsoleManagerOM_XSetCarouselDebugTrajectory::bEnable' has a wrong offset!");
+
+// Function Stalker2.CustomConsoleManagerOM.XSetCarouselDuration
+// 0x0004 (0x0004 - 0x0000)
+struct CustomConsoleManagerOM_XSetCarouselDuration final
+{
+public:
+	float                                         Duration;                                          // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(CustomConsoleManagerOM_XSetCarouselDuration) == 0x000004, "Wrong alignment on CustomConsoleManagerOM_XSetCarouselDuration");
+static_assert(sizeof(CustomConsoleManagerOM_XSetCarouselDuration) == 0x000004, "Wrong size on CustomConsoleManagerOM_XSetCarouselDuration");
+static_assert(offsetof(CustomConsoleManagerOM_XSetCarouselDuration, Duration) == 0x000000, "Member 'CustomConsoleManagerOM_XSetCarouselDuration::Duration' has a wrong offset!");
+
+// Function Stalker2.CustomConsoleManagerOM.XSetCarouselForce
+// 0x0004 (0x0004 - 0x0000)
+struct CustomConsoleManagerOM_XSetCarouselForce final
+{
+public:
+	float                                         Force;                                             // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(CustomConsoleManagerOM_XSetCarouselForce) == 0x000004, "Wrong alignment on CustomConsoleManagerOM_XSetCarouselForce");
+static_assert(sizeof(CustomConsoleManagerOM_XSetCarouselForce) == 0x000004, "Wrong size on CustomConsoleManagerOM_XSetCarouselForce");
+static_assert(offsetof(CustomConsoleManagerOM_XSetCarouselForce, Force) == 0x000000, "Member 'CustomConsoleManagerOM_XSetCarouselForce::Force' has a wrong offset!");
+
+// Function Stalker2.CustomConsoleManagerOM.XSetCarouselLiftUpTime
+// 0x0004 (0x0004 - 0x0000)
+struct CustomConsoleManagerOM_XSetCarouselLiftUpTime final
+{
+public:
+	float                                         Time;                                              // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(CustomConsoleManagerOM_XSetCarouselLiftUpTime) == 0x000004, "Wrong alignment on CustomConsoleManagerOM_XSetCarouselLiftUpTime");
+static_assert(sizeof(CustomConsoleManagerOM_XSetCarouselLiftUpTime) == 0x000004, "Wrong size on CustomConsoleManagerOM_XSetCarouselLiftUpTime");
+static_assert(offsetof(CustomConsoleManagerOM_XSetCarouselLiftUpTime, Time) == 0x000000, "Member 'CustomConsoleManagerOM_XSetCarouselLiftUpTime::Time' has a wrong offset!");
+
+// Function Stalker2.CustomConsoleManagerOM.XSetCarouselRotation
+// 0x0004 (0x0004 - 0x0000)
+struct CustomConsoleManagerOM_XSetCarouselRotation final
+{
+public:
+	float                                         Rotation;                                          // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(CustomConsoleManagerOM_XSetCarouselRotation) == 0x000004, "Wrong alignment on CustomConsoleManagerOM_XSetCarouselRotation");
+static_assert(sizeof(CustomConsoleManagerOM_XSetCarouselRotation) == 0x000004, "Wrong size on CustomConsoleManagerOM_XSetCarouselRotation");
+static_assert(offsetof(CustomConsoleManagerOM_XSetCarouselRotation, Rotation) == 0x000000, "Member 'CustomConsoleManagerOM_XSetCarouselRotation::Rotation' has a wrong offset!");
+
+// Function Stalker2.CustomConsoleManagerOM.XSetCarouselTimeToCenter
+// 0x0004 (0x0004 - 0x0000)
+struct CustomConsoleManagerOM_XSetCarouselTimeToCenter final
+{
+public:
+	float                                         Time;                                              // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(CustomConsoleManagerOM_XSetCarouselTimeToCenter) == 0x000004, "Wrong alignment on CustomConsoleManagerOM_XSetCarouselTimeToCenter");
+static_assert(sizeof(CustomConsoleManagerOM_XSetCarouselTimeToCenter) == 0x000004, "Wrong size on CustomConsoleManagerOM_XSetCarouselTimeToCenter");
+static_assert(offsetof(CustomConsoleManagerOM_XSetCarouselTimeToCenter, Time) == 0x000000, "Member 'CustomConsoleManagerOM_XSetCarouselTimeToCenter::Time' has a wrong offset!");
+
+// Function Stalker2.DebugTextLenWidget.GetWarningIndex
+// 0x0018 (0x0018 - 0x0000)
+struct DebugTextLenWidget_GetWarningIndex final
+{
+public:
+	class FString                                 Text;                                              // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         TextLen;                                           // 0x0010(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         ReturnValue;                                       // 0x0014(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(DebugTextLenWidget_GetWarningIndex) == 0x000008, "Wrong alignment on DebugTextLenWidget_GetWarningIndex");
+static_assert(sizeof(DebugTextLenWidget_GetWarningIndex) == 0x000018, "Wrong size on DebugTextLenWidget_GetWarningIndex");
+static_assert(offsetof(DebugTextLenWidget_GetWarningIndex, Text) == 0x000000, "Member 'DebugTextLenWidget_GetWarningIndex::Text' has a wrong offset!");
+static_assert(offsetof(DebugTextLenWidget_GetWarningIndex, TextLen) == 0x000010, "Member 'DebugTextLenWidget_GetWarningIndex::TextLen' has a wrong offset!");
+static_assert(offsetof(DebugTextLenWidget_GetWarningIndex, ReturnValue) == 0x000014, "Member 'DebugTextLenWidget_GetWarningIndex::ReturnValue' has a wrong offset!");
+
+// Function Stalker2.DataLayerPhysicsComponent.OnDataLayersUpdated
+// 0x0010 (0x0010 - 0x0000)
+struct DataLayerPhysicsComponent_OnDataLayersUpdated final
+{
+public:
+	const class UDataLayerInstance*               DataLayer;                                         // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EDataLayerRuntimeState                        State;                                             // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(DataLayerPhysicsComponent_OnDataLayersUpdated) == 0x000008, "Wrong alignment on DataLayerPhysicsComponent_OnDataLayersUpdated");
+static_assert(sizeof(DataLayerPhysicsComponent_OnDataLayersUpdated) == 0x000010, "Wrong size on DataLayerPhysicsComponent_OnDataLayersUpdated");
+static_assert(offsetof(DataLayerPhysicsComponent_OnDataLayersUpdated, DataLayer) == 0x000000, "Member 'DataLayerPhysicsComponent_OnDataLayersUpdated::DataLayer' has a wrong offset!");
+static_assert(offsetof(DataLayerPhysicsComponent_OnDataLayersUpdated, State) == 0x000008, "Member 'DataLayerPhysicsComponent_OnDataLayersUpdated::State' has a wrong offset!");
+
+// Function Stalker2.NavigationPanel.ClickMenuButton
+// 0x0008 (0x0008 - 0x0000)
+struct NavigationPanel_ClickMenuButton final
+{
+public:
+	class FName                                   InButtonId;                                        // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(NavigationPanel_ClickMenuButton) == 0x000004, "Wrong alignment on NavigationPanel_ClickMenuButton");
+static_assert(sizeof(NavigationPanel_ClickMenuButton) == 0x000008, "Wrong size on NavigationPanel_ClickMenuButton");
+static_assert(offsetof(NavigationPanel_ClickMenuButton, InButtonId) == 0x000000, "Member 'NavigationPanel_ClickMenuButton::InButtonId' has a wrong offset!");
+
+// Function Stalker2.NavigationPanel.InitClickTransition
+// 0x0008 (0x0008 - 0x0000)
+struct NavigationPanel_InitClickTransition final
+{
+public:
+	class FName                                   ButtonId;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(NavigationPanel_InitClickTransition) == 0x000004, "Wrong alignment on NavigationPanel_InitClickTransition");
+static_assert(sizeof(NavigationPanel_InitClickTransition) == 0x000008, "Wrong size on NavigationPanel_InitClickTransition");
+static_assert(offsetof(NavigationPanel_InitClickTransition, ButtonId) == 0x000000, "Member 'NavigationPanel_InitClickTransition::ButtonId' has a wrong offset!");
+
+// Function Stalker2.CheckBoxWidget.SetChecked
+// 0x0002 (0x0002 - 0x0000)
+struct CheckBoxWidget_SetChecked final
+{
+public:
+	bool                                          bInChecked;                                        // 0x0000(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bBrodcastOnChangeCheck;                            // 0x0001(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(CheckBoxWidget_SetChecked) == 0x000001, "Wrong alignment on CheckBoxWidget_SetChecked");
+static_assert(sizeof(CheckBoxWidget_SetChecked) == 0x000002, "Wrong size on CheckBoxWidget_SetChecked");
+static_assert(offsetof(CheckBoxWidget_SetChecked, bInChecked) == 0x000000, "Member 'CheckBoxWidget_SetChecked::bInChecked' has a wrong offset!");
+static_assert(offsetof(CheckBoxWidget_SetChecked, bBrodcastOnChangeCheck) == 0x000001, "Member 'CheckBoxWidget_SetChecked::bBrodcastOnChangeCheck' has a wrong offset!");
+
+// Function Stalker2.CheckBoxWidget.GetChecked
+// 0x0001 (0x0001 - 0x0000)
+struct CheckBoxWidget_GetChecked final
+{
+public:
+	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(CheckBoxWidget_GetChecked) == 0x000001, "Wrong alignment on CheckBoxWidget_GetChecked");
+static_assert(sizeof(CheckBoxWidget_GetChecked) == 0x000001, "Wrong size on CheckBoxWidget_GetChecked");
+static_assert(offsetof(CheckBoxWidget_GetChecked, ReturnValue) == 0x000000, "Member 'CheckBoxWidget_GetChecked::ReturnValue' has a wrong offset!");
+
+// Function Stalker2.CinematicManager.OnFadeScreenEnd
+// 0x001C (0x001C - 0x0000)
+struct CinematicManager_OnFadeScreenEnd final
+{
+public:
+	bool                                          bFadeOut;                                          // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1[0x3];                                        // 0x0001(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FLinearColor                           FadeTargetColor;                                   // 0x0004(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         FadeAmount;                                        // 0x0014(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         FadeTime;                                          // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(CinematicManager_OnFadeScreenEnd) == 0x000004, "Wrong alignment on CinematicManager_OnFadeScreenEnd");
+static_assert(sizeof(CinematicManager_OnFadeScreenEnd) == 0x00001C, "Wrong size on CinematicManager_OnFadeScreenEnd");
+static_assert(offsetof(CinematicManager_OnFadeScreenEnd, bFadeOut) == 0x000000, "Member 'CinematicManager_OnFadeScreenEnd::bFadeOut' has a wrong offset!");
+static_assert(offsetof(CinematicManager_OnFadeScreenEnd, FadeTargetColor) == 0x000004, "Member 'CinematicManager_OnFadeScreenEnd::FadeTargetColor' has a wrong offset!");
+static_assert(offsetof(CinematicManager_OnFadeScreenEnd, FadeAmount) == 0x000014, "Member 'CinematicManager_OnFadeScreenEnd::FadeAmount' has a wrong offset!");
+static_assert(offsetof(CinematicManager_OnFadeScreenEnd, FadeTime) == 0x000018, "Member 'CinematicManager_OnFadeScreenEnd::FadeTime' has a wrong offset!");
+
+// Function Stalker2.CinematicManager.OnKeyFrameSectionEnd
+// 0x0008 (0x0008 - 0x0000)
+struct CinematicManager_OnKeyFrameSectionEnd final
+{
+public:
+	class FName                                   SectionName;                                       // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(CinematicManager_OnKeyFrameSectionEnd) == 0x000004, "Wrong alignment on CinematicManager_OnKeyFrameSectionEnd");
+static_assert(sizeof(CinematicManager_OnKeyFrameSectionEnd) == 0x000008, "Wrong size on CinematicManager_OnKeyFrameSectionEnd");
+static_assert(offsetof(CinematicManager_OnKeyFrameSectionEnd, SectionName) == 0x000000, "Member 'CinematicManager_OnKeyFrameSectionEnd::SectionName' has a wrong offset!");
+
+// Function Stalker2.CinematicManager.OnKeyFrameSectionStart
+// 0x0034 (0x0034 - 0x0000)
+struct CinematicManager_OnKeyFrameSectionStart final
+{
+public:
+	struct FCinematicSectionParams                InCinematicSectionParams;                          // 0x0000(0x0034)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(CinematicManager_OnKeyFrameSectionStart) == 0x000004, "Wrong alignment on CinematicManager_OnKeyFrameSectionStart");
+static_assert(sizeof(CinematicManager_OnKeyFrameSectionStart) == 0x000034, "Wrong size on CinematicManager_OnKeyFrameSectionStart");
+static_assert(offsetof(CinematicManager_OnKeyFrameSectionStart, InCinematicSectionParams) == 0x000000, "Member 'CinematicManager_OnKeyFrameSectionStart::InCinematicSectionParams' has a wrong offset!");
+
+// Function Stalker2.CinematicManager.OnSubtitleSectionStart
+// 0x0020 (0x0020 - 0x0000)
+struct CinematicManager_OnSubtitleSectionStart final
+{
+public:
+	class FString                                 NPCSID;                                            // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 DialogSID;                                         // 0x0010(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(CinematicManager_OnSubtitleSectionStart) == 0x000008, "Wrong alignment on CinematicManager_OnSubtitleSectionStart");
+static_assert(sizeof(CinematicManager_OnSubtitleSectionStart) == 0x000020, "Wrong size on CinematicManager_OnSubtitleSectionStart");
+static_assert(offsetof(CinematicManager_OnSubtitleSectionStart, NPCSID) == 0x000000, "Member 'CinematicManager_OnSubtitleSectionStart::NPCSID' has a wrong offset!");
+static_assert(offsetof(CinematicManager_OnSubtitleSectionStart, DialogSID) == 0x000010, "Member 'CinematicManager_OnSubtitleSectionStart::DialogSID' has a wrong offset!");
+
+// Function Stalker2.CinematicManager.OnHapticFeedbackEnd
+// 0x0008 (0x0008 - 0x0000)
+struct CinematicManager_OnHapticFeedbackEnd final
+{
+public:
+	struct FGameplayTag                           ForceFeeedbackEffectTag;                           // 0x0000(0x0008)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(CinematicManager_OnHapticFeedbackEnd) == 0x000004, "Wrong alignment on CinematicManager_OnHapticFeedbackEnd");
+static_assert(sizeof(CinematicManager_OnHapticFeedbackEnd) == 0x000008, "Wrong size on CinematicManager_OnHapticFeedbackEnd");
+static_assert(offsetof(CinematicManager_OnHapticFeedbackEnd, ForceFeeedbackEffectTag) == 0x000000, "Member 'CinematicManager_OnHapticFeedbackEnd::ForceFeeedbackEffectTag' has a wrong offset!");
+
+// Function Stalker2.CinematicManager.OnHapticFeedbackStart
+// 0x0008 (0x0008 - 0x0000)
+struct CinematicManager_OnHapticFeedbackStart final
+{
+public:
+	struct FGameplayTag                           ForceFeeedbackEffectTag;                           // 0x0000(0x0008)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(CinematicManager_OnHapticFeedbackStart) == 0x000004, "Wrong alignment on CinematicManager_OnHapticFeedbackStart");
+static_assert(sizeof(CinematicManager_OnHapticFeedbackStart) == 0x000008, "Wrong size on CinematicManager_OnHapticFeedbackStart");
+static_assert(offsetof(CinematicManager_OnHapticFeedbackStart, ForceFeeedbackEffectTag) == 0x000000, "Member 'CinematicManager_OnHapticFeedbackStart::ForceFeeedbackEffectTag' has a wrong offset!");
+
+// Function Stalker2.ClickerAnomaly.OnBeginParticleOverlap
+// 0x0108 (0x0108 - 0x0000)
+struct ClickerAnomaly_OnBeginParticleOverlap final
+{
+public:
+	class UPrimitiveComponent*                    OverlappedComponent;                               // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    OtherComp;                                         // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bFromSweep;                                        // 0x001C(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1D[0x3];                                       // 0x001D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FHitResult                             SweepResult;                                       // 0x0020(0x00E8)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(ClickerAnomaly_OnBeginParticleOverlap) == 0x000008, "Wrong alignment on ClickerAnomaly_OnBeginParticleOverlap");
+static_assert(sizeof(ClickerAnomaly_OnBeginParticleOverlap) == 0x000108, "Wrong size on ClickerAnomaly_OnBeginParticleOverlap");
+static_assert(offsetof(ClickerAnomaly_OnBeginParticleOverlap, OverlappedComponent) == 0x000000, "Member 'ClickerAnomaly_OnBeginParticleOverlap::OverlappedComponent' has a wrong offset!");
+static_assert(offsetof(ClickerAnomaly_OnBeginParticleOverlap, OtherActor) == 0x000008, "Member 'ClickerAnomaly_OnBeginParticleOverlap::OtherActor' has a wrong offset!");
+static_assert(offsetof(ClickerAnomaly_OnBeginParticleOverlap, OtherComp) == 0x000010, "Member 'ClickerAnomaly_OnBeginParticleOverlap::OtherComp' has a wrong offset!");
+static_assert(offsetof(ClickerAnomaly_OnBeginParticleOverlap, OtherBodyIndex) == 0x000018, "Member 'ClickerAnomaly_OnBeginParticleOverlap::OtherBodyIndex' has a wrong offset!");
+static_assert(offsetof(ClickerAnomaly_OnBeginParticleOverlap, bFromSweep) == 0x00001C, "Member 'ClickerAnomaly_OnBeginParticleOverlap::bFromSweep' has a wrong offset!");
+static_assert(offsetof(ClickerAnomaly_OnBeginParticleOverlap, SweepResult) == 0x000020, "Member 'ClickerAnomaly_OnBeginParticleOverlap::SweepResult' has a wrong offset!");
+
+// Function Stalker2.ForceFeedbackSubsystem.BP_StartFeedback
+// 0x0018 (0x0018 - 0x0000)
+struct ForceFeedbackSubsystem_BP_StartFeedback final
+{
+public:
+	struct FGameplayTag                           Trigger;                                           // 0x0000(0x0008)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FForceFeedbackArgs                     Args;                                              // 0x0008(0x0008)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+	float                                         InIntensityMultiplier;                             // 0x0010(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bOverrideStopCurrent;                              // 0x0014(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bStopCurrent;                                      // 0x0015(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0016(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_17[0x1];                                       // 0x0017(0x0001)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(ForceFeedbackSubsystem_BP_StartFeedback) == 0x000008, "Wrong alignment on ForceFeedbackSubsystem_BP_StartFeedback");
+static_assert(sizeof(ForceFeedbackSubsystem_BP_StartFeedback) == 0x000018, "Wrong size on ForceFeedbackSubsystem_BP_StartFeedback");
+static_assert(offsetof(ForceFeedbackSubsystem_BP_StartFeedback, Trigger) == 0x000000, "Member 'ForceFeedbackSubsystem_BP_StartFeedback::Trigger' has a wrong offset!");
+static_assert(offsetof(ForceFeedbackSubsystem_BP_StartFeedback, Args) == 0x000008, "Member 'ForceFeedbackSubsystem_BP_StartFeedback::Args' has a wrong offset!");
+static_assert(offsetof(ForceFeedbackSubsystem_BP_StartFeedback, InIntensityMultiplier) == 0x000010, "Member 'ForceFeedbackSubsystem_BP_StartFeedback::InIntensityMultiplier' has a wrong offset!");
+static_assert(offsetof(ForceFeedbackSubsystem_BP_StartFeedback, bOverrideStopCurrent) == 0x000014, "Member 'ForceFeedbackSubsystem_BP_StartFeedback::bOverrideStopCurrent' has a wrong offset!");
+static_assert(offsetof(ForceFeedbackSubsystem_BP_StartFeedback, bStopCurrent) == 0x000015, "Member 'ForceFeedbackSubsystem_BP_StartFeedback::bStopCurrent' has a wrong offset!");
+static_assert(offsetof(ForceFeedbackSubsystem_BP_StartFeedback, ReturnValue) == 0x000016, "Member 'ForceFeedbackSubsystem_BP_StartFeedback::ReturnValue' has a wrong offset!");
+
+// Function Stalker2.ForceFeedbackSubsystem.SetIntensityMultiplier
+// 0x0004 (0x0004 - 0x0000)
+struct ForceFeedbackSubsystem_SetIntensityMultiplier final
+{
+public:
+	float                                         NewValue;                                          // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(ForceFeedbackSubsystem_SetIntensityMultiplier) == 0x000004, "Wrong alignment on ForceFeedbackSubsystem_SetIntensityMultiplier");
+static_assert(sizeof(ForceFeedbackSubsystem_SetIntensityMultiplier) == 0x000004, "Wrong size on ForceFeedbackSubsystem_SetIntensityMultiplier");
+static_assert(offsetof(ForceFeedbackSubsystem_SetIntensityMultiplier, NewValue) == 0x000000, "Member 'ForceFeedbackSubsystem_SetIntensityMultiplier::NewValue' has a wrong offset!");
+
+// Function Stalker2.ForceFeedbackSubsystem.StopFeedback
+// 0x000C (0x000C - 0x0000)
+struct ForceFeedbackSubsystem_StopFeedback final
+{
+public:
+	struct FGameplayTag                           Trigger;                                           // 0x0000(0x0008)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x3];                                        // 0x0009(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(ForceFeedbackSubsystem_StopFeedback) == 0x000004, "Wrong alignment on ForceFeedbackSubsystem_StopFeedback");
+static_assert(sizeof(ForceFeedbackSubsystem_StopFeedback) == 0x00000C, "Wrong size on ForceFeedbackSubsystem_StopFeedback");
+static_assert(offsetof(ForceFeedbackSubsystem_StopFeedback, Trigger) == 0x000000, "Member 'ForceFeedbackSubsystem_StopFeedback::Trigger' has a wrong offset!");
+static_assert(offsetof(ForceFeedbackSubsystem_StopFeedback, ReturnValue) == 0x000008, "Member 'ForceFeedbackSubsystem_StopFeedback::ReturnValue' has a wrong offset!");
+
+// Function Stalker2.ForceFeedbackSubsystem.GetIntensityMultiplier
+// 0x0004 (0x0004 - 0x0000)
+struct ForceFeedbackSubsystem_GetIntensityMultiplier final
+{
+public:
+	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(ForceFeedbackSubsystem_GetIntensityMultiplier) == 0x000004, "Wrong alignment on ForceFeedbackSubsystem_GetIntensityMultiplier");
+static_assert(sizeof(ForceFeedbackSubsystem_GetIntensityMultiplier) == 0x000004, "Wrong size on ForceFeedbackSubsystem_GetIntensityMultiplier");
+static_assert(offsetof(ForceFeedbackSubsystem_GetIntensityMultiplier, ReturnValue) == 0x000000, "Member 'ForceFeedbackSubsystem_GetIntensityMultiplier::ReturnValue' has a wrong offset!");
+
+// Function Stalker2.CodelockSingleClickComponent.Interact
+// 0x0008 (0x0008 - 0x0000)
+struct CodelockSingleClickComponent_Interact final
+{
+public:
+	class AObj*                                   InteractedActor;                                   // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(CodelockSingleClickComponent_Interact) == 0x000008, "Wrong alignment on CodelockSingleClickComponent_Interact");
+static_assert(sizeof(CodelockSingleClickComponent_Interact) == 0x000008, "Wrong size on CodelockSingleClickComponent_Interact");
+static_assert(offsetof(CodelockSingleClickComponent_Interact, InteractedActor) == 0x000000, "Member 'CodelockSingleClickComponent_Interact::InteractedActor' has a wrong offset!");
+
+// Function Stalker2.InteractableComponent.SetDisplayPriority
+// 0x0001 (0x0001 - 0x0000)
+struct InteractableComponent_SetDisplayPriority final
+{
+public:
+	EDisplayPriority                              NewPriority;                                       // 0x0000(0x0001)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(InteractableComponent_SetDisplayPriority) == 0x000001, "Wrong alignment on InteractableComponent_SetDisplayPriority");
+static_assert(sizeof(InteractableComponent_SetDisplayPriority) == 0x000001, "Wrong size on InteractableComponent_SetDisplayPriority");
+static_assert(offsetof(InteractableComponent_SetDisplayPriority, NewPriority) == 0x000000, "Member 'InteractableComponent_SetDisplayPriority::NewPriority' has a wrong offset!");
+
+// Function Stalker2.InteractableComponent.SetEnabled
+// 0x0001 (0x0001 - 0x0000)
+struct InteractableComponent_SetEnabled final
+{
+public:
+	bool                                          bInEnabled;                                        // 0x0000(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(InteractableComponent_SetEnabled) == 0x000001, "Wrong alignment on InteractableComponent_SetEnabled");
+static_assert(sizeof(InteractableComponent_SetEnabled) == 0x000001, "Wrong size on InteractableComponent_SetEnabled");
+static_assert(offsetof(InteractableComponent_SetEnabled, bInEnabled) == 0x000000, "Member 'InteractableComponent_SetEnabled::bInEnabled' has a wrong offset!");
+
+// Function Stalker2.InteractableComponent.GetDisplayPriority
+// 0x0001 (0x0001 - 0x0000)
+struct InteractableComponent_GetDisplayPriority final
+{
+public:
+	EDisplayPriority                              ReturnValue;                                       // 0x0000(0x0001)(ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(InteractableComponent_GetDisplayPriority) == 0x000001, "Wrong alignment on InteractableComponent_GetDisplayPriority");
+static_assert(sizeof(InteractableComponent_GetDisplayPriority) == 0x000001, "Wrong size on InteractableComponent_GetDisplayPriority");
+static_assert(offsetof(InteractableComponent_GetDisplayPriority, ReturnValue) == 0x000000, "Member 'InteractableComponent_GetDisplayPriority::ReturnValue' has a wrong offset!");
+
+// Function Stalker2.InteractableComponent.GetInteractionType
+// 0x0001 (0x0001 - 0x0000)
+struct InteractableComponent_GetInteractionType final
+{
+public:
+	EInteractionType                              ReturnValue;                                       // 0x0000(0x0001)(ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(InteractableComponent_GetInteractionType) == 0x000001, "Wrong alignment on InteractableComponent_GetInteractionType");
+static_assert(sizeof(InteractableComponent_GetInteractionType) == 0x000001, "Wrong size on InteractableComponent_GetInteractionType");
+static_assert(offsetof(InteractableComponent_GetInteractionType, ReturnValue) == 0x000000, "Member 'InteractableComponent_GetInteractionType::ReturnValue' has a wrong offset!");
+
+// Function Stalker2.InteractableComponent.GetPreventDefaultInteract
+// 0x0001 (0x0001 - 0x0000)
+struct InteractableComponent_GetPreventDefaultInteract final
+{
+public:
+	bool                                          ReturnValue;                                       // 0x0000(0x0001)(ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(InteractableComponent_GetPreventDefaultInteract) == 0x000001, "Wrong alignment on InteractableComponent_GetPreventDefaultInteract");
+static_assert(sizeof(InteractableComponent_GetPreventDefaultInteract) == 0x000001, "Wrong size on InteractableComponent_GetPreventDefaultInteract");
+static_assert(offsetof(InteractableComponent_GetPreventDefaultInteract, ReturnValue) == 0x000000, "Member 'InteractableComponent_GetPreventDefaultInteract::ReturnValue' has a wrong offset!");
+
+// Function Stalker2.CustomConsoleManagerBuild.XSetFreeCameraSpeedMultiplier
+// 0x0004 (0x0004 - 0x0000)
+struct CustomConsoleManagerBuild_XSetFreeCameraSpeedMultiplier final
+{
+public:
+	float                                         SpeedMultiplier;                                   // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(CustomConsoleManagerBuild_XSetFreeCameraSpeedMultiplier) == 0x000004, "Wrong alignment on CustomConsoleManagerBuild_XSetFreeCameraSpeedMultiplier");
+static_assert(sizeof(CustomConsoleManagerBuild_XSetFreeCameraSpeedMultiplier) == 0x000004, "Wrong size on CustomConsoleManagerBuild_XSetFreeCameraSpeedMultiplier");
+static_assert(offsetof(CustomConsoleManagerBuild_XSetFreeCameraSpeedMultiplier, SpeedMultiplier) == 0x000000, "Member 'CustomConsoleManagerBuild_XSetFreeCameraSpeedMultiplier::SpeedMultiplier' has a wrong offset!");
+
+// Function Stalker2.CustomConsoleManagerBuild.XSetNoClipGSC
+// 0x0008 (0x0008 - 0x0000)
+struct CustomConsoleManagerBuild_XSetNoClipGSC final
+{
+public:
+	bool                                          bNoClipGSC;                                        // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1[0x3];                                        // 0x0001(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         Speed;                                             // 0x0004(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(CustomConsoleManagerBuild_XSetNoClipGSC) == 0x000004, "Wrong alignment on CustomConsoleManagerBuild_XSetNoClipGSC");
+static_assert(sizeof(CustomConsoleManagerBuild_XSetNoClipGSC) == 0x000008, "Wrong size on CustomConsoleManagerBuild_XSetNoClipGSC");
+static_assert(offsetof(CustomConsoleManagerBuild_XSetNoClipGSC, bNoClipGSC) == 0x000000, "Member 'CustomConsoleManagerBuild_XSetNoClipGSC::bNoClipGSC' has a wrong offset!");
+static_assert(offsetof(CustomConsoleManagerBuild_XSetNoClipGSC, Speed) == 0x000004, "Member 'CustomConsoleManagerBuild_XSetNoClipGSC::Speed' has a wrong offset!");
+
+// Function Stalker2.CustomConsoleManagerBuild.XSetPlayerSpeedMultiplier
+// 0x0004 (0x0004 - 0x0000)
+struct CustomConsoleManagerBuild_XSetPlayerSpeedMultiplier final
+{
+public:
+	float                                         SpeedMultiplier;                                   // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(CustomConsoleManagerBuild_XSetPlayerSpeedMultiplier) == 0x000004, "Wrong alignment on CustomConsoleManagerBuild_XSetPlayerSpeedMultiplier");
+static_assert(sizeof(CustomConsoleManagerBuild_XSetPlayerSpeedMultiplier) == 0x000004, "Wrong size on CustomConsoleManagerBuild_XSetPlayerSpeedMultiplier");
+static_assert(offsetof(CustomConsoleManagerBuild_XSetPlayerSpeedMultiplier, SpeedMultiplier) == 0x000000, "Member 'CustomConsoleManagerBuild_XSetPlayerSpeedMultiplier::SpeedMultiplier' has a wrong offset!");
+
+// Function Stalker2.CustomConsoleManagerBuild.XSetEntityUnkillableByUID
+// 0x0008 (0x0008 - 0x0000)
+struct CustomConsoleManagerBuild_XSetEntityUnkillableByUID final
+{
+public:
+	int32                                         EntityUID;                                         // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bGodModeState;                                     // 0x0004(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_5[0x3];                                        // 0x0005(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(CustomConsoleManagerBuild_XSetEntityUnkillableByUID) == 0x000004, "Wrong alignment on CustomConsoleManagerBuild_XSetEntityUnkillableByUID");
+static_assert(sizeof(CustomConsoleManagerBuild_XSetEntityUnkillableByUID) == 0x000008, "Wrong size on CustomConsoleManagerBuild_XSetEntityUnkillableByUID");
+static_assert(offsetof(CustomConsoleManagerBuild_XSetEntityUnkillableByUID, EntityUID) == 0x000000, "Member 'CustomConsoleManagerBuild_XSetEntityUnkillableByUID::EntityUID' has a wrong offset!");
+static_assert(offsetof(CustomConsoleManagerBuild_XSetEntityUnkillableByUID, bGodModeState) == 0x000004, "Member 'CustomConsoleManagerBuild_XSetEntityUnkillableByUID::bGodModeState' has a wrong offset!");
+
+// Function Stalker2.CustomConsoleManagerBuild.XSetFactionGodMode
+// 0x0018 (0x0018 - 0x0000)
+struct CustomConsoleManagerBuild_XSetFactionGodMode final
+{
+public:
+	class FString                                 CurrentFactionSelector;                            // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bGodModeState;                                     // 0x0010(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_11[0x7];                                       // 0x0011(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(CustomConsoleManagerBuild_XSetFactionGodMode) == 0x000008, "Wrong alignment on CustomConsoleManagerBuild_XSetFactionGodMode");
+static_assert(sizeof(CustomConsoleManagerBuild_XSetFactionGodMode) == 0x000018, "Wrong size on CustomConsoleManagerBuild_XSetFactionGodMode");
+static_assert(offsetof(CustomConsoleManagerBuild_XSetFactionGodMode, CurrentFactionSelector) == 0x000000, "Member 'CustomConsoleManagerBuild_XSetFactionGodMode::CurrentFactionSelector' has a wrong offset!");
+static_assert(offsetof(CustomConsoleManagerBuild_XSetFactionGodMode, bGodModeState) == 0x000010, "Member 'CustomConsoleManagerBuild_XSetFactionGodMode::bGodModeState' has a wrong offset!");
+
+// Function Stalker2.CustomConsoleManagerBuild.XSetGodModeAllFactions
+// 0x0001 (0x0001 - 0x0000)
+struct CustomConsoleManagerBuild_XSetGodModeAllFactions final
+{
+public:
+	bool                                          bGodModeState;                                     // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(CustomConsoleManagerBuild_XSetGodModeAllFactions) == 0x000001, "Wrong alignment on CustomConsoleManagerBuild_XSetGodModeAllFactions");
+static_assert(sizeof(CustomConsoleManagerBuild_XSetGodModeAllFactions) == 0x000001, "Wrong size on CustomConsoleManagerBuild_XSetGodModeAllFactions");
+static_assert(offsetof(CustomConsoleManagerBuild_XSetGodModeAllFactions, bGodModeState) == 0x000000, "Member 'CustomConsoleManagerBuild_XSetGodModeAllFactions::bGodModeState' has a wrong offset!");
+
+// Function Stalker2.CustomConsoleManagerBuild.XSetGodModeByUID
+// 0x0008 (0x0008 - 0x0000)
+struct CustomConsoleManagerBuild_XSetGodModeByUID final
+{
+public:
+	int32                                         EntityUID;                                         // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bGodModeState;                                     // 0x0004(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_5[0x3];                                        // 0x0005(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(CustomConsoleManagerBuild_XSetGodModeByUID) == 0x000004, "Wrong alignment on CustomConsoleManagerBuild_XSetGodModeByUID");
+static_assert(sizeof(CustomConsoleManagerBuild_XSetGodModeByUID) == 0x000008, "Wrong size on CustomConsoleManagerBuild_XSetGodModeByUID");
+static_assert(offsetof(CustomConsoleManagerBuild_XSetGodModeByUID, EntityUID) == 0x000000, "Member 'CustomConsoleManagerBuild_XSetGodModeByUID::EntityUID' has a wrong offset!");
+static_assert(offsetof(CustomConsoleManagerBuild_XSetGodModeByUID, bGodModeState) == 0x000004, "Member 'CustomConsoleManagerBuild_XSetGodModeByUID::bGodModeState' has a wrong offset!");
+
+// Function Stalker2.CustomConsoleManagerBuild.XSpawnItemInCoordinatesBySID
+// 0x0020 (0x0020 - 0x0000)
+struct CustomConsoleManagerBuild_XSpawnItemInCoordinatesBySID final
+{
+public:
+	class FString                                 ItemPrototypeSID;                                  // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Px;                                                // 0x0010(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Py;                                                // 0x0014(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Pz;                                                // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(CustomConsoleManagerBuild_XSpawnItemInCoordinatesBySID) == 0x000008, "Wrong alignment on CustomConsoleManagerBuild_XSpawnItemInCoordinatesBySID");
+static_assert(sizeof(CustomConsoleManagerBuild_XSpawnItemInCoordinatesBySID) == 0x000020, "Wrong size on CustomConsoleManagerBuild_XSpawnItemInCoordinatesBySID");
+static_assert(offsetof(CustomConsoleManagerBuild_XSpawnItemInCoordinatesBySID, ItemPrototypeSID) == 0x000000, "Member 'CustomConsoleManagerBuild_XSpawnItemInCoordinatesBySID::ItemPrototypeSID' has a wrong offset!");
+static_assert(offsetof(CustomConsoleManagerBuild_XSpawnItemInCoordinatesBySID, Px) == 0x000010, "Member 'CustomConsoleManagerBuild_XSpawnItemInCoordinatesBySID::Px' has a wrong offset!");
+static_assert(offsetof(CustomConsoleManagerBuild_XSpawnItemInCoordinatesBySID, Py) == 0x000014, "Member 'CustomConsoleManagerBuild_XSpawnItemInCoordinatesBySID::Py' has a wrong offset!");
+static_assert(offsetof(CustomConsoleManagerBuild_XSpawnItemInCoordinatesBySID, Pz) == 0x000018, "Member 'CustomConsoleManagerBuild_XSpawnItemInCoordinatesBySID::Pz' has a wrong offset!");
+
+// Function Stalker2.CustomConsoleManagerBuild.XSpawnItemNearPlayerBySID
+// 0x0010 (0x0010 - 0x0000)
+struct CustomConsoleManagerBuild_XSpawnItemNearPlayerBySID final
+{
+public:
+	class FString                                 ItemPrototypeSID;                                  // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(CustomConsoleManagerBuild_XSpawnItemNearPlayerBySID) == 0x000008, "Wrong alignment on CustomConsoleManagerBuild_XSpawnItemNearPlayerBySID");
+static_assert(sizeof(CustomConsoleManagerBuild_XSpawnItemNearPlayerBySID) == 0x000010, "Wrong size on CustomConsoleManagerBuild_XSpawnItemNearPlayerBySID");
+static_assert(offsetof(CustomConsoleManagerBuild_XSpawnItemNearPlayerBySID, ItemPrototypeSID) == 0x000000, "Member 'CustomConsoleManagerBuild_XSpawnItemNearPlayerBySID::ItemPrototypeSID' has a wrong offset!");
+
+// Function Stalker2.WaterContactController.IsPathToWaterSurfaceObstructed
+// 0x0010 (0x0010 - 0x0000)
+struct WaterContactController_IsPathToWaterSurfaceObstructed final
+{
+public:
+	struct FWaterSurfaceObstructionResult         ReturnValue;                                       // 0x0000(0x0010)(ConstParm, Parm, OutParm, ReturnParm, NoDestructor, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(WaterContactController_IsPathToWaterSurfaceObstructed) == 0x000008, "Wrong alignment on WaterContactController_IsPathToWaterSurfaceObstructed");
+static_assert(sizeof(WaterContactController_IsPathToWaterSurfaceObstructed) == 0x000010, "Wrong size on WaterContactController_IsPathToWaterSurfaceObstructed");
+static_assert(offsetof(WaterContactController_IsPathToWaterSurfaceObstructed, ReturnValue) == 0x000000, "Member 'WaterContactController_IsPathToWaterSurfaceObstructed::ReturnValue' has a wrong offset!");
+
+// Function Stalker2.WaterContactController.ProjectOwnerPositionOnWaterSurface
+// 0x0018 (0x0018 - 0x0000)
+struct WaterContactController_ProjectOwnerPositionOnWaterSurface final
+{
+public:
+	struct FVector                                ReturnValue;                                       // 0x0000(0x0018)(ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(WaterContactController_ProjectOwnerPositionOnWaterSurface) == 0x000008, "Wrong alignment on WaterContactController_ProjectOwnerPositionOnWaterSurface");
+static_assert(sizeof(WaterContactController_ProjectOwnerPositionOnWaterSurface) == 0x000018, "Wrong size on WaterContactController_ProjectOwnerPositionOnWaterSurface");
+static_assert(offsetof(WaterContactController_ProjectOwnerPositionOnWaterSurface, ReturnValue) == 0x000000, "Member 'WaterContactController_ProjectOwnerPositionOnWaterSurface::ReturnValue' has a wrong offset!");
+
+// Function Stalker2.ContextualNavLinkProxy.OnStartUsingCustomLink
+// 0x0020 (0x0020 - 0x0000)
+struct ContextualNavLinkProxy_OnStartUsingCustomLink final
+{
+public:
+	class AActor*                                 MovingActor;                                       // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                DestinationPoint;                                  // 0x0008(0x0018)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(ContextualNavLinkProxy_OnStartUsingCustomLink) == 0x000008, "Wrong alignment on ContextualNavLinkProxy_OnStartUsingCustomLink");
+static_assert(sizeof(ContextualNavLinkProxy_OnStartUsingCustomLink) == 0x000020, "Wrong size on ContextualNavLinkProxy_OnStartUsingCustomLink");
+static_assert(offsetof(ContextualNavLinkProxy_OnStartUsingCustomLink, MovingActor) == 0x000000, "Member 'ContextualNavLinkProxy_OnStartUsingCustomLink::MovingActor' has a wrong offset!");
+static_assert(offsetof(ContextualNavLinkProxy_OnStartUsingCustomLink, DestinationPoint) == 0x000008, "Member 'ContextualNavLinkProxy_OnStartUsingCustomLink::DestinationPoint' has a wrong offset!");
 
 // Function Stalker2.CustomConsoleManager.ExecuteScripts
 // 0x0010 (0x0010 - 0x0000)
@@ -5313,64 +5191,6 @@ static_assert(alignof(CustomConsoleManagerIM_XHighlightDangerAreas) == 0x000008,
 static_assert(sizeof(CustomConsoleManagerIM_XHighlightDangerAreas) == 0x000010, "Wrong size on CustomConsoleManagerIM_XHighlightDangerAreas");
 static_assert(offsetof(CustomConsoleManagerIM_XHighlightDangerAreas, NavMeshAgentName) == 0x000000, "Member 'CustomConsoleManagerIM_XHighlightDangerAreas::NavMeshAgentName' has a wrong offset!");
 
-// Function Stalker2.CustomConsoleManagerMH.XRemoveEffectFromPlayer
-// 0x0010 (0x0010 - 0x0000)
-struct CustomConsoleManagerMH_XRemoveEffectFromPlayer final
-{
-public:
-	class FString                                 EffectPrototypeSID;                                // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(CustomConsoleManagerMH_XRemoveEffectFromPlayer) == 0x000008, "Wrong alignment on CustomConsoleManagerMH_XRemoveEffectFromPlayer");
-static_assert(sizeof(CustomConsoleManagerMH_XRemoveEffectFromPlayer) == 0x000010, "Wrong size on CustomConsoleManagerMH_XRemoveEffectFromPlayer");
-static_assert(offsetof(CustomConsoleManagerMH_XRemoveEffectFromPlayer, EffectPrototypeSID) == 0x000000, "Member 'CustomConsoleManagerMH_XRemoveEffectFromPlayer::EffectPrototypeSID' has a wrong offset!");
-
-// Function Stalker2.CustomConsoleManagerMH.XSetFov
-// 0x0004 (0x0004 - 0x0000)
-struct CustomConsoleManagerMH_XSetFov final
-{
-public:
-	float                                         FOV;                                               // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(CustomConsoleManagerMH_XSetFov) == 0x000004, "Wrong alignment on CustomConsoleManagerMH_XSetFov");
-static_assert(sizeof(CustomConsoleManagerMH_XSetFov) == 0x000004, "Wrong size on CustomConsoleManagerMH_XSetFov");
-static_assert(offsetof(CustomConsoleManagerMH_XSetFov, FOV) == 0x000000, "Member 'CustomConsoleManagerMH_XSetFov::FOV' has a wrong offset!");
-
-// Function Stalker2.CustomConsoleManagerMH.XToggleCustomFov
-// 0x0001 (0x0001 - 0x0000)
-struct CustomConsoleManagerMH_XToggleCustomFov final
-{
-public:
-	bool                                          bEnable;                                           // 0x0000(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(CustomConsoleManagerMH_XToggleCustomFov) == 0x000001, "Wrong alignment on CustomConsoleManagerMH_XToggleCustomFov");
-static_assert(sizeof(CustomConsoleManagerMH_XToggleCustomFov) == 0x000001, "Wrong size on CustomConsoleManagerMH_XToggleCustomFov");
-static_assert(offsetof(CustomConsoleManagerMH_XToggleCustomFov, bEnable) == 0x000000, "Member 'CustomConsoleManagerMH_XToggleCustomFov::bEnable' has a wrong offset!");
-
-// Function Stalker2.CustomConsoleManagerMH.XToggleHubDoors
-// 0x0008 (0x0008 - 0x0000)
-struct CustomConsoleManagerMH_XToggleHubDoors final
-{
-public:
-	bool                                          bLocked;                                           // 0x0000(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1[0x3];                                        // 0x0001(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         Radius;                                            // 0x0004(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(CustomConsoleManagerMH_XToggleHubDoors) == 0x000004, "Wrong alignment on CustomConsoleManagerMH_XToggleHubDoors");
-static_assert(sizeof(CustomConsoleManagerMH_XToggleHubDoors) == 0x000008, "Wrong size on CustomConsoleManagerMH_XToggleHubDoors");
-static_assert(offsetof(CustomConsoleManagerMH_XToggleHubDoors, bLocked) == 0x000000, "Member 'CustomConsoleManagerMH_XToggleHubDoors::bLocked' has a wrong offset!");
-static_assert(offsetof(CustomConsoleManagerMH_XToggleHubDoors, Radius) == 0x000004, "Member 'CustomConsoleManagerMH_XToggleHubDoors::Radius' has a wrong offset!");
-
-// Function Stalker2.CustomConsoleManagerMH.XApplyMainHandWeaponUpgradeBySID
-// 0x0010 (0x0010 - 0x0000)
-struct CustomConsoleManagerMH_XApplyMainHandWeaponUpgradeBySID final
-{
-public:
-	class FString                                 UpgradePrototypeSID;                               // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(CustomConsoleManagerMH_XApplyMainHandWeaponUpgradeBySID) == 0x000008, "Wrong alignment on CustomConsoleManagerMH_XApplyMainHandWeaponUpgradeBySID");
-static_assert(sizeof(CustomConsoleManagerMH_XApplyMainHandWeaponUpgradeBySID) == 0x000010, "Wrong size on CustomConsoleManagerMH_XApplyMainHandWeaponUpgradeBySID");
-static_assert(offsetof(CustomConsoleManagerMH_XApplyMainHandWeaponUpgradeBySID, UpgradePrototypeSID) == 0x000000, "Member 'CustomConsoleManagerMH_XApplyMainHandWeaponUpgradeBySID::UpgradePrototypeSID' has a wrong offset!");
-
 // Function Stalker2.CustomConsoleManagerMS.XCommitSuicide
 // 0x0001 (0x0001 - 0x0000)
 struct CustomConsoleManagerMS_XCommitSuicide final
@@ -5437,6 +5257,53 @@ static_assert(sizeof(CustomConsoleManagerMS_XShowMaterial) == 0x00000C, "Wrong s
 static_assert(offsetof(CustomConsoleManagerMS_XShowMaterial, ObjUID) == 0x000000, "Member 'CustomConsoleManagerMS_XShowMaterial::ObjUID' has a wrong offset!");
 static_assert(offsetof(CustomConsoleManagerMS_XShowMaterial, MaterialID) == 0x000004, "Member 'CustomConsoleManagerMS_XShowMaterial::MaterialID' has a wrong offset!");
 static_assert(offsetof(CustomConsoleManagerMS_XShowMaterial, LODId) == 0x000008, "Member 'CustomConsoleManagerMS_XShowMaterial::LODId' has a wrong offset!");
+
+// Function Stalker2.CustomConsoleManagerOA.XDebugAudioScattererEvents
+// 0x0008 (0x0008 - 0x0000)
+struct CustomConsoleManagerOA_XDebugAudioScattererEvents final
+{
+public:
+	bool                                          bEnabled;                                          // 0x0000(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1[0x3];                                        // 0x0001(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         DrawTime;                                          // 0x0004(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(CustomConsoleManagerOA_XDebugAudioScattererEvents) == 0x000004, "Wrong alignment on CustomConsoleManagerOA_XDebugAudioScattererEvents");
+static_assert(sizeof(CustomConsoleManagerOA_XDebugAudioScattererEvents) == 0x000008, "Wrong size on CustomConsoleManagerOA_XDebugAudioScattererEvents");
+static_assert(offsetof(CustomConsoleManagerOA_XDebugAudioScattererEvents, bEnabled) == 0x000000, "Member 'CustomConsoleManagerOA_XDebugAudioScattererEvents::bEnabled' has a wrong offset!");
+static_assert(offsetof(CustomConsoleManagerOA_XDebugAudioScattererEvents, DrawTime) == 0x000004, "Member 'CustomConsoleManagerOA_XDebugAudioScattererEvents::DrawTime' has a wrong offset!");
+
+// Function Stalker2.CustomConsoleManagerOA.XDebugAudioScattererMap
+// 0x0001 (0x0001 - 0x0000)
+struct CustomConsoleManagerOA_XDebugAudioScattererMap final
+{
+public:
+	bool                                          bEnabled;                                          // 0x0000(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(CustomConsoleManagerOA_XDebugAudioScattererMap) == 0x000001, "Wrong alignment on CustomConsoleManagerOA_XDebugAudioScattererMap");
+static_assert(sizeof(CustomConsoleManagerOA_XDebugAudioScattererMap) == 0x000001, "Wrong size on CustomConsoleManagerOA_XDebugAudioScattererMap");
+static_assert(offsetof(CustomConsoleManagerOA_XDebugAudioScattererMap, bEnabled) == 0x000000, "Member 'CustomConsoleManagerOA_XDebugAudioScattererMap::bEnabled' has a wrong offset!");
+
+// Function Stalker2.CustomConsoleManagerOA.XHasDLC
+// 0x0008 (0x0008 - 0x0000)
+struct CustomConsoleManagerOA_XHasDLC final
+{
+public:
+	class FName                                   DLCName;                                           // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(CustomConsoleManagerOA_XHasDLC) == 0x000004, "Wrong alignment on CustomConsoleManagerOA_XHasDLC");
+static_assert(sizeof(CustomConsoleManagerOA_XHasDLC) == 0x000008, "Wrong size on CustomConsoleManagerOA_XHasDLC");
+static_assert(offsetof(CustomConsoleManagerOA_XHasDLC, DLCName) == 0x000000, "Member 'CustomConsoleManagerOA_XHasDLC::DLCName' has a wrong offset!");
+
+// Function Stalker2.CustomConsoleManagerOA.XPlayVideo
+// 0x0010 (0x0010 - 0x0000)
+struct CustomConsoleManagerOA_XPlayVideo final
+{
+public:
+	class FString                                 Path;                                              // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(CustomConsoleManagerOA_XPlayVideo) == 0x000008, "Wrong alignment on CustomConsoleManagerOA_XPlayVideo");
+static_assert(sizeof(CustomConsoleManagerOA_XPlayVideo) == 0x000010, "Wrong size on CustomConsoleManagerOA_XPlayVideo");
+static_assert(offsetof(CustomConsoleManagerOA_XPlayVideo, Path) == 0x000000, "Member 'CustomConsoleManagerOA_XPlayVideo::Path' has a wrong offset!");
 
 // Function Stalker2.CustomConsoleManagerOP.XNpcArraySetFaceBlendShapeState
 // 0x000C (0x000C - 0x0000)
@@ -6693,6 +6560,72 @@ static_assert(alignof(FaustBossfightController_SetCloneSpawnEnabled) == 0x000001
 static_assert(sizeof(FaustBossfightController_SetCloneSpawnEnabled) == 0x000001, "Wrong size on FaustBossfightController_SetCloneSpawnEnabled");
 static_assert(offsetof(FaustBossfightController_SetCloneSpawnEnabled, bEnabled) == 0x000000, "Member 'FaustBossfightController_SetCloneSpawnEnabled::bEnabled' has a wrong offset!");
 
+// Function Stalker2.FirstTimeSettingsWidget.OnColorBlindnessChanged
+// 0x0004 (0x0004 - 0x0000)
+struct FirstTimeSettingsWidget_OnColorBlindnessChanged final
+{
+public:
+	int32                                         Value;                                             // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(FirstTimeSettingsWidget_OnColorBlindnessChanged) == 0x000004, "Wrong alignment on FirstTimeSettingsWidget_OnColorBlindnessChanged");
+static_assert(sizeof(FirstTimeSettingsWidget_OnColorBlindnessChanged) == 0x000004, "Wrong size on FirstTimeSettingsWidget_OnColorBlindnessChanged");
+static_assert(offsetof(FirstTimeSettingsWidget_OnColorBlindnessChanged, Value) == 0x000000, "Member 'FirstTimeSettingsWidget_OnColorBlindnessChanged::Value' has a wrong offset!");
+
+// Function Stalker2.FirstTimeSettingsWidget.OnDynamicRangeChanged
+// 0x0004 (0x0004 - 0x0000)
+struct FirstTimeSettingsWidget_OnDynamicRangeChanged final
+{
+public:
+	int32                                         Value;                                             // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(FirstTimeSettingsWidget_OnDynamicRangeChanged) == 0x000004, "Wrong alignment on FirstTimeSettingsWidget_OnDynamicRangeChanged");
+static_assert(sizeof(FirstTimeSettingsWidget_OnDynamicRangeChanged) == 0x000004, "Wrong size on FirstTimeSettingsWidget_OnDynamicRangeChanged");
+static_assert(offsetof(FirstTimeSettingsWidget_OnDynamicRangeChanged, Value) == 0x000000, "Member 'FirstTimeSettingsWidget_OnDynamicRangeChanged::Value' has a wrong offset!");
+
+// Function Stalker2.FirstTimeSettingsWidget.OnGammaChanged
+// 0x0004 (0x0004 - 0x0000)
+struct FirstTimeSettingsWidget_OnGammaChanged final
+{
+public:
+	float                                         Value;                                             // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(FirstTimeSettingsWidget_OnGammaChanged) == 0x000004, "Wrong alignment on FirstTimeSettingsWidget_OnGammaChanged");
+static_assert(sizeof(FirstTimeSettingsWidget_OnGammaChanged) == 0x000004, "Wrong size on FirstTimeSettingsWidget_OnGammaChanged");
+static_assert(offsetof(FirstTimeSettingsWidget_OnGammaChanged, Value) == 0x000000, "Member 'FirstTimeSettingsWidget_OnGammaChanged::Value' has a wrong offset!");
+
+// Function Stalker2.FirstTimeSettingsWidget.OnGammaSelected
+// 0x0001 (0x0001 - 0x0000)
+struct FirstTimeSettingsWidget_OnGammaSelected final
+{
+public:
+	bool                                          InSelected;                                        // 0x0000(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(FirstTimeSettingsWidget_OnGammaSelected) == 0x000001, "Wrong alignment on FirstTimeSettingsWidget_OnGammaSelected");
+static_assert(sizeof(FirstTimeSettingsWidget_OnGammaSelected) == 0x000001, "Wrong size on FirstTimeSettingsWidget_OnGammaSelected");
+static_assert(offsetof(FirstTimeSettingsWidget_OnGammaSelected, InSelected) == 0x000000, "Member 'FirstTimeSettingsWidget_OnGammaSelected::InSelected' has a wrong offset!");
+
+// Function Stalker2.FirstTimeSettingsWidget.OnInterfaceLanguageChanged
+// 0x0004 (0x0004 - 0x0000)
+struct FirstTimeSettingsWidget_OnInterfaceLanguageChanged final
+{
+public:
+	int32                                         Value;                                             // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(FirstTimeSettingsWidget_OnInterfaceLanguageChanged) == 0x000004, "Wrong alignment on FirstTimeSettingsWidget_OnInterfaceLanguageChanged");
+static_assert(sizeof(FirstTimeSettingsWidget_OnInterfaceLanguageChanged) == 0x000004, "Wrong size on FirstTimeSettingsWidget_OnInterfaceLanguageChanged");
+static_assert(offsetof(FirstTimeSettingsWidget_OnInterfaceLanguageChanged, Value) == 0x000000, "Member 'FirstTimeSettingsWidget_OnInterfaceLanguageChanged::Value' has a wrong offset!");
+
+// Function Stalker2.FirstTimeSettingsWidget.OnVoiceLanguageChanged
+// 0x0004 (0x0004 - 0x0000)
+struct FirstTimeSettingsWidget_OnVoiceLanguageChanged final
+{
+public:
+	int32                                         Value;                                             // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(FirstTimeSettingsWidget_OnVoiceLanguageChanged) == 0x000004, "Wrong alignment on FirstTimeSettingsWidget_OnVoiceLanguageChanged");
+static_assert(sizeof(FirstTimeSettingsWidget_OnVoiceLanguageChanged) == 0x000004, "Wrong size on FirstTimeSettingsWidget_OnVoiceLanguageChanged");
+static_assert(offsetof(FirstTimeSettingsWidget_OnVoiceLanguageChanged, Value) == 0x000000, "Member 'FirstTimeSettingsWidget_OnVoiceLanguageChanged::Value' has a wrong offset!");
+
 // Function Stalker2.AgentBehaviourEventData.GetGoalType
 // 0x0001 (0x0001 - 0x0000)
 struct AgentBehaviourEventData_GetGoalType final
@@ -6703,17 +6636,6 @@ public:
 static_assert(alignof(AgentBehaviourEventData_GetGoalType) == 0x000001, "Wrong alignment on AgentBehaviourEventData_GetGoalType");
 static_assert(sizeof(AgentBehaviourEventData_GetGoalType) == 0x000001, "Wrong size on AgentBehaviourEventData_GetGoalType");
 static_assert(offsetof(AgentBehaviourEventData_GetGoalType, ReturnValue) == 0x000000, "Member 'AgentBehaviourEventData_GetGoalType::ReturnValue' has a wrong offset!");
-
-// Function Stalker2.PDAQuestPanel.ChangeSelectedQuestSlot
-// 0x0004 (0x0004 - 0x0000)
-struct PDAQuestPanel_ChangeSelectedQuestSlot final
-{
-public:
-	int32                                         JournalQuestIndex;                                 // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(PDAQuestPanel_ChangeSelectedQuestSlot) == 0x000004, "Wrong alignment on PDAQuestPanel_ChangeSelectedQuestSlot");
-static_assert(sizeof(PDAQuestPanel_ChangeSelectedQuestSlot) == 0x000004, "Wrong size on PDAQuestPanel_ChangeSelectedQuestSlot");
-static_assert(offsetof(PDAQuestPanel_ChangeSelectedQuestSlot, JournalQuestIndex) == 0x000000, "Member 'PDAQuestPanel_ChangeSelectedQuestSlot::JournalQuestIndex' has a wrong offset!");
 
 // Function Stalker2.Global.GoToMap
 // 0x0008 (0x0008 - 0x0000)
@@ -6742,6 +6664,86 @@ static_assert(offsetof(Grenade_OnHit, SelfActor) == 0x000000, "Member 'Grenade_O
 static_assert(offsetof(Grenade_OnHit, OtherActor) == 0x000008, "Member 'Grenade_OnHit::OtherActor' has a wrong offset!");
 static_assert(offsetof(Grenade_OnHit, NormalImpulse) == 0x000010, "Member 'Grenade_OnHit::NormalImpulse' has a wrong offset!");
 static_assert(offsetof(Grenade_OnHit, Hit) == 0x000028, "Member 'Grenade_OnHit::Hit' has a wrong offset!");
+
+// Function Stalker2.PoppyFieldAnomalyBehaviorComponent.OnBeginOverlap
+// 0x0108 (0x0108 - 0x0000)
+struct PoppyFieldAnomalyBehaviorComponent_OnBeginOverlap final
+{
+public:
+	class UPrimitiveComponent*                    OverlappedComponent;                               // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    OtherComp;                                         // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bFromSweep;                                        // 0x001C(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1D[0x3];                                       // 0x001D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FHitResult                             SweepResult;                                       // 0x0020(0x00E8)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(PoppyFieldAnomalyBehaviorComponent_OnBeginOverlap) == 0x000008, "Wrong alignment on PoppyFieldAnomalyBehaviorComponent_OnBeginOverlap");
+static_assert(sizeof(PoppyFieldAnomalyBehaviorComponent_OnBeginOverlap) == 0x000108, "Wrong size on PoppyFieldAnomalyBehaviorComponent_OnBeginOverlap");
+static_assert(offsetof(PoppyFieldAnomalyBehaviorComponent_OnBeginOverlap, OverlappedComponent) == 0x000000, "Member 'PoppyFieldAnomalyBehaviorComponent_OnBeginOverlap::OverlappedComponent' has a wrong offset!");
+static_assert(offsetof(PoppyFieldAnomalyBehaviorComponent_OnBeginOverlap, OtherActor) == 0x000008, "Member 'PoppyFieldAnomalyBehaviorComponent_OnBeginOverlap::OtherActor' has a wrong offset!");
+static_assert(offsetof(PoppyFieldAnomalyBehaviorComponent_OnBeginOverlap, OtherComp) == 0x000010, "Member 'PoppyFieldAnomalyBehaviorComponent_OnBeginOverlap::OtherComp' has a wrong offset!");
+static_assert(offsetof(PoppyFieldAnomalyBehaviorComponent_OnBeginOverlap, OtherBodyIndex) == 0x000018, "Member 'PoppyFieldAnomalyBehaviorComponent_OnBeginOverlap::OtherBodyIndex' has a wrong offset!");
+static_assert(offsetof(PoppyFieldAnomalyBehaviorComponent_OnBeginOverlap, bFromSweep) == 0x00001C, "Member 'PoppyFieldAnomalyBehaviorComponent_OnBeginOverlap::bFromSweep' has a wrong offset!");
+static_assert(offsetof(PoppyFieldAnomalyBehaviorComponent_OnBeginOverlap, SweepResult) == 0x000020, "Member 'PoppyFieldAnomalyBehaviorComponent_OnBeginOverlap::SweepResult' has a wrong offset!");
+
+// Function Stalker2.PoppyFieldAnomalyBehaviorComponent.OnBeginOverlapFlowers
+// 0x0108 (0x0108 - 0x0000)
+struct PoppyFieldAnomalyBehaviorComponent_OnBeginOverlapFlowers final
+{
+public:
+	class UPrimitiveComponent*                    OverlappedComponent;                               // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    OtherComp;                                         // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bFromSweep;                                        // 0x001C(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1D[0x3];                                       // 0x001D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FHitResult                             SweepResult;                                       // 0x0020(0x00E8)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(PoppyFieldAnomalyBehaviorComponent_OnBeginOverlapFlowers) == 0x000008, "Wrong alignment on PoppyFieldAnomalyBehaviorComponent_OnBeginOverlapFlowers");
+static_assert(sizeof(PoppyFieldAnomalyBehaviorComponent_OnBeginOverlapFlowers) == 0x000108, "Wrong size on PoppyFieldAnomalyBehaviorComponent_OnBeginOverlapFlowers");
+static_assert(offsetof(PoppyFieldAnomalyBehaviorComponent_OnBeginOverlapFlowers, OverlappedComponent) == 0x000000, "Member 'PoppyFieldAnomalyBehaviorComponent_OnBeginOverlapFlowers::OverlappedComponent' has a wrong offset!");
+static_assert(offsetof(PoppyFieldAnomalyBehaviorComponent_OnBeginOverlapFlowers, OtherActor) == 0x000008, "Member 'PoppyFieldAnomalyBehaviorComponent_OnBeginOverlapFlowers::OtherActor' has a wrong offset!");
+static_assert(offsetof(PoppyFieldAnomalyBehaviorComponent_OnBeginOverlapFlowers, OtherComp) == 0x000010, "Member 'PoppyFieldAnomalyBehaviorComponent_OnBeginOverlapFlowers::OtherComp' has a wrong offset!");
+static_assert(offsetof(PoppyFieldAnomalyBehaviorComponent_OnBeginOverlapFlowers, OtherBodyIndex) == 0x000018, "Member 'PoppyFieldAnomalyBehaviorComponent_OnBeginOverlapFlowers::OtherBodyIndex' has a wrong offset!");
+static_assert(offsetof(PoppyFieldAnomalyBehaviorComponent_OnBeginOverlapFlowers, bFromSweep) == 0x00001C, "Member 'PoppyFieldAnomalyBehaviorComponent_OnBeginOverlapFlowers::bFromSweep' has a wrong offset!");
+static_assert(offsetof(PoppyFieldAnomalyBehaviorComponent_OnBeginOverlapFlowers, SweepResult) == 0x000020, "Member 'PoppyFieldAnomalyBehaviorComponent_OnBeginOverlapFlowers::SweepResult' has a wrong offset!");
+
+// Function Stalker2.PoppyFieldAnomalyBehaviorComponent.OnEndOverlap
+// 0x0020 (0x0020 - 0x0000)
+struct PoppyFieldAnomalyBehaviorComponent_OnEndOverlap final
+{
+public:
+	class UPrimitiveComponent*                    OverlappedComponent;                               // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    OtherComp;                                         // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(PoppyFieldAnomalyBehaviorComponent_OnEndOverlap) == 0x000008, "Wrong alignment on PoppyFieldAnomalyBehaviorComponent_OnEndOverlap");
+static_assert(sizeof(PoppyFieldAnomalyBehaviorComponent_OnEndOverlap) == 0x000020, "Wrong size on PoppyFieldAnomalyBehaviorComponent_OnEndOverlap");
+static_assert(offsetof(PoppyFieldAnomalyBehaviorComponent_OnEndOverlap, OverlappedComponent) == 0x000000, "Member 'PoppyFieldAnomalyBehaviorComponent_OnEndOverlap::OverlappedComponent' has a wrong offset!");
+static_assert(offsetof(PoppyFieldAnomalyBehaviorComponent_OnEndOverlap, OtherActor) == 0x000008, "Member 'PoppyFieldAnomalyBehaviorComponent_OnEndOverlap::OtherActor' has a wrong offset!");
+static_assert(offsetof(PoppyFieldAnomalyBehaviorComponent_OnEndOverlap, OtherComp) == 0x000010, "Member 'PoppyFieldAnomalyBehaviorComponent_OnEndOverlap::OtherComp' has a wrong offset!");
+static_assert(offsetof(PoppyFieldAnomalyBehaviorComponent_OnEndOverlap, OtherBodyIndex) == 0x000018, "Member 'PoppyFieldAnomalyBehaviorComponent_OnEndOverlap::OtherBodyIndex' has a wrong offset!");
+
+// Function Stalker2.PoppyFieldAnomalyBehaviorComponent.OnEndOverlapFlowers
+// 0x0020 (0x0020 - 0x0000)
+struct PoppyFieldAnomalyBehaviorComponent_OnEndOverlapFlowers final
+{
+public:
+	class UPrimitiveComponent*                    OverlappedComponent;                               // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    OtherComp;                                         // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(PoppyFieldAnomalyBehaviorComponent_OnEndOverlapFlowers) == 0x000008, "Wrong alignment on PoppyFieldAnomalyBehaviorComponent_OnEndOverlapFlowers");
+static_assert(sizeof(PoppyFieldAnomalyBehaviorComponent_OnEndOverlapFlowers) == 0x000020, "Wrong size on PoppyFieldAnomalyBehaviorComponent_OnEndOverlapFlowers");
+static_assert(offsetof(PoppyFieldAnomalyBehaviorComponent_OnEndOverlapFlowers, OverlappedComponent) == 0x000000, "Member 'PoppyFieldAnomalyBehaviorComponent_OnEndOverlapFlowers::OverlappedComponent' has a wrong offset!");
+static_assert(offsetof(PoppyFieldAnomalyBehaviorComponent_OnEndOverlapFlowers, OtherActor) == 0x000008, "Member 'PoppyFieldAnomalyBehaviorComponent_OnEndOverlapFlowers::OtherActor' has a wrong offset!");
+static_assert(offsetof(PoppyFieldAnomalyBehaviorComponent_OnEndOverlapFlowers, OtherComp) == 0x000010, "Member 'PoppyFieldAnomalyBehaviorComponent_OnEndOverlapFlowers::OtherComp' has a wrong offset!");
+static_assert(offsetof(PoppyFieldAnomalyBehaviorComponent_OnEndOverlapFlowers, OtherBodyIndex) == 0x000018, "Member 'PoppyFieldAnomalyBehaviorComponent_OnEndOverlapFlowers::OtherBodyIndex' has a wrong offset!");
 
 // Function Stalker2.GSCAblityBlueprintFunctions.ExecuteAbilityByActivationTagAttackPayload
 // 0x0010 (0x0010 - 0x0000)
@@ -6800,6 +6802,28 @@ static_assert(alignof(GuidInterface_GetGUID) == 0x000004, "Wrong alignment on Gu
 static_assert(sizeof(GuidInterface_GetGUID) == 0x000010, "Wrong size on GuidInterface_GetGUID");
 static_assert(offsetof(GuidInterface_GetGUID, ReturnValue) == 0x000000, "Member 'GuidInterface_GetGUID::ReturnValue' has a wrong offset!");
 
+// Function Stalker2.StackSplittingWidget.OnSplitValueChanged
+// 0x0004 (0x0004 - 0x0000)
+struct StackSplittingWidget_OnSplitValueChanged final
+{
+public:
+	float                                         Value;                                             // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(StackSplittingWidget_OnSplitValueChanged) == 0x000004, "Wrong alignment on StackSplittingWidget_OnSplitValueChanged");
+static_assert(sizeof(StackSplittingWidget_OnSplitValueChanged) == 0x000004, "Wrong size on StackSplittingWidget_OnSplitValueChanged");
+static_assert(offsetof(StackSplittingWidget_OnSplitValueChanged, Value) == 0x000000, "Member 'StackSplittingWidget_OnSplitValueChanged::Value' has a wrong offset!");
+
+// Function Stalker2.AsyncActionBase.ExecuteAction
+// 0x0008 (0x0008 - 0x0000)
+struct AsyncActionBase_ExecuteAction final
+{
+public:
+	class UHintControllerBase*                    InHintController;                                  // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(AsyncActionBase_ExecuteAction) == 0x000008, "Wrong alignment on AsyncActionBase_ExecuteAction");
+static_assert(sizeof(AsyncActionBase_ExecuteAction) == 0x000008, "Wrong size on AsyncActionBase_ExecuteAction");
+static_assert(offsetof(AsyncActionBase_ExecuteAction, InHintController) == 0x000000, "Member 'AsyncActionBase_ExecuteAction::InHintController' has a wrong offset!");
+
 // Function Stalker2.HintKey.PlayHintAnimation
 // 0x0001 (0x0001 - 0x0000)
 struct HintKey_PlayHintAnimation final
@@ -6845,6 +6869,71 @@ public:
 static_assert(alignof(HintKey_SetLowHealthState) == 0x000001, "Wrong alignment on HintKey_SetLowHealthState");
 static_assert(sizeof(HintKey_SetLowHealthState) == 0x000001, "Wrong size on HintKey_SetLowHealthState");
 static_assert(offsetof(HintKey_SetLowHealthState, ShowIcon) == 0x000000, "Member 'HintKey_SetLowHealthState::ShowIcon' has a wrong offset!");
+
+// Function Stalker2.QuestTaskNotification.PlayTaskAnimation
+// 0x0002 (0x0002 - 0x0000)
+struct QuestTaskNotification_PlayTaskAnimation final
+{
+public:
+	EQuestTaskAnimationType                       AnimationType;                                     // 0x0000(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWithSound;                                        // 0x0001(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(QuestTaskNotification_PlayTaskAnimation) == 0x000001, "Wrong alignment on QuestTaskNotification_PlayTaskAnimation");
+static_assert(sizeof(QuestTaskNotification_PlayTaskAnimation) == 0x000002, "Wrong size on QuestTaskNotification_PlayTaskAnimation");
+static_assert(offsetof(QuestTaskNotification_PlayTaskAnimation, AnimationType) == 0x000000, "Member 'QuestTaskNotification_PlayTaskAnimation::AnimationType' has a wrong offset!");
+static_assert(offsetof(QuestTaskNotification_PlayTaskAnimation, bWithSound) == 0x000001, "Member 'QuestTaskNotification_PlayTaskAnimation::bWithSound' has a wrong offset!");
+
+// Function Stalker2.QuestTaskNotification.PostPlayTaskAnimation
+// 0x0001 (0x0001 - 0x0000)
+struct QuestTaskNotification_PostPlayTaskAnimation final
+{
+public:
+	EQuestTaskAnimationType                       AnimationType;                                     // 0x0000(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(QuestTaskNotification_PostPlayTaskAnimation) == 0x000001, "Wrong alignment on QuestTaskNotification_PostPlayTaskAnimation");
+static_assert(sizeof(QuestTaskNotification_PostPlayTaskAnimation) == 0x000001, "Wrong size on QuestTaskNotification_PostPlayTaskAnimation");
+static_assert(offsetof(QuestTaskNotification_PostPlayTaskAnimation, AnimationType) == 0x000000, "Member 'QuestTaskNotification_PostPlayTaskAnimation::AnimationType' has a wrong offset!");
+
+// Function Stalker2.PossessedObjectComponent.OnSphereComponentBeginOverlap
+// 0x0108 (0x0108 - 0x0000)
+struct PossessedObjectComponent_OnSphereComponentBeginOverlap final
+{
+public:
+	class UPrimitiveComponent*                    OverlapComponent;                                  // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    OtherComp;                                         // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bFromSweep;                                        // 0x001C(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1D[0x3];                                       // 0x001D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FHitResult                             SweepResult;                                       // 0x0020(0x00E8)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(PossessedObjectComponent_OnSphereComponentBeginOverlap) == 0x000008, "Wrong alignment on PossessedObjectComponent_OnSphereComponentBeginOverlap");
+static_assert(sizeof(PossessedObjectComponent_OnSphereComponentBeginOverlap) == 0x000108, "Wrong size on PossessedObjectComponent_OnSphereComponentBeginOverlap");
+static_assert(offsetof(PossessedObjectComponent_OnSphereComponentBeginOverlap, OverlapComponent) == 0x000000, "Member 'PossessedObjectComponent_OnSphereComponentBeginOverlap::OverlapComponent' has a wrong offset!");
+static_assert(offsetof(PossessedObjectComponent_OnSphereComponentBeginOverlap, OtherActor) == 0x000008, "Member 'PossessedObjectComponent_OnSphereComponentBeginOverlap::OtherActor' has a wrong offset!");
+static_assert(offsetof(PossessedObjectComponent_OnSphereComponentBeginOverlap, OtherComp) == 0x000010, "Member 'PossessedObjectComponent_OnSphereComponentBeginOverlap::OtherComp' has a wrong offset!");
+static_assert(offsetof(PossessedObjectComponent_OnSphereComponentBeginOverlap, OtherBodyIndex) == 0x000018, "Member 'PossessedObjectComponent_OnSphereComponentBeginOverlap::OtherBodyIndex' has a wrong offset!");
+static_assert(offsetof(PossessedObjectComponent_OnSphereComponentBeginOverlap, bFromSweep) == 0x00001C, "Member 'PossessedObjectComponent_OnSphereComponentBeginOverlap::bFromSweep' has a wrong offset!");
+static_assert(offsetof(PossessedObjectComponent_OnSphereComponentBeginOverlap, SweepResult) == 0x000020, "Member 'PossessedObjectComponent_OnSphereComponentBeginOverlap::SweepResult' has a wrong offset!");
+
+// Function Stalker2.PossessedObjectComponent.OnSphereComponentHit
+// 0x0118 (0x0118 - 0x0000)
+struct PossessedObjectComponent_OnSphereComponentHit final
+{
+public:
+	class UPrimitiveComponent*                    HitComp;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    OtherComp;                                         // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                NormalImpulse;                                     // 0x0018(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FHitResult                             Hit;                                               // 0x0030(0x00E8)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(PossessedObjectComponent_OnSphereComponentHit) == 0x000008, "Wrong alignment on PossessedObjectComponent_OnSphereComponentHit");
+static_assert(sizeof(PossessedObjectComponent_OnSphereComponentHit) == 0x000118, "Wrong size on PossessedObjectComponent_OnSphereComponentHit");
+static_assert(offsetof(PossessedObjectComponent_OnSphereComponentHit, HitComp) == 0x000000, "Member 'PossessedObjectComponent_OnSphereComponentHit::HitComp' has a wrong offset!");
+static_assert(offsetof(PossessedObjectComponent_OnSphereComponentHit, OtherActor) == 0x000008, "Member 'PossessedObjectComponent_OnSphereComponentHit::OtherActor' has a wrong offset!");
+static_assert(offsetof(PossessedObjectComponent_OnSphereComponentHit, OtherComp) == 0x000010, "Member 'PossessedObjectComponent_OnSphereComponentHit::OtherComp' has a wrong offset!");
+static_assert(offsetof(PossessedObjectComponent_OnSphereComponentHit, NormalImpulse) == 0x000018, "Member 'PossessedObjectComponent_OnSphereComponentHit::NormalImpulse' has a wrong offset!");
+static_assert(offsetof(PossessedObjectComponent_OnSphereComponentHit, Hit) == 0x000030, "Member 'PossessedObjectComponent_OnSphereComponentHit::Hit' has a wrong offset!");
 
 // Function Stalker2.ImageWidget.SetBrushTextureInIconSettings
 // 0x0008 (0x0008 - 0x0000)
@@ -7107,39 +7196,6 @@ static_assert(sizeof(ItemAppearanceComponent_OnShotSoundStart) == 0x000010, "Wro
 static_assert(offsetof(ItemAppearanceComponent_OnShotSoundStart, CallbackType) == 0x000000, "Member 'ItemAppearanceComponent_OnShotSoundStart::CallbackType' has a wrong offset!");
 static_assert(offsetof(ItemAppearanceComponent_OnShotSoundStart, CallbackInfo) == 0x000008, "Member 'ItemAppearanceComponent_OnShotSoundStart::CallbackInfo' has a wrong offset!");
 
-// Function Stalker2.TelekineticShield.OnDeathParticleFinished
-// 0x0008 (0x0008 - 0x0000)
-struct TelekineticShield_OnDeathParticleFinished final
-{
-public:
-	class UNiagaraComponent*                      DeathVFXComponent;                                 // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(TelekineticShield_OnDeathParticleFinished) == 0x000008, "Wrong alignment on TelekineticShield_OnDeathParticleFinished");
-static_assert(sizeof(TelekineticShield_OnDeathParticleFinished) == 0x000008, "Wrong size on TelekineticShield_OnDeathParticleFinished");
-static_assert(offsetof(TelekineticShield_OnDeathParticleFinished, DeathVFXComponent) == 0x000000, "Member 'TelekineticShield_OnDeathParticleFinished::DeathVFXComponent' has a wrong offset!");
-
-// Function Stalker2.TelekineticShield.OnHitReceivedBP
-// 0x0150 (0x0150 - 0x0000)
-struct TelekineticShield_OnHitReceivedBP final
-{
-public:
-	struct FCommonHitArgs                         HitArgs;                                           // 0x0000(0x0150)(Parm, ContainsInstancedReference, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(TelekineticShield_OnHitReceivedBP) == 0x000008, "Wrong alignment on TelekineticShield_OnHitReceivedBP");
-static_assert(sizeof(TelekineticShield_OnHitReceivedBP) == 0x000150, "Wrong size on TelekineticShield_OnHitReceivedBP");
-static_assert(offsetof(TelekineticShield_OnHitReceivedBP, HitArgs) == 0x000000, "Member 'TelekineticShield_OnHitReceivedBP::HitArgs' has a wrong offset!");
-
-// Function Stalker2.TelekineticShield.GetOwnerActor
-// 0x0008 (0x0008 - 0x0000)
-struct TelekineticShield_GetOwnerActor final
-{
-public:
-	class AObj*                                   ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(TelekineticShield_GetOwnerActor) == 0x000008, "Wrong alignment on TelekineticShield_GetOwnerActor");
-static_assert(sizeof(TelekineticShield_GetOwnerActor) == 0x000008, "Wrong size on TelekineticShield_GetOwnerActor");
-static_assert(offsetof(TelekineticShield_GetOwnerActor, ReturnValue) == 0x000000, "Member 'TelekineticShield_GetOwnerActor::ReturnValue' has a wrong offset!");
-
 // Function Stalker2.ItemSelectorView.GetSlotsBP
 // 0x0010 (0x0010 - 0x0000)
 struct ItemSelectorView_GetSlotsBP final
@@ -7150,6 +7206,50 @@ public:
 static_assert(alignof(ItemSelectorView_GetSlotsBP) == 0x000008, "Wrong alignment on ItemSelectorView_GetSlotsBP");
 static_assert(sizeof(ItemSelectorView_GetSlotsBP) == 0x000010, "Wrong size on ItemSelectorView_GetSlotsBP");
 static_assert(offsetof(ItemSelectorView_GetSlotsBP, ReturnValue) == 0x000000, "Member 'ItemSelectorView_GetSlotsBP::ReturnValue' has a wrong offset!");
+
+// Function Stalker2.ItemSelectorWeaponSlot.GetHoveredWidgets
+// 0x0010 (0x0010 - 0x0000)
+struct ItemSelectorWeaponSlot_GetHoveredWidgets final
+{
+public:
+	TArray<class UUserWidget*>                    ReturnValue;                                       // 0x0000(0x0010)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(ItemSelectorWeaponSlot_GetHoveredWidgets) == 0x000008, "Wrong alignment on ItemSelectorWeaponSlot_GetHoveredWidgets");
+static_assert(sizeof(ItemSelectorWeaponSlot_GetHoveredWidgets) == 0x000010, "Wrong size on ItemSelectorWeaponSlot_GetHoveredWidgets");
+static_assert(offsetof(ItemSelectorWeaponSlot_GetHoveredWidgets, ReturnValue) == 0x000000, "Member 'ItemSelectorWeaponSlot_GetHoveredWidgets::ReturnValue' has a wrong offset!");
+
+// Function Stalker2.ItemSelectorWeaponSlot.IsAlternativeSlot
+// 0x0001 (0x0001 - 0x0000)
+struct ItemSelectorWeaponSlot_IsAlternativeSlot final
+{
+public:
+	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(ItemSelectorWeaponSlot_IsAlternativeSlot) == 0x000001, "Wrong alignment on ItemSelectorWeaponSlot_IsAlternativeSlot");
+static_assert(sizeof(ItemSelectorWeaponSlot_IsAlternativeSlot) == 0x000001, "Wrong size on ItemSelectorWeaponSlot_IsAlternativeSlot");
+static_assert(offsetof(ItemSelectorWeaponSlot_IsAlternativeSlot, ReturnValue) == 0x000000, "Member 'ItemSelectorWeaponSlot_IsAlternativeSlot::ReturnValue' has a wrong offset!");
+
+// Function Stalker2.ItemSelectorWeaponSlot.IsGrenadeSlot
+// 0x0001 (0x0001 - 0x0000)
+struct ItemSelectorWeaponSlot_IsGrenadeSlot final
+{
+public:
+	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(ItemSelectorWeaponSlot_IsGrenadeSlot) == 0x000001, "Wrong alignment on ItemSelectorWeaponSlot_IsGrenadeSlot");
+static_assert(sizeof(ItemSelectorWeaponSlot_IsGrenadeSlot) == 0x000001, "Wrong size on ItemSelectorWeaponSlot_IsGrenadeSlot");
+static_assert(offsetof(ItemSelectorWeaponSlot_IsGrenadeSlot, ReturnValue) == 0x000000, "Member 'ItemSelectorWeaponSlot_IsGrenadeSlot::ReturnValue' has a wrong offset!");
+
+// Function Stalker2.ItemSelectorWeaponSlot.IsWeaponSlot
+// 0x0001 (0x0001 - 0x0000)
+struct ItemSelectorWeaponSlot_IsWeaponSlot final
+{
+public:
+	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(ItemSelectorWeaponSlot_IsWeaponSlot) == 0x000001, "Wrong alignment on ItemSelectorWeaponSlot_IsWeaponSlot");
+static_assert(sizeof(ItemSelectorWeaponSlot_IsWeaponSlot) == 0x000001, "Wrong size on ItemSelectorWeaponSlot_IsWeaponSlot");
+static_assert(offsetof(ItemSelectorWeaponSlot_IsWeaponSlot, ReturnValue) == 0x000000, "Member 'ItemSelectorWeaponSlot_IsWeaponSlot::ReturnValue' has a wrong offset!");
 
 // Function Stalker2.ItemUsageComponent.AddAffectedComponent
 // 0x0008 (0x0008 - 0x0000)
@@ -7411,27 +7511,45 @@ static_assert(alignof(LocalizedImage_ForceLoadImage) == 0x000008, "Wrong alignme
 static_assert(sizeof(LocalizedImage_ForceLoadImage) == 0x000030, "Wrong size on LocalizedImage_ForceLoadImage");
 static_assert(offsetof(LocalizedImage_ForceLoadImage, SoftImage) == 0x000000, "Member 'LocalizedImage_ForceLoadImage::SoftImage' has a wrong offset!");
 
-// Function Stalker2.StackSplittingWidget.OnSplitValueChanged
-// 0x0004 (0x0004 - 0x0000)
-struct StackSplittingWidget_OnSplitValueChanged final
+// Function Stalker2.OldSchoolTrigger.OnTriggerBeginOverlap
+// 0x0108 (0x0108 - 0x0000)
+struct OldSchoolTrigger_OnTriggerBeginOverlap final
 {
 public:
-	float                                         Value;                                             // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	const class UPrimitiveComponent*              Comp;                                              // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	const class AActor*                           OtherActor;                                        // 0x0008(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	const class UPrimitiveComponent*              OtherComp;                                         // 0x0010(0x0008)(ConstParm, Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bFromSweep;                                        // 0x001C(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1D[0x3];                                       // 0x001D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FHitResult                             SweepResult;                                       // 0x0020(0x00E8)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(StackSplittingWidget_OnSplitValueChanged) == 0x000004, "Wrong alignment on StackSplittingWidget_OnSplitValueChanged");
-static_assert(sizeof(StackSplittingWidget_OnSplitValueChanged) == 0x000004, "Wrong size on StackSplittingWidget_OnSplitValueChanged");
-static_assert(offsetof(StackSplittingWidget_OnSplitValueChanged, Value) == 0x000000, "Member 'StackSplittingWidget_OnSplitValueChanged::Value' has a wrong offset!");
+static_assert(alignof(OldSchoolTrigger_OnTriggerBeginOverlap) == 0x000008, "Wrong alignment on OldSchoolTrigger_OnTriggerBeginOverlap");
+static_assert(sizeof(OldSchoolTrigger_OnTriggerBeginOverlap) == 0x000108, "Wrong size on OldSchoolTrigger_OnTriggerBeginOverlap");
+static_assert(offsetof(OldSchoolTrigger_OnTriggerBeginOverlap, Comp) == 0x000000, "Member 'OldSchoolTrigger_OnTriggerBeginOverlap::Comp' has a wrong offset!");
+static_assert(offsetof(OldSchoolTrigger_OnTriggerBeginOverlap, OtherActor) == 0x000008, "Member 'OldSchoolTrigger_OnTriggerBeginOverlap::OtherActor' has a wrong offset!");
+static_assert(offsetof(OldSchoolTrigger_OnTriggerBeginOverlap, OtherComp) == 0x000010, "Member 'OldSchoolTrigger_OnTriggerBeginOverlap::OtherComp' has a wrong offset!");
+static_assert(offsetof(OldSchoolTrigger_OnTriggerBeginOverlap, OtherBodyIndex) == 0x000018, "Member 'OldSchoolTrigger_OnTriggerBeginOverlap::OtherBodyIndex' has a wrong offset!");
+static_assert(offsetof(OldSchoolTrigger_OnTriggerBeginOverlap, bFromSweep) == 0x00001C, "Member 'OldSchoolTrigger_OnTriggerBeginOverlap::bFromSweep' has a wrong offset!");
+static_assert(offsetof(OldSchoolTrigger_OnTriggerBeginOverlap, SweepResult) == 0x000020, "Member 'OldSchoolTrigger_OnTriggerBeginOverlap::SweepResult' has a wrong offset!");
 
-// Function Stalker2.PossessedObjectEventData.GetPossessedObject
-// 0x0008 (0x0008 - 0x0000)
-struct PossessedObjectEventData_GetPossessedObject final
+// Function Stalker2.OldSchoolTrigger.OnTriggerEndOverlap
+// 0x0020 (0x0020 - 0x0000)
+struct OldSchoolTrigger_OnTriggerEndOverlap final
 {
 public:
-	class AActor*                                 ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	const class UPrimitiveComponent*              OverlappedComponent;                               // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	const class AActor*                           OtherActor;                                        // 0x0008(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	const class UPrimitiveComponent*              OtherComp;                                         // 0x0010(0x0008)(ConstParm, Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-static_assert(alignof(PossessedObjectEventData_GetPossessedObject) == 0x000008, "Wrong alignment on PossessedObjectEventData_GetPossessedObject");
-static_assert(sizeof(PossessedObjectEventData_GetPossessedObject) == 0x000008, "Wrong size on PossessedObjectEventData_GetPossessedObject");
-static_assert(offsetof(PossessedObjectEventData_GetPossessedObject, ReturnValue) == 0x000000, "Member 'PossessedObjectEventData_GetPossessedObject::ReturnValue' has a wrong offset!");
+static_assert(alignof(OldSchoolTrigger_OnTriggerEndOverlap) == 0x000008, "Wrong alignment on OldSchoolTrigger_OnTriggerEndOverlap");
+static_assert(sizeof(OldSchoolTrigger_OnTriggerEndOverlap) == 0x000020, "Wrong size on OldSchoolTrigger_OnTriggerEndOverlap");
+static_assert(offsetof(OldSchoolTrigger_OnTriggerEndOverlap, OverlappedComponent) == 0x000000, "Member 'OldSchoolTrigger_OnTriggerEndOverlap::OverlappedComponent' has a wrong offset!");
+static_assert(offsetof(OldSchoolTrigger_OnTriggerEndOverlap, OtherActor) == 0x000008, "Member 'OldSchoolTrigger_OnTriggerEndOverlap::OtherActor' has a wrong offset!");
+static_assert(offsetof(OldSchoolTrigger_OnTriggerEndOverlap, OtherComp) == 0x000010, "Member 'OldSchoolTrigger_OnTriggerEndOverlap::OtherComp' has a wrong offset!");
+static_assert(offsetof(OldSchoolTrigger_OnTriggerEndOverlap, OtherBodyIndex) == 0x000018, "Member 'OldSchoolTrigger_OnTriggerEndOverlap::OtherBodyIndex' has a wrong offset!");
 
 // Function Stalker2.MenuMainBackgroundVideo.PlayVideo
 // 0x0008 (0x0008 - 0x0000)
@@ -7454,6 +7572,28 @@ public:
 static_assert(alignof(MenuNavigationPanelBase_OnButtonPressed) == 0x000008, "Wrong alignment on MenuNavigationPanelBase_OnButtonPressed");
 static_assert(sizeof(MenuNavigationPanelBase_OnButtonPressed) == 0x000008, "Wrong size on MenuNavigationPanelBase_OnButtonPressed");
 static_assert(offsetof(MenuNavigationPanelBase_OnButtonPressed, PressedButton) == 0x000000, "Member 'MenuNavigationPanelBase_OnButtonPressed::PressedButton' has a wrong offset!");
+
+// Function Stalker2.Projectile.OnOverlap
+// 0x00E8 (0x00E8 - 0x0000)
+struct Projectile_OnOverlap final
+{
+public:
+	struct FHitResult                             Hit;                                               // 0x0000(0x00E8)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(Projectile_OnOverlap) == 0x000008, "Wrong alignment on Projectile_OnOverlap");
+static_assert(sizeof(Projectile_OnOverlap) == 0x0000E8, "Wrong size on Projectile_OnOverlap");
+static_assert(offsetof(Projectile_OnOverlap, Hit) == 0x000000, "Member 'Projectile_OnOverlap::Hit' has a wrong offset!");
+
+// Function Stalker2.PossessedObjectEventData.GetPossessedObject
+// 0x0008 (0x0008 - 0x0000)
+struct PossessedObjectEventData_GetPossessedObject final
+{
+public:
+	class AActor*                                 ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(PossessedObjectEventData_GetPossessedObject) == 0x000008, "Wrong alignment on PossessedObjectEventData_GetPossessedObject");
+static_assert(sizeof(PossessedObjectEventData_GetPossessedObject) == 0x000008, "Wrong size on PossessedObjectEventData_GetPossessedObject");
+static_assert(offsetof(PossessedObjectEventData_GetPossessedObject, ReturnValue) == 0x000000, "Member 'PossessedObjectEventData_GetPossessedObject::ReturnValue' has a wrong offset!");
 
 // Function Stalker2.MistAnomaly.OnAnomalyBeginOverlap
 // 0x0108 (0x0108 - 0x0000)
@@ -7539,20 +7679,6 @@ static_assert(alignof(ModifiableRichText_GetNextLine) == 0x000008, "Wrong alignm
 static_assert(sizeof(ModifiableRichText_GetNextLine) == 0x000018, "Wrong size on ModifiableRichText_GetNextLine");
 static_assert(offsetof(ModifiableRichText_GetNextLine, ReturnValue) == 0x000000, "Member 'ModifiableRichText_GetNextLine::ReturnValue' has a wrong offset!");
 
-// Function Stalker2.PlaySoundQuestNodeListener.OnSoundFinished
-// 0x0010 (0x0010 - 0x0000)
-struct PlaySoundQuestNodeListener_OnSoundFinished final
-{
-public:
-	EAkCallbackType                               CallbackType;                                      // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UAkCallbackInfo*                        CallbackInfo;                                      // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(PlaySoundQuestNodeListener_OnSoundFinished) == 0x000008, "Wrong alignment on PlaySoundQuestNodeListener_OnSoundFinished");
-static_assert(sizeof(PlaySoundQuestNodeListener_OnSoundFinished) == 0x000010, "Wrong size on PlaySoundQuestNodeListener_OnSoundFinished");
-static_assert(offsetof(PlaySoundQuestNodeListener_OnSoundFinished, CallbackType) == 0x000000, "Member 'PlaySoundQuestNodeListener_OnSoundFinished::CallbackType' has a wrong offset!");
-static_assert(offsetof(PlaySoundQuestNodeListener_OnSoundFinished, CallbackInfo) == 0x000008, "Member 'PlaySoundQuestNodeListener_OnSoundFinished::CallbackInfo' has a wrong offset!");
-
 // Function Stalker2.ModioEmailAuthPopup.OnEditableTextBoxTextChanged
 // 0x0018 (0x0018 - 0x0000)
 struct ModioEmailAuthPopup_OnEditableTextBoxTextChanged final
@@ -7574,46 +7700,6 @@ public:
 static_assert(alignof(ModioEmailAuthPopup_GetEmail) == 0x000008, "Wrong alignment on ModioEmailAuthPopup_GetEmail");
 static_assert(sizeof(ModioEmailAuthPopup_GetEmail) == 0x000010, "Wrong size on ModioEmailAuthPopup_GetEmail");
 static_assert(offsetof(ModioEmailAuthPopup_GetEmail, ReturnValue) == 0x000000, "Member 'ModioEmailAuthPopup_GetEmail::ReturnValue' has a wrong offset!");
-
-// Function Stalker2.OldSchoolTrigger.OnTriggerBeginOverlap
-// 0x0108 (0x0108 - 0x0000)
-struct OldSchoolTrigger_OnTriggerBeginOverlap final
-{
-public:
-	const class UPrimitiveComponent*              Comp;                                              // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	const class AActor*                           OtherActor;                                        // 0x0008(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	const class UPrimitiveComponent*              OtherComp;                                         // 0x0010(0x0008)(ConstParm, Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bFromSweep;                                        // 0x001C(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1D[0x3];                                       // 0x001D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FHitResult                             SweepResult;                                       // 0x0020(0x00E8)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(OldSchoolTrigger_OnTriggerBeginOverlap) == 0x000008, "Wrong alignment on OldSchoolTrigger_OnTriggerBeginOverlap");
-static_assert(sizeof(OldSchoolTrigger_OnTriggerBeginOverlap) == 0x000108, "Wrong size on OldSchoolTrigger_OnTriggerBeginOverlap");
-static_assert(offsetof(OldSchoolTrigger_OnTriggerBeginOverlap, Comp) == 0x000000, "Member 'OldSchoolTrigger_OnTriggerBeginOverlap::Comp' has a wrong offset!");
-static_assert(offsetof(OldSchoolTrigger_OnTriggerBeginOverlap, OtherActor) == 0x000008, "Member 'OldSchoolTrigger_OnTriggerBeginOverlap::OtherActor' has a wrong offset!");
-static_assert(offsetof(OldSchoolTrigger_OnTriggerBeginOverlap, OtherComp) == 0x000010, "Member 'OldSchoolTrigger_OnTriggerBeginOverlap::OtherComp' has a wrong offset!");
-static_assert(offsetof(OldSchoolTrigger_OnTriggerBeginOverlap, OtherBodyIndex) == 0x000018, "Member 'OldSchoolTrigger_OnTriggerBeginOverlap::OtherBodyIndex' has a wrong offset!");
-static_assert(offsetof(OldSchoolTrigger_OnTriggerBeginOverlap, bFromSweep) == 0x00001C, "Member 'OldSchoolTrigger_OnTriggerBeginOverlap::bFromSweep' has a wrong offset!");
-static_assert(offsetof(OldSchoolTrigger_OnTriggerBeginOverlap, SweepResult) == 0x000020, "Member 'OldSchoolTrigger_OnTriggerBeginOverlap::SweepResult' has a wrong offset!");
-
-// Function Stalker2.OldSchoolTrigger.OnTriggerEndOverlap
-// 0x0020 (0x0020 - 0x0000)
-struct OldSchoolTrigger_OnTriggerEndOverlap final
-{
-public:
-	const class UPrimitiveComponent*              OverlappedComponent;                               // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	const class AActor*                           OtherActor;                                        // 0x0008(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	const class UPrimitiveComponent*              OtherComp;                                         // 0x0010(0x0008)(ConstParm, Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(OldSchoolTrigger_OnTriggerEndOverlap) == 0x000008, "Wrong alignment on OldSchoolTrigger_OnTriggerEndOverlap");
-static_assert(sizeof(OldSchoolTrigger_OnTriggerEndOverlap) == 0x000020, "Wrong size on OldSchoolTrigger_OnTriggerEndOverlap");
-static_assert(offsetof(OldSchoolTrigger_OnTriggerEndOverlap, OverlappedComponent) == 0x000000, "Member 'OldSchoolTrigger_OnTriggerEndOverlap::OverlappedComponent' has a wrong offset!");
-static_assert(offsetof(OldSchoolTrigger_OnTriggerEndOverlap, OtherActor) == 0x000008, "Member 'OldSchoolTrigger_OnTriggerEndOverlap::OtherActor' has a wrong offset!");
-static_assert(offsetof(OldSchoolTrigger_OnTriggerEndOverlap, OtherComp) == 0x000010, "Member 'OldSchoolTrigger_OnTriggerEndOverlap::OtherComp' has a wrong offset!");
-static_assert(offsetof(OldSchoolTrigger_OnTriggerEndOverlap, OtherBodyIndex) == 0x000018, "Member 'OldSchoolTrigger_OnTriggerEndOverlap::OtherBodyIndex' has a wrong offset!");
 
 // Function Stalker2.ModioFilterNavigationPanel.OnButtonClicked
 // 0x0004 (0x0004 - 0x0000)
@@ -7651,61 +7737,6 @@ static_assert(alignof(ModioSearchField_GetSearchKeywords) == 0x000008, "Wrong al
 static_assert(sizeof(ModioSearchField_GetSearchKeywords) == 0x000010, "Wrong size on ModioSearchField_GetSearchKeywords");
 static_assert(offsetof(ModioSearchField_GetSearchKeywords, ReturnValue) == 0x000000, "Member 'ModioSearchField_GetSearchKeywords::ReturnValue' has a wrong offset!");
 
-// Function Stalker2.PsyPhantomComponent.OnBeginOverlap
-// 0x0108 (0x0108 - 0x0000)
-struct PsyPhantomComponent_OnBeginOverlap final
-{
-public:
-	class UPrimitiveComponent*                    OverlappedComponent;                               // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UPrimitiveComponent*                    OtherComp;                                         // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bFromSweep;                                        // 0x001C(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1D[0x3];                                       // 0x001D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FHitResult                             SweepResult;                                       // 0x0020(0x00E8)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(PsyPhantomComponent_OnBeginOverlap) == 0x000008, "Wrong alignment on PsyPhantomComponent_OnBeginOverlap");
-static_assert(sizeof(PsyPhantomComponent_OnBeginOverlap) == 0x000108, "Wrong size on PsyPhantomComponent_OnBeginOverlap");
-static_assert(offsetof(PsyPhantomComponent_OnBeginOverlap, OverlappedComponent) == 0x000000, "Member 'PsyPhantomComponent_OnBeginOverlap::OverlappedComponent' has a wrong offset!");
-static_assert(offsetof(PsyPhantomComponent_OnBeginOverlap, OtherActor) == 0x000008, "Member 'PsyPhantomComponent_OnBeginOverlap::OtherActor' has a wrong offset!");
-static_assert(offsetof(PsyPhantomComponent_OnBeginOverlap, OtherComp) == 0x000010, "Member 'PsyPhantomComponent_OnBeginOverlap::OtherComp' has a wrong offset!");
-static_assert(offsetof(PsyPhantomComponent_OnBeginOverlap, OtherBodyIndex) == 0x000018, "Member 'PsyPhantomComponent_OnBeginOverlap::OtherBodyIndex' has a wrong offset!");
-static_assert(offsetof(PsyPhantomComponent_OnBeginOverlap, bFromSweep) == 0x00001C, "Member 'PsyPhantomComponent_OnBeginOverlap::bFromSweep' has a wrong offset!");
-static_assert(offsetof(PsyPhantomComponent_OnBeginOverlap, SweepResult) == 0x000020, "Member 'PsyPhantomComponent_OnBeginOverlap::SweepResult' has a wrong offset!");
-
-// Function Stalker2.SaveScreenSubView.OnNavigationButtonPressed
-// 0x0004 (0x0004 - 0x0000)
-struct SaveScreenSubView_OnNavigationButtonPressed final
-{
-public:
-	int32                                         InButtonIndex;                                     // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(SaveScreenSubView_OnNavigationButtonPressed) == 0x000004, "Wrong alignment on SaveScreenSubView_OnNavigationButtonPressed");
-static_assert(sizeof(SaveScreenSubView_OnNavigationButtonPressed) == 0x000004, "Wrong size on SaveScreenSubView_OnNavigationButtonPressed");
-static_assert(offsetof(SaveScreenSubView_OnNavigationButtonPressed, InButtonIndex) == 0x000000, "Member 'SaveScreenSubView_OnNavigationButtonPressed::InButtonIndex' has a wrong offset!");
-
-// Function Stalker2.NavigationPanel.ClickMenuButton
-// 0x0008 (0x0008 - 0x0000)
-struct NavigationPanel_ClickMenuButton final
-{
-public:
-	class FName                                   InButtonId;                                        // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(NavigationPanel_ClickMenuButton) == 0x000004, "Wrong alignment on NavigationPanel_ClickMenuButton");
-static_assert(sizeof(NavigationPanel_ClickMenuButton) == 0x000008, "Wrong size on NavigationPanel_ClickMenuButton");
-static_assert(offsetof(NavigationPanel_ClickMenuButton, InButtonId) == 0x000000, "Member 'NavigationPanel_ClickMenuButton::InButtonId' has a wrong offset!");
-
-// Function Stalker2.NavigationPanel.InitClickTransition
-// 0x0008 (0x0008 - 0x0000)
-struct NavigationPanel_InitClickTransition final
-{
-public:
-	class FName                                   ButtonId;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(NavigationPanel_InitClickTransition) == 0x000004, "Wrong alignment on NavigationPanel_InitClickTransition");
-static_assert(sizeof(NavigationPanel_InitClickTransition) == 0x000008, "Wrong size on NavigationPanel_InitClickTransition");
-static_assert(offsetof(NavigationPanel_InitClickTransition, ButtonId) == 0x000000, "Member 'NavigationPanel_InitClickTransition::ButtonId' has a wrong offset!");
-
 // Function Stalker2.PC.SetInteractionTarget
 // 0x0008 (0x0008 - 0x0000)
 struct PC_SetInteractionTarget final
@@ -7739,56 +7770,60 @@ static_assert(alignof(PC_GetInteractionTarget) == 0x000008, "Wrong alignment on 
 static_assert(sizeof(PC_GetInteractionTarget) == 0x000008, "Wrong size on PC_GetInteractionTarget");
 static_assert(offsetof(PC_GetInteractionTarget, ReturnValue) == 0x000000, "Member 'PC_GetInteractionTarget::ReturnValue' has a wrong offset!");
 
-// Function Stalker2.Projectile.OnOverlap
-// 0x00E8 (0x00E8 - 0x0000)
-struct Projectile_OnOverlap final
+// Function Stalker2.PDAQuestDetails.StageClick
+// 0x0008 (0x0008 - 0x0000)
+struct PDAQuestDetails_StageClick final
 {
 public:
-	struct FHitResult                             Hit;                                               // 0x0000(0x00E8)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+	class UPDAQuestTaskSlot*                      InSlot;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(Projectile_OnOverlap) == 0x000008, "Wrong alignment on Projectile_OnOverlap");
-static_assert(sizeof(Projectile_OnOverlap) == 0x0000E8, "Wrong size on Projectile_OnOverlap");
-static_assert(offsetof(Projectile_OnOverlap, Hit) == 0x000000, "Member 'Projectile_OnOverlap::Hit' has a wrong offset!");
+static_assert(alignof(PDAQuestDetails_StageClick) == 0x000008, "Wrong alignment on PDAQuestDetails_StageClick");
+static_assert(sizeof(PDAQuestDetails_StageClick) == 0x000008, "Wrong size on PDAQuestDetails_StageClick");
+static_assert(offsetof(PDAQuestDetails_StageClick, InSlot) == 0x000000, "Member 'PDAQuestDetails_StageClick::InSlot' has a wrong offset!");
 
-// Function Stalker2.PsyVolumeComponent.OnBeginOverlap
-// 0x0108 (0x0108 - 0x0000)
-struct PsyVolumeComponent_OnBeginOverlap final
+// Function Stalker2.PDAQuestDetails.UpdateDescriptionHover
+// 0x0001 (0x0001 - 0x0000)
+struct PDAQuestDetails_UpdateDescriptionHover final
 {
 public:
-	class UPrimitiveComponent*                    OverlappedComponent;                               // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UPrimitiveComponent*                    OtherComp;                                         // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bFromSweep;                                        // 0x001C(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1D[0x3];                                       // 0x001D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FHitResult                             SweepResult;                                       // 0x0020(0x00E8)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+	bool                                          bIsHovered;                                        // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(PsyVolumeComponent_OnBeginOverlap) == 0x000008, "Wrong alignment on PsyVolumeComponent_OnBeginOverlap");
-static_assert(sizeof(PsyVolumeComponent_OnBeginOverlap) == 0x000108, "Wrong size on PsyVolumeComponent_OnBeginOverlap");
-static_assert(offsetof(PsyVolumeComponent_OnBeginOverlap, OverlappedComponent) == 0x000000, "Member 'PsyVolumeComponent_OnBeginOverlap::OverlappedComponent' has a wrong offset!");
-static_assert(offsetof(PsyVolumeComponent_OnBeginOverlap, OtherActor) == 0x000008, "Member 'PsyVolumeComponent_OnBeginOverlap::OtherActor' has a wrong offset!");
-static_assert(offsetof(PsyVolumeComponent_OnBeginOverlap, OtherComp) == 0x000010, "Member 'PsyVolumeComponent_OnBeginOverlap::OtherComp' has a wrong offset!");
-static_assert(offsetof(PsyVolumeComponent_OnBeginOverlap, OtherBodyIndex) == 0x000018, "Member 'PsyVolumeComponent_OnBeginOverlap::OtherBodyIndex' has a wrong offset!");
-static_assert(offsetof(PsyVolumeComponent_OnBeginOverlap, bFromSweep) == 0x00001C, "Member 'PsyVolumeComponent_OnBeginOverlap::bFromSweep' has a wrong offset!");
-static_assert(offsetof(PsyVolumeComponent_OnBeginOverlap, SweepResult) == 0x000020, "Member 'PsyVolumeComponent_OnBeginOverlap::SweepResult' has a wrong offset!");
+static_assert(alignof(PDAQuestDetails_UpdateDescriptionHover) == 0x000001, "Wrong alignment on PDAQuestDetails_UpdateDescriptionHover");
+static_assert(sizeof(PDAQuestDetails_UpdateDescriptionHover) == 0x000001, "Wrong size on PDAQuestDetails_UpdateDescriptionHover");
+static_assert(offsetof(PDAQuestDetails_UpdateDescriptionHover, bIsHovered) == 0x000000, "Member 'PDAQuestDetails_UpdateDescriptionHover::bIsHovered' has a wrong offset!");
 
-// Function Stalker2.PsyVolumeComponent.OnEndOverlap
-// 0x0020 (0x0020 - 0x0000)
-struct PsyVolumeComponent_OnEndOverlap final
+// Function Stalker2.PDAQuestDetails.UpdateStageHover
+// 0x0001 (0x0001 - 0x0000)
+struct PDAQuestDetails_UpdateStageHover final
 {
 public:
-	class UPrimitiveComponent*                    OverlappedComponent;                               // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UPrimitiveComponent*                    OtherComp;                                         // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	bool                                          bIsStageHovered;                                   // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(PsyVolumeComponent_OnEndOverlap) == 0x000008, "Wrong alignment on PsyVolumeComponent_OnEndOverlap");
-static_assert(sizeof(PsyVolumeComponent_OnEndOverlap) == 0x000020, "Wrong size on PsyVolumeComponent_OnEndOverlap");
-static_assert(offsetof(PsyVolumeComponent_OnEndOverlap, OverlappedComponent) == 0x000000, "Member 'PsyVolumeComponent_OnEndOverlap::OverlappedComponent' has a wrong offset!");
-static_assert(offsetof(PsyVolumeComponent_OnEndOverlap, OtherActor) == 0x000008, "Member 'PsyVolumeComponent_OnEndOverlap::OtherActor' has a wrong offset!");
-static_assert(offsetof(PsyVolumeComponent_OnEndOverlap, OtherComp) == 0x000010, "Member 'PsyVolumeComponent_OnEndOverlap::OtherComp' has a wrong offset!");
-static_assert(offsetof(PsyVolumeComponent_OnEndOverlap, OtherBodyIndex) == 0x000018, "Member 'PsyVolumeComponent_OnEndOverlap::OtherBodyIndex' has a wrong offset!");
+static_assert(alignof(PDAQuestDetails_UpdateStageHover) == 0x000001, "Wrong alignment on PDAQuestDetails_UpdateStageHover");
+static_assert(sizeof(PDAQuestDetails_UpdateStageHover) == 0x000001, "Wrong size on PDAQuestDetails_UpdateStageHover");
+static_assert(offsetof(PDAQuestDetails_UpdateStageHover, bIsStageHovered) == 0x000000, "Member 'PDAQuestDetails_UpdateStageHover::bIsStageHovered' has a wrong offset!");
+
+// Function Stalker2.PDAQuestPanel.ChangeSelectedQuestSlot
+// 0x0004 (0x0004 - 0x0000)
+struct PDAQuestPanel_ChangeSelectedQuestSlot final
+{
+public:
+	int32                                         JournalQuestIndex;                                 // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(PDAQuestPanel_ChangeSelectedQuestSlot) == 0x000004, "Wrong alignment on PDAQuestPanel_ChangeSelectedQuestSlot");
+static_assert(sizeof(PDAQuestPanel_ChangeSelectedQuestSlot) == 0x000004, "Wrong size on PDAQuestPanel_ChangeSelectedQuestSlot");
+static_assert(offsetof(PDAQuestPanel_ChangeSelectedQuestSlot, JournalQuestIndex) == 0x000000, "Member 'PDAQuestPanel_ChangeSelectedQuestSlot::JournalQuestIndex' has a wrong offset!");
+
+// Function Stalker2.PlayVideoWidget.GetVideoDuration
+// 0x0004 (0x0004 - 0x0000)
+struct PlayVideoWidget_GetVideoDuration final
+{
+public:
+	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(PlayVideoWidget_GetVideoDuration) == 0x000004, "Wrong alignment on PlayVideoWidget_GetVideoDuration");
+static_assert(sizeof(PlayVideoWidget_GetVideoDuration) == 0x000004, "Wrong size on PlayVideoWidget_GetVideoDuration");
+static_assert(offsetof(PlayVideoWidget_GetVideoDuration, ReturnValue) == 0x000000, "Member 'PlayVideoWidget_GetVideoDuration::ReturnValue' has a wrong offset!");
 
 // Function Stalker2.RightClickMenuWidget.OnItemClicked
 // 0x0040 (0x0040 - 0x0000)
@@ -7815,19 +7850,16 @@ static_assert(sizeof(RightClickMenuWidget_OnItemHover) == 0x000048, "Wrong size 
 static_assert(offsetof(RightClickMenuWidget_OnItemHover, Data) == 0x000000, "Member 'RightClickMenuWidget_OnItemHover::Data' has a wrong offset!");
 static_assert(offsetof(RightClickMenuWidget_OnItemHover, bInHover) == 0x000040, "Member 'RightClickMenuWidget_OnItemHover::bInHover' has a wrong offset!");
 
-// Function Stalker2.SettingsElementPercent.SetValue
+// Function Stalker2.ShootingWeaponComponent.ShootWithOwnerOverride
 // 0x0008 (0x0008 - 0x0000)
-struct SettingsElementPercent_SetValue final
+struct ShootingWeaponComponent_ShootWithOwnerOverride final
 {
 public:
-	float                                         InValue;                                           // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bForce;                                            // 0x0004(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_5[0x3];                                        // 0x0005(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class UObject*                                OwnerOverride;                                     // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(SettingsElementPercent_SetValue) == 0x000004, "Wrong alignment on SettingsElementPercent_SetValue");
-static_assert(sizeof(SettingsElementPercent_SetValue) == 0x000008, "Wrong size on SettingsElementPercent_SetValue");
-static_assert(offsetof(SettingsElementPercent_SetValue, InValue) == 0x000000, "Member 'SettingsElementPercent_SetValue::InValue' has a wrong offset!");
-static_assert(offsetof(SettingsElementPercent_SetValue, bForce) == 0x000004, "Member 'SettingsElementPercent_SetValue::bForce' has a wrong offset!");
+static_assert(alignof(ShootingWeaponComponent_ShootWithOwnerOverride) == 0x000008, "Wrong alignment on ShootingWeaponComponent_ShootWithOwnerOverride");
+static_assert(sizeof(ShootingWeaponComponent_ShootWithOwnerOverride) == 0x000008, "Wrong size on ShootingWeaponComponent_ShootWithOwnerOverride");
+static_assert(offsetof(ShootingWeaponComponent_ShootWithOwnerOverride, OwnerOverride) == 0x000000, "Member 'ShootingWeaponComponent_ShootWithOwnerOverride::OwnerOverride' has a wrong offset!");
 
 // Function Stalker2.SystemNotificationWidget.OnSystemNotificationActionCompleted
 // 0x0078 (0x0078 - 0x0000)
@@ -7839,6 +7871,39 @@ public:
 static_assert(alignof(SystemNotificationWidget_OnSystemNotificationActionCompleted) == 0x000008, "Wrong alignment on SystemNotificationWidget_OnSystemNotificationActionCompleted");
 static_assert(sizeof(SystemNotificationWidget_OnSystemNotificationActionCompleted) == 0x000078, "Wrong size on SystemNotificationWidget_OnSystemNotificationActionCompleted");
 static_assert(offsetof(SystemNotificationWidget_OnSystemNotificationActionCompleted, Model) == 0x000000, "Member 'SystemNotificationWidget_OnSystemNotificationActionCompleted::Model' has a wrong offset!");
+
+// Function Stalker2.TelekineticShield.OnDeathParticleFinished
+// 0x0008 (0x0008 - 0x0000)
+struct TelekineticShield_OnDeathParticleFinished final
+{
+public:
+	class UNiagaraComponent*                      DeathVFXComponent;                                 // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(TelekineticShield_OnDeathParticleFinished) == 0x000008, "Wrong alignment on TelekineticShield_OnDeathParticleFinished");
+static_assert(sizeof(TelekineticShield_OnDeathParticleFinished) == 0x000008, "Wrong size on TelekineticShield_OnDeathParticleFinished");
+static_assert(offsetof(TelekineticShield_OnDeathParticleFinished, DeathVFXComponent) == 0x000000, "Member 'TelekineticShield_OnDeathParticleFinished::DeathVFXComponent' has a wrong offset!");
+
+// Function Stalker2.TelekineticShield.OnHitReceivedBP
+// 0x0150 (0x0150 - 0x0000)
+struct TelekineticShield_OnHitReceivedBP final
+{
+public:
+	struct FCommonHitArgs                         HitArgs;                                           // 0x0000(0x0150)(Parm, ContainsInstancedReference, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(TelekineticShield_OnHitReceivedBP) == 0x000008, "Wrong alignment on TelekineticShield_OnHitReceivedBP");
+static_assert(sizeof(TelekineticShield_OnHitReceivedBP) == 0x000150, "Wrong size on TelekineticShield_OnHitReceivedBP");
+static_assert(offsetof(TelekineticShield_OnHitReceivedBP, HitArgs) == 0x000000, "Member 'TelekineticShield_OnHitReceivedBP::HitArgs' has a wrong offset!");
+
+// Function Stalker2.TelekineticShield.GetOwnerActor
+// 0x0008 (0x0008 - 0x0000)
+struct TelekineticShield_GetOwnerActor final
+{
+public:
+	class AObj*                                   ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(TelekineticShield_GetOwnerActor) == 0x000008, "Wrong alignment on TelekineticShield_GetOwnerActor");
+static_assert(sizeof(TelekineticShield_GetOwnerActor) == 0x000008, "Wrong size on TelekineticShield_GetOwnerActor");
+static_assert(offsetof(TelekineticShield_GetOwnerActor, ReturnValue) == 0x000000, "Member 'TelekineticShield_GetOwnerActor::ReturnValue' has a wrong offset!");
 
 // Function Stalker2.TextWidget.GetText
 // 0x0018 (0x0018 - 0x0000)
@@ -8055,6 +8120,67 @@ static_assert(alignof(UpgradePage_HandleConfirmPopupBindings) == 0x000001, "Wron
 static_assert(sizeof(UpgradePage_HandleConfirmPopupBindings) == 0x000001, "Wrong size on UpgradePage_HandleConfirmPopupBindings");
 static_assert(offsetof(UpgradePage_HandleConfirmPopupBindings, InBind) == 0x000000, "Member 'UpgradePage_HandleConfirmPopupBindings::InBind' has a wrong offset!");
 
+// DelegateFunction Stalker2.UpgradeSection.OnAnimationProgress__DelegateSignature
+// 0x0008 (0x0008 - 0x0000)
+struct UpgradeSection_OnAnimationProgress__DelegateSignature final
+{
+public:
+	float                                         Alpha;                                             // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bShowing;                                          // 0x0004(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_5[0x3];                                        // 0x0005(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(UpgradeSection_OnAnimationProgress__DelegateSignature) == 0x000004, "Wrong alignment on UpgradeSection_OnAnimationProgress__DelegateSignature");
+static_assert(sizeof(UpgradeSection_OnAnimationProgress__DelegateSignature) == 0x000008, "Wrong size on UpgradeSection_OnAnimationProgress__DelegateSignature");
+static_assert(offsetof(UpgradeSection_OnAnimationProgress__DelegateSignature, Alpha) == 0x000000, "Member 'UpgradeSection_OnAnimationProgress__DelegateSignature::Alpha' has a wrong offset!");
+static_assert(offsetof(UpgradeSection_OnAnimationProgress__DelegateSignature, bShowing) == 0x000004, "Member 'UpgradeSection_OnAnimationProgress__DelegateSignature::bShowing' has a wrong offset!");
+
+// DelegateFunction Stalker2.UpgradeSection.OnSectionClicked__DelegateSignature
+// 0x0008 (0x0008 - 0x0000)
+struct UpgradeSection_OnSectionClicked__DelegateSignature final
+{
+public:
+	class UUpgradeSection*                        ClickedSection;                                    // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(UpgradeSection_OnSectionClicked__DelegateSignature) == 0x000008, "Wrong alignment on UpgradeSection_OnSectionClicked__DelegateSignature");
+static_assert(sizeof(UpgradeSection_OnSectionClicked__DelegateSignature) == 0x000008, "Wrong size on UpgradeSection_OnSectionClicked__DelegateSignature");
+static_assert(offsetof(UpgradeSection_OnSectionClicked__DelegateSignature, ClickedSection) == 0x000000, "Member 'UpgradeSection_OnSectionClicked__DelegateSignature::ClickedSection' has a wrong offset!");
+
+// Function Stalker2.UserMarkerCounter.UpdateMarkerCounterWidget
+// 0x0004 (0x0004 - 0x0000)
+struct UserMarkerCounter_UpdateMarkerCounterWidget final
+{
+public:
+	int32                                         NewAmount;                                         // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(UserMarkerCounter_UpdateMarkerCounterWidget) == 0x000004, "Wrong alignment on UserMarkerCounter_UpdateMarkerCounterWidget");
+static_assert(sizeof(UserMarkerCounter_UpdateMarkerCounterWidget) == 0x000004, "Wrong size on UserMarkerCounter_UpdateMarkerCounterWidget");
+static_assert(offsetof(UserMarkerCounter_UpdateMarkerCounterWidget, NewAmount) == 0x000000, "Member 'UserMarkerCounter_UpdateMarkerCounterWidget::NewAmount' has a wrong offset!");
+
+// Function Stalker2.UserMarkerSelector.HoverButton
+// 0x0008 (0x0008 - 0x0000)
+struct UserMarkerSelector_HoverButton final
+{
+public:
+	class UUserMarkerSelectorButton*              InHoveredButton;                                   // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(UserMarkerSelector_HoverButton) == 0x000008, "Wrong alignment on UserMarkerSelector_HoverButton");
+static_assert(sizeof(UserMarkerSelector_HoverButton) == 0x000008, "Wrong size on UserMarkerSelector_HoverButton");
+static_assert(offsetof(UserMarkerSelector_HoverButton, InHoveredButton) == 0x000000, "Member 'UserMarkerSelector_HoverButton::InHoveredButton' has a wrong offset!");
+
+// Function Stalker2.UserMarkerSelector.PressedButton
+// 0x0020 (0x0020 - 0x0000)
+struct UserMarkerSelector_PressedButton final
+{
+public:
+	EMarkerType                                   MarkType;                                          // 0x0000(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FVector                                Coordinates;                                       // 0x0008(0x0018)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(UserMarkerSelector_PressedButton) == 0x000008, "Wrong alignment on UserMarkerSelector_PressedButton");
+static_assert(sizeof(UserMarkerSelector_PressedButton) == 0x000020, "Wrong size on UserMarkerSelector_PressedButton");
+static_assert(offsetof(UserMarkerSelector_PressedButton, MarkType) == 0x000000, "Member 'UserMarkerSelector_PressedButton::MarkType' has a wrong offset!");
+static_assert(offsetof(UserMarkerSelector_PressedButton, Coordinates) == 0x000008, "Member 'UserMarkerSelector_PressedButton::Coordinates' has a wrong offset!");
+
 // Function Stalker2.VerticalLadder.OnClimbZoneBeginOverlap
 // 0x0108 (0x0108 - 0x0000)
 struct VerticalLadder_OnClimbZoneBeginOverlap final
@@ -8116,20 +8242,6 @@ public:
 static_assert(alignof(VerticalLadder_GetClimbZoneHalfHeight) == 0x000004, "Wrong alignment on VerticalLadder_GetClimbZoneHalfHeight");
 static_assert(sizeof(VerticalLadder_GetClimbZoneHalfHeight) == 0x000004, "Wrong size on VerticalLadder_GetClimbZoneHalfHeight");
 static_assert(offsetof(VerticalLadder_GetClimbZoneHalfHeight, ReturnValue) == 0x000000, "Member 'VerticalLadder_GetClimbZoneHalfHeight::ReturnValue' has a wrong offset!");
-
-// Function Stalker2.VoiceoverSpeechComponent.OnAKEventFinished
-// 0x0010 (0x0010 - 0x0000)
-struct VoiceoverSpeechComponent_OnAKEventFinished final
-{
-public:
-	EAkCallbackType                               CallbackType;                                      // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UAkCallbackInfo*                        CallbackInfo;                                      // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(VoiceoverSpeechComponent_OnAKEventFinished) == 0x000008, "Wrong alignment on VoiceoverSpeechComponent_OnAKEventFinished");
-static_assert(sizeof(VoiceoverSpeechComponent_OnAKEventFinished) == 0x000010, "Wrong size on VoiceoverSpeechComponent_OnAKEventFinished");
-static_assert(offsetof(VoiceoverSpeechComponent_OnAKEventFinished, CallbackType) == 0x000000, "Member 'VoiceoverSpeechComponent_OnAKEventFinished::CallbackType' has a wrong offset!");
-static_assert(offsetof(VoiceoverSpeechComponent_OnAKEventFinished, CallbackInfo) == 0x000008, "Member 'VoiceoverSpeechComponent_OnAKEventFinished::CallbackInfo' has a wrong offset!");
 
 // Function Stalker2.VortexAnomaly.OnVortexBeginOverlap
 // 0x0108 (0x0108 - 0x0000)
@@ -8221,6 +8333,32 @@ public:
 static_assert(alignof(WanderingLightsArchiAnomaly_CreateVFX) == 0x000001, "Wrong alignment on WanderingLightsArchiAnomaly_CreateVFX");
 static_assert(sizeof(WanderingLightsArchiAnomaly_CreateVFX) == 0x000001, "Wrong size on WanderingLightsArchiAnomaly_CreateVFX");
 static_assert(offsetof(WanderingLightsArchiAnomaly_CreateVFX, bEnable) == 0x000000, "Member 'WanderingLightsArchiAnomaly_CreateVFX::bEnable' has a wrong offset!");
+
+// Function Stalker2.WaterComponent.OnBeginOverlap
+// 0x0010 (0x0010 - 0x0000)
+struct WaterComponent_OnBeginOverlap final
+{
+public:
+	class AActor*                                 OverlappedComponent;                               // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(WaterComponent_OnBeginOverlap) == 0x000008, "Wrong alignment on WaterComponent_OnBeginOverlap");
+static_assert(sizeof(WaterComponent_OnBeginOverlap) == 0x000010, "Wrong size on WaterComponent_OnBeginOverlap");
+static_assert(offsetof(WaterComponent_OnBeginOverlap, OverlappedComponent) == 0x000000, "Member 'WaterComponent_OnBeginOverlap::OverlappedComponent' has a wrong offset!");
+static_assert(offsetof(WaterComponent_OnBeginOverlap, OtherActor) == 0x000008, "Member 'WaterComponent_OnBeginOverlap::OtherActor' has a wrong offset!");
+
+// Function Stalker2.WaterComponent.OnEndOverlap
+// 0x0010 (0x0010 - 0x0000)
+struct WaterComponent_OnEndOverlap final
+{
+public:
+	class AActor*                                 OverlappedComponent;                               // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(WaterComponent_OnEndOverlap) == 0x000008, "Wrong alignment on WaterComponent_OnEndOverlap");
+static_assert(sizeof(WaterComponent_OnEndOverlap) == 0x000010, "Wrong size on WaterComponent_OnEndOverlap");
+static_assert(offsetof(WaterComponent_OnEndOverlap, OverlappedComponent) == 0x000000, "Member 'WaterComponent_OnEndOverlap::OverlappedComponent' has a wrong offset!");
+static_assert(offsetof(WaterComponent_OnEndOverlap, OtherActor) == 0x000008, "Member 'WaterComponent_OnEndOverlap::OtherActor' has a wrong offset!");
 
 // Function Stalker2.WidgetPool.CreateWidgetByPool
 // 0x0008 (0x0008 - 0x0000)

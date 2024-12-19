@@ -244,10 +244,10 @@ struct FModioEmailAuthCode UModioCommonTypesLibrary::Conv_StringToEmailAuthCode(
 // Function Modio.ModioCommonTypesLibrary.Conv_UserIDToString
 // (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
-// struct FModioUserID                     userId                                                 (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FModioUserID                     UserId                                                 (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class FString UModioCommonTypesLibrary::Conv_UserIDToString(const struct FModioUserID& userId)
+class FString UModioCommonTypesLibrary::Conv_UserIDToString(const struct FModioUserID& UserId)
 {
 	static class UFunction* Func = nullptr;
 
@@ -256,7 +256,7 @@ class FString UModioCommonTypesLibrary::Conv_UserIDToString(const struct FModioU
 
 	Params::ModioCommonTypesLibrary_Conv_UserIDToString Parms{};
 
-	Parms.userId = std::move(userId);
+	Parms.UserId = std::move(UserId);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -1295,11 +1295,11 @@ bool UModioErrorCodeLibrary::IsError(const struct FModioErrorCode& Error)
 // Function Modio.ModioErrorConditionLibrary.ErrorCodeMatches
 // (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
-// struct FModioErrorCode                  errorCode                                              (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FModioErrorCode                  ErrorCode                                              (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EModioErrorCondition                    Condition                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool UModioErrorConditionLibrary::ErrorCodeMatches(const struct FModioErrorCode& errorCode, EModioErrorCondition Condition)
+bool UModioErrorConditionLibrary::ErrorCodeMatches(const struct FModioErrorCode& ErrorCode, EModioErrorCondition Condition)
 {
 	static class UFunction* Func = nullptr;
 
@@ -1308,7 +1308,7 @@ bool UModioErrorConditionLibrary::ErrorCodeMatches(const struct FModioErrorCode&
 
 	Params::ModioErrorConditionLibrary_ErrorCodeMatches Parms{};
 
-	Parms.errorCode = std::move(errorCode);
+	Parms.ErrorCode = std::move(ErrorCode);
 	Parms.Condition = Condition;
 
 	auto Flgs = Func->FunctionFlags;
@@ -1401,9 +1401,9 @@ EModioLogoSize UModioExampleLibrary::GetLogoThumbnailSize()
 // (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
 // Parameters:
 // struct FModioFilterParams               FilterParams                                           (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-// TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalModInfoList& Result)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalModInfoList& Result)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioExampleLibrary::ListUserSubscriptionAsync(const struct FModioFilterParams& FilterParams, TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalModInfoList& Result)> Callback)
+void UModioExampleLibrary::ListUserSubscriptionAsync(const struct FModioFilterParams& FilterParams, TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalModInfoList& Result)> Callback)
 {
 	static class UFunction* Func = nullptr;
 
@@ -1881,11 +1881,11 @@ struct FModioFilterParams UModioFilterParamsLibrary::WithTags(struct FModioFilte
 // Function Modio.ModioImageLibrary.GetAvatarSize
 // (Final, Native, Static, Public, HasDefaults, BlueprintCallable, BlueprintPure)
 // Parameters:
-// class UTexture*                         avatar                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UTexture*                         Avatar                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EModioAvatarSize                        AvatarSize                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector2D                        ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-struct FVector2D UModioImageLibrary::GetAvatarSize(class UTexture* avatar, EModioAvatarSize AvatarSize)
+struct FVector2D UModioImageLibrary::GetAvatarSize(class UTexture* Avatar, EModioAvatarSize AvatarSize)
 {
 	static class UFunction* Func = nullptr;
 
@@ -1894,7 +1894,7 @@ struct FVector2D UModioImageLibrary::GetAvatarSize(class UTexture* avatar, EModi
 
 	Params::ModioImageLibrary_GetAvatarSize Parms{};
 
-	Parms.avatar = avatar;
+	Parms.Avatar = Avatar;
 	Parms.AvatarSize = AvatarSize;
 
 	auto Flgs = Func->FunctionFlags;
@@ -3261,10 +3261,10 @@ struct FModioReportParams UModioReportLibrary::MakeReportForUser(const struct FM
 // Function Modio.ModioSDKLibrary.Conv_Int64ToString
 // (Final, RequiredAPI, Native, Static, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
-// int64                                   inInt                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int64                                   InInt                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class FString UModioSDKLibrary::Conv_Int64ToString(int64 inInt)
+class FString UModioSDKLibrary::Conv_Int64ToString(int64 InInt)
 {
 	static class UFunction* Func = nullptr;
 
@@ -3273,7 +3273,7 @@ class FString UModioSDKLibrary::Conv_Int64ToString(int64 inInt)
 
 	Params::ModioSDKLibrary_Conv_Int64ToString Parms{};
 
-	Parms.inInt = inInt;
+	Parms.InInt = InInt;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -3684,10 +3684,10 @@ float UModioSDKLibrary::Pct_Int64Int64(int64 Dividend, int64 Divisor)
 // Function Modio.ModioSDKLibrary.RoundNumberString
 // (Final, RequiredAPI, Native, Static, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
-// class FText                             inputText                                              (Parm, NativeAccessSpecifierPublic)
+// class FText                             InputText                                              (Parm, NativeAccessSpecifierPublic)
 // class FText                             ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 
-class FText UModioSDKLibrary::RoundNumberString(const class FText& inputText)
+class FText UModioSDKLibrary::RoundNumberString(const class FText& InputText)
 {
 	static class UFunction* Func = nullptr;
 
@@ -3696,7 +3696,7 @@ class FText UModioSDKLibrary::RoundNumberString(const class FText& inputText)
 
 	Params::ModioSDKLibrary_RoundNumberString Parms{};
 
-	Parms.inputText = std::move(inputText);
+	Parms.InputText = std::move(InputText);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -3835,9 +3835,9 @@ bool UModioSubsystem::IsUsingBackgroundThread()
 // (Final, RequiredAPI, Native, Public, BlueprintCallable)
 // Parameters:
 // struct FModioModID                      Mod                                                    (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// TDelegate<void(const struct FModioErrorCode& errorCode)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TDelegate<void(const struct FModioErrorCode& ErrorCode)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioSubsystem::K2_ArchiveModAsync(const struct FModioModID& Mod, TDelegate<void(const struct FModioErrorCode& errorCode)> Callback)
+void UModioSubsystem::K2_ArchiveModAsync(const struct FModioModID& Mod, TDelegate<void(const struct FModioErrorCode& ErrorCode)> Callback)
 {
 	static class UFunction* Func = nullptr;
 
@@ -3862,9 +3862,9 @@ void UModioSubsystem::K2_ArchiveModAsync(const struct FModioModID& Mod, TDelegat
 // (Final, RequiredAPI, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
 // struct FModioEmailAuthCode              AuthenticationCode                                     (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-// TDelegate<void(const struct FModioErrorCode& errorCode)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TDelegate<void(const struct FModioErrorCode& ErrorCode)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioSubsystem::K2_AuthenticateUserEmailAsync(const struct FModioEmailAuthCode& AuthenticationCode, TDelegate<void(const struct FModioErrorCode& errorCode)> Callback)
+void UModioSubsystem::K2_AuthenticateUserEmailAsync(const struct FModioEmailAuthCode& AuthenticationCode, TDelegate<void(const struct FModioErrorCode& ErrorCode)> Callback)
 {
 	static class UFunction* Func = nullptr;
 
@@ -3890,9 +3890,9 @@ void UModioSubsystem::K2_AuthenticateUserEmailAsync(const struct FModioEmailAuth
 // Parameters:
 // struct FModioAuthenticationParams       User                                                   (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 // EModioAuthenticationProvider            Provider                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// TDelegate<void(const struct FModioErrorCode& errorCode)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TDelegate<void(const struct FModioErrorCode& ErrorCode)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioSubsystem::K2_AuthenticateUserExternalAsync(const struct FModioAuthenticationParams& User, EModioAuthenticationProvider Provider, TDelegate<void(const struct FModioErrorCode& errorCode)> Callback)
+void UModioSubsystem::K2_AuthenticateUserExternalAsync(const struct FModioAuthenticationParams& User, EModioAuthenticationProvider Provider, TDelegate<void(const struct FModioErrorCode& ErrorCode)> Callback)
 {
 	static class UFunction* Func = nullptr;
 
@@ -3917,9 +3917,9 @@ void UModioSubsystem::K2_AuthenticateUserExternalAsync(const struct FModioAuthen
 // Function Modio.ModioSubsystem.K2_ClearUserDataAsync
 // (Final, RequiredAPI, Native, Public, BlueprintCallable)
 // Parameters:
-// TDelegate<void(const struct FModioErrorCode& errorCode)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TDelegate<void(const struct FModioErrorCode& ErrorCode)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioSubsystem::K2_ClearUserDataAsync(TDelegate<void(const struct FModioErrorCode& errorCode)> Callback)
+void UModioSubsystem::K2_ClearUserDataAsync(TDelegate<void(const struct FModioErrorCode& ErrorCode)> Callback)
 {
 	static class UFunction* Func = nullptr;
 
@@ -3970,9 +3970,9 @@ struct FModioErrorCode UModioSubsystem::K2_EnableModManagement(TDelegate<void(co
 // Function Modio.ModioSubsystem.K2_FetchExternalUpdatesAsync
 // (Final, RequiredAPI, Native, Public, BlueprintCallable)
 // Parameters:
-// TDelegate<void(const struct FModioErrorCode& errorCode)>OnFetchDone                                            (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TDelegate<void(const struct FModioErrorCode& ErrorCode)>OnFetchDone                                            (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioSubsystem::K2_FetchExternalUpdatesAsync(TDelegate<void(const struct FModioErrorCode& errorCode)> OnFetchDone)
+void UModioSubsystem::K2_FetchExternalUpdatesAsync(TDelegate<void(const struct FModioErrorCode& ErrorCode)> OnFetchDone)
 {
 	static class UFunction* Func = nullptr;
 
@@ -3996,9 +3996,9 @@ void UModioSubsystem::K2_FetchExternalUpdatesAsync(TDelegate<void(const struct F
 // (Final, RequiredAPI, Native, Public, BlueprintCallable)
 // Parameters:
 // struct FModioModID                      ModToRemove                                            (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// TDelegate<void(const struct FModioErrorCode& errorCode)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TDelegate<void(const struct FModioErrorCode& ErrorCode)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioSubsystem::K2_ForceUninstallModAsync(const struct FModioModID& ModToRemove, TDelegate<void(const struct FModioErrorCode& errorCode)> Callback)
+void UModioSubsystem::K2_ForceUninstallModAsync(const struct FModioModID& ModToRemove, TDelegate<void(const struct FModioErrorCode& ErrorCode)> Callback)
 {
 	static class UFunction* Func = nullptr;
 
@@ -4023,9 +4023,9 @@ void UModioSubsystem::K2_ForceUninstallModAsync(const struct FModioModID& ModToR
 // (Final, RequiredAPI, Native, Public, BlueprintCallable)
 // Parameters:
 // struct FModioGameID                     GameId                                                 (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalGameInfo& GameInfo)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalGameInfo& GameInfo)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioSubsystem::K2_GetGameInfoAsync(const struct FModioGameID& GameId, TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalGameInfo& GameInfo)> Callback)
+void UModioSubsystem::K2_GetGameInfoAsync(const struct FModioGameID& GameId, TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalGameInfo& GameInfo)> Callback)
 {
 	static class UFunction* Func = nullptr;
 
@@ -4075,9 +4075,9 @@ struct FModioModCreationHandle UModioSubsystem::K2_GetModCreationHandle()
 // (Final, RequiredAPI, Native, Public, BlueprintCallable)
 // Parameters:
 // struct FModioModID                      ModId                                                  (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalModDependencyList& Dependencies)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalModDependencyList& Dependencies)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioSubsystem::K2_GetModDependenciesAsync(const struct FModioModID& ModId, TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalModDependencyList& Dependencies)> Callback)
+void UModioSubsystem::K2_GetModDependenciesAsync(const struct FModioModID& ModId, TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalModDependencyList& Dependencies)> Callback)
 {
 	static class UFunction* Func = nullptr;
 
@@ -4102,9 +4102,9 @@ void UModioSubsystem::K2_GetModDependenciesAsync(const struct FModioModID& ModId
 // (Final, RequiredAPI, Native, Public, BlueprintCallable)
 // Parameters:
 // struct FModioModID                      ModId                                                  (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalModInfo& ModInfo)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalModInfo& ModInfo)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioSubsystem::K2_GetModInfoAsync(const struct FModioModID& ModId, TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalModInfo& ModInfo)> Callback)
+void UModioSubsystem::K2_GetModInfoAsync(const struct FModioModID& ModId, TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalModInfo& ModInfo)> Callback)
 {
 	static class UFunction* Func = nullptr;
 
@@ -4130,9 +4130,9 @@ void UModioSubsystem::K2_GetModInfoAsync(const struct FModioModID& ModId, TDeleg
 // Parameters:
 // struct FModioModID                      ModId                                                  (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EModioAvatarSize                        AvatarSize                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalImage& Path)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalImage& Path)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioSubsystem::K2_GetModMediaAvatarAsync(const struct FModioModID& ModId, EModioAvatarSize AvatarSize, TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalImage& Path)> Callback)
+void UModioSubsystem::K2_GetModMediaAvatarAsync(const struct FModioModID& ModId, EModioAvatarSize AvatarSize, TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalImage& Path)> Callback)
 {
 	static class UFunction* Func = nullptr;
 
@@ -4160,9 +4160,9 @@ void UModioSubsystem::K2_GetModMediaAvatarAsync(const struct FModioModID& ModId,
 // struct FModioModID                      ModId                                                  (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EModioGallerySize                       GallerySize                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   Index_0                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalImage& Path)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalImage& Path)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioSubsystem::K2_GetModMediaGalleryImageAsync(const struct FModioModID& ModId, EModioGallerySize GallerySize, int32 Index_0, TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalImage& Path)> Callback)
+void UModioSubsystem::K2_GetModMediaGalleryImageAsync(const struct FModioModID& ModId, EModioGallerySize GallerySize, int32 Index_0, TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalImage& Path)> Callback)
 {
 	static class UFunction* Func = nullptr;
 
@@ -4190,9 +4190,9 @@ void UModioSubsystem::K2_GetModMediaGalleryImageAsync(const struct FModioModID& 
 // Parameters:
 // struct FModioModID                      ModId                                                  (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EModioLogoSize                          LogoSize                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalImage& Path)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalImage& Path)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioSubsystem::K2_GetModMediaLogoAsync(const struct FModioModID& ModId, EModioLogoSize LogoSize, TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalImage& Path)> Callback)
+void UModioSubsystem::K2_GetModMediaLogoAsync(const struct FModioModID& ModId, EModioLogoSize LogoSize, TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalImage& Path)> Callback)
 {
 	static class UFunction* Func = nullptr;
 
@@ -4217,9 +4217,9 @@ void UModioSubsystem::K2_GetModMediaLogoAsync(const struct FModioModID& ModId, E
 // Function Modio.ModioSubsystem.K2_GetModTagOptionsAsync
 // (Final, RequiredAPI, Native, Public, BlueprintCallable)
 // Parameters:
-// TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalModTagOptions& ModTagOptions)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalModTagOptions& ModTagOptions)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioSubsystem::K2_GetModTagOptionsAsync(TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalModTagOptions& ModTagOptions)> Callback)
+void UModioSubsystem::K2_GetModTagOptionsAsync(TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalModTagOptions& ModTagOptions)> Callback)
 {
 	static class UFunction* Func = nullptr;
 
@@ -4242,9 +4242,9 @@ void UModioSubsystem::K2_GetModTagOptionsAsync(TDelegate<void(const struct FModi
 // Function Modio.ModioSubsystem.K2_GetMutedUsersAsync
 // (Final, RequiredAPI, Native, Public, BlueprintCallable)
 // Parameters:
-// TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalUserList& NewUserList)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalUserList& NewUserList)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioSubsystem::K2_GetMutedUsersAsync(TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalUserList& NewUserList)> Callback)
+void UModioSubsystem::K2_GetMutedUsersAsync(TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalUserList& NewUserList)> Callback)
 {
 	static class UFunction* Func = nullptr;
 
@@ -4267,9 +4267,9 @@ void UModioSubsystem::K2_GetMutedUsersAsync(TDelegate<void(const struct FModioEr
 // Function Modio.ModioSubsystem.K2_GetTermsOfUseAsync
 // (Final, RequiredAPI, Native, Public, BlueprintCallable)
 // Parameters:
-// TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalTerms& Terms)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalTerms& Terms)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioSubsystem::K2_GetTermsOfUseAsync(TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalTerms& Terms)> Callback)
+void UModioSubsystem::K2_GetTermsOfUseAsync(TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalTerms& Terms)> Callback)
 {
 	static class UFunction* Func = nullptr;
 
@@ -4293,9 +4293,9 @@ void UModioSubsystem::K2_GetTermsOfUseAsync(TDelegate<void(const struct FModioEr
 // (Final, RequiredAPI, Native, Public, BlueprintCallable)
 // Parameters:
 // EModioAvatarSize                        AvatarSize                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalImage& Path)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalImage& Path)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioSubsystem::K2_GetUserMediaAvatarAsync(EModioAvatarSize AvatarSize, TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalImage& Path)> Callback)
+void UModioSubsystem::K2_GetUserMediaAvatarAsync(EModioAvatarSize AvatarSize, TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalImage& Path)> Callback)
 {
 	static class UFunction* Func = nullptr;
 
@@ -4320,9 +4320,9 @@ void UModioSubsystem::K2_GetUserMediaAvatarAsync(EModioAvatarSize AvatarSize, TD
 // (Final, RequiredAPI, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
 // struct FModioInitializeOptions          InitializeOptions                                      (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-// TDelegate<void(const struct FModioErrorCode& errorCode)>OnInitComplete                                         (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TDelegate<void(const struct FModioErrorCode& ErrorCode)>OnInitComplete                                         (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioSubsystem::K2_InitializeAsync(const struct FModioInitializeOptions& InitializeOptions, TDelegate<void(const struct FModioErrorCode& errorCode)> OnInitComplete)
+void UModioSubsystem::K2_InitializeAsync(const struct FModioInitializeOptions& InitializeOptions, TDelegate<void(const struct FModioErrorCode& ErrorCode)> OnInitComplete)
 {
 	static class UFunction* Func = nullptr;
 
@@ -4347,9 +4347,9 @@ void UModioSubsystem::K2_InitializeAsync(const struct FModioInitializeOptions& I
 // (Final, RequiredAPI, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
 // struct FModioFilterParams               Filter                                                 (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-// TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalModInfoList& Result)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalModInfoList& Result)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioSubsystem::K2_ListAllModsAsync(const struct FModioFilterParams& Filter, TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalModInfoList& Result)> Callback)
+void UModioSubsystem::K2_ListAllModsAsync(const struct FModioFilterParams& Filter, TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalModInfoList& Result)> Callback)
 {
 	static class UFunction* Func = nullptr;
 
@@ -4374,9 +4374,9 @@ void UModioSubsystem::K2_ListAllModsAsync(const struct FModioFilterParams& Filte
 // (Final, RequiredAPI, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
 // struct FModioFilterParams               Filter                                                 (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-// TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalModInfoList& Result)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalModInfoList& Result)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioSubsystem::K2_ListUserCreatedModsAsync(const struct FModioFilterParams& Filter, TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalModInfoList& Result)> Callback)
+void UModioSubsystem::K2_ListUserCreatedModsAsync(const struct FModioFilterParams& Filter, TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalModInfoList& Result)> Callback)
 {
 	static class UFunction* Func = nullptr;
 
@@ -4400,10 +4400,10 @@ void UModioSubsystem::K2_ListUserCreatedModsAsync(const struct FModioFilterParam
 // Function Modio.ModioSubsystem.K2_MuteUserAsync
 // (Final, RequiredAPI, Native, Public, BlueprintCallable)
 // Parameters:
-// struct FModioUserID                     userId                                                 (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// TDelegate<void(const struct FModioErrorCode& errorCode)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FModioUserID                     UserId                                                 (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TDelegate<void(const struct FModioErrorCode& ErrorCode)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioSubsystem::K2_MuteUserAsync(const struct FModioUserID& userId, TDelegate<void(const struct FModioErrorCode& errorCode)> Callback)
+void UModioSubsystem::K2_MuteUserAsync(const struct FModioUserID& UserId, TDelegate<void(const struct FModioErrorCode& ErrorCode)> Callback)
 {
 	static class UFunction* Func = nullptr;
 
@@ -4412,7 +4412,7 @@ void UModioSubsystem::K2_MuteUserAsync(const struct FModioUserID& userId, TDeleg
 
 	Params::ModioSubsystem_K2_MuteUserAsync Parms{};
 
-	Parms.userId = std::move(userId);
+	Parms.UserId = std::move(UserId);
 	Parms.Callback = Callback;
 
 	auto Flgs = Func->FunctionFlags;
@@ -4427,9 +4427,9 @@ void UModioSubsystem::K2_MuteUserAsync(const struct FModioUserID& userId, TDeleg
 // Function Modio.ModioSubsystem.K2_PreviewExternalUpdatesAsync
 // (Final, RequiredAPI, Native, Public, BlueprintCallable)
 // Parameters:
-// TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalMapPreview& ModioPreviewMap)>OnPreviewDone                                          (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalMapPreview& ModioPreviewMap)>OnPreviewDone                                          (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioSubsystem::K2_PreviewExternalUpdatesAsync(TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalMapPreview& ModioPreviewMap)> OnPreviewDone)
+void UModioSubsystem::K2_PreviewExternalUpdatesAsync(TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalMapPreview& ModioPreviewMap)> OnPreviewDone)
 {
 	static class UFunction* Func = nullptr;
 
@@ -4503,9 +4503,9 @@ struct FModioOptionalUser UModioSubsystem::K2_QueryUserProfile()
 // (Final, RequiredAPI, Native, Public, BlueprintCallable)
 // Parameters:
 // struct FModioReportParams               Report                                                 (Parm, NativeAccessSpecifierPublic)
-// TDelegate<void(const struct FModioErrorCode& errorCode)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TDelegate<void(const struct FModioErrorCode& ErrorCode)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioSubsystem::K2_ReportContentAsync(const struct FModioReportParams& Report, TDelegate<void(const struct FModioErrorCode& errorCode)> Callback)
+void UModioSubsystem::K2_ReportContentAsync(const struct FModioReportParams& Report, TDelegate<void(const struct FModioErrorCode& ErrorCode)> Callback)
 {
 	static class UFunction* Func = nullptr;
 
@@ -4530,9 +4530,9 @@ void UModioSubsystem::K2_ReportContentAsync(const struct FModioReportParams& Rep
 // (Final, RequiredAPI, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
 // struct FModioEmailAddress               EmailAddress                                           (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-// TDelegate<void(const struct FModioErrorCode& errorCode)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TDelegate<void(const struct FModioErrorCode& ErrorCode)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioSubsystem::K2_RequestEmailAuthCodeAsync(const struct FModioEmailAddress& EmailAddress, TDelegate<void(const struct FModioErrorCode& errorCode)> Callback)
+void UModioSubsystem::K2_RequestEmailAuthCodeAsync(const struct FModioEmailAddress& EmailAddress, TDelegate<void(const struct FModioErrorCode& ErrorCode)> Callback)
 {
 	static class UFunction* Func = nullptr;
 
@@ -4581,9 +4581,9 @@ void UModioSubsystem::K2_SetLanguage(EModioLanguage Locale)
 // Function Modio.ModioSubsystem.K2_ShutdownAsync
 // (Final, RequiredAPI, Native, Public, BlueprintCallable)
 // Parameters:
-// TDelegate<void(const struct FModioErrorCode& errorCode)>OnShutdownComplete                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TDelegate<void(const struct FModioErrorCode& ErrorCode)>OnShutdownComplete                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioSubsystem::K2_ShutdownAsync(TDelegate<void(const struct FModioErrorCode& errorCode)> OnShutdownComplete)
+void UModioSubsystem::K2_ShutdownAsync(TDelegate<void(const struct FModioErrorCode& ErrorCode)> OnShutdownComplete)
 {
 	static class UFunction* Func = nullptr;
 
@@ -4608,9 +4608,9 @@ void UModioSubsystem::K2_ShutdownAsync(TDelegate<void(const struct FModioErrorCo
 // Parameters:
 // struct FModioModID                      Mod                                                    (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FModioEditModParams              Params_0                                               (Parm, NativeAccessSpecifierPublic)
-// TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalModInfo& ModInfo)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalModInfo& ModInfo)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioSubsystem::K2_SubmitModChangesAsync(const struct FModioModID& Mod, const struct FModioEditModParams& Params_0, TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalModInfo& ModInfo)> Callback)
+void UModioSubsystem::K2_SubmitModChangesAsync(const struct FModioModID& Mod, const struct FModioEditModParams& Params_0, TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalModInfo& ModInfo)> Callback)
 {
 	static class UFunction* Func = nullptr;
 
@@ -4637,9 +4637,9 @@ void UModioSubsystem::K2_SubmitModChangesAsync(const struct FModioModID& Mod, co
 // Parameters:
 // struct FModioModID                      Mod                                                    (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EModioRating                            Rating                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// TDelegate<void(const struct FModioErrorCode& errorCode)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TDelegate<void(const struct FModioErrorCode& ErrorCode)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioSubsystem::K2_SubmitModRatingAsync(const struct FModioModID& Mod, EModioRating Rating, TDelegate<void(const struct FModioErrorCode& errorCode)> Callback)
+void UModioSubsystem::K2_SubmitModRatingAsync(const struct FModioModID& Mod, EModioRating Rating, TDelegate<void(const struct FModioErrorCode& ErrorCode)> Callback)
 {
 	static class UFunction* Func = nullptr;
 
@@ -4666,9 +4666,9 @@ void UModioSubsystem::K2_SubmitModRatingAsync(const struct FModioModID& Mod, EMo
 // Parameters:
 // struct FModioModCreationHandle          Handle                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // struct FModioCreateModParams            Params_0                                               (Parm, NativeAccessSpecifierPublic)
-// TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalModID& NewModID)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalModID& NewModID)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioSubsystem::K2_SubmitNewModAsync(const struct FModioModCreationHandle& Handle, const struct FModioCreateModParams& Params_0, TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalModID& NewModID)> Callback)
+void UModioSubsystem::K2_SubmitNewModAsync(const struct FModioModCreationHandle& Handle, const struct FModioCreateModParams& Params_0, TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalModID& NewModID)> Callback)
 {
 	static class UFunction* Func = nullptr;
 
@@ -4721,9 +4721,9 @@ void UModioSubsystem::K2_SubmitNewModFileForMod(const struct FModioModID& Mod, c
 // (Final, RequiredAPI, Native, Public, BlueprintCallable)
 // Parameters:
 // struct FModioModID                      ModToSubscribeTo                                       (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// TDelegate<void(const struct FModioErrorCode& errorCode)>OnSubscribeComplete                                    (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TDelegate<void(const struct FModioErrorCode& ErrorCode)>OnSubscribeComplete                                    (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioSubsystem::K2_SubscribeToModAsync(const struct FModioModID& ModToSubscribeTo, TDelegate<void(const struct FModioErrorCode& errorCode)> OnSubscribeComplete)
+void UModioSubsystem::K2_SubscribeToModAsync(const struct FModioModID& ModToSubscribeTo, TDelegate<void(const struct FModioErrorCode& ErrorCode)> OnSubscribeComplete)
 {
 	static class UFunction* Func = nullptr;
 
@@ -4747,10 +4747,10 @@ void UModioSubsystem::K2_SubscribeToModAsync(const struct FModioModID& ModToSubs
 // Function Modio.ModioSubsystem.K2_UnmuteUserAsync
 // (Final, RequiredAPI, Native, Public, BlueprintCallable)
 // Parameters:
-// struct FModioUserID                     userId                                                 (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// TDelegate<void(const struct FModioErrorCode& errorCode)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FModioUserID                     UserId                                                 (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TDelegate<void(const struct FModioErrorCode& ErrorCode)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioSubsystem::K2_UnmuteUserAsync(const struct FModioUserID& userId, TDelegate<void(const struct FModioErrorCode& errorCode)> Callback)
+void UModioSubsystem::K2_UnmuteUserAsync(const struct FModioUserID& UserId, TDelegate<void(const struct FModioErrorCode& ErrorCode)> Callback)
 {
 	static class UFunction* Func = nullptr;
 
@@ -4759,7 +4759,7 @@ void UModioSubsystem::K2_UnmuteUserAsync(const struct FModioUserID& userId, TDel
 
 	Params::ModioSubsystem_K2_UnmuteUserAsync Parms{};
 
-	Parms.userId = std::move(userId);
+	Parms.UserId = std::move(UserId);
 	Parms.Callback = Callback;
 
 	auto Flgs = Func->FunctionFlags;
@@ -4775,9 +4775,9 @@ void UModioSubsystem::K2_UnmuteUserAsync(const struct FModioUserID& userId, TDel
 // (Final, RequiredAPI, Native, Public, BlueprintCallable)
 // Parameters:
 // struct FModioModID                      ModToUnsubscribeFrom                                   (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// TDelegate<void(const struct FModioErrorCode& errorCode)>OnUnsubscribeComplete                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TDelegate<void(const struct FModioErrorCode& ErrorCode)>OnUnsubscribeComplete                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioSubsystem::K2_UnsubscribeFromModAsync(const struct FModioModID& ModToUnsubscribeFrom, TDelegate<void(const struct FModioErrorCode& errorCode)> OnUnsubscribeComplete)
+void UModioSubsystem::K2_UnsubscribeFromModAsync(const struct FModioModID& ModToUnsubscribeFrom, TDelegate<void(const struct FModioErrorCode& ErrorCode)> OnUnsubscribeComplete)
 {
 	static class UFunction* Func = nullptr;
 
@@ -4801,9 +4801,9 @@ void UModioSubsystem::K2_UnsubscribeFromModAsync(const struct FModioModID& ModTo
 // Function Modio.ModioSubsystem.K2_VerifyUserAuthenticationAsync
 // (Final, RequiredAPI, Native, Public, BlueprintCallable)
 // Parameters:
-// TDelegate<void(const struct FModioErrorCode& errorCode)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TDelegate<void(const struct FModioErrorCode& ErrorCode)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioSubsystem::K2_VerifyUserAuthenticationAsync(TDelegate<void(const struct FModioErrorCode& errorCode)> Callback)
+void UModioSubsystem::K2_VerifyUserAuthenticationAsync(TDelegate<void(const struct FModioErrorCode& ErrorCode)> Callback)
 {
 	static class UFunction* Func = nullptr;
 

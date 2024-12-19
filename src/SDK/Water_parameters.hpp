@@ -602,13 +602,13 @@ static_assert(offsetof(WaterSubsystem_GetShallowWaterSimulationRenderTargetSize,
 struct WaterSubsystem_PrintToWaterLog final
 {
 public:
-	class FString                                 message;                                           // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 Message;                                           // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bWarning;                                          // 0x0010(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_11[0x7];                                       // 0x0011(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(WaterSubsystem_PrintToWaterLog) == 0x000008, "Wrong alignment on WaterSubsystem_PrintToWaterLog");
 static_assert(sizeof(WaterSubsystem_PrintToWaterLog) == 0x000018, "Wrong size on WaterSubsystem_PrintToWaterLog");
-static_assert(offsetof(WaterSubsystem_PrintToWaterLog, message) == 0x000000, "Member 'WaterSubsystem_PrintToWaterLog::message' has a wrong offset!");
+static_assert(offsetof(WaterSubsystem_PrintToWaterLog, Message) == 0x000000, "Member 'WaterSubsystem_PrintToWaterLog::Message' has a wrong offset!");
 static_assert(offsetof(WaterSubsystem_PrintToWaterLog, bWarning) == 0x000010, "Member 'WaterSubsystem_PrintToWaterLog::bWarning' has a wrong offset!");
 
 // Function Water.WaterSubsystem.SetOceanFloodHeight

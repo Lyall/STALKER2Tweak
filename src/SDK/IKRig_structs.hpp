@@ -271,7 +271,7 @@ public:
 	uint8                                         Pad_9[0x3];                                        // 0x0009(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FBoneReference                         SourceBone;                                        // 0x000C(0x0010)(Edit, NoDestructor, NativeAccessSpecifierPublic)
 	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                position;                                          // 0x0020(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Position;                                          // 0x0020(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FRotator                               Rotation;                                          // 0x0038(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 	float                                         PositionAlpha;                                     // 0x0050(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         RotationAlpha;                                     // 0x0054(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -287,7 +287,7 @@ static_assert(sizeof(FIKRigGoal) == 0x0000A0, "Wrong size on FIKRigGoal");
 static_assert(offsetof(FIKRigGoal, Name) == 0x000000, "Member 'FIKRigGoal::Name' has a wrong offset!");
 static_assert(offsetof(FIKRigGoal, TransformSource) == 0x000008, "Member 'FIKRigGoal::TransformSource' has a wrong offset!");
 static_assert(offsetof(FIKRigGoal, SourceBone) == 0x00000C, "Member 'FIKRigGoal::SourceBone' has a wrong offset!");
-static_assert(offsetof(FIKRigGoal, position) == 0x000020, "Member 'FIKRigGoal::position' has a wrong offset!");
+static_assert(offsetof(FIKRigGoal, Position) == 0x000020, "Member 'FIKRigGoal::Position' has a wrong offset!");
 static_assert(offsetof(FIKRigGoal, Rotation) == 0x000038, "Member 'FIKRigGoal::Rotation' has a wrong offset!");
 static_assert(offsetof(FIKRigGoal, PositionAlpha) == 0x000050, "Member 'FIKRigGoal::PositionAlpha' has a wrong offset!");
 static_assert(offsetof(FIKRigGoal, RotationAlpha) == 0x000054, "Member 'FIKRigGoal::RotationAlpha' has a wrong offset!");

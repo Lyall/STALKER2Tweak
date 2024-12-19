@@ -11,8 +11,8 @@
 #include "Basic.hpp"
 
 #include "OnlineSubsystem_structs.hpp"
-#include "Engine_structs.hpp"
 #include "OnlineSubsystemUtils_structs.hpp"
+#include "Engine_structs.hpp"
 
 
 namespace SDK::Params

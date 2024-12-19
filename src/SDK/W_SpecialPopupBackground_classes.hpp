@@ -21,15 +21,15 @@ namespace SDK
 class UW_SpecialPopupBackground_C final : public UWidgetBase
 {
 public:
-	class UImage*                                 x0y0_1;                                            // 0x0278(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
-	class UImage*                                 x0y1_1;                                            // 0x0280(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
-	class UImage*                                 x0y2_1;                                            // 0x0288(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
-	class UImage*                                 x1y0_1;                                            // 0x0290(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
-	class UImage*                                 x1y1_1;                                            // 0x0298(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
-	class UImage*                                 x1y2_1;                                            // 0x02A0(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
-	class UImage*                                 x2y0_1;                                            // 0x02A8(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
-	class UImage*                                 x2y1_1;                                            // 0x02B0(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
-	class UImage*                                 x2y2_1;                                            // 0x02B8(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	class UImage*                                 X0y0_1;                                            // 0x0278(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	class UImage*                                 X0y1_1;                                            // 0x0280(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	class UImage*                                 X0y2_1;                                            // 0x0288(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	class UImage*                                 X1y0_1;                                            // 0x0290(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	class UImage*                                 X1y1_1;                                            // 0x0298(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	class UImage*                                 X1y2_1;                                            // 0x02A0(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	class UImage*                                 X2y0_1;                                            // 0x02A8(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	class UImage*                                 X2y1_1;                                            // 0x02B0(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	class UImage*                                 X2y2_1;                                            // 0x02B8(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
 
 public:
 	static class UClass* StaticClass()
@@ -43,15 +43,15 @@ public:
 };
 static_assert(alignof(UW_SpecialPopupBackground_C) == 0x000008, "Wrong alignment on UW_SpecialPopupBackground_C");
 static_assert(sizeof(UW_SpecialPopupBackground_C) == 0x0002C0, "Wrong size on UW_SpecialPopupBackground_C");
-static_assert(offsetof(UW_SpecialPopupBackground_C, x0y0_1) == 0x000278, "Member 'UW_SpecialPopupBackground_C::x0y0_1' has a wrong offset!");
-static_assert(offsetof(UW_SpecialPopupBackground_C, x0y1_1) == 0x000280, "Member 'UW_SpecialPopupBackground_C::x0y1_1' has a wrong offset!");
-static_assert(offsetof(UW_SpecialPopupBackground_C, x0y2_1) == 0x000288, "Member 'UW_SpecialPopupBackground_C::x0y2_1' has a wrong offset!");
-static_assert(offsetof(UW_SpecialPopupBackground_C, x1y0_1) == 0x000290, "Member 'UW_SpecialPopupBackground_C::x1y0_1' has a wrong offset!");
-static_assert(offsetof(UW_SpecialPopupBackground_C, x1y1_1) == 0x000298, "Member 'UW_SpecialPopupBackground_C::x1y1_1' has a wrong offset!");
-static_assert(offsetof(UW_SpecialPopupBackground_C, x1y2_1) == 0x0002A0, "Member 'UW_SpecialPopupBackground_C::x1y2_1' has a wrong offset!");
-static_assert(offsetof(UW_SpecialPopupBackground_C, x2y0_1) == 0x0002A8, "Member 'UW_SpecialPopupBackground_C::x2y0_1' has a wrong offset!");
-static_assert(offsetof(UW_SpecialPopupBackground_C, x2y1_1) == 0x0002B0, "Member 'UW_SpecialPopupBackground_C::x2y1_1' has a wrong offset!");
-static_assert(offsetof(UW_SpecialPopupBackground_C, x2y2_1) == 0x0002B8, "Member 'UW_SpecialPopupBackground_C::x2y2_1' has a wrong offset!");
+static_assert(offsetof(UW_SpecialPopupBackground_C, X0y0_1) == 0x000278, "Member 'UW_SpecialPopupBackground_C::X0y0_1' has a wrong offset!");
+static_assert(offsetof(UW_SpecialPopupBackground_C, X0y1_1) == 0x000280, "Member 'UW_SpecialPopupBackground_C::X0y1_1' has a wrong offset!");
+static_assert(offsetof(UW_SpecialPopupBackground_C, X0y2_1) == 0x000288, "Member 'UW_SpecialPopupBackground_C::X0y2_1' has a wrong offset!");
+static_assert(offsetof(UW_SpecialPopupBackground_C, X1y0_1) == 0x000290, "Member 'UW_SpecialPopupBackground_C::X1y0_1' has a wrong offset!");
+static_assert(offsetof(UW_SpecialPopupBackground_C, X1y1_1) == 0x000298, "Member 'UW_SpecialPopupBackground_C::X1y1_1' has a wrong offset!");
+static_assert(offsetof(UW_SpecialPopupBackground_C, X1y2_1) == 0x0002A0, "Member 'UW_SpecialPopupBackground_C::X1y2_1' has a wrong offset!");
+static_assert(offsetof(UW_SpecialPopupBackground_C, X2y0_1) == 0x0002A8, "Member 'UW_SpecialPopupBackground_C::X2y0_1' has a wrong offset!");
+static_assert(offsetof(UW_SpecialPopupBackground_C, X2y1_1) == 0x0002B0, "Member 'UW_SpecialPopupBackground_C::X2y1_1' has a wrong offset!");
+static_assert(offsetof(UW_SpecialPopupBackground_C, X2y2_1) == 0x0002B8, "Member 'UW_SpecialPopupBackground_C::X2y2_1' has a wrong offset!");
 
 }
 

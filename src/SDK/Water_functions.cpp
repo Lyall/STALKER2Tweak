@@ -1296,10 +1296,10 @@ int32 UWaterSubsystem::GetShallowWaterSimulationRenderTargetSize()
 // Function Water.WaterSubsystem.PrintToWaterLog
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FString                           message                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FString                           Message                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bWarning                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UWaterSubsystem::PrintToWaterLog(const class FString& message, bool bWarning)
+void UWaterSubsystem::PrintToWaterLog(const class FString& Message, bool bWarning)
 {
 	static class UFunction* Func = nullptr;
 
@@ -1308,7 +1308,7 @@ void UWaterSubsystem::PrintToWaterLog(const class FString& message, bool bWarnin
 
 	Params::WaterSubsystem_PrintToWaterLog Parms{};
 
-	Parms.message = std::move(message);
+	Parms.Message = std::move(Message);
 	Parms.bWarning = bWarning;
 
 	auto Flgs = Func->FunctionFlags;

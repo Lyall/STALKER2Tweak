@@ -2857,6 +2857,17 @@ static_assert(offsetof(AsyncNiagaraCaptureSimCache_CaptureNiagaraSimCacheUntilCo
 static_assert(offsetof(AsyncNiagaraCaptureSimCache_CaptureNiagaraSimCacheUntilComplete, AdvanceDeltaTime_0) == 0x000058, "Member 'AsyncNiagaraCaptureSimCache_CaptureNiagaraSimCacheUntilComplete::AdvanceDeltaTime_0' has a wrong offset!");
 static_assert(offsetof(AsyncNiagaraCaptureSimCache_CaptureNiagaraSimCacheUntilComplete, ReturnValue) == 0x000060, "Member 'AsyncNiagaraCaptureSimCache_CaptureNiagaraSimCacheUntilComplete::ReturnValue' has a wrong offset!");
 
+// DelegateFunction Niagara.AsyncNiagaraCaptureSimCache.OnCaptureComplete__DelegateSignature
+// 0x0001 (0x0001 - 0x0000)
+struct AsyncNiagaraCaptureSimCache_OnCaptureComplete__DelegateSignature final
+{
+public:
+	bool                                          bSuccess;                                          // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(AsyncNiagaraCaptureSimCache_OnCaptureComplete__DelegateSignature) == 0x000001, "Wrong alignment on AsyncNiagaraCaptureSimCache_OnCaptureComplete__DelegateSignature");
+static_assert(sizeof(AsyncNiagaraCaptureSimCache_OnCaptureComplete__DelegateSignature) == 0x000001, "Wrong size on AsyncNiagaraCaptureSimCache_OnCaptureComplete__DelegateSignature");
+static_assert(offsetof(AsyncNiagaraCaptureSimCache_OnCaptureComplete__DelegateSignature, bSuccess) == 0x000000, "Member 'AsyncNiagaraCaptureSimCache_OnCaptureComplete__DelegateSignature::bSuccess' has a wrong offset!");
+
 // Function Niagara.NiagaraSimCacheFunctionLibrary.CaptureNiagaraSimCacheImmediate
 // 0x0060 (0x0060 - 0x0000)
 struct NiagaraSimCacheFunctionLibrary_CaptureNiagaraSimCacheImmediate final

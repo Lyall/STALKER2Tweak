@@ -10,9 +10,9 @@
 
 #include "Basic.hpp"
 
-#include "CoreUObject_structs.hpp"
 #include "TypedElementFramework_structs.hpp"
 #include "TypedElementRuntime_structs.hpp"
+#include "CoreUObject_structs.hpp"
 
 
 namespace SDK::Params
@@ -150,6 +150,28 @@ static_assert(sizeof(TypedElementSelectionSet_DeselectElements) == 0x000018, "Wr
 static_assert(offsetof(TypedElementSelectionSet_DeselectElements, InElementHandles) == 0x000000, "Member 'TypedElementSelectionSet_DeselectElements::InElementHandles' has a wrong offset!");
 static_assert(offsetof(TypedElementSelectionSet_DeselectElements, InSelectionOptions) == 0x000010, "Member 'TypedElementSelectionSet_DeselectElements::InSelectionOptions' has a wrong offset!");
 static_assert(offsetof(TypedElementSelectionSet_DeselectElements, ReturnValue) == 0x000015, "Member 'TypedElementSelectionSet_DeselectElements::ReturnValue' has a wrong offset!");
+
+// DelegateFunction TypedElementRuntime.TypedElementSelectionSet.OnChangeDynamic__DelegateSignature
+// 0x0008 (0x0008 - 0x0000)
+struct TypedElementSelectionSet_OnChangeDynamic__DelegateSignature final
+{
+public:
+	const class UTypedElementSelectionSet*        SelectionSet;                                      // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(TypedElementSelectionSet_OnChangeDynamic__DelegateSignature) == 0x000008, "Wrong alignment on TypedElementSelectionSet_OnChangeDynamic__DelegateSignature");
+static_assert(sizeof(TypedElementSelectionSet_OnChangeDynamic__DelegateSignature) == 0x000008, "Wrong size on TypedElementSelectionSet_OnChangeDynamic__DelegateSignature");
+static_assert(offsetof(TypedElementSelectionSet_OnChangeDynamic__DelegateSignature, SelectionSet) == 0x000000, "Member 'TypedElementSelectionSet_OnChangeDynamic__DelegateSignature::SelectionSet' has a wrong offset!");
+
+// DelegateFunction TypedElementRuntime.TypedElementSelectionSet.OnPreChangeDynamic__DelegateSignature
+// 0x0008 (0x0008 - 0x0000)
+struct TypedElementSelectionSet_OnPreChangeDynamic__DelegateSignature final
+{
+public:
+	const class UTypedElementSelectionSet*        SelectionSet;                                      // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(TypedElementSelectionSet_OnPreChangeDynamic__DelegateSignature) == 0x000008, "Wrong alignment on TypedElementSelectionSet_OnPreChangeDynamic__DelegateSignature");
+static_assert(sizeof(TypedElementSelectionSet_OnPreChangeDynamic__DelegateSignature) == 0x000008, "Wrong size on TypedElementSelectionSet_OnPreChangeDynamic__DelegateSignature");
+static_assert(offsetof(TypedElementSelectionSet_OnPreChangeDynamic__DelegateSignature, SelectionSet) == 0x000000, "Member 'TypedElementSelectionSet_OnPreChangeDynamic__DelegateSignature::SelectionSet' has a wrong offset!");
 
 // Function TypedElementRuntime.TypedElementSelectionSet.RestoreSelectionState
 // 0x0018 (0x0018 - 0x0000)

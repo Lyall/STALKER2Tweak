@@ -23,11 +23,11 @@ namespace SDK::Params
 struct MotionTrajectoryComponent_SetSampleRate final
 {
 public:
-	int32                                         rate;                                              // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         Rate;                                              // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(MotionTrajectoryComponent_SetSampleRate) == 0x000004, "Wrong alignment on MotionTrajectoryComponent_SetSampleRate");
 static_assert(sizeof(MotionTrajectoryComponent_SetSampleRate) == 0x000004, "Wrong size on MotionTrajectoryComponent_SetSampleRate");
-static_assert(offsetof(MotionTrajectoryComponent_SetSampleRate, rate) == 0x000000, "Member 'MotionTrajectoryComponent_SetSampleRate::rate' has a wrong offset!");
+static_assert(offsetof(MotionTrajectoryComponent_SetSampleRate, Rate) == 0x000000, "Member 'MotionTrajectoryComponent_SetSampleRate::Rate' has a wrong offset!");
 
 // Function MotionTrajectory.MotionTrajectoryComponent.GetHistory
 // 0x0018 (0x0018 - 0x0000)

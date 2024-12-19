@@ -17,7 +17,7 @@ namespace SDK
 {
 
 // WidgetBlueprintGeneratedClass W_WorldMapMarker.W_WorldMapMarker_C
-// 0x0000 (0x0340 - 0x0340)
+// 0x0000 (0x0330 - 0x0330)
 class UW_WorldMapMarker_C final : public UWorldMapMarker
 {
 public:
@@ -31,7 +31,7 @@ public:
 	}
 };
 static_assert(alignof(UW_WorldMapMarker_C) == 0x000008, "Wrong alignment on UW_WorldMapMarker_C");
-static_assert(sizeof(UW_WorldMapMarker_C) == 0x000340, "Wrong size on UW_WorldMapMarker_C");
+static_assert(sizeof(UW_WorldMapMarker_C) == 0x000330, "Wrong size on UW_WorldMapMarker_C");
 
 }
 

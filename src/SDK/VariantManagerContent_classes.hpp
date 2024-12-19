@@ -10,10 +10,10 @@
 
 #include "Basic.hpp"
 
+#include "VariantManagerContent_structs.hpp"
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
 #include "Engine_classes.hpp"
-#include "VariantManagerContent_structs.hpp"
 
 
 namespace SDK

@@ -11,10 +11,11 @@
 #include "Basic.hpp"
 
 #include "CoreUObject_structs.hpp"
+#include "CoreUObject_classes.hpp"
 #include "UMG_classes.hpp"
+#include "SlateCore_structs.hpp"
 #include "GSCLoadingScreen_structs.hpp"
 #include "DeveloperSettings_classes.hpp"
-#include "SlateCore_structs.hpp"
 
 
 namespace SDK
@@ -82,6 +83,27 @@ static_assert(offsetof(UGSCLoadingScreenSettings, Background) == 0x000098, "Memb
 static_assert(offsetof(UGSCLoadingScreenSettings, LoadingScreenIndicatorBackgroundSize) == 0x0000B8, "Member 'UGSCLoadingScreenSettings::LoadingScreenIndicatorBackgroundSize' has a wrong offset!");
 static_assert(offsetof(UGSCLoadingScreenSettings, LoadArrowPadding) == 0x0000C8, "Member 'UGSCLoadingScreenSettings::LoadArrowPadding' has a wrong offset!");
 static_assert(offsetof(UGSCLoadingScreenSettings, LoadArrowRotation) == 0x0000D8, "Member 'UGSCLoadingScreenSettings::LoadArrowRotation' has a wrong offset!");
+
+// Class GSCLoadingScreen.GSCLoadingScreenSettingsWrapper
+// 0x0008 (0x0030 - 0x0028)
+class UGSCLoadingScreenSettingsWrapper final : public UObject
+{
+public:
+	class UGSCLoadingScreenSettings*              Settings;                                          // 0x0028(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+public:
+	static class UClass* StaticClass()
+	{
+		return StaticClassImpl<"GSCLoadingScreenSettingsWrapper">();
+	}
+	static class UGSCLoadingScreenSettingsWrapper* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UGSCLoadingScreenSettingsWrapper>();
+	}
+};
+static_assert(alignof(UGSCLoadingScreenSettingsWrapper) == 0x000008, "Wrong alignment on UGSCLoadingScreenSettingsWrapper");
+static_assert(sizeof(UGSCLoadingScreenSettingsWrapper) == 0x000030, "Wrong size on UGSCLoadingScreenSettingsWrapper");
+static_assert(offsetof(UGSCLoadingScreenSettingsWrapper, Settings) == 0x000028, "Member 'UGSCLoadingScreenSettingsWrapper::Settings' has a wrong offset!");
 
 }
 

@@ -175,9 +175,9 @@ void IAudioParameterControllerInterface::SetIntArrayParameter(class FName InName
 // (Native, Public, BlueprintCallable)
 // Parameters:
 // class FName                             InName                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int32                                   inInt                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   InInt                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void IAudioParameterControllerInterface::SetIntParameter(class FName InName, int32 inInt)
+void IAudioParameterControllerInterface::SetIntParameter(class FName InName, int32 InInt)
 {
 	static class UFunction* Func = nullptr;
 
@@ -187,7 +187,7 @@ void IAudioParameterControllerInterface::SetIntParameter(class FName InName, int
 	Params::AudioParameterControllerInterface_SetIntParameter Parms{};
 
 	Parms.InName = InName;
-	Parms.inInt = inInt;
+	Parms.InInt = InInt;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;

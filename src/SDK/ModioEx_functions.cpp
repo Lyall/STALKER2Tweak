@@ -86,9 +86,9 @@ void UModioSubmissionExtensionLibrary::K2_SubmitNewModFileForModFromMemory(class
 // struct FModioModCreationHandle          Handle                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // struct FModioCreateModParams            Params_0                                               (Parm, NativeAccessSpecifierPublic)
 // TArray<uint8>                           PngData                                                (Parm, ZeroConstructor, NativeAccessSpecifierPublic)
-// TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalModID& NewModID)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalModID& NewModID)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioSubmissionExtensionLibrary::K2_SubmitNewModFromMemoryAsync(const struct FModioModCreationHandle& Handle, const struct FModioCreateModParams& Params_0, const TArray<uint8>& PngData, TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalModID& NewModID)> Callback)
+void UModioSubmissionExtensionLibrary::K2_SubmitNewModFromMemoryAsync(const struct FModioModCreationHandle& Handle, const struct FModioCreateModParams& Params_0, const TArray<uint8>& PngData, TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalModID& NewModID)> Callback)
 {
 	static class UFunction* Func = nullptr;
 
@@ -117,9 +117,9 @@ void UModioSubmissionExtensionLibrary::K2_SubmitNewModFromMemoryAsync(const stru
 // struct FModioModID                      Mod                                                    (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FModioEditModParams              Params_0                                               (Parm, NativeAccessSpecifierPublic)
 // TArray<uint8>                           PngData                                                (Parm, ZeroConstructor, NativeAccessSpecifierPublic)
-// TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalModInfo& ModInfo)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalModInfo& ModInfo)>Callback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioSubmissionExtensionLibrary::K2_SubmitModChangesFromMemoryAsync(const struct FModioModID& Mod, const struct FModioEditModParams& Params_0, const TArray<uint8>& PngData, TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalModInfo& ModInfo)> Callback)
+void UModioSubmissionExtensionLibrary::K2_SubmitModChangesFromMemoryAsync(const struct FModioModID& Mod, const struct FModioEditModParams& Params_0, const TArray<uint8>& PngData, TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalModInfo& ModInfo)> Callback)
 {
 	static class UFunction* Func = nullptr;
 

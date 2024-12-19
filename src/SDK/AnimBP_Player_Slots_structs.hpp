@@ -10,8 +10,8 @@
 
 #include "Basic.hpp"
 
-#include "Engine_structs.hpp"
 #include "AnimGraphRuntime_structs.hpp"
+#include "Engine_structs.hpp"
 
 
 namespace SDK
@@ -23,66 +23,66 @@ struct AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData final : public F
 {
 public:
 	uint8                                         Pad_1[0x3];                                        // 0x0001(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   m_NameProperty_429;                                // 0x0004(0x0008)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	class FName                                   __NameProperty_429;                                // 0x0004(0x0008)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_C[0x4];                                        // 0x000C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<float>                                 m_ArrayProperty_430;                               // 0x0010(0x0010)(BlueprintVisible, EditFixedSize)
-	TArray<float>                                 m_ArrayProperty_431;                               // 0x0020(0x0010)(BlueprintVisible, EditFixedSize)
-	struct FInputScaleBiasClampConstants          m_StructProperty_432;                              // 0x0030(0x002C)(BlueprintVisible, NoDestructor)
-	float                                         m_FloatProperty_433;                               // 0x005C(0x0004)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	class FName                                   m_NameProperty_434;                                // 0x0060(0x0008)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	TArray<float>                                 m_ArrayProperty_435;                               // 0x0068(0x0010)(BlueprintVisible, EditFixedSize)
-	class FName                                   m_NameProperty_436;                                // 0x0078(0x0008)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	int32                                         m_IntProperty_437;                                 // 0x0080(0x0004)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	float                                         m_FloatProperty_438;                               // 0x0084(0x0004)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	ESequenceEvalReinit                           m_ByteProperty_439;                                // 0x0088(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          m_BoolProperty_440;                                // 0x0089(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	EAnimSyncMethod                               m_EnumProperty_441;                                // 0x008A(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	EAnimGroupRole                                m_ByteProperty_442;                                // 0x008B(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	class FName                                   m_NameProperty_443;                                // 0x008C(0x0008)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	class FName                                   m_NameProperty_444;                                // 0x0094(0x0008)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	int32                                         m_IntProperty_445;                                 // 0x009C(0x0004)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	TArray<float>                                 m_ArrayProperty_446;                               // 0x00A0(0x0010)(BlueprintVisible, EditFixedSize)
-	ERefPoseType                                  m_ByteProperty_447;                                // 0x00B0(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	TArray<float>                                 __ArrayProperty_430;                               // 0x0010(0x0010)(BlueprintVisible, EditFixedSize)
+	TArray<float>                                 __ArrayProperty_431;                               // 0x0020(0x0010)(BlueprintVisible, EditFixedSize)
+	struct FInputScaleBiasClampConstants          __StructProperty_432;                              // 0x0030(0x002C)(BlueprintVisible, NoDestructor)
+	float                                         __FloatProperty_433;                               // 0x005C(0x0004)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	class FName                                   __NameProperty_434;                                // 0x0060(0x0008)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	TArray<float>                                 __ArrayProperty_435;                               // 0x0068(0x0010)(BlueprintVisible, EditFixedSize)
+	class FName                                   __NameProperty_436;                                // 0x0078(0x0008)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	int32                                         __IntProperty_437;                                 // 0x0080(0x0004)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	float                                         __FloatProperty_438;                               // 0x0084(0x0004)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	ESequenceEvalReinit                           __ByteProperty_439;                                // 0x0088(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          __BoolProperty_440;                                // 0x0089(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	EAnimSyncMethod                               __EnumProperty_441;                                // 0x008A(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	EAnimGroupRole                                __ByteProperty_442;                                // 0x008B(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	class FName                                   __NameProperty_443;                                // 0x008C(0x0008)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	class FName                                   __NameProperty_444;                                // 0x0094(0x0008)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	int32                                         __IntProperty_445;                                 // 0x009C(0x0004)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	TArray<float>                                 __ArrayProperty_446;                               // 0x00A0(0x0010)(BlueprintVisible, EditFixedSize)
+	ERefPoseType                                  __ByteProperty_447;                                // 0x00B0(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_B1[0x7];                                       // 0x00B1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UBlendProfile*                          m_BlendProfile_448;                                // 0x00B8(0x0008)(BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash)
-	class UCurveFloat*                            m_CurveFloat_449;                                  // 0x00C0(0x0008)(BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash)
-	bool                                          m_BoolProperty_450;                                // 0x00C8(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	EAlphaBlendOption                             m_EnumProperty_451;                                // 0x00C9(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	EBlendListTransitionType                      m_EnumProperty_452;                                // 0x00CA(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	class UBlendProfile*                          __BlendProfile_448;                                // 0x00B8(0x0008)(BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash)
+	class UCurveFloat*                            __CurveFloat_449;                                  // 0x00C0(0x0008)(BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash)
+	bool                                          __BoolProperty_450;                                // 0x00C8(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	EAlphaBlendOption                             __EnumProperty_451;                                // 0x00C9(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	EBlendListTransitionType                      __EnumProperty_452;                                // 0x00CA(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_CB[0x5];                                       // 0x00CB(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<float>                                 m_ArrayProperty_453;                               // 0x00D0(0x0010)(BlueprintVisible, EditFixedSize)
-	struct FAnimNodeFunctionRef                   m_StructProperty_454;                              // 0x00E0(0x0020)(BlueprintVisible, NoDestructor)
+	TArray<float>                                 __ArrayProperty_453;                               // 0x00D0(0x0010)(BlueprintVisible, EditFixedSize)
+	struct FAnimNodeFunctionRef                   __StructProperty_454;                              // 0x00E0(0x0020)(BlueprintVisible, NoDestructor)
 	struct FAnimSubsystem_PropertyAccess          AnimBlueprintExtension_PropertyAccess;             // 0x0100(0x0080)()
 	struct FAnimSubsystem_Base                    AnimBlueprintExtension_Base;                       // 0x0180(0x0018)()
 };
 static_assert(alignof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData) == 0x000008, "Wrong alignment on AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData");
 static_assert(sizeof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData) == 0x000198, "Wrong size on AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData");
-static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, m_NameProperty_429) == 0x000004, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::m_NameProperty_429' has a wrong offset!");
-static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, m_ArrayProperty_430) == 0x000010, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::m_ArrayProperty_430' has a wrong offset!");
-static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, m_ArrayProperty_431) == 0x000020, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::m_ArrayProperty_431' has a wrong offset!");
-static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, m_StructProperty_432) == 0x000030, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::m_StructProperty_432' has a wrong offset!");
-static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, m_FloatProperty_433) == 0x00005C, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::m_FloatProperty_433' has a wrong offset!");
-static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, m_NameProperty_434) == 0x000060, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::m_NameProperty_434' has a wrong offset!");
-static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, m_ArrayProperty_435) == 0x000068, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::m_ArrayProperty_435' has a wrong offset!");
-static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, m_NameProperty_436) == 0x000078, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::m_NameProperty_436' has a wrong offset!");
-static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, m_IntProperty_437) == 0x000080, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::m_IntProperty_437' has a wrong offset!");
-static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, m_FloatProperty_438) == 0x000084, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::m_FloatProperty_438' has a wrong offset!");
-static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, m_ByteProperty_439) == 0x000088, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::m_ByteProperty_439' has a wrong offset!");
-static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, m_BoolProperty_440) == 0x000089, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::m_BoolProperty_440' has a wrong offset!");
-static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, m_EnumProperty_441) == 0x00008A, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::m_EnumProperty_441' has a wrong offset!");
-static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, m_ByteProperty_442) == 0x00008B, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::m_ByteProperty_442' has a wrong offset!");
-static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, m_NameProperty_443) == 0x00008C, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::m_NameProperty_443' has a wrong offset!");
-static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, m_NameProperty_444) == 0x000094, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::m_NameProperty_444' has a wrong offset!");
-static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, m_IntProperty_445) == 0x00009C, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::m_IntProperty_445' has a wrong offset!");
-static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, m_ArrayProperty_446) == 0x0000A0, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::m_ArrayProperty_446' has a wrong offset!");
-static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, m_ByteProperty_447) == 0x0000B0, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::m_ByteProperty_447' has a wrong offset!");
-static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, m_BlendProfile_448) == 0x0000B8, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::m_BlendProfile_448' has a wrong offset!");
-static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, m_CurveFloat_449) == 0x0000C0, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::m_CurveFloat_449' has a wrong offset!");
-static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, m_BoolProperty_450) == 0x0000C8, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::m_BoolProperty_450' has a wrong offset!");
-static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, m_EnumProperty_451) == 0x0000C9, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::m_EnumProperty_451' has a wrong offset!");
-static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, m_EnumProperty_452) == 0x0000CA, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::m_EnumProperty_452' has a wrong offset!");
-static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, m_ArrayProperty_453) == 0x0000D0, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::m_ArrayProperty_453' has a wrong offset!");
-static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, m_StructProperty_454) == 0x0000E0, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::m_StructProperty_454' has a wrong offset!");
+static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, __NameProperty_429) == 0x000004, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::__NameProperty_429' has a wrong offset!");
+static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, __ArrayProperty_430) == 0x000010, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::__ArrayProperty_430' has a wrong offset!");
+static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, __ArrayProperty_431) == 0x000020, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::__ArrayProperty_431' has a wrong offset!");
+static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, __StructProperty_432) == 0x000030, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::__StructProperty_432' has a wrong offset!");
+static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, __FloatProperty_433) == 0x00005C, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::__FloatProperty_433' has a wrong offset!");
+static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, __NameProperty_434) == 0x000060, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::__NameProperty_434' has a wrong offset!");
+static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, __ArrayProperty_435) == 0x000068, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::__ArrayProperty_435' has a wrong offset!");
+static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, __NameProperty_436) == 0x000078, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::__NameProperty_436' has a wrong offset!");
+static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, __IntProperty_437) == 0x000080, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::__IntProperty_437' has a wrong offset!");
+static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, __FloatProperty_438) == 0x000084, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::__FloatProperty_438' has a wrong offset!");
+static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, __ByteProperty_439) == 0x000088, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::__ByteProperty_439' has a wrong offset!");
+static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, __BoolProperty_440) == 0x000089, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::__BoolProperty_440' has a wrong offset!");
+static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, __EnumProperty_441) == 0x00008A, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::__EnumProperty_441' has a wrong offset!");
+static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, __ByteProperty_442) == 0x00008B, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::__ByteProperty_442' has a wrong offset!");
+static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, __NameProperty_443) == 0x00008C, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::__NameProperty_443' has a wrong offset!");
+static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, __NameProperty_444) == 0x000094, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::__NameProperty_444' has a wrong offset!");
+static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, __IntProperty_445) == 0x00009C, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::__IntProperty_445' has a wrong offset!");
+static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, __ArrayProperty_446) == 0x0000A0, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::__ArrayProperty_446' has a wrong offset!");
+static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, __ByteProperty_447) == 0x0000B0, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::__ByteProperty_447' has a wrong offset!");
+static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, __BlendProfile_448) == 0x0000B8, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::__BlendProfile_448' has a wrong offset!");
+static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, __CurveFloat_449) == 0x0000C0, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::__CurveFloat_449' has a wrong offset!");
+static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, __BoolProperty_450) == 0x0000C8, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::__BoolProperty_450' has a wrong offset!");
+static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, __EnumProperty_451) == 0x0000C9, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::__EnumProperty_451' has a wrong offset!");
+static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, __EnumProperty_452) == 0x0000CA, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::__EnumProperty_452' has a wrong offset!");
+static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, __ArrayProperty_453) == 0x0000D0, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::__ArrayProperty_453' has a wrong offset!");
+static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, __StructProperty_454) == 0x0000E0, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::__StructProperty_454' has a wrong offset!");
 static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, AnimBlueprintExtension_PropertyAccess) == 0x000100, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::AnimBlueprintExtension_PropertyAccess' has a wrong offset!");
 static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData, AnimBlueprintExtension_Base) == 0x000180, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData::AnimBlueprintExtension_Base' has a wrong offset!");
 
@@ -91,33 +91,33 @@ static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedConstantData,
 struct AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData final : public FAnimBlueprintMutableData
 {
 public:
-	bool                                          m_BoolProperty;                                    // 0x0001(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          m_BoolProperty_0;                                  // 0x0002(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          m_BoolProperty_1;                                  // 0x0003(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          m_BoolProperty_2;                                  // 0x0004(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          m_BoolProperty_3;                                  // 0x0005(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          __BoolProperty;                                    // 0x0001(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          __BoolProperty_0;                                  // 0x0002(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          __BoolProperty_1;                                  // 0x0003(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          __BoolProperty_2;                                  // 0x0004(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          __BoolProperty_3;                                  // 0x0005(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_6[0x2];                                        // 0x0006(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	class UObject*                                m_Object_4;                                        // 0x0008(0x0008)(BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash)
-	bool                                          m_BoolProperty_5;                                  // 0x0010(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	class UObject*                                __Object_4;                                        // 0x0008(0x0008)(BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash)
+	bool                                          __BoolProperty_5;                                  // 0x0010(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_11[0x3];                                       // 0x0011(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         m_FloatProperty_6;                                 // 0x0014(0x0004)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	class UAnimSequenceBase*                      m_AnimSequenceBase_7;                              // 0x0018(0x0008)(BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash)
-	bool                                          m_BoolProperty_8;                                  // 0x0020(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          m_BoolProperty_9;                                  // 0x0021(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	float                                         __FloatProperty_6;                                 // 0x0014(0x0004)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	class UAnimSequenceBase*                      __AnimSequenceBase_7;                              // 0x0018(0x0008)(BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash)
+	bool                                          __BoolProperty_8;                                  // 0x0020(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          __BoolProperty_9;                                  // 0x0021(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
 static_assert(alignof(AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData) == 0x000008, "Wrong alignment on AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData");
 static_assert(sizeof(AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData) == 0x000028, "Wrong size on AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData");
-static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData, m_BoolProperty) == 0x000001, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData::m_BoolProperty' has a wrong offset!");
-static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData, m_BoolProperty_0) == 0x000002, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData::m_BoolProperty_0' has a wrong offset!");
-static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData, m_BoolProperty_1) == 0x000003, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData::m_BoolProperty_1' has a wrong offset!");
-static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData, m_BoolProperty_2) == 0x000004, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData::m_BoolProperty_2' has a wrong offset!");
-static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData, m_BoolProperty_3) == 0x000005, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData::m_BoolProperty_3' has a wrong offset!");
-static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData, m_Object_4) == 0x000008, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData::m_Object_4' has a wrong offset!");
-static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData, m_BoolProperty_5) == 0x000010, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData::m_BoolProperty_5' has a wrong offset!");
-static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData, m_FloatProperty_6) == 0x000014, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData::m_FloatProperty_6' has a wrong offset!");
-static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData, m_AnimSequenceBase_7) == 0x000018, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData::m_AnimSequenceBase_7' has a wrong offset!");
-static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData, m_BoolProperty_8) == 0x000020, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData::m_BoolProperty_8' has a wrong offset!");
-static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData, m_BoolProperty_9) == 0x000021, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData::m_BoolProperty_9' has a wrong offset!");
+static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData, __BoolProperty) == 0x000001, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData::__BoolProperty' has a wrong offset!");
+static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData, __BoolProperty_0) == 0x000002, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData::__BoolProperty_0' has a wrong offset!");
+static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData, __BoolProperty_1) == 0x000003, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData::__BoolProperty_1' has a wrong offset!");
+static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData, __BoolProperty_2) == 0x000004, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData::__BoolProperty_2' has a wrong offset!");
+static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData, __BoolProperty_3) == 0x000005, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData::__BoolProperty_3' has a wrong offset!");
+static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData, __Object_4) == 0x000008, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData::__Object_4' has a wrong offset!");
+static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData, __BoolProperty_5) == 0x000010, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData::__BoolProperty_5' has a wrong offset!");
+static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData, __FloatProperty_6) == 0x000014, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData::__FloatProperty_6' has a wrong offset!");
+static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData, __AnimSequenceBase_7) == 0x000018, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData::__AnimSequenceBase_7' has a wrong offset!");
+static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData, __BoolProperty_8) == 0x000020, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData::__BoolProperty_8' has a wrong offset!");
+static_assert(offsetof(AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData, __BoolProperty_9) == 0x000021, "Member 'AnimBP_Player_Slots::FAnimBlueprintGeneratedMutableData::__BoolProperty_9' has a wrong offset!");
 
 }
 

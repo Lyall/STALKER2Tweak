@@ -24,14 +24,14 @@ public:
 	int8                                          Int8;                                              // 0x0000(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_1[0x1];                                        // 0x0001(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
 	int16                                         Int16;                                             // 0x0002(0x0002)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         int32_0;                                           // 0x0004(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         Int32;                                             // 0x0004(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int64                                         Int64;                                             // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         uint8_0;                                           // 0x0010(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Uint8;                                             // 0x0010(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_11[0x1];                                       // 0x0011(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
-	uint16                                        uint16_0;                                          // 0x0012(0x0002)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint32                                        uint32_0;                                          // 0x0014(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint16                                        Uint16;                                            // 0x0012(0x0002)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint32                                        Uint32;                                            // 0x0014(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint64                                        UInt64;                                            // 0x0018(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         float_0;                                           // 0x0020(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Float;                                             // 0x0020(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_24[0x4];                                       // 0x0024(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
 	double                                        Double;                                            // 0x0028(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
@@ -39,13 +39,13 @@ static_assert(alignof(FStructSerializerNumericTestStruct) == 0x000008, "Wrong al
 static_assert(sizeof(FStructSerializerNumericTestStruct) == 0x000030, "Wrong size on FStructSerializerNumericTestStruct");
 static_assert(offsetof(FStructSerializerNumericTestStruct, Int8) == 0x000000, "Member 'FStructSerializerNumericTestStruct::Int8' has a wrong offset!");
 static_assert(offsetof(FStructSerializerNumericTestStruct, Int16) == 0x000002, "Member 'FStructSerializerNumericTestStruct::Int16' has a wrong offset!");
-static_assert(offsetof(FStructSerializerNumericTestStruct, int32_0) == 0x000004, "Member 'FStructSerializerNumericTestStruct::int32_0' has a wrong offset!");
+static_assert(offsetof(FStructSerializerNumericTestStruct, Int32) == 0x000004, "Member 'FStructSerializerNumericTestStruct::Int32' has a wrong offset!");
 static_assert(offsetof(FStructSerializerNumericTestStruct, Int64) == 0x000008, "Member 'FStructSerializerNumericTestStruct::Int64' has a wrong offset!");
-static_assert(offsetof(FStructSerializerNumericTestStruct, uint8_0) == 0x000010, "Member 'FStructSerializerNumericTestStruct::uint8_0' has a wrong offset!");
-static_assert(offsetof(FStructSerializerNumericTestStruct, uint16_0) == 0x000012, "Member 'FStructSerializerNumericTestStruct::uint16_0' has a wrong offset!");
-static_assert(offsetof(FStructSerializerNumericTestStruct, uint32_0) == 0x000014, "Member 'FStructSerializerNumericTestStruct::uint32_0' has a wrong offset!");
+static_assert(offsetof(FStructSerializerNumericTestStruct, Uint8) == 0x000010, "Member 'FStructSerializerNumericTestStruct::Uint8' has a wrong offset!");
+static_assert(offsetof(FStructSerializerNumericTestStruct, Uint16) == 0x000012, "Member 'FStructSerializerNumericTestStruct::Uint16' has a wrong offset!");
+static_assert(offsetof(FStructSerializerNumericTestStruct, Uint32) == 0x000014, "Member 'FStructSerializerNumericTestStruct::Uint32' has a wrong offset!");
 static_assert(offsetof(FStructSerializerNumericTestStruct, UInt64) == 0x000018, "Member 'FStructSerializerNumericTestStruct::UInt64' has a wrong offset!");
-static_assert(offsetof(FStructSerializerNumericTestStruct, float_0) == 0x000020, "Member 'FStructSerializerNumericTestStruct::float_0' has a wrong offset!");
+static_assert(offsetof(FStructSerializerNumericTestStruct, Float) == 0x000020, "Member 'FStructSerializerNumericTestStruct::Float' has a wrong offset!");
 static_assert(offsetof(FStructSerializerNumericTestStruct, Double) == 0x000028, "Member 'FStructSerializerNumericTestStruct::Double' has a wrong offset!");
 
 // ScriptStruct Serialization.StructSerializerBooleanTestStruct
@@ -147,7 +147,7 @@ public:
 	struct FBox2D                                 Box2D;                                             // 0x01C8(0x0028)(ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 	struct FBoxSphereBounds                       BoxSphereBounds;                                   // 0x01F0(0x0038)(ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 	struct FOrientedBox                           OrientedBox;                                       // 0x0228(0x0078)(IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-	float                                         float_0;                                           // 0x02A0(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Float;                                             // 0x02A0(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_2A4[0x4];                                      // 0x02A4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
 	double                                        Double;                                            // 0x02A8(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TArray<struct FVector>                        VectorArray;                                       // 0x02B0(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
@@ -168,7 +168,7 @@ static_assert(offsetof(FStructSerializerLWCTypesTest, Box) == 0x000190, "Member 
 static_assert(offsetof(FStructSerializerLWCTypesTest, Box2D) == 0x0001C8, "Member 'FStructSerializerLWCTypesTest::Box2D' has a wrong offset!");
 static_assert(offsetof(FStructSerializerLWCTypesTest, BoxSphereBounds) == 0x0001F0, "Member 'FStructSerializerLWCTypesTest::BoxSphereBounds' has a wrong offset!");
 static_assert(offsetof(FStructSerializerLWCTypesTest, OrientedBox) == 0x000228, "Member 'FStructSerializerLWCTypesTest::OrientedBox' has a wrong offset!");
-static_assert(offsetof(FStructSerializerLWCTypesTest, float_0) == 0x0002A0, "Member 'FStructSerializerLWCTypesTest::float_0' has a wrong offset!");
+static_assert(offsetof(FStructSerializerLWCTypesTest, Float) == 0x0002A0, "Member 'FStructSerializerLWCTypesTest::Float' has a wrong offset!");
 static_assert(offsetof(FStructSerializerLWCTypesTest, Double) == 0x0002A8, "Member 'FStructSerializerLWCTypesTest::Double' has a wrong offset!");
 static_assert(offsetof(FStructSerializerLWCTypesTest, VectorArray) == 0x0002B0, "Member 'FStructSerializerLWCTypesTest::VectorArray' has a wrong offset!");
 static_assert(offsetof(FStructSerializerLWCTypesTest, StrToVec) == 0x0002C0, "Member 'FStructSerializerLWCTypesTest::StrToVec' has a wrong offset!");
@@ -216,7 +216,7 @@ public:
 	struct FBox2f                                 Box2D;                                             // 0x00EC(0x0014)(ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 	struct FBoxSphereBounds3f                     BoxSphereBounds;                                   // 0x0100(0x001C)(ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 	struct FOrientedBoxFloat                      OrientedBox;                                       // 0x011C(0x003C)(NoDestructor, NativeAccessSpecifierPublic)
-	float                                         float_0;                                           // 0x0158(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Float;                                             // 0x0158(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_15C[0x4];                                      // 0x015C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
 	double                                        Double;                                            // 0x0160(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TArray<struct FVector3f>                      VectorArray;                                       // 0x0168(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
@@ -238,7 +238,7 @@ static_assert(offsetof(FStructSerializerNonLWCTypesTest, Box) == 0x0000D0, "Memb
 static_assert(offsetof(FStructSerializerNonLWCTypesTest, Box2D) == 0x0000EC, "Member 'FStructSerializerNonLWCTypesTest::Box2D' has a wrong offset!");
 static_assert(offsetof(FStructSerializerNonLWCTypesTest, BoxSphereBounds) == 0x000100, "Member 'FStructSerializerNonLWCTypesTest::BoxSphereBounds' has a wrong offset!");
 static_assert(offsetof(FStructSerializerNonLWCTypesTest, OrientedBox) == 0x00011C, "Member 'FStructSerializerNonLWCTypesTest::OrientedBox' has a wrong offset!");
-static_assert(offsetof(FStructSerializerNonLWCTypesTest, float_0) == 0x000158, "Member 'FStructSerializerNonLWCTypesTest::float_0' has a wrong offset!");
+static_assert(offsetof(FStructSerializerNonLWCTypesTest, Float) == 0x000158, "Member 'FStructSerializerNonLWCTypesTest::Float' has a wrong offset!");
 static_assert(offsetof(FStructSerializerNonLWCTypesTest, Double) == 0x000160, "Member 'FStructSerializerNonLWCTypesTest::Double' has a wrong offset!");
 static_assert(offsetof(FStructSerializerNonLWCTypesTest, VectorArray) == 0x000168, "Member 'FStructSerializerNonLWCTypesTest::VectorArray' has a wrong offset!");
 static_assert(offsetof(FStructSerializerNonLWCTypesTest, StrToVec) == 0x000178, "Member 'FStructSerializerNonLWCTypesTest::StrToVec' has a wrong offset!");

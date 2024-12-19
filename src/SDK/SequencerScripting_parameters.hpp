@@ -3222,7 +3222,7 @@ struct MovieSceneSequenceExtensions_MakeBindingID final
 public:
 	class UMovieSceneSequence*                    MasterSequence;                                    // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FMovieSceneBindingProxy                InBinding;                                         // 0x0008(0x0018)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-	EMovieSceneObjectBindingSpace                 space;                                             // 0x0020(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EMovieSceneObjectBindingSpace                 Space;                                             // 0x0020(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_21[0x3];                                       // 0x0021(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FMovieSceneObjectBindingID             ReturnValue;                                       // 0x0024(0x0018)(Parm, OutParm, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_3C[0x4];                                       // 0x003C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
@@ -3231,7 +3231,7 @@ static_assert(alignof(MovieSceneSequenceExtensions_MakeBindingID) == 0x000008, "
 static_assert(sizeof(MovieSceneSequenceExtensions_MakeBindingID) == 0x000040, "Wrong size on MovieSceneSequenceExtensions_MakeBindingID");
 static_assert(offsetof(MovieSceneSequenceExtensions_MakeBindingID, MasterSequence) == 0x000000, "Member 'MovieSceneSequenceExtensions_MakeBindingID::MasterSequence' has a wrong offset!");
 static_assert(offsetof(MovieSceneSequenceExtensions_MakeBindingID, InBinding) == 0x000008, "Member 'MovieSceneSequenceExtensions_MakeBindingID::InBinding' has a wrong offset!");
-static_assert(offsetof(MovieSceneSequenceExtensions_MakeBindingID, space) == 0x000020, "Member 'MovieSceneSequenceExtensions_MakeBindingID::space' has a wrong offset!");
+static_assert(offsetof(MovieSceneSequenceExtensions_MakeBindingID, Space) == 0x000020, "Member 'MovieSceneSequenceExtensions_MakeBindingID::Space' has a wrong offset!");
 static_assert(offsetof(MovieSceneSequenceExtensions_MakeBindingID, ReturnValue) == 0x000024, "Member 'MovieSceneSequenceExtensions_MakeBindingID::ReturnValue' has a wrong offset!");
 
 // Function SequencerScripting.MovieSceneSequenceExtensions.MakeRange

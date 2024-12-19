@@ -47,6 +47,26 @@ class UWidget* UCommonUILibrary::FindParentWidgetOfType(class UWidget* StartingW
 }
 
 
+// DelegateFunction CommonUI.CommonActionWidget.OnInputMethodChanged__DelegateSignature
+// (MulticastDelegate, Public, Delegate)
+// Parameters:
+// bool                                    bUsingGamepad                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCommonActionWidget::OnInputMethodChanged__DelegateSignature(bool bUsingGamepad)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CommonActionWidget", "OnInputMethodChanged__DelegateSignature");
+
+	Params::CommonActionWidget_OnInputMethodChanged__DelegateSignature Parms{};
+
+	Parms.bUsingGamepad = bUsingGamepad;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
 // Function CommonUI.CommonActionWidget.SetIconRimBrush
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
@@ -3479,6 +3499,26 @@ void UCommonLoadGuard::BP_GuardAndLoadAsset(const TSoftObjectPtr<class UObject>&
 }
 
 
+// DelegateFunction CommonUI.CommonLoadGuard.OnAssetLoaded__DelegateSignature
+// (Public, Delegate)
+// Parameters:
+// class UObject*                          Object                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCommonLoadGuard::OnAssetLoaded__DelegateSignature(class UObject* Object)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CommonLoadGuard", "OnAssetLoaded__DelegateSignature");
+
+	Params::CommonLoadGuard_OnAssetLoaded__DelegateSignature Parms{};
+
+	Parms.Object = Object;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
 // Function CommonUI.CommonLoadGuard.SetIsLoading
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
@@ -3582,6 +3622,92 @@ void UCommonNumericTextBlock::InterpolateToValue(const float TargetValue, float 
 	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
+}
+
+
+// DelegateFunction CommonUI.CommonNumericTextBlock.OnInterpolationEnded__DelegateSignature
+// (MulticastDelegate, Public, Delegate)
+// Parameters:
+// class UCommonNumericTextBlock*          NumericTextBlock                                       (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    HadCompleted                                           (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCommonNumericTextBlock::OnInterpolationEnded__DelegateSignature(class UCommonNumericTextBlock* NumericTextBlock, const bool HadCompleted)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CommonNumericTextBlock", "OnInterpolationEnded__DelegateSignature");
+
+	Params::CommonNumericTextBlock_OnInterpolationEnded__DelegateSignature Parms{};
+
+	Parms.NumericTextBlock = NumericTextBlock;
+	Parms.HadCompleted = HadCompleted;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// DelegateFunction CommonUI.CommonNumericTextBlock.OnInterpolationStarted__DelegateSignature
+// (MulticastDelegate, Public, Delegate)
+// Parameters:
+// class UCommonNumericTextBlock*          NumericTextBlock                                       (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCommonNumericTextBlock::OnInterpolationStarted__DelegateSignature(class UCommonNumericTextBlock* NumericTextBlock)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CommonNumericTextBlock", "OnInterpolationStarted__DelegateSignature");
+
+	Params::CommonNumericTextBlock_OnInterpolationStarted__DelegateSignature Parms{};
+
+	Parms.NumericTextBlock = NumericTextBlock;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// DelegateFunction CommonUI.CommonNumericTextBlock.OnInterpolationUpdated__DelegateSignature
+// (MulticastDelegate, Public, Delegate)
+// Parameters:
+// class UCommonNumericTextBlock*          NumericTextBlock                                       (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   LastValue                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   NewValue                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCommonNumericTextBlock::OnInterpolationUpdated__DelegateSignature(class UCommonNumericTextBlock* NumericTextBlock, float LastValue, float NewValue)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CommonNumericTextBlock", "OnInterpolationUpdated__DelegateSignature");
+
+	Params::CommonNumericTextBlock_OnInterpolationUpdated__DelegateSignature Parms{};
+
+	Parms.NumericTextBlock = NumericTextBlock;
+	Parms.LastValue = LastValue;
+	Parms.NewValue = NewValue;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// DelegateFunction CommonUI.CommonNumericTextBlock.OnOutro__DelegateSignature
+// (MulticastDelegate, Public, Delegate)
+// Parameters:
+// class UCommonNumericTextBlock*          NumericTextBlock                                       (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCommonNumericTextBlock::OnOutro__DelegateSignature(class UCommonNumericTextBlock* NumericTextBlock)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CommonNumericTextBlock", "OnOutro__DelegateSignature");
+
+	Params::CommonNumericTextBlock_OnOutro__DelegateSignature Parms{};
+
+	Parms.NumericTextBlock = NumericTextBlock;
+
+	UObject::ProcessEvent(Func, &Parms);
 }
 
 
@@ -4139,6 +4265,84 @@ void UCommonTabListWidgetBase::HandleTabRemoval(class FName TabNameID, class UCo
 	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
+}
+
+
+// DelegateFunction CommonUI.CommonTabListWidgetBase.OnTabButtonCreation__DelegateSignature
+// (MulticastDelegate, Public, Delegate)
+// Parameters:
+// class FName                             TabId                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UCommonButtonBase*                TabButton                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCommonTabListWidgetBase::OnTabButtonCreation__DelegateSignature(class FName TabId, class UCommonButtonBase* TabButton)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CommonTabListWidgetBase", "OnTabButtonCreation__DelegateSignature");
+
+	Params::CommonTabListWidgetBase_OnTabButtonCreation__DelegateSignature Parms{};
+
+	Parms.TabId = TabId;
+	Parms.TabButton = TabButton;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// DelegateFunction CommonUI.CommonTabListWidgetBase.OnTabButtonRemoval__DelegateSignature
+// (MulticastDelegate, Public, Delegate)
+// Parameters:
+// class FName                             TabId                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UCommonButtonBase*                TabButton                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCommonTabListWidgetBase::OnTabButtonRemoval__DelegateSignature(class FName TabId, class UCommonButtonBase* TabButton)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CommonTabListWidgetBase", "OnTabButtonRemoval__DelegateSignature");
+
+	Params::CommonTabListWidgetBase_OnTabButtonRemoval__DelegateSignature Parms{};
+
+	Parms.TabId = TabId;
+	Parms.TabButton = TabButton;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// DelegateFunction CommonUI.CommonTabListWidgetBase.OnTabListRebuilt__DelegateSignature
+// (MulticastDelegate, Public, Delegate)
+
+void UCommonTabListWidgetBase::OnTabListRebuilt__DelegateSignature()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CommonTabListWidgetBase", "OnTabListRebuilt__DelegateSignature");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// DelegateFunction CommonUI.CommonTabListWidgetBase.OnTabSelected__DelegateSignature
+// (MulticastDelegate, Public, Delegate)
+// Parameters:
+// class FName                             TabId                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCommonTabListWidgetBase::OnTabSelected__DelegateSignature(class FName TabId)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CommonTabListWidgetBase", "OnTabSelected__DelegateSignature");
+
+	Params::CommonTabListWidgetBase_OnTabSelected__DelegateSignature Parms{};
+
+	Parms.TabId = TabId;
+
+	UObject::ProcessEvent(Func, &Parms);
 }
 
 

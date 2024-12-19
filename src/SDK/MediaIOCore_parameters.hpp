@@ -10,8 +10,8 @@
 
 #include "Basic.hpp"
 
-#include "MediaIOCore_structs.hpp"
 #include "CoreUObject_structs.hpp"
+#include "MediaIOCore_structs.hpp"
 
 
 namespace SDK::Params

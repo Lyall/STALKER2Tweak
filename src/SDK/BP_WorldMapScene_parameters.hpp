@@ -17,61 +17,6 @@
 namespace SDK::Params
 {
 
-// Function BP_WorldMapScene.BP_WorldMapScene_C.SetScale
-// 0x0004 (0x0004 - 0x0000)
-struct BP_WorldMapScene_C_SetScale final
-{
-public:
-	float                                         InScale;                                           // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-};
-static_assert(alignof(BP_WorldMapScene_C_SetScale) == 0x000004, "Wrong alignment on BP_WorldMapScene_C_SetScale");
-static_assert(sizeof(BP_WorldMapScene_C_SetScale) == 0x000004, "Wrong size on BP_WorldMapScene_C_SetScale");
-static_assert(offsetof(BP_WorldMapScene_C_SetScale, InScale) == 0x000000, "Member 'BP_WorldMapScene_C_SetScale::InScale' has a wrong offset!");
-
-// Function BP_WorldMapScene.BP_WorldMapScene_C.SetOffset
-// 0x0010 (0x0010 - 0x0000)
-struct BP_WorldMapScene_C_SetOffset final
-{
-public:
-	struct FVector2D                              InOffset;                                          // 0x0000(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-};
-static_assert(alignof(BP_WorldMapScene_C_SetOffset) == 0x000008, "Wrong alignment on BP_WorldMapScene_C_SetOffset");
-static_assert(sizeof(BP_WorldMapScene_C_SetOffset) == 0x000010, "Wrong size on BP_WorldMapScene_C_SetOffset");
-static_assert(offsetof(BP_WorldMapScene_C_SetOffset, InOffset) == 0x000000, "Member 'BP_WorldMapScene_C_SetOffset::InOffset' has a wrong offset!");
-
-// Function BP_WorldMapScene.BP_WorldMapScene_C.SetNotSelectedAreaBrightness
-// 0x0004 (0x0004 - 0x0000)
-struct BP_WorldMapScene_C_SetNotSelectedAreaBrightness final
-{
-public:
-	float                                         InBrightness;                                      // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-};
-static_assert(alignof(BP_WorldMapScene_C_SetNotSelectedAreaBrightness) == 0x000004, "Wrong alignment on BP_WorldMapScene_C_SetNotSelectedAreaBrightness");
-static_assert(sizeof(BP_WorldMapScene_C_SetNotSelectedAreaBrightness) == 0x000004, "Wrong size on BP_WorldMapScene_C_SetNotSelectedAreaBrightness");
-static_assert(offsetof(BP_WorldMapScene_C_SetNotSelectedAreaBrightness, InBrightness) == 0x000000, "Member 'BP_WorldMapScene_C_SetNotSelectedAreaBrightness::InBrightness' has a wrong offset!");
-
-// Function BP_WorldMapScene.BP_WorldMapScene_C.SetMouseUV
-// 0x0018 (0x0018 - 0x0000)
-struct BP_WorldMapScene_C_SetMouseUV final
-{
-public:
-	struct FVector                                InUV;                                              // 0x0000(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-};
-static_assert(alignof(BP_WorldMapScene_C_SetMouseUV) == 0x000008, "Wrong alignment on BP_WorldMapScene_C_SetMouseUV");
-static_assert(sizeof(BP_WorldMapScene_C_SetMouseUV) == 0x000018, "Wrong size on BP_WorldMapScene_C_SetMouseUV");
-static_assert(offsetof(BP_WorldMapScene_C_SetMouseUV, InUV) == 0x000000, "Member 'BP_WorldMapScene_C_SetMouseUV::InUV' has a wrong offset!");
-
-// Function BP_WorldMapScene.BP_WorldMapScene_C.SetCaptureEveryFrame
-// 0x0001 (0x0001 - 0x0000)
-struct BP_WorldMapScene_C_SetCaptureEveryFrame final
-{
-public:
-	bool                                          bIsEnabled;                                        // 0x0000(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-};
-static_assert(alignof(BP_WorldMapScene_C_SetCaptureEveryFrame) == 0x000001, "Wrong alignment on BP_WorldMapScene_C_SetCaptureEveryFrame");
-static_assert(sizeof(BP_WorldMapScene_C_SetCaptureEveryFrame) == 0x000001, "Wrong size on BP_WorldMapScene_C_SetCaptureEveryFrame");
-static_assert(offsetof(BP_WorldMapScene_C_SetCaptureEveryFrame, bIsEnabled) == 0x000000, "Member 'BP_WorldMapScene_C_SetCaptureEveryFrame::bIsEnabled' has a wrong offset!");
-
 // Function BP_WorldMapScene.BP_WorldMapScene_C.ExecuteUbergraph_BP_WorldMapScene
 // 0x0188 (0x0188 - 0x0000)
 struct BP_WorldMapScene_C_ExecuteUbergraph_BP_WorldMapScene final
@@ -116,6 +61,61 @@ static_assert(offsetof(BP_WorldMapScene_C_ExecuteUbergraph_BP_WorldMapScene, Cal
 static_assert(offsetof(BP_WorldMapScene_C_ExecuteUbergraph_BP_WorldMapScene, CallFunc_K2_SetRelativeLocation_SweepHitResult) == 0x000090, "Member 'BP_WorldMapScene_C_ExecuteUbergraph_BP_WorldMapScene::CallFunc_K2_SetRelativeLocation_SweepHitResult' has a wrong offset!");
 static_assert(offsetof(BP_WorldMapScene_C_ExecuteUbergraph_BP_WorldMapScene, CallFunc_Divide_DoubleDouble_B_ImplicitCast) == 0x000178, "Member 'BP_WorldMapScene_C_ExecuteUbergraph_BP_WorldMapScene::CallFunc_Divide_DoubleDouble_B_ImplicitCast' has a wrong offset!");
 static_assert(offsetof(BP_WorldMapScene_C_ExecuteUbergraph_BP_WorldMapScene, K2Node_VariableSet_OrthoWidth_ImplicitCast) == 0x000180, "Member 'BP_WorldMapScene_C_ExecuteUbergraph_BP_WorldMapScene::K2Node_VariableSet_OrthoWidth_ImplicitCast' has a wrong offset!");
+
+// Function BP_WorldMapScene.BP_WorldMapScene_C.SetCaptureEveryFrame
+// 0x0001 (0x0001 - 0x0000)
+struct BP_WorldMapScene_C_SetCaptureEveryFrame final
+{
+public:
+	bool                                          bIsEnabled;                                        // 0x0000(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+};
+static_assert(alignof(BP_WorldMapScene_C_SetCaptureEveryFrame) == 0x000001, "Wrong alignment on BP_WorldMapScene_C_SetCaptureEveryFrame");
+static_assert(sizeof(BP_WorldMapScene_C_SetCaptureEveryFrame) == 0x000001, "Wrong size on BP_WorldMapScene_C_SetCaptureEveryFrame");
+static_assert(offsetof(BP_WorldMapScene_C_SetCaptureEveryFrame, bIsEnabled) == 0x000000, "Member 'BP_WorldMapScene_C_SetCaptureEveryFrame::bIsEnabled' has a wrong offset!");
+
+// Function BP_WorldMapScene.BP_WorldMapScene_C.SetMouseUV
+// 0x0018 (0x0018 - 0x0000)
+struct BP_WorldMapScene_C_SetMouseUV final
+{
+public:
+	struct FVector                                InUV;                                              // 0x0000(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+};
+static_assert(alignof(BP_WorldMapScene_C_SetMouseUV) == 0x000008, "Wrong alignment on BP_WorldMapScene_C_SetMouseUV");
+static_assert(sizeof(BP_WorldMapScene_C_SetMouseUV) == 0x000018, "Wrong size on BP_WorldMapScene_C_SetMouseUV");
+static_assert(offsetof(BP_WorldMapScene_C_SetMouseUV, InUV) == 0x000000, "Member 'BP_WorldMapScene_C_SetMouseUV::InUV' has a wrong offset!");
+
+// Function BP_WorldMapScene.BP_WorldMapScene_C.SetNotSelectedAreaBrightness
+// 0x0004 (0x0004 - 0x0000)
+struct BP_WorldMapScene_C_SetNotSelectedAreaBrightness final
+{
+public:
+	float                                         InBrightness;                                      // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+};
+static_assert(alignof(BP_WorldMapScene_C_SetNotSelectedAreaBrightness) == 0x000004, "Wrong alignment on BP_WorldMapScene_C_SetNotSelectedAreaBrightness");
+static_assert(sizeof(BP_WorldMapScene_C_SetNotSelectedAreaBrightness) == 0x000004, "Wrong size on BP_WorldMapScene_C_SetNotSelectedAreaBrightness");
+static_assert(offsetof(BP_WorldMapScene_C_SetNotSelectedAreaBrightness, InBrightness) == 0x000000, "Member 'BP_WorldMapScene_C_SetNotSelectedAreaBrightness::InBrightness' has a wrong offset!");
+
+// Function BP_WorldMapScene.BP_WorldMapScene_C.SetOffset
+// 0x0010 (0x0010 - 0x0000)
+struct BP_WorldMapScene_C_SetOffset final
+{
+public:
+	struct FVector2D                              InOffset;                                          // 0x0000(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+};
+static_assert(alignof(BP_WorldMapScene_C_SetOffset) == 0x000008, "Wrong alignment on BP_WorldMapScene_C_SetOffset");
+static_assert(sizeof(BP_WorldMapScene_C_SetOffset) == 0x000010, "Wrong size on BP_WorldMapScene_C_SetOffset");
+static_assert(offsetof(BP_WorldMapScene_C_SetOffset, InOffset) == 0x000000, "Member 'BP_WorldMapScene_C_SetOffset::InOffset' has a wrong offset!");
+
+// Function BP_WorldMapScene.BP_WorldMapScene_C.SetScale
+// 0x0004 (0x0004 - 0x0000)
+struct BP_WorldMapScene_C_SetScale final
+{
+public:
+	float                                         InScale;                                           // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+};
+static_assert(alignof(BP_WorldMapScene_C_SetScale) == 0x000004, "Wrong alignment on BP_WorldMapScene_C_SetScale");
+static_assert(sizeof(BP_WorldMapScene_C_SetScale) == 0x000004, "Wrong size on BP_WorldMapScene_C_SetScale");
+static_assert(offsetof(BP_WorldMapScene_C_SetScale, InScale) == 0x000000, "Member 'BP_WorldMapScene_C_SetScale::InScale' has a wrong offset!");
 
 }
 

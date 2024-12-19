@@ -82,14 +82,14 @@ struct FModioNotificationParams final
 {
 public:
 	uint8                                         Pad_0[0x60];                                       // 0x0000(0x0060)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FModioErrorCode                        errorCode;                                         // 0x0060(0x0008)(Edit, BlueprintVisible, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FModioErrorCode                        ErrorCode;                                         // 0x0060(0x0008)(Edit, BlueprintVisible, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class UObject*                                NotificationContextObject;                         // 0x0068(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         Duration;                                          // 0x0070(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_74[0x4];                                       // 0x0074(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(FModioNotificationParams) == 0x000008, "Wrong alignment on FModioNotificationParams");
 static_assert(sizeof(FModioNotificationParams) == 0x000078, "Wrong size on FModioNotificationParams");
-static_assert(offsetof(FModioNotificationParams, errorCode) == 0x000060, "Member 'FModioNotificationParams::errorCode' has a wrong offset!");
+static_assert(offsetof(FModioNotificationParams, ErrorCode) == 0x000060, "Member 'FModioNotificationParams::ErrorCode' has a wrong offset!");
 static_assert(offsetof(FModioNotificationParams, NotificationContextObject) == 0x000068, "Member 'FModioNotificationParams::NotificationContextObject' has a wrong offset!");
 static_assert(offsetof(FModioNotificationParams, Duration) == 0x000070, "Member 'FModioNotificationParams::Duration' has a wrong offset!");
 

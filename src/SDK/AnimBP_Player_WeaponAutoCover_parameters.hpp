@@ -16,6 +16,17 @@
 namespace SDK::Params
 {
 
+// Function AnimBP_Player_WeaponAutoCover.AnimBP_Player_WeaponAutoCover_C.ExecuteUbergraph_AnimBP_Player_WeaponAutoCover
+// 0x0004 (0x0004 - 0x0000)
+struct AnimBP_Player_WeaponAutoCover_C_ExecuteUbergraph_AnimBP_Player_WeaponAutoCover final
+{
+public:
+	int32                                         EntryPoint;                                        // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+};
+static_assert(alignof(AnimBP_Player_WeaponAutoCover_C_ExecuteUbergraph_AnimBP_Player_WeaponAutoCover) == 0x000004, "Wrong alignment on AnimBP_Player_WeaponAutoCover_C_ExecuteUbergraph_AnimBP_Player_WeaponAutoCover");
+static_assert(sizeof(AnimBP_Player_WeaponAutoCover_C_ExecuteUbergraph_AnimBP_Player_WeaponAutoCover) == 0x000004, "Wrong size on AnimBP_Player_WeaponAutoCover_C_ExecuteUbergraph_AnimBP_Player_WeaponAutoCover");
+static_assert(offsetof(AnimBP_Player_WeaponAutoCover_C_ExecuteUbergraph_AnimBP_Player_WeaponAutoCover, EntryPoint) == 0x000000, "Member 'AnimBP_Player_WeaponAutoCover_C_ExecuteUbergraph_AnimBP_Player_WeaponAutoCover::EntryPoint' has a wrong offset!");
+
 // Function AnimBP_Player_WeaponAutoCover.AnimBP_Player_WeaponAutoCover_C.AnimGraph
 // 0x0020 (0x0020 - 0x0000)
 struct AnimBP_Player_WeaponAutoCover_C_AnimGraph final
@@ -28,17 +39,6 @@ static_assert(alignof(AnimBP_Player_WeaponAutoCover_C_AnimGraph) == 0x000008, "W
 static_assert(sizeof(AnimBP_Player_WeaponAutoCover_C_AnimGraph) == 0x000020, "Wrong size on AnimBP_Player_WeaponAutoCover_C_AnimGraph");
 static_assert(offsetof(AnimBP_Player_WeaponAutoCover_C_AnimGraph, Idle) == 0x000000, "Member 'AnimBP_Player_WeaponAutoCover_C_AnimGraph::Idle' has a wrong offset!");
 static_assert(offsetof(AnimBP_Player_WeaponAutoCover_C_AnimGraph, AnimGraph_0) == 0x000010, "Member 'AnimBP_Player_WeaponAutoCover_C_AnimGraph::AnimGraph_0' has a wrong offset!");
-
-// Function AnimBP_Player_WeaponAutoCover.AnimBP_Player_WeaponAutoCover_C.ExecuteUbergraph_AnimBP_Player_WeaponAutoCover
-// 0x0004 (0x0004 - 0x0000)
-struct AnimBP_Player_WeaponAutoCover_C_ExecuteUbergraph_AnimBP_Player_WeaponAutoCover final
-{
-public:
-	int32                                         EntryPoint;                                        // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-};
-static_assert(alignof(AnimBP_Player_WeaponAutoCover_C_ExecuteUbergraph_AnimBP_Player_WeaponAutoCover) == 0x000004, "Wrong alignment on AnimBP_Player_WeaponAutoCover_C_ExecuteUbergraph_AnimBP_Player_WeaponAutoCover");
-static_assert(sizeof(AnimBP_Player_WeaponAutoCover_C_ExecuteUbergraph_AnimBP_Player_WeaponAutoCover) == 0x000004, "Wrong size on AnimBP_Player_WeaponAutoCover_C_ExecuteUbergraph_AnimBP_Player_WeaponAutoCover");
-static_assert(offsetof(AnimBP_Player_WeaponAutoCover_C_ExecuteUbergraph_AnimBP_Player_WeaponAutoCover, EntryPoint) == 0x000000, "Member 'AnimBP_Player_WeaponAutoCover_C_ExecuteUbergraph_AnimBP_Player_WeaponAutoCover::EntryPoint' has a wrong offset!");
 
 }
 

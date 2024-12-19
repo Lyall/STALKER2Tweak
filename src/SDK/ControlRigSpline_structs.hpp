@@ -97,13 +97,13 @@ public:
 	struct FControlRigSpline                      Spline;                                            // 0x0008(0x0018)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
 	float                                         U;                                                 // 0x0020(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_24[0x4];                                       // 0x0024(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                position;                                          // 0x0028(0x0018)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Position;                                          // 0x0028(0x0018)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FRigUnit_PositionFromControlRigSpline) == 0x000008, "Wrong alignment on FRigUnit_PositionFromControlRigSpline");
 static_assert(sizeof(FRigUnit_PositionFromControlRigSpline) == 0x000040, "Wrong size on FRigUnit_PositionFromControlRigSpline");
 static_assert(offsetof(FRigUnit_PositionFromControlRigSpline, Spline) == 0x000008, "Member 'FRigUnit_PositionFromControlRigSpline::Spline' has a wrong offset!");
 static_assert(offsetof(FRigUnit_PositionFromControlRigSpline, U) == 0x000020, "Member 'FRigUnit_PositionFromControlRigSpline::U' has a wrong offset!");
-static_assert(offsetof(FRigUnit_PositionFromControlRigSpline, position) == 0x000028, "Member 'FRigUnit_PositionFromControlRigSpline::position' has a wrong offset!");
+static_assert(offsetof(FRigUnit_PositionFromControlRigSpline, Position) == 0x000028, "Member 'FRigUnit_PositionFromControlRigSpline::Position' has a wrong offset!");
 
 // ScriptStruct ControlRigSpline.RigUnit_TransformFromControlRigSpline
 // 0x0098 (0x00A0 - 0x0008)
@@ -289,14 +289,14 @@ struct FRigUnit_ClosestParameterFromControlRigSpline final : public FRigUnit_Con
 {
 public:
 	struct FControlRigSpline                      Spline;                                            // 0x0008(0x0018)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	struct FVector                                position;                                          // 0x0020(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Position;                                          // 0x0020(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         U;                                                 // 0x0038(0x0004)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_3C[0x4];                                       // 0x003C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(FRigUnit_ClosestParameterFromControlRigSpline) == 0x000008, "Wrong alignment on FRigUnit_ClosestParameterFromControlRigSpline");
 static_assert(sizeof(FRigUnit_ClosestParameterFromControlRigSpline) == 0x000040, "Wrong size on FRigUnit_ClosestParameterFromControlRigSpline");
 static_assert(offsetof(FRigUnit_ClosestParameterFromControlRigSpline, Spline) == 0x000008, "Member 'FRigUnit_ClosestParameterFromControlRigSpline::Spline' has a wrong offset!");
-static_assert(offsetof(FRigUnit_ClosestParameterFromControlRigSpline, position) == 0x000020, "Member 'FRigUnit_ClosestParameterFromControlRigSpline::position' has a wrong offset!");
+static_assert(offsetof(FRigUnit_ClosestParameterFromControlRigSpline, Position) == 0x000020, "Member 'FRigUnit_ClosestParameterFromControlRigSpline::Position' has a wrong offset!");
 static_assert(offsetof(FRigUnit_ClosestParameterFromControlRigSpline, U) == 0x000038, "Member 'FRigUnit_ClosestParameterFromControlRigSpline::U' has a wrong offset!");
 
 // ScriptStruct ControlRigSpline.RigUnit_ParameterAtPercentage

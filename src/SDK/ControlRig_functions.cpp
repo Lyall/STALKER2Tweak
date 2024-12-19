@@ -4986,6 +4986,30 @@ class URigVM* UControlRig::GetVM()
 }
 
 
+// SparseDelegateFunction ControlRig.ControlRig.OnControlSelectedBP__DelegateSignature
+// (MulticastDelegate, Public, Delegate, HasOutParams)
+// Parameters:
+// class UControlRig*                      Rig                                                    (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FRigControlElement               Control                                                (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+// bool                                    bSelected                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UControlRig::OnControlSelectedBP__DelegateSignature(class UControlRig* Rig, const struct FRigControlElement& Control, bool bSelected)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ControlRig", "OnControlSelectedBP__DelegateSignature");
+
+	Params::ControlRig_OnControlSelectedBP__DelegateSignature Parms{};
+
+	Parms.Rig = Rig;
+	Parms.Control = std::move(Control);
+	Parms.bSelected = bSelected;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
 // Function ControlRig.ControlRig.RequestConstruction
 // (Final, Native, Public, BlueprintCallable)
 
@@ -5894,10 +5918,10 @@ bool UControlRigComponent::DoesElementExist(class FName Name_0, ERigElementType 
 // (Final, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure)
 // Parameters:
 // class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// EControlRigComponentSpace               space                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EControlRigComponentSpace               Space                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FTransform                       ReturnValue                                            (Parm, OutParm, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-struct FTransform UControlRigComponent::GetBoneTransform(class FName BoneName, EControlRigComponentSpace space)
+struct FTransform UControlRigComponent::GetBoneTransform(class FName BoneName, EControlRigComponentSpace Space)
 {
 	static class UFunction* Func = nullptr;
 
@@ -5907,7 +5931,7 @@ struct FTransform UControlRigComponent::GetBoneTransform(class FName BoneName, E
 	Params::ControlRigComponent_GetBoneTransform Parms{};
 
 	Parms.BoneName = BoneName;
-	Parms.space = space;
+	Parms.Space = Space;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -6008,10 +6032,10 @@ int32 UControlRigComponent::GetControlInt(class FName ControlName)
 // (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // class FName                             ControlName                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// EControlRigComponentSpace               space                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EControlRigComponentSpace               Space                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FTransform                       ReturnValue                                            (Parm, OutParm, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-struct FTransform UControlRigComponent::GetControlOffset(class FName ControlName, EControlRigComponentSpace space)
+struct FTransform UControlRigComponent::GetControlOffset(class FName ControlName, EControlRigComponentSpace Space)
 {
 	static class UFunction* Func = nullptr;
 
@@ -6021,7 +6045,7 @@ struct FTransform UControlRigComponent::GetControlOffset(class FName ControlName
 	Params::ControlRigComponent_GetControlOffset Parms{};
 
 	Parms.ControlName = ControlName;
-	Parms.space = space;
+	Parms.Space = Space;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -6038,10 +6062,10 @@ struct FTransform UControlRigComponent::GetControlOffset(class FName ControlName
 // (Final, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure)
 // Parameters:
 // class FName                             ControlName                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// EControlRigComponentSpace               space                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EControlRigComponentSpace               Space                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-struct FVector UControlRigComponent::GetControlPosition(class FName ControlName, EControlRigComponentSpace space)
+struct FVector UControlRigComponent::GetControlPosition(class FName ControlName, EControlRigComponentSpace Space)
 {
 	static class UFunction* Func = nullptr;
 
@@ -6051,7 +6075,7 @@ struct FVector UControlRigComponent::GetControlPosition(class FName ControlName,
 	Params::ControlRigComponent_GetControlPosition Parms{};
 
 	Parms.ControlName = ControlName;
-	Parms.space = space;
+	Parms.Space = Space;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -6093,10 +6117,10 @@ class UControlRig* UControlRigComponent::GetControlRig()
 // (Final, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure)
 // Parameters:
 // class FName                             ControlName                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// EControlRigComponentSpace               space                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EControlRigComponentSpace               Space                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FRotator                         ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-struct FRotator UControlRigComponent::GetControlRotator(class FName ControlName, EControlRigComponentSpace space)
+struct FRotator UControlRigComponent::GetControlRotator(class FName ControlName, EControlRigComponentSpace Space)
 {
 	static class UFunction* Func = nullptr;
 
@@ -6106,7 +6130,7 @@ struct FRotator UControlRigComponent::GetControlRotator(class FName ControlName,
 	Params::ControlRigComponent_GetControlRotator Parms{};
 
 	Parms.ControlName = ControlName;
-	Parms.space = space;
+	Parms.Space = Space;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -6123,10 +6147,10 @@ struct FRotator UControlRigComponent::GetControlRotator(class FName ControlName,
 // (Final, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure)
 // Parameters:
 // class FName                             ControlName                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// EControlRigComponentSpace               space                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EControlRigComponentSpace               Space                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-struct FVector UControlRigComponent::GetControlScale(class FName ControlName, EControlRigComponentSpace space)
+struct FVector UControlRigComponent::GetControlScale(class FName ControlName, EControlRigComponentSpace Space)
 {
 	static class UFunction* Func = nullptr;
 
@@ -6136,7 +6160,7 @@ struct FVector UControlRigComponent::GetControlScale(class FName ControlName, EC
 	Params::ControlRigComponent_GetControlScale Parms{};
 
 	Parms.ControlName = ControlName;
-	Parms.space = space;
+	Parms.Space = Space;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -6153,10 +6177,10 @@ struct FVector UControlRigComponent::GetControlScale(class FName ControlName, EC
 // (Final, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure)
 // Parameters:
 // class FName                             ControlName                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// EControlRigComponentSpace               space                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EControlRigComponentSpace               Space                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FTransform                       ReturnValue                                            (Parm, OutParm, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-struct FTransform UControlRigComponent::GetControlTransform(class FName ControlName, EControlRigComponentSpace space)
+struct FTransform UControlRigComponent::GetControlTransform(class FName ControlName, EControlRigComponentSpace Space)
 {
 	static class UFunction* Func = nullptr;
 
@@ -6166,7 +6190,7 @@ struct FTransform UControlRigComponent::GetControlTransform(class FName ControlN
 	Params::ControlRigComponent_GetControlTransform Parms{};
 
 	Parms.ControlName = ControlName;
-	Parms.space = space;
+	Parms.Space = Space;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -6239,10 +6263,10 @@ TArray<class FName> UControlRigComponent::GetElementNames(ERigElementType Elemen
 // (Final, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure)
 // Parameters:
 // class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// EControlRigComponentSpace               space                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EControlRigComponentSpace               Space                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FTransform                       ReturnValue                                            (Parm, OutParm, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-struct FTransform UControlRigComponent::GetInitialBoneTransform(class FName BoneName, EControlRigComponentSpace space)
+struct FTransform UControlRigComponent::GetInitialBoneTransform(class FName BoneName, EControlRigComponentSpace Space)
 {
 	static class UFunction* Func = nullptr;
 
@@ -6252,7 +6276,7 @@ struct FTransform UControlRigComponent::GetInitialBoneTransform(class FName Bone
 	Params::ControlRigComponent_GetInitialBoneTransform Parms{};
 
 	Parms.BoneName = BoneName;
-	Parms.space = space;
+	Parms.Space = Space;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -6269,10 +6293,10 @@ struct FTransform UControlRigComponent::GetInitialBoneTransform(class FName Bone
 // (Final, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure)
 // Parameters:
 // class FName                             SpaceName                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// EControlRigComponentSpace               space                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EControlRigComponentSpace               Space                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FTransform                       ReturnValue                                            (Parm, OutParm, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-struct FTransform UControlRigComponent::GetInitialSpaceTransform(class FName SpaceName, EControlRigComponentSpace space)
+struct FTransform UControlRigComponent::GetInitialSpaceTransform(class FName SpaceName, EControlRigComponentSpace Space)
 {
 	static class UFunction* Func = nullptr;
 
@@ -6282,7 +6306,7 @@ struct FTransform UControlRigComponent::GetInitialSpaceTransform(class FName Spa
 	Params::ControlRigComponent_GetInitialSpaceTransform Parms{};
 
 	Parms.SpaceName = SpaceName;
-	Parms.space = space;
+	Parms.Space = Space;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -6299,10 +6323,10 @@ struct FTransform UControlRigComponent::GetInitialSpaceTransform(class FName Spa
 // (Final, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure)
 // Parameters:
 // class FName                             SpaceName                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// EControlRigComponentSpace               space                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EControlRigComponentSpace               Space                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FTransform                       ReturnValue                                            (Parm, OutParm, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-struct FTransform UControlRigComponent::GetSpaceTransform(class FName SpaceName, EControlRigComponentSpace space)
+struct FTransform UControlRigComponent::GetSpaceTransform(class FName SpaceName, EControlRigComponentSpace Space)
 {
 	static class UFunction* Func = nullptr;
 
@@ -6312,7 +6336,7 @@ struct FTransform UControlRigComponent::GetSpaceTransform(class FName SpaceName,
 	Params::ControlRigComponent_GetSpaceTransform Parms{};
 
 	Parms.SpaceName = SpaceName;
-	Parms.space = space;
+	Parms.Space = Space;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -6524,11 +6548,11 @@ void UControlRigComponent::SetBoneInitialTransformsFromSkeletalMesh(class USkele
 // Parameters:
 // class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FTransform                       Transform                                              (Parm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// EControlRigComponentSpace               space                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EControlRigComponentSpace               Space                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   Weight                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bPropagateToChildren                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UControlRigComponent::SetBoneTransform(class FName BoneName, const struct FTransform& Transform, EControlRigComponentSpace space, float Weight, bool bPropagateToChildren)
+void UControlRigComponent::SetBoneTransform(class FName BoneName, const struct FTransform& Transform, EControlRigComponentSpace Space, float Weight, bool bPropagateToChildren)
 {
 	static class UFunction* Func = nullptr;
 
@@ -6539,7 +6563,7 @@ void UControlRigComponent::SetBoneTransform(class FName BoneName, const struct F
 
 	Parms.BoneName = BoneName;
 	Parms.Transform = std::move(Transform);
-	Parms.space = space;
+	Parms.Space = Space;
 	Parms.Weight = Weight;
 	Parms.bPropagateToChildren = bPropagateToChildren;
 
@@ -6638,9 +6662,9 @@ void UControlRigComponent::SetControlInt(class FName ControlName, int32 Value)
 // Parameters:
 // class FName                             ControlName                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FTransform                       OffsetTransform                                        (Parm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// EControlRigComponentSpace               space                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EControlRigComponentSpace               Space                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UControlRigComponent::SetControlOffset(class FName ControlName, const struct FTransform& OffsetTransform, EControlRigComponentSpace space)
+void UControlRigComponent::SetControlOffset(class FName ControlName, const struct FTransform& OffsetTransform, EControlRigComponentSpace Space)
 {
 	static class UFunction* Func = nullptr;
 
@@ -6651,7 +6675,7 @@ void UControlRigComponent::SetControlOffset(class FName ControlName, const struc
 
 	Parms.ControlName = ControlName;
 	Parms.OffsetTransform = std::move(OffsetTransform);
-	Parms.space = space;
+	Parms.Space = Space;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -6667,9 +6691,9 @@ void UControlRigComponent::SetControlOffset(class FName ControlName, const struc
 // Parameters:
 // class FName                             ControlName                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          Value                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// EControlRigComponentSpace               space                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EControlRigComponentSpace               Space                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UControlRigComponent::SetControlPosition(class FName ControlName, const struct FVector& Value, EControlRigComponentSpace space)
+void UControlRigComponent::SetControlPosition(class FName ControlName, const struct FVector& Value, EControlRigComponentSpace Space)
 {
 	static class UFunction* Func = nullptr;
 
@@ -6680,7 +6704,7 @@ void UControlRigComponent::SetControlPosition(class FName ControlName, const str
 
 	Parms.ControlName = ControlName;
 	Parms.Value = std::move(Value);
-	Parms.space = space;
+	Parms.Space = Space;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -6721,9 +6745,9 @@ void UControlRigComponent::SetControlRigClass(TSubclassOf<class UControlRig> InC
 // Parameters:
 // class FName                             ControlName                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FRotator                         Value                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-// EControlRigComponentSpace               space                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EControlRigComponentSpace               Space                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UControlRigComponent::SetControlRotator(class FName ControlName, const struct FRotator& Value, EControlRigComponentSpace space)
+void UControlRigComponent::SetControlRotator(class FName ControlName, const struct FRotator& Value, EControlRigComponentSpace Space)
 {
 	static class UFunction* Func = nullptr;
 
@@ -6734,7 +6758,7 @@ void UControlRigComponent::SetControlRotator(class FName ControlName, const stru
 
 	Parms.ControlName = ControlName;
 	Parms.Value = std::move(Value);
-	Parms.space = space;
+	Parms.Space = Space;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -6750,9 +6774,9 @@ void UControlRigComponent::SetControlRotator(class FName ControlName, const stru
 // Parameters:
 // class FName                             ControlName                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          Value                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// EControlRigComponentSpace               space                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EControlRigComponentSpace               Space                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UControlRigComponent::SetControlScale(class FName ControlName, const struct FVector& Value, EControlRigComponentSpace space)
+void UControlRigComponent::SetControlScale(class FName ControlName, const struct FVector& Value, EControlRigComponentSpace Space)
 {
 	static class UFunction* Func = nullptr;
 
@@ -6763,7 +6787,7 @@ void UControlRigComponent::SetControlScale(class FName ControlName, const struct
 
 	Parms.ControlName = ControlName;
 	Parms.Value = std::move(Value);
-	Parms.space = space;
+	Parms.Space = Space;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -6779,9 +6803,9 @@ void UControlRigComponent::SetControlScale(class FName ControlName, const struct
 // Parameters:
 // class FName                             ControlName                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FTransform                       Value                                                  (Parm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// EControlRigComponentSpace               space                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EControlRigComponentSpace               Space                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UControlRigComponent::SetControlTransform(class FName ControlName, const struct FTransform& Value, EControlRigComponentSpace space)
+void UControlRigComponent::SetControlTransform(class FName ControlName, const struct FTransform& Value, EControlRigComponentSpace Space)
 {
 	static class UFunction* Func = nullptr;
 
@@ -6792,7 +6816,7 @@ void UControlRigComponent::SetControlTransform(class FName ControlName, const st
 
 	Parms.ControlName = ControlName;
 	Parms.Value = std::move(Value);
-	Parms.space = space;
+	Parms.Space = Space;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -6835,10 +6859,10 @@ void UControlRigComponent::SetControlVector2D(class FName ControlName, const str
 // Parameters:
 // class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FTransform                       InitialTransform                                       (Parm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// EControlRigComponentSpace               space                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EControlRigComponentSpace               Space                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bPropagateToChildren                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UControlRigComponent::SetInitialBoneTransform(class FName BoneName, const struct FTransform& InitialTransform, EControlRigComponentSpace space, bool bPropagateToChildren)
+void UControlRigComponent::SetInitialBoneTransform(class FName BoneName, const struct FTransform& InitialTransform, EControlRigComponentSpace Space, bool bPropagateToChildren)
 {
 	static class UFunction* Func = nullptr;
 
@@ -6849,7 +6873,7 @@ void UControlRigComponent::SetInitialBoneTransform(class FName BoneName, const s
 
 	Parms.BoneName = BoneName;
 	Parms.InitialTransform = std::move(InitialTransform);
-	Parms.space = space;
+	Parms.Space = Space;
 	Parms.bPropagateToChildren = bPropagateToChildren;
 
 	auto Flgs = Func->FunctionFlags;
@@ -6866,9 +6890,9 @@ void UControlRigComponent::SetInitialBoneTransform(class FName BoneName, const s
 // Parameters:
 // class FName                             SpaceName                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FTransform                       InitialTransform                                       (Parm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// EControlRigComponentSpace               space                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EControlRigComponentSpace               Space                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UControlRigComponent::SetInitialSpaceTransform(class FName SpaceName, const struct FTransform& InitialTransform, EControlRigComponentSpace space)
+void UControlRigComponent::SetInitialSpaceTransform(class FName SpaceName, const struct FTransform& InitialTransform, EControlRigComponentSpace Space)
 {
 	static class UFunction* Func = nullptr;
 
@@ -6879,7 +6903,7 @@ void UControlRigComponent::SetInitialSpaceTransform(class FName SpaceName, const
 
 	Parms.SpaceName = SpaceName;
 	Parms.InitialTransform = std::move(InitialTransform);
-	Parms.space = space;
+	Parms.Space = Space;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;

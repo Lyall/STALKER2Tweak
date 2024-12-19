@@ -126,12 +126,12 @@ static_assert(offsetof(ModioCommonTypesLibrary_Conv_StringToEmailAuthCode, Retur
 struct ModioCommonTypesLibrary_Conv_UserIDToString final
 {
 public:
-	struct FModioUserID                           userId;                                            // 0x0000(0x0008)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FModioUserID                           UserId;                                            // 0x0000(0x0008)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FString                                 ReturnValue;                                       // 0x0008(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioCommonTypesLibrary_Conv_UserIDToString) == 0x000008, "Wrong alignment on ModioCommonTypesLibrary_Conv_UserIDToString");
 static_assert(sizeof(ModioCommonTypesLibrary_Conv_UserIDToString) == 0x000018, "Wrong size on ModioCommonTypesLibrary_Conv_UserIDToString");
-static_assert(offsetof(ModioCommonTypesLibrary_Conv_UserIDToString, userId) == 0x000000, "Member 'ModioCommonTypesLibrary_Conv_UserIDToString::userId' has a wrong offset!");
+static_assert(offsetof(ModioCommonTypesLibrary_Conv_UserIDToString, UserId) == 0x000000, "Member 'ModioCommonTypesLibrary_Conv_UserIDToString::UserId' has a wrong offset!");
 static_assert(offsetof(ModioCommonTypesLibrary_Conv_UserIDToString, ReturnValue) == 0x000008, "Member 'ModioCommonTypesLibrary_Conv_UserIDToString::ReturnValue' has a wrong offset!");
 
 // Function Modio.ModioCommonTypesLibrary.EqualTo
@@ -625,14 +625,14 @@ static_assert(offsetof(ModioErrorCodeLibrary_IsError, ReturnValue) == 0x000008, 
 struct ModioErrorConditionLibrary_ErrorCodeMatches final
 {
 public:
-	struct FModioErrorCode                        errorCode;                                         // 0x0000(0x0008)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FModioErrorCode                        ErrorCode;                                         // 0x0000(0x0008)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EModioErrorCondition                          Condition;                                         // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          ReturnValue;                                       // 0x0009(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_A[0x6];                                        // 0x000A(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(ModioErrorConditionLibrary_ErrorCodeMatches) == 0x000008, "Wrong alignment on ModioErrorConditionLibrary_ErrorCodeMatches");
 static_assert(sizeof(ModioErrorConditionLibrary_ErrorCodeMatches) == 0x000010, "Wrong size on ModioErrorConditionLibrary_ErrorCodeMatches");
-static_assert(offsetof(ModioErrorConditionLibrary_ErrorCodeMatches, errorCode) == 0x000000, "Member 'ModioErrorConditionLibrary_ErrorCodeMatches::errorCode' has a wrong offset!");
+static_assert(offsetof(ModioErrorConditionLibrary_ErrorCodeMatches, ErrorCode) == 0x000000, "Member 'ModioErrorConditionLibrary_ErrorCodeMatches::ErrorCode' has a wrong offset!");
 static_assert(offsetof(ModioErrorConditionLibrary_ErrorCodeMatches, Condition) == 0x000008, "Member 'ModioErrorConditionLibrary_ErrorCodeMatches::Condition' has a wrong offset!");
 static_assert(offsetof(ModioErrorConditionLibrary_ErrorCodeMatches, ReturnValue) == 0x000009, "Member 'ModioErrorConditionLibrary_ErrorCodeMatches::ReturnValue' has a wrong offset!");
 
@@ -675,7 +675,7 @@ struct ModioExampleLibrary_ListUserSubscriptionAsync final
 {
 public:
 	struct FModioFilterParams                     FilterParams;                                      // 0x0000(0x00A8)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalModInfoList& Result)> Callback;                                          // 0x00A8(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalModInfoList& Result)> Callback;                                          // 0x00A8(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioExampleLibrary_ListUserSubscriptionAsync) == 0x000008, "Wrong alignment on ModioExampleLibrary_ListUserSubscriptionAsync");
 static_assert(sizeof(ModioExampleLibrary_ListUserSubscriptionAsync) == 0x0000B8, "Wrong size on ModioExampleLibrary_ListUserSubscriptionAsync");
@@ -904,14 +904,14 @@ static_assert(offsetof(ModioFilterParamsLibrary_WithTags, ReturnValue) == 0x0000
 struct ModioImageLibrary_GetAvatarSize final
 {
 public:
-	class UTexture*                               avatar;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UTexture*                               Avatar;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EModioAvatarSize                              AvatarSize;                                        // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FVector2D                              ReturnValue;                                       // 0x0010(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioImageLibrary_GetAvatarSize) == 0x000008, "Wrong alignment on ModioImageLibrary_GetAvatarSize");
 static_assert(sizeof(ModioImageLibrary_GetAvatarSize) == 0x000020, "Wrong size on ModioImageLibrary_GetAvatarSize");
-static_assert(offsetof(ModioImageLibrary_GetAvatarSize, avatar) == 0x000000, "Member 'ModioImageLibrary_GetAvatarSize::avatar' has a wrong offset!");
+static_assert(offsetof(ModioImageLibrary_GetAvatarSize, Avatar) == 0x000000, "Member 'ModioImageLibrary_GetAvatarSize::Avatar' has a wrong offset!");
 static_assert(offsetof(ModioImageLibrary_GetAvatarSize, AvatarSize) == 0x000008, "Member 'ModioImageLibrary_GetAvatarSize::AvatarSize' has a wrong offset!");
 static_assert(offsetof(ModioImageLibrary_GetAvatarSize, ReturnValue) == 0x000010, "Member 'ModioImageLibrary_GetAvatarSize::ReturnValue' has a wrong offset!");
 
@@ -1597,12 +1597,12 @@ static_assert(offsetof(ModioReportLibrary_MakeReportForUser, ReturnValue) == 0x0
 struct ModioSDKLibrary_Conv_Int64ToString final
 {
 public:
-	int64                                         inInt;                                             // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int64                                         InInt;                                             // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FString                                 ReturnValue;                                       // 0x0008(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioSDKLibrary_Conv_Int64ToString) == 0x000008, "Wrong alignment on ModioSDKLibrary_Conv_Int64ToString");
 static_assert(sizeof(ModioSDKLibrary_Conv_Int64ToString) == 0x000018, "Wrong size on ModioSDKLibrary_Conv_Int64ToString");
-static_assert(offsetof(ModioSDKLibrary_Conv_Int64ToString, inInt) == 0x000000, "Member 'ModioSDKLibrary_Conv_Int64ToString::inInt' has a wrong offset!");
+static_assert(offsetof(ModioSDKLibrary_Conv_Int64ToString, InInt) == 0x000000, "Member 'ModioSDKLibrary_Conv_Int64ToString::InInt' has a wrong offset!");
 static_assert(offsetof(ModioSDKLibrary_Conv_Int64ToString, ReturnValue) == 0x000008, "Member 'ModioSDKLibrary_Conv_Int64ToString::ReturnValue' has a wrong offset!");
 
 // Function Modio.ModioSDKLibrary.Conv_Int64ToText
@@ -1807,12 +1807,12 @@ static_assert(offsetof(ModioSDKLibrary_Pct_Int64Int64, ReturnValue) == 0x000010,
 struct ModioSDKLibrary_RoundNumberString final
 {
 public:
-	class FText                                   inputText;                                         // 0x0000(0x0018)(Parm, NativeAccessSpecifierPublic)
+	class FText                                   InputText;                                         // 0x0000(0x0018)(Parm, NativeAccessSpecifierPublic)
 	class FText                                   ReturnValue;                                       // 0x0018(0x0018)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioSDKLibrary_RoundNumberString) == 0x000008, "Wrong alignment on ModioSDKLibrary_RoundNumberString");
 static_assert(sizeof(ModioSDKLibrary_RoundNumberString) == 0x000030, "Wrong size on ModioSDKLibrary_RoundNumberString");
-static_assert(offsetof(ModioSDKLibrary_RoundNumberString, inputText) == 0x000000, "Member 'ModioSDKLibrary_RoundNumberString::inputText' has a wrong offset!");
+static_assert(offsetof(ModioSDKLibrary_RoundNumberString, InputText) == 0x000000, "Member 'ModioSDKLibrary_RoundNumberString::InputText' has a wrong offset!");
 static_assert(offsetof(ModioSDKLibrary_RoundNumberString, ReturnValue) == 0x000018, "Member 'ModioSDKLibrary_RoundNumberString::ReturnValue' has a wrong offset!");
 
 // Function Modio.ModioSubsystem.K2_GetDefaultModInstallationDirectory
@@ -1867,7 +1867,7 @@ struct ModioSubsystem_K2_ArchiveModAsync final
 {
 public:
 	struct FModioModID                            Mod;                                               // 0x0000(0x0008)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FModioErrorCode& errorCode)> Callback;                                          // 0x0008(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FModioErrorCode& ErrorCode)> Callback;                                          // 0x0008(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioSubsystem_K2_ArchiveModAsync) == 0x000008, "Wrong alignment on ModioSubsystem_K2_ArchiveModAsync");
 static_assert(sizeof(ModioSubsystem_K2_ArchiveModAsync) == 0x000018, "Wrong size on ModioSubsystem_K2_ArchiveModAsync");
@@ -1880,7 +1880,7 @@ struct ModioSubsystem_K2_AuthenticateUserEmailAsync final
 {
 public:
 	struct FModioEmailAuthCode                    AuthenticationCode;                                // 0x0000(0x0010)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FModioErrorCode& errorCode)> Callback;                                          // 0x0010(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FModioErrorCode& ErrorCode)> Callback;                                          // 0x0010(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioSubsystem_K2_AuthenticateUserEmailAsync) == 0x000008, "Wrong alignment on ModioSubsystem_K2_AuthenticateUserEmailAsync");
 static_assert(sizeof(ModioSubsystem_K2_AuthenticateUserEmailAsync) == 0x000020, "Wrong size on ModioSubsystem_K2_AuthenticateUserEmailAsync");
@@ -1895,7 +1895,7 @@ public:
 	struct FModioAuthenticationParams             User;                                              // 0x0000(0x0078)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 	EModioAuthenticationProvider                  Provider;                                          // 0x0078(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_79[0x3];                                       // 0x0079(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	TDelegate<void(const struct FModioErrorCode& errorCode)> Callback;                                          // 0x007C(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FModioErrorCode& ErrorCode)> Callback;                                          // 0x007C(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_8C[0x4];                                       // 0x008C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(ModioSubsystem_K2_AuthenticateUserExternalAsync) == 0x000008, "Wrong alignment on ModioSubsystem_K2_AuthenticateUserExternalAsync");
@@ -1909,7 +1909,7 @@ static_assert(offsetof(ModioSubsystem_K2_AuthenticateUserExternalAsync, Callback
 struct ModioSubsystem_K2_ClearUserDataAsync final
 {
 public:
-	TDelegate<void(const struct FModioErrorCode& errorCode)> Callback;                                          // 0x0000(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FModioErrorCode& ErrorCode)> Callback;                                          // 0x0000(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioSubsystem_K2_ClearUserDataAsync) == 0x000004, "Wrong alignment on ModioSubsystem_K2_ClearUserDataAsync");
 static_assert(sizeof(ModioSubsystem_K2_ClearUserDataAsync) == 0x000010, "Wrong size on ModioSubsystem_K2_ClearUserDataAsync");
@@ -1933,7 +1933,7 @@ static_assert(offsetof(ModioSubsystem_K2_EnableModManagement, ReturnValue) == 0x
 struct ModioSubsystem_K2_FetchExternalUpdatesAsync final
 {
 public:
-	TDelegate<void(const struct FModioErrorCode& errorCode)> OnFetchDone;                                       // 0x0000(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FModioErrorCode& ErrorCode)> OnFetchDone;                                       // 0x0000(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioSubsystem_K2_FetchExternalUpdatesAsync) == 0x000004, "Wrong alignment on ModioSubsystem_K2_FetchExternalUpdatesAsync");
 static_assert(sizeof(ModioSubsystem_K2_FetchExternalUpdatesAsync) == 0x000010, "Wrong size on ModioSubsystem_K2_FetchExternalUpdatesAsync");
@@ -1945,7 +1945,7 @@ struct ModioSubsystem_K2_ForceUninstallModAsync final
 {
 public:
 	struct FModioModID                            ModToRemove;                                       // 0x0000(0x0008)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FModioErrorCode& errorCode)> Callback;                                          // 0x0008(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FModioErrorCode& ErrorCode)> Callback;                                          // 0x0008(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioSubsystem_K2_ForceUninstallModAsync) == 0x000008, "Wrong alignment on ModioSubsystem_K2_ForceUninstallModAsync");
 static_assert(sizeof(ModioSubsystem_K2_ForceUninstallModAsync) == 0x000018, "Wrong size on ModioSubsystem_K2_ForceUninstallModAsync");
@@ -1958,7 +1958,7 @@ struct ModioSubsystem_K2_GetGameInfoAsync final
 {
 public:
 	struct FModioGameID                           GameId;                                            // 0x0000(0x0008)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalGameInfo& GameInfo)> Callback;                                          // 0x0008(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalGameInfo& GameInfo)> Callback;                                          // 0x0008(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioSubsystem_K2_GetGameInfoAsync) == 0x000008, "Wrong alignment on ModioSubsystem_K2_GetGameInfoAsync");
 static_assert(sizeof(ModioSubsystem_K2_GetGameInfoAsync) == 0x000018, "Wrong size on ModioSubsystem_K2_GetGameInfoAsync");
@@ -1982,7 +1982,7 @@ struct ModioSubsystem_K2_GetModDependenciesAsync final
 {
 public:
 	struct FModioModID                            ModId;                                             // 0x0000(0x0008)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalModDependencyList& Dependencies)> Callback;                                          // 0x0008(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalModDependencyList& Dependencies)> Callback;                                          // 0x0008(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioSubsystem_K2_GetModDependenciesAsync) == 0x000008, "Wrong alignment on ModioSubsystem_K2_GetModDependenciesAsync");
 static_assert(sizeof(ModioSubsystem_K2_GetModDependenciesAsync) == 0x000018, "Wrong size on ModioSubsystem_K2_GetModDependenciesAsync");
@@ -1995,7 +1995,7 @@ struct ModioSubsystem_K2_GetModInfoAsync final
 {
 public:
 	struct FModioModID                            ModId;                                             // 0x0000(0x0008)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalModInfo& ModInfo)> Callback;                                          // 0x0008(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalModInfo& ModInfo)> Callback;                                          // 0x0008(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioSubsystem_K2_GetModInfoAsync) == 0x000008, "Wrong alignment on ModioSubsystem_K2_GetModInfoAsync");
 static_assert(sizeof(ModioSubsystem_K2_GetModInfoAsync) == 0x000018, "Wrong size on ModioSubsystem_K2_GetModInfoAsync");
@@ -2010,7 +2010,7 @@ public:
 	struct FModioModID                            ModId;                                             // 0x0000(0x0008)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EModioAvatarSize                              AvatarSize;                                        // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_9[0x3];                                        // 0x0009(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalImage& Path)> Callback;                                          // 0x000C(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalImage& Path)> Callback;                                          // 0x000C(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(ModioSubsystem_K2_GetModMediaAvatarAsync) == 0x000008, "Wrong alignment on ModioSubsystem_K2_GetModMediaAvatarAsync");
@@ -2028,7 +2028,7 @@ public:
 	EModioGallerySize                             GallerySize;                                       // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_9[0x3];                                        // 0x0009(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	int32                                         Index_0;                                           // 0x000C(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalImage& Path)> Callback;                                          // 0x0010(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalImage& Path)> Callback;                                          // 0x0010(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioSubsystem_K2_GetModMediaGalleryImageAsync) == 0x000008, "Wrong alignment on ModioSubsystem_K2_GetModMediaGalleryImageAsync");
 static_assert(sizeof(ModioSubsystem_K2_GetModMediaGalleryImageAsync) == 0x000020, "Wrong size on ModioSubsystem_K2_GetModMediaGalleryImageAsync");
@@ -2045,7 +2045,7 @@ public:
 	struct FModioModID                            ModId;                                             // 0x0000(0x0008)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EModioLogoSize                                LogoSize;                                          // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_9[0x3];                                        // 0x0009(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalImage& Path)> Callback;                                          // 0x000C(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalImage& Path)> Callback;                                          // 0x000C(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(ModioSubsystem_K2_GetModMediaLogoAsync) == 0x000008, "Wrong alignment on ModioSubsystem_K2_GetModMediaLogoAsync");
@@ -2059,7 +2059,7 @@ static_assert(offsetof(ModioSubsystem_K2_GetModMediaLogoAsync, Callback) == 0x00
 struct ModioSubsystem_K2_GetModTagOptionsAsync final
 {
 public:
-	TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalModTagOptions& ModTagOptions)> Callback;                                          // 0x0000(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalModTagOptions& ModTagOptions)> Callback;                                          // 0x0000(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioSubsystem_K2_GetModTagOptionsAsync) == 0x000004, "Wrong alignment on ModioSubsystem_K2_GetModTagOptionsAsync");
 static_assert(sizeof(ModioSubsystem_K2_GetModTagOptionsAsync) == 0x000010, "Wrong size on ModioSubsystem_K2_GetModTagOptionsAsync");
@@ -2070,7 +2070,7 @@ static_assert(offsetof(ModioSubsystem_K2_GetModTagOptionsAsync, Callback) == 0x0
 struct ModioSubsystem_K2_GetMutedUsersAsync final
 {
 public:
-	TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalUserList& NewUserList)> Callback;                                          // 0x0000(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalUserList& NewUserList)> Callback;                                          // 0x0000(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioSubsystem_K2_GetMutedUsersAsync) == 0x000004, "Wrong alignment on ModioSubsystem_K2_GetMutedUsersAsync");
 static_assert(sizeof(ModioSubsystem_K2_GetMutedUsersAsync) == 0x000010, "Wrong size on ModioSubsystem_K2_GetMutedUsersAsync");
@@ -2081,7 +2081,7 @@ static_assert(offsetof(ModioSubsystem_K2_GetMutedUsersAsync, Callback) == 0x0000
 struct ModioSubsystem_K2_GetTermsOfUseAsync final
 {
 public:
-	TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalTerms& Terms)> Callback;                                          // 0x0000(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalTerms& Terms)> Callback;                                          // 0x0000(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioSubsystem_K2_GetTermsOfUseAsync) == 0x000004, "Wrong alignment on ModioSubsystem_K2_GetTermsOfUseAsync");
 static_assert(sizeof(ModioSubsystem_K2_GetTermsOfUseAsync) == 0x000010, "Wrong size on ModioSubsystem_K2_GetTermsOfUseAsync");
@@ -2094,7 +2094,7 @@ struct ModioSubsystem_K2_GetUserMediaAvatarAsync final
 public:
 	EModioAvatarSize                              AvatarSize;                                        // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_1[0x3];                                        // 0x0001(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalImage& Path)> Callback;                                          // 0x0004(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalImage& Path)> Callback;                                          // 0x0004(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioSubsystem_K2_GetUserMediaAvatarAsync) == 0x000004, "Wrong alignment on ModioSubsystem_K2_GetUserMediaAvatarAsync");
 static_assert(sizeof(ModioSubsystem_K2_GetUserMediaAvatarAsync) == 0x000014, "Wrong size on ModioSubsystem_K2_GetUserMediaAvatarAsync");
@@ -2107,7 +2107,7 @@ struct ModioSubsystem_K2_InitializeAsync final
 {
 public:
 	struct FModioInitializeOptions                InitializeOptions;                                 // 0x0000(0x0090)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FModioErrorCode& errorCode)> OnInitComplete;                                    // 0x0090(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FModioErrorCode& ErrorCode)> OnInitComplete;                                    // 0x0090(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioSubsystem_K2_InitializeAsync) == 0x000008, "Wrong alignment on ModioSubsystem_K2_InitializeAsync");
 static_assert(sizeof(ModioSubsystem_K2_InitializeAsync) == 0x0000A0, "Wrong size on ModioSubsystem_K2_InitializeAsync");
@@ -2120,7 +2120,7 @@ struct ModioSubsystem_K2_ListAllModsAsync final
 {
 public:
 	struct FModioFilterParams                     Filter;                                            // 0x0000(0x00A8)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalModInfoList& Result)> Callback;                                          // 0x00A8(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalModInfoList& Result)> Callback;                                          // 0x00A8(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioSubsystem_K2_ListAllModsAsync) == 0x000008, "Wrong alignment on ModioSubsystem_K2_ListAllModsAsync");
 static_assert(sizeof(ModioSubsystem_K2_ListAllModsAsync) == 0x0000B8, "Wrong size on ModioSubsystem_K2_ListAllModsAsync");
@@ -2133,7 +2133,7 @@ struct ModioSubsystem_K2_ListUserCreatedModsAsync final
 {
 public:
 	struct FModioFilterParams                     Filter;                                            // 0x0000(0x00A8)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalModInfoList& Result)> Callback;                                          // 0x00A8(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalModInfoList& Result)> Callback;                                          // 0x00A8(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioSubsystem_K2_ListUserCreatedModsAsync) == 0x000008, "Wrong alignment on ModioSubsystem_K2_ListUserCreatedModsAsync");
 static_assert(sizeof(ModioSubsystem_K2_ListUserCreatedModsAsync) == 0x0000B8, "Wrong size on ModioSubsystem_K2_ListUserCreatedModsAsync");
@@ -2145,12 +2145,12 @@ static_assert(offsetof(ModioSubsystem_K2_ListUserCreatedModsAsync, Callback) == 
 struct ModioSubsystem_K2_MuteUserAsync final
 {
 public:
-	struct FModioUserID                           userId;                                            // 0x0000(0x0008)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FModioErrorCode& errorCode)> Callback;                                          // 0x0008(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FModioUserID                           UserId;                                            // 0x0000(0x0008)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FModioErrorCode& ErrorCode)> Callback;                                          // 0x0008(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioSubsystem_K2_MuteUserAsync) == 0x000008, "Wrong alignment on ModioSubsystem_K2_MuteUserAsync");
 static_assert(sizeof(ModioSubsystem_K2_MuteUserAsync) == 0x000018, "Wrong size on ModioSubsystem_K2_MuteUserAsync");
-static_assert(offsetof(ModioSubsystem_K2_MuteUserAsync, userId) == 0x000000, "Member 'ModioSubsystem_K2_MuteUserAsync::userId' has a wrong offset!");
+static_assert(offsetof(ModioSubsystem_K2_MuteUserAsync, UserId) == 0x000000, "Member 'ModioSubsystem_K2_MuteUserAsync::UserId' has a wrong offset!");
 static_assert(offsetof(ModioSubsystem_K2_MuteUserAsync, Callback) == 0x000008, "Member 'ModioSubsystem_K2_MuteUserAsync::Callback' has a wrong offset!");
 
 // Function Modio.ModioSubsystem.K2_PreviewExternalUpdatesAsync
@@ -2158,7 +2158,7 @@ static_assert(offsetof(ModioSubsystem_K2_MuteUserAsync, Callback) == 0x000008, "
 struct ModioSubsystem_K2_PreviewExternalUpdatesAsync final
 {
 public:
-	TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalMapPreview& ModioPreviewMap)> OnPreviewDone;                                     // 0x0000(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalMapPreview& ModioPreviewMap)> OnPreviewDone;                                     // 0x0000(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioSubsystem_K2_PreviewExternalUpdatesAsync) == 0x000004, "Wrong alignment on ModioSubsystem_K2_PreviewExternalUpdatesAsync");
 static_assert(sizeof(ModioSubsystem_K2_PreviewExternalUpdatesAsync) == 0x000010, "Wrong size on ModioSubsystem_K2_PreviewExternalUpdatesAsync");
@@ -2192,7 +2192,7 @@ struct ModioSubsystem_K2_ReportContentAsync final
 {
 public:
 	struct FModioReportParams                     Report;                                            // 0x0000(0x0058)(Parm, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FModioErrorCode& errorCode)> Callback;                                          // 0x0058(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FModioErrorCode& ErrorCode)> Callback;                                          // 0x0058(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioSubsystem_K2_ReportContentAsync) == 0x000008, "Wrong alignment on ModioSubsystem_K2_ReportContentAsync");
 static_assert(sizeof(ModioSubsystem_K2_ReportContentAsync) == 0x000068, "Wrong size on ModioSubsystem_K2_ReportContentAsync");
@@ -2205,7 +2205,7 @@ struct ModioSubsystem_K2_RequestEmailAuthCodeAsync final
 {
 public:
 	struct FModioEmailAddress                     EmailAddress;                                      // 0x0000(0x0010)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FModioErrorCode& errorCode)> Callback;                                          // 0x0010(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FModioErrorCode& ErrorCode)> Callback;                                          // 0x0010(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioSubsystem_K2_RequestEmailAuthCodeAsync) == 0x000008, "Wrong alignment on ModioSubsystem_K2_RequestEmailAuthCodeAsync");
 static_assert(sizeof(ModioSubsystem_K2_RequestEmailAuthCodeAsync) == 0x000020, "Wrong size on ModioSubsystem_K2_RequestEmailAuthCodeAsync");
@@ -2228,7 +2228,7 @@ static_assert(offsetof(ModioSubsystem_K2_SetLanguage, Locale) == 0x000000, "Memb
 struct ModioSubsystem_K2_ShutdownAsync final
 {
 public:
-	TDelegate<void(const struct FModioErrorCode& errorCode)> OnShutdownComplete;                                // 0x0000(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FModioErrorCode& ErrorCode)> OnShutdownComplete;                                // 0x0000(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioSubsystem_K2_ShutdownAsync) == 0x000004, "Wrong alignment on ModioSubsystem_K2_ShutdownAsync");
 static_assert(sizeof(ModioSubsystem_K2_ShutdownAsync) == 0x000010, "Wrong size on ModioSubsystem_K2_ShutdownAsync");
@@ -2241,7 +2241,7 @@ struct ModioSubsystem_K2_SubmitModChangesAsync final
 public:
 	struct FModioModID                            Mod;                                               // 0x0000(0x0008)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FModioEditModParams                    Params_0;                                          // 0x0008(0x00D0)(Parm, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalModInfo& ModInfo)> Callback;                                          // 0x00D8(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalModInfo& ModInfo)> Callback;                                          // 0x00D8(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioSubsystem_K2_SubmitModChangesAsync) == 0x000008, "Wrong alignment on ModioSubsystem_K2_SubmitModChangesAsync");
 static_assert(sizeof(ModioSubsystem_K2_SubmitModChangesAsync) == 0x0000E8, "Wrong size on ModioSubsystem_K2_SubmitModChangesAsync");
@@ -2257,7 +2257,7 @@ public:
 	struct FModioModID                            Mod;                                               // 0x0000(0x0008)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EModioRating                                  Rating;                                            // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_9[0x3];                                        // 0x0009(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	TDelegate<void(const struct FModioErrorCode& errorCode)> Callback;                                          // 0x000C(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FModioErrorCode& ErrorCode)> Callback;                                          // 0x000C(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(ModioSubsystem_K2_SubmitModRatingAsync) == 0x000008, "Wrong alignment on ModioSubsystem_K2_SubmitModRatingAsync");
@@ -2273,7 +2273,7 @@ struct ModioSubsystem_K2_SubmitNewModAsync final
 public:
 	struct FModioModCreationHandle                Handle;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 	struct FModioCreateModParams                  Params_0;                                          // 0x0008(0x00C8)(Parm, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FModioErrorCode& errorCode, const struct FModioOptionalModID& NewModID)> Callback;                                          // 0x00D0(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FModioErrorCode& ErrorCode, const struct FModioOptionalModID& NewModID)> Callback;                                          // 0x00D0(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioSubsystem_K2_SubmitNewModAsync) == 0x000008, "Wrong alignment on ModioSubsystem_K2_SubmitNewModAsync");
 static_assert(sizeof(ModioSubsystem_K2_SubmitNewModAsync) == 0x0000E0, "Wrong size on ModioSubsystem_K2_SubmitNewModAsync");
@@ -2300,7 +2300,7 @@ struct ModioSubsystem_K2_SubscribeToModAsync final
 {
 public:
 	struct FModioModID                            ModToSubscribeTo;                                  // 0x0000(0x0008)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FModioErrorCode& errorCode)> OnSubscribeComplete;                               // 0x0008(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FModioErrorCode& ErrorCode)> OnSubscribeComplete;                               // 0x0008(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioSubsystem_K2_SubscribeToModAsync) == 0x000008, "Wrong alignment on ModioSubsystem_K2_SubscribeToModAsync");
 static_assert(sizeof(ModioSubsystem_K2_SubscribeToModAsync) == 0x000018, "Wrong size on ModioSubsystem_K2_SubscribeToModAsync");
@@ -2312,12 +2312,12 @@ static_assert(offsetof(ModioSubsystem_K2_SubscribeToModAsync, OnSubscribeComplet
 struct ModioSubsystem_K2_UnmuteUserAsync final
 {
 public:
-	struct FModioUserID                           userId;                                            // 0x0000(0x0008)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FModioErrorCode& errorCode)> Callback;                                          // 0x0008(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FModioUserID                           UserId;                                            // 0x0000(0x0008)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FModioErrorCode& ErrorCode)> Callback;                                          // 0x0008(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioSubsystem_K2_UnmuteUserAsync) == 0x000008, "Wrong alignment on ModioSubsystem_K2_UnmuteUserAsync");
 static_assert(sizeof(ModioSubsystem_K2_UnmuteUserAsync) == 0x000018, "Wrong size on ModioSubsystem_K2_UnmuteUserAsync");
-static_assert(offsetof(ModioSubsystem_K2_UnmuteUserAsync, userId) == 0x000000, "Member 'ModioSubsystem_K2_UnmuteUserAsync::userId' has a wrong offset!");
+static_assert(offsetof(ModioSubsystem_K2_UnmuteUserAsync, UserId) == 0x000000, "Member 'ModioSubsystem_K2_UnmuteUserAsync::UserId' has a wrong offset!");
 static_assert(offsetof(ModioSubsystem_K2_UnmuteUserAsync, Callback) == 0x000008, "Member 'ModioSubsystem_K2_UnmuteUserAsync::Callback' has a wrong offset!");
 
 // Function Modio.ModioSubsystem.K2_UnsubscribeFromModAsync
@@ -2326,7 +2326,7 @@ struct ModioSubsystem_K2_UnsubscribeFromModAsync final
 {
 public:
 	struct FModioModID                            ModToUnsubscribeFrom;                              // 0x0000(0x0008)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FModioErrorCode& errorCode)> OnUnsubscribeComplete;                             // 0x0008(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FModioErrorCode& ErrorCode)> OnUnsubscribeComplete;                             // 0x0008(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioSubsystem_K2_UnsubscribeFromModAsync) == 0x000008, "Wrong alignment on ModioSubsystem_K2_UnsubscribeFromModAsync");
 static_assert(sizeof(ModioSubsystem_K2_UnsubscribeFromModAsync) == 0x000018, "Wrong size on ModioSubsystem_K2_UnsubscribeFromModAsync");
@@ -2338,7 +2338,7 @@ static_assert(offsetof(ModioSubsystem_K2_UnsubscribeFromModAsync, OnUnsubscribeC
 struct ModioSubsystem_K2_VerifyUserAuthenticationAsync final
 {
 public:
-	TDelegate<void(const struct FModioErrorCode& errorCode)> Callback;                                          // 0x0000(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FModioErrorCode& ErrorCode)> Callback;                                          // 0x0000(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModioSubsystem_K2_VerifyUserAuthenticationAsync) == 0x000004, "Wrong alignment on ModioSubsystem_K2_VerifyUserAuthenticationAsync");
 static_assert(sizeof(ModioSubsystem_K2_VerifyUserAuthenticationAsync) == 0x000010, "Wrong size on ModioSubsystem_K2_VerifyUserAuthenticationAsync");

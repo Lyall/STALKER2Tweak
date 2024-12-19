@@ -648,10 +648,10 @@ void IModioUIAuthenticationChangedReceiver::OnAuthenticationChanged(const struct
 // (Event, Protected, BlueprintEvent)
 // Parameters:
 // struct FModioModID                      ModId                                                  (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FModioErrorCode                  ec                                                     (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FModioErrorCode                  Ec                                                     (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FModioOptionalImage              Image                                                  (Parm, NativeAccessSpecifierPublic)
 
-void IModioUIMediaDownloadCompletedReceiver::OnModCreatorAvatarDownloadCompleted(const struct FModioModID& ModId, const struct FModioErrorCode& ec, const struct FModioOptionalImage& Image)
+void IModioUIMediaDownloadCompletedReceiver::OnModCreatorAvatarDownloadCompleted(const struct FModioModID& ModId, const struct FModioErrorCode& Ec, const struct FModioOptionalImage& Image)
 {
 	static class UFunction* Func = nullptr;
 
@@ -661,7 +661,7 @@ void IModioUIMediaDownloadCompletedReceiver::OnModCreatorAvatarDownloadCompleted
 	Params::ModioUIMediaDownloadCompletedReceiver_OnModCreatorAvatarDownloadCompleted Parms{};
 
 	Parms.ModId = std::move(ModId);
-	Parms.ec = std::move(ec);
+	Parms.Ec = std::move(Ec);
 	Parms.Image = std::move(Image);
 
 	UObject::ProcessEvent(Func, &Parms);
@@ -672,11 +672,11 @@ void IModioUIMediaDownloadCompletedReceiver::OnModCreatorAvatarDownloadCompleted
 // (Event, Protected, BlueprintEvent)
 // Parameters:
 // struct FModioModID                      ModId                                                  (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FModioErrorCode                  ec                                                     (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FModioErrorCode                  Ec                                                     (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   ImageIndex                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FModioOptionalImage              Image                                                  (Parm, NativeAccessSpecifierPublic)
 
-void IModioUIMediaDownloadCompletedReceiver::OnModGalleryImageDownloadCompleted(const struct FModioModID& ModId, const struct FModioErrorCode& ec, int32 ImageIndex, const struct FModioOptionalImage& Image)
+void IModioUIMediaDownloadCompletedReceiver::OnModGalleryImageDownloadCompleted(const struct FModioModID& ModId, const struct FModioErrorCode& Ec, int32 ImageIndex, const struct FModioOptionalImage& Image)
 {
 	static class UFunction* Func = nullptr;
 
@@ -686,7 +686,7 @@ void IModioUIMediaDownloadCompletedReceiver::OnModGalleryImageDownloadCompleted(
 	Params::ModioUIMediaDownloadCompletedReceiver_OnModGalleryImageDownloadCompleted Parms{};
 
 	Parms.ModId = std::move(ModId);
-	Parms.ec = std::move(ec);
+	Parms.Ec = std::move(Ec);
 	Parms.ImageIndex = ImageIndex;
 	Parms.Image = std::move(Image);
 
@@ -698,11 +698,11 @@ void IModioUIMediaDownloadCompletedReceiver::OnModGalleryImageDownloadCompleted(
 // (Event, Protected, BlueprintEvent)
 // Parameters:
 // struct FModioModID                      ModId                                                  (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FModioErrorCode                  ec                                                     (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FModioErrorCode                  Ec                                                     (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FModioOptionalImage              Image                                                  (Parm, NativeAccessSpecifierPublic)
 // EModioLogoSize                          LogoSize                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void IModioUIMediaDownloadCompletedReceiver::OnModLogoDownloadCompleted(const struct FModioModID& ModId, const struct FModioErrorCode& ec, const struct FModioOptionalImage& Image, EModioLogoSize LogoSize)
+void IModioUIMediaDownloadCompletedReceiver::OnModLogoDownloadCompleted(const struct FModioModID& ModId, const struct FModioErrorCode& Ec, const struct FModioOptionalImage& Image, EModioLogoSize LogoSize)
 {
 	static class UFunction* Func = nullptr;
 
@@ -712,7 +712,7 @@ void IModioUIMediaDownloadCompletedReceiver::OnModLogoDownloadCompleted(const st
 	Params::ModioUIMediaDownloadCompletedReceiver_OnModLogoDownloadCompleted Parms{};
 
 	Parms.ModId = std::move(ModId);
-	Parms.ec = std::move(ec);
+	Parms.Ec = std::move(Ec);
 	Parms.Image = std::move(Image);
 	Parms.LogoSize = LogoSize;
 
@@ -773,10 +773,10 @@ void IModioUIModEnableWidget::OnModEnabledStateChanged(const struct FModioModID&
 // (Event, Protected, BlueprintEvent)
 // Parameters:
 // class FString                           RequestIdentifier                                      (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FModioErrorCode                  ec                                                     (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FModioErrorCode                  Ec                                                     (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FModioOptionalModInfoList        List                                                   (Parm, NativeAccessSpecifierPublic)
 
-void IModioUIModInfoReceiver::OnListAllModsRequestCompleted(const class FString& RequestIdentifier, const struct FModioErrorCode& ec, const struct FModioOptionalModInfoList& List)
+void IModioUIModInfoReceiver::OnListAllModsRequestCompleted(const class FString& RequestIdentifier, const struct FModioErrorCode& Ec, const struct FModioOptionalModInfoList& List)
 {
 	static class UFunction* Func = nullptr;
 
@@ -786,7 +786,7 @@ void IModioUIModInfoReceiver::OnListAllModsRequestCompleted(const class FString&
 	Params::ModioUIModInfoReceiver_OnListAllModsRequestCompleted Parms{};
 
 	Parms.RequestIdentifier = std::move(RequestIdentifier);
-	Parms.ec = std::move(ec);
+	Parms.Ec = std::move(Ec);
 	Parms.List = std::move(List);
 
 	UObject::ProcessEvent(Func, &Parms);
@@ -797,10 +797,10 @@ void IModioUIModInfoReceiver::OnListAllModsRequestCompleted(const class FString&
 // (Event, Protected, BlueprintEvent)
 // Parameters:
 // struct FModioModID                      ModId                                                  (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FModioErrorCode                  ec                                                     (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FModioErrorCode                  Ec                                                     (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FModioOptionalModInfo            Info                                                   (Parm, NativeAccessSpecifierPublic)
 
-void IModioUIModInfoReceiver::OnModInfoRequestCompleted(const struct FModioModID& ModId, const struct FModioErrorCode& ec, const struct FModioOptionalModInfo& Info)
+void IModioUIModInfoReceiver::OnModInfoRequestCompleted(const struct FModioModID& ModId, const struct FModioErrorCode& Ec, const struct FModioOptionalModInfo& Info)
 {
 	static class UFunction* Func = nullptr;
 
@@ -810,7 +810,7 @@ void IModioUIModInfoReceiver::OnModInfoRequestCompleted(const struct FModioModID
 	Params::ModioUIModInfoReceiver_OnModInfoRequestCompleted Parms{};
 
 	Parms.ModId = std::move(ModId);
-	Parms.ec = std::move(ec);
+	Parms.Ec = std::move(Ec);
 	Parms.Info = std::move(Info);
 
 	UObject::ProcessEvent(Func, &Parms);
@@ -1220,10 +1220,10 @@ void IModioUINotification::Configure(const struct FModioNotificationParams& Para
 // (Native, Event, Public, HasOutParams, BlueprintCallable, BlueprintEvent)
 // Parameters:
 // class FText                             Title                                                  (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-// class FText                             message                                                (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+// class FText                             Message                                                (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 // bool                                    bIsError                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void IModioUINotification::ConfigureManual(const class FText& Title, const class FText& message, bool bIsError)
+void IModioUINotification::ConfigureManual(const class FText& Title, const class FText& Message, bool bIsError)
 {
 	static class UFunction* Func = nullptr;
 
@@ -1233,7 +1233,7 @@ void IModioUINotification::ConfigureManual(const class FText& Title, const class
 	Params::ModioUINotification_ConfigureManual Parms{};
 
 	Parms.Title = std::move(Title);
-	Parms.message = std::move(message);
+	Parms.Message = std::move(Message);
 	Parms.bIsError = bIsError;
 
 	auto Flgs = Func->FunctionFlags;
@@ -1343,10 +1343,10 @@ void IModioUINotificationController::DisplayNotification(const TScriptInterface<
 // (Native, Event, Public, HasOutParams, BlueprintCallable, BlueprintEvent)
 // Parameters:
 // class FText                             Title                                                  (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-// class FText                             message                                                (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+// class FText                             Message                                                (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 // bool                                    bIsError                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void IModioUINotificationController::DisplayNotificationManual(const class FText& Title, const class FText& message, bool bIsError)
+void IModioUINotificationController::DisplayNotificationManual(const class FText& Title, const class FText& Message, bool bIsError)
 {
 	static class UFunction* Func = nullptr;
 
@@ -1356,7 +1356,7 @@ void IModioUINotificationController::DisplayNotificationManual(const class FText
 	Params::ModioUINotificationController_DisplayNotificationManual Parms{};
 
 	Parms.Title = std::move(Title);
-	Parms.message = std::move(message);
+	Parms.Message = std::move(Message);
 	Parms.bIsError = bIsError;
 
 	auto Flgs = Func->FunctionFlags;
@@ -1397,10 +1397,10 @@ void IModioUINotificationController::DisplayNotificationParams(const struct FMod
 // (Native, Protected, HasOutParams)
 // Parameters:
 // class FText                             Title                                                  (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-// class FText                             message                                                (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+// class FText                             Message                                                (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 // bool                                    bIsError                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void IModioUINotificationController::HandleDisplayManual(const class FText& Title, const class FText& message, bool bIsError)
+void IModioUINotificationController::HandleDisplayManual(const class FText& Title, const class FText& Message, bool bIsError)
 {
 	static class UFunction* Func = nullptr;
 
@@ -1410,7 +1410,7 @@ void IModioUINotificationController::HandleDisplayManual(const class FText& Titl
 	Params::ModioUINotificationController_HandleDisplayManual Parms{};
 
 	Parms.Title = std::move(Title);
-	Parms.message = std::move(message);
+	Parms.Message = std::move(Message);
 	Parms.bIsError = bIsError;
 
 	auto Flgs = Func->FunctionFlags;
@@ -1523,10 +1523,10 @@ void IModioUISubscriptionsChangedReceiver::OnSubscriptionsChanged(const struct F
 // Function ModioUICore.ModioUIUserAvatarDownloadCompletedReceiver.OnUserAvatarDownloadCompleted
 // (Event, Protected, BlueprintEvent)
 // Parameters:
-// struct FModioErrorCode                  ec                                                     (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FModioErrorCode                  Ec                                                     (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FModioOptionalImage              Image                                                  (Parm, NativeAccessSpecifierPublic)
 
-void IModioUIUserAvatarDownloadCompletedReceiver::OnUserAvatarDownloadCompleted(const struct FModioErrorCode& ec, const struct FModioOptionalImage& Image)
+void IModioUIUserAvatarDownloadCompletedReceiver::OnUserAvatarDownloadCompleted(const struct FModioErrorCode& Ec, const struct FModioOptionalImage& Image)
 {
 	static class UFunction* Func = nullptr;
 
@@ -1535,7 +1535,7 @@ void IModioUIUserAvatarDownloadCompletedReceiver::OnUserAvatarDownloadCompleted(
 
 	Params::ModioUIUserAvatarDownloadCompletedReceiver_OnUserAvatarDownloadCompleted Parms{};
 
-	Parms.ec = std::move(ec);
+	Parms.Ec = std::move(Ec);
 	Parms.Image = std::move(Image);
 
 	UObject::ProcessEvent(Func, &Parms);
@@ -1672,9 +1672,9 @@ void UModioUISubsystem::CloseModBrowserUI()
 // Function ModioUICore.ModioUISubsystem.DisplayErrorDialog
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// struct FModioErrorCode                  errorCode                                              (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FModioErrorCode                  ErrorCode                                              (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioUISubsystem::DisplayErrorDialog(const struct FModioErrorCode& errorCode)
+void UModioUISubsystem::DisplayErrorDialog(const struct FModioErrorCode& ErrorCode)
 {
 	static class UFunction* Func = nullptr;
 
@@ -1683,7 +1683,7 @@ void UModioUISubsystem::DisplayErrorDialog(const struct FModioErrorCode& errorCo
 
 	Params::ModioUISubsystem_DisplayErrorDialog Parms{};
 
-	Parms.errorCode = std::move(errorCode);
+	Parms.ErrorCode = std::move(ErrorCode);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -1725,10 +1725,10 @@ void UModioUISubsystem::DisplayNotification(TScriptInterface<class IModioUINotif
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // class FText                             Title                                                  (Parm, NativeAccessSpecifierPublic)
-// class FText                             message                                                (Parm, NativeAccessSpecifierPublic)
+// class FText                             Message                                                (Parm, NativeAccessSpecifierPublic)
 // bool                                    bIsError                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioUISubsystem::DisplayNotificationManual(const class FText& Title, const class FText& message, bool bIsError)
+void UModioUISubsystem::DisplayNotificationManual(const class FText& Title, const class FText& Message, bool bIsError)
 {
 	static class UFunction* Func = nullptr;
 
@@ -1738,7 +1738,7 @@ void UModioUISubsystem::DisplayNotificationManual(const class FText& Title, cons
 	Params::ModioUISubsystem_DisplayNotificationManual Parms{};
 
 	Parms.Title = std::move(Title);
-	Parms.message = std::move(message);
+	Parms.Message = std::move(Message);
 	Parms.bIsError = bIsError;
 
 	auto Flgs = Func->FunctionFlags;
@@ -2289,10 +2289,10 @@ bool UModioUISubsystem::ShowSearchResults(const struct FModioModCategoryParams& 
 // Function ModioUICore.ModioUISubsystem.SubscriptionHandler
 // (Final, Native, Protected)
 // Parameters:
-// struct FModioErrorCode                  errorCode                                              (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FModioErrorCode                  ErrorCode                                              (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FModioModID                      ID                                                     (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioUISubsystem::SubscriptionHandler(const struct FModioErrorCode& errorCode, const struct FModioModID& ID)
+void UModioUISubsystem::SubscriptionHandler(const struct FModioErrorCode& ErrorCode, const struct FModioModID& ID)
 {
 	static class UFunction* Func = nullptr;
 
@@ -2301,7 +2301,7 @@ void UModioUISubsystem::SubscriptionHandler(const struct FModioErrorCode& errorC
 
 	Params::ModioUISubsystem_SubscriptionHandler Parms{};
 
-	Parms.errorCode = std::move(errorCode);
+	Parms.ErrorCode = std::move(ErrorCode);
 	Parms.ID = std::move(ID);
 
 	auto Flgs = Func->FunctionFlags;
@@ -2316,10 +2316,10 @@ void UModioUISubsystem::SubscriptionHandler(const struct FModioErrorCode& errorC
 // Function ModioUICore.ModioUISubsystem.UninstallHandler
 // (Final, Native, Protected)
 // Parameters:
-// struct FModioErrorCode                  errorCode                                              (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FModioErrorCode                  ErrorCode                                              (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FModioModID                      ID                                                     (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioUISubsystem::UninstallHandler(const struct FModioErrorCode& errorCode, const struct FModioModID& ID)
+void UModioUISubsystem::UninstallHandler(const struct FModioErrorCode& ErrorCode, const struct FModioModID& ID)
 {
 	static class UFunction* Func = nullptr;
 
@@ -2328,7 +2328,7 @@ void UModioUISubsystem::UninstallHandler(const struct FModioErrorCode& errorCode
 
 	Params::ModioUISubsystem_UninstallHandler Parms{};
 
-	Parms.errorCode = std::move(errorCode);
+	Parms.ErrorCode = std::move(ErrorCode);
 	Parms.ID = std::move(ID);
 
 	auto Flgs = Func->FunctionFlags;
@@ -2343,10 +2343,10 @@ void UModioUISubsystem::UninstallHandler(const struct FModioErrorCode& errorCode
 // Function ModioUICore.ModioUISubsystem.UnsubscribeHandler
 // (Final, Native, Protected)
 // Parameters:
-// struct FModioErrorCode                  errorCode                                              (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FModioErrorCode                  ErrorCode                                              (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FModioModID                      ID                                                     (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UModioUISubsystem::UnsubscribeHandler(const struct FModioErrorCode& errorCode, const struct FModioModID& ID)
+void UModioUISubsystem::UnsubscribeHandler(const struct FModioErrorCode& ErrorCode, const struct FModioModID& ID)
 {
 	static class UFunction* Func = nullptr;
 
@@ -2355,7 +2355,7 @@ void UModioUISubsystem::UnsubscribeHandler(const struct FModioErrorCode& errorCo
 
 	Params::ModioUISubsystem_UnsubscribeHandler Parms{};
 
-	Parms.errorCode = std::move(errorCode);
+	Parms.ErrorCode = std::move(ErrorCode);
 	Parms.ID = std::move(ID);
 
 	auto Flgs = Func->FunctionFlags;

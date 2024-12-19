@@ -6794,10 +6794,10 @@ TArray<class UObject*> UMovieSceneSequenceExtensions::LocateBoundObjects(class U
 // Parameters:
 // class UMovieSceneSequence*              MasterSequence                                         (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FMovieSceneBindingProxy          InBinding                                              (ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-// EMovieSceneObjectBindingSpace           space                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EMovieSceneObjectBindingSpace           Space                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FMovieSceneObjectBindingID       ReturnValue                                            (Parm, OutParm, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-struct FMovieSceneObjectBindingID UMovieSceneSequenceExtensions::MakeBindingID(class UMovieSceneSequence* MasterSequence, const struct FMovieSceneBindingProxy& InBinding, EMovieSceneObjectBindingSpace space)
+struct FMovieSceneObjectBindingID UMovieSceneSequenceExtensions::MakeBindingID(class UMovieSceneSequence* MasterSequence, const struct FMovieSceneBindingProxy& InBinding, EMovieSceneObjectBindingSpace Space)
 {
 	static class UFunction* Func = nullptr;
 
@@ -6808,7 +6808,7 @@ struct FMovieSceneObjectBindingID UMovieSceneSequenceExtensions::MakeBindingID(c
 
 	Parms.MasterSequence = MasterSequence;
 	Parms.InBinding = std::move(InBinding);
-	Parms.space = space;
+	Parms.Space = Space;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;

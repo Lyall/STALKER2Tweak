@@ -191,17 +191,17 @@ static_assert(offsetof(TypedElementListLibrary_CreateScriptElementList, ReturnVa
 
 // Function TypedElementFramework.TypedElementListLibrary.empty
 // 0x0018 (0x0018 - 0x0000)
-struct TypedElementListLibrary_empty final
+struct TypedElementListLibrary_Empty final
 {
 public:
 	struct FScriptTypedElementListProxy           ElementList;                                       // 0x0000(0x0010)(Parm, NativeAccessSpecifierPublic)
 	int32                                         Slack;                                             // 0x0010(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_14[0x4];                                       // 0x0014(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-static_assert(alignof(TypedElementListLibrary_empty) == 0x000008, "Wrong alignment on TypedElementListLibrary_empty");
-static_assert(sizeof(TypedElementListLibrary_empty) == 0x000018, "Wrong size on TypedElementListLibrary_empty");
-static_assert(offsetof(TypedElementListLibrary_empty, ElementList) == 0x000000, "Member 'TypedElementListLibrary_empty::ElementList' has a wrong offset!");
-static_assert(offsetof(TypedElementListLibrary_empty, Slack) == 0x000010, "Member 'TypedElementListLibrary_empty::Slack' has a wrong offset!");
+static_assert(alignof(TypedElementListLibrary_Empty) == 0x000008, "Wrong alignment on TypedElementListLibrary_Empty");
+static_assert(sizeof(TypedElementListLibrary_Empty) == 0x000018, "Wrong size on TypedElementListLibrary_Empty");
+static_assert(offsetof(TypedElementListLibrary_Empty, ElementList) == 0x000000, "Member 'TypedElementListLibrary_Empty::ElementList' has a wrong offset!");
+static_assert(offsetof(TypedElementListLibrary_Empty, Slack) == 0x000010, "Member 'TypedElementListLibrary_Empty::Slack' has a wrong offset!");
 
 // Function TypedElementFramework.TypedElementListLibrary.GetElementHandleAt
 // 0x0020 (0x0020 - 0x0000)
@@ -335,13 +335,13 @@ struct TypedElementListLibrary_Reserve final
 {
 public:
 	struct FScriptTypedElementListProxy           ElementList;                                       // 0x0000(0x0010)(Parm, NativeAccessSpecifierPublic)
-	int32                                         size;                                              // 0x0010(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         Size;                                              // 0x0010(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_14[0x4];                                       // 0x0014(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(TypedElementListLibrary_Reserve) == 0x000008, "Wrong alignment on TypedElementListLibrary_Reserve");
 static_assert(sizeof(TypedElementListLibrary_Reserve) == 0x000018, "Wrong size on TypedElementListLibrary_Reserve");
 static_assert(offsetof(TypedElementListLibrary_Reserve, ElementList) == 0x000000, "Member 'TypedElementListLibrary_Reserve::ElementList' has a wrong offset!");
-static_assert(offsetof(TypedElementListLibrary_Reserve, size) == 0x000010, "Member 'TypedElementListLibrary_Reserve::size' has a wrong offset!");
+static_assert(offsetof(TypedElementListLibrary_Reserve, Size) == 0x000010, "Member 'TypedElementListLibrary_Reserve::Size' has a wrong offset!");
 
 // Function TypedElementFramework.TypedElementListLibrary.Reset
 // 0x0010 (0x0010 - 0x0000)

@@ -109,13 +109,13 @@ void UBinkMediaPlayer::CloseUrl()
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // class UTexture*                         Texture                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    tonemap                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int32                                   out_nits                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    Tonemap                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   Out_nits                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   Alpha                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    srgb_decode                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    hdr                                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    Srgb_decode                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    Hdr                                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UBinkMediaPlayer::Draw(class UTexture* Texture, bool tonemap, int32 out_nits, float Alpha, bool srgb_decode, bool hdr)
+void UBinkMediaPlayer::Draw(class UTexture* Texture, bool Tonemap, int32 Out_nits, float Alpha, bool Srgb_decode, bool Hdr)
 {
 	static class UFunction* Func = nullptr;
 
@@ -125,11 +125,11 @@ void UBinkMediaPlayer::Draw(class UTexture* Texture, bool tonemap, int32 out_nit
 	Params::BinkMediaPlayer_Draw Parms{};
 
 	Parms.Texture = Texture;
-	Parms.tonemap = tonemap;
-	Parms.out_nits = out_nits;
+	Parms.Tonemap = Tonemap;
+	Parms.Out_nits = Out_nits;
 	Parms.Alpha = Alpha;
-	Parms.srgb_decode = srgb_decode;
-	Parms.hdr = hdr;
+	Parms.Srgb_decode = Srgb_decode;
+	Parms.Hdr = Hdr;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -302,10 +302,10 @@ bool UBinkMediaPlayer::SetLooping(bool InLooping)
 // Function BinkMediaPlayer.BinkMediaPlayer.SetRate
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// float                                   rate                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   Rate                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool UBinkMediaPlayer::SetRate(float rate)
+bool UBinkMediaPlayer::SetRate(float Rate)
 {
 	static class UFunction* Func = nullptr;
 
@@ -314,7 +314,7 @@ bool UBinkMediaPlayer::SetRate(float rate)
 
 	Params::BinkMediaPlayer_SetRate Parms{};
 
-	Parms.rate = rate;
+	Parms.Rate = Rate;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -330,9 +330,9 @@ bool UBinkMediaPlayer::SetRate(float rate)
 // Function BinkMediaPlayer.BinkMediaPlayer.SetVolume
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// float                                   rate                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   Rate                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UBinkMediaPlayer::SetVolume(float rate)
+void UBinkMediaPlayer::SetVolume(float Rate)
 {
 	static class UFunction* Func = nullptr;
 
@@ -341,7 +341,7 @@ void UBinkMediaPlayer::SetVolume(float rate)
 
 	Params::BinkMediaPlayer_SetVolume Parms{};
 
-	Parms.rate = rate;
+	Parms.Rate = Rate;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -649,11 +649,11 @@ bool UBinkMediaPlayer::IsStopped() const
 // Function BinkMediaPlayer.BinkMediaPlayer.SupportsRate
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// float                                   rate                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   Rate                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    Unthinned                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool UBinkMediaPlayer::SupportsRate(float rate, bool Unthinned) const
+bool UBinkMediaPlayer::SupportsRate(float Rate, bool Unthinned) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -662,7 +662,7 @@ bool UBinkMediaPlayer::SupportsRate(float rate, bool Unthinned) const
 
 	Params::BinkMediaPlayer_SupportsRate Parms{};
 
-	Parms.rate = rate;
+	Parms.Rate = Rate;
 	Parms.Unthinned = Unthinned;
 
 	auto Flgs = Func->FunctionFlags;

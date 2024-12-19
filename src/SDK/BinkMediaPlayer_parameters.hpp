@@ -44,22 +44,22 @@ struct BinkMediaPlayer_Draw final
 {
 public:
 	class UTexture*                               Texture;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          tonemap;                                           // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          Tonemap;                                           // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_9[0x3];                                        // 0x0009(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         out_nits;                                          // 0x000C(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         Out_nits;                                          // 0x000C(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         Alpha;                                             // 0x0010(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          srgb_decode;                                       // 0x0014(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          hdr;                                               // 0x0015(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          Srgb_decode;                                       // 0x0014(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          Hdr;                                               // 0x0015(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_16[0x2];                                       // 0x0016(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(BinkMediaPlayer_Draw) == 0x000008, "Wrong alignment on BinkMediaPlayer_Draw");
 static_assert(sizeof(BinkMediaPlayer_Draw) == 0x000018, "Wrong size on BinkMediaPlayer_Draw");
 static_assert(offsetof(BinkMediaPlayer_Draw, Texture) == 0x000000, "Member 'BinkMediaPlayer_Draw::Texture' has a wrong offset!");
-static_assert(offsetof(BinkMediaPlayer_Draw, tonemap) == 0x000008, "Member 'BinkMediaPlayer_Draw::tonemap' has a wrong offset!");
-static_assert(offsetof(BinkMediaPlayer_Draw, out_nits) == 0x00000C, "Member 'BinkMediaPlayer_Draw::out_nits' has a wrong offset!");
+static_assert(offsetof(BinkMediaPlayer_Draw, Tonemap) == 0x000008, "Member 'BinkMediaPlayer_Draw::Tonemap' has a wrong offset!");
+static_assert(offsetof(BinkMediaPlayer_Draw, Out_nits) == 0x00000C, "Member 'BinkMediaPlayer_Draw::Out_nits' has a wrong offset!");
 static_assert(offsetof(BinkMediaPlayer_Draw, Alpha) == 0x000010, "Member 'BinkMediaPlayer_Draw::Alpha' has a wrong offset!");
-static_assert(offsetof(BinkMediaPlayer_Draw, srgb_decode) == 0x000014, "Member 'BinkMediaPlayer_Draw::srgb_decode' has a wrong offset!");
-static_assert(offsetof(BinkMediaPlayer_Draw, hdr) == 0x000015, "Member 'BinkMediaPlayer_Draw::hdr' has a wrong offset!");
+static_assert(offsetof(BinkMediaPlayer_Draw, Srgb_decode) == 0x000014, "Member 'BinkMediaPlayer_Draw::Srgb_decode' has a wrong offset!");
+static_assert(offsetof(BinkMediaPlayer_Draw, Hdr) == 0x000015, "Member 'BinkMediaPlayer_Draw::Hdr' has a wrong offset!");
 
 // Function BinkMediaPlayer.BinkMediaPlayer.OpenUrl
 // 0x0018 (0x0018 - 0x0000)
@@ -140,13 +140,13 @@ static_assert(offsetof(BinkMediaPlayer_SetLooping, ReturnValue) == 0x000001, "Me
 struct BinkMediaPlayer_SetRate final
 {
 public:
-	float                                         rate;                                              // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Rate;                                              // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          ReturnValue;                                       // 0x0004(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_5[0x3];                                        // 0x0005(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(BinkMediaPlayer_SetRate) == 0x000004, "Wrong alignment on BinkMediaPlayer_SetRate");
 static_assert(sizeof(BinkMediaPlayer_SetRate) == 0x000008, "Wrong size on BinkMediaPlayer_SetRate");
-static_assert(offsetof(BinkMediaPlayer_SetRate, rate) == 0x000000, "Member 'BinkMediaPlayer_SetRate::rate' has a wrong offset!");
+static_assert(offsetof(BinkMediaPlayer_SetRate, Rate) == 0x000000, "Member 'BinkMediaPlayer_SetRate::Rate' has a wrong offset!");
 static_assert(offsetof(BinkMediaPlayer_SetRate, ReturnValue) == 0x000004, "Member 'BinkMediaPlayer_SetRate::ReturnValue' has a wrong offset!");
 
 // Function BinkMediaPlayer.BinkMediaPlayer.SetVolume
@@ -154,11 +154,11 @@ static_assert(offsetof(BinkMediaPlayer_SetRate, ReturnValue) == 0x000004, "Membe
 struct BinkMediaPlayer_SetVolume final
 {
 public:
-	float                                         rate;                                              // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Rate;                                              // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(BinkMediaPlayer_SetVolume) == 0x000004, "Wrong alignment on BinkMediaPlayer_SetVolume");
 static_assert(sizeof(BinkMediaPlayer_SetVolume) == 0x000004, "Wrong size on BinkMediaPlayer_SetVolume");
-static_assert(offsetof(BinkMediaPlayer_SetVolume, rate) == 0x000000, "Member 'BinkMediaPlayer_SetVolume::rate' has a wrong offset!");
+static_assert(offsetof(BinkMediaPlayer_SetVolume, Rate) == 0x000000, "Member 'BinkMediaPlayer_SetVolume::Rate' has a wrong offset!");
 
 // Function BinkMediaPlayer.BinkMediaPlayer.CanPause
 // 0x0001 (0x0001 - 0x0000)
@@ -286,14 +286,14 @@ static_assert(offsetof(BinkMediaPlayer_IsStopped, ReturnValue) == 0x000000, "Mem
 struct BinkMediaPlayer_SupportsRate final
 {
 public:
-	float                                         rate;                                              // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Rate;                                              // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          Unthinned;                                         // 0x0004(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          ReturnValue;                                       // 0x0005(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_6[0x2];                                        // 0x0006(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(BinkMediaPlayer_SupportsRate) == 0x000004, "Wrong alignment on BinkMediaPlayer_SupportsRate");
 static_assert(sizeof(BinkMediaPlayer_SupportsRate) == 0x000008, "Wrong size on BinkMediaPlayer_SupportsRate");
-static_assert(offsetof(BinkMediaPlayer_SupportsRate, rate) == 0x000000, "Member 'BinkMediaPlayer_SupportsRate::rate' has a wrong offset!");
+static_assert(offsetof(BinkMediaPlayer_SupportsRate, Rate) == 0x000000, "Member 'BinkMediaPlayer_SupportsRate::Rate' has a wrong offset!");
 static_assert(offsetof(BinkMediaPlayer_SupportsRate, Unthinned) == 0x000004, "Member 'BinkMediaPlayer_SupportsRate::Unthinned' has a wrong offset!");
 static_assert(offsetof(BinkMediaPlayer_SupportsRate, ReturnValue) == 0x000005, "Member 'BinkMediaPlayer_SupportsRate::ReturnValue' has a wrong offset!");
 

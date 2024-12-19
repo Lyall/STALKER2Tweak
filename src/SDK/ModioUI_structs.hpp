@@ -10,9 +10,9 @@
 
 #include "Basic.hpp"
 
-#include "SlateCore_structs.hpp"
-#include "Engine_structs.hpp"
 #include "ModioUICore_structs.hpp"
+#include "Engine_structs.hpp"
+#include "SlateCore_structs.hpp"
 
 
 namespace SDK
@@ -49,6 +49,44 @@ enum class EModioCommonRichTextStyleTextImageOrder : uint8
 	EModioCommonRichTextStyleTextImageOrder_MAX = 2,
 };
 
+// ScriptStruct ModioUI.ModioCommonTermsOfUseParamsSettings
+// 0x0090 (0x0090 - 0x0000)
+struct FModioCommonTermsOfUseParamsSettings final
+{
+public:
+	class FText                                   TitleText;                                         // 0x0000(0x0018)(Edit, Config, DisableEditOnInstance, NativeAccessSpecifierPublic)
+	class FText                                   ContentText;                                       // 0x0018(0x0018)(Edit, Config, DisableEditOnInstance, NativeAccessSpecifierPublic)
+	class FText                                   SubmitButtonText;                                  // 0x0030(0x0018)(Edit, Config, DisableEditOnInstance, NativeAccessSpecifierPublic)
+	class FText                                   CancelButtonText;                                  // 0x0048(0x0018)(Edit, Config, DisableEditOnInstance, NativeAccessSpecifierPublic)
+	class FText                                   TermsButtonText;                                   // 0x0060(0x0018)(Edit, Config, DisableEditOnInstance, NativeAccessSpecifierPublic)
+	class FText                                   PrivacyButtonText;                                 // 0x0078(0x0018)(Edit, Config, DisableEditOnInstance, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(FModioCommonTermsOfUseParamsSettings) == 0x000008, "Wrong alignment on FModioCommonTermsOfUseParamsSettings");
+static_assert(sizeof(FModioCommonTermsOfUseParamsSettings) == 0x000090, "Wrong size on FModioCommonTermsOfUseParamsSettings");
+static_assert(offsetof(FModioCommonTermsOfUseParamsSettings, TitleText) == 0x000000, "Member 'FModioCommonTermsOfUseParamsSettings::TitleText' has a wrong offset!");
+static_assert(offsetof(FModioCommonTermsOfUseParamsSettings, ContentText) == 0x000018, "Member 'FModioCommonTermsOfUseParamsSettings::ContentText' has a wrong offset!");
+static_assert(offsetof(FModioCommonTermsOfUseParamsSettings, SubmitButtonText) == 0x000030, "Member 'FModioCommonTermsOfUseParamsSettings::SubmitButtonText' has a wrong offset!");
+static_assert(offsetof(FModioCommonTermsOfUseParamsSettings, CancelButtonText) == 0x000048, "Member 'FModioCommonTermsOfUseParamsSettings::CancelButtonText' has a wrong offset!");
+static_assert(offsetof(FModioCommonTermsOfUseParamsSettings, TermsButtonText) == 0x000060, "Member 'FModioCommonTermsOfUseParamsSettings::TermsButtonText' has a wrong offset!");
+static_assert(offsetof(FModioCommonTermsOfUseParamsSettings, PrivacyButtonText) == 0x000078, "Member 'FModioCommonTermsOfUseParamsSettings::PrivacyButtonText' has a wrong offset!");
+
+// ScriptStruct ModioUI.ModioCommonTabDescriptor
+// 0x0030 (0x0030 - 0x0000)
+struct FModioCommonTabDescriptor final
+{
+public:
+	class FName                                   TabId;                                             // 0x0000(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FText                                   TabText;                                           // 0x0008(0x0018)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	TSubclassOf<class UModioCommonTabButtonBase>  TabButtonType;                                     // 0x0020(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSubclassOf<class UModioCommonTabButtonStyle> TabButtonStyle;                                    // 0x0028(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(FModioCommonTabDescriptor) == 0x000008, "Wrong alignment on FModioCommonTabDescriptor");
+static_assert(sizeof(FModioCommonTabDescriptor) == 0x000030, "Wrong size on FModioCommonTabDescriptor");
+static_assert(offsetof(FModioCommonTabDescriptor, TabId) == 0x000000, "Member 'FModioCommonTabDescriptor::TabId' has a wrong offset!");
+static_assert(offsetof(FModioCommonTabDescriptor, TabText) == 0x000008, "Member 'FModioCommonTabDescriptor::TabText' has a wrong offset!");
+static_assert(offsetof(FModioCommonTabDescriptor, TabButtonType) == 0x000020, "Member 'FModioCommonTabDescriptor::TabButtonType' has a wrong offset!");
+static_assert(offsetof(FModioCommonTabDescriptor, TabButtonStyle) == 0x000028, "Member 'FModioCommonTabDescriptor::TabButtonStyle' has a wrong offset!");
+
 // ScriptStruct ModioUI.ModioCommonAuthParamsSettings
 // 0x0050 (0x0050 - 0x0000)
 struct FModioCommonAuthParamsSettings final
@@ -67,23 +105,6 @@ static_assert(offsetof(FModioCommonAuthParamsSettings, SubmitInputAction) == 0x0
 static_assert(offsetof(FModioCommonAuthParamsSettings, CancelInputAction) == 0x000020, "Member 'FModioCommonAuthParamsSettings::CancelInputAction' has a wrong offset!");
 static_assert(offsetof(FModioCommonAuthParamsSettings, TermsInputAction) == 0x000030, "Member 'FModioCommonAuthParamsSettings::TermsInputAction' has a wrong offset!");
 static_assert(offsetof(FModioCommonAuthParamsSettings, PrivacyInputAction) == 0x000040, "Member 'FModioCommonAuthParamsSettings::PrivacyInputAction' has a wrong offset!");
-
-// ScriptStruct ModioUI.ModioCommonTabDescriptor
-// 0x0030 (0x0030 - 0x0000)
-struct FModioCommonTabDescriptor final
-{
-public:
-	class FName                                   TabId;                                             // 0x0000(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FText                                   TabText;                                           // 0x0008(0x0018)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	TSubclassOf<class UModioCommonTabButtonBase>  TabButtonType;                                     // 0x0020(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TSubclassOf<class UModioCommonTabButtonStyle> TabButtonStyle;                                    // 0x0028(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(FModioCommonTabDescriptor) == 0x000008, "Wrong alignment on FModioCommonTabDescriptor");
-static_assert(sizeof(FModioCommonTabDescriptor) == 0x000030, "Wrong size on FModioCommonTabDescriptor");
-static_assert(offsetof(FModioCommonTabDescriptor, TabId) == 0x000000, "Member 'FModioCommonTabDescriptor::TabId' has a wrong offset!");
-static_assert(offsetof(FModioCommonTabDescriptor, TabText) == 0x000008, "Member 'FModioCommonTabDescriptor::TabText' has a wrong offset!");
-static_assert(offsetof(FModioCommonTabDescriptor, TabButtonType) == 0x000020, "Member 'FModioCommonTabDescriptor::TabButtonType' has a wrong offset!");
-static_assert(offsetof(FModioCommonTabDescriptor, TabButtonStyle) == 0x000028, "Member 'FModioCommonTabDescriptor::TabButtonStyle' has a wrong offset!");
 
 // ScriptStruct ModioUI.ModioCommonEmailAuthCodeParamsSettings
 // 0x0090 (0x0090 - 0x0000)
@@ -143,27 +164,6 @@ static_assert(offsetof(FModioCommonEmailAuthParamsSettings, EmailTooltipText) ==
 static_assert(offsetof(FModioCommonEmailAuthParamsSettings, BackButtonText) == 0x000060, "Member 'FModioCommonEmailAuthParamsSettings::BackButtonText' has a wrong offset!");
 static_assert(offsetof(FModioCommonEmailAuthParamsSettings, SubmitButtonText) == 0x000078, "Member 'FModioCommonEmailAuthParamsSettings::SubmitButtonText' has a wrong offset!");
 static_assert(offsetof(FModioCommonEmailAuthParamsSettings, CancelButtonText) == 0x000090, "Member 'FModioCommonEmailAuthParamsSettings::CancelButtonText' has a wrong offset!");
-
-// ScriptStruct ModioUI.ModioCommonTermsOfUseParamsSettings
-// 0x0090 (0x0090 - 0x0000)
-struct FModioCommonTermsOfUseParamsSettings final
-{
-public:
-	class FText                                   TitleText;                                         // 0x0000(0x0018)(Edit, Config, DisableEditOnInstance, NativeAccessSpecifierPublic)
-	class FText                                   ContentText;                                       // 0x0018(0x0018)(Edit, Config, DisableEditOnInstance, NativeAccessSpecifierPublic)
-	class FText                                   SubmitButtonText;                                  // 0x0030(0x0018)(Edit, Config, DisableEditOnInstance, NativeAccessSpecifierPublic)
-	class FText                                   CancelButtonText;                                  // 0x0048(0x0018)(Edit, Config, DisableEditOnInstance, NativeAccessSpecifierPublic)
-	class FText                                   TermsButtonText;                                   // 0x0060(0x0018)(Edit, Config, DisableEditOnInstance, NativeAccessSpecifierPublic)
-	class FText                                   PrivacyButtonText;                                 // 0x0078(0x0018)(Edit, Config, DisableEditOnInstance, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(FModioCommonTermsOfUseParamsSettings) == 0x000008, "Wrong alignment on FModioCommonTermsOfUseParamsSettings");
-static_assert(sizeof(FModioCommonTermsOfUseParamsSettings) == 0x000090, "Wrong size on FModioCommonTermsOfUseParamsSettings");
-static_assert(offsetof(FModioCommonTermsOfUseParamsSettings, TitleText) == 0x000000, "Member 'FModioCommonTermsOfUseParamsSettings::TitleText' has a wrong offset!");
-static_assert(offsetof(FModioCommonTermsOfUseParamsSettings, ContentText) == 0x000018, "Member 'FModioCommonTermsOfUseParamsSettings::ContentText' has a wrong offset!");
-static_assert(offsetof(FModioCommonTermsOfUseParamsSettings, SubmitButtonText) == 0x000030, "Member 'FModioCommonTermsOfUseParamsSettings::SubmitButtonText' has a wrong offset!");
-static_assert(offsetof(FModioCommonTermsOfUseParamsSettings, CancelButtonText) == 0x000048, "Member 'FModioCommonTermsOfUseParamsSettings::CancelButtonText' has a wrong offset!");
-static_assert(offsetof(FModioCommonTermsOfUseParamsSettings, TermsButtonText) == 0x000060, "Member 'FModioCommonTermsOfUseParamsSettings::TermsButtonText' has a wrong offset!");
-static_assert(offsetof(FModioCommonTermsOfUseParamsSettings, PrivacyButtonText) == 0x000078, "Member 'FModioCommonTermsOfUseParamsSettings::PrivacyButtonText' has a wrong offset!");
 
 // ScriptStruct ModioUI.ModioCommonCodeInputTextBoxInputStyle
 // 0x0310 (0x06B0 - 0x03A0)

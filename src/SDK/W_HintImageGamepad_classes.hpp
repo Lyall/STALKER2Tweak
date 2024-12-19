@@ -17,7 +17,7 @@ namespace SDK
 {
 
 // WidgetBlueprintGeneratedClass W_HintImageGamepad.W_HintImageGamepad_C
-// 0x0000 (0x0298 - 0x0298)
+// 0x0000 (0x02B0 - 0x02B0)
 class UW_HintImageGamepad_C final : public UHintImageGamepad
 {
 public:
@@ -31,7 +31,7 @@ public:
 	}
 };
 static_assert(alignof(UW_HintImageGamepad_C) == 0x000008, "Wrong alignment on UW_HintImageGamepad_C");
-static_assert(sizeof(UW_HintImageGamepad_C) == 0x000298, "Wrong size on UW_HintImageGamepad_C");
+static_assert(sizeof(UW_HintImageGamepad_C) == 0x0002B0, "Wrong size on UW_HintImageGamepad_C");
 
 }
 

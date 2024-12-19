@@ -38,7 +38,7 @@ static_assert(sizeof(UDefaultCameraShakeBase) == 0x0000F0, "Wrong size on UDefau
 
 // Class GameplayCameras.LegacyCameraShake
 // 0x0120 (0x0210 - 0x00F0)
-class ULegacyCameraShake final : public UCameraShakeBase
+class ULegacyCameraShake : public UCameraShakeBase
 {
 public:
 	float                                         OscillationDuration;                               // 0x00E8(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)

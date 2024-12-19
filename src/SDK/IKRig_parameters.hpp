@@ -45,7 +45,7 @@ struct IKRigComponent_SetIKRigGoalPositionAndRotation final
 {
 public:
 	class FName                                   GoalName;                                          // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                position;                                          // 0x0008(0x0018)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Position;                                          // 0x0008(0x0018)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FQuat                                  Rotation;                                          // 0x0020(0x0020)(ConstParm, Parm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         PositionAlpha;                                     // 0x0040(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         RotationAlpha;                                     // 0x0044(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -54,7 +54,7 @@ public:
 static_assert(alignof(IKRigComponent_SetIKRigGoalPositionAndRotation) == 0x000010, "Wrong alignment on IKRigComponent_SetIKRigGoalPositionAndRotation");
 static_assert(sizeof(IKRigComponent_SetIKRigGoalPositionAndRotation) == 0x000050, "Wrong size on IKRigComponent_SetIKRigGoalPositionAndRotation");
 static_assert(offsetof(IKRigComponent_SetIKRigGoalPositionAndRotation, GoalName) == 0x000000, "Member 'IKRigComponent_SetIKRigGoalPositionAndRotation::GoalName' has a wrong offset!");
-static_assert(offsetof(IKRigComponent_SetIKRigGoalPositionAndRotation, position) == 0x000008, "Member 'IKRigComponent_SetIKRigGoalPositionAndRotation::position' has a wrong offset!");
+static_assert(offsetof(IKRigComponent_SetIKRigGoalPositionAndRotation, Position) == 0x000008, "Member 'IKRigComponent_SetIKRigGoalPositionAndRotation::Position' has a wrong offset!");
 static_assert(offsetof(IKRigComponent_SetIKRigGoalPositionAndRotation, Rotation) == 0x000020, "Member 'IKRigComponent_SetIKRigGoalPositionAndRotation::Rotation' has a wrong offset!");
 static_assert(offsetof(IKRigComponent_SetIKRigGoalPositionAndRotation, PositionAlpha) == 0x000040, "Member 'IKRigComponent_SetIKRigGoalPositionAndRotation::PositionAlpha' has a wrong offset!");
 static_assert(offsetof(IKRigComponent_SetIKRigGoalPositionAndRotation, RotationAlpha) == 0x000044, "Member 'IKRigComponent_SetIKRigGoalPositionAndRotation::RotationAlpha' has a wrong offset!");

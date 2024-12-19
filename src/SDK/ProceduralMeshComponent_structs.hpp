@@ -45,7 +45,7 @@ static_assert(offsetof(FProcMeshTangent, bFlipTangentY) == 0x000018, "Member 'FP
 struct FProcMeshVertex final
 {
 public:
-	struct FVector                                position;                                          // 0x0000(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Position;                                          // 0x0000(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector                                Normal;                                            // 0x0018(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FProcMeshTangent                       Tangent;                                           // 0x0030(0x0020)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
 	struct FColor                                 Color;                                             // 0x0050(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -57,7 +57,7 @@ public:
 };
 static_assert(alignof(FProcMeshVertex) == 0x000008, "Wrong alignment on FProcMeshVertex");
 static_assert(sizeof(FProcMeshVertex) == 0x000098, "Wrong size on FProcMeshVertex");
-static_assert(offsetof(FProcMeshVertex, position) == 0x000000, "Member 'FProcMeshVertex::position' has a wrong offset!");
+static_assert(offsetof(FProcMeshVertex, Position) == 0x000000, "Member 'FProcMeshVertex::Position' has a wrong offset!");
 static_assert(offsetof(FProcMeshVertex, Normal) == 0x000018, "Member 'FProcMeshVertex::Normal' has a wrong offset!");
 static_assert(offsetof(FProcMeshVertex, Tangent) == 0x000030, "Member 'FProcMeshVertex::Tangent' has a wrong offset!");
 static_assert(offsetof(FProcMeshVertex, Color) == 0x000050, "Member 'FProcMeshVertex::Color' has a wrong offset!");

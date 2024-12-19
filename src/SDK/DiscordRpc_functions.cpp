@@ -39,11 +39,11 @@ void UDiscordRpc::ClearPresence()
 // Function DiscordRpc.DiscordRpc.Initialize
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FString                           applicationId                                          (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    autoRegister                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FString                           optionalSteamId                                        (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FString                           ApplicationId                                          (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    AutoRegister                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FString                           OptionalSteamId                                        (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UDiscordRpc::Initialize(const class FString& applicationId, bool autoRegister, const class FString& optionalSteamId)
+void UDiscordRpc::Initialize(const class FString& ApplicationId, bool AutoRegister, const class FString& OptionalSteamId)
 {
 	static class UFunction* Func = nullptr;
 
@@ -52,9 +52,9 @@ void UDiscordRpc::Initialize(const class FString& applicationId, bool autoRegist
 
 	Params::DiscordRpc_Initialize Parms{};
 
-	Parms.applicationId = std::move(applicationId);
-	Parms.autoRegister = autoRegister;
-	Parms.optionalSteamId = std::move(optionalSteamId);
+	Parms.ApplicationId = std::move(ApplicationId);
+	Parms.AutoRegister = AutoRegister;
+	Parms.OptionalSteamId = std::move(OptionalSteamId);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -68,10 +68,10 @@ void UDiscordRpc::Initialize(const class FString& applicationId, bool autoRegist
 // Function DiscordRpc.DiscordRpc.Respond
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FString                           userId                                                 (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FString                           UserId                                                 (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   Reply                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UDiscordRpc::Respond(const class FString& userId, int32 Reply)
+void UDiscordRpc::Respond(const class FString& UserId, int32 Reply)
 {
 	static class UFunction* Func = nullptr;
 
@@ -80,7 +80,7 @@ void UDiscordRpc::Respond(const class FString& userId, int32 Reply)
 
 	Params::DiscordRpc_Respond Parms{};
 
-	Parms.userId = std::move(userId);
+	Parms.UserId = std::move(UserId);
 	Parms.Reply = Reply;
 
 	auto Flgs = Func->FunctionFlags;

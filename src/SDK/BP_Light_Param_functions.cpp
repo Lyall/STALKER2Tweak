@@ -95,14 +95,14 @@ void ABP_Light_Param_C::OnConstruction_Child()
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:
 // double                                  Intensity_Decal                                        (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-// double                                  ScaleDecal_Z                                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-// double                                  OffsetDecal_Z                                          (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// double                                  ScaleDecalMinusZ                                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// double                                  OffsetDecalMinusZ                                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 // double                                  Lenght                                                 (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 // bool                                    Fix_Rotate_Decal                                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 // bool                                    Turn_OF_Decal                                          (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 // bool                                    Use_location                                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void ABP_Light_Param_C::UpdateDecalInnerLightParameters(double Intensity_Decal, double ScaleDecal_Z, double OffsetDecal_Z, double Lenght, bool Fix_Rotate_Decal, bool Turn_OF_Decal, bool Use_location)
+void ABP_Light_Param_C::UpdateDecalInnerLightParameters(double Intensity_Decal, double ScaleDecalMinusZ, double OffsetDecalMinusZ, double Lenght, bool Fix_Rotate_Decal, bool Turn_OF_Decal, bool Use_location)
 {
 	static class UFunction* Func = nullptr;
 
@@ -112,8 +112,8 @@ void ABP_Light_Param_C::UpdateDecalInnerLightParameters(double Intensity_Decal, 
 	Params::BP_Light_Param_C_UpdateDecalInnerLightParameters Parms{};
 
 	Parms.Intensity_Decal = Intensity_Decal;
-	Parms.ScaleDecal_Z = ScaleDecal_Z;
-	Parms.OffsetDecal_Z = OffsetDecal_Z;
+	Parms.ScaleDecalMinusZ = ScaleDecalMinusZ;
+	Parms.OffsetDecalMinusZ = OffsetDecalMinusZ;
 	Parms.Lenght = Lenght;
 	Parms.Fix_Rotate_Decal = Fix_Rotate_Decal;
 	Parms.Turn_OF_Decal = Turn_OF_Decal;

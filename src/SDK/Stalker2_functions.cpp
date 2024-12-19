@@ -17,40 +17,21 @@
 namespace SDK
 {
 
-// Function Stalker2.CustomConsoleManagerSD.XBeginPlay
-// (Final, Exec, Native, Public, Const)
-
-void UCustomConsoleManagerSD::XBeginPlay() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerSD", "XBeginPlay");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerSD.XGetActorNameByUID
-// (Final, Exec, Native, Public, Const)
+// Function Stalker2.CustomConsoleManagerMH.XRemoveEffectFromPlayer
+// (Final, Exec, Native, Public)
 // Parameters:
-// int32                                   UID                                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FString                           EffectPrototypeSID                                     (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UCustomConsoleManagerSD::XGetActorNameByUID(int32 UID) const
+void UCustomConsoleManagerMH::XRemoveEffectFromPlayer(const class FString& EffectPrototypeSID)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerSD", "XGetActorNameByUID");
+		Func = Class->GetFunction("CustomConsoleManagerMH", "XRemoveEffectFromPlayer");
 
-	Params::CustomConsoleManagerSD_XGetActorNameByUID Parms{};
+	Params::CustomConsoleManagerMH_XRemoveEffectFromPlayer Parms{};
 
-	Parms.UID = UID;
+	Parms.EffectPrototypeSID = std::move(EffectPrototypeSID);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -61,15 +42,65 @@ void UCustomConsoleManagerSD::XGetActorNameByUID(int32 UID) const
 }
 
 
-// Function Stalker2.CustomConsoleManagerSD.XHideAllWidget
-// (Final, Exec, Native, Public, Const)
+// Function Stalker2.CustomConsoleManagerMH.XSetFov
+// (Final, Exec, Native, Public)
+// Parameters:
+// float                                   FOV                                                    (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UCustomConsoleManagerSD::XHideAllWidget() const
+void UCustomConsoleManagerMH::XSetFov(const float FOV)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerSD", "XHideAllWidget");
+		Func = Class->GetFunction("CustomConsoleManagerMH", "XSetFov");
+
+	Params::CustomConsoleManagerMH_XSetFov Parms{};
+
+	Parms.FOV = FOV;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerMH.XToggleCustomFov
+// (Final, Exec, Native, Public)
+// Parameters:
+// bool                                    bEnable                                                (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCustomConsoleManagerMH::XToggleCustomFov(const bool bEnable)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerMH", "XToggleCustomFov");
+
+	Params::CustomConsoleManagerMH_XToggleCustomFov Parms{};
+
+	Parms.bEnable = bEnable;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerMH.XToggleDrawAIShootingDebug
+// (Final, Exec, Native, Public)
+
+void UCustomConsoleManagerMH::XToggleDrawAIShootingDebug()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerMH", "XToggleDrawAIShootingDebug");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -80,15 +111,15 @@ void UCustomConsoleManagerSD::XHideAllWidget() const
 }
 
 
-// Function Stalker2.CustomConsoleManagerSD.XHideCompass
-// (Final, Exec, Native, Public, Const)
+// Function Stalker2.CustomConsoleManagerMH.XToggleDrawPlayerDispersionDebug
+// (Final, Exec, Native, Public)
 
-void UCustomConsoleManagerSD::XHideCompass() const
+void UCustomConsoleManagerMH::XToggleDrawPlayerDispersionDebug()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerSD", "XHideCompass");
+		Func = Class->GetFunction("CustomConsoleManagerMH", "XToggleDrawPlayerDispersionDebug");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -99,15 +130,15 @@ void UCustomConsoleManagerSD::XHideCompass() const
 }
 
 
-// Function Stalker2.CustomConsoleManagerSD.XShowAllWidget
-// (Final, Exec, Native, Public, Const)
+// Function Stalker2.CustomConsoleManagerMH.XToggleDrawPlayerRecoilDebug
+// (Final, Exec, Native, Public)
 
-void UCustomConsoleManagerSD::XShowAllWidget() const
+void UCustomConsoleManagerMH::XToggleDrawPlayerRecoilDebug()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerSD", "XShowAllWidget");
+		Func = Class->GetFunction("CustomConsoleManagerMH", "XToggleDrawPlayerRecoilDebug");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -118,15 +149,15 @@ void UCustomConsoleManagerSD::XShowAllWidget() const
 }
 
 
-// Function Stalker2.CustomConsoleManagerSD.XShowCompass
-// (Final, Exec, Native, Public, Const)
+// Function Stalker2.CustomConsoleManagerMH.XToggleDrawPlayerShootingDebug
+// (Final, Exec, Native, Public)
 
-void UCustomConsoleManagerSD::XShowCompass() const
+void UCustomConsoleManagerMH::XToggleDrawPlayerShootingDebug()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerSD", "XShowCompass");
+		Func = Class->GetFunction("CustomConsoleManagerMH", "XToggleDrawPlayerShootingDebug");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -137,21 +168,67 @@ void UCustomConsoleManagerSD::XShowCompass() const
 }
 
 
-// Function Stalker2.CustomConsoleManagerSD.XTeleportToPlacesOfInterest
+// Function Stalker2.CustomConsoleManagerMH.XToggleHubDoors
+// (Final, Exec, Native, Public)
+// Parameters:
+// bool                                    bLocked                                                (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   Radius                                                 (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCustomConsoleManagerMH::XToggleHubDoors(const bool bLocked, const float Radius)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerMH", "XToggleHubDoors");
+
+	Params::CustomConsoleManagerMH_XToggleHubDoors Parms{};
+
+	Parms.bLocked = bLocked;
+	Parms.Radius = Radius;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerMH.XToggleSoapBubbleDebug
+// (Final, Exec, Native, Public)
+
+void UCustomConsoleManagerMH::XToggleSoapBubbleDebug()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerMH", "XToggleSoapBubbleDebug");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerMH.XApplyMainHandWeaponUpgradeBySID
 // (Final, Exec, Native, Public, Const)
 // Parameters:
-// class FString                           SID                                                    (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FString                           UpgradePrototypeSID                                    (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UCustomConsoleManagerSD::XTeleportToPlacesOfInterest(const class FString& SID) const
+void UCustomConsoleManagerMH::XApplyMainHandWeaponUpgradeBySID(const class FString& UpgradePrototypeSID) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerSD", "XTeleportToPlacesOfInterest");
+		Func = Class->GetFunction("CustomConsoleManagerMH", "XApplyMainHandWeaponUpgradeBySID");
 
-	Params::CustomConsoleManagerSD_XTeleportToPlacesOfInterest Parms{};
+	Params::CustomConsoleManagerMH_XApplyMainHandWeaponUpgradeBySID Parms{};
 
-	Parms.SID = std::move(SID);
+	Parms.UpgradePrototypeSID = std::move(UpgradePrototypeSID);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -181,236 +258,20 @@ void UWidgetBase::UpdateWidget()
 }
 
 
-// Function Stalker2.WorldMapMarker.MarkerClick
-// (Final, Native, Public)
+// Function Stalker2.MenuButtonActionBase.ExecuteButtonAction
+// (Native, Public)
 
-void UWorldMapMarker::MarkerClick()
+void UMenuButtonActionBase::ExecuteButtonAction()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("WorldMapMarker", "MarkerClick");
+		Func = Class->GetFunction("MenuButtonActionBase", "ExecuteButtonAction");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.WorldMapMarker.OnMouseHover
-// (Final, Native, Public)
-
-void UWorldMapMarker::OnMouseHover()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("WorldMapMarker", "OnMouseHover");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.WorldMapMarker.OnMouseUnhover
-// (Final, Native, Public)
-
-void UWorldMapMarker::OnMouseUnhover()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("WorldMapMarker", "OnMouseUnhover");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.GSCModIOSubsystem.HandleModBrowserClosed
-// (Final, Native, Public)
-
-void UGSCModIOSubsystem::HandleModBrowserClosed()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("GSCModIOSubsystem", "HandleModBrowserClosed");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerOA.XDebugAudioScattererEvents
-// (Final, Exec, Native, Public)
-// Parameters:
-// bool                                    bEnabled                                               (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   DrawTime                                               (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCustomConsoleManagerOA::XDebugAudioScattererEvents(const bool bEnabled, const float DrawTime)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerOA", "XDebugAudioScattererEvents");
-
-	Params::CustomConsoleManagerOA_XDebugAudioScattererEvents Parms{};
-
-	Parms.bEnabled = bEnabled;
-	Parms.DrawTime = DrawTime;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerOA.XDebugAudioScattererMap
-// (Final, Exec, Native, Public)
-// Parameters:
-// bool                                    bEnabled                                               (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCustomConsoleManagerOA::XDebugAudioScattererMap(const bool bEnabled)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerOA", "XDebugAudioScattererMap");
-
-	Params::CustomConsoleManagerOA_XDebugAudioScattererMap Parms{};
-
-	Parms.bEnabled = bEnabled;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerOA.XGetActiveDLC
-// (Final, Exec, Native, Public, Const)
-
-void UCustomConsoleManagerOA::XGetActiveDLC() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerOA", "XGetActiveDLC");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerOA.XHasDLC
-// (Final, Exec, Native, Public, Const)
-// Parameters:
-// class FName                             DLCName                                                (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCustomConsoleManagerOA::XHasDLC(const class FName DLCName) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerOA", "XHasDLC");
-
-	Params::CustomConsoleManagerOA_XHasDLC Parms{};
-
-	Parms.DLCName = DLCName;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerOA.XIsHDREnabled
-// (Final, Exec, Native, Public, Const)
-
-void UCustomConsoleManagerOA::XIsHDREnabled() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerOA", "XIsHDREnabled");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerOA.XNewDLCAvailable
-// (Final, Exec, Native, Public, Const)
-
-void UCustomConsoleManagerOA::XNewDLCAvailable() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerOA", "XNewDLCAvailable");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerOA.XPlayVideo
-// (Final, Exec, Native, Public, Const)
-// Parameters:
-// class FString                           Path                                                   (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCustomConsoleManagerOA::XPlayVideo(const class FString& Path) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerOA", "XPlayVideo");
-
-	Params::CustomConsoleManagerOA_XPlayVideo Parms{};
-
-	Parms.Path = std::move(Path);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
 }
@@ -441,194 +302,15 @@ void UAbstractProgressBar::SetProgressValue(float InProgress)
 }
 
 
-// Function Stalker2.StatPanelDebug.UpdateAllStats
-// (Final, Native, Public, BlueprintCallable)
-
-void UStatPanelDebug::UpdateAllStats()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("StatPanelDebug", "UpdateAllStats");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerMB.XSetDrawDebugExplosion
-// (Final, Exec, Native, Public)
-// Parameters:
-// bool                                    bDebug                                                 (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   DebugTime                                              (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCustomConsoleManagerMB::XSetDrawDebugExplosion(const bool bDebug, const float DebugTime)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerMB", "XSetDrawDebugExplosion");
-
-	Params::CustomConsoleManagerMB_XSetDrawDebugExplosion Parms{};
-
-	Parms.bDebug = bDebug;
-	Parms.DebugTime = DebugTime;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerMB.XSwitchAnomalySpawnerPreset
-// (Final, Exec, Native, Public)
-
-void UCustomConsoleManagerMB::XSwitchAnomalySpawnerPreset()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerMB", "XSwitchAnomalySpawnerPreset");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerMB.XToggleShowLightningBallAnomalyDebugInfo
-// (Final, Exec, Native, Public)
-
-void UCustomConsoleManagerMB::XToggleShowLightningBallAnomalyDebugInfo()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerMB", "XToggleShowLightningBallAnomalyDebugInfo");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerMB.XToggleShowModels
-// (Final, Exec, Native, Public)
-
-void UCustomConsoleManagerMB::XToggleShowModels()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerMB", "XToggleShowModels");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerMB.XToggleShowPlayerLastHeldItem
-// (Final, Exec, Native, Public)
-
-void UCustomConsoleManagerMB::XToggleShowPlayerLastHeldItem()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerMB", "XToggleShowPlayerLastHeldItem");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerMB.XToggleShowPlayerLocation
-// (Final, Exec, Native, Public)
-
-void UCustomConsoleManagerMB::XToggleShowPlayerLocation()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerMB", "XToggleShowPlayerLocation");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerMB.XToggleShowPlayerRequestedMainHandWeaponType
-// (Final, Exec, Native, Public)
-
-void UCustomConsoleManagerMB::XToggleShowPlayerRequestedMainHandWeaponType()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerMB", "XToggleShowPlayerRequestedMainHandWeaponType");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerMB.XToggleShowProtection
-// (Final, Exec, Native, Public)
-
-void UCustomConsoleManagerMB::XToggleShowProtection()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerMB", "XToggleShowProtection");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerMB.XToggleDebugExpulsionAnomaly
+// Function Stalker2.CustomConsoleManagerEG.XGarbageCollector
 // (Final, Exec, Native, Public, Const)
 
-void UCustomConsoleManagerMB::XToggleDebugExpulsionAnomaly() const
+void UCustomConsoleManagerEG::XGarbageCollector() const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerMB", "XToggleDebugExpulsionAnomaly");
+		Func = Class->GetFunction("CustomConsoleManagerEG", "XGarbageCollector");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -639,15 +321,15 @@ void UCustomConsoleManagerMB::XToggleDebugExpulsionAnomaly() const
 }
 
 
-// Function Stalker2.CustomConsoleManagerMB.XToggleShowTriggerCapsuleView
-// (Final, Exec, Native, Public, Const)
+// Function Stalker2.ScriptedNavModifierVolume.Activate
+// (Final, Native, Protected, BlueprintCallable)
 
-void UCustomConsoleManagerMB::XToggleShowTriggerCapsuleView() const
+void AScriptedNavModifierVolume::Activate()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerMB", "XToggleShowTriggerCapsuleView");
+		Func = Class->GetFunction("ScriptedNavModifierVolume", "Activate");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -658,15 +340,15 @@ void UCustomConsoleManagerMB::XToggleShowTriggerCapsuleView() const
 }
 
 
-// Function Stalker2.SettingElement.OnLeftButtonClicked
-// (Native, Public)
+// Function Stalker2.ScriptedNavModifierVolume.Deactivate
+// (Final, Native, Protected, BlueprintCallable)
 
-void USettingElement::OnLeftButtonClicked()
+void AScriptedNavModifierVolume::Deactivate()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("SettingElement", "OnLeftButtonClicked");
+		Func = Class->GetFunction("ScriptedNavModifierVolume", "Deactivate");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -674,50 +356,6 @@ void USettingElement::OnLeftButtonClicked()
 	UObject::ProcessEvent(Func, nullptr);
 
 	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.SettingElement.OnRightButtonClicked
-// (Native, Public)
-
-void USettingElement::OnRightButtonClicked()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SettingElement", "OnRightButtonClicked");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.SettingElement.GetIsEnabledElement
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool USettingElement::GetIsEnabledElement() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SettingElement", "GetIsEnabledElement");
-
-	Params::SettingElement_GetIsEnabledElement Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
 }
 
 
@@ -866,6 +504,26 @@ void AObj::OnHit(class AActor* SelfActor, class AActor* OtherActor, const struct
 	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
+}
+
+
+// DelegateFunction Stalker2.Obj.OnObjTurnedToTarget__DelegateSignature
+// (MulticastDelegate, Public, Delegate)
+// Parameters:
+// bool                                    bSuccess                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void AObj::OnObjTurnedToTarget__DelegateSignature(bool bSuccess)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Obj", "OnObjTurnedToTarget__DelegateSignature");
+
+	Params::Obj_OnObjTurnedToTarget__DelegateSignature Parms{};
+
+	Parms.bSuccess = bSuccess;
+
+	UObject::ProcessEvent(Func, &Parms);
 }
 
 
@@ -1190,21 +848,21 @@ void AAgent::SetCutsceneProceduralEyesWeight(float Value) const
 }
 
 
-// Function Stalker2.MenuSubViewBase.SelectOptionWidget
-// (Final, Native, Public)
+// Function Stalker2.StrelokBossComponent.OnDashAbilityUsed
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class UMenuButtonBase*                  ButtonWidget                                           (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bAbilityUsed                                           (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UMenuSubViewBase::SelectOptionWidget(class UMenuButtonBase* ButtonWidget)
+void UStrelokBossComponent::OnDashAbilityUsed(const bool bAbilityUsed)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("MenuSubViewBase", "SelectOptionWidget");
+		Func = Class->GetFunction("StrelokBossComponent", "OnDashAbilityUsed");
 
-	Params::MenuSubViewBase_SelectOptionWidget Parms{};
+	Params::StrelokBossComponent_OnDashAbilityUsed Parms{};
 
-	Parms.ButtonWidget = ButtonWidget;
+	Parms.bAbilityUsed = bAbilityUsed;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -1215,105 +873,112 @@ void UMenuSubViewBase::SelectOptionWidget(class UMenuButtonBase* ButtonWidget)
 }
 
 
-// Function Stalker2.SafeZoneWidget.HandleEditSafeZoneMoveBordersDecreaseHeight
-// (Final, Exec, Native, Private)
+// Function Stalker2.HintBase.HoverChangeHintTextColor
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// bool                                    bShow                                                  (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FString                           InStylePrefix                                          (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void USafeZoneWidget::HandleEditSafeZoneMoveBordersDecreaseHeight()
+void UHintBase::HoverChangeHintTextColor(const bool bShow, const class FString& InStylePrefix)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("SafeZoneWidget", "HandleEditSafeZoneMoveBordersDecreaseHeight");
+		Func = Class->GetFunction("HintBase", "HoverChangeHintTextColor");
+
+	Params::HintBase_HoverChangeHintTextColor Parms{};
+
+	Parms.bShow = bShow;
+	Parms.InStylePrefix = std::move(InStylePrefix);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	UObject::ProcessEvent(Func, nullptr);
+	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
 }
 
 
-// Function Stalker2.SafeZoneWidget.HandleEditSafeZoneMoveBordersDecreaseWidth
-// (Final, Exec, Native, Private)
-
-void USafeZoneWidget::HandleEditSafeZoneMoveBordersDecreaseWidth()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SafeZoneWidget", "HandleEditSafeZoneMoveBordersDecreaseWidth");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.SafeZoneWidget.HandleEditSafeZoneMoveBordersIncreaseHeight
-// (Final, Exec, Native, Private)
-
-void USafeZoneWidget::HandleEditSafeZoneMoveBordersIncreaseHeight()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SafeZoneWidget", "HandleEditSafeZoneMoveBordersIncreaseHeight");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.SafeZoneWidget.HandleEditSafeZoneMoveBordersIncreaseWidth
-// (Final, Exec, Native, Private)
-
-void USafeZoneWidget::HandleEditSafeZoneMoveBordersIncreaseWidth()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SafeZoneWidget", "HandleEditSafeZoneMoveBordersIncreaseWidth");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.ViewBase.PreCloseUpdateView
+// Function Stalker2.HintBase.PostShowHover
 // (Event, Public, BlueprintEvent)
+// Parameters:
+// bool                                    bInShow                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UViewBase::PreCloseUpdateView()
+void UHintBase::PostShowHover(bool bInShow)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ViewBase", "PreCloseUpdateView");
+		Func = Class->GetFunction("HintBase", "PostShowHover");
 
-	UObject::ProcessEvent(Func, nullptr);
+	Params::HintBase_PostShowHover Parms{};
+
+	Parms.bInShow = bInShow;
+
+	UObject::ProcessEvent(Func, &Parms);
 }
 
 
-// Function Stalker2.ViewBase.UIClose
-// (Native, Protected)
+// Function Stalker2.HintBase.SetStylePrefix
+// (Final, Native, Public)
+// Parameters:
+// class FString                           InStylePrefix                                          (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UViewBase::UIClose()
+void UHintBase::SetStylePrefix(const class FString& InStylePrefix)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ViewBase", "UIClose");
+		Func = Class->GetFunction("HintBase", "SetStylePrefix");
+
+	Params::HintBase_SetStylePrefix Parms{};
+
+	Parms.InStylePrefix = std::move(InStylePrefix);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.HintBase.SetText
+// (Final, Native, Public, HasOutParams, BlueprintCallable)
+// Parameters:
+// class FText                             InText                                                 (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+
+void UHintBase::SetText(const class FText& InText)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("HintBase", "SetText");
+
+	Params::HintBase_SetText Parms{};
+
+	Parms.InText = std::move(InText);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.HintBase.UpdateHintWidget
+// (Native, Public)
+
+void UHintBase::UpdateHintWidget()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("HintBase", "UpdateHintWidget");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -1324,15 +989,35 @@ void UViewBase::UIClose()
 }
 
 
-// Function Stalker2.MenuMainViewBase.FadeInFinishedFunction
-// (Final, Native, Public)
+// Function Stalker2.HintBase.GetHoverSettings
+// (Event, Public, BlueprintEvent, Const)
+// Parameters:
+// const TArray<struct FHoverAction>       ReturnValue                                            (ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
 
-void UMenuMainViewBase::FadeInFinishedFunction()
+const TArray<struct FHoverAction> UHintBase::GetHoverSettings() const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("MenuMainViewBase", "FadeInFinishedFunction");
+		Func = Class->GetFunction("HintBase", "GetHoverSettings");
+
+	Params::HintBase_GetHoverSettings Parms{};
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	return Parms.ReturnValue;
+}
+
+
+// Function Stalker2.InteractViewHint.OnRunAction
+// (Native, Public)
+
+void UInteractViewHint::OnRunAction()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("InteractViewHint", "OnRunAction");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -1343,15 +1028,15 @@ void UMenuMainViewBase::FadeInFinishedFunction()
 }
 
 
-// Function Stalker2.MenuMainViewBase.FadeInStartedFunction
-// (Final, Native, Public)
+// Function Stalker2.SettingElement.OnLeftButtonClicked
+// (Native, Public)
 
-void UMenuMainViewBase::FadeInStartedFunction()
+void USettingElement::OnLeftButtonClicked()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("MenuMainViewBase", "FadeInStartedFunction");
+		Func = Class->GetFunction("SettingElement", "OnLeftButtonClicked");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -1362,15 +1047,15 @@ void UMenuMainViewBase::FadeInStartedFunction()
 }
 
 
-// Function Stalker2.MenuMainViewBase.FadeOutFinishedFunction
-// (Final, Native, Public)
+// Function Stalker2.SettingElement.OnRightButtonClicked
+// (Native, Public)
 
-void UMenuMainViewBase::FadeOutFinishedFunction()
+void USettingElement::OnRightButtonClicked()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("MenuMainViewBase", "FadeOutFinishedFunction");
+		Func = Class->GetFunction("SettingElement", "OnRightButtonClicked");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -1381,15 +1066,67 @@ void UMenuMainViewBase::FadeOutFinishedFunction()
 }
 
 
-// Function Stalker2.MenuMainViewBase.FadeOutStartedFunction
-// (Final, Native, Public)
+// Function Stalker2.SettingElement.GetIsEnabledElement
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UMenuMainViewBase::FadeOutStartedFunction()
+bool USettingElement::GetIsEnabledElement() const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("MenuMainViewBase", "FadeOutStartedFunction");
+		Func = Class->GetFunction("SettingElement", "GetIsEnabledElement");
+
+	Params::SettingElement_GetIsEnabledElement Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function Stalker2.SettingsElementPercent.SetValue
+// (Native, Public, BlueprintCallable)
+// Parameters:
+// float                                   InValue                                                (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bForce                                                 (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void USettingsElementPercent::SetValue(const float InValue, const bool bForce)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SettingsElementPercent", "SetValue");
+
+	Params::SettingsElementPercent_SetValue Parms{};
+
+	Parms.InValue = InValue;
+	Parms.bForce = bForce;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.ItemCompareWidget.SetItemEquippedData
+// (Final, Native, Public, BlueprintCallable)
+
+void UItemCompareWidget::SetItemEquippedData()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ItemCompareWidget", "SetItemEquippedData");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -1416,158 +1153,6 @@ void UItemGiveComponent::ProvideItems()
 	UObject::ProcessEvent(Func, nullptr);
 
 	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.InteractionComponent.SetInteractionActive
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                                    bActive                                                (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UInteractionComponent::SetInteractionActive(const bool bActive)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("InteractionComponent", "SetInteractionActive");
-
-	Params::InteractionComponent_SetInteractionActive Parms{};
-
-	Parms.bActive = bActive;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.InteractionComponent.SetInteractionDistance
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// float                                   MinDistance                                            (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   MaxDistance                                            (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UInteractionComponent::SetInteractionDistance(const float MinDistance, const float MaxDistance)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("InteractionComponent", "SetInteractionDistance");
-
-	Params::InteractionComponent_SetInteractionDistance Parms{};
-
-	Parms.MinDistance = MinDistance;
-	Parms.MaxDistance = MaxDistance;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.InteractionComponent.SetSelfActivating
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                                    bNewValue                                              (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UInteractionComponent::SetSelfActivating(const bool bNewValue)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("InteractionComponent", "SetSelfActivating");
-
-	Params::InteractionComponent_SetSelfActivating Parms{};
-
-	Parms.bNewValue = bNewValue;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.InteractionComponent.SetShowInactive
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                                    bShow                                                  (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UInteractionComponent::SetShowInactive(const bool bShow)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("InteractionComponent", "SetShowInactive");
-
-	Params::InteractionComponent_SetShowInactive Parms{};
-
-	Parms.bShow = bShow;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.InteractionComponent.HasItemRequirement
-// (Final, Native, Private, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UInteractionComponent::HasItemRequirement() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("InteractionComponent", "HasItemRequirement");
-
-	Params::InteractionComponent_HasItemRequirement Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Stalker2.InteractionComponent.HasRelatedQuest
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UInteractionComponent::HasRelatedQuest() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("InteractionComponent", "HasRelatedQuest");
-
-	Params::InteractionComponent_HasRelatedQuest Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
 }
 
 
@@ -1674,164 +1259,6 @@ TArray<class FName> UAISwarmComponent::GetVATAnimationNames() const
 	Func->FunctionFlags = Flgs;
 
 	return Parms.ReturnValue;
-}
-
-
-// Function Stalker2.ItemSelectorWeaponSlot.ConstructUpdateSlotScale
-// (Final, Native, Public, BlueprintCallable)
-
-void UItemSelectorWeaponSlot::ConstructUpdateSlotScale()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ItemSelectorWeaponSlot", "ConstructUpdateSlotScale");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.ItemSelectorWeaponSlot.GetHoveredWidgets
-// (Event, Public, BlueprintEvent)
-// Parameters:
-// TArray<class UUserWidget*>              ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
-
-TArray<class UUserWidget*> UItemSelectorWeaponSlot::GetHoveredWidgets()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ItemSelectorWeaponSlot", "GetHoveredWidgets");
-
-	Params::ItemSelectorWeaponSlot_GetHoveredWidgets Parms{};
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Stalker2.ItemSelectorWeaponSlot.IsAlternativeSlot
-// (Final, Native, Public, BlueprintCallable, BlueprintPure)
-// Parameters:
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UItemSelectorWeaponSlot::IsAlternativeSlot()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ItemSelectorWeaponSlot", "IsAlternativeSlot");
-
-	Params::ItemSelectorWeaponSlot_IsAlternativeSlot Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Stalker2.ItemSelectorWeaponSlot.IsGrenadeSlot
-// (Final, Native, Public, BlueprintCallable, BlueprintPure)
-// Parameters:
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UItemSelectorWeaponSlot::IsGrenadeSlot()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ItemSelectorWeaponSlot", "IsGrenadeSlot");
-
-	Params::ItemSelectorWeaponSlot_IsGrenadeSlot Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Stalker2.ItemSelectorWeaponSlot.IsWeaponSlot
-// (Final, Native, Public, BlueprintCallable, BlueprintPure)
-// Parameters:
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UItemSelectorWeaponSlot::IsWeaponSlot()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ItemSelectorWeaponSlot", "IsWeaponSlot");
-
-	Params::ItemSelectorWeaponSlot_IsWeaponSlot Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Stalker2.StrandGenerator.GetFinalStrandData
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// struct FStrandFinalData                 ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
-
-struct FStrandFinalData AStrandGenerator::GetFinalStrandData()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("StrandGenerator", "GetFinalStrandData");
-
-	Params::StrandGenerator_GetFinalStrandData Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Stalker2.GameGraphRenderingComponent.ShowAllComponents
-// (Final, Native, Protected)
-
-void UGameGraphRenderingComponent::ShowAllComponents()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("GameGraphRenderingComponent", "ShowAllComponents");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
 }
 
 
@@ -2066,23 +1493,374 @@ void AAnomaly::OnRechargeStateStarted()
 }
 
 
-// Function Stalker2.ExpulsionAnomaly.OnBoltCollided
-// (Event, Public, HasOutParams, HasDefaults, BlueprintEvent)
+// Function Stalker2.SoapBubbleAnomaly.OnActorCollided
+// (Final, Native, Public, HasOutParams)
 // Parameters:
-// struct FVector                          LocalPoint                                             (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UPrimitiveComponent*              OverlappedComponent                                    (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AActor*                           OtherActor                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UPrimitiveComponent*              OtherComp                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   OtherBodyIndex                                         (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bFromSweep                                             (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FHitResult                       SweepResult                                            (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
 
-void AExpulsionAnomaly::OnBoltCollided(const struct FVector& LocalPoint)
+void ASoapBubbleAnomaly::OnActorCollided(class UPrimitiveComponent* OverlappedComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, const int32 OtherBodyIndex, const bool bFromSweep, const struct FHitResult& SweepResult)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ExpulsionAnomaly", "OnBoltCollided");
+		Func = Class->GetFunction("SoapBubbleAnomaly", "OnActorCollided");
 
-	Params::ExpulsionAnomaly_OnBoltCollided Parms{};
+	Params::SoapBubbleAnomaly_OnActorCollided Parms{};
 
-	Parms.LocalPoint = std::move(LocalPoint);
+	Parms.OverlappedComponent = OverlappedComponent;
+	Parms.OtherActor = OtherActor;
+	Parms.OtherComp = OtherComp;
+	Parms.OtherBodyIndex = OtherBodyIndex;
+	Parms.bFromSweep = bFromSweep;
+	Parms.SweepResult = std::move(SweepResult);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.ViewBase.PreCloseUpdateView
+// (Event, Public, BlueprintEvent)
+
+void UViewBase::PreCloseUpdateView()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ViewBase", "PreCloseUpdateView");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function Stalker2.ViewBase.UIClose
+// (Native, Protected)
+
+void UViewBase::UIClose()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ViewBase", "UIClose");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.GameGraphRenderingComponent.ShowAllComponents
+// (Final, Native, Protected)
+
+void UGameGraphRenderingComponent::ShowAllComponents()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("GameGraphRenderingComponent", "ShowAllComponents");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.MenuSubViewBase.SelectOptionWidget
+// (Final, Native, Public)
+// Parameters:
+// class UMenuButtonBase*                  ButtonWidget                                           (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UMenuSubViewBase::SelectOptionWidget(class UMenuButtonBase* ButtonWidget)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("MenuSubViewBase", "SelectOptionWidget");
+
+	Params::MenuSubViewBase_SelectOptionWidget Parms{};
+
+	Parms.ButtonWidget = ButtonWidget;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.EquipmentSlots.OnItemMouseEnter
+// (Final, Native, Public)
+// Parameters:
+// class UInteractableItemSlotBaseWidget*  ItemWidget                                             (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UEquipmentSlots::OnItemMouseEnter(class UInteractableItemSlotBaseWidget* ItemWidget)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("EquipmentSlots", "OnItemMouseEnter");
+
+	Params::EquipmentSlots_OnItemMouseEnter Parms{};
+
+	Parms.ItemWidget = ItemWidget;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.EquipmentSlots.OnItemMouseLeave
+// (Final, Native, Public)
+// Parameters:
+// class UInteractableItemSlotBaseWidget*  ItemWidget                                             (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UEquipmentSlots::OnItemMouseLeave(class UInteractableItemSlotBaseWidget* ItemWidget)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("EquipmentSlots", "OnItemMouseLeave");
+
+	Params::EquipmentSlots_OnItemMouseLeave Parms{};
+
+	Parms.ItemWidget = ItemWidget;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.ReferenceHolderBase.CheckAssetReferences
+// (Final, Native, Public)
+
+void AReferenceHolderBase::CheckAssetReferences()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ReferenceHolderBase", "CheckAssetReferences");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.ReferenceHolderBase.UpdateObjectReferences
+// (Final, Native, Public)
+
+void AReferenceHolderBase::UpdateObjectReferences()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ReferenceHolderBase", "UpdateObjectReferences");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.ReferenceHolderBase.ValidateGatheredReferences
+// (Final, Native, Public, Const)
+
+void AReferenceHolderBase::ValidateGatheredReferences() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ReferenceHolderBase", "ValidateGatheredReferences");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.InteractionComponent.SetInteractionActive
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// bool                                    bActive                                                (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UInteractionComponent::SetInteractionActive(const bool bActive)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("InteractionComponent", "SetInteractionActive");
+
+	Params::InteractionComponent_SetInteractionActive Parms{};
+
+	Parms.bActive = bActive;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.InteractionComponent.SetInteractionDistance
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// float                                   MinDistance                                            (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   MaxDistance                                            (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UInteractionComponent::SetInteractionDistance(const float MinDistance, const float MaxDistance)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("InteractionComponent", "SetInteractionDistance");
+
+	Params::InteractionComponent_SetInteractionDistance Parms{};
+
+	Parms.MinDistance = MinDistance;
+	Parms.MaxDistance = MaxDistance;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.InteractionComponent.SetSelfActivating
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// bool                                    bNewValue                                              (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UInteractionComponent::SetSelfActivating(const bool bNewValue)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("InteractionComponent", "SetSelfActivating");
+
+	Params::InteractionComponent_SetSelfActivating Parms{};
+
+	Parms.bNewValue = bNewValue;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.InteractionComponent.SetShowInactive
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// bool                                    bShow                                                  (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UInteractionComponent::SetShowInactive(const bool bShow)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("InteractionComponent", "SetShowInactive");
+
+	Params::InteractionComponent_SetShowInactive Parms{};
+
+	Parms.bShow = bShow;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.InteractionComponent.HasItemRequirement
+// (Final, Native, Private, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UInteractionComponent::HasItemRequirement() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("InteractionComponent", "HasItemRequirement");
+
+	Params::InteractionComponent_HasItemRequirement Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function Stalker2.InteractionComponent.HasRelatedQuest
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UInteractionComponent::HasRelatedQuest() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("InteractionComponent", "HasRelatedQuest");
+
+	Params::InteractionComponent_HasRelatedQuest Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
 }
 
 
@@ -2136,6 +1914,52 @@ bool USingleClickComponent::CanSendFailedEvent() const
 }
 
 
+// Function Stalker2.VoiceoverSpeechComponent.OnAKEventFinished
+// (Final, Native, Private)
+// Parameters:
+// EAkCallbackType                         CallbackType                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UAkCallbackInfo*                  CallbackInfo                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UVoiceoverSpeechComponent::OnAKEventFinished(EAkCallbackType CallbackType, class UAkCallbackInfo* CallbackInfo)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("VoiceoverSpeechComponent", "OnAKEventFinished");
+
+	Params::VoiceoverSpeechComponent_OnAKEventFinished Parms{};
+
+	Parms.CallbackType = CallbackType;
+	Parms.CallbackInfo = CallbackInfo;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.FaustBossComponent.WoundedBark
+// (Final, Native, Protected, BlueprintCallable)
+
+void UFaustBossComponent::WoundedBark()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("FaustBossComponent", "WoundedBark");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
 // Function Stalker2.AbilityEventData.GetAbilityType
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
@@ -2186,187 +2010,6 @@ class FName UAbilityEventData::GetActivationTag() const
 }
 
 
-// Function Stalker2.SpaceRestrictorsCheats.XRestrictorsPrint
-// (Final, Exec, Native, Private)
-
-void USpaceRestrictorsCheats::XRestrictorsPrint()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SpaceRestrictorsCheats", "XRestrictorsPrint");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.SpaceRestrictorsCheats.XRestrictorsShowResponse
-// (Final, Exec, Native, Private)
-// Parameters:
-// int32                                   UID                                                    (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void USpaceRestrictorsCheats::XRestrictorsShowResponse(const int32 UID)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SpaceRestrictorsCheats", "XRestrictorsShowResponse");
-
-	Params::SpaceRestrictorsCheats_XRestrictorsShowResponse Parms{};
-
-	Parms.UID = UID;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.WaterComponent.OnBeginOverlap
-// (Final, Native, Public)
-// Parameters:
-// class AActor*                           OverlappedComponent                                    (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class AActor*                           OtherActor                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UWaterComponent::OnBeginOverlap(class AActor* OverlappedComponent, class AActor* OtherActor)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("WaterComponent", "OnBeginOverlap");
-
-	Params::WaterComponent_OnBeginOverlap Parms{};
-
-	Parms.OverlappedComponent = OverlappedComponent;
-	Parms.OtherActor = OtherActor;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.WaterComponent.OnEndOverlap
-// (Final, Native, Public)
-// Parameters:
-// class AActor*                           OverlappedComponent                                    (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class AActor*                           OtherActor                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UWaterComponent::OnEndOverlap(class AActor* OverlappedComponent, class AActor* OtherActor)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("WaterComponent", "OnEndOverlap");
-
-	Params::WaterComponent_OnEndOverlap Parms{};
-
-	Parms.OverlappedComponent = OverlappedComponent;
-	Parms.OtherActor = OtherActor;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.FinalCreditsWithVideo.EndVideo
-// (Native, Public, BlueprintCallable)
-
-void UFinalCreditsWithVideo::EndVideo()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("FinalCreditsWithVideo", "EndVideo");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.FinalCreditsWithVideo.PlayVideo
-// (Event, Protected, BlueprintEvent)
-// Parameters:
-// class UMediaSource*                     VideoToPlay                                            (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UFinalCreditsWithVideo::PlayVideo(class UMediaSource* VideoToPlay)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("FinalCreditsWithVideo", "PlayVideo");
-
-	Params::FinalCreditsWithVideo_PlayVideo Parms{};
-
-	Parms.VideoToPlay = VideoToPlay;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function Stalker2.FinalCreditsWithVideo.GetVideoDuration
-// (Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-float UFinalCreditsWithVideo::GetVideoDuration() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("FinalCreditsWithVideo", "GetVideoDuration");
-
-	Params::FinalCreditsWithVideo_GetVideoDuration Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Stalker2.StatPanel.UpdateAllStats
-// (Final, Native, Public, BlueprintCallable)
-
-void UStatPanel::UpdateAllStats()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("StatPanel", "UpdateAllStats");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function Stalker2.AnimationUtilitiesBPFunctionLibrary.GetCharacterAnimInstance
 // (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
@@ -2383,6 +2026,36 @@ class UAnimInstance* UAnimationUtilitiesBPFunctionLibrary::GetCharacterAnimInsta
 	Params::AnimationUtilitiesBPFunctionLibrary_GetCharacterAnimInstance Parms{};
 
 	Parms.Obj = Obj;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function Stalker2.AnimationUtilitiesBPFunctionLibrary.IsSimulationEnable
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class UObject*                          Object                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UGroomAsset*                      GroomAsset                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UAnimationUtilitiesBPFunctionLibrary::IsSimulationEnable(class UObject* Object, class UGroomAsset* GroomAsset)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("AnimationUtilitiesBPFunctionLibrary", "IsSimulationEnable");
+
+	Params::AnimationUtilitiesBPFunctionLibrary_IsSimulationEnable Parms{};
+
+	Parms.Object = Object;
+	Parms.GroomAsset = GroomAsset;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -2541,46 +2214,94 @@ void UAnimationUtilitiesBPFunctionLibrary::SetPlayerLockState(class APC* PC, con
 }
 
 
-// Function Stalker2.EquipmentSlots.OnItemMouseEnter
-// (Final, Native, Public)
-// Parameters:
-// class UInteractableItemSlotBaseWidget*  ItemWidget                                             (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// Function Stalker2.EncounterNPCSpawner.Despawn
+// (Final, Native, Protected, BlueprintCallable)
 
-void UEquipmentSlots::OnItemMouseEnter(class UInteractableItemSlotBaseWidget* ItemWidget)
+void AEncounterNPCSpawner::Despawn()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("EquipmentSlots", "OnItemMouseEnter");
-
-	Params::EquipmentSlots_OnItemMouseEnter Parms{};
-
-	Parms.ItemWidget = ItemWidget;
+		Func = Class->GetFunction("EncounterNPCSpawner", "Despawn");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	UObject::ProcessEvent(Func, &Parms);
+	UObject::ProcessEvent(Func, nullptr);
 
 	Func->FunctionFlags = Flgs;
 }
 
 
-// Function Stalker2.EquipmentSlots.OnItemMouseLeave
-// (Final, Native, Public)
-// Parameters:
-// class UInteractableItemSlotBaseWidget*  ItemWidget                                             (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// Function Stalker2.EncounterNPCSpawner.Disable
+// (Final, Native, Protected, BlueprintCallable)
 
-void UEquipmentSlots::OnItemMouseLeave(class UInteractableItemSlotBaseWidget* ItemWidget)
+void AEncounterNPCSpawner::Disable()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("EquipmentSlots", "OnItemMouseLeave");
+		Func = Class->GetFunction("EncounterNPCSpawner", "Disable");
 
-	Params::EquipmentSlots_OnItemMouseLeave Parms{};
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
 
-	Parms.ItemWidget = ItemWidget;
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.EncounterNPCSpawner.Enable
+// (Final, Native, Protected, BlueprintCallable)
+
+void AEncounterNPCSpawner::Enable()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("EncounterNPCSpawner", "Enable");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.EncounterNPCSpawner.OnAllNPCKilled
+// (Event, Protected, BlueprintEvent)
+
+void AEncounterNPCSpawner::OnAllNPCKilled()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("EncounterNPCSpawner", "OnAllNPCKilled");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function Stalker2.PlaySoundQuestNodeListener.OnSoundFinished
+// (Final, Native, Public)
+// Parameters:
+// EAkCallbackType                         CallbackType                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UAkCallbackInfo*                  CallbackInfo                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UPlaySoundQuestNodeListener::OnSoundFinished(EAkCallbackType CallbackType, class UAkCallbackInfo* CallbackInfo)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PlaySoundQuestNodeListener", "OnSoundFinished");
+
+	Params::PlaySoundQuestNodeListener_OnSoundFinished Parms{};
+
+	Parms.CallbackType = CallbackType;
+	Parms.CallbackInfo = CallbackInfo;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -2805,66 +2526,23 @@ void AEditorTools::XRemoveRestoredLabelFromActors() const
 }
 
 
-// Function Stalker2.FogActor.GetFogParamsForCurrentWeather
-// (Final, Native, Protected, BlueprintCallable, BlueprintPure, Const)
+// Function Stalker2.ExpulsionAnomaly.OnBoltCollided
+// (Event, Public, HasOutParams, HasDefaults, BlueprintEvent)
 // Parameters:
-// const struct FFogParams                 ReturnValue                                            (ConstParm, Parm, OutParm, ReturnParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+// struct FVector                          LocalPoint                                             (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-const struct FFogParams AFogActor::GetFogParamsForCurrentWeather() const
+void AExpulsionAnomaly::OnBoltCollided(const struct FVector& LocalPoint)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("FogActor", "GetFogParamsForCurrentWeather");
+		Func = Class->GetFunction("ExpulsionAnomaly", "OnBoltCollided");
 
-	Params::FogActor_GetFogParamsForCurrentWeather Parms{};
+	Params::ExpulsionAnomaly_OnBoltCollided Parms{};
 
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
+	Parms.LocalPoint = std::move(LocalPoint);
 
 	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Stalker2.EmissionManager.GeneratorsSequenceIdle
-// (Final, Native, Protected)
-
-void UEmissionManager::GeneratorsSequenceIdle()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("EmissionManager", "GeneratorsSequenceIdle");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.FaustBossComponent.WoundedBark
-// (Final, Native, Protected, BlueprintCallable)
-
-void UFaustBossComponent::WoundedBark()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("FaustBossComponent", "WoundedBark");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
 }
 
 
@@ -2887,15 +2565,15 @@ void UAnimInstancePlayer::AnimNotify_InteractionEvent()
 }
 
 
-// Function Stalker2.SystemNotificationItem.SetModel
+// Function Stalker2.EmissionManager.GeneratorsSequenceIdle
 // (Final, Native, Protected)
 
-void USystemNotificationItem::SetModel()
+void UEmissionManager::GeneratorsSequenceIdle()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("SystemNotificationItem", "SetModel");
+		Func = Class->GetFunction("EmissionManager", "GeneratorsSequenceIdle");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -2906,24 +2584,24 @@ void USystemNotificationItem::SetModel()
 }
 
 
-// Function Stalker2.PoppyFieldAnomalyBehaviorComponent.OnBeginOverlap
-// (Final, Native, Protected, HasOutParams)
+// Function Stalker2.StreamingDistanceOverridingVolume.OnTriggerOverlapped
+// (Final, Native, Private, HasOutParams)
 // Parameters:
 // class UPrimitiveComponent*              OverlappedComponent                                    (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class AActor*                           OtherActor                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UPrimitiveComponent*              OtherComp                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int32                                   OtherBodyIndex                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bFromSweep                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   OtherBodyIndex                                         (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bFromSweep                                             (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FHitResult                       SweepResult                                            (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
 
-void UPoppyFieldAnomalyBehaviorComponent::OnBeginOverlap(class UPrimitiveComponent* OverlappedComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const struct FHitResult& SweepResult)
+void AStreamingDistanceOverridingVolume::OnTriggerOverlapped(class UPrimitiveComponent* OverlappedComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, const int32 OtherBodyIndex, const bool bFromSweep, const struct FHitResult& SweepResult)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("PoppyFieldAnomalyBehaviorComponent", "OnBeginOverlap");
+		Func = Class->GetFunction("StreamingDistanceOverridingVolume", "OnTriggerOverlapped");
 
-	Params::PoppyFieldAnomalyBehaviorComponent_OnBeginOverlap Parms{};
+	Params::StreamingDistanceOverridingVolume_OnTriggerOverlapped Parms{};
 
 	Parms.OverlappedComponent = OverlappedComponent;
 	Parms.OtherActor = OtherActor;
@@ -2941,31 +2619,106 @@ void UPoppyFieldAnomalyBehaviorComponent::OnBeginOverlap(class UPrimitiveCompone
 }
 
 
-// Function Stalker2.PoppyFieldAnomalyBehaviorComponent.OnBeginOverlapFlowers
-// (Final, Native, Protected, HasOutParams)
-// Parameters:
-// class UPrimitiveComponent*              OverlappedComponent                                    (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class AActor*                           OtherActor                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UPrimitiveComponent*              OtherComp                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int32                                   OtherBodyIndex                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bFromSweep                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FHitResult                       SweepResult                                            (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+// Function Stalker2.StreamingDistanceOverridingVolume.UpdateStreamingConfiguration
+// (Final, Native, Private)
 
-void UPoppyFieldAnomalyBehaviorComponent::OnBeginOverlapFlowers(class UPrimitiveComponent* OverlappedComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const struct FHitResult& SweepResult)
+void AStreamingDistanceOverridingVolume::UpdateStreamingConfiguration()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("PoppyFieldAnomalyBehaviorComponent", "OnBeginOverlapFlowers");
+		Func = Class->GetFunction("StreamingDistanceOverridingVolume", "UpdateStreamingConfiguration");
 
-	Params::PoppyFieldAnomalyBehaviorComponent_OnBeginOverlapFlowers Parms{};
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
 
-	Parms.OverlappedComponent = OverlappedComponent;
-	Parms.OtherActor = OtherActor;
-	Parms.OtherComp = OtherComp;
-	Parms.OtherBodyIndex = OtherBodyIndex;
-	Parms.bFromSweep = bFromSweep;
-	Parms.SweepResult = std::move(SweepResult);
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.FinalCreditsWithVideo.EndVideo
+// (Native, Public, BlueprintCallable)
+
+void UFinalCreditsWithVideo::EndVideo()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("FinalCreditsWithVideo", "EndVideo");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.FinalCreditsWithVideo.PlayVideo
+// (Event, Protected, BlueprintEvent)
+// Parameters:
+// class UMediaSource*                     VideoToPlay                                            (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UFinalCreditsWithVideo::PlayVideo(class UMediaSource* VideoToPlay)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("FinalCreditsWithVideo", "PlayVideo");
+
+	Params::FinalCreditsWithVideo_PlayVideo Parms{};
+
+	Parms.VideoToPlay = VideoToPlay;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function Stalker2.FinalCreditsWithVideo.GetVideoDuration
+// (Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+float UFinalCreditsWithVideo::GetVideoDuration() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("FinalCreditsWithVideo", "GetVideoDuration");
+
+	Params::FinalCreditsWithVideo_GetVideoDuration Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function Stalker2.DebugTextWidgetBase.CheckDebugTextBluprint
+// (Final, Native, Public, HasOutParams, BlueprintCallable)
+// Parameters:
+// class FText                             Text                                                   (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+// class UUserWidget*                      InOwnerWidget                                          (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UDebugTextWidgetBase::CheckDebugTextBluprint(const class FText& Text, class UUserWidget* InOwnerWidget)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("DebugTextWidgetBase", "CheckDebugTextBluprint");
+
+	Params::DebugTextWidgetBase_CheckDebugTextBluprint Parms{};
+
+	Parms.Text = std::move(Text);
+	Parms.InOwnerWidget = InOwnerWidget;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -2976,27 +2729,19 @@ void UPoppyFieldAnomalyBehaviorComponent::OnBeginOverlapFlowers(class UPrimitive
 }
 
 
-// Function Stalker2.PoppyFieldAnomalyBehaviorComponent.OnEndOverlap
+// Function Stalker2.DebugTextWidgetBase.FindRengeSettings
 // (Final, Native, Protected)
 // Parameters:
-// class UPrimitiveComponent*              OverlappedComponent                                    (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class AActor*                           OtherActor                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UPrimitiveComponent*              OtherComp                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int32                                   OtherBodyIndex                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FUIWarningSettings               ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 
-void UPoppyFieldAnomalyBehaviorComponent::OnEndOverlap(class UPrimitiveComponent* OverlappedComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
+struct FUIWarningSettings UDebugTextWidgetBase::FindRengeSettings()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("PoppyFieldAnomalyBehaviorComponent", "OnEndOverlap");
+		Func = Class->GetFunction("DebugTextWidgetBase", "FindRengeSettings");
 
-	Params::PoppyFieldAnomalyBehaviorComponent_OnEndOverlap Parms{};
-
-	Parms.OverlappedComponent = OverlappedComponent;
-	Parms.OtherActor = OtherActor;
-	Parms.OtherComp = OtherComp;
-	Parms.OtherBodyIndex = OtherBodyIndex;
+	Params::DebugTextWidgetBase_FindRengeSettings Parms{};
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -3004,37 +2749,8 @@ void UPoppyFieldAnomalyBehaviorComponent::OnEndOverlap(class UPrimitiveComponent
 	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
-}
 
-
-// Function Stalker2.PoppyFieldAnomalyBehaviorComponent.OnEndOverlapFlowers
-// (Final, Native, Protected)
-// Parameters:
-// class UPrimitiveComponent*              OverlappedComponent                                    (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class AActor*                           OtherActor                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UPrimitiveComponent*              OtherComp                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int32                                   OtherBodyIndex                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UPoppyFieldAnomalyBehaviorComponent::OnEndOverlapFlowers(class UPrimitiveComponent* OverlappedComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PoppyFieldAnomalyBehaviorComponent", "OnEndOverlapFlowers");
-
-	Params::PoppyFieldAnomalyBehaviorComponent_OnEndOverlapFlowers Parms{};
-
-	Parms.OverlappedComponent = OverlappedComponent;
-	Parms.OtherActor = OtherActor;
-	Parms.OtherComp = OtherComp;
-	Parms.OtherBodyIndex = OtherBodyIndex;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
+	return Parms.ReturnValue;
 }
 
 
@@ -3063,23 +2779,288 @@ void UAnimInstanceValve::SetValveState(const EValveState ValveState)
 }
 
 
-// Function Stalker2.GameplayEventListener.OnGameplayEvent
-// (Native, Event, Public, HasOutParams, BlueprintCallable, BlueprintEvent)
+// Function Stalker2.FogActor.GetFogParamsForCurrentWeather
+// (Final, Native, Protected, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// struct FGameplayTag                     EventTag                                               (ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UGameplayEventData*               EventData                                              (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FFogParams                 ReturnValue                                            (ConstParm, Parm, OutParm, ReturnParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
 
-void IGameplayEventListener::OnGameplayEvent(const struct FGameplayTag& EventTag, const class UGameplayEventData* EventData)
+const struct FFogParams AFogActor::GetFogParamsForCurrentWeather() const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("GameplayEventListener", "OnGameplayEvent");
+		Func = Class->GetFunction("FogActor", "GetFogParamsForCurrentWeather");
 
-	Params::GameplayEventListener_OnGameplayEvent Parms{};
+	Params::FogActor_GetFogParamsForCurrentWeather Parms{};
 
-	Parms.EventTag = std::move(EventTag);
-	Parms.EventData = EventData;
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function Stalker2.StrandGenerator.GetFinalStrandData
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// struct FStrandFinalData                 ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+
+struct FStrandFinalData AStrandGenerator::GetFinalStrandData()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("StrandGenerator", "GetFinalStrandData");
+
+	Params::StrandGenerator_GetFinalStrandData Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function Stalker2.Teleport.OnBeginOverlap
+// (Final, Native, Private, HasOutParams)
+// Parameters:
+// class UPrimitiveComponent*              OverlappedComponent                                    (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AActor*                           OtherActor                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UPrimitiveComponent*              OtherComp                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   OtherBodyIndex                                         (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bFromSweep                                             (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FHitResult                       SweepResult                                            (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+
+void ATeleport::OnBeginOverlap(class UPrimitiveComponent* OverlappedComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, const int32 OtherBodyIndex, const bool bFromSweep, const struct FHitResult& SweepResult)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Teleport", "OnBeginOverlap");
+
+	Params::Teleport_OnBeginOverlap Parms{};
+
+	Parms.OverlappedComponent = OverlappedComponent;
+	Parms.OtherActor = OtherActor;
+	Parms.OtherComp = OtherComp;
+	Parms.OtherBodyIndex = OtherBodyIndex;
+	Parms.bFromSweep = bFromSweep;
+	Parms.SweepResult = std::move(SweepResult);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.SummonAbilityEventData.GetSummonLocations
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// TArray<struct FVector>                  ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
+
+TArray<struct FVector> USummonAbilityEventData::GetSummonLocations() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SummonAbilityEventData", "GetSummonLocations");
+
+	Params::SummonAbilityEventData_GetSummonLocations Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function Stalker2.SummonAbilityEventData.ShouldSpawnEffects
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool USummonAbilityEventData::ShouldSpawnEffects() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SummonAbilityEventData", "ShouldSpawnEffects");
+
+	Params::SummonAbilityEventData_ShouldSpawnEffects Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function Stalker2.PsyPhantomComponent.OnBeginOverlap
+// (Final, Native, Public, HasOutParams)
+// Parameters:
+// class UPrimitiveComponent*              OverlappedComponent                                    (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AActor*                           OtherActor                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UPrimitiveComponent*              OtherComp                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   OtherBodyIndex                                         (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bFromSweep                                             (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FHitResult                       SweepResult                                            (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+
+void UPsyPhantomComponent::OnBeginOverlap(class UPrimitiveComponent* OverlappedComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, const int32 OtherBodyIndex, const bool bFromSweep, const struct FHitResult& SweepResult)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PsyPhantomComponent", "OnBeginOverlap");
+
+	Params::PsyPhantomComponent_OnBeginOverlap Parms{};
+
+	Parms.OverlappedComponent = OverlappedComponent;
+	Parms.OtherActor = OtherActor;
+	Parms.OtherComp = OtherComp;
+	Parms.OtherBodyIndex = OtherBodyIndex;
+	Parms.bFromSweep = bFromSweep;
+	Parms.SweepResult = std::move(SweepResult);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.QuickPanel.OnQuickSlotMouseEnter
+// (Final, Native, Public)
+// Parameters:
+// class UQuickSlot*                       ItemWidget                                             (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UQuickPanel::OnQuickSlotMouseEnter(class UQuickSlot* ItemWidget)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("QuickPanel", "OnQuickSlotMouseEnter");
+
+	Params::QuickPanel_OnQuickSlotMouseEnter Parms{};
+
+	Parms.ItemWidget = ItemWidget;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.QuickPanel.OnQuickSlotMouseLeave
+// (Final, Native, Public)
+// Parameters:
+// class UQuickSlot*                       HoveredWidget                                          (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UQuickPanel::OnQuickSlotMouseLeave(class UQuickSlot* HoveredWidget)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("QuickPanel", "OnQuickSlotMouseLeave");
+
+	Params::QuickPanel_OnQuickSlotMouseLeave Parms{};
+
+	Parms.HoveredWidget = HoveredWidget;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.QuickPanel.PlayShouldUseAnimationIfRequired
+// (Final, Native, Public, Const)
+// Parameters:
+// ESortGroup                              InSortGroup                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UQuickPanel::PlayShouldUseAnimationIfRequired(ESortGroup InSortGroup) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("QuickPanel", "PlayShouldUseAnimationIfRequired");
+
+	Params::QuickPanel_PlayShouldUseAnimationIfRequired Parms{};
+
+	Parms.InSortGroup = InSortGroup;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function Stalker2.QuickPanel.UpdateShouldUseAnimation
+// (Final, Native, Public, Const)
+
+void UQuickPanel::UpdateShouldUseAnimation() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("QuickPanel", "UpdateShouldUseAnimation");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.SaveScreenSubView.OnNavigationButtonPressed
+// (Final, Native, Public)
+// Parameters:
+// int32                                   InButtonIndex                                          (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void USaveScreenSubView::OnNavigationButtonPressed(const int32 InButtonIndex)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SaveScreenSubView", "OnNavigationButtonPressed");
+
+	Params::SaveScreenSubView_OnNavigationButtonPressed Parms{};
+
+	Parms.InButtonIndex = InButtonIndex;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -3191,209 +3172,6 @@ void UForceFeedbackSphereComponent::OnEndOverlap(class UPrimitiveComponent* Over
 	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.SignalSenderComponent.Send
-// (Final, Native, Private, BlueprintCallable, Const)
-// Parameters:
-// class UObject*                          DataObject                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void USignalSenderComponent::Send(class UObject* DataObject) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SignalSenderComponent", "Send");
-
-	Params::SignalSenderComponent_Send Parms{};
-
-	Parms.DataObject = DataObject;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.EncounterNPCSpawner.Despawn
-// (Final, Native, Protected, BlueprintCallable)
-
-void AEncounterNPCSpawner::Despawn()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("EncounterNPCSpawner", "Despawn");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.EncounterNPCSpawner.Disable
-// (Final, Native, Protected, BlueprintCallable)
-
-void AEncounterNPCSpawner::Disable()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("EncounterNPCSpawner", "Disable");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.EncounterNPCSpawner.Enable
-// (Final, Native, Protected, BlueprintCallable)
-
-void AEncounterNPCSpawner::Enable()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("EncounterNPCSpawner", "Enable");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.EncounterNPCSpawner.OnAllNPCKilled
-// (Event, Protected, BlueprintEvent)
-
-void AEncounterNPCSpawner::OnAllNPCKilled()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("EncounterNPCSpawner", "OnAllNPCKilled");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function Stalker2.RightClickMenuItemWidget.OnButtonClick
-// (Final, Native, Public)
-
-void URightClickMenuItemWidget::OnButtonClick()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("RightClickMenuItemWidget", "OnButtonClick");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.RightClickMenuItemWidget.OnButtonHovered
-// (Final, Native, Public)
-
-void URightClickMenuItemWidget::OnButtonHovered()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("RightClickMenuItemWidget", "OnButtonHovered");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.RightClickMenuItemWidget.OnButtonUnHovered
-// (Final, Native, Public)
-
-void URightClickMenuItemWidget::OnButtonUnHovered()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("RightClickMenuItemWidget", "OnButtonUnHovered");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.SummonAbilityEventData.GetSummonLocations
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// TArray<struct FVector>                  ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
-
-TArray<struct FVector> USummonAbilityEventData::GetSummonLocations() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SummonAbilityEventData", "GetSummonLocations");
-
-	Params::SummonAbilityEventData_GetSummonLocations Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Stalker2.SummonAbilityEventData.ShouldSpawnEffects
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool USummonAbilityEventData::ShouldSpawnEffects() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SummonAbilityEventData", "ShouldSpawnEffects");
-
-	Params::SummonAbilityEventData_ShouldSpawnEffects Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
 }
 
 
@@ -3881,15 +3659,15 @@ bool ATopazScanner::IsStationary() const
 }
 
 
-// Function Stalker2.StackSplitContextual.OnCancelButtonClicked
-// (Final, Native, Private)
+// Function Stalker2.BookViewBase.ChangeSelectButton
+// (Final, Native, Protected)
 
-void UStackSplitContextual::OnCancelButtonClicked()
+void UBookViewBase::ChangeSelectButton()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("StackSplitContextual", "OnCancelButtonClicked");
+		Func = Class->GetFunction("BookViewBase", "ChangeSelectButton");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -3900,192 +3678,21 @@ void UStackSplitContextual::OnCancelButtonClicked()
 }
 
 
-// Function Stalker2.StackSplitContextual.OnDropAllButtonClicked
-// (Final, Native, Public)
-
-void UStackSplitContextual::OnDropAllButtonClicked()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("StackSplitContextual", "OnDropAllButtonClicked");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.StackSplitContextual.OnHoldTimerTriggered
-// (Final, Native, Private)
-
-void UStackSplitContextual::OnHoldTimerTriggered()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("StackSplitContextual", "OnHoldTimerTriggered");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.StackSplitContextual.OnMinusButtonClicked
-// (Final, Native, Public)
-
-void UStackSplitContextual::OnMinusButtonClicked()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("StackSplitContextual", "OnMinusButtonClicked");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.StackSplitContextual.OnMinusButtonPressed
-// (Final, Native, Private)
-
-void UStackSplitContextual::OnMinusButtonPressed()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("StackSplitContextual", "OnMinusButtonPressed");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.StackSplitContextual.OnMinusButtonReleased
-// (Final, Native, Private)
-
-void UStackSplitContextual::OnMinusButtonReleased()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("StackSplitContextual", "OnMinusButtonReleased");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.StackSplitContextual.OnPlusButtonClicked
-// (Final, Native, Public)
-
-void UStackSplitContextual::OnPlusButtonClicked()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("StackSplitContextual", "OnPlusButtonClicked");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.StackSplitContextual.OnPlusButtonPressed
-// (Final, Native, Private)
-
-void UStackSplitContextual::OnPlusButtonPressed()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("StackSplitContextual", "OnPlusButtonPressed");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.StackSplitContextual.OnPlusButtonReleased
-// (Final, Native, Private)
-
-void UStackSplitContextual::OnPlusButtonReleased()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("StackSplitContextual", "OnPlusButtonReleased");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.StackSplitContextual.OnSplitButtonClicked
-// (Final, Native, Public)
-
-void UStackSplitContextual::OnSplitButtonClicked()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("StackSplitContextual", "OnSplitButtonClicked");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.StackSplitContextual.OnSplitValueChanged
-// (Final, Native, Private)
+// Function Stalker2.BookViewBase.ClickMenuButton
+// (Final, Native, Protected)
 // Parameters:
-// float                                   Value                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   InButtonIndex                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UStackSplitContextual::OnSplitValueChanged(float Value)
+void UBookViewBase::ClickMenuButton(int32 InButtonIndex)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("StackSplitContextual", "OnSplitValueChanged");
+		Func = Class->GetFunction("BookViewBase", "ClickMenuButton");
 
-	Params::StackSplitContextual_OnSplitValueChanged Parms{};
+	Params::BookViewBase_ClickMenuButton Parms{};
 
-	Parms.Value = Value;
+	Parms.InButtonIndex = InButtonIndex;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -4096,34 +3703,15 @@ void UStackSplitContextual::OnSplitValueChanged(float Value)
 }
 
 
-// Function Stalker2.StackSplitContextual.PressChangeAmmount
-// (Final, Native, Private)
-
-void UStackSplitContextual::PressChangeAmmount()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("StackSplitContextual", "PressChangeAmmount");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.ReferenceHolderBase.CheckAssetReferences
+// Function Stalker2.PDAView.CloseUpdateView
 // (Final, Native, Public)
 
-void AReferenceHolderBase::CheckAssetReferences()
+void UPDAView::CloseUpdateView()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ReferenceHolderBase", "CheckAssetReferences");
+		Func = Class->GetFunction("PDAView", "CloseUpdateView");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -4134,15 +3722,15 @@ void AReferenceHolderBase::CheckAssetReferences()
 }
 
 
-// Function Stalker2.ReferenceHolderBase.UpdateObjectReferences
+// Function Stalker2.PDAView.HideAllWindows
 // (Final, Native, Public)
 
-void AReferenceHolderBase::UpdateObjectReferences()
+void UPDAView::HideAllWindows()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ReferenceHolderBase", "UpdateObjectReferences");
+		Func = Class->GetFunction("PDAView", "HideAllWindows");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -4153,38 +3741,35 @@ void AReferenceHolderBase::UpdateObjectReferences()
 }
 
 
-// Function Stalker2.ReferenceHolderBase.ValidateGatheredReferences
-// (Final, Native, Public, Const)
+// Function Stalker2.PDAView.UpdateQuestList
+// (Event, Public, BlueprintEvent)
 
-void AReferenceHolderBase::ValidateGatheredReferences() const
+void UPDAView::UpdateQuestList()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ReferenceHolderBase", "ValidateGatheredReferences");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
+		Func = Class->GetFunction("PDAView", "UpdateQuestList");
 
 	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
 }
 
 
-// Function Stalker2.WaterContactController.IsPathToWaterSurfaceObstructed
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Function Stalker2.PDASlotPanelBase.ClickArrowButton
+// (Final, Native, Protected)
 // Parameters:
-// const struct FWaterSurfaceObstructionResultReturnValue                                            (ConstParm, Parm, OutParm, ReturnParm, NoDestructor, NativeAccessSpecifierPublic)
+// class FName                             ButtonId                                               (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-const struct FWaterSurfaceObstructionResult UWaterContactController::IsPathToWaterSurfaceObstructed() const
+void UPDASlotPanelBase::ClickArrowButton(const class FName ButtonId)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("WaterContactController", "IsPathToWaterSurfaceObstructed");
+		Func = Class->GetFunction("PDASlotPanelBase", "ClickArrowButton");
 
-	Params::WaterContactController_IsPathToWaterSurfaceObstructed Parms{};
+	Params::PDASlotPanelBase_ClickArrowButton Parms{};
+
+	Parms.ButtonId = ButtonId;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -4192,24 +3777,24 @@ const struct FWaterSurfaceObstructionResult UWaterContactController::IsPathToWat
 	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
 }
 
 
-// Function Stalker2.WaterContactController.ProjectOwnerPositionOnWaterSurface
-// (Final, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure, Const)
+// Function Stalker2.PDASlotPanelBase.ClickSlot
+// (Native, Protected)
 // Parameters:
-// const struct FVector                    ReturnValue                                            (ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   QuestSlotIndex                                         (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-const struct FVector UWaterContactController::ProjectOwnerPositionOnWaterSurface() const
+void UPDASlotPanelBase::ClickSlot(const int32 QuestSlotIndex)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("WaterContactController", "ProjectOwnerPositionOnWaterSurface");
+		Func = Class->GetFunction("PDASlotPanelBase", "ClickSlot");
 
-	Params::WaterContactController_ProjectOwnerPositionOnWaterSurface Parms{};
+	Params::PDASlotPanelBase_ClickSlot Parms{};
+
+	Parms.QuestSlotIndex = QuestSlotIndex;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -4217,8 +3802,632 @@ const struct FVector UWaterContactController::ProjectOwnerPositionOnWaterSurface
 	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
+}
 
-	return Parms.ReturnValue;
+
+// Function Stalker2.PDASlotPanelBase.UpdateSelectSlotID
+// (Native, Protected)
+
+void UPDASlotPanelBase::UpdateSelectSlotID()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PDASlotPanelBase", "UpdateSelectSlotID");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.GameplayEventListener.OnGameplayEvent
+// (Native, Event, Public, HasOutParams, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// struct FGameplayTag                     EventTag                                               (ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UGameplayEventData*               EventData                                              (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void IGameplayEventListener::OnGameplayEvent(const struct FGameplayTag& EventTag, const class UGameplayEventData* EventData)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("GameplayEventListener", "OnGameplayEvent");
+
+	Params::GameplayEventListener_OnGameplayEvent Parms{};
+
+	Parms.EventTag = std::move(EventTag);
+	Parms.EventData = EventData;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.NotesPage.ClickButtonMenu
+// (Final, Native, Protected)
+// Parameters:
+// class FName                             ButtonId                                               (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UNotesPage::ClickButtonMenu(const class FName ButtonId)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("NotesPage", "ClickButtonMenu");
+
+	Params::NotesPage_ClickButtonMenu Parms{};
+
+	Parms.ButtonId = ButtonId;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.NotesPage.ShowDetails
+// (Final, Native, Protected)
+// Parameters:
+// bool                                    bEmpty                                                 (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UNotesPage::ShowDetails(const bool bEmpty)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("NotesPage", "ShowDetails");
+
+	Params::NotesPage_ShowDetails Parms{};
+
+	Parms.bEmpty = bEmpty;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.NotesPage.SlotTransitionUp
+// (Final, Native, Protected)
+
+void UNotesPage::SlotTransitionUp()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("NotesPage", "SlotTransitionUp");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.NotesPage.UIPDANavigationButtonRelease
+// (Final, Native, Public)
+
+void UNotesPage::UIPDANavigationButtonRelease()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("NotesPage", "UIPDANavigationButtonRelease");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.NotesPage.UIPDANavigationDown
+// (Final, Native, Public)
+
+void UNotesPage::UIPDANavigationDown()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("NotesPage", "UIPDANavigationDown");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.NotesPage.UIPDANavigationLeft
+// (Final, Native, Public)
+
+void UNotesPage::UIPDANavigationLeft()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("NotesPage", "UIPDANavigationLeft");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.NotesPage.UIPDANavigatioNoteDown
+// (Final, Native, Public)
+
+void UNotesPage::UIPDANavigatioNoteDown()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("NotesPage", "UIPDANavigatioNoteDown");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.NotesPage.UIPDANavigatioNoteUp
+// (Final, Native, Public)
+
+void UNotesPage::UIPDANavigatioNoteUp()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("NotesPage", "UIPDANavigatioNoteUp");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.NotesPage.UIPDANavigationPlayAudio
+// (Final, Native, Public)
+
+void UNotesPage::UIPDANavigationPlayAudio()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("NotesPage", "UIPDANavigationPlayAudio");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.NotesPage.UIPDANavigationRight
+// (Final, Native, Public)
+
+void UNotesPage::UIPDANavigationRight()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("NotesPage", "UIPDANavigationRight");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.NotesPage.UIPDANavigationUp
+// (Final, Native, Public)
+
+void UNotesPage::UIPDANavigationUp()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("NotesPage", "UIPDANavigationUp");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.SignalSenderComponent.Send
+// (Final, Native, Private, BlueprintCallable, Const)
+// Parameters:
+// class UObject*                          DataObject                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void USignalSenderComponent::Send(class UObject* DataObject) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SignalSenderComponent", "Send");
+
+	Params::SignalSenderComponent_Send Parms{};
+
+	Parms.DataObject = DataObject;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.ExplosionComponent.Explode
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// struct FUID                             ExplosionInstigatorUID                                 (ConstParm, Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UExplosionComponent::Explode(const struct FUID& ExplosionInstigatorUID)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ExplosionComponent", "Explode");
+
+	Params::ExplosionComponent_Explode Parms{};
+
+	Parms.ExplosionInstigatorUID = std::move(ExplosionInstigatorUID);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.ExplosionComponent.ExplodeAtCustomLocation
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
+// Parameters:
+// struct FVector                          Location                                               (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UObject*                          ExplosionInstigator                                    (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UExplosionComponent::ExplodeAtCustomLocation(const struct FVector& Location, class UObject* ExplosionInstigator)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ExplosionComponent", "ExplodeAtCustomLocation");
+
+	Params::ExplosionComponent_ExplodeAtCustomLocation Parms{};
+
+	Parms.Location = std::move(Location);
+	Parms.ExplosionInstigator = ExplosionInstigator;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.ExplosionComponent.ExplodeWithCustomLocation
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
+// Parameters:
+// struct FVector                          Location                                               (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FUID                             ExplosionInstigatorUID                                 (ConstParm, Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UExplosionComponent::ExplodeWithCustomLocation(const struct FVector& Location, const struct FUID& ExplosionInstigatorUID)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ExplosionComponent", "ExplodeWithCustomLocation");
+
+	Params::ExplosionComponent_ExplodeWithCustomLocation Parms{};
+
+	Parms.Location = std::move(Location);
+	Parms.ExplosionInstigatorUID = std::move(ExplosionInstigatorUID);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.RightClickMenuItemWidget.OnButtonClick
+// (Final, Native, Public)
+
+void URightClickMenuItemWidget::OnButtonClick()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("RightClickMenuItemWidget", "OnButtonClick");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.RightClickMenuItemWidget.OnButtonHovered
+// (Final, Native, Public)
+
+void URightClickMenuItemWidget::OnButtonHovered()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("RightClickMenuItemWidget", "OnButtonHovered");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.RightClickMenuItemWidget.OnButtonUnHovered
+// (Final, Native, Public)
+
+void URightClickMenuItemWidget::OnButtonUnHovered()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("RightClickMenuItemWidget", "OnButtonUnHovered");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerMB.XSetDrawDebugExplosion
+// (Final, Exec, Native, Public)
+// Parameters:
+// bool                                    bDebug                                                 (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   DebugTime                                              (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCustomConsoleManagerMB::XSetDrawDebugExplosion(const bool bDebug, const float DebugTime)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerMB", "XSetDrawDebugExplosion");
+
+	Params::CustomConsoleManagerMB_XSetDrawDebugExplosion Parms{};
+
+	Parms.bDebug = bDebug;
+	Parms.DebugTime = DebugTime;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerMB.XSwitchAnomalySpawnerPreset
+// (Final, Exec, Native, Public)
+
+void UCustomConsoleManagerMB::XSwitchAnomalySpawnerPreset()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerMB", "XSwitchAnomalySpawnerPreset");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerMB.XToggleShowLightningBallAnomalyDebugInfo
+// (Final, Exec, Native, Public)
+
+void UCustomConsoleManagerMB::XToggleShowLightningBallAnomalyDebugInfo()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerMB", "XToggleShowLightningBallAnomalyDebugInfo");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerMB.XToggleShowModels
+// (Final, Exec, Native, Public)
+
+void UCustomConsoleManagerMB::XToggleShowModels()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerMB", "XToggleShowModels");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerMB.XToggleShowPlayerLastHeldItem
+// (Final, Exec, Native, Public)
+
+void UCustomConsoleManagerMB::XToggleShowPlayerLastHeldItem()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerMB", "XToggleShowPlayerLastHeldItem");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerMB.XToggleShowPlayerLocation
+// (Final, Exec, Native, Public)
+
+void UCustomConsoleManagerMB::XToggleShowPlayerLocation()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerMB", "XToggleShowPlayerLocation");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerMB.XToggleShowPlayerRequestedMainHandWeaponType
+// (Final, Exec, Native, Public)
+
+void UCustomConsoleManagerMB::XToggleShowPlayerRequestedMainHandWeaponType()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerMB", "XToggleShowPlayerRequestedMainHandWeaponType");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerMB.XToggleShowProtection
+// (Final, Exec, Native, Public)
+
+void UCustomConsoleManagerMB::XToggleShowProtection()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerMB", "XToggleShowProtection");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerMB.XToggleDebugExpulsionAnomaly
+// (Final, Exec, Native, Public, Const)
+
+void UCustomConsoleManagerMB::XToggleDebugExpulsionAnomaly() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerMB", "XToggleDebugExpulsionAnomaly");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerMB.XToggleShowTriggerCapsuleView
+// (Final, Exec, Native, Public, Const)
+
+void UCustomConsoleManagerMB::XToggleShowTriggerCapsuleView() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerMB", "XToggleShowTriggerCapsuleView");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
 }
 
 
@@ -4456,90 +4665,15 @@ void UCustomConsoleManagerPA::XToggleGrenadeDebug(EGrenadeDebugFlag FlagValue) c
 }
 
 
-// Function Stalker2.PDAQuestDetails.StageClick
-// (Final, Native, Protected)
-// Parameters:
-// class UPDAQuestTaskSlot*                InSlot                                                 (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// Function Stalker2.StackSplitContextual.OnCancelButtonClicked
+// (Final, Native, Private)
 
-void UPDAQuestDetails::StageClick(class UPDAQuestTaskSlot* InSlot)
+void UStackSplitContextual::OnCancelButtonClicked()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("PDAQuestDetails", "StageClick");
-
-	Params::PDAQuestDetails_StageClick Parms{};
-
-	Parms.InSlot = InSlot;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.PDAQuestDetails.UpdateDescriptionHover
-// (Final, Native, Protected)
-// Parameters:
-// bool                                    bIsHovered                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UPDAQuestDetails::UpdateDescriptionHover(bool bIsHovered)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PDAQuestDetails", "UpdateDescriptionHover");
-
-	Params::PDAQuestDetails_UpdateDescriptionHover Parms{};
-
-	Parms.bIsHovered = bIsHovered;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.PDAQuestDetails.UpdateStageHover
-// (Final, Native, Protected)
-// Parameters:
-// bool                                    bIsStageHovered                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UPDAQuestDetails::UpdateStageHover(bool bIsStageHovered)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PDAQuestDetails", "UpdateStageHover");
-
-	Params::PDAQuestDetails_UpdateStageHover Parms{};
-
-	Parms.bIsStageHovered = bIsStageHovered;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.PDAQuestDetails.UpdateStageSlotHover
-// (Final, Native, Protected)
-
-void UPDAQuestDetails::UpdateStageSlotHover()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PDAQuestDetails", "UpdateStageSlotHover");
+		Func = Class->GetFunction("StackSplitContextual", "OnCancelButtonClicked");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -4550,15 +4684,15 @@ void UPDAQuestDetails::UpdateStageSlotHover()
 }
 
 
-// Function Stalker2.PDANotesDetails.CheckBoxPlayAudio
-// (Final, Native, Public, BlueprintCallable)
+// Function Stalker2.StackSplitContextual.OnDropAllButtonClicked
+// (Final, Native, Public)
 
-void UPDANotesDetails::CheckBoxPlayAudio()
+void UStackSplitContextual::OnDropAllButtonClicked()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("PDANotesDetails", "CheckBoxPlayAudio");
+		Func = Class->GetFunction("StackSplitContextual", "OnDropAllButtonClicked");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -4569,15 +4703,15 @@ void UPDANotesDetails::CheckBoxPlayAudio()
 }
 
 
-// Function Stalker2.PDANotesDetails.UpdateTimer
-// (Final, Native, Public, BlueprintCallable)
+// Function Stalker2.StackSplitContextual.OnHoldTimerTriggered
+// (Final, Native, Private)
 
-void UPDANotesDetails::UpdateTimer()
+void UStackSplitContextual::OnHoldTimerTriggered()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("PDANotesDetails", "UpdateTimer");
+		Func = Class->GetFunction("StackSplitContextual", "OnHoldTimerTriggered");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -4588,21 +4722,190 @@ void UPDANotesDetails::UpdateTimer()
 }
 
 
-// Function Stalker2.ExplosionComponent.Explode
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// struct FUID                             ExplosionInstigatorUID                                 (ConstParm, Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// Function Stalker2.StackSplitContextual.OnMinusButtonClicked
+// (Final, Native, Public)
 
-void UExplosionComponent::Explode(const struct FUID& ExplosionInstigatorUID)
+void UStackSplitContextual::OnMinusButtonClicked()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ExplosionComponent", "Explode");
+		Func = Class->GetFunction("StackSplitContextual", "OnMinusButtonClicked");
 
-	Params::ExplosionComponent_Explode Parms{};
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
 
-	Parms.ExplosionInstigatorUID = std::move(ExplosionInstigatorUID);
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.StackSplitContextual.OnMinusButtonPressed
+// (Final, Native, Private)
+
+void UStackSplitContextual::OnMinusButtonPressed()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("StackSplitContextual", "OnMinusButtonPressed");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.StackSplitContextual.OnMinusButtonReleased
+// (Final, Native, Private)
+
+void UStackSplitContextual::OnMinusButtonReleased()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("StackSplitContextual", "OnMinusButtonReleased");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.StackSplitContextual.OnPlusButtonClicked
+// (Final, Native, Public)
+
+void UStackSplitContextual::OnPlusButtonClicked()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("StackSplitContextual", "OnPlusButtonClicked");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.StackSplitContextual.OnPlusButtonPressed
+// (Final, Native, Private)
+
+void UStackSplitContextual::OnPlusButtonPressed()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("StackSplitContextual", "OnPlusButtonPressed");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.StackSplitContextual.OnPlusButtonReleased
+// (Final, Native, Private)
+
+void UStackSplitContextual::OnPlusButtonReleased()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("StackSplitContextual", "OnPlusButtonReleased");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.StackSplitContextual.OnSplitButtonClicked
+// (Final, Native, Public)
+
+void UStackSplitContextual::OnSplitButtonClicked()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("StackSplitContextual", "OnSplitButtonClicked");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// DelegateFunction Stalker2.StackSplitContextual.OnSplitCanceled__DelegateSignature
+// (MulticastDelegate, Public, Delegate)
+
+void UStackSplitContextual::OnSplitCanceled__DelegateSignature()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("StackSplitContextual", "OnSplitCanceled__DelegateSignature");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// DelegateFunction Stalker2.StackSplitContextual.OnSplitConfirmed__DelegateSignature
+// (MulticastDelegate, Public, Delegate)
+// Parameters:
+// int32                                   Count                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FItemUID                         ItemUID                                                (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UStackSplitContextual::OnSplitConfirmed__DelegateSignature(int32 Count, const struct FItemUID& ItemUID)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("StackSplitContextual", "OnSplitConfirmed__DelegateSignature");
+
+	Params::StackSplitContextual_OnSplitConfirmed__DelegateSignature Parms{};
+
+	Parms.Count = Count;
+	Parms.ItemUID = std::move(ItemUID);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function Stalker2.StackSplitContextual.OnSplitValueChanged
+// (Final, Native, Private)
+// Parameters:
+// float                                   Value                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UStackSplitContextual::OnSplitValueChanged(float Value)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("StackSplitContextual", "OnSplitValueChanged");
+
+	Params::StackSplitContextual_OnSplitValueChanged Parms{};
+
+	Parms.Value = Value;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -4613,57 +4916,47 @@ void UExplosionComponent::Explode(const struct FUID& ExplosionInstigatorUID)
 }
 
 
-// Function Stalker2.ExplosionComponent.ExplodeAtCustomLocation
-// (Final, Native, Public, HasDefaults, BlueprintCallable)
-// Parameters:
-// struct FVector                          Location                                               (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UObject*                          ExplosionInstigator                                    (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// Function Stalker2.StackSplitContextual.PressChangeAmmount
+// (Final, Native, Private)
 
-void UExplosionComponent::ExplodeAtCustomLocation(const struct FVector& Location, class UObject* ExplosionInstigator)
+void UStackSplitContextual::PressChangeAmmount()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ExplosionComponent", "ExplodeAtCustomLocation");
-
-	Params::ExplosionComponent_ExplodeAtCustomLocation Parms{};
-
-	Parms.Location = std::move(Location);
-	Parms.ExplosionInstigator = ExplosionInstigator;
+		Func = Class->GetFunction("StackSplitContextual", "PressChangeAmmount");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	UObject::ProcessEvent(Func, &Parms);
+	UObject::ProcessEvent(Func, nullptr);
 
 	Func->FunctionFlags = Flgs;
 }
 
 
-// Function Stalker2.ExplosionComponent.ExplodeWithCustomLocation
-// (Final, Native, Public, HasDefaults, BlueprintCallable)
+// Function Stalker2.AnimNotify_PlayInteractablesFX.GetAvailableBones
+// (Final, Native, Static, Public, Const)
 // Parameters:
-// struct FVector                          Location                                               (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FUID                             ExplosionInstigatorUID                                 (ConstParm, Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TArray<class FString>                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
 
-void UExplosionComponent::ExplodeWithCustomLocation(const struct FVector& Location, const struct FUID& ExplosionInstigatorUID)
+TArray<class FString> UAnimNotify_PlayInteractablesFX::GetAvailableBones()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ExplosionComponent", "ExplodeWithCustomLocation");
+		Func = StaticClass()->GetFunction("AnimNotify_PlayInteractablesFX", "GetAvailableBones");
 
-	Params::ExplosionComponent_ExplodeWithCustomLocation Parms{};
-
-	Parms.Location = std::move(Location);
-	Parms.ExplosionInstigatorUID = std::move(ExplosionInstigatorUID);
+	Params::AnimNotify_PlayInteractablesFX_GetAvailableBones Parms{};
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	UObject::ProcessEvent(Func, &Parms);
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
 }
 
 
@@ -4785,31 +5078,6 @@ void UFastDialogueView::UpdateAfterClick()
 	UObject::ProcessEvent(Func, nullptr);
 
 	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.AnimNotify_PlayInteractablesFX.GetAvailableBones
-// (Final, Native, Static, Public, Const)
-// Parameters:
-// TArray<class FString>                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
-
-TArray<class FString> UAnimNotify_PlayInteractablesFX::GetAvailableBones()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("AnimNotify_PlayInteractablesFX", "GetAvailableBones");
-
-	Params::AnimNotify_PlayInteractablesFX_GetAvailableBones Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
 }
 
 
@@ -5011,26 +5279,77 @@ float AFireBreathArchiAnomaly::GetTimeAlpha() const
 }
 
 
-// Function Stalker2.PDASlotBase.SetSelectPointTint
-// (Native, Public, HasDefaults)
-// Parameters:
-// struct FLinearColor                     InColor                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// Function Stalker2.GSCModIOSubsystem.HandleModBrowserClosed
+// (Final, Native, Public)
 
-void UPDASlotBase::SetSelectPointTint(const struct FLinearColor& InColor)
+void UGSCModIOSubsystem::HandleModBrowserClosed()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("PDASlotBase", "SetSelectPointTint");
-
-	Params::PDASlotBase_SetSelectPointTint Parms{};
-
-	Parms.InColor = std::move(InColor);
+		Func = Class->GetFunction("GSCModIOSubsystem", "HandleModBrowserClosed");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	UObject::ProcessEvent(Func, &Parms);
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.ButtonBase.ButtonClicked
+// (Native, Protected)
+
+void UButtonBase::ButtonClicked()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ButtonBase", "ButtonClicked");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.ButtonBase.ButtonPressed
+// (Native, Protected)
+
+void UButtonBase::ButtonPressed()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ButtonBase", "ButtonPressed");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.ButtonBase.ButtonReleased
+// (Native, Protected)
+
+void UButtonBase::ButtonReleased()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ButtonBase", "ButtonReleased");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
 
 	Func->FunctionFlags = Flgs;
 }
@@ -5137,58 +5456,6 @@ void UGSCLocalPlayer::XImportSaves()
 }
 
 
-// Function Stalker2.UserMarkerSelector.HoverButton
-// (Final, Native, Public)
-// Parameters:
-// class UUserMarkerSelectorButton*        InHoveredButton                                        (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UUserMarkerSelector::HoverButton(class UUserMarkerSelectorButton* InHoveredButton)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UserMarkerSelector", "HoverButton");
-
-	Params::UserMarkerSelector_HoverButton Parms{};
-
-	Parms.InHoveredButton = InHoveredButton;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.UserMarkerSelector.PressedButton
-// (Final, Native, Public, HasOutParams, HasDefaults)
-// Parameters:
-// EMarkerType                             MarkType                                               (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FVector                          Coordinates                                            (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UUserMarkerSelector::PressedButton(const EMarkerType MarkType, const struct FVector& Coordinates)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UserMarkerSelector", "PressedButton");
-
-	Params::UserMarkerSelector_PressedButton Parms{};
-
-	Parms.MarkType = MarkType;
-	Parms.Coordinates = std::move(Coordinates);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function Stalker2.ApplyEffectComponent.ApplyEffects
 // (Final, Native, Public, BlueprintCallable)
 
@@ -5227,21 +5494,31 @@ void UApplyEffectComponent::RemoveEffects()
 }
 
 
-// Function Stalker2.QuickPanel.OnQuickSlotMouseEnter
-// (Final, Native, Public)
+// Function Stalker2.PsyVolumeComponent.OnBeginOverlap
+// (Final, Native, Private, HasOutParams)
 // Parameters:
-// class UQuickSlot*                       ItemWidget                                             (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UPrimitiveComponent*              OverlappedComponent                                    (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AActor*                           OtherActor                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UPrimitiveComponent*              OtherComp                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   OtherBodyIndex                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bFromSweep                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FHitResult                       SweepResult                                            (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
 
-void UQuickPanel::OnQuickSlotMouseEnter(class UQuickSlot* ItemWidget)
+void UPsyVolumeComponent::OnBeginOverlap(class UPrimitiveComponent* OverlappedComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const struct FHitResult& SweepResult)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("QuickPanel", "OnQuickSlotMouseEnter");
+		Func = Class->GetFunction("PsyVolumeComponent", "OnBeginOverlap");
 
-	Params::QuickPanel_OnQuickSlotMouseEnter Parms{};
+	Params::PsyVolumeComponent_OnBeginOverlap Parms{};
 
-	Parms.ItemWidget = ItemWidget;
+	Parms.OverlappedComponent = OverlappedComponent;
+	Parms.OtherActor = OtherActor;
+	Parms.OtherComp = OtherComp;
+	Parms.OtherBodyIndex = OtherBodyIndex;
+	Parms.bFromSweep = bFromSweep;
+	Parms.SweepResult = std::move(SweepResult);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -5252,21 +5529,27 @@ void UQuickPanel::OnQuickSlotMouseEnter(class UQuickSlot* ItemWidget)
 }
 
 
-// Function Stalker2.QuickPanel.OnQuickSlotMouseLeave
-// (Final, Native, Public)
+// Function Stalker2.PsyVolumeComponent.OnEndOverlap
+// (Final, Native, Private)
 // Parameters:
-// class UQuickSlot*                       HoveredWidget                                          (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UPrimitiveComponent*              OverlappedComponent                                    (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AActor*                           OtherActor                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UPrimitiveComponent*              OtherComp                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   OtherBodyIndex                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UQuickPanel::OnQuickSlotMouseLeave(class UQuickSlot* HoveredWidget)
+void UPsyVolumeComponent::OnEndOverlap(class UPrimitiveComponent* OverlappedComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("QuickPanel", "OnQuickSlotMouseLeave");
+		Func = Class->GetFunction("PsyVolumeComponent", "OnEndOverlap");
 
-	Params::QuickPanel_OnQuickSlotMouseLeave Parms{};
+	Params::PsyVolumeComponent_OnEndOverlap Parms{};
 
-	Parms.HoveredWidget = HoveredWidget;
+	Parms.OverlappedComponent = OverlappedComponent;
+	Parms.OtherActor = OtherActor;
+	Parms.OtherComp = OtherComp;
+	Parms.OtherBodyIndex = OtherBodyIndex;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -5277,68 +5560,23 @@ void UQuickPanel::OnQuickSlotMouseLeave(class UQuickSlot* HoveredWidget)
 }
 
 
-// Function Stalker2.QuickPanel.PlayShouldUseAnimationIfRequired
-// (Final, Native, Public, Const)
-// Parameters:
-// ESortGroup                              InSortGroup                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UQuickPanel::PlayShouldUseAnimationIfRequired(ESortGroup InSortGroup) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("QuickPanel", "PlayShouldUseAnimationIfRequired");
-
-	Params::QuickPanel_PlayShouldUseAnimationIfRequired Parms{};
-
-	Parms.InSortGroup = InSortGroup;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Stalker2.QuickPanel.UpdateShouldUseAnimation
-// (Final, Native, Public, Const)
-
-void UQuickPanel::UpdateShouldUseAnimation() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("QuickPanel", "UpdateShouldUseAnimation");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.PDASlotPanelBase.ClickArrowButton
+// Function Stalker2.PDAQuestTaskContainer.MouseHoverStage
 // (Final, Native, Protected)
 // Parameters:
-// class FName                             ButtonId                                               (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bHovered                                               (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   IndexOnParent                                          (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UPDASlotPanelBase::ClickArrowButton(const class FName ButtonId)
+void UPDAQuestTaskContainer::MouseHoverStage(const bool bHovered, const int32 IndexOnParent)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("PDASlotPanelBase", "ClickArrowButton");
+		Func = Class->GetFunction("PDAQuestTaskContainer", "MouseHoverStage");
 
-	Params::PDASlotPanelBase_ClickArrowButton Parms{};
+	Params::PDAQuestTaskContainer_MouseHoverStage Parms{};
 
-	Parms.ButtonId = ButtonId;
+	Parms.bHovered = bHovered;
+	Parms.IndexOnParent = IndexOnParent;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -5349,45 +5587,26 @@ void UPDASlotPanelBase::ClickArrowButton(const class FName ButtonId)
 }
 
 
-// Function Stalker2.PDASlotPanelBase.ClickSlot
-// (Native, Protected)
+// Function Stalker2.PDAQuestTaskContainer.StageClick
+// (Final, Native, Protected)
 // Parameters:
-// int32                                   QuestSlotIndex                                         (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UPDAQuestTaskSlot*                InSlot                                                 (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UPDASlotPanelBase::ClickSlot(const int32 QuestSlotIndex)
+void UPDAQuestTaskContainer::StageClick(class UPDAQuestTaskSlot* InSlot)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("PDASlotPanelBase", "ClickSlot");
+		Func = Class->GetFunction("PDAQuestTaskContainer", "StageClick");
 
-	Params::PDASlotPanelBase_ClickSlot Parms{};
+	Params::PDAQuestTaskContainer_StageClick Parms{};
 
-	Parms.QuestSlotIndex = QuestSlotIndex;
+	Parms.InSlot = InSlot;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.PDASlotPanelBase.UpdateSelectSlotID
-// (Native, Protected)
-
-void UPDASlotPanelBase::UpdateSelectSlotID()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PDASlotPanelBase", "UpdateSelectSlotID");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
 
 	Func->FunctionFlags = Flgs;
 }
@@ -5691,6 +5910,25 @@ void UCustomConsoleManagerAA::XDespawnNPCsAtRadius(float Radius) const
 	Func->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerAA.XDiscoverAllMarkers
+// (Final, Exec, Native, Public, Const)
+
+void UCustomConsoleManagerAA::XDiscoverAllMarkers() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerAA", "XDiscoverAllMarkers");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
 
 	Func->FunctionFlags = Flgs;
 }
@@ -6186,6 +6424,25 @@ void UCustomConsoleManagerAA::XRestartCurrentDialog() const
 
 	if (Func == nullptr)
 		Func = Class->GetFunction("CustomConsoleManagerAA", "XRestartCurrentDialog");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerAA.XRevealAllMarkers
+// (Final, Exec, Native, Public, Const)
+
+void UCustomConsoleManagerAA::XRevealAllMarkers() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerAA", "XRevealAllMarkers");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -6811,23 +7068,21 @@ void UCustomConsoleManagerAA::XToggleArtifactSpawnerDebugInfo() const
 }
 
 
-// Function Stalker2.QuestTaskNotification.PlayTaskAnimation
-// (Final, Native, Public, BlueprintCallable)
+// Function Stalker2.PDASlotBase.SetSelectPointTint
+// (Native, Public, HasDefaults)
 // Parameters:
-// EQuestTaskAnimationType                 AnimationType                                          (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bWithSound                                             (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FLinearColor                     InColor                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UQuestTaskNotification::PlayTaskAnimation(const EQuestTaskAnimationType AnimationType, const bool bWithSound)
+void UPDASlotBase::SetSelectPointTint(const struct FLinearColor& InColor)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("QuestTaskNotification", "PlayTaskAnimation");
+		Func = Class->GetFunction("PDASlotBase", "SetSelectPointTint");
 
-	Params::QuestTaskNotification_PlayTaskAnimation Parms{};
+	Params::PDASlotBase_SetSelectPointTint Parms{};
 
-	Parms.AnimationType = AnimationType;
-	Parms.bWithSound = bWithSound;
+	Parms.InColor = std::move(InColor);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -6835,26 +7090,6 @@ void UQuestTaskNotification::PlayTaskAnimation(const EQuestTaskAnimationType Ani
 	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.QuestTaskNotification.PostPlayTaskAnimation
-// (Event, Public, BlueprintEvent)
-// Parameters:
-// EQuestTaskAnimationType                 AnimationType                                          (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UQuestTaskNotification::PostPlayTaskAnimation(const EQuestTaskAnimationType AnimationType)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("QuestTaskNotification", "PostPlayTaskAnimation");
-
-	Params::QuestTaskNotification_PostPlayTaskAnimation Parms{};
-
-	Parms.AnimationType = AnimationType;
-
-	UObject::ProcessEvent(Func, &Parms);
 }
 
 
@@ -6910,41 +7145,6 @@ void UAttachSelectorSlot::SelectAndEquipAttach()
 	Func->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.SoapBubbleAnomaly.OnActorCollided
-// (Final, Native, Public, HasOutParams)
-// Parameters:
-// class UPrimitiveComponent*              OverlappedComponent                                    (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class AActor*                           OtherActor                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UPrimitiveComponent*              OtherComp                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int32                                   OtherBodyIndex                                         (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bFromSweep                                             (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FHitResult                       SweepResult                                            (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
-
-void ASoapBubbleAnomaly::OnActorCollided(class UPrimitiveComponent* OverlappedComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, const int32 OtherBodyIndex, const bool bFromSweep, const struct FHitResult& SweepResult)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SoapBubbleAnomaly", "OnActorCollided");
-
-	Params::SoapBubbleAnomaly_OnActorCollided Parms{};
-
-	Parms.OverlappedComponent = OverlappedComponent;
-	Parms.OtherActor = OtherActor;
-	Parms.OtherComp = OtherComp;
-	Parms.OtherBodyIndex = OtherBodyIndex;
-	Parms.bFromSweep = bFromSweep;
-	Parms.SweepResult = std::move(SweepResult);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
 }
@@ -7259,58 +7459,6 @@ void UAttachSelectorTip::Show()
 }
 
 
-// Function Stalker2.PDAQuestTaskContainer.MouseHoverStage
-// (Final, Native, Protected)
-// Parameters:
-// bool                                    bHovered                                               (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int32                                   IndexOnParent                                          (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UPDAQuestTaskContainer::MouseHoverStage(const bool bHovered, const int32 IndexOnParent)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PDAQuestTaskContainer", "MouseHoverStage");
-
-	Params::PDAQuestTaskContainer_MouseHoverStage Parms{};
-
-	Parms.bHovered = bHovered;
-	Parms.IndexOnParent = IndexOnParent;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.PDAQuestTaskContainer.StageClick
-// (Final, Native, Protected)
-// Parameters:
-// class UPDAQuestTaskSlot*                InSlot                                                 (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UPDAQuestTaskContainer::StageClick(class UPDAQuestTaskSlot* InSlot)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PDAQuestTaskContainer", "StageClick");
-
-	Params::PDAQuestTaskContainer_StageClick Parms{};
-
-	Parms.InSlot = InSlot;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function Stalker2.AttachSelectorView.AttachSelectorDetachAll
 // (Final, Native, Public, BlueprintCallable)
 
@@ -7540,6 +7688,33 @@ void UAttachSelectorView::UIIterateUpSlots()
 	Func->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.OnAKEventFinished_Proxy.OnSoundFinished
+// (Final, Native, Public)
+// Parameters:
+// EAkCallbackType                         CallbackType                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UAkCallbackInfo*                  CallbackInfo                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOnAKEventFinished_Proxy::OnSoundFinished(EAkCallbackType CallbackType, class UAkCallbackInfo* CallbackInfo)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OnAKEventFinished_Proxy", "OnSoundFinished");
+
+	Params::OnAKEventFinished_Proxy_OnSoundFinished Parms{};
+
+	Parms.CallbackType = CallbackType;
+	Parms.CallbackInfo = CallbackInfo;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
 }
@@ -7953,15 +8128,15 @@ void UCustomConsoleManagerDC::XVideoTeleportPlayerWithFade(const float Distance)
 }
 
 
-// Function Stalker2.CustomButton.OnClick
+// Function Stalker2.WorldMapMarker.MarkerClick
 // (Final, Native, Public)
 
-void UCustomButton::OnClick()
+void UWorldMapMarker::MarkerClick()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("CustomButton", "OnClick");
+		Func = Class->GetFunction("WorldMapMarker", "MarkerClick");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -7972,15 +8147,15 @@ void UCustomButton::OnClick()
 }
 
 
-// Function Stalker2.CustomButton.OnPress
+// Function Stalker2.WorldMapMarker.OnMouseHover
 // (Final, Native, Public)
 
-void UCustomButton::OnPress()
+void UWorldMapMarker::OnMouseHover()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("CustomButton", "OnPress");
+		Func = Class->GetFunction("WorldMapMarker", "OnMouseHover");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -7991,58 +8166,49 @@ void UCustomButton::OnPress()
 }
 
 
-// Function Stalker2.CustomConsoleManagerEG.XGarbageCollector
+// Function Stalker2.WorldMapMarker.OnMouseUnhover
+// (Final, Native, Public)
+
+void UWorldMapMarker::OnMouseUnhover()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("WorldMapMarker", "OnMouseUnhover");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerAI2.XSetRelation
 // (Final, Exec, Native, Public, Const)
+// Parameters:
+// int32                                   FirstUID                                               (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   SecondUID                                              (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   Relation                                               (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UCustomConsoleManagerEG::XGarbageCollector() const
+void UCustomConsoleManagerAI2::XSetRelation(const int32 FirstUID, const int32 SecondUID, const int32 Relation) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerEG", "XGarbageCollector");
+		Func = Class->GetFunction("CustomConsoleManagerAI2", "XSetRelation");
+
+	Params::CustomConsoleManagerAI2_XSetRelation Parms{};
+
+	Parms.FirstUID = FirstUID;
+	Parms.SecondUID = SecondUID;
+	Parms.Relation = Relation;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.PlayerContextualAction.ActionEnd
-// (Final, Native, Public)
-
-void APlayerContextualAction::ActionEnd()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PlayerContextualAction", "ActionEnd");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.PlayerContextualAction.ActionStart
-// (Final, Native, Public)
-
-void APlayerContextualAction::ActionStart()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PlayerContextualAction", "ActionStart");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
+	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
 }
@@ -8147,340 +8313,6 @@ void UBarbedWireComponent::OnOverlapEnd(class UPrimitiveComponent* OverlappedCom
 }
 
 
-// Function Stalker2.CustomConsoleManagerBuild.XDisplayFocusingPlayerEnemiesCount
-// (Final, Exec, Native, Public)
-
-void UCustomConsoleManagerBuild::XDisplayFocusingPlayerEnemiesCount()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerBuild", "XDisplayFocusingPlayerEnemiesCount");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerBuild.XRepairCurrentWeapon
-// (Final, Exec, Native, Public)
-
-void UCustomConsoleManagerBuild::XRepairCurrentWeapon()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerBuild", "XRepairCurrentWeapon");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerBuild.XResetCurrentBodyArmorDurabilityToZero
-// (Final, Exec, Native, Public)
-
-void UCustomConsoleManagerBuild::XResetCurrentBodyArmorDurabilityToZero()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerBuild", "XResetCurrentBodyArmorDurabilityToZero");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerBuild.XResetCurrentWeaponDurabilityToZero
-// (Final, Exec, Native, Public)
-
-void UCustomConsoleManagerBuild::XResetCurrentWeaponDurabilityToZero()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerBuild", "XResetCurrentWeaponDurabilityToZero");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerBuild.XSetFreeCameraSpeedMultiplier
-// (Final, Exec, Native, Public)
-// Parameters:
-// float                                   SpeedMultiplier                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCustomConsoleManagerBuild::XSetFreeCameraSpeedMultiplier(float SpeedMultiplier)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerBuild", "XSetFreeCameraSpeedMultiplier");
-
-	Params::CustomConsoleManagerBuild_XSetFreeCameraSpeedMultiplier Parms{};
-
-	Parms.SpeedMultiplier = SpeedMultiplier;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerBuild.XSetNoClipGSC
-// (Final, Exec, Native, Public)
-// Parameters:
-// bool                                    bNoClipGSC                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   Speed                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCustomConsoleManagerBuild::XSetNoClipGSC(bool bNoClipGSC, float Speed)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerBuild", "XSetNoClipGSC");
-
-	Params::CustomConsoleManagerBuild_XSetNoClipGSC Parms{};
-
-	Parms.bNoClipGSC = bNoClipGSC;
-	Parms.Speed = Speed;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerBuild.XSetPlayerSpeedMultiplier
-// (Final, Exec, Native, Public)
-// Parameters:
-// float                                   SpeedMultiplier                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCustomConsoleManagerBuild::XSetPlayerSpeedMultiplier(float SpeedMultiplier)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerBuild", "XSetPlayerSpeedMultiplier");
-
-	Params::CustomConsoleManagerBuild_XSetPlayerSpeedMultiplier Parms{};
-
-	Parms.SpeedMultiplier = SpeedMultiplier;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerBuild.XSetEntityUnkillableByUID
-// (Final, Exec, Native, Public, Const)
-// Parameters:
-// int32                                   EntityUID                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bGodModeState                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCustomConsoleManagerBuild::XSetEntityUnkillableByUID(int32 EntityUID, bool bGodModeState) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerBuild", "XSetEntityUnkillableByUID");
-
-	Params::CustomConsoleManagerBuild_XSetEntityUnkillableByUID Parms{};
-
-	Parms.EntityUID = EntityUID;
-	Parms.bGodModeState = bGodModeState;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerBuild.XSetFactionGodMode
-// (Final, Exec, Native, Public, Const)
-// Parameters:
-// class FString                           CurrentFactionSelector                                 (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bGodModeState                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCustomConsoleManagerBuild::XSetFactionGodMode(const class FString& CurrentFactionSelector, bool bGodModeState) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerBuild", "XSetFactionGodMode");
-
-	Params::CustomConsoleManagerBuild_XSetFactionGodMode Parms{};
-
-	Parms.CurrentFactionSelector = std::move(CurrentFactionSelector);
-	Parms.bGodModeState = bGodModeState;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerBuild.XSetGodModeAllFactions
-// (Final, Exec, Native, Public, Const)
-// Parameters:
-// bool                                    bGodModeState                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCustomConsoleManagerBuild::XSetGodModeAllFactions(bool bGodModeState) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerBuild", "XSetGodModeAllFactions");
-
-	Params::CustomConsoleManagerBuild_XSetGodModeAllFactions Parms{};
-
-	Parms.bGodModeState = bGodModeState;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerBuild.XSetGodModeByUID
-// (Final, Exec, Native, Public, Const)
-// Parameters:
-// int32                                   EntityUID                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bGodModeState                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCustomConsoleManagerBuild::XSetGodModeByUID(int32 EntityUID, bool bGodModeState) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerBuild", "XSetGodModeByUID");
-
-	Params::CustomConsoleManagerBuild_XSetGodModeByUID Parms{};
-
-	Parms.EntityUID = EntityUID;
-	Parms.bGodModeState = bGodModeState;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerBuild.XShowPlayerCoordinates
-// (Final, Exec, Native, Public, Const)
-
-void UCustomConsoleManagerBuild::XShowPlayerCoordinates() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerBuild", "XShowPlayerCoordinates");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerBuild.XSpawnItemInCoordinatesBySID
-// (Final, Exec, Native, Public, Const)
-// Parameters:
-// class FString                           ItemPrototypeSID                                       (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   Px                                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   Py                                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   Pz                                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCustomConsoleManagerBuild::XSpawnItemInCoordinatesBySID(const class FString& ItemPrototypeSID, float Px, float Py, float Pz) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerBuild", "XSpawnItemInCoordinatesBySID");
-
-	Params::CustomConsoleManagerBuild_XSpawnItemInCoordinatesBySID Parms{};
-
-	Parms.ItemPrototypeSID = std::move(ItemPrototypeSID);
-	Parms.Px = Px;
-	Parms.Py = Py;
-	Parms.Pz = Pz;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerBuild.XSpawnItemNearPlayerBySID
-// (Final, Exec, Native, Public, Const)
-// Parameters:
-// class FString                           ItemPrototypeSID                                       (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCustomConsoleManagerBuild::XSpawnItemNearPlayerBySID(const class FString& ItemPrototypeSID) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerBuild", "XSpawnItemNearPlayerBySID");
-
-	Params::CustomConsoleManagerBuild_XSpawnItemNearPlayerBySID Parms{};
-
-	Parms.ItemPrototypeSID = std::move(ItemPrototypeSID);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function Stalker2.BaseInteractableAction.CanInteract
 // (Native, Event, Public, BlueprintEvent)
 // Parameters:
@@ -8563,6 +8395,189 @@ void UDialogueAnswer::AnswerWidgetClick()
 }
 
 
+// Function Stalker2.CustomConsoleManagerDP.XInitializeLocalizationManager
+// (Final, Exec, Native, Public, Const)
+
+void UCustomConsoleManagerDP::XInitializeLocalizationManager() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerDP", "XInitializeLocalizationManager");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerDP.XPrintLocalizedTextByKey
+// (Final, Exec, Native, Public, Const)
+// Parameters:
+// class FString                           StringKey                                              (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCustomConsoleManagerDP::XPrintLocalizedTextByKey(const class FString& StringKey) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerDP", "XPrintLocalizedTextByKey");
+
+	Params::CustomConsoleManagerDP_XPrintLocalizedTextByKey Parms{};
+
+	Parms.StringKey = std::move(StringKey);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerDP.XTestCrashCheckFalse
+// (Final, Exec, Native, Public, Const)
+
+void UCustomConsoleManagerDP::XTestCrashCheckFalse() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerDP", "XTestCrashCheckFalse");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerDP.XTestCrashLambda
+// (Final, Exec, Native, Public, Const)
+
+void UCustomConsoleManagerDP::XTestCrashLambda() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerDP", "XTestCrashLambda");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerDP.XTestCrashNullptr
+// (Final, Exec, Native, Public, Const)
+
+void UCustomConsoleManagerDP::XTestCrashNullptr() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerDP", "XTestCrashNullptr");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerDP.XTestCrashNullptrRT
+// (Final, Exec, Native, Public, Const)
+
+void UCustomConsoleManagerDP::XTestCrashNullptrRT() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerDP", "XTestCrashNullptrRT");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerDP.XTestCrashRandomAddress
+// (Final, Exec, Native, Public, Const)
+
+void UCustomConsoleManagerDP::XTestCrashRandomAddress() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerDP", "XTestCrashRandomAddress");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerDP.XTestCrashReturnIfFalse
+// (Final, Exec, Native, Public, Const)
+
+void UCustomConsoleManagerDP::XTestCrashReturnIfFalse() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerDP", "XTestCrashReturnIfFalse");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerDP.XTestCrashStackOverflow
+// (Final, Exec, Native, Public, Const)
+// Parameters:
+// int32                                   Counter                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCustomConsoleManagerDP::XTestCrashStackOverflow(int32 Counter) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerDP", "XTestCrashStackOverflow");
+
+	Params::CustomConsoleManagerDP_XTestCrashStackOverflow Parms{};
+
+	Parms.Counter = Counter;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
 // Function Stalker2.HoldComponent.IsHoldStarted
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
@@ -8585,6 +8600,82 @@ bool UHoldComponent::IsHoldStarted() const
 	Func->FunctionFlags = Flgs;
 
 	return Parms.ReturnValue;
+}
+
+
+// Function Stalker2.PopupView.Cancel
+// (Final, Native, Public)
+
+void UPopupView::Cancel()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PopupView", "Cancel");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.PopupView.Confirm
+// (Final, Native, Public)
+
+void UPopupView::Confirm()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PopupView", "Confirm");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.PopupView.Discard
+// (Final, Native, Public)
+
+void UPopupView::Discard()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PopupView", "Discard");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.PopupView.Retry
+// (Final, Native, Public)
+
+void UPopupView::Retry()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PopupView", "Retry");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
 }
 
 
@@ -8732,84 +8823,15 @@ void UDialogueViewFolder::UIDialogOpenUpgrade()
 }
 
 
-// Function Stalker2.NotesPage.ClickButtonMenu
-// (Final, Native, Protected)
-// Parameters:
-// class FName                             ButtonId                                               (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UNotesPage::ClickButtonMenu(const class FName ButtonId)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("NotesPage", "ClickButtonMenu");
-
-	Params::NotesPage_ClickButtonMenu Parms{};
-
-	Parms.ButtonId = ButtonId;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.NotesPage.ShowDetails
-// (Final, Native, Protected)
-// Parameters:
-// bool                                    bEmpty                                                 (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UNotesPage::ShowDetails(const bool bEmpty)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("NotesPage", "ShowDetails");
-
-	Params::NotesPage_ShowDetails Parms{};
-
-	Parms.bEmpty = bEmpty;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.NotesPage.SlotTransitionUp
-// (Final, Native, Protected)
-
-void UNotesPage::SlotTransitionUp()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("NotesPage", "SlotTransitionUp");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.NotesPage.UIPDANavigationButtonRelease
+// Function Stalker2.CustomButton.OnClick
 // (Final, Native, Public)
 
-void UNotesPage::UIPDANavigationButtonRelease()
+void UCustomButton::OnClick()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("NotesPage", "UIPDANavigationButtonRelease");
+		Func = Class->GetFunction("CustomButton", "OnClick");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -8820,301 +8842,20 @@ void UNotesPage::UIPDANavigationButtonRelease()
 }
 
 
-// Function Stalker2.NotesPage.UIPDANavigationDown
+// Function Stalker2.CustomButton.OnPress
 // (Final, Native, Public)
 
-void UNotesPage::UIPDANavigationDown()
+void UCustomButton::OnPress()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("NotesPage", "UIPDANavigationDown");
+		Func = Class->GetFunction("CustomButton", "OnPress");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.NotesPage.UIPDANavigationLeft
-// (Final, Native, Public)
-
-void UNotesPage::UIPDANavigationLeft()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("NotesPage", "UIPDANavigationLeft");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.NotesPage.UIPDANavigatioNoteDown
-// (Final, Native, Public)
-
-void UNotesPage::UIPDANavigatioNoteDown()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("NotesPage", "UIPDANavigatioNoteDown");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.NotesPage.UIPDANavigatioNoteUp
-// (Final, Native, Public)
-
-void UNotesPage::UIPDANavigatioNoteUp()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("NotesPage", "UIPDANavigatioNoteUp");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.NotesPage.UIPDANavigationPlayAudio
-// (Final, Native, Public)
-
-void UNotesPage::UIPDANavigationPlayAudio()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("NotesPage", "UIPDANavigationPlayAudio");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.NotesPage.UIPDANavigationRight
-// (Final, Native, Public)
-
-void UNotesPage::UIPDANavigationRight()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("NotesPage", "UIPDANavigationRight");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.NotesPage.UIPDANavigationUp
-// (Final, Native, Public)
-
-void UNotesPage::UIPDANavigationUp()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("NotesPage", "UIPDANavigationUp");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerIK.XBluePrintSearch
-// (Final, Exec, Native, Public, Const)
-
-void UCustomConsoleManagerIK::XBluePrintSearch() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerIK", "XBluePrintSearch");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerIK.XInputActionBlock
-// (Final, Exec, Native, Public, Const)
-// Parameters:
-// class FString                           IAName                                                 (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FString                           IMCName                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCustomConsoleManagerIK::XInputActionBlock(const class FString& IAName, const class FString& IMCName) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerIK", "XInputActionBlock");
-
-	Params::CustomConsoleManagerIK_XInputActionBlock Parms{};
-
-	Parms.IAName = std::move(IAName);
-	Parms.IMCName = std::move(IMCName);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerIK.XInputActionUnlock
-// (Final, Exec, Native, Public, Const)
-// Parameters:
-// class FString                           IAName                                                 (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FString                           IMCName                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCustomConsoleManagerIK::XInputActionUnlock(const class FString& IAName, const class FString& IMCName) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerIK", "XInputActionUnlock");
-
-	Params::CustomConsoleManagerIK_XInputActionUnlock Parms{};
-
-	Parms.IAName = std::move(IAName);
-	Parms.IMCName = std::move(IMCName);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerIK.XSetTwelveHourTime
-// (Final, Exec, Native, Public, Const)
-// Parameters:
-// bool                                    bSet                                                   (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCustomConsoleManagerIK::XSetTwelveHourTime(const bool bSet) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerIK", "XSetTwelveHourTime");
-
-	Params::CustomConsoleManagerIK_XSetTwelveHourTime Parms{};
-
-	Parms.bSet = bSet;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerIK.XSignalStrengthTest
-// (Final, Exec, Native, Public, Const)
-
-void UCustomConsoleManagerIK::XSignalStrengthTest() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerIK", "XSignalStrengthTest");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerIK.XSkipTimeHours
-// (Final, Exec, Native, Public, Const)
-// Parameters:
-// uint32                                  Hours                                                  (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCustomConsoleManagerIK::XSkipTimeHours(const uint32 Hours) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerIK", "XSkipTimeHours");
-
-	Params::CustomConsoleManagerIK_XSkipTimeHours Parms{};
-
-	Parms.Hours = Hours;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerIK.XSwitchPlayerRank
-// (Final, Exec, Native, Public, Const)
-// Parameters:
-// ERank                                   Rank                                                   (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCustomConsoleManagerIK::XSwitchPlayerRank(const ERank Rank) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerIK", "XSwitchPlayerRank");
-
-	Params::CustomConsoleManagerIK_XSwitchPlayerRank Parms{};
-
-	Parms.Rank = Rank;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
 }
@@ -9167,15 +8908,15 @@ void ABedView::OnSleepStarted()
 }
 
 
-// Function Stalker2.PresentationSubsystem.GoToMainMenu
-// (Final, Native, Public, BlueprintCallable)
+// Function Stalker2.CustomConsoleManagerSD.XBeginPlay
+// (Final, Exec, Native, Public, Const)
 
-void UPresentationSubsystem::GoToMainMenu()
+void UCustomConsoleManagerSD::XBeginPlay() const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("PresentationSubsystem", "GoToMainMenu");
+		Func = Class->GetFunction("CustomConsoleManagerSD", "XBeginPlay");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -9186,15 +8927,40 @@ void UPresentationSubsystem::GoToMainMenu()
 }
 
 
-// Function Stalker2.PresentationSubsystem.ResumeGame
-// (Final, Native, Public, BlueprintCallable)
+// Function Stalker2.CustomConsoleManagerSD.XGetActorNameByUID
+// (Final, Exec, Native, Public, Const)
+// Parameters:
+// int32                                   UID                                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UPresentationSubsystem::ResumeGame()
+void UCustomConsoleManagerSD::XGetActorNameByUID(int32 UID) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("PresentationSubsystem", "ResumeGame");
+		Func = Class->GetFunction("CustomConsoleManagerSD", "XGetActorNameByUID");
+
+	Params::CustomConsoleManagerSD_XGetActorNameByUID Parms{};
+
+	Parms.UID = UID;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerSD.XHideAllWidget
+// (Final, Exec, Native, Public, Const)
+
+void UCustomConsoleManagerSD::XHideAllWidget() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerSD", "XHideAllWidget");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -9205,91 +8971,377 @@ void UPresentationSubsystem::ResumeGame()
 }
 
 
-// Function Stalker2.PossessedObjectComponent.OnSphereComponentBeginOverlap
-// (Final, Native, Public, HasOutParams)
-// Parameters:
-// class UPrimitiveComponent*              OverlapComponent                                       (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class AActor*                           OtherActor                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UPrimitiveComponent*              OtherComp                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int32                                   OtherBodyIndex                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bFromSweep                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FHitResult                       SweepResult                                            (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
-
-void UPossessedObjectComponent::OnSphereComponentBeginOverlap(class UPrimitiveComponent* OverlapComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const struct FHitResult& SweepResult)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PossessedObjectComponent", "OnSphereComponentBeginOverlap");
-
-	Params::PossessedObjectComponent_OnSphereComponentBeginOverlap Parms{};
-
-	Parms.OverlapComponent = OverlapComponent;
-	Parms.OtherActor = OtherActor;
-	Parms.OtherComp = OtherComp;
-	Parms.OtherBodyIndex = OtherBodyIndex;
-	Parms.bFromSweep = bFromSweep;
-	Parms.SweepResult = std::move(SweepResult);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.PossessedObjectComponent.OnSphereComponentHit
-// (Final, Native, Public, HasOutParams, HasDefaults)
-// Parameters:
-// class UPrimitiveComponent*              HitComp                                                (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class AActor*                           OtherActor                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UPrimitiveComponent*              OtherComp                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FVector                          NormalImpulse                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FHitResult                       Hit                                                    (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
-
-void UPossessedObjectComponent::OnSphereComponentHit(class UPrimitiveComponent* HitComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, const struct FVector& NormalImpulse, const struct FHitResult& Hit)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PossessedObjectComponent", "OnSphereComponentHit");
-
-	Params::PossessedObjectComponent_OnSphereComponentHit Parms{};
-
-	Parms.HitComp = HitComp;
-	Parms.OtherActor = OtherActor;
-	Parms.OtherComp = OtherComp;
-	Parms.NormalImpulse = std::move(NormalImpulse);
-	Parms.Hit = std::move(Hit);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerAI2.XSetHearingParamsOverride
+// Function Stalker2.CustomConsoleManagerSD.XHideCompass
 // (Final, Exec, Native, Public, Const)
+
+void UCustomConsoleManagerSD::XHideCompass() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerSD", "XHideCompass");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerSD.XShowAllWidget
+// (Final, Exec, Native, Public, Const)
+
+void UCustomConsoleManagerSD::XShowAllWidget() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerSD", "XShowAllWidget");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerSD.XShowCompass
+// (Final, Exec, Native, Public, Const)
+
+void UCustomConsoleManagerSD::XShowCompass() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerSD", "XShowCompass");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerSD.XTeleportToPlacesOfInterest
+// (Final, Exec, Native, Public, Const)
+// Parameters:
+// class FString                           SID                                                    (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCustomConsoleManagerSD::XTeleportToPlacesOfInterest(const class FString& SID) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerSD", "XTeleportToPlacesOfInterest");
+
+	Params::CustomConsoleManagerSD_XTeleportToPlacesOfInterest Parms{};
+
+	Parms.SID = std::move(SID);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.UpgradeSlot.Highlight
+// (Final, Native, Public)
+
+void UUpgradeSlot::Highlight()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UpgradeSlot", "Highlight");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// DelegateFunction Stalker2.UpgradeSlot.OnItemMouseEnter__DelegateSignature
+// (MulticastDelegate, Public, Delegate)
+// Parameters:
+// class FString                           UgradeId                                               (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UUpgradeSlot::OnItemMouseEnter__DelegateSignature(const class FString& UgradeId)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UpgradeSlot", "OnItemMouseEnter__DelegateSignature");
+
+	Params::UpgradeSlot_OnItemMouseEnter__DelegateSignature Parms{};
+
+	Parms.UgradeId = std::move(UgradeId);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// DelegateFunction Stalker2.UpgradeSlot.OnItemMouseLeave__DelegateSignature
+// (MulticastDelegate, Public, Delegate)
+
+void UUpgradeSlot::OnItemMouseLeave__DelegateSignature()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UpgradeSlot", "OnItemMouseLeave__DelegateSignature");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function Stalker2.UpgradeSlot.OnUpgradeButtonClick
+// (Final, Native, Public)
+
+void UUpgradeSlot::OnUpgradeButtonClick()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UpgradeSlot", "OnUpgradeButtonClick");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// DelegateFunction Stalker2.UpgradeSlot.OnUpgradeClick__DelegateSignature
+// (MulticastDelegate, Public, Delegate)
+// Parameters:
+// class FString                           UgradeId                                               (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UUpgradeSlot*                     InCurrentSlot                                          (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UUpgradeSlot::OnUpgradeClick__DelegateSignature(const class FString& UgradeId, class UUpgradeSlot* InCurrentSlot)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UpgradeSlot", "OnUpgradeClick__DelegateSignature");
+
+	Params::UpgradeSlot_OnUpgradeClick__DelegateSignature Parms{};
+
+	Parms.UgradeId = std::move(UgradeId);
+	Parms.InCurrentSlot = InCurrentSlot;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function Stalker2.UpgradeSlot.Unhighlight
+// (Final, Native, Public)
+
+void UUpgradeSlot::Unhighlight()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UpgradeSlot", "Unhighlight");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerMP.XDisableLegsIK
+// (Final, Exec, Native, Public)
+
+void UCustomConsoleManagerMP::XDisableLegsIK()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerMP", "XDisableLegsIK");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerMP.XDisplayArtifactSpawnLuckStatus
+// (Final, Exec, Native, Public)
+// Parameters:
+// class FString                           ArtifactSpawnerSID                                     (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCustomConsoleManagerMP::XDisplayArtifactSpawnLuckStatus(const class FString& ArtifactSpawnerSID)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerMP", "XDisplayArtifactSpawnLuckStatus");
+
+	Params::CustomConsoleManagerMP_XDisplayArtifactSpawnLuckStatus Parms{};
+
+	Parms.ArtifactSpawnerSID = std::move(ArtifactSpawnerSID);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerMP.XEnableLegsIK
+// (Final, Exec, Native, Public)
+
+void UCustomConsoleManagerMP::XEnableLegsIK()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerMP", "XEnableLegsIK");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerMP.XSetAimAssistEnabled
+// (Final, Exec, Native, Public)
+// Parameters:
+// bool                                    bEnabled                                               (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCustomConsoleManagerMP::XSetAimAssistEnabled(const bool bEnabled)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerMP", "XSetAimAssistEnabled");
+
+	Params::CustomConsoleManagerMP_XSetAimAssistEnabled Parms{};
+
+	Parms.bEnabled = bEnabled;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerMP.XSetArtifactSpawnLuck
+// (Final, Exec, Native, Public)
+// Parameters:
+// float                                   LuckValue                                              (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCustomConsoleManagerMP::XSetArtifactSpawnLuck(const float LuckValue)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerMP", "XSetArtifactSpawnLuck");
+
+	Params::CustomConsoleManagerMP_XSetArtifactSpawnLuck Parms{};
+
+	Parms.LuckValue = LuckValue;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerMP.XSetClosestFaustCloneSwitchValue
+// (Final, Exec, Native, Public)
+// Parameters:
+// float                                   SearchRadius                                           (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   SwitchValue                                            (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCustomConsoleManagerMP::XSetClosestFaustCloneSwitchValue(const float SearchRadius, const float SwitchValue)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerMP", "XSetClosestFaustCloneSwitchValue");
+
+	Params::CustomConsoleManagerMP_XSetClosestFaustCloneSwitchValue Parms{};
+
+	Parms.SearchRadius = SearchRadius;
+	Parms.SwitchValue = SwitchValue;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerMP.XToggleDebugAimAssist
+// (Final, Exec, Native, Public)
+
+void UCustomConsoleManagerMP::XToggleDebugAimAssist()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerMP", "XToggleDebugAimAssist");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerMP.XWeaponDrag
+// (Final, Exec, Native, Public)
 // Parameters:
 // int32                                   ModelUID                                               (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FString                           PrototypeSID                                           (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   Delay                                                  (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UCustomConsoleManagerAI2::XSetHearingParamsOverride(const int32 ModelUID, const class FString& PrototypeSID) const
+void UCustomConsoleManagerMP::XWeaponDrag(const int32 ModelUID, const float Delay)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerAI2", "XSetHearingParamsOverride");
+		Func = Class->GetFunction("CustomConsoleManagerMP", "XWeaponDrag");
 
-	Params::CustomConsoleManagerAI2_XSetHearingParamsOverride Parms{};
+	Params::CustomConsoleManagerMP_XWeaponDrag Parms{};
 
 	Parms.ModelUID = ModelUID;
-	Parms.PrototypeSID = std::move(PrototypeSID);
+	Parms.Delay = Delay;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -9300,57 +9352,96 @@ void UCustomConsoleManagerAI2::XSetHearingParamsOverride(const int32 ModelUID, c
 }
 
 
-// Function Stalker2.CustomConsoleManagerAI2.XSetRelation
+// Function Stalker2.CustomConsoleManagerMP.XLoadLastSave
 // (Final, Exec, Native, Public, Const)
-// Parameters:
-// int32                                   FirstUID                                               (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int32                                   SecondUID                                              (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int32                                   Relation                                               (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UCustomConsoleManagerAI2::XSetRelation(const int32 FirstUID, const int32 SecondUID, const int32 Relation) const
+void UCustomConsoleManagerMP::XLoadLastSave() const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerAI2", "XSetRelation");
-
-	Params::CustomConsoleManagerAI2_XSetRelation Parms{};
-
-	Parms.FirstUID = FirstUID;
-	Parms.SecondUID = SecondUID;
-	Parms.Relation = Relation;
+		Func = Class->GetFunction("CustomConsoleManagerMP", "XLoadLastSave");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	UObject::ProcessEvent(Func, &Parms);
+	UObject::ProcessEvent(Func, nullptr);
 
 	Func->FunctionFlags = Flgs;
 }
 
 
-// Function Stalker2.CustomConsoleManagerAI2.XSetVisionParamsOverride
+// Function Stalker2.CustomConsoleManagerMP.XStartSleep
 // (Final, Exec, Native, Public, Const)
-// Parameters:
-// int32                                   ModelUID                                               (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FString                           PrototypeSID                                           (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UCustomConsoleManagerAI2::XSetVisionParamsOverride(const int32 ModelUID, const class FString& PrototypeSID) const
+void UCustomConsoleManagerMP::XStartSleep() const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerAI2", "XSetVisionParamsOverride");
-
-	Params::CustomConsoleManagerAI2_XSetVisionParamsOverride Parms{};
-
-	Parms.ModelUID = ModelUID;
-	Parms.PrototypeSID = std::move(PrototypeSID);
+		Func = Class->GetFunction("CustomConsoleManagerMP", "XStartSleep");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	UObject::ProcessEvent(Func, &Parms);
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerMP.XToggleLogLoadingProgress
+// (Final, Exec, Native, Public, Const)
+
+void UCustomConsoleManagerMP::XToggleLogLoadingProgress() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerMP", "XToggleLogLoadingProgress");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerMP.XToggleShowDebugStealthKill
+// (Final, Exec, Native, Public, Const)
+
+void UCustomConsoleManagerMP::XToggleShowDebugStealthKill() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerMP", "XToggleShowDebugStealthKill");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerMP.XTriggerAutoSave
+// (Final, Exec, Native, Public, Const)
+
+void UCustomConsoleManagerMP::XTriggerAutoSave() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerMP", "XTriggerAutoSave");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
 
 	Func->FunctionFlags = Flgs;
 }
@@ -9389,15 +9480,15 @@ void ABolt::OnComponentHit(class UPrimitiveComponent* HitComponent, class AActor
 }
 
 
-// Function Stalker2.BookViewBase.ChangeSelectButton
-// (Final, Native, Protected)
+// Function Stalker2.SpaceRestrictorsCheats.XRestrictorsPrint
+// (Final, Exec, Native, Private)
 
-void UBookViewBase::ChangeSelectButton()
+void USpaceRestrictorsCheats::XRestrictorsPrint()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("BookViewBase", "ChangeSelectButton");
+		Func = Class->GetFunction("SpaceRestrictorsCheats", "XRestrictorsPrint");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -9408,26 +9499,45 @@ void UBookViewBase::ChangeSelectButton()
 }
 
 
-// Function Stalker2.BookViewBase.ClickMenuButton
-// (Final, Native, Protected)
+// Function Stalker2.SpaceRestrictorsCheats.XRestrictorsShowResponse
+// (Final, Exec, Native, Private)
 // Parameters:
-// int32                                   InButtonIndex                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   UID                                                    (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UBookViewBase::ClickMenuButton(int32 InButtonIndex)
+void USpaceRestrictorsCheats::XRestrictorsShowResponse(const int32 UID)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("BookViewBase", "ClickMenuButton");
+		Func = Class->GetFunction("SpaceRestrictorsCheats", "XRestrictorsShowResponse");
 
-	Params::BookViewBase_ClickMenuButton Parms{};
+	Params::SpaceRestrictorsCheats_XRestrictorsShowResponse Parms{};
 
-	Parms.InButtonIndex = InButtonIndex;
+	Parms.UID = UID;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.StatPanel.UpdateAllStats
+// (Final, Native, Public, BlueprintCallable)
+
+void UStatPanel::UpdateAllStats()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("StatPanel", "UpdateAllStats");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
 
 	Func->FunctionFlags = Flgs;
 }
@@ -9607,63 +9717,6 @@ void IBossInterface::OnStunEnd()
 }
 
 
-// Function Stalker2.ButtonBase.ButtonClicked
-// (Native, Protected)
-
-void UButtonBase::ButtonClicked()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ButtonBase", "ButtonClicked");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.ButtonBase.ButtonPressed
-// (Native, Protected)
-
-void UButtonBase::ButtonPressed()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ButtonBase", "ButtonPressed");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.ButtonBase.ButtonReleased
-// (Native, Protected)
-
-void UButtonBase::ButtonReleased()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ButtonBase", "ButtonReleased");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function Stalker2.GSCBPFunctionLibrary.SetAffectNavigationForComponent
 // (Final, Native, Static, Private, BlueprintCallable)
 // Parameters:
@@ -9686,206 +9739,6 @@ void UGSCBPFunctionLibrary::SetAffectNavigationForComponent(class UPrimitiveComp
 	Func->FunctionFlags |= 0x400;
 
 	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.UserMarkerCounter.UpdateMarkerCounterWidget
-// (Final, Native, Public)
-// Parameters:
-// int32                                   NewAmount                                              (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UUserMarkerCounter::UpdateMarkerCounterWidget(const int32 NewAmount)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UserMarkerCounter", "UpdateMarkerCounterWidget");
-
-	Params::UserMarkerCounter_UpdateMarkerCounterWidget Parms{};
-
-	Parms.NewAmount = NewAmount;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerOM.XSetCarouselAngle
-// (Final, Exec, Native, Private, Const)
-// Parameters:
-// float                                   Angle                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCustomConsoleManagerOM::XSetCarouselAngle(float Angle) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerOM", "XSetCarouselAngle");
-
-	Params::CustomConsoleManagerOM_XSetCarouselAngle Parms{};
-
-	Parms.Angle = Angle;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerOM.XSetCarouselDebugTrajectory
-// (Final, Exec, Native, Private, Const)
-// Parameters:
-// bool                                    bEnable                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCustomConsoleManagerOM::XSetCarouselDebugTrajectory(bool bEnable) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerOM", "XSetCarouselDebugTrajectory");
-
-	Params::CustomConsoleManagerOM_XSetCarouselDebugTrajectory Parms{};
-
-	Parms.bEnable = bEnable;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerOM.XSetCarouselDuration
-// (Final, Exec, Native, Private, Const)
-// Parameters:
-// float                                   Duration                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCustomConsoleManagerOM::XSetCarouselDuration(float Duration) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerOM", "XSetCarouselDuration");
-
-	Params::CustomConsoleManagerOM_XSetCarouselDuration Parms{};
-
-	Parms.Duration = Duration;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerOM.XSetCarouselForce
-// (Final, Exec, Native, Private, Const)
-// Parameters:
-// float                                   Force                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCustomConsoleManagerOM::XSetCarouselForce(float Force) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerOM", "XSetCarouselForce");
-
-	Params::CustomConsoleManagerOM_XSetCarouselForce Parms{};
-
-	Parms.Force = Force;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerOM.XSetCarouselLiftUpTime
-// (Final, Exec, Native, Private, Const)
-// Parameters:
-// float                                   Time                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCustomConsoleManagerOM::XSetCarouselLiftUpTime(float Time) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerOM", "XSetCarouselLiftUpTime");
-
-	Params::CustomConsoleManagerOM_XSetCarouselLiftUpTime Parms{};
-
-	Parms.Time = Time;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerOM.XSetCarouselRotation
-// (Final, Exec, Native, Private, Const)
-// Parameters:
-// float                                   Rotation                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCustomConsoleManagerOM::XSetCarouselRotation(float Rotation) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerOM", "XSetCarouselRotation");
-
-	Params::CustomConsoleManagerOM_XSetCarouselRotation Parms{};
-
-	Parms.Rotation = Rotation;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerOM.XSetCarouselTimeToCenter
-// (Final, Exec, Native, Private, Const)
-// Parameters:
-// float                                   Time                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCustomConsoleManagerOM::XSetCarouselTimeToCenter(float Time) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerOM", "XSetCarouselTimeToCenter");
-
-	Params::CustomConsoleManagerOM_XSetCarouselTimeToCenter Parms{};
-
-	Parms.Time = Time;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
 }
@@ -10627,60 +10480,6 @@ bool UVictoryBPFunctionLibrary::WidgetIsChildOf(class UWidget* ChildWidget, clas
 }
 
 
-// Function Stalker2.StreamingDistanceOverridingVolume.OnTriggerOverlapped
-// (Final, Native, Private, HasOutParams)
-// Parameters:
-// class UPrimitiveComponent*              OverlappedComponent                                    (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class AActor*                           OtherActor                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UPrimitiveComponent*              OtherComp                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int32                                   OtherBodyIndex                                         (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bFromSweep                                             (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FHitResult                       SweepResult                                            (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
-
-void AStreamingDistanceOverridingVolume::OnTriggerOverlapped(class UPrimitiveComponent* OverlappedComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, const int32 OtherBodyIndex, const bool bFromSweep, const struct FHitResult& SweepResult)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("StreamingDistanceOverridingVolume", "OnTriggerOverlapped");
-
-	Params::StreamingDistanceOverridingVolume_OnTriggerOverlapped Parms{};
-
-	Parms.OverlappedComponent = OverlappedComponent;
-	Parms.OtherActor = OtherActor;
-	Parms.OtherComp = OtherComp;
-	Parms.OtherBodyIndex = OtherBodyIndex;
-	Parms.bFromSweep = bFromSweep;
-	Parms.SweepResult = std::move(SweepResult);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.StreamingDistanceOverridingVolume.UpdateStreamingConfiguration
-// (Final, Native, Private)
-
-void AStreamingDistanceOverridingVolume::UpdateStreamingConfiguration()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("StreamingDistanceOverridingVolume", "UpdateStreamingConfiguration");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function Stalker2.CustomConsoleManagerYK.XTestSetDiscount
 // (Final, Exec, Native, Public)
 // Parameters:
@@ -10824,454 +10623,6 @@ void ABulbAnomaly::OnEndOverlap(class UPrimitiveComponent* OverlappedComponent, 
 }
 
 
-// Function Stalker2.CustomConsoleManagerSS.XALifeDisable
-// (Final, Exec, Native, Public, Const)
-
-void UCustomConsoleManagerSS::XALifeDisable() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerSS", "XALifeDisable");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerSS.XALifeEnable
-// (Final, Exec, Native, Public, Const)
-
-void UCustomConsoleManagerSS::XALifeEnable() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerSS", "XALifeEnable");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerSS.XALifeKillAll
-// (Final, Exec, Native, Public, Const)
-
-void UCustomConsoleManagerSS::XALifeKillAll() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerSS", "XALifeKillAll");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerMP.XDisableLegsIK
-// (Final, Exec, Native, Public)
-
-void UCustomConsoleManagerMP::XDisableLegsIK()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerMP", "XDisableLegsIK");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerMP.XDisplayArtifactSpawnLuckStatus
-// (Final, Exec, Native, Public)
-// Parameters:
-// class FString                           ArtifactSpawnerSID                                     (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCustomConsoleManagerMP::XDisplayArtifactSpawnLuckStatus(const class FString& ArtifactSpawnerSID)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerMP", "XDisplayArtifactSpawnLuckStatus");
-
-	Params::CustomConsoleManagerMP_XDisplayArtifactSpawnLuckStatus Parms{};
-
-	Parms.ArtifactSpawnerSID = std::move(ArtifactSpawnerSID);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerMP.XEnableLegsIK
-// (Final, Exec, Native, Public)
-
-void UCustomConsoleManagerMP::XEnableLegsIK()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerMP", "XEnableLegsIK");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerMP.XSetAimAssistEnabled
-// (Final, Exec, Native, Public)
-// Parameters:
-// bool                                    bEnabled                                               (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCustomConsoleManagerMP::XSetAimAssistEnabled(const bool bEnabled)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerMP", "XSetAimAssistEnabled");
-
-	Params::CustomConsoleManagerMP_XSetAimAssistEnabled Parms{};
-
-	Parms.bEnabled = bEnabled;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerMP.XSetArtifactSpawnLuck
-// (Final, Exec, Native, Public)
-// Parameters:
-// float                                   LuckValue                                              (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCustomConsoleManagerMP::XSetArtifactSpawnLuck(const float LuckValue)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerMP", "XSetArtifactSpawnLuck");
-
-	Params::CustomConsoleManagerMP_XSetArtifactSpawnLuck Parms{};
-
-	Parms.LuckValue = LuckValue;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerMP.XSetClosestFaustCloneSwitchValue
-// (Final, Exec, Native, Public)
-// Parameters:
-// float                                   SearchRadius                                           (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   SwitchValue                                            (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCustomConsoleManagerMP::XSetClosestFaustCloneSwitchValue(const float SearchRadius, const float SwitchValue)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerMP", "XSetClosestFaustCloneSwitchValue");
-
-	Params::CustomConsoleManagerMP_XSetClosestFaustCloneSwitchValue Parms{};
-
-	Parms.SearchRadius = SearchRadius;
-	Parms.SwitchValue = SwitchValue;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerMP.XToggleDebugAimAssist
-// (Final, Exec, Native, Public)
-
-void UCustomConsoleManagerMP::XToggleDebugAimAssist()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerMP", "XToggleDebugAimAssist");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerMP.XWeaponDrag
-// (Final, Exec, Native, Public)
-// Parameters:
-// int32                                   ModelUID                                               (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   Delay                                                  (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCustomConsoleManagerMP::XWeaponDrag(const int32 ModelUID, const float Delay)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerMP", "XWeaponDrag");
-
-	Params::CustomConsoleManagerMP_XWeaponDrag Parms{};
-
-	Parms.ModelUID = ModelUID;
-	Parms.Delay = Delay;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerMP.XLoadLastSave
-// (Final, Exec, Native, Public, Const)
-
-void UCustomConsoleManagerMP::XLoadLastSave() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerMP", "XLoadLastSave");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerMP.XStartSleep
-// (Final, Exec, Native, Public, Const)
-
-void UCustomConsoleManagerMP::XStartSleep() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerMP", "XStartSleep");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerMP.XToggleLogLoadingProgress
-// (Final, Exec, Native, Public, Const)
-
-void UCustomConsoleManagerMP::XToggleLogLoadingProgress() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerMP", "XToggleLogLoadingProgress");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerMP.XTriggerAutoSave
-// (Final, Exec, Native, Public, Const)
-
-void UCustomConsoleManagerMP::XTriggerAutoSave() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerMP", "XTriggerAutoSave");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.StrelokBossComponent.OnDashAbilityUsed
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                                    bAbilityUsed                                           (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UStrelokBossComponent::OnDashAbilityUsed(const bool bAbilityUsed)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("StrelokBossComponent", "OnDashAbilityUsed");
-
-	Params::StrelokBossComponent_OnDashAbilityUsed Parms{};
-
-	Parms.bAbilityUsed = bAbilityUsed;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.StoreButtonStateDefiner.GetSubsystemOptions
-// (Final, Native, Protected, Const)
-// Parameters:
-// TArray<class FName>                     ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
-
-TArray<class FName> UStoreButtonStateDefiner::GetSubsystemOptions() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("StoreButtonStateDefiner", "GetSubsystemOptions");
-
-	Params::StoreButtonStateDefiner_GetSubsystemOptions Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Stalker2.CameraModifier_AbilityCamModifier.ResetCameraTargetLocation
-// (Final, Native, Public, BlueprintCallable)
-
-void UCameraModifier_AbilityCamModifier::ResetCameraTargetLocation()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CameraModifier_AbilityCamModifier", "ResetCameraTargetLocation");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CameraModifier_AbilityCamModifier.UpdateCameraTargetLocation
-// (Final, Native, Public, HasOutParams, HasDefaults, BlueprintCallable)
-// Parameters:
-// struct FVector                          NewLocation                                            (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCameraModifier_AbilityCamModifier::UpdateCameraTargetLocation(const struct FVector& NewLocation)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CameraModifier_AbilityCamModifier", "UpdateCameraTargetLocation");
-
-	Params::CameraModifier_AbilityCamModifier_UpdateCameraTargetLocation Parms{};
-
-	Parms.NewLocation = std::move(NewLocation);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.Teleport.OnBeginOverlap
-// (Final, Native, Private, HasOutParams)
-// Parameters:
-// class UPrimitiveComponent*              OverlappedComponent                                    (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class AActor*                           OtherActor                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UPrimitiveComponent*              OtherComp                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int32                                   OtherBodyIndex                                         (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bFromSweep                                             (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FHitResult                       SweepResult                                            (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
-
-void ATeleport::OnBeginOverlap(class UPrimitiveComponent* OverlappedComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, const int32 OtherBodyIndex, const bool bFromSweep, const struct FHitResult& SweepResult)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Teleport", "OnBeginOverlap");
-
-	Params::Teleport_OnBeginOverlap Parms{};
-
-	Parms.OverlappedComponent = OverlappedComponent;
-	Parms.OtherActor = OtherActor;
-	Parms.OtherComp = OtherComp;
-	Parms.OtherBodyIndex = OtherBodyIndex;
-	Parms.bFromSweep = bFromSweep;
-	Parms.SweepResult = std::move(SweepResult);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function Stalker2.CustomConsoleManagerPU.XShowDemoPopup
 // (Final, Exec, Native, Public)
 
@@ -11354,15 +10705,15 @@ void UCustomConsoleManagerPU::XStopProcPopup()
 }
 
 
-// Function Stalker2.MenuButtonBase.ExecuteAction
-// (Native, Public)
+// Function Stalker2.CustomConsoleManagerIK.XBluePrintSearch
+// (Final, Exec, Native, Public, Const)
 
-void UMenuButtonBase::ExecuteAction()
+void UCustomConsoleManagerIK::XBluePrintSearch() const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("MenuButtonBase", "ExecuteAction");
+		Func = Class->GetFunction("CustomConsoleManagerIK", "XBluePrintSearch");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -11373,15 +10724,94 @@ void UMenuButtonBase::ExecuteAction()
 }
 
 
-// Function Stalker2.MenuButtonBase.OnButtonHovered
-// (Final, Native, Public)
+// Function Stalker2.CustomConsoleManagerIK.XInputActionBlock
+// (Final, Exec, Native, Public, Const)
+// Parameters:
+// class FString                           IAName                                                 (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FString                           IMCName                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UMenuButtonBase::OnButtonHovered()
+void UCustomConsoleManagerIK::XInputActionBlock(const class FString& IAName, const class FString& IMCName) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("MenuButtonBase", "OnButtonHovered");
+		Func = Class->GetFunction("CustomConsoleManagerIK", "XInputActionBlock");
+
+	Params::CustomConsoleManagerIK_XInputActionBlock Parms{};
+
+	Parms.IAName = std::move(IAName);
+	Parms.IMCName = std::move(IMCName);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerIK.XInputActionUnlock
+// (Final, Exec, Native, Public, Const)
+// Parameters:
+// class FString                           IAName                                                 (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FString                           IMCName                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCustomConsoleManagerIK::XInputActionUnlock(const class FString& IAName, const class FString& IMCName) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerIK", "XInputActionUnlock");
+
+	Params::CustomConsoleManagerIK_XInputActionUnlock Parms{};
+
+	Parms.IAName = std::move(IAName);
+	Parms.IMCName = std::move(IMCName);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerIK.XSetTwelveHourTime
+// (Final, Exec, Native, Public, Const)
+// Parameters:
+// bool                                    bSet                                                   (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCustomConsoleManagerIK::XSetTwelveHourTime(const bool bSet) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerIK", "XSetTwelveHourTime");
+
+	Params::CustomConsoleManagerIK_XSetTwelveHourTime Parms{};
+
+	Parms.bSet = bSet;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerIK.XSignalStrengthTest
+// (Final, Exec, Native, Public, Const)
+
+void UCustomConsoleManagerIK::XSignalStrengthTest() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerIK", "XSignalStrengthTest");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -11392,72 +10822,65 @@ void UMenuButtonBase::OnButtonHovered()
 }
 
 
-// Function Stalker2.MenuButtonBase.OnMousePressed
-// (Final, Native, Public)
+// Function Stalker2.CustomConsoleManagerIK.XSkipTimeHours
+// (Final, Exec, Native, Public, Const)
+// Parameters:
+// float                                   Hours                                                  (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UMenuButtonBase::OnMousePressed()
+void UCustomConsoleManagerIK::XSkipTimeHours(const float Hours) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("MenuButtonBase", "OnMousePressed");
+		Func = Class->GetFunction("CustomConsoleManagerIK", "XSkipTimeHours");
+
+	Params::CustomConsoleManagerIK_XSkipTimeHours Parms{};
+
+	Parms.Hours = Hours;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	UObject::ProcessEvent(Func, nullptr);
+	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
 }
 
 
-// Function Stalker2.MenuButtonBase.OnPressed
-// (Final, Native, Public)
+// Function Stalker2.CustomConsoleManagerIK.XSwitchPlayerRank
+// (Final, Exec, Native, Public, Const)
+// Parameters:
+// ERank                                   Rank                                                   (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UMenuButtonBase::OnPressed()
+void UCustomConsoleManagerIK::XSwitchPlayerRank(const ERank Rank) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("MenuButtonBase", "OnPressed");
+		Func = Class->GetFunction("CustomConsoleManagerIK", "XSwitchPlayerRank");
+
+	Params::CustomConsoleManagerIK_XSwitchPlayerRank Parms{};
+
+	Parms.Rank = Rank;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	UObject::ProcessEvent(Func, nullptr);
+	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
 }
 
 
-// Function Stalker2.CustomConsoleManagerVV.XGiveWeaponWithAttaches
-// (Final, Exec, Native, Public)
-
-void UCustomConsoleManagerVV::XGiveWeaponWithAttaches()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerVV", "XGiveWeaponWithAttaches");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.ChangeWidgetSwitcher.PreConstructUpdate
+// Function Stalker2.StatPanelDebug.UpdateAllStats
 // (Final, Native, Public, BlueprintCallable)
 
-void UChangeWidgetSwitcher::PreConstructUpdate()
+void UStatPanelDebug::UpdateAllStats()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ChangeWidgetSwitcher", "PreConstructUpdate");
+		Func = Class->GetFunction("StatPanelDebug", "UpdateAllStats");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -11465,1372 +10888,6 @@ void UChangeWidgetSwitcher::PreConstructUpdate()
 	UObject::ProcessEvent(Func, nullptr);
 
 	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.ChangeWidgetSwitcher.PreDestructUpdate
-// (Final, Native, Public, BlueprintCallable)
-
-void UChangeWidgetSwitcher::PreDestructUpdate()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ChangeWidgetSwitcher", "PreDestructUpdate");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CheckBoxWidget.SetChecked
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                                    bInChecked                                             (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bBrodcastOnChangeCheck                                 (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCheckBoxWidget::SetChecked(const bool bInChecked, const bool bBrodcastOnChangeCheck)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CheckBoxWidget", "SetChecked");
-
-	Params::CheckBoxWidget_SetChecked Parms{};
-
-	Parms.bInChecked = bInChecked;
-	Parms.bBrodcastOnChangeCheck = bBrodcastOnChangeCheck;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CheckBoxWidget.GetChecked
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UCheckBoxWidget::GetChecked() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CheckBoxWidget", "GetChecked");
-
-	Params::CheckBoxWidget_GetChecked Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Stalker2.ChemicalAnomaly.OnDecalSpawn
-// (Event, Protected, BlueprintEvent)
-
-void AChemicalAnomaly::OnDecalSpawn()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ChemicalAnomaly", "OnDecalSpawn");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function Stalker2.CinematicManager.OnCinematicStarted
-// (Final, Native, Public)
-
-void UCinematicManager::OnCinematicStarted()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CinematicManager", "OnCinematicStarted");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CinematicManager.OnCinematicStopped
-// (Final, Native, Public)
-
-void UCinematicManager::OnCinematicStopped()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CinematicManager", "OnCinematicStopped");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CinematicManager.OnFadeScreenEnd
-// (Final, Native, Private, HasDefaults)
-// Parameters:
-// bool                                    bFadeOut                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FLinearColor                     FadeTargetColor                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   FadeAmount                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   FadeTime                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCinematicManager::OnFadeScreenEnd(bool bFadeOut, const struct FLinearColor& FadeTargetColor, float FadeAmount, float FadeTime)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CinematicManager", "OnFadeScreenEnd");
-
-	Params::CinematicManager_OnFadeScreenEnd Parms{};
-
-	Parms.bFadeOut = bFadeOut;
-	Parms.FadeTargetColor = std::move(FadeTargetColor);
-	Parms.FadeAmount = FadeAmount;
-	Parms.FadeTime = FadeTime;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CinematicManager.OnKeyFrameSectionEnd
-// (Final, Native, Public)
-// Parameters:
-// class FName                             SectionName                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCinematicManager::OnKeyFrameSectionEnd(class FName SectionName)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CinematicManager", "OnKeyFrameSectionEnd");
-
-	Params::CinematicManager_OnKeyFrameSectionEnd Parms{};
-
-	Parms.SectionName = SectionName;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CinematicManager.OnKeyFrameSectionStart
-// (Final, Native, Public, HasOutParams)
-// Parameters:
-// struct FCinematicSectionParams          InCinematicSectionParams                               (ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-
-void UCinematicManager::OnKeyFrameSectionStart(const struct FCinematicSectionParams& InCinematicSectionParams)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CinematicManager", "OnKeyFrameSectionStart");
-
-	Params::CinematicManager_OnKeyFrameSectionStart Parms{};
-
-	Parms.InCinematicSectionParams = std::move(InCinematicSectionParams);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CinematicManager.OnSubtitleSectionEnd
-// (Final, Native, Public)
-
-void UCinematicManager::OnSubtitleSectionEnd()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CinematicManager", "OnSubtitleSectionEnd");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CinematicManager.OnSubtitleSectionStart
-// (Final, Native, Public)
-// Parameters:
-// class FString                           NPCSID                                                 (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FString                           DialogSID                                              (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCinematicManager::OnSubtitleSectionStart(const class FString& NPCSID, const class FString& DialogSID)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CinematicManager", "OnSubtitleSectionStart");
-
-	Params::CinematicManager_OnSubtitleSectionStart Parms{};
-
-	Parms.NPCSID = std::move(NPCSID);
-	Parms.DialogSID = std::move(DialogSID);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CinematicManager.OnHapticFeedbackEnd
-// (Final, Native, Public, Const)
-// Parameters:
-// struct FGameplayTag                     ForceFeeedbackEffectTag                                (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCinematicManager::OnHapticFeedbackEnd(const struct FGameplayTag& ForceFeeedbackEffectTag) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CinematicManager", "OnHapticFeedbackEnd");
-
-	Params::CinematicManager_OnHapticFeedbackEnd Parms{};
-
-	Parms.ForceFeeedbackEffectTag = std::move(ForceFeeedbackEffectTag);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CinematicManager.OnHapticFeedbackStart
-// (Final, Native, Public, Const)
-// Parameters:
-// struct FGameplayTag                     ForceFeeedbackEffectTag                                (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCinematicManager::OnHapticFeedbackStart(const struct FGameplayTag& ForceFeeedbackEffectTag) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CinematicManager", "OnHapticFeedbackStart");
-
-	Params::CinematicManager_OnHapticFeedbackStart Parms{};
-
-	Parms.ForceFeeedbackEffectTag = std::move(ForceFeeedbackEffectTag);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.ClassicFireAnomaly.OnStateChanged
-// (Event, Protected, BlueprintEvent)
-
-void AClassicFireAnomaly::OnStateChanged()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ClassicFireAnomaly", "OnStateChanged");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function Stalker2.ClickerAnomaly.OnBeginParticleOverlap
-// (Final, Native, Public, HasOutParams)
-// Parameters:
-// class UPrimitiveComponent*              OverlappedComponent                                    (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class AActor*                           OtherActor                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UPrimitiveComponent*              OtherComp                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int32                                   OtherBodyIndex                                         (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bFromSweep                                             (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FHitResult                       SweepResult                                            (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
-
-void AClickerAnomaly::OnBeginParticleOverlap(class UPrimitiveComponent* OverlappedComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, const int32 OtherBodyIndex, const bool bFromSweep, const struct FHitResult& SweepResult)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ClickerAnomaly", "OnBeginParticleOverlap");
-
-	Params::ClickerAnomaly_OnBeginParticleOverlap Parms{};
-
-	Parms.OverlappedComponent = OverlappedComponent;
-	Parms.OtherActor = OtherActor;
-	Parms.OtherComp = OtherComp;
-	Parms.OtherBodyIndex = OtherBodyIndex;
-	Parms.bFromSweep = bFromSweep;
-	Parms.SweepResult = std::move(SweepResult);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CodeComponent.ResetCode
-// (Final, Native, Public, BlueprintCallable)
-
-void UCodeComponent::ResetCode()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CodeComponent", "ResetCode");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.Codelock.OnInputCodeFailed
-// (Event, Public, BlueprintEvent)
-
-void ACodelock::OnInputCodeFailed()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Codelock", "OnInputCodeFailed");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function Stalker2.Codelock.OnInputCodePassed
-// (Event, Public, BlueprintEvent)
-
-void ACodelock::OnInputCodePassed()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Codelock", "OnInputCodePassed");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function Stalker2.Codelock.OnKeyPressed
-// (Event, Public, BlueprintEvent)
-
-void ACodelock::OnKeyPressed()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Codelock", "OnKeyPressed");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function Stalker2.PlayVideoWidget.EndVideo
-// (Native, Public, BlueprintCallable)
-
-void UPlayVideoWidget::EndVideo()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PlayVideoWidget", "EndVideo");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.PlayVideoWidget.SkipVideo
-// (Final, Native, Protected, BlueprintCallable)
-
-void UPlayVideoWidget::SkipVideo()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PlayVideoWidget", "SkipVideo");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.PlayVideoWidget.GetVideoDuration
-// (Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-float UPlayVideoWidget::GetVideoDuration() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PlayVideoWidget", "GetVideoDuration");
-
-	Params::PlayVideoWidget_GetVideoDuration Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Stalker2.DataLayerPhysicsComponent.OnDataLayersUpdated
-// (Final, Native, Private)
-// Parameters:
-// class UDataLayerInstance*               DataLayer                                              (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// EDataLayerRuntimeState                  State                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UDataLayerPhysicsComponent::OnDataLayersUpdated(const class UDataLayerInstance* DataLayer, EDataLayerRuntimeState State)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("DataLayerPhysicsComponent", "OnDataLayersUpdated");
-
-	Params::DataLayerPhysicsComponent_OnDataLayersUpdated Parms{};
-
-	Parms.DataLayer = DataLayer;
-	Parms.State = State;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.QuickSlot.StopCooldown
-// (Final, Native, Public)
-
-void UQuickSlot::StopCooldown()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("QuickSlot", "StopCooldown");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.OnAKEventFinished_Proxy.OnSoundFinished
-// (Final, Native, Public)
-// Parameters:
-// EAkCallbackType                         CallbackType                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UAkCallbackInfo*                  CallbackInfo                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOnAKEventFinished_Proxy::OnSoundFinished(EAkCallbackType CallbackType, class UAkCallbackInfo* CallbackInfo)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OnAKEventFinished_Proxy", "OnSoundFinished");
-
-	Params::OnAKEventFinished_Proxy_OnSoundFinished Parms{};
-
-	Parms.CallbackType = CallbackType;
-	Parms.CallbackInfo = CallbackInfo;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.ForceFeedbackSubsystem.BP_StartFeedback
-// (Final, Native, Protected, HasOutParams, BlueprintCallable)
-// Parameters:
-// struct FGameplayTag                     Trigger                                                (ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FForceFeedbackArgs               Args                                                   (ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-// float                                   InIntensityMultiplier                                  (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bOverrideStopCurrent                                   (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bStopCurrent                                           (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UForceFeedbackSubsystem::BP_StartFeedback(const struct FGameplayTag& Trigger, const struct FForceFeedbackArgs& Args, const float InIntensityMultiplier, const bool bOverrideStopCurrent, const bool bStopCurrent)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ForceFeedbackSubsystem", "BP_StartFeedback");
-
-	Params::ForceFeedbackSubsystem_BP_StartFeedback Parms{};
-
-	Parms.Trigger = std::move(Trigger);
-	Parms.Args = std::move(Args);
-	Parms.InIntensityMultiplier = InIntensityMultiplier;
-	Parms.bOverrideStopCurrent = bOverrideStopCurrent;
-	Parms.bStopCurrent = bStopCurrent;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Stalker2.ForceFeedbackSubsystem.SetIntensityMultiplier
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// float                                   NewValue                                               (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UForceFeedbackSubsystem::SetIntensityMultiplier(const float NewValue)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ForceFeedbackSubsystem", "SetIntensityMultiplier");
-
-	Params::ForceFeedbackSubsystem_SetIntensityMultiplier Parms{};
-
-	Parms.NewValue = NewValue;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.ForceFeedbackSubsystem.StopAll
-// (Final, Native, Public, BlueprintCallable)
-
-void UForceFeedbackSubsystem::StopAll()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ForceFeedbackSubsystem", "StopAll");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.ForceFeedbackSubsystem.StopFeedback
-// (Final, Native, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// struct FGameplayTag                     Trigger                                                (ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UForceFeedbackSubsystem::StopFeedback(const struct FGameplayTag& Trigger)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ForceFeedbackSubsystem", "StopFeedback");
-
-	Params::ForceFeedbackSubsystem_StopFeedback Parms{};
-
-	Parms.Trigger = std::move(Trigger);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Stalker2.ForceFeedbackSubsystem.GetIntensityMultiplier
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-float UForceFeedbackSubsystem::GetIntensityMultiplier() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ForceFeedbackSubsystem", "GetIntensityMultiplier");
-
-	Params::ForceFeedbackSubsystem_GetIntensityMultiplier Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Stalker2.CodelockSingleClickComponent.Interact
-// (Final, Native, Public)
-// Parameters:
-// class AObj*                             InteractedActor                                        (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCodelockSingleClickComponent::Interact(class AObj* InteractedActor)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CodelockSingleClickComponent", "Interact");
-
-	Params::CodelockSingleClickComponent_Interact Parms{};
-
-	Parms.InteractedActor = InteractedActor;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.QuestNotification.HideTasks
-// (Final, Native, Public)
-
-void UQuestNotification::HideTasks()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("QuestNotification", "HideTasks");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.InteractableComponent.SetDisplayPriority
-// (Final, Native, Public, HasOutParams)
-// Parameters:
-// EDisplayPriority                        NewPriority                                            (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UInteractableComponent::SetDisplayPriority(const EDisplayPriority& NewPriority)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("InteractableComponent", "SetDisplayPriority");
-
-	Params::InteractableComponent_SetDisplayPriority Parms{};
-
-	Parms.NewPriority = NewPriority;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.InteractableComponent.SetEnabled
-// (Native, Public, BlueprintCallable)
-// Parameters:
-// bool                                    bInEnabled                                             (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UInteractableComponent::SetEnabled(const bool bInEnabled)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("InteractableComponent", "SetEnabled");
-
-	Params::InteractableComponent_SetEnabled Parms{};
-
-	Parms.bInEnabled = bInEnabled;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.InteractableComponent.GetDisplayPriority
-// (Final, Native, Public, Const)
-// Parameters:
-// const EDisplayPriority                  ReturnValue                                            (ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-const EDisplayPriority UInteractableComponent::GetDisplayPriority() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("InteractableComponent", "GetDisplayPriority");
-
-	Params::InteractableComponent_GetDisplayPriority Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Stalker2.InteractableComponent.GetInteractionType
-// (Final, Native, Public, Const)
-// Parameters:
-// const EInteractionType                  ReturnValue                                            (ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-const EInteractionType UInteractableComponent::GetInteractionType() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("InteractableComponent", "GetInteractionType");
-
-	Params::InteractableComponent_GetInteractionType Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Stalker2.InteractableComponent.GetPreventDefaultInteract
-// (Final, Native, Public, Const)
-// Parameters:
-// const bool                              ReturnValue                                            (ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-const bool UInteractableComponent::GetPreventDefaultInteract() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("InteractableComponent", "GetPreventDefaultInteract");
-
-	Params::InteractableComponent_GetPreventDefaultInteract Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Stalker2.HintBase.HoverChangeHintTextColor
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                                    bShow                                                  (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FString                           InStylePrefix                                          (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UHintBase::HoverChangeHintTextColor(const bool bShow, const class FString& InStylePrefix)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("HintBase", "HoverChangeHintTextColor");
-
-	Params::HintBase_HoverChangeHintTextColor Parms{};
-
-	Parms.bShow = bShow;
-	Parms.InStylePrefix = std::move(InStylePrefix);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.HintBase.PostShowHover
-// (Event, Public, BlueprintEvent)
-// Parameters:
-// bool                                    bInShow                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UHintBase::PostShowHover(bool bInShow)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("HintBase", "PostShowHover");
-
-	Params::HintBase_PostShowHover Parms{};
-
-	Parms.bInShow = bInShow;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function Stalker2.HintBase.SetStylePrefix
-// (Final, Native, Public)
-// Parameters:
-// class FString                           InStylePrefix                                          (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UHintBase::SetStylePrefix(const class FString& InStylePrefix)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("HintBase", "SetStylePrefix");
-
-	Params::HintBase_SetStylePrefix Parms{};
-
-	Parms.InStylePrefix = std::move(InStylePrefix);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.HintBase.SetText
-// (Final, Native, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// class FText                             InText                                                 (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-
-void UHintBase::SetText(const class FText& InText)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("HintBase", "SetText");
-
-	Params::HintBase_SetText Parms{};
-
-	Parms.InText = std::move(InText);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.HintBase.UpdateHintWidget
-// (Native, Public)
-
-void UHintBase::UpdateHintWidget()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("HintBase", "UpdateHintWidget");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.HintBase.GetHoverSettings
-// (Event, Public, BlueprintEvent, Const)
-// Parameters:
-// const TArray<struct FHoverAction>       ReturnValue                                            (ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
-
-const TArray<struct FHoverAction> UHintBase::GetHoverSettings() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("HintBase", "GetHoverSettings");
-
-	Params::HintBase_GetHoverSettings Parms{};
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Stalker2.DialogueFastAnswer.EndSelectAnswer
-// (Final, Native, Public, BlueprintCallable)
-
-void UDialogueFastAnswer::EndSelectAnswer()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("DialogueFastAnswer", "EndSelectAnswer");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.DialogueFastAnswer.PostSelectAnswer
-// (Event, Public, BlueprintEvent)
-
-void UDialogueFastAnswer::PostSelectAnswer()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("DialogueFastAnswer", "PostSelectAnswer");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function Stalker2.DialogueFastAnswer.SelectAnswer
-// (Final, Native, Public)
-
-void UDialogueFastAnswer::SelectAnswer()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("DialogueFastAnswer", "SelectAnswer");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerDP.XInitializeLocalizationManager
-// (Final, Exec, Native, Public, Const)
-
-void UCustomConsoleManagerDP::XInitializeLocalizationManager() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerDP", "XInitializeLocalizationManager");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerDP.XPrintLocalizedTextByKey
-// (Final, Exec, Native, Public, Const)
-// Parameters:
-// class FString                           StringKey                                              (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCustomConsoleManagerDP::XPrintLocalizedTextByKey(const class FString& StringKey) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerDP", "XPrintLocalizedTextByKey");
-
-	Params::CustomConsoleManagerDP_XPrintLocalizedTextByKey Parms{};
-
-	Parms.StringKey = std::move(StringKey);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerDP.XTestCrashCheckFalse
-// (Final, Exec, Native, Public, Const)
-
-void UCustomConsoleManagerDP::XTestCrashCheckFalse() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerDP", "XTestCrashCheckFalse");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerDP.XTestCrashLambda
-// (Final, Exec, Native, Public, Const)
-
-void UCustomConsoleManagerDP::XTestCrashLambda() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerDP", "XTestCrashLambda");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerDP.XTestCrashNullptr
-// (Final, Exec, Native, Public, Const)
-
-void UCustomConsoleManagerDP::XTestCrashNullptr() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerDP", "XTestCrashNullptr");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerDP.XTestCrashNullptrRT
-// (Final, Exec, Native, Public, Const)
-
-void UCustomConsoleManagerDP::XTestCrashNullptrRT() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerDP", "XTestCrashNullptrRT");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerDP.XTestCrashRandomAddress
-// (Final, Exec, Native, Public, Const)
-
-void UCustomConsoleManagerDP::XTestCrashRandomAddress() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerDP", "XTestCrashRandomAddress");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerDP.XTestCrashReturnIfFalse
-// (Final, Exec, Native, Public, Const)
-
-void UCustomConsoleManagerDP::XTestCrashReturnIfFalse() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerDP", "XTestCrashReturnIfFalse");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerDP.XTestCrashStackOverflow
-// (Final, Exec, Native, Public, Const)
-// Parameters:
-// int32                                   Counter                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCustomConsoleManagerDP::XTestCrashStackOverflow(int32 Counter) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerDP", "XTestCrashStackOverflow");
-
-	Params::CustomConsoleManagerDP_XTestCrashStackOverflow Parms{};
-
-	Parms.Counter = Counter;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.ContextualNavLinkProxy.OnStartUsingCustomLink
-// (Final, Native, Private, HasOutParams, HasDefaults)
-// Parameters:
-// class AActor*                           MovingActor                                            (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FVector                          DestinationPoint                                       (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void AContextualNavLinkProxy::OnStartUsingCustomLink(class AActor* MovingActor, const struct FVector& DestinationPoint)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ContextualNavLinkProxy", "OnStartUsingCustomLink");
-
-	Params::ContextualNavLinkProxy_OnStartUsingCustomLink Parms{};
-
-	Parms.MovingActor = MovingActor;
-	Parms.DestinationPoint = std::move(DestinationPoint);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.SequenceComponent.OnSequenceFinished
-// (Final, Native, Private)
-
-void USequenceComponent::OnSequenceFinished()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SequenceComponent", "OnSequenceFinished");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.SequenceComponent.OnSequenceStarted
-// (Final, Native, Private)
-
-void USequenceComponent::OnSequenceStarted()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SequenceComponent", "OnSequenceStarted");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.DebugTextWidgetBase.CheckDebugTextBluprint
-// (Final, Native, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// class FText                             Text                                                   (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-// class UUserWidget*                      InOwnerWidget                                          (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UDebugTextWidgetBase::CheckDebugTextBluprint(const class FText& Text, class UUserWidget* InOwnerWidget)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("DebugTextWidgetBase", "CheckDebugTextBluprint");
-
-	Params::DebugTextWidgetBase_CheckDebugTextBluprint Parms{};
-
-	Parms.Text = std::move(Text);
-	Parms.InOwnerWidget = InOwnerWidget;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.DebugTextWidgetBase.FindRengeSettings
-// (Final, Native, Protected)
-// Parameters:
-// struct FUIWarningSettings               ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
-
-struct FUIWarningSettings UDebugTextWidgetBase::FindRengeSettings()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("DebugTextWidgetBase", "FindRengeSettings");
-
-	Params::DebugTextWidgetBase_FindRengeSettings Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Stalker2.DebugTextLenWidget.GetWarningIndex
-// (Final, Native, Protected)
-// Parameters:
-// class FString                           Text                                                   (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int32                                   TextLen                                                (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-int32 UDebugTextLenWidget::GetWarningIndex(const class FString& Text, const int32 TextLen)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("DebugTextLenWidget", "GetWarningIndex");
-
-	Params::DebugTextLenWidget_GetWarningIndex Parms{};
-
-	Parms.Text = std::move(Text);
-	Parms.TextLen = TextLen;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
 }
 
 
@@ -13847,9 +11904,9 @@ void UCppMediator::LerpPlayerToLocationAndRotation(const struct FVector& Locatio
 // (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
 // class AActor*                           Sender                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FString                           errorMessage                                           (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FString                           ErrorMessage                                           (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UCppMediator::LogError(class AActor* Sender, const class FString& errorMessage)
+void UCppMediator::LogError(class AActor* Sender, const class FString& ErrorMessage)
 {
 	static class UFunction* Func = nullptr;
 
@@ -13859,7 +11916,7 @@ void UCppMediator::LogError(class AActor* Sender, const class FString& errorMess
 	Params::CppMediator_LogError Parms{};
 
 	Parms.Sender = Sender;
-	Parms.errorMessage = std::move(errorMessage);
+	Parms.ErrorMessage = std::move(ErrorMessage);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -14866,15 +12923,15 @@ void UCppMediator::UnbindInteractPaintMaterial(class AActor* AffectedActor)
 }
 
 
-// Function Stalker2.SettingElementSwitcher.SortValues
-// (Final, Native, Private)
+// Function Stalker2.CustomConsoleManagerVV.XCheckAllJournalQuestPrototypes
+// (Final, Exec, Native, Public)
 
-void USettingElementSwitcher::SortValues()
+void UCustomConsoleManagerVV::XCheckAllJournalQuestPrototypes()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("SettingElementSwitcher", "SortValues");
+		Func = Class->GetFunction("CustomConsoleManagerVV", "XCheckAllJournalQuestPrototypes");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -14885,15 +12942,15 @@ void USettingElementSwitcher::SortValues()
 }
 
 
-// Function Stalker2.ShootingWeaponComponent.Shoot
-// (Final, Native, Public, BlueprintCallable)
+// Function Stalker2.CustomConsoleManagerVV.XGiveWeaponWithAttaches
+// (Final, Exec, Native, Public)
 
-void UShootingWeaponComponent::Shoot()
+void UCustomConsoleManagerVV::XGiveWeaponWithAttaches()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ShootingWeaponComponent", "Shoot");
+		Func = Class->GetFunction("CustomConsoleManagerVV", "XGiveWeaponWithAttaches");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -14904,26 +12961,1964 @@ void UShootingWeaponComponent::Shoot()
 }
 
 
-// Function Stalker2.ShootingWeaponComponent.ShootWithOwnerOverride
-// (Final, Native, Public, BlueprintCallable)
+// Function Stalker2.StoreButtonStateDefiner.GetSubsystemOptions
+// (Final, Native, Protected, Const)
 // Parameters:
-// class UObject*                          OwnerOverride                                          (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TArray<class FName>                     ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
 
-void UShootingWeaponComponent::ShootWithOwnerOverride(class UObject* OwnerOverride)
+TArray<class FName> UStoreButtonStateDefiner::GetSubsystemOptions() const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ShootingWeaponComponent", "ShootWithOwnerOverride");
+		Func = Class->GetFunction("StoreButtonStateDefiner", "GetSubsystemOptions");
 
-	Params::ShootingWeaponComponent_ShootWithOwnerOverride Parms{};
-
-	Parms.OwnerOverride = OwnerOverride;
+	Params::StoreButtonStateDefiner_GetSubsystemOptions Parms{};
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function Stalker2.SystemNotificationItem.SetModel
+// (Final, Native, Protected)
+
+void USystemNotificationItem::SetModel()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SystemNotificationItem", "SetModel");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CameraModifier_AbilityCamModifier.ResetCameraTargetLocation
+// (Final, Native, Public, BlueprintCallable)
+
+void UCameraModifier_AbilityCamModifier::ResetCameraTargetLocation()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CameraModifier_AbilityCamModifier", "ResetCameraTargetLocation");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CameraModifier_AbilityCamModifier.UpdateCameraTargetLocation
+// (Final, Native, Public, HasOutParams, HasDefaults, BlueprintCallable)
+// Parameters:
+// struct FVector                          NewLocation                                            (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCameraModifier_AbilityCamModifier::UpdateCameraTargetLocation(const struct FVector& NewLocation)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CameraModifier_AbilityCamModifier", "UpdateCameraTargetLocation");
+
+	Params::CameraModifier_AbilityCamModifier_UpdateCameraTargetLocation Parms{};
+
+	Parms.NewLocation = std::move(NewLocation);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerOM.XSetCarouselAngle
+// (Final, Exec, Native, Private, Const)
+// Parameters:
+// float                                   Angle                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCustomConsoleManagerOM::XSetCarouselAngle(float Angle) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerOM", "XSetCarouselAngle");
+
+	Params::CustomConsoleManagerOM_XSetCarouselAngle Parms{};
+
+	Parms.Angle = Angle;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerOM.XSetCarouselDebugTrajectory
+// (Final, Exec, Native, Private, Const)
+// Parameters:
+// bool                                    bEnable                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCustomConsoleManagerOM::XSetCarouselDebugTrajectory(bool bEnable) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerOM", "XSetCarouselDebugTrajectory");
+
+	Params::CustomConsoleManagerOM_XSetCarouselDebugTrajectory Parms{};
+
+	Parms.bEnable = bEnable;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerOM.XSetCarouselDuration
+// (Final, Exec, Native, Private, Const)
+// Parameters:
+// float                                   Duration                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCustomConsoleManagerOM::XSetCarouselDuration(float Duration) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerOM", "XSetCarouselDuration");
+
+	Params::CustomConsoleManagerOM_XSetCarouselDuration Parms{};
+
+	Parms.Duration = Duration;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerOM.XSetCarouselForce
+// (Final, Exec, Native, Private, Const)
+// Parameters:
+// float                                   Force                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCustomConsoleManagerOM::XSetCarouselForce(float Force) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerOM", "XSetCarouselForce");
+
+	Params::CustomConsoleManagerOM_XSetCarouselForce Parms{};
+
+	Parms.Force = Force;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerOM.XSetCarouselLiftUpTime
+// (Final, Exec, Native, Private, Const)
+// Parameters:
+// float                                   Time                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCustomConsoleManagerOM::XSetCarouselLiftUpTime(float Time) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerOM", "XSetCarouselLiftUpTime");
+
+	Params::CustomConsoleManagerOM_XSetCarouselLiftUpTime Parms{};
+
+	Parms.Time = Time;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerOM.XSetCarouselRotation
+// (Final, Exec, Native, Private, Const)
+// Parameters:
+// float                                   Rotation                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCustomConsoleManagerOM::XSetCarouselRotation(float Rotation) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerOM", "XSetCarouselRotation");
+
+	Params::CustomConsoleManagerOM_XSetCarouselRotation Parms{};
+
+	Parms.Rotation = Rotation;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerOM.XSetCarouselTimeToCenter
+// (Final, Exec, Native, Private, Const)
+// Parameters:
+// float                                   Time                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCustomConsoleManagerOM::XSetCarouselTimeToCenter(float Time) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerOM", "XSetCarouselTimeToCenter");
+
+	Params::CustomConsoleManagerOM_XSetCarouselTimeToCenter Parms{};
+
+	Parms.Time = Time;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.MenuButtonBase.ExecuteAction
+// (Native, Public)
+
+void UMenuButtonBase::ExecuteAction()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("MenuButtonBase", "ExecuteAction");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.MenuButtonBase.OnButtonHovered
+// (Final, Native, Public)
+
+void UMenuButtonBase::OnButtonHovered()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("MenuButtonBase", "OnButtonHovered");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.MenuButtonBase.OnMousePressed
+// (Final, Native, Public)
+
+void UMenuButtonBase::OnMousePressed()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("MenuButtonBase", "OnMousePressed");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.MenuButtonBase.OnPressed
+// (Final, Native, Public)
+
+void UMenuButtonBase::OnPressed()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("MenuButtonBase", "OnPressed");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerSS.XALifeDisable
+// (Final, Exec, Native, Public, Const)
+
+void UCustomConsoleManagerSS::XALifeDisable() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerSS", "XALifeDisable");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerSS.XALifeEnable
+// (Final, Exec, Native, Public, Const)
+
+void UCustomConsoleManagerSS::XALifeEnable() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerSS", "XALifeEnable");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerSS.XALifeKillAll
+// (Final, Exec, Native, Public, Const)
+
+void UCustomConsoleManagerSS::XALifeKillAll() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerSS", "XALifeKillAll");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.DebugTextLenWidget.GetWarningIndex
+// (Final, Native, Protected)
+// Parameters:
+// class FString                           Text                                                   (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   TextLen                                                (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+int32 UDebugTextLenWidget::GetWarningIndex(const class FString& Text, const int32 TextLen)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("DebugTextLenWidget", "GetWarningIndex");
+
+	Params::DebugTextLenWidget_GetWarningIndex Parms{};
+
+	Parms.Text = std::move(Text);
+	Parms.TextLen = TextLen;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function Stalker2.DataLayerPhysicsComponent.OnDataLayersUpdated
+// (Final, Native, Private)
+// Parameters:
+// class UDataLayerInstance*               DataLayer                                              (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EDataLayerRuntimeState                  State                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UDataLayerPhysicsComponent::OnDataLayersUpdated(const class UDataLayerInstance* DataLayer, EDataLayerRuntimeState State)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("DataLayerPhysicsComponent", "OnDataLayersUpdated");
+
+	Params::DataLayerPhysicsComponent_OnDataLayersUpdated Parms{};
+
+	Parms.DataLayer = DataLayer;
+	Parms.State = State;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.ChangeWidgetSwitcher.PreConstructUpdate
+// (Final, Native, Public, BlueprintCallable)
+
+void UChangeWidgetSwitcher::PreConstructUpdate()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ChangeWidgetSwitcher", "PreConstructUpdate");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.ChangeWidgetSwitcher.PreDestructUpdate
+// (Final, Native, Public, BlueprintCallable)
+
+void UChangeWidgetSwitcher::PreDestructUpdate()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ChangeWidgetSwitcher", "PreDestructUpdate");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.NavigationPanel.ClickMenuButton
+// (Final, Native, Private)
+// Parameters:
+// class FName                             InButtonId                                             (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UNavigationPanel::ClickMenuButton(const class FName InButtonId)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("NavigationPanel", "ClickMenuButton");
+
+	Params::NavigationPanel_ClickMenuButton Parms{};
+
+	Parms.InButtonId = InButtonId;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.NavigationPanel.InitClickTransition
+// (Final, Native, Public)
+// Parameters:
+// class FName                             ButtonId                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UNavigationPanel::InitClickTransition(class FName ButtonId)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("NavigationPanel", "InitClickTransition");
+
+	Params::NavigationPanel_InitClickTransition Parms{};
+
+	Parms.ButtonId = ButtonId;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.NavigationPanel.MoveSelectSlotToNextSlot
+// (Final, Native, Public)
+
+void UNavigationPanel::MoveSelectSlotToNextSlot()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("NavigationPanel", "MoveSelectSlotToNextSlot");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.NavigationPanel.MoveSelectSlotToPreviousSlot
+// (Final, Native, Public)
+
+void UNavigationPanel::MoveSelectSlotToPreviousSlot()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("NavigationPanel", "MoveSelectSlotToPreviousSlot");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.NavigationPanel.TransitSelectSlotBack
+// (Final, Native, Public)
+
+void UNavigationPanel::TransitSelectSlotBack()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("NavigationPanel", "TransitSelectSlotBack");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.NavigationPanel.TransitSelectSlotForward
+// (Final, Native, Public)
+
+void UNavigationPanel::TransitSelectSlotForward()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("NavigationPanel", "TransitSelectSlotForward");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.NavigationPanel.TransitSelectSlotRelease
+// (Final, Native, Public)
+
+void UNavigationPanel::TransitSelectSlotRelease()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("NavigationPanel", "TransitSelectSlotRelease");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.NavigationPanel.TransitToNextSlot
+// (Final, Native, Public)
+
+void UNavigationPanel::TransitToNextSlot()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("NavigationPanel", "TransitToNextSlot");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CheckBoxWidget.SetChecked
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// bool                                    bInChecked                                             (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bBrodcastOnChangeCheck                                 (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCheckBoxWidget::SetChecked(const bool bInChecked, const bool bBrodcastOnChangeCheck)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CheckBoxWidget", "SetChecked");
+
+	Params::CheckBoxWidget_SetChecked Parms{};
+
+	Parms.bInChecked = bInChecked;
+	Parms.bBrodcastOnChangeCheck = bBrodcastOnChangeCheck;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CheckBoxWidget.GetChecked
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UCheckBoxWidget::GetChecked() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CheckBoxWidget", "GetChecked");
+
+	Params::CheckBoxWidget_GetChecked Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function Stalker2.ChemicalAnomaly.OnDecalSpawn
+// (Event, Protected, BlueprintEvent)
+
+void AChemicalAnomaly::OnDecalSpawn()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ChemicalAnomaly", "OnDecalSpawn");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function Stalker2.CinematicManager.OnCinematicStarted
+// (Final, Native, Public)
+
+void UCinematicManager::OnCinematicStarted()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CinematicManager", "OnCinematicStarted");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CinematicManager.OnCinematicStopped
+// (Final, Native, Public)
+
+void UCinematicManager::OnCinematicStopped()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CinematicManager", "OnCinematicStopped");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CinematicManager.OnFadeScreenEnd
+// (Final, Native, Private, HasDefaults)
+// Parameters:
+// bool                                    bFadeOut                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FLinearColor                     FadeTargetColor                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   FadeAmount                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   FadeTime                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCinematicManager::OnFadeScreenEnd(bool bFadeOut, const struct FLinearColor& FadeTargetColor, float FadeAmount, float FadeTime)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CinematicManager", "OnFadeScreenEnd");
+
+	Params::CinematicManager_OnFadeScreenEnd Parms{};
+
+	Parms.bFadeOut = bFadeOut;
+	Parms.FadeTargetColor = std::move(FadeTargetColor);
+	Parms.FadeAmount = FadeAmount;
+	Parms.FadeTime = FadeTime;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CinematicManager.OnKeyFrameSectionEnd
+// (Final, Native, Public)
+// Parameters:
+// class FName                             SectionName                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCinematicManager::OnKeyFrameSectionEnd(class FName SectionName)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CinematicManager", "OnKeyFrameSectionEnd");
+
+	Params::CinematicManager_OnKeyFrameSectionEnd Parms{};
+
+	Parms.SectionName = SectionName;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CinematicManager.OnKeyFrameSectionStart
+// (Final, Native, Public, HasOutParams)
+// Parameters:
+// struct FCinematicSectionParams          InCinematicSectionParams                               (ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+
+void UCinematicManager::OnKeyFrameSectionStart(const struct FCinematicSectionParams& InCinematicSectionParams)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CinematicManager", "OnKeyFrameSectionStart");
+
+	Params::CinematicManager_OnKeyFrameSectionStart Parms{};
+
+	Parms.InCinematicSectionParams = std::move(InCinematicSectionParams);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CinematicManager.OnSubtitleSectionEnd
+// (Final, Native, Public)
+
+void UCinematicManager::OnSubtitleSectionEnd()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CinematicManager", "OnSubtitleSectionEnd");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CinematicManager.OnSubtitleSectionStart
+// (Final, Native, Public)
+// Parameters:
+// class FString                           NPCSID                                                 (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FString                           DialogSID                                              (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCinematicManager::OnSubtitleSectionStart(const class FString& NPCSID, const class FString& DialogSID)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CinematicManager", "OnSubtitleSectionStart");
+
+	Params::CinematicManager_OnSubtitleSectionStart Parms{};
+
+	Parms.NPCSID = std::move(NPCSID);
+	Parms.DialogSID = std::move(DialogSID);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CinematicManager.OnHapticFeedbackEnd
+// (Final, Native, Public, Const)
+// Parameters:
+// struct FGameplayTag                     ForceFeeedbackEffectTag                                (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCinematicManager::OnHapticFeedbackEnd(const struct FGameplayTag& ForceFeeedbackEffectTag) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CinematicManager", "OnHapticFeedbackEnd");
+
+	Params::CinematicManager_OnHapticFeedbackEnd Parms{};
+
+	Parms.ForceFeeedbackEffectTag = std::move(ForceFeeedbackEffectTag);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CinematicManager.OnHapticFeedbackStart
+// (Final, Native, Public, Const)
+// Parameters:
+// struct FGameplayTag                     ForceFeeedbackEffectTag                                (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCinematicManager::OnHapticFeedbackStart(const struct FGameplayTag& ForceFeeedbackEffectTag) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CinematicManager", "OnHapticFeedbackStart");
+
+	Params::CinematicManager_OnHapticFeedbackStart Parms{};
+
+	Parms.ForceFeeedbackEffectTag = std::move(ForceFeeedbackEffectTag);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.ClassicFireAnomaly.OnStateChanged
+// (Event, Protected, BlueprintEvent)
+
+void AClassicFireAnomaly::OnStateChanged()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ClassicFireAnomaly", "OnStateChanged");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function Stalker2.ClickerAnomaly.OnBeginParticleOverlap
+// (Final, Native, Public, HasOutParams)
+// Parameters:
+// class UPrimitiveComponent*              OverlappedComponent                                    (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AActor*                           OtherActor                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UPrimitiveComponent*              OtherComp                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   OtherBodyIndex                                         (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bFromSweep                                             (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FHitResult                       SweepResult                                            (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+
+void AClickerAnomaly::OnBeginParticleOverlap(class UPrimitiveComponent* OverlappedComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, const int32 OtherBodyIndex, const bool bFromSweep, const struct FHitResult& SweepResult)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ClickerAnomaly", "OnBeginParticleOverlap");
+
+	Params::ClickerAnomaly_OnBeginParticleOverlap Parms{};
+
+	Parms.OverlappedComponent = OverlappedComponent;
+	Parms.OtherActor = OtherActor;
+	Parms.OtherComp = OtherComp;
+	Parms.OtherBodyIndex = OtherBodyIndex;
+	Parms.bFromSweep = bFromSweep;
+	Parms.SweepResult = std::move(SweepResult);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CodeComponent.ResetCode
+// (Final, Native, Public, BlueprintCallable)
+
+void UCodeComponent::ResetCode()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CodeComponent", "ResetCode");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.Codelock.OnInputCodeFailed
+// (Event, Public, BlueprintEvent)
+
+void ACodelock::OnInputCodeFailed()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Codelock", "OnInputCodeFailed");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function Stalker2.Codelock.OnInputCodePassed
+// (Event, Public, BlueprintEvent)
+
+void ACodelock::OnInputCodePassed()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Codelock", "OnInputCodePassed");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function Stalker2.Codelock.OnKeyPressed
+// (Event, Public, BlueprintEvent)
+
+void ACodelock::OnKeyPressed()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Codelock", "OnKeyPressed");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function Stalker2.QuestNotification.HideTasks
+// (Final, Native, Public)
+
+void UQuestNotification::HideTasks()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("QuestNotification", "HideTasks");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.ForceFeedbackSubsystem.BP_StartFeedback
+// (Final, Native, Protected, HasOutParams, BlueprintCallable)
+// Parameters:
+// struct FGameplayTag                     Trigger                                                (ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FForceFeedbackArgs               Args                                                   (ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+// float                                   InIntensityMultiplier                                  (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bOverrideStopCurrent                                   (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bStopCurrent                                           (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UForceFeedbackSubsystem::BP_StartFeedback(const struct FGameplayTag& Trigger, const struct FForceFeedbackArgs& Args, const float InIntensityMultiplier, const bool bOverrideStopCurrent, const bool bStopCurrent)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ForceFeedbackSubsystem", "BP_StartFeedback");
+
+	Params::ForceFeedbackSubsystem_BP_StartFeedback Parms{};
+
+	Parms.Trigger = std::move(Trigger);
+	Parms.Args = std::move(Args);
+	Parms.InIntensityMultiplier = InIntensityMultiplier;
+	Parms.bOverrideStopCurrent = bOverrideStopCurrent;
+	Parms.bStopCurrent = bStopCurrent;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function Stalker2.ForceFeedbackSubsystem.SetIntensityMultiplier
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// float                                   NewValue                                               (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UForceFeedbackSubsystem::SetIntensityMultiplier(const float NewValue)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ForceFeedbackSubsystem", "SetIntensityMultiplier");
+
+	Params::ForceFeedbackSubsystem_SetIntensityMultiplier Parms{};
+
+	Parms.NewValue = NewValue;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.ForceFeedbackSubsystem.StopAll
+// (Final, Native, Public, BlueprintCallable)
+
+void UForceFeedbackSubsystem::StopAll()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ForceFeedbackSubsystem", "StopAll");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.ForceFeedbackSubsystem.StopFeedback
+// (Final, Native, Public, HasOutParams, BlueprintCallable)
+// Parameters:
+// struct FGameplayTag                     Trigger                                                (ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UForceFeedbackSubsystem::StopFeedback(const struct FGameplayTag& Trigger)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ForceFeedbackSubsystem", "StopFeedback");
+
+	Params::ForceFeedbackSubsystem_StopFeedback Parms{};
+
+	Parms.Trigger = std::move(Trigger);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function Stalker2.ForceFeedbackSubsystem.GetIntensityMultiplier
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+float UForceFeedbackSubsystem::GetIntensityMultiplier() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ForceFeedbackSubsystem", "GetIntensityMultiplier");
+
+	Params::ForceFeedbackSubsystem_GetIntensityMultiplier Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function Stalker2.CodelockSingleClickComponent.Interact
+// (Final, Native, Public)
+// Parameters:
+// class AObj*                             InteractedActor                                        (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCodelockSingleClickComponent::Interact(class AObj* InteractedActor)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CodelockSingleClickComponent", "Interact");
+
+	Params::CodelockSingleClickComponent_Interact Parms{};
+
+	Parms.InteractedActor = InteractedActor;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.InteractableComponent.SetDisplayPriority
+// (Final, Native, Public, HasOutParams)
+// Parameters:
+// EDisplayPriority                        NewPriority                                            (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UInteractableComponent::SetDisplayPriority(const EDisplayPriority& NewPriority)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("InteractableComponent", "SetDisplayPriority");
+
+	Params::InteractableComponent_SetDisplayPriority Parms{};
+
+	Parms.NewPriority = NewPriority;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.InteractableComponent.SetEnabled
+// (Native, Public, BlueprintCallable)
+// Parameters:
+// bool                                    bInEnabled                                             (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UInteractableComponent::SetEnabled(const bool bInEnabled)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("InteractableComponent", "SetEnabled");
+
+	Params::InteractableComponent_SetEnabled Parms{};
+
+	Parms.bInEnabled = bInEnabled;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.InteractableComponent.GetDisplayPriority
+// (Final, Native, Public, Const)
+// Parameters:
+// const EDisplayPriority                  ReturnValue                                            (ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+const EDisplayPriority UInteractableComponent::GetDisplayPriority() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("InteractableComponent", "GetDisplayPriority");
+
+	Params::InteractableComponent_GetDisplayPriority Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function Stalker2.InteractableComponent.GetInteractionType
+// (Final, Native, Public, Const)
+// Parameters:
+// const EInteractionType                  ReturnValue                                            (ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+const EInteractionType UInteractableComponent::GetInteractionType() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("InteractableComponent", "GetInteractionType");
+
+	Params::InteractableComponent_GetInteractionType Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function Stalker2.InteractableComponent.GetPreventDefaultInteract
+// (Final, Native, Public, Const)
+// Parameters:
+// const bool                              ReturnValue                                            (ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+const bool UInteractableComponent::GetPreventDefaultInteract() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("InteractableComponent", "GetPreventDefaultInteract");
+
+	Params::InteractableComponent_GetPreventDefaultInteract Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function Stalker2.CustomConsoleManagerBuild.XDisplayFocusingPlayerEnemiesCount
+// (Final, Exec, Native, Public)
+
+void UCustomConsoleManagerBuild::XDisplayFocusingPlayerEnemiesCount()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerBuild", "XDisplayFocusingPlayerEnemiesCount");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerBuild.XRepairCurrentWeapon
+// (Final, Exec, Native, Public)
+
+void UCustomConsoleManagerBuild::XRepairCurrentWeapon()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerBuild", "XRepairCurrentWeapon");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerBuild.XResetCurrentBodyArmorDurabilityToZero
+// (Final, Exec, Native, Public)
+
+void UCustomConsoleManagerBuild::XResetCurrentBodyArmorDurabilityToZero()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerBuild", "XResetCurrentBodyArmorDurabilityToZero");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerBuild.XResetCurrentWeaponDurabilityToZero
+// (Final, Exec, Native, Public)
+
+void UCustomConsoleManagerBuild::XResetCurrentWeaponDurabilityToZero()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerBuild", "XResetCurrentWeaponDurabilityToZero");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerBuild.XSetFreeCameraSpeedMultiplier
+// (Final, Exec, Native, Public)
+// Parameters:
+// float                                   SpeedMultiplier                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCustomConsoleManagerBuild::XSetFreeCameraSpeedMultiplier(float SpeedMultiplier)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerBuild", "XSetFreeCameraSpeedMultiplier");
+
+	Params::CustomConsoleManagerBuild_XSetFreeCameraSpeedMultiplier Parms{};
+
+	Parms.SpeedMultiplier = SpeedMultiplier;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerBuild.XSetNoClipGSC
+// (Final, Exec, Native, Public)
+// Parameters:
+// bool                                    bNoClipGSC                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   Speed                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCustomConsoleManagerBuild::XSetNoClipGSC(bool bNoClipGSC, float Speed)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerBuild", "XSetNoClipGSC");
+
+	Params::CustomConsoleManagerBuild_XSetNoClipGSC Parms{};
+
+	Parms.bNoClipGSC = bNoClipGSC;
+	Parms.Speed = Speed;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerBuild.XSetPlayerSpeedMultiplier
+// (Final, Exec, Native, Public)
+// Parameters:
+// float                                   SpeedMultiplier                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCustomConsoleManagerBuild::XSetPlayerSpeedMultiplier(float SpeedMultiplier)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerBuild", "XSetPlayerSpeedMultiplier");
+
+	Params::CustomConsoleManagerBuild_XSetPlayerSpeedMultiplier Parms{};
+
+	Parms.SpeedMultiplier = SpeedMultiplier;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerBuild.XSetEntityUnkillableByUID
+// (Final, Exec, Native, Public, Const)
+// Parameters:
+// int32                                   EntityUID                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bGodModeState                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCustomConsoleManagerBuild::XSetEntityUnkillableByUID(int32 EntityUID, bool bGodModeState) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerBuild", "XSetEntityUnkillableByUID");
+
+	Params::CustomConsoleManagerBuild_XSetEntityUnkillableByUID Parms{};
+
+	Parms.EntityUID = EntityUID;
+	Parms.bGodModeState = bGodModeState;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerBuild.XSetFactionGodMode
+// (Final, Exec, Native, Public, Const)
+// Parameters:
+// class FString                           CurrentFactionSelector                                 (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bGodModeState                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCustomConsoleManagerBuild::XSetFactionGodMode(const class FString& CurrentFactionSelector, bool bGodModeState) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerBuild", "XSetFactionGodMode");
+
+	Params::CustomConsoleManagerBuild_XSetFactionGodMode Parms{};
+
+	Parms.CurrentFactionSelector = std::move(CurrentFactionSelector);
+	Parms.bGodModeState = bGodModeState;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerBuild.XSetGodModeAllFactions
+// (Final, Exec, Native, Public, Const)
+// Parameters:
+// bool                                    bGodModeState                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCustomConsoleManagerBuild::XSetGodModeAllFactions(bool bGodModeState) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerBuild", "XSetGodModeAllFactions");
+
+	Params::CustomConsoleManagerBuild_XSetGodModeAllFactions Parms{};
+
+	Parms.bGodModeState = bGodModeState;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerBuild.XSetGodModeByUID
+// (Final, Exec, Native, Public, Const)
+// Parameters:
+// int32                                   EntityUID                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bGodModeState                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCustomConsoleManagerBuild::XSetGodModeByUID(int32 EntityUID, bool bGodModeState) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerBuild", "XSetGodModeByUID");
+
+	Params::CustomConsoleManagerBuild_XSetGodModeByUID Parms{};
+
+	Parms.EntityUID = EntityUID;
+	Parms.bGodModeState = bGodModeState;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerBuild.XShowPlayerCoordinates
+// (Final, Exec, Native, Public, Const)
+
+void UCustomConsoleManagerBuild::XShowPlayerCoordinates() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerBuild", "XShowPlayerCoordinates");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerBuild.XSpawnItemInCoordinatesBySID
+// (Final, Exec, Native, Public, Const)
+// Parameters:
+// class FString                           ItemPrototypeSID                                       (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   Px                                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   Py                                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   Pz                                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCustomConsoleManagerBuild::XSpawnItemInCoordinatesBySID(const class FString& ItemPrototypeSID, float Px, float Py, float Pz) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerBuild", "XSpawnItemInCoordinatesBySID");
+
+	Params::CustomConsoleManagerBuild_XSpawnItemInCoordinatesBySID Parms{};
+
+	Parms.ItemPrototypeSID = std::move(ItemPrototypeSID);
+	Parms.Px = Px;
+	Parms.Py = Py;
+	Parms.Pz = Pz;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerBuild.XSpawnItemNearPlayerBySID
+// (Final, Exec, Native, Public, Const)
+// Parameters:
+// class FString                           ItemPrototypeSID                                       (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCustomConsoleManagerBuild::XSpawnItemNearPlayerBySID(const class FString& ItemPrototypeSID) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerBuild", "XSpawnItemNearPlayerBySID");
+
+	Params::CustomConsoleManagerBuild_XSpawnItemNearPlayerBySID Parms{};
+
+	Parms.ItemPrototypeSID = std::move(ItemPrototypeSID);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.WaterContactController.IsPathToWaterSurfaceObstructed
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// const struct FWaterSurfaceObstructionResultReturnValue                                            (ConstParm, Parm, OutParm, ReturnParm, NoDestructor, NativeAccessSpecifierPublic)
+
+const struct FWaterSurfaceObstructionResult UWaterContactController::IsPathToWaterSurfaceObstructed() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("WaterContactController", "IsPathToWaterSurfaceObstructed");
+
+	Params::WaterContactController_IsPathToWaterSurfaceObstructed Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function Stalker2.WaterContactController.ProjectOwnerPositionOnWaterSurface
+// (Final, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// const struct FVector                    ReturnValue                                            (ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+const struct FVector UWaterContactController::ProjectOwnerPositionOnWaterSurface() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("WaterContactController", "ProjectOwnerPositionOnWaterSurface");
+
+	Params::WaterContactController_ProjectOwnerPositionOnWaterSurface Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function Stalker2.ContextualNavLinkProxy.OnStartUsingCustomLink
+// (Final, Native, Private, HasOutParams, HasDefaults)
+// Parameters:
+// class AActor*                           MovingActor                                            (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FVector                          DestinationPoint                                       (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void AContextualNavLinkProxy::OnStartUsingCustomLink(class AActor* MovingActor, const struct FVector& DestinationPoint)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ContextualNavLinkProxy", "OnStartUsingCustomLink");
+
+	Params::ContextualNavLinkProxy_OnStartUsingCustomLink Parms{};
+
+	Parms.MovingActor = MovingActor;
+	Parms.DestinationPoint = std::move(DestinationPoint);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.PDANotesDetails.CheckBoxPlayAudio
+// (Final, Native, Public, BlueprintCallable)
+
+void UPDANotesDetails::CheckBoxPlayAudio()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PDANotesDetails", "CheckBoxPlayAudio");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.PDANotesDetails.UpdateTimer
+// (Final, Native, Public, BlueprintCallable)
+
+void UPDANotesDetails::UpdateTimer()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PDANotesDetails", "UpdateTimer");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.DialogueFastAnswer.EndSelectAnswer
+// (Final, Native, Public, BlueprintCallable)
+
+void UDialogueFastAnswer::EndSelectAnswer()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("DialogueFastAnswer", "EndSelectAnswer");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.DialogueFastAnswer.PostSelectAnswer
+// (Event, Public, BlueprintEvent)
+
+void UDialogueFastAnswer::PostSelectAnswer()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("DialogueFastAnswer", "PostSelectAnswer");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function Stalker2.DialogueFastAnswer.SelectAnswer
+// (Final, Native, Public)
+
+void UDialogueFastAnswer::SelectAnswer()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("DialogueFastAnswer", "SelectAnswer");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.PlatformSwitcherBase.InitWidget
+// (Final, Native, Public, BlueprintCallable)
+
+void UPlatformSwitcherBase::InitWidget()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PlatformSwitcherBase", "InitWidget");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.PlatformSwitcherBase.UpdateWidget
+// (Native, Public)
+
+void UPlatformSwitcherBase::UpdateWidget()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PlatformSwitcherBase", "UpdateWidget");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.MenuMainViewBase.FadeInFinishedFunction
+// (Final, Native, Public)
+
+void UMenuMainViewBase::FadeInFinishedFunction()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("MenuMainViewBase", "FadeInFinishedFunction");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.MenuMainViewBase.FadeInStartedFunction
+// (Final, Native, Public)
+
+void UMenuMainViewBase::FadeInStartedFunction()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("MenuMainViewBase", "FadeInStartedFunction");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.MenuMainViewBase.FadeOutFinishedFunction
+// (Final, Native, Public)
+
+void UMenuMainViewBase::FadeOutFinishedFunction()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("MenuMainViewBase", "FadeOutFinishedFunction");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.MenuMainViewBase.FadeOutStartedFunction
+// (Final, Native, Public)
+
+void UMenuMainViewBase::FadeOutStartedFunction()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("MenuMainViewBase", "FadeOutStartedFunction");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
 
 	Func->FunctionFlags = Flgs;
 }
@@ -16022,228 +16017,6 @@ void UCustomConsoleManagerIM::XHighlightDangerAreas(const class FString& NavMesh
 }
 
 
-// Function Stalker2.CustomConsoleManagerMH.XRemoveEffectFromPlayer
-// (Final, Exec, Native, Public)
-// Parameters:
-// class FString                           EffectPrototypeSID                                     (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCustomConsoleManagerMH::XRemoveEffectFromPlayer(const class FString& EffectPrototypeSID)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerMH", "XRemoveEffectFromPlayer");
-
-	Params::CustomConsoleManagerMH_XRemoveEffectFromPlayer Parms{};
-
-	Parms.EffectPrototypeSID = std::move(EffectPrototypeSID);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerMH.XSetFov
-// (Final, Exec, Native, Public)
-// Parameters:
-// float                                   FOV                                                    (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCustomConsoleManagerMH::XSetFov(const float FOV)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerMH", "XSetFov");
-
-	Params::CustomConsoleManagerMH_XSetFov Parms{};
-
-	Parms.FOV = FOV;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerMH.XToggleCustomFov
-// (Final, Exec, Native, Public)
-// Parameters:
-// bool                                    bEnable                                                (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCustomConsoleManagerMH::XToggleCustomFov(const bool bEnable)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerMH", "XToggleCustomFov");
-
-	Params::CustomConsoleManagerMH_XToggleCustomFov Parms{};
-
-	Parms.bEnable = bEnable;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerMH.XToggleDrawAIShootingDebug
-// (Final, Exec, Native, Public)
-
-void UCustomConsoleManagerMH::XToggleDrawAIShootingDebug()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerMH", "XToggleDrawAIShootingDebug");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerMH.XToggleDrawPlayerDispersionDebug
-// (Final, Exec, Native, Public)
-
-void UCustomConsoleManagerMH::XToggleDrawPlayerDispersionDebug()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerMH", "XToggleDrawPlayerDispersionDebug");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerMH.XToggleDrawPlayerRecoilDebug
-// (Final, Exec, Native, Public)
-
-void UCustomConsoleManagerMH::XToggleDrawPlayerRecoilDebug()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerMH", "XToggleDrawPlayerRecoilDebug");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerMH.XToggleDrawPlayerShootingDebug
-// (Final, Exec, Native, Public)
-
-void UCustomConsoleManagerMH::XToggleDrawPlayerShootingDebug()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerMH", "XToggleDrawPlayerShootingDebug");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerMH.XToggleHubDoors
-// (Final, Exec, Native, Public)
-// Parameters:
-// bool                                    bLocked                                                (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   Radius                                                 (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCustomConsoleManagerMH::XToggleHubDoors(const bool bLocked, const float Radius)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerMH", "XToggleHubDoors");
-
-	Params::CustomConsoleManagerMH_XToggleHubDoors Parms{};
-
-	Parms.bLocked = bLocked;
-	Parms.Radius = Radius;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerMH.XToggleSoapBubbleDebug
-// (Final, Exec, Native, Public)
-
-void UCustomConsoleManagerMH::XToggleSoapBubbleDebug()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerMH", "XToggleSoapBubbleDebug");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.CustomConsoleManagerMH.XApplyMainHandWeaponUpgradeBySID
-// (Final, Exec, Native, Public, Const)
-// Parameters:
-// class FString                           UpgradePrototypeSID                                    (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCustomConsoleManagerMH::XApplyMainHandWeaponUpgradeBySID(const class FString& UpgradePrototypeSID) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CustomConsoleManagerMH", "XApplyMainHandWeaponUpgradeBySID");
-
-	Params::CustomConsoleManagerMH_XApplyMainHandWeaponUpgradeBySID Parms{};
-
-	Parms.UpgradePrototypeSID = std::move(UpgradePrototypeSID);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function Stalker2.CustomConsoleManagerMS.XCommitSuicide
 // (Final, Exec, Native, Public, Const)
 // Parameters:
@@ -16369,6 +16142,165 @@ void UCustomConsoleManagerMS::XShowMaterial(int32 ObjUID, int32 MaterialID, int3
 	Parms.ObjUID = ObjUID;
 	Parms.MaterialID = MaterialID;
 	Parms.LODId = LODId;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerOA.XDebugAudioScattererEvents
+// (Final, Exec, Native, Public)
+// Parameters:
+// bool                                    bEnabled                                               (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   DrawTime                                               (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCustomConsoleManagerOA::XDebugAudioScattererEvents(const bool bEnabled, const float DrawTime)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerOA", "XDebugAudioScattererEvents");
+
+	Params::CustomConsoleManagerOA_XDebugAudioScattererEvents Parms{};
+
+	Parms.bEnabled = bEnabled;
+	Parms.DrawTime = DrawTime;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerOA.XDebugAudioScattererMap
+// (Final, Exec, Native, Public)
+// Parameters:
+// bool                                    bEnabled                                               (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCustomConsoleManagerOA::XDebugAudioScattererMap(const bool bEnabled)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerOA", "XDebugAudioScattererMap");
+
+	Params::CustomConsoleManagerOA_XDebugAudioScattererMap Parms{};
+
+	Parms.bEnabled = bEnabled;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerOA.XGetActiveDLC
+// (Final, Exec, Native, Public, Const)
+
+void UCustomConsoleManagerOA::XGetActiveDLC() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerOA", "XGetActiveDLC");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerOA.XHasDLC
+// (Final, Exec, Native, Public, Const)
+// Parameters:
+// class FName                             DLCName                                                (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCustomConsoleManagerOA::XHasDLC(const class FName DLCName) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerOA", "XHasDLC");
+
+	Params::CustomConsoleManagerOA_XHasDLC Parms{};
+
+	Parms.DLCName = DLCName;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerOA.XIsHDREnabled
+// (Final, Exec, Native, Public, Const)
+
+void UCustomConsoleManagerOA::XIsHDREnabled() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerOA", "XIsHDREnabled");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerOA.XNewDLCAvailable
+// (Final, Exec, Native, Public, Const)
+
+void UCustomConsoleManagerOA::XNewDLCAvailable() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerOA", "XNewDLCAvailable");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.CustomConsoleManagerOA.XPlayVideo
+// (Final, Exec, Native, Public, Const)
+// Parameters:
+// class FString                           Path                                                   (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCustomConsoleManagerOA::XPlayVideo(const class FString& Path) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CustomConsoleManagerOA", "XPlayVideo");
+
+	Params::CustomConsoleManagerOA_XPlayVideo Parms{};
+
+	Parms.Path = std::move(Path);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -20338,6 +20270,156 @@ void AFaustInductor::OnInvulnerableHit()
 }
 
 
+// Function Stalker2.FirstTimeSettingsWidget.OnColorBlindnessChanged
+// (Final, Native, Public)
+// Parameters:
+// int32                                   Value                                                  (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UFirstTimeSettingsWidget::OnColorBlindnessChanged(const int32 Value)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("FirstTimeSettingsWidget", "OnColorBlindnessChanged");
+
+	Params::FirstTimeSettingsWidget_OnColorBlindnessChanged Parms{};
+
+	Parms.Value = Value;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.FirstTimeSettingsWidget.OnDynamicRangeChanged
+// (Final, Native, Public)
+// Parameters:
+// int32                                   Value                                                  (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UFirstTimeSettingsWidget::OnDynamicRangeChanged(const int32 Value)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("FirstTimeSettingsWidget", "OnDynamicRangeChanged");
+
+	Params::FirstTimeSettingsWidget_OnDynamicRangeChanged Parms{};
+
+	Parms.Value = Value;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.FirstTimeSettingsWidget.OnGammaChanged
+// (Final, Native, Public)
+// Parameters:
+// float                                   Value                                                  (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UFirstTimeSettingsWidget::OnGammaChanged(const float Value)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("FirstTimeSettingsWidget", "OnGammaChanged");
+
+	Params::FirstTimeSettingsWidget_OnGammaChanged Parms{};
+
+	Parms.Value = Value;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.FirstTimeSettingsWidget.OnGammaSelected
+// (Final, Native, Public)
+// Parameters:
+// bool                                    InSelected                                             (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UFirstTimeSettingsWidget::OnGammaSelected(const bool InSelected)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("FirstTimeSettingsWidget", "OnGammaSelected");
+
+	Params::FirstTimeSettingsWidget_OnGammaSelected Parms{};
+
+	Parms.InSelected = InSelected;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.FirstTimeSettingsWidget.OnInterfaceLanguageChanged
+// (Final, Native, Public)
+// Parameters:
+// int32                                   Value                                                  (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UFirstTimeSettingsWidget::OnInterfaceLanguageChanged(const int32 Value)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("FirstTimeSettingsWidget", "OnInterfaceLanguageChanged");
+
+	Params::FirstTimeSettingsWidget_OnInterfaceLanguageChanged Parms{};
+
+	Parms.Value = Value;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.FirstTimeSettingsWidget.OnVoiceLanguageChanged
+// (Final, Native, Public)
+// Parameters:
+// int32                                   Value                                                  (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UFirstTimeSettingsWidget::OnVoiceLanguageChanged(const int32 Value)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("FirstTimeSettingsWidget", "OnVoiceLanguageChanged");
+
+	Params::FirstTimeSettingsWidget_OnVoiceLanguageChanged Parms{};
+
+	Parms.Value = Value;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
 // Function Stalker2.GameMenuElement.Confirm
 // (Final, Native, Public)
 
@@ -20379,354 +20461,6 @@ EGoalType UAgentBehaviourEventData::GetGoalType() const
 	Func->FunctionFlags = Flgs;
 
 	return Parms.ReturnValue;
-}
-
-
-// Function Stalker2.PDAQuestPanel.ChangeSelectedQuestSlot
-// (Final, Native, Protected)
-// Parameters:
-// int32                                   JournalQuestIndex                                      (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UPDAQuestPanel::ChangeSelectedQuestSlot(const int32 JournalQuestIndex)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PDAQuestPanel", "ChangeSelectedQuestSlot");
-
-	Params::PDAQuestPanel_ChangeSelectedQuestSlot Parms{};
-
-	Parms.JournalQuestIndex = JournalQuestIndex;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.PauseGameView.OnClickBack
-// (Final, Native, Private)
-
-void UPauseGameView::OnClickBack()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PauseGameView", "OnClickBack");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.PauseGameView.OnClickBackToMainMenu
-// (Final, Native, Private)
-
-void UPauseGameView::OnClickBackToMainMenu()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PauseGameView", "OnClickBackToMainMenu");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.PauseGameView.OnClickContinue
-// (Final, Native, Private)
-
-void UPauseGameView::OnClickContinue()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PauseGameView", "OnClickContinue");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.PauseGameView.OnClickDebugMaps
-// (Final, Native, Private)
-
-void UPauseGameView::OnClickDebugMaps()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PauseGameView", "OnClickDebugMaps");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.PauseGameView.OnClickExit
-// (Final, Native, Private)
-
-void UPauseGameView::OnClickExit()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PauseGameView", "OnClickExit");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.PauseGameView.OnClickLoad
-// (Final, Native, Private)
-
-void UPauseGameView::OnClickLoad()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PauseGameView", "OnClickLoad");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.PauseGameView.OnClickOnline
-// (Final, Native, Private)
-
-void UPauseGameView::OnClickOnline()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PauseGameView", "OnClickOnline");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.PauseGameView.OnClickOptions
-// (Final, Native, Private)
-
-void UPauseGameView::OnClickOptions()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PauseGameView", "OnClickOptions");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.PauseGameView.OnClickPlay
-// (Final, Native, Private)
-
-void UPauseGameView::OnClickPlay()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PauseGameView", "OnClickPlay");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.PauseGameView.OnClickSave
-// (Final, Native, Private)
-
-void UPauseGameView::OnClickSave()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PauseGameView", "OnClickSave");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.PauseGameView.OnItemHovered
-// (Final, Native, Private)
-
-void UPauseGameView::OnItemHovered()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PauseGameView", "OnItemHovered");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.PauseGameView.UIMenuBack
-// (Final, Native, Public)
-
-void UPauseGameView::UIMenuBack()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PauseGameView", "UIMenuBack");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.PauseGameView.UIMenuConfirm
-// (Final, Native, Public)
-
-void UPauseGameView::UIMenuConfirm()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PauseGameView", "UIMenuConfirm");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.PauseGameView.UIMenuMoveDown
-// (Final, Native, Public)
-
-void UPauseGameView::UIMenuMoveDown()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PauseGameView", "UIMenuMoveDown");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.PauseGameView.UIMenuMoveUp
-// (Final, Native, Public)
-
-void UPauseGameView::UIMenuMoveUp()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PauseGameView", "UIMenuMoveUp");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.PauseGameView.UIOptionsBack
-// (Final, Native, Public)
-
-void UPauseGameView::UIOptionsBack()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PauseGameView", "UIOptionsBack");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.PauseGameView.UpdateShowDebugMenu
-// (Final, Native, Private)
-
-void UPauseGameView::UpdateShowDebugMenu()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PauseGameView", "UpdateShowDebugMenu");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
 }
 
 
@@ -20805,6 +20539,138 @@ void AGrenade::Explode() const
 }
 
 
+// Function Stalker2.PoppyFieldAnomalyBehaviorComponent.OnBeginOverlap
+// (Final, Native, Protected, HasOutParams)
+// Parameters:
+// class UPrimitiveComponent*              OverlappedComponent                                    (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AActor*                           OtherActor                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UPrimitiveComponent*              OtherComp                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   OtherBodyIndex                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bFromSweep                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FHitResult                       SweepResult                                            (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+
+void UPoppyFieldAnomalyBehaviorComponent::OnBeginOverlap(class UPrimitiveComponent* OverlappedComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const struct FHitResult& SweepResult)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PoppyFieldAnomalyBehaviorComponent", "OnBeginOverlap");
+
+	Params::PoppyFieldAnomalyBehaviorComponent_OnBeginOverlap Parms{};
+
+	Parms.OverlappedComponent = OverlappedComponent;
+	Parms.OtherActor = OtherActor;
+	Parms.OtherComp = OtherComp;
+	Parms.OtherBodyIndex = OtherBodyIndex;
+	Parms.bFromSweep = bFromSweep;
+	Parms.SweepResult = std::move(SweepResult);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.PoppyFieldAnomalyBehaviorComponent.OnBeginOverlapFlowers
+// (Final, Native, Protected, HasOutParams)
+// Parameters:
+// class UPrimitiveComponent*              OverlappedComponent                                    (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AActor*                           OtherActor                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UPrimitiveComponent*              OtherComp                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   OtherBodyIndex                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bFromSweep                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FHitResult                       SweepResult                                            (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+
+void UPoppyFieldAnomalyBehaviorComponent::OnBeginOverlapFlowers(class UPrimitiveComponent* OverlappedComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const struct FHitResult& SweepResult)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PoppyFieldAnomalyBehaviorComponent", "OnBeginOverlapFlowers");
+
+	Params::PoppyFieldAnomalyBehaviorComponent_OnBeginOverlapFlowers Parms{};
+
+	Parms.OverlappedComponent = OverlappedComponent;
+	Parms.OtherActor = OtherActor;
+	Parms.OtherComp = OtherComp;
+	Parms.OtherBodyIndex = OtherBodyIndex;
+	Parms.bFromSweep = bFromSweep;
+	Parms.SweepResult = std::move(SweepResult);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.PoppyFieldAnomalyBehaviorComponent.OnEndOverlap
+// (Final, Native, Protected)
+// Parameters:
+// class UPrimitiveComponent*              OverlappedComponent                                    (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AActor*                           OtherActor                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UPrimitiveComponent*              OtherComp                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   OtherBodyIndex                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UPoppyFieldAnomalyBehaviorComponent::OnEndOverlap(class UPrimitiveComponent* OverlappedComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PoppyFieldAnomalyBehaviorComponent", "OnEndOverlap");
+
+	Params::PoppyFieldAnomalyBehaviorComponent_OnEndOverlap Parms{};
+
+	Parms.OverlappedComponent = OverlappedComponent;
+	Parms.OtherActor = OtherActor;
+	Parms.OtherComp = OtherComp;
+	Parms.OtherBodyIndex = OtherBodyIndex;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.PoppyFieldAnomalyBehaviorComponent.OnEndOverlapFlowers
+// (Final, Native, Protected)
+// Parameters:
+// class UPrimitiveComponent*              OverlappedComponent                                    (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AActor*                           OtherActor                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UPrimitiveComponent*              OtherComp                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   OtherBodyIndex                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UPoppyFieldAnomalyBehaviorComponent::OnEndOverlapFlowers(class UPrimitiveComponent* OverlappedComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PoppyFieldAnomalyBehaviorComponent", "OnEndOverlapFlowers");
+
+	Params::PoppyFieldAnomalyBehaviorComponent_OnEndOverlapFlowers Parms{};
+
+	Parms.OverlappedComponent = OverlappedComponent;
+	Parms.OtherActor = OtherActor;
+	Parms.OtherComp = OtherComp;
+	Parms.OtherBodyIndex = OtherBodyIndex;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
 // Function Stalker2.GSCAblityBlueprintFunctions.ExecuteAbilityByActivationTagAttackPayload
 // (Final, Native, Static, Private, BlueprintCallable)
 // Parameters:
@@ -20829,58 +20695,6 @@ void UGSCAblityBlueprintFunctions::ExecuteAbilityByActivationTagAttackPayload(cl
 	GetDefaultObj()->ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.PDAView.CloseUpdateView
-// (Final, Native, Public)
-
-void UPDAView::CloseUpdateView()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PDAView", "CloseUpdateView");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.PDAView.HideAllWindows
-// (Final, Native, Public)
-
-void UPDAView::HideAllWindows()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PDAView", "HideAllWindows");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.PDAView.UpdateQuestList
-// (Event, Public, BlueprintEvent)
-
-void UPDAView::UpdateQuestList()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PDAView", "UpdateQuestList");
-
-	UObject::ProcessEvent(Func, nullptr);
 }
 
 
@@ -21078,6 +20892,132 @@ void UGuitarChordView::OnUnselected()
 }
 
 
+// Function Stalker2.SequenceComponent.OnSequenceFinished
+// (Final, Native, Private)
+
+void USequenceComponent::OnSequenceFinished()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SequenceComponent", "OnSequenceFinished");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.SequenceComponent.OnSequenceStarted
+// (Final, Native, Private)
+
+void USequenceComponent::OnSequenceStarted()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SequenceComponent", "OnSequenceStarted");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.StackSplittingWidget.OnCancelButtonClicked
+// (Final, Native, Private)
+
+void UStackSplittingWidget::OnCancelButtonClicked()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("StackSplittingWidget", "OnCancelButtonClicked");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.StackSplittingWidget.OnSplitButtonClicked
+// (Final, Native, Public)
+
+void UStackSplittingWidget::OnSplitButtonClicked()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("StackSplittingWidget", "OnSplitButtonClicked");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.StackSplittingWidget.OnSplitValueChanged
+// (Final, Native, Private)
+// Parameters:
+// float                                   Value                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UStackSplittingWidget::OnSplitValueChanged(float Value)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("StackSplittingWidget", "OnSplitValueChanged");
+
+	Params::StackSplittingWidget_OnSplitValueChanged Parms{};
+
+	Parms.Value = Value;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.AsyncActionBase.ExecuteAction
+// (Native, Public)
+// Parameters:
+// class UHintControllerBase*              InHintController                                       (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UAsyncActionBase::ExecuteAction(class UHintControllerBase* InHintController)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("AsyncActionBase", "ExecuteAction");
+
+	Params::AsyncActionBase_ExecuteAction Parms{};
+
+	Parms.InHintController = InHintController;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
 // Function Stalker2.HintKey.PlayHintAnimation
 // (Event, Public, BlueprintEvent)
 // Parameters:
@@ -21175,20 +21115,144 @@ void UHintKey::SetLowHealthState(const bool ShowIcon)
 }
 
 
-// Function Stalker2.StrelokBossfightController.SpawnAnomalyField
-// (Final, Native, Public, BlueprintCallable)
+// DelegateFunction Stalker2.QuestTaskNotification.OnAnimFinished__DelegateSignature
+// (MulticastDelegate, Public, Delegate)
 
-void AStrelokBossfightController::SpawnAnomalyField()
+void UQuestTaskNotification::OnAnimFinished__DelegateSignature()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("StrelokBossfightController", "SpawnAnomalyField");
+		Func = Class->GetFunction("QuestTaskNotification", "OnAnimFinished__DelegateSignature");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// DelegateFunction Stalker2.QuestTaskNotification.OnAnimStarted__DelegateSignature
+// (MulticastDelegate, Public, Delegate)
+
+void UQuestTaskNotification::OnAnimStarted__DelegateSignature()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("QuestTaskNotification", "OnAnimStarted__DelegateSignature");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function Stalker2.QuestTaskNotification.PlayTaskAnimation
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// EQuestTaskAnimationType                 AnimationType                                          (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bWithSound                                             (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UQuestTaskNotification::PlayTaskAnimation(const EQuestTaskAnimationType AnimationType, const bool bWithSound)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("QuestTaskNotification", "PlayTaskAnimation");
+
+	Params::QuestTaskNotification_PlayTaskAnimation Parms{};
+
+	Parms.AnimationType = AnimationType;
+	Parms.bWithSound = bWithSound;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	UObject::ProcessEvent(Func, nullptr);
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.QuestTaskNotification.PostPlayTaskAnimation
+// (Event, Public, BlueprintEvent)
+// Parameters:
+// EQuestTaskAnimationType                 AnimationType                                          (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UQuestTaskNotification::PostPlayTaskAnimation(const EQuestTaskAnimationType AnimationType)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("QuestTaskNotification", "PostPlayTaskAnimation");
+
+	Params::QuestTaskNotification_PostPlayTaskAnimation Parms{};
+
+	Parms.AnimationType = AnimationType;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function Stalker2.PossessedObjectComponent.OnSphereComponentBeginOverlap
+// (Final, Native, Public, HasOutParams)
+// Parameters:
+// class UPrimitiveComponent*              OverlapComponent                                       (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AActor*                           OtherActor                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UPrimitiveComponent*              OtherComp                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   OtherBodyIndex                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bFromSweep                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FHitResult                       SweepResult                                            (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+
+void UPossessedObjectComponent::OnSphereComponentBeginOverlap(class UPrimitiveComponent* OverlapComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const struct FHitResult& SweepResult)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PossessedObjectComponent", "OnSphereComponentBeginOverlap");
+
+	Params::PossessedObjectComponent_OnSphereComponentBeginOverlap Parms{};
+
+	Parms.OverlapComponent = OverlapComponent;
+	Parms.OtherActor = OtherActor;
+	Parms.OtherComp = OtherComp;
+	Parms.OtherBodyIndex = OtherBodyIndex;
+	Parms.bFromSweep = bFromSweep;
+	Parms.SweepResult = std::move(SweepResult);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.PossessedObjectComponent.OnSphereComponentHit
+// (Final, Native, Public, HasOutParams, HasDefaults)
+// Parameters:
+// class UPrimitiveComponent*              HitComp                                                (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AActor*                           OtherActor                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UPrimitiveComponent*              OtherComp                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FVector                          NormalImpulse                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FHitResult                       Hit                                                    (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+
+void UPossessedObjectComponent::OnSphereComponentHit(class UPrimitiveComponent* HitComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, const struct FVector& NormalImpulse, const struct FHitResult& Hit)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PossessedObjectComponent", "OnSphereComponentHit");
+
+	Params::PossessedObjectComponent_OnSphereComponentHit Parms{};
+
+	Parms.HitComp = HitComp;
+	Parms.OtherActor = OtherActor;
+	Parms.OtherComp = OtherComp;
+	Parms.NormalImpulse = std::move(NormalImpulse);
+	Parms.Hit = std::move(Hit);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
 }
@@ -21584,25 +21648,6 @@ void UInteractView::UpdateInteractHints()
 }
 
 
-// Function Stalker2.InteractViewHint.OnRunAction
-// (Native, Public)
-
-void UInteractViewHint::OnRunAction()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("InteractViewHint", "OnRunAction");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function Stalker2.InventoryNew.DropItemHoldReleased
 // (Final, Native, Public)
 
@@ -21849,63 +21894,6 @@ void UInventoryNew::OnExitClick(class FName ButtonId)
 }
 
 
-// Function Stalker2.InventoryNew.OnGamepadCompareItemPress
-// (Final, Native, Public)
-
-void UInventoryNew::OnGamepadCompareItemPress()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("InventoryNew", "OnGamepadCompareItemPress");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.InventoryNew.OnGamepadCompareItemRelease
-// (Final, Native, Public)
-
-void UInventoryNew::OnGamepadCompareItemRelease()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("InventoryNew", "OnGamepadCompareItemRelease");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.InventoryNew.OnGamepadCompareItemRepeat
-// (Final, Native, Public)
-
-void UInventoryNew::OnGamepadCompareItemRepeat()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("InventoryNew", "OnGamepadCompareItemRepeat");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function Stalker2.InventoryNew.OnGamepadContextMenu
 // (Final, Native, Public)
 
@@ -21953,25 +21941,6 @@ void UInventoryNew::OnGamepadItemSelectHoldFinished()
 
 	if (Func == nullptr)
 		Func = Class->GetFunction("InventoryNew", "OnGamepadItemSelectHoldFinished");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.InventoryNew.OnGamepadSelectItemForMovePress
-// (Final, Native, Public)
-
-void UInventoryNew::OnGamepadSelectItemForMovePress()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("InventoryNew", "OnGamepadSelectItemForMovePress");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -22320,25 +22289,6 @@ void UInventoryNew::UIInventoryChangeComparingItem()
 }
 
 
-// Function Stalker2.InventoryNew.UIInventoryCompareItem
-// (Final, Native, Public)
-
-void UInventoryNew::UIInventoryCompareItem()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("InventoryNew", "UIInventoryCompareItem");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function Stalker2.InventoryNew.UIInventoryDropItem
 // (Final, Native, Public)
 
@@ -22386,82 +22336,6 @@ void UInventoryNew::UIInventoryItemAction()
 
 	if (Func == nullptr)
 		Func = Class->GetFunction("InventoryNew", "UIInventoryItemAction");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.InventoryNew.UIInventoryNavigateComparingDown
-// (Final, Native, Public)
-
-void UInventoryNew::UIInventoryNavigateComparingDown()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("InventoryNew", "UIInventoryNavigateComparingDown");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.InventoryNew.UIInventoryNavigateComparingLeft
-// (Final, Native, Public)
-
-void UInventoryNew::UIInventoryNavigateComparingLeft()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("InventoryNew", "UIInventoryNavigateComparingLeft");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.InventoryNew.UIInventoryNavigateComparingRight
-// (Final, Native, Public)
-
-void UInventoryNew::UIInventoryNavigateComparingRight()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("InventoryNew", "UIInventoryNavigateComparingRight");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.InventoryNew.UIInventoryNavigateComparingUp
-// (Final, Native, Public)
-
-void UInventoryNew::UIInventoryNavigateComparingUp()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("InventoryNew", "UIInventoryNavigateComparingUp");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -22689,90 +22563,6 @@ void UItemAppearanceComponent::OnShotSoundStart(EAkCallbackType CallbackType, cl
 }
 
 
-// Function Stalker2.TelekineticShield.OnDeathParticleFinished
-// (Final, Native, Private)
-// Parameters:
-// class UNiagaraComponent*                DeathVFXComponent                                      (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void ATelekineticShield::OnDeathParticleFinished(class UNiagaraComponent* DeathVFXComponent)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("TelekineticShield", "OnDeathParticleFinished");
-
-	Params::TelekineticShield_OnDeathParticleFinished Parms{};
-
-	Parms.DeathVFXComponent = DeathVFXComponent;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.TelekineticShield.OnHitReceivedBP
-// (Event, Protected, BlueprintEvent)
-// Parameters:
-// struct FCommonHitArgs                   HitArgs                                                (Parm, ContainsInstancedReference, NativeAccessSpecifierPublic)
-
-void ATelekineticShield::OnHitReceivedBP(const struct FCommonHitArgs& HitArgs)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("TelekineticShield", "OnHitReceivedBP");
-
-	Params::TelekineticShield_OnHitReceivedBP Parms{};
-
-	Parms.HitArgs = std::move(HitArgs);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function Stalker2.TelekineticShield.OnShieldDestroyedBP
-// (Event, Protected, BlueprintEvent)
-
-void ATelekineticShield::OnShieldDestroyedBP()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("TelekineticShield", "OnShieldDestroyedBP");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function Stalker2.TelekineticShield.GetOwnerActor
-// (Final, Native, Protected, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// class AObj*                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class AObj* ATelekineticShield::GetOwnerActor() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("TelekineticShield", "GetOwnerActor");
-
-	Params::TelekineticShield_GetOwnerActor Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
 // Function Stalker2.ItemSelectorView.ChangeAmmoType
 // (Final, Native, Public)
 
@@ -22923,6 +22713,120 @@ void UItemSelectorView::UIItemSelectorUnarm()
 	UObject::ProcessEvent(Func, nullptr);
 
 	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.ItemSelectorWeaponSlot.ConstructUpdateSlotScale
+// (Final, Native, Public, BlueprintCallable)
+
+void UItemSelectorWeaponSlot::ConstructUpdateSlotScale()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ItemSelectorWeaponSlot", "ConstructUpdateSlotScale");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.ItemSelectorWeaponSlot.GetHoveredWidgets
+// (Event, Public, BlueprintEvent)
+// Parameters:
+// TArray<class UUserWidget*>              ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
+
+TArray<class UUserWidget*> UItemSelectorWeaponSlot::GetHoveredWidgets()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ItemSelectorWeaponSlot", "GetHoveredWidgets");
+
+	Params::ItemSelectorWeaponSlot_GetHoveredWidgets Parms{};
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	return Parms.ReturnValue;
+}
+
+
+// Function Stalker2.ItemSelectorWeaponSlot.IsAlternativeSlot
+// (Final, Native, Public, BlueprintCallable, BlueprintPure)
+// Parameters:
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UItemSelectorWeaponSlot::IsAlternativeSlot()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ItemSelectorWeaponSlot", "IsAlternativeSlot");
+
+	Params::ItemSelectorWeaponSlot_IsAlternativeSlot Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function Stalker2.ItemSelectorWeaponSlot.IsGrenadeSlot
+// (Final, Native, Public, BlueprintCallable, BlueprintPure)
+// Parameters:
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UItemSelectorWeaponSlot::IsGrenadeSlot()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ItemSelectorWeaponSlot", "IsGrenadeSlot");
+
+	Params::ItemSelectorWeaponSlot_IsGrenadeSlot Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function Stalker2.ItemSelectorWeaponSlot.IsWeaponSlot
+// (Final, Native, Public, BlueprintCallable, BlueprintPure)
+// Parameters:
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UItemSelectorWeaponSlot::IsWeaponSlot()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ItemSelectorWeaponSlot", "IsWeaponSlot");
+
+	Params::ItemSelectorWeaponSlot_IsWeaponSlot Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
 }
 
 
@@ -23776,6 +23680,44 @@ bool ULightBulbComponent::IsFlicker() const
 }
 
 
+// Function Stalker2.SettingElementButton.ChangeLegendOnHovered
+// (Final, Native, Private)
+
+void USettingElementButton::ChangeLegendOnHovered()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SettingElementButton", "ChangeLegendOnHovered");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.SettingElementButton.ChangeLegendOnUnhovered
+// (Final, Native, Private)
+
+void USettingElementButton::ChangeLegendOnUnhovered()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SettingElementButton", "ChangeLegendOnUnhovered");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
 // Function Stalker2.LocalizedImage.ForceLoadImage
 // (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
@@ -23801,78 +23743,31 @@ void ULocalizedImage::ForceLoadImage(const TSoftObjectPtr<class UTexture2D>& Sof
 }
 
 
-// Function Stalker2.MenuButtonActionBase.ExecuteButtonAction
-// (Native, Public)
-
-void UMenuButtonActionBase::ExecuteButtonAction()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("MenuButtonActionBase", "ExecuteButtonAction");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.StackSplittingWidget.OnCancelButtonClicked
-// (Final, Native, Private)
-
-void UStackSplittingWidget::OnCancelButtonClicked()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("StackSplittingWidget", "OnCancelButtonClicked");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.StackSplittingWidget.OnSplitButtonClicked
-// (Final, Native, Public)
-
-void UStackSplittingWidget::OnSplitButtonClicked()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("StackSplittingWidget", "OnSplitButtonClicked");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.StackSplittingWidget.OnSplitValueChanged
-// (Final, Native, Private)
+// Function Stalker2.OldSchoolTrigger.OnTriggerBeginOverlap
+// (Final, Native, Protected, HasOutParams)
 // Parameters:
-// float                                   Value                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UPrimitiveComponent*              Comp                                                   (ConstParm, Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AActor*                           OtherActor                                             (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UPrimitiveComponent*              OtherComp                                              (ConstParm, Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   OtherBodyIndex                                         (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bFromSweep                                             (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FHitResult                       SweepResult                                            (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
 
-void UStackSplittingWidget::OnSplitValueChanged(float Value)
+void AOldSchoolTrigger::OnTriggerBeginOverlap(const class UPrimitiveComponent* Comp, const class AActor* OtherActor, const class UPrimitiveComponent* OtherComp, const int32 OtherBodyIndex, const bool bFromSweep, const struct FHitResult& SweepResult)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("StackSplittingWidget", "OnSplitValueChanged");
+		Func = Class->GetFunction("OldSchoolTrigger", "OnTriggerBeginOverlap");
 
-	Params::StackSplittingWidget_OnSplitValueChanged Parms{};
+	Params::OldSchoolTrigger_OnTriggerBeginOverlap Parms{};
 
-	Parms.Value = Value;
+	Parms.Comp = Comp;
+	Parms.OtherActor = OtherActor;
+	Parms.OtherComp = OtherComp;
+	Parms.OtherBodyIndex = OtherBodyIndex;
+	Parms.bFromSweep = bFromSweep;
+	Parms.SweepResult = std::move(SweepResult);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -23883,19 +23778,27 @@ void UStackSplittingWidget::OnSplitValueChanged(float Value)
 }
 
 
-// Function Stalker2.PossessedObjectEventData.GetPossessedObject
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Function Stalker2.OldSchoolTrigger.OnTriggerEndOverlap
+// (Final, Native, Protected)
 // Parameters:
-// class AActor*                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UPrimitiveComponent*              OverlappedComponent                                    (ConstParm, Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AActor*                           OtherActor                                             (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UPrimitiveComponent*              OtherComp                                              (ConstParm, Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   OtherBodyIndex                                         (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class AActor* UPossessedObjectEventData::GetPossessedObject() const
+void AOldSchoolTrigger::OnTriggerEndOverlap(const class UPrimitiveComponent* OverlappedComponent, const class AActor* OtherActor, const class UPrimitiveComponent* OtherComp, const int32 OtherBodyIndex)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("PossessedObjectEventData", "GetPossessedObject");
+		Func = Class->GetFunction("OldSchoolTrigger", "OnTriggerEndOverlap");
 
-	Params::PossessedObjectEventData_GetPossessedObject Parms{};
+	Params::OldSchoolTrigger_OnTriggerEndOverlap Parms{};
+
+	Parms.OverlappedComponent = OverlappedComponent;
+	Parms.OtherActor = OtherActor;
+	Parms.OtherComp = OtherComp;
+	Parms.OtherBodyIndex = OtherBodyIndex;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -23903,8 +23806,25 @@ class AActor* UPossessedObjectEventData::GetPossessedObject() const
 	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
+}
 
-	return Parms.ReturnValue;
+
+// Function Stalker2.StrelokBossfightController.SpawnAnomalyField
+// (Final, Native, Public, BlueprintCallable)
+
+void AStrelokBossfightController::SpawnAnomalyField()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("StrelokBossfightController", "SpawnAnomalyField");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
 }
 
 
@@ -23953,60 +23873,53 @@ void UMenuNavigationPanelBase::OnButtonPressed(class USettingsNavigationButton* 
 }
 
 
-// Function Stalker2.NotificationWidget.HideNotificationMain
-// (Final, Native, Private)
+// Function Stalker2.Projectile.OnOverlap
+// (Final, Native, Public, HasOutParams)
+// Parameters:
+// struct FHitResult                       Hit                                                    (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
 
-void UNotificationWidget::HideNotificationMain()
+void AProjectile::OnOverlap(const struct FHitResult& Hit)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("NotificationWidget", "HideNotificationMain");
+		Func = Class->GetFunction("Projectile", "OnOverlap");
+
+	Params::Projectile_OnOverlap Parms{};
+
+	Parms.Hit = std::move(Hit);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	UObject::ProcessEvent(Func, nullptr);
+	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
 }
 
 
-// Function Stalker2.NotificationWidget.HideNotificationSecondary
-// (Final, Native, Private)
+// Function Stalker2.PossessedObjectEventData.GetPossessedObject
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// class AActor*                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UNotificationWidget::HideNotificationSecondary()
+class AActor* UPossessedObjectEventData::GetPossessedObject() const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("NotificationWidget", "HideNotificationSecondary");
+		Func = Class->GetFunction("PossessedObjectEventData", "GetPossessedObject");
+
+	Params::PossessedObjectEventData_GetPossessedObject Parms{};
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	UObject::ProcessEvent(Func, nullptr);
+	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
-}
 
-
-// Function Stalker2.NotificationWidget.TryShowNextNotify
-// (Final, Native, Private)
-
-void UNotificationWidget::TryShowNextNotify()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("NotificationWidget", "TryShowNextNotify");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
+	return Parms.ReturnValue;
 }
 
 
@@ -24198,28 +24111,58 @@ const class FText UModifiableRichText::GetNextLine()
 }
 
 
-// Function Stalker2.PlaySoundQuestNodeListener.OnSoundFinished
-// (Final, Native, Public)
-// Parameters:
-// EAkCallbackType                         CallbackType                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UAkCallbackInfo*                  CallbackInfo                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// Function Stalker2.NotificationWidget.HideNotificationMain
+// (Final, Native, Private)
 
-void UPlaySoundQuestNodeListener::OnSoundFinished(EAkCallbackType CallbackType, class UAkCallbackInfo* CallbackInfo)
+void UNotificationWidget::HideNotificationMain()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("PlaySoundQuestNodeListener", "OnSoundFinished");
-
-	Params::PlaySoundQuestNodeListener_OnSoundFinished Parms{};
-
-	Parms.CallbackType = CallbackType;
-	Parms.CallbackInfo = CallbackInfo;
+		Func = Class->GetFunction("NotificationWidget", "HideNotificationMain");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	UObject::ProcessEvent(Func, &Parms);
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.NotificationWidget.HideNotificationSecondary
+// (Final, Native, Private)
+
+void UNotificationWidget::HideNotificationSecondary()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("NotificationWidget", "HideNotificationSecondary");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.NotificationWidget.TryShowNextNotify
+// (Final, Native, Private)
+
+void UNotificationWidget::TryShowNextNotify()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("NotificationWidget", "TryShowNextNotify");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
 
 	Func->FunctionFlags = Flgs;
 }
@@ -24275,72 +24218,6 @@ class FString UModioEmailAuthPopup::GetEmail() const
 }
 
 
-// Function Stalker2.OldSchoolTrigger.OnTriggerBeginOverlap
-// (Final, Native, Protected, HasOutParams)
-// Parameters:
-// class UPrimitiveComponent*              Comp                                                   (ConstParm, Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class AActor*                           OtherActor                                             (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UPrimitiveComponent*              OtherComp                                              (ConstParm, Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int32                                   OtherBodyIndex                                         (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bFromSweep                                             (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FHitResult                       SweepResult                                            (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
-
-void AOldSchoolTrigger::OnTriggerBeginOverlap(const class UPrimitiveComponent* Comp, const class AActor* OtherActor, const class UPrimitiveComponent* OtherComp, const int32 OtherBodyIndex, const bool bFromSweep, const struct FHitResult& SweepResult)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OldSchoolTrigger", "OnTriggerBeginOverlap");
-
-	Params::OldSchoolTrigger_OnTriggerBeginOverlap Parms{};
-
-	Parms.Comp = Comp;
-	Parms.OtherActor = OtherActor;
-	Parms.OtherComp = OtherComp;
-	Parms.OtherBodyIndex = OtherBodyIndex;
-	Parms.bFromSweep = bFromSweep;
-	Parms.SweepResult = std::move(SweepResult);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.OldSchoolTrigger.OnTriggerEndOverlap
-// (Final, Native, Protected)
-// Parameters:
-// class UPrimitiveComponent*              OverlappedComponent                                    (ConstParm, Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class AActor*                           OtherActor                                             (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UPrimitiveComponent*              OtherComp                                              (ConstParm, Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int32                                   OtherBodyIndex                                         (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void AOldSchoolTrigger::OnTriggerEndOverlap(const class UPrimitiveComponent* OverlappedComponent, const class AActor* OtherActor, const class UPrimitiveComponent* OtherComp, const int32 OtherBodyIndex)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OldSchoolTrigger", "OnTriggerEndOverlap");
-
-	Params::OldSchoolTrigger_OnTriggerEndOverlap Parms{};
-
-	Parms.OverlappedComponent = OverlappedComponent;
-	Parms.OtherActor = OtherActor;
-	Parms.OtherComp = OtherComp;
-	Parms.OtherBodyIndex = OtherBodyIndex;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function Stalker2.ModioFilterNavigationPanel.OnButtonClicked
 // (Final, Native, Private)
 // Parameters:
@@ -24361,44 +24238,6 @@ void UModioFilterNavigationPanel::OnButtonClicked(const int32 ButtonIndex)
 	Func->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.ScriptedNavModifierVolume.Activate
-// (Final, Native, Protected, BlueprintCallable)
-
-void AScriptedNavModifierVolume::Activate()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ScriptedNavModifierVolume", "Activate");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.ScriptedNavModifierVolume.Deactivate
-// (Final, Native, Protected, BlueprintCallable)
-
-void AScriptedNavModifierVolume::Deactivate()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ScriptedNavModifierVolume", "Deactivate");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
 
 	Func->FunctionFlags = Flgs;
 }
@@ -24456,125 +24295,15 @@ class FString UModioSearchField::GetSearchKeywords() const
 }
 
 
-// Function Stalker2.PsyPhantomComponent.OnBeginOverlap
-// (Final, Native, Public, HasOutParams)
-// Parameters:
-// class UPrimitiveComponent*              OverlappedComponent                                    (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class AActor*                           OtherActor                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UPrimitiveComponent*              OtherComp                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int32                                   OtherBodyIndex                                         (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bFromSweep                                             (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FHitResult                       SweepResult                                            (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
-
-void UPsyPhantomComponent::OnBeginOverlap(class UPrimitiveComponent* OverlappedComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, const int32 OtherBodyIndex, const bool bFromSweep, const struct FHitResult& SweepResult)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PsyPhantomComponent", "OnBeginOverlap");
-
-	Params::PsyPhantomComponent_OnBeginOverlap Parms{};
-
-	Parms.OverlappedComponent = OverlappedComponent;
-	Parms.OtherActor = OtherActor;
-	Parms.OtherComp = OtherComp;
-	Parms.OtherBodyIndex = OtherBodyIndex;
-	Parms.bFromSweep = bFromSweep;
-	Parms.SweepResult = std::move(SweepResult);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.SaveScreenSubView.OnNavigationButtonPressed
-// (Final, Native, Public)
-// Parameters:
-// int32                                   InButtonIndex                                          (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void USaveScreenSubView::OnNavigationButtonPressed(const int32 InButtonIndex)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SaveScreenSubView", "OnNavigationButtonPressed");
-
-	Params::SaveScreenSubView_OnNavigationButtonPressed Parms{};
-
-	Parms.InButtonIndex = InButtonIndex;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.NavigationPanel.ClickMenuButton
+// Function Stalker2.PauseGameView.OnClickBack
 // (Final, Native, Private)
-// Parameters:
-// class FName                             InButtonId                                             (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UNavigationPanel::ClickMenuButton(const class FName InButtonId)
+void UPauseGameView::OnClickBack()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("NavigationPanel", "ClickMenuButton");
-
-	Params::NavigationPanel_ClickMenuButton Parms{};
-
-	Parms.InButtonId = InButtonId;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.NavigationPanel.InitClickTransition
-// (Final, Native, Public)
-// Parameters:
-// class FName                             ButtonId                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UNavigationPanel::InitClickTransition(class FName ButtonId)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("NavigationPanel", "InitClickTransition");
-
-	Params::NavigationPanel_InitClickTransition Parms{};
-
-	Parms.ButtonId = ButtonId;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.NavigationPanel.MoveSelectSlotToNextSlot
-// (Final, Native, Public)
-
-void UNavigationPanel::MoveSelectSlotToNextSlot()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("NavigationPanel", "MoveSelectSlotToNextSlot");
+		Func = Class->GetFunction("PauseGameView", "OnClickBack");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -24585,15 +24314,205 @@ void UNavigationPanel::MoveSelectSlotToNextSlot()
 }
 
 
-// Function Stalker2.NavigationPanel.MoveSelectSlotToPreviousSlot
+// Function Stalker2.PauseGameView.OnClickBackToMainMenu
+// (Final, Native, Private)
+
+void UPauseGameView::OnClickBackToMainMenu()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PauseGameView", "OnClickBackToMainMenu");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.PauseGameView.OnClickContinue
+// (Final, Native, Private)
+
+void UPauseGameView::OnClickContinue()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PauseGameView", "OnClickContinue");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.PauseGameView.OnClickDebugMaps
+// (Final, Native, Private)
+
+void UPauseGameView::OnClickDebugMaps()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PauseGameView", "OnClickDebugMaps");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.PauseGameView.OnClickExit
+// (Final, Native, Private)
+
+void UPauseGameView::OnClickExit()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PauseGameView", "OnClickExit");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.PauseGameView.OnClickLoad
+// (Final, Native, Private)
+
+void UPauseGameView::OnClickLoad()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PauseGameView", "OnClickLoad");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.PauseGameView.OnClickOnline
+// (Final, Native, Private)
+
+void UPauseGameView::OnClickOnline()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PauseGameView", "OnClickOnline");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.PauseGameView.OnClickOptions
+// (Final, Native, Private)
+
+void UPauseGameView::OnClickOptions()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PauseGameView", "OnClickOptions");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.PauseGameView.OnClickPlay
+// (Final, Native, Private)
+
+void UPauseGameView::OnClickPlay()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PauseGameView", "OnClickPlay");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.PauseGameView.OnClickSave
+// (Final, Native, Private)
+
+void UPauseGameView::OnClickSave()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PauseGameView", "OnClickSave");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.PauseGameView.OnItemHovered
+// (Final, Native, Private)
+
+void UPauseGameView::OnItemHovered()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PauseGameView", "OnItemHovered");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.PauseGameView.UIMenuBack
 // (Final, Native, Public)
 
-void UNavigationPanel::MoveSelectSlotToPreviousSlot()
+void UPauseGameView::UIMenuBack()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("NavigationPanel", "MoveSelectSlotToPreviousSlot");
+		Func = Class->GetFunction("PauseGameView", "UIMenuBack");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -24604,15 +24523,15 @@ void UNavigationPanel::MoveSelectSlotToPreviousSlot()
 }
 
 
-// Function Stalker2.NavigationPanel.TransitSelectSlotBack
+// Function Stalker2.PauseGameView.UIMenuConfirm
 // (Final, Native, Public)
 
-void UNavigationPanel::TransitSelectSlotBack()
+void UPauseGameView::UIMenuConfirm()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("NavigationPanel", "TransitSelectSlotBack");
+		Func = Class->GetFunction("PauseGameView", "UIMenuConfirm");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -24623,15 +24542,15 @@ void UNavigationPanel::TransitSelectSlotBack()
 }
 
 
-// Function Stalker2.NavigationPanel.TransitSelectSlotForward
+// Function Stalker2.PauseGameView.UIMenuMoveDown
 // (Final, Native, Public)
 
-void UNavigationPanel::TransitSelectSlotForward()
+void UPauseGameView::UIMenuMoveDown()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("NavigationPanel", "TransitSelectSlotForward");
+		Func = Class->GetFunction("PauseGameView", "UIMenuMoveDown");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -24642,15 +24561,15 @@ void UNavigationPanel::TransitSelectSlotForward()
 }
 
 
-// Function Stalker2.NavigationPanel.TransitSelectSlotRelease
+// Function Stalker2.PauseGameView.UIMenuMoveUp
 // (Final, Native, Public)
 
-void UNavigationPanel::TransitSelectSlotRelease()
+void UPauseGameView::UIMenuMoveUp()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("NavigationPanel", "TransitSelectSlotRelease");
+		Func = Class->GetFunction("PauseGameView", "UIMenuMoveUp");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -24661,15 +24580,15 @@ void UNavigationPanel::TransitSelectSlotRelease()
 }
 
 
-// Function Stalker2.NavigationPanel.TransitToNextSlot
+// Function Stalker2.PauseGameView.UIOptionsBack
 // (Final, Native, Public)
 
-void UNavigationPanel::TransitToNextSlot()
+void UPauseGameView::UIOptionsBack()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("NavigationPanel", "TransitToNextSlot");
+		Func = Class->GetFunction("PauseGameView", "UIOptionsBack");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -24680,34 +24599,15 @@ void UNavigationPanel::TransitToNextSlot()
 }
 
 
-// Function Stalker2.PlatformSwitcherBase.InitWidget
-// (Final, Native, Public, BlueprintCallable)
+// Function Stalker2.PauseGameView.UpdateShowDebugMenu
+// (Final, Native, Private)
 
-void UPlatformSwitcherBase::InitWidget()
+void UPauseGameView::UpdateShowDebugMenu()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("PlatformSwitcherBase", "InitWidget");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.PlatformSwitcherBase.UpdateWidget
-// (Native, Public)
-
-void UPlatformSwitcherBase::UpdateWidget()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PlatformSwitcherBase", "UpdateWidget");
+		Func = Class->GetFunction("PauseGameView", "UpdateShowDebugMenu");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -24831,97 +24731,21 @@ class UInteractionComponent* APC::GetInteractionTarget() const
 }
 
 
-// Function Stalker2.PopupView.Cancel
-// (Final, Native, Public)
-
-void UPopupView::Cancel()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PopupView", "Cancel");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.PopupView.Confirm
-// (Final, Native, Public)
-
-void UPopupView::Confirm()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PopupView", "Confirm");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.PopupView.Discard
-// (Final, Native, Public)
-
-void UPopupView::Discard()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PopupView", "Discard");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.PopupView.Retry
-// (Final, Native, Public)
-
-void UPopupView::Retry()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PopupView", "Retry");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Stalker2.Projectile.OnOverlap
-// (Final, Native, Public, HasOutParams)
+// Function Stalker2.PDAQuestDetails.StageClick
+// (Final, Native, Protected)
 // Parameters:
-// struct FHitResult                       Hit                                                    (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+// class UPDAQuestTaskSlot*                InSlot                                                 (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void AProjectile::OnOverlap(const struct FHitResult& Hit)
+void UPDAQuestDetails::StageClick(class UPDAQuestTaskSlot* InSlot)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("Projectile", "OnOverlap");
+		Func = Class->GetFunction("PDAQuestDetails", "StageClick");
 
-	Params::Projectile_OnOverlap Parms{};
+	Params::PDAQuestDetails_StageClick Parms{};
 
-	Parms.Hit = std::move(Hit);
+	Parms.InSlot = InSlot;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -24932,31 +24756,21 @@ void AProjectile::OnOverlap(const struct FHitResult& Hit)
 }
 
 
-// Function Stalker2.PsyVolumeComponent.OnBeginOverlap
-// (Final, Native, Private, HasOutParams)
+// Function Stalker2.PDAQuestDetails.UpdateDescriptionHover
+// (Final, Native, Protected)
 // Parameters:
-// class UPrimitiveComponent*              OverlappedComponent                                    (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class AActor*                           OtherActor                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UPrimitiveComponent*              OtherComp                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int32                                   OtherBodyIndex                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bFromSweep                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FHitResult                       SweepResult                                            (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+// bool                                    bIsHovered                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UPsyVolumeComponent::OnBeginOverlap(class UPrimitiveComponent* OverlappedComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const struct FHitResult& SweepResult)
+void UPDAQuestDetails::UpdateDescriptionHover(bool bIsHovered)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("PsyVolumeComponent", "OnBeginOverlap");
+		Func = Class->GetFunction("PDAQuestDetails", "UpdateDescriptionHover");
 
-	Params::PsyVolumeComponent_OnBeginOverlap Parms{};
+	Params::PDAQuestDetails_UpdateDescriptionHover Parms{};
 
-	Parms.OverlappedComponent = OverlappedComponent;
-	Parms.OtherActor = OtherActor;
-	Parms.OtherComp = OtherComp;
-	Parms.OtherBodyIndex = OtherBodyIndex;
-	Parms.bFromSweep = bFromSweep;
-	Parms.SweepResult = std::move(SweepResult);
+	Parms.bIsHovered = bIsHovered;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -24967,32 +24781,228 @@ void UPsyVolumeComponent::OnBeginOverlap(class UPrimitiveComponent* OverlappedCo
 }
 
 
-// Function Stalker2.PsyVolumeComponent.OnEndOverlap
-// (Final, Native, Private)
+// Function Stalker2.PDAQuestDetails.UpdateStageHover
+// (Final, Native, Protected)
 // Parameters:
-// class UPrimitiveComponent*              OverlappedComponent                                    (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class AActor*                           OtherActor                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UPrimitiveComponent*              OtherComp                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int32                                   OtherBodyIndex                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bIsStageHovered                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UPsyVolumeComponent::OnEndOverlap(class UPrimitiveComponent* OverlappedComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
+void UPDAQuestDetails::UpdateStageHover(bool bIsStageHovered)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("PsyVolumeComponent", "OnEndOverlap");
+		Func = Class->GetFunction("PDAQuestDetails", "UpdateStageHover");
 
-	Params::PsyVolumeComponent_OnEndOverlap Parms{};
+	Params::PDAQuestDetails_UpdateStageHover Parms{};
 
-	Parms.OverlappedComponent = OverlappedComponent;
-	Parms.OtherActor = OtherActor;
-	Parms.OtherComp = OtherComp;
-	Parms.OtherBodyIndex = OtherBodyIndex;
+	Parms.bIsStageHovered = bIsStageHovered;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.PDAQuestDetails.UpdateStageSlotHover
+// (Final, Native, Protected)
+
+void UPDAQuestDetails::UpdateStageSlotHover()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PDAQuestDetails", "UpdateStageSlotHover");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.PDAQuestPanel.ChangeSelectedQuestSlot
+// (Final, Native, Protected)
+// Parameters:
+// int32                                   JournalQuestIndex                                      (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UPDAQuestPanel::ChangeSelectedQuestSlot(const int32 JournalQuestIndex)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PDAQuestPanel", "ChangeSelectedQuestSlot");
+
+	Params::PDAQuestPanel_ChangeSelectedQuestSlot Parms{};
+
+	Parms.JournalQuestIndex = JournalQuestIndex;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.PlayerContextualAction.ActionEnd
+// (Final, Native, Public)
+
+void APlayerContextualAction::ActionEnd()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PlayerContextualAction", "ActionEnd");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.PlayerContextualAction.ActionStart
+// (Final, Native, Public)
+
+void APlayerContextualAction::ActionStart()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PlayerContextualAction", "ActionStart");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.PlayVideoWidget.EndVideo
+// (Native, Public, BlueprintCallable)
+
+void UPlayVideoWidget::EndVideo()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PlayVideoWidget", "EndVideo");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.PlayVideoWidget.SkipVideo
+// (Final, Native, Protected, BlueprintCallable)
+
+void UPlayVideoWidget::SkipVideo()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PlayVideoWidget", "SkipVideo");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.PlayVideoWidget.GetVideoDuration
+// (Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+float UPlayVideoWidget::GetVideoDuration() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PlayVideoWidget", "GetVideoDuration");
+
+	Params::PlayVideoWidget_GetVideoDuration Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function Stalker2.PresentationSubsystem.GoToMainMenu
+// (Final, Native, Public, BlueprintCallable)
+
+void UPresentationSubsystem::GoToMainMenu()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PresentationSubsystem", "GoToMainMenu");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.PresentationSubsystem.ResumeGame
+// (Final, Native, Public, BlueprintCallable)
+
+void UPresentationSubsystem::ResumeGame()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PresentationSubsystem", "ResumeGame");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.QuickSlot.StopCooldown
+// (Final, Native, Public)
+
+void UQuickSlot::StopCooldown()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("QuickSlot", "StopCooldown");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
 
 	Func->FunctionFlags = Flgs;
 }
@@ -25069,15 +25079,15 @@ void URightClickMenuWidget::OnNoItemClick()
 }
 
 
-// Function Stalker2.SettingElementButton.ChangeLegendOnHovered
-// (Final, Native, Private)
+// Function Stalker2.SafeZoneWidget.HandleEditSafeZoneMoveBordersDecreaseHeight
+// (Final, Exec, Native, Private)
 
-void USettingElementButton::ChangeLegendOnHovered()
+void USafeZoneWidget::HandleEditSafeZoneMoveBordersDecreaseHeight()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("SettingElementButton", "ChangeLegendOnHovered");
+		Func = Class->GetFunction("SafeZoneWidget", "HandleEditSafeZoneMoveBordersDecreaseHeight");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -25088,15 +25098,15 @@ void USettingElementButton::ChangeLegendOnHovered()
 }
 
 
-// Function Stalker2.SettingElementButton.ChangeLegendOnUnhovered
-// (Final, Native, Private)
+// Function Stalker2.SafeZoneWidget.HandleEditSafeZoneMoveBordersDecreaseWidth
+// (Final, Exec, Native, Private)
 
-void USettingElementButton::ChangeLegendOnUnhovered()
+void USafeZoneWidget::HandleEditSafeZoneMoveBordersDecreaseWidth()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("SettingElementButton", "ChangeLegendOnUnhovered");
+		Func = Class->GetFunction("SafeZoneWidget", "HandleEditSafeZoneMoveBordersDecreaseWidth");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -25107,23 +25117,97 @@ void USettingElementButton::ChangeLegendOnUnhovered()
 }
 
 
-// Function Stalker2.SettingsElementPercent.SetValue
-// (Native, Public, BlueprintCallable)
+// Function Stalker2.SafeZoneWidget.HandleEditSafeZoneMoveBordersIncreaseHeight
+// (Final, Exec, Native, Private)
+
+void USafeZoneWidget::HandleEditSafeZoneMoveBordersIncreaseHeight()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SafeZoneWidget", "HandleEditSafeZoneMoveBordersIncreaseHeight");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.SafeZoneWidget.HandleEditSafeZoneMoveBordersIncreaseWidth
+// (Final, Exec, Native, Private)
+
+void USafeZoneWidget::HandleEditSafeZoneMoveBordersIncreaseWidth()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SafeZoneWidget", "HandleEditSafeZoneMoveBordersIncreaseWidth");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.SettingElementSwitcher.SortValues
+// (Final, Native, Private)
+
+void USettingElementSwitcher::SortValues()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SettingElementSwitcher", "SortValues");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.ShootingWeaponComponent.Shoot
+// (Final, Native, Public, BlueprintCallable)
+
+void UShootingWeaponComponent::Shoot()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ShootingWeaponComponent", "Shoot");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.ShootingWeaponComponent.ShootWithOwnerOverride
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// float                                   InValue                                                (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bForce                                                 (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UObject*                          OwnerOverride                                          (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void USettingsElementPercent::SetValue(const float InValue, const bool bForce)
+void UShootingWeaponComponent::ShootWithOwnerOverride(class UObject* OwnerOverride)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("SettingsElementPercent", "SetValue");
+		Func = Class->GetFunction("ShootingWeaponComponent", "ShootWithOwnerOverride");
 
-	Params::SettingsElementPercent_SetValue Parms{};
+	Params::ShootingWeaponComponent_ShootWithOwnerOverride Parms{};
 
-	Parms.InValue = InValue;
-	Parms.bForce = bForce;
+	Parms.OwnerOverride = OwnerOverride;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -25232,6 +25316,90 @@ void USystemNotificationWidget::ProceedInput()
 	UObject::ProcessEvent(Func, nullptr);
 
 	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.TelekineticShield.OnDeathParticleFinished
+// (Final, Native, Private)
+// Parameters:
+// class UNiagaraComponent*                DeathVFXComponent                                      (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void ATelekineticShield::OnDeathParticleFinished(class UNiagaraComponent* DeathVFXComponent)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("TelekineticShield", "OnDeathParticleFinished");
+
+	Params::TelekineticShield_OnDeathParticleFinished Parms{};
+
+	Parms.DeathVFXComponent = DeathVFXComponent;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.TelekineticShield.OnHitReceivedBP
+// (Event, Protected, BlueprintEvent)
+// Parameters:
+// struct FCommonHitArgs                   HitArgs                                                (Parm, ContainsInstancedReference, NativeAccessSpecifierPublic)
+
+void ATelekineticShield::OnHitReceivedBP(const struct FCommonHitArgs& HitArgs)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("TelekineticShield", "OnHitReceivedBP");
+
+	Params::TelekineticShield_OnHitReceivedBP Parms{};
+
+	Parms.HitArgs = std::move(HitArgs);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function Stalker2.TelekineticShield.OnShieldDestroyedBP
+// (Event, Protected, BlueprintEvent)
+
+void ATelekineticShield::OnShieldDestroyedBP()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("TelekineticShield", "OnShieldDestroyedBP");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function Stalker2.TelekineticShield.GetOwnerActor
+// (Final, Native, Protected, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// class AObj*                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class AObj* ATelekineticShield::GetOwnerActor() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("TelekineticShield", "GetOwnerActor");
+
+	Params::TelekineticShield_GetOwnerActor Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
 }
 
 
@@ -26583,6 +26751,48 @@ void UUpgradePage::UpdatePanel()
 }
 
 
+// DelegateFunction Stalker2.UpgradeSection.OnAnimationProgress__DelegateSignature
+// (MulticastDelegate, Public, Delegate)
+// Parameters:
+// float                                   Alpha                                                  (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bShowing                                               (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UUpgradeSection::OnAnimationProgress__DelegateSignature(const float Alpha, const bool bShowing)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UpgradeSection", "OnAnimationProgress__DelegateSignature");
+
+	Params::UpgradeSection_OnAnimationProgress__DelegateSignature Parms{};
+
+	Parms.Alpha = Alpha;
+	Parms.bShowing = bShowing;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// DelegateFunction Stalker2.UpgradeSection.OnSectionClicked__DelegateSignature
+// (MulticastDelegate, Public, Delegate)
+// Parameters:
+// class UUpgradeSection*                  ClickedSection                                         (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UUpgradeSection::OnSectionClicked__DelegateSignature(class UUpgradeSection* ClickedSection)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UpgradeSection", "OnSectionClicked__DelegateSignature");
+
+	Params::UpgradeSection_OnSectionClicked__DelegateSignature Parms{};
+
+	Parms.ClickedSection = ClickedSection;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
 // Function Stalker2.UpgradeSection.RebuildSections
 // (Event, Public, BlueprintEvent)
 
@@ -26673,58 +26883,78 @@ void UUpgradeSection::ToggleSection()
 }
 
 
-// Function Stalker2.UpgradeSlot.Highlight
+// Function Stalker2.UserMarkerCounter.UpdateMarkerCounterWidget
 // (Final, Native, Public)
+// Parameters:
+// int32                                   NewAmount                                              (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UUpgradeSlot::Highlight()
+void UUserMarkerCounter::UpdateMarkerCounterWidget(const int32 NewAmount)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("UpgradeSlot", "Highlight");
+		Func = Class->GetFunction("UserMarkerCounter", "UpdateMarkerCounterWidget");
+
+	Params::UserMarkerCounter_UpdateMarkerCounterWidget Parms{};
+
+	Parms.NewAmount = NewAmount;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	UObject::ProcessEvent(Func, nullptr);
+	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
 }
 
 
-// Function Stalker2.UpgradeSlot.OnUpgradeButtonClick
+// Function Stalker2.UserMarkerSelector.HoverButton
 // (Final, Native, Public)
+// Parameters:
+// class UUserMarkerSelectorButton*        InHoveredButton                                        (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UUpgradeSlot::OnUpgradeButtonClick()
+void UUserMarkerSelector::HoverButton(class UUserMarkerSelectorButton* InHoveredButton)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("UpgradeSlot", "OnUpgradeButtonClick");
+		Func = Class->GetFunction("UserMarkerSelector", "HoverButton");
+
+	Params::UserMarkerSelector_HoverButton Parms{};
+
+	Parms.InHoveredButton = InHoveredButton;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	UObject::ProcessEvent(Func, nullptr);
+	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
 }
 
 
-// Function Stalker2.UpgradeSlot.Unhighlight
-// (Final, Native, Public)
+// Function Stalker2.UserMarkerSelector.PressedButton
+// (Final, Native, Public, HasOutParams, HasDefaults)
+// Parameters:
+// EMarkerType                             MarkType                                               (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FVector                          Coordinates                                            (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UUpgradeSlot::Unhighlight()
+void UUserMarkerSelector::PressedButton(const EMarkerType MarkType, const struct FVector& Coordinates)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("UpgradeSlot", "Unhighlight");
+		Func = Class->GetFunction("UserMarkerSelector", "PressedButton");
+
+	Params::UserMarkerSelector_PressedButton Parms{};
+
+	Parms.MarkType = MarkType;
+	Parms.Coordinates = std::move(Coordinates);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	UObject::ProcessEvent(Func, nullptr);
+	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
 }
@@ -26974,33 +27204,6 @@ void UVideoLoadingScreenWidget::EndVideo()
 }
 
 
-// Function Stalker2.VoiceoverSpeechComponent.OnAKEventFinished
-// (Final, Native, Private)
-// Parameters:
-// EAkCallbackType                         CallbackType                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UAkCallbackInfo*                  CallbackInfo                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UVoiceoverSpeechComponent::OnAKEventFinished(EAkCallbackType CallbackType, class UAkCallbackInfo* CallbackInfo)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("VoiceoverSpeechComponent", "OnAKEventFinished");
-
-	Params::VoiceoverSpeechComponent_OnAKEventFinished Parms{};
-
-	Parms.CallbackType = CallbackType;
-	Parms.CallbackInfo = CallbackInfo;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function Stalker2.VortexAnomaly.OnVortexBeginOverlap
 // (Final, Native, Protected, HasOutParams)
 // Parameters:
@@ -27148,6 +27351,60 @@ void AWanderingLightsArchiAnomaly::CreateVFX(bool bEnable)
 	Params::WanderingLightsArchiAnomaly_CreateVFX Parms{};
 
 	Parms.bEnable = bEnable;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.WaterComponent.OnBeginOverlap
+// (Final, Native, Public)
+// Parameters:
+// class AActor*                           OverlappedComponent                                    (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AActor*                           OtherActor                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UWaterComponent::OnBeginOverlap(class AActor* OverlappedComponent, class AActor* OtherActor)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("WaterComponent", "OnBeginOverlap");
+
+	Params::WaterComponent_OnBeginOverlap Parms{};
+
+	Parms.OverlappedComponent = OverlappedComponent;
+	Parms.OtherActor = OtherActor;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Stalker2.WaterComponent.OnEndOverlap
+// (Final, Native, Public)
+// Parameters:
+// class AActor*                           OverlappedComponent                                    (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AActor*                           OtherActor                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UWaterComponent::OnEndOverlap(class AActor* OverlappedComponent, class AActor* OtherActor)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("WaterComponent", "OnEndOverlap");
+
+	Params::WaterComponent_OnEndOverlap Parms{};
+
+	Parms.OverlappedComponent = OverlappedComponent;
+	Parms.OtherActor = OtherActor;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;

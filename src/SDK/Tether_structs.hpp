@@ -284,14 +284,14 @@ public:
 	uint32                                        ParticleUniqueId;                                  // 0x0000(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bFree;                                             // 0x0004(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_5[0x3];                                        // 0x0005(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                position;                                          // 0x0008(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Position;                                          // 0x0008(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector                                OldPosition;                                       // 0x0020(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FTetherSimulationParticle) == 0x000008, "Wrong alignment on FTetherSimulationParticle");
 static_assert(sizeof(FTetherSimulationParticle) == 0x000038, "Wrong size on FTetherSimulationParticle");
 static_assert(offsetof(FTetherSimulationParticle, ParticleUniqueId) == 0x000000, "Member 'FTetherSimulationParticle::ParticleUniqueId' has a wrong offset!");
 static_assert(offsetof(FTetherSimulationParticle, bFree) == 0x000004, "Member 'FTetherSimulationParticle::bFree' has a wrong offset!");
-static_assert(offsetof(FTetherSimulationParticle, position) == 0x000008, "Member 'FTetherSimulationParticle::position' has a wrong offset!");
+static_assert(offsetof(FTetherSimulationParticle, Position) == 0x000008, "Member 'FTetherSimulationParticle::Position' has a wrong offset!");
 static_assert(offsetof(FTetherSimulationParticle, OldPosition) == 0x000020, "Member 'FTetherSimulationParticle::OldPosition' has a wrong offset!");
 
 // ScriptStruct Tether.TetherSimulationSegment

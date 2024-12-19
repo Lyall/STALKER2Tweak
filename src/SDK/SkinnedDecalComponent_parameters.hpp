@@ -83,7 +83,7 @@ public:
 	uint8                                         Pad_18[0x8];                                       // 0x0018(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FQuat                                  Rotation;                                          // 0x0020(0x0020)(ConstParm, Parm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FName                                   BoneName;                                          // 0x0040(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         size;                                              // 0x0048(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Size;                                              // 0x0048(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         SubUV;                                             // 0x004C(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         Index_0;                                           // 0x0050(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         ReturnValue;                                       // 0x0054(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -94,7 +94,7 @@ static_assert(sizeof(SkinnedDecalSampler_SpawnDecal) == 0x000060, "Wrong size on
 static_assert(offsetof(SkinnedDecalSampler_SpawnDecal, Location) == 0x000000, "Member 'SkinnedDecalSampler_SpawnDecal::Location' has a wrong offset!");
 static_assert(offsetof(SkinnedDecalSampler_SpawnDecal, Rotation) == 0x000020, "Member 'SkinnedDecalSampler_SpawnDecal::Rotation' has a wrong offset!");
 static_assert(offsetof(SkinnedDecalSampler_SpawnDecal, BoneName) == 0x000040, "Member 'SkinnedDecalSampler_SpawnDecal::BoneName' has a wrong offset!");
-static_assert(offsetof(SkinnedDecalSampler_SpawnDecal, size) == 0x000048, "Member 'SkinnedDecalSampler_SpawnDecal::size' has a wrong offset!");
+static_assert(offsetof(SkinnedDecalSampler_SpawnDecal, Size) == 0x000048, "Member 'SkinnedDecalSampler_SpawnDecal::Size' has a wrong offset!");
 static_assert(offsetof(SkinnedDecalSampler_SpawnDecal, SubUV) == 0x00004C, "Member 'SkinnedDecalSampler_SpawnDecal::SubUV' has a wrong offset!");
 static_assert(offsetof(SkinnedDecalSampler_SpawnDecal, Index_0) == 0x000050, "Member 'SkinnedDecalSampler_SpawnDecal::Index_0' has a wrong offset!");
 static_assert(offsetof(SkinnedDecalSampler_SpawnDecal, ReturnValue) == 0x000054, "Member 'SkinnedDecalSampler_SpawnDecal::ReturnValue' has a wrong offset!");

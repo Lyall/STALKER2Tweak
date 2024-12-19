@@ -10,8 +10,8 @@
 
 #include "Basic.hpp"
 
-#include "AnimGraphRuntime_structs.hpp"
 #include "Engine_structs.hpp"
+#include "AnimGraphRuntime_structs.hpp"
 #include "Stalker2_structs.hpp"
 #include "Stalker2_classes.hpp"
 
@@ -20,56 +20,56 @@ namespace SDK
 {
 
 // AnimBlueprintGeneratedClass AnimBP_Player_DeadBody.AnimBP_Player_DeadBody_C
-// 0x1970 (0x2DE0 - 0x1470)
+// 0x1980 (0x2E00 - 0x1480)
 class UAnimBP_Player_DeadBody_C final : public UAnimInstancePlayer
 {
 public:
-	struct FPointerToUberGraphFrame               UberGraphFrame;                                    // 0x1470(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
-	struct FAnimSubsystemInstance                 AnimBlueprintExtension_PropertyAccess;             // 0x1478(0x0008)()
-	struct FAnimSubsystemInstance                 AnimBlueprintExtension_Base;                       // 0x1480(0x0008)()
-	struct FAnimNode_LinkedInputPose              AnimGraphNode_LinkedInputPose_2;                   // 0x1488(0x00C8)()
-	struct FAnimNode_LinkedInputPose              AnimGraphNode_LinkedInputPose_1;                   // 0x1550(0x00C8)()
-	struct FAnimNode_LinkedInputPose              AnimGraphNode_LinkedInputPose;                     // 0x1618(0x00C8)()
-	struct FAnimNode_SaveCachedPose               AnimGraphNode_SaveCachedPose_3;                    // 0x16E0(0x0108)()
-	struct FAnimNode_SaveCachedPose               AnimGraphNode_SaveCachedPose_2;                    // 0x17E8(0x0108)()
-	struct FAnimNode_LinkedAnimGraph              AnimGraphNode_LinkedAnimGraph;                     // 0x18F0(0x00B8)()
-	struct FAnimNode_RefPose                      AnimGraphNode_IdentityPose_1;                      // 0x19A8(0x0010)()
-	struct FAnimNode_SaveCachedPose               AnimGraphNode_SaveCachedPose_1;                    // 0x19B8(0x0108)()
-	struct FAnimNode_SaveCachedPose               AnimGraphNode_SaveCachedPose;                      // 0x1AC0(0x0108)()
-	struct FAnimNode_UseCachedPose                AnimGraphNode_UseCachedPose_3;                     // 0x1BC8(0x0028)()
-	struct FAnimNode_UseCachedPose                AnimGraphNode_UseCachedPose_2;                     // 0x1BF0(0x0028)()
-	struct FAnimNode_UseCachedPose                AnimGraphNode_UseCachedPose_1;                     // 0x1C18(0x0028)()
-	struct FAnimNode_RefPose                      AnimGraphNode_IdentityPose;                        // 0x1C40(0x0010)()
-	struct FAnimNode_ConvertLocalToComponentSpace AnimGraphNode_LocalToComponentSpace;               // 0x1C50(0x0020)()
-	struct FAnimNode_ConvertComponentToLocalSpace AnimGraphNode_ComponentToLocalSpace;               // 0x1C70(0x0020)()
-	struct FAnimNode_Root                         AnimGraphNode_Root;                                // 0x1C90(0x0020)()
-	struct FAnimNode_TwoBoneIK_GSC                AnimGraphNode_TwoBoneIK_GSC;                       // 0x1CB0(0x0178)(ContainsInstancedReference)
-	struct FAnimNode_CopyBone                     AnimGraphNode_CopyBone_1;                          // 0x1E28(0x00F0)()
-	struct FAnimNode_CopyBone                     AnimGraphNode_CopyBone;                            // 0x1F18(0x00F0)()
-	struct FAnimNode_SmoothCopyBone_GSC           AnimGraphNode_SmoothCopyBone_GSC;                  // 0x2008(0x0160)(ContainsInstancedReference)
-	struct FAnimNode_ModifyBone                   AnimGraphNode_ModifyBone_2;                        // 0x2168(0x0128)()
-	struct FAnimNode_ModifyBone                   AnimGraphNode_ModifyBone_1;                        // 0x2290(0x0128)()
-	struct FAnimNode_ModifyBone                   AnimGraphNode_ModifyBone;                          // 0x23B8(0x0128)()
-	struct FAnimNode_UseCachedPose                AnimGraphNode_UseCachedPose;                       // 0x24E0(0x0028)()
-	struct FAnimNode_SequencePlayer               AnimGraphNode_SequencePlayer;                      // 0x2508(0x0048)()
-	struct FAnimNode_LayeredBoneBlend             AnimGraphNode_LayeredBoneBlend;                    // 0x2550(0x00E0)()
-	struct FAnimCutsceneData                      m_CustomProperty_CutsceneData_7C281A534D7FB851623A079F48912BDE; // 0x2630(0x0008)(NoDestructor)
-	struct FAnimPlayerStealthData                 m_CustomProperty_StealthData_7C281A534D7FB851623A079F48912BDE; // 0x2638(0x0020)(NoDestructor)
-	struct FAnimPlayerShadowData                  m_CustomProperty_ShadowData_7C281A534D7FB851623A079F48912BDE; // 0x2658(0x0030)()
-	struct FAnimPlayerVaultingData                m_CustomProperty_VaultingData_7C281A534D7FB851623A079F48912BDE; // 0x2688(0x00B8)()
-	struct FAnimPlayerUnfocusableTargetData       m_CustomProperty_AnimPlayerUnfocusableTargetData_7C281A534D7FB851623A079F48912BDE; // 0x2740(0x0001)(NoDestructor)
-	struct FAnimPlayerDialogData                  m_CustomProperty_DialogData_7C281A534D7FB851623A079F48912BDE; // 0x2741(0x0001)(NoDestructor)
-	uint8                                         Pad_2742[0x6];                                     // 0x2742(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FAnimPlayerDodgeData                   m_CustomProperty_DodgeData_7C281A534D7FB851623A079F48912BDE; // 0x2748(0x0068)()
-	struct FAnimPlayerGuitarData                  m_CustomProperty_GuitarData_7C281A534D7FB851623A079F48912BDE; // 0x27B0(0x0024)(NoDestructor)
-	uint8                                         Pad_27D4[0x4];                                     // 0x27D4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FAnimPlayerHitData                     m_CustomProperty_HitData_7C281A534D7FB851623A079F48912BDE; // 0x27D8(0x0080)(NoDestructor)
-	struct FAnimPlayerDetectorData                m_CustomProperty_DetectorData_7C281A534D7FB851623A079F48912BDE; // 0x2858(0x0128)(NoDestructor, ContainsInstancedReference)
-	struct FAnimPlayerWeaponPushbackData          m_CustomProperty_WeaponPushbackData_7C281A534D7FB851623A079F48912BDE; // 0x2980(0x0080)(NoDestructor)
-	struct FAnimPlayerCollectionsData             m_CustomProperty_CollectionData_7C281A534D7FB851623A079F48912BDE; // 0x2A00(0x0328)()
-	struct FAnimPlayerStateData                   m_CustomProperty_StateData_7C281A534D7FB851623A079F48912BDE; // 0x2D28(0x003C)(NoDestructor)
-	uint8                                         Pad_2D64[0x4];                                     // 0x2D64(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FAnimPlayerWeaponData                  m_CustomProperty_WeaponData_7C281A534D7FB851623A079F48912BDE; // 0x2D68(0x0078)(NoDestructor, ContainsInstancedReference)
+	struct FPointerToUberGraphFrame               UberGraphFrame;                                    // 0x1480(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
+	struct FAnimSubsystemInstance                 AnimBlueprintExtension_PropertyAccess;             // 0x1488(0x0008)()
+	struct FAnimSubsystemInstance                 AnimBlueprintExtension_Base;                       // 0x1490(0x0008)()
+	struct FAnimNode_LinkedInputPose              AnimGraphNode_LinkedInputPose_2;                   // 0x1498(0x00C8)()
+	struct FAnimNode_LinkedInputPose              AnimGraphNode_LinkedInputPose_1;                   // 0x1560(0x00C8)()
+	struct FAnimNode_LinkedInputPose              AnimGraphNode_LinkedInputPose;                     // 0x1628(0x00C8)()
+	struct FAnimNode_SaveCachedPose               AnimGraphNode_SaveCachedPose_3;                    // 0x16F0(0x0108)()
+	struct FAnimNode_SaveCachedPose               AnimGraphNode_SaveCachedPose_2;                    // 0x17F8(0x0108)()
+	struct FAnimNode_LinkedAnimGraph              AnimGraphNode_LinkedAnimGraph;                     // 0x1900(0x00B8)()
+	struct FAnimNode_RefPose                      AnimGraphNode_IdentityPose_1;                      // 0x19B8(0x0010)()
+	struct FAnimNode_SaveCachedPose               AnimGraphNode_SaveCachedPose_1;                    // 0x19C8(0x0108)()
+	struct FAnimNode_SaveCachedPose               AnimGraphNode_SaveCachedPose;                      // 0x1AD0(0x0108)()
+	struct FAnimNode_UseCachedPose                AnimGraphNode_UseCachedPose_3;                     // 0x1BD8(0x0028)()
+	struct FAnimNode_UseCachedPose                AnimGraphNode_UseCachedPose_2;                     // 0x1C00(0x0028)()
+	struct FAnimNode_UseCachedPose                AnimGraphNode_UseCachedPose_1;                     // 0x1C28(0x0028)()
+	struct FAnimNode_RefPose                      AnimGraphNode_IdentityPose;                        // 0x1C50(0x0010)()
+	struct FAnimNode_ConvertLocalToComponentSpace AnimGraphNode_LocalToComponentSpace;               // 0x1C60(0x0020)()
+	struct FAnimNode_ConvertComponentToLocalSpace AnimGraphNode_ComponentToLocalSpace;               // 0x1C80(0x0020)()
+	struct FAnimNode_Root                         AnimGraphNode_Root;                                // 0x1CA0(0x0020)()
+	struct FAnimNode_TwoBoneIK_GSC                AnimGraphNode_TwoBoneIK_GSC;                       // 0x1CC0(0x0178)(ContainsInstancedReference)
+	struct FAnimNode_CopyBone                     AnimGraphNode_CopyBone_1;                          // 0x1E38(0x00F0)()
+	struct FAnimNode_CopyBone                     AnimGraphNode_CopyBone;                            // 0x1F28(0x00F0)()
+	struct FAnimNode_SmoothCopyBone_GSC           AnimGraphNode_SmoothCopyBone_GSC;                  // 0x2018(0x0160)(ContainsInstancedReference)
+	struct FAnimNode_ModifyBone                   AnimGraphNode_ModifyBone_2;                        // 0x2178(0x0128)()
+	struct FAnimNode_ModifyBone                   AnimGraphNode_ModifyBone_1;                        // 0x22A0(0x0128)()
+	struct FAnimNode_ModifyBone                   AnimGraphNode_ModifyBone;                          // 0x23C8(0x0128)()
+	struct FAnimNode_UseCachedPose                AnimGraphNode_UseCachedPose;                       // 0x24F0(0x0028)()
+	struct FAnimNode_SequencePlayer               AnimGraphNode_SequencePlayer;                      // 0x2518(0x0048)()
+	struct FAnimNode_LayeredBoneBlend             AnimGraphNode_LayeredBoneBlend;                    // 0x2560(0x00E0)()
+	struct FAnimCutsceneData                      __CustomProperty_CutsceneData_7C281A534D7FB851623A079F48912BDE; // 0x2640(0x0008)(NoDestructor)
+	struct FAnimPlayerStealthData                 __CustomProperty_StealthData_7C281A534D7FB851623A079F48912BDE; // 0x2648(0x0020)(NoDestructor)
+	struct FAnimPlayerShadowData                  __CustomProperty_ShadowData_7C281A534D7FB851623A079F48912BDE; // 0x2668(0x0030)()
+	struct FAnimPlayerVaultingData                __CustomProperty_VaultingData_7C281A534D7FB851623A079F48912BDE; // 0x2698(0x00B8)()
+	struct FAnimPlayerUnfocusableTargetData       __CustomProperty_AnimPlayerUnfocusableTargetData_7C281A534D7FB851623A079F48912BDE; // 0x2750(0x0001)(NoDestructor)
+	uint8                                         Pad_2751[0x3];                                     // 0x2751(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FAnimPlayerDialogData                  __CustomProperty_DialogData_7C281A534D7FB851623A079F48912BDE; // 0x2754(0x0008)(NoDestructor)
+	uint8                                         Pad_275C[0x4];                                     // 0x275C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FAnimPlayerDodgeData                   __CustomProperty_DodgeData_7C281A534D7FB851623A079F48912BDE; // 0x2760(0x0068)()
+	struct FAnimPlayerGuitarData                  __CustomProperty_GuitarData_7C281A534D7FB851623A079F48912BDE; // 0x27C8(0x0024)(NoDestructor)
+	uint8                                         Pad_27EC[0x4];                                     // 0x27EC(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FAnimPlayerHitData                     __CustomProperty_HitData_7C281A534D7FB851623A079F48912BDE; // 0x27F0(0x0080)(NoDestructor)
+	struct FAnimPlayerDetectorData                __CustomProperty_DetectorData_7C281A534D7FB851623A079F48912BDE; // 0x2870(0x0128)(NoDestructor, ContainsInstancedReference)
+	struct FAnimPlayerWeaponPushbackData          __CustomProperty_WeaponPushbackData_7C281A534D7FB851623A079F48912BDE; // 0x2998(0x0080)(NoDestructor)
+	struct FAnimPlayerCollectionsData             __CustomProperty_CollectionData_7C281A534D7FB851623A079F48912BDE; // 0x2A18(0x0328)()
+	struct FAnimPlayerStateData                   __CustomProperty_StateData_7C281A534D7FB851623A079F48912BDE; // 0x2D40(0x0040)(NoDestructor)
+	struct FAnimPlayerWeaponData                  __CustomProperty_WeaponData_7C281A534D7FB851623A079F48912BDE; // 0x2D80(0x0078)(NoDestructor, ContainsInstancedReference)
 
 public:
 	void AnimGraph(const struct FPoseLink& Idle, const struct FPoseLink& Moving, const struct FPoseLink& Look, struct FPoseLink* AnimGraph_0);
@@ -86,50 +86,50 @@ public:
 	}
 };
 static_assert(alignof(UAnimBP_Player_DeadBody_C) == 0x000010, "Wrong alignment on UAnimBP_Player_DeadBody_C");
-static_assert(sizeof(UAnimBP_Player_DeadBody_C) == 0x002DE0, "Wrong size on UAnimBP_Player_DeadBody_C");
-static_assert(offsetof(UAnimBP_Player_DeadBody_C, UberGraphFrame) == 0x001470, "Member 'UAnimBP_Player_DeadBody_C::UberGraphFrame' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimBlueprintExtension_PropertyAccess) == 0x001478, "Member 'UAnimBP_Player_DeadBody_C::AnimBlueprintExtension_PropertyAccess' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimBlueprintExtension_Base) == 0x001480, "Member 'UAnimBP_Player_DeadBody_C::AnimBlueprintExtension_Base' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_LinkedInputPose_2) == 0x001488, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_LinkedInputPose_2' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_LinkedInputPose_1) == 0x001550, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_LinkedInputPose_1' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_LinkedInputPose) == 0x001618, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_LinkedInputPose' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_SaveCachedPose_3) == 0x0016E0, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_SaveCachedPose_3' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_SaveCachedPose_2) == 0x0017E8, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_SaveCachedPose_2' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_LinkedAnimGraph) == 0x0018F0, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_LinkedAnimGraph' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_IdentityPose_1) == 0x0019A8, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_IdentityPose_1' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_SaveCachedPose_1) == 0x0019B8, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_SaveCachedPose_1' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_SaveCachedPose) == 0x001AC0, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_SaveCachedPose' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_UseCachedPose_3) == 0x001BC8, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_UseCachedPose_3' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_UseCachedPose_2) == 0x001BF0, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_UseCachedPose_2' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_UseCachedPose_1) == 0x001C18, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_UseCachedPose_1' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_IdentityPose) == 0x001C40, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_IdentityPose' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_LocalToComponentSpace) == 0x001C50, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_LocalToComponentSpace' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_ComponentToLocalSpace) == 0x001C70, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_ComponentToLocalSpace' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_Root) == 0x001C90, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_Root' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_TwoBoneIK_GSC) == 0x001CB0, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_TwoBoneIK_GSC' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_CopyBone_1) == 0x001E28, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_CopyBone_1' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_CopyBone) == 0x001F18, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_CopyBone' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_SmoothCopyBone_GSC) == 0x002008, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_SmoothCopyBone_GSC' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_ModifyBone_2) == 0x002168, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_ModifyBone_2' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_ModifyBone_1) == 0x002290, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_ModifyBone_1' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_ModifyBone) == 0x0023B8, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_ModifyBone' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_UseCachedPose) == 0x0024E0, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_UseCachedPose' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_SequencePlayer) == 0x002508, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_SequencePlayer' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_LayeredBoneBlend) == 0x002550, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_LayeredBoneBlend' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_DeadBody_C, m_CustomProperty_CutsceneData_7C281A534D7FB851623A079F48912BDE) == 0x002630, "Member 'UAnimBP_Player_DeadBody_C::m_CustomProperty_CutsceneData_7C281A534D7FB851623A079F48912BDE' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_DeadBody_C, m_CustomProperty_StealthData_7C281A534D7FB851623A079F48912BDE) == 0x002638, "Member 'UAnimBP_Player_DeadBody_C::m_CustomProperty_StealthData_7C281A534D7FB851623A079F48912BDE' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_DeadBody_C, m_CustomProperty_ShadowData_7C281A534D7FB851623A079F48912BDE) == 0x002658, "Member 'UAnimBP_Player_DeadBody_C::m_CustomProperty_ShadowData_7C281A534D7FB851623A079F48912BDE' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_DeadBody_C, m_CustomProperty_VaultingData_7C281A534D7FB851623A079F48912BDE) == 0x002688, "Member 'UAnimBP_Player_DeadBody_C::m_CustomProperty_VaultingData_7C281A534D7FB851623A079F48912BDE' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_DeadBody_C, m_CustomProperty_AnimPlayerUnfocusableTargetData_7C281A534D7FB851623A079F48912BDE) == 0x002740, "Member 'UAnimBP_Player_DeadBody_C::m_CustomProperty_AnimPlayerUnfocusableTargetData_7C281A534D7FB851623A079F48912BDE' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_DeadBody_C, m_CustomProperty_DialogData_7C281A534D7FB851623A079F48912BDE) == 0x002741, "Member 'UAnimBP_Player_DeadBody_C::m_CustomProperty_DialogData_7C281A534D7FB851623A079F48912BDE' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_DeadBody_C, m_CustomProperty_DodgeData_7C281A534D7FB851623A079F48912BDE) == 0x002748, "Member 'UAnimBP_Player_DeadBody_C::m_CustomProperty_DodgeData_7C281A534D7FB851623A079F48912BDE' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_DeadBody_C, m_CustomProperty_GuitarData_7C281A534D7FB851623A079F48912BDE) == 0x0027B0, "Member 'UAnimBP_Player_DeadBody_C::m_CustomProperty_GuitarData_7C281A534D7FB851623A079F48912BDE' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_DeadBody_C, m_CustomProperty_HitData_7C281A534D7FB851623A079F48912BDE) == 0x0027D8, "Member 'UAnimBP_Player_DeadBody_C::m_CustomProperty_HitData_7C281A534D7FB851623A079F48912BDE' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_DeadBody_C, m_CustomProperty_DetectorData_7C281A534D7FB851623A079F48912BDE) == 0x002858, "Member 'UAnimBP_Player_DeadBody_C::m_CustomProperty_DetectorData_7C281A534D7FB851623A079F48912BDE' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_DeadBody_C, m_CustomProperty_WeaponPushbackData_7C281A534D7FB851623A079F48912BDE) == 0x002980, "Member 'UAnimBP_Player_DeadBody_C::m_CustomProperty_WeaponPushbackData_7C281A534D7FB851623A079F48912BDE' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_DeadBody_C, m_CustomProperty_CollectionData_7C281A534D7FB851623A079F48912BDE) == 0x002A00, "Member 'UAnimBP_Player_DeadBody_C::m_CustomProperty_CollectionData_7C281A534D7FB851623A079F48912BDE' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_DeadBody_C, m_CustomProperty_StateData_7C281A534D7FB851623A079F48912BDE) == 0x002D28, "Member 'UAnimBP_Player_DeadBody_C::m_CustomProperty_StateData_7C281A534D7FB851623A079F48912BDE' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_DeadBody_C, m_CustomProperty_WeaponData_7C281A534D7FB851623A079F48912BDE) == 0x002D68, "Member 'UAnimBP_Player_DeadBody_C::m_CustomProperty_WeaponData_7C281A534D7FB851623A079F48912BDE' has a wrong offset!");
+static_assert(sizeof(UAnimBP_Player_DeadBody_C) == 0x002E00, "Wrong size on UAnimBP_Player_DeadBody_C");
+static_assert(offsetof(UAnimBP_Player_DeadBody_C, UberGraphFrame) == 0x001480, "Member 'UAnimBP_Player_DeadBody_C::UberGraphFrame' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimBlueprintExtension_PropertyAccess) == 0x001488, "Member 'UAnimBP_Player_DeadBody_C::AnimBlueprintExtension_PropertyAccess' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimBlueprintExtension_Base) == 0x001490, "Member 'UAnimBP_Player_DeadBody_C::AnimBlueprintExtension_Base' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_LinkedInputPose_2) == 0x001498, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_LinkedInputPose_2' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_LinkedInputPose_1) == 0x001560, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_LinkedInputPose_1' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_LinkedInputPose) == 0x001628, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_LinkedInputPose' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_SaveCachedPose_3) == 0x0016F0, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_SaveCachedPose_3' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_SaveCachedPose_2) == 0x0017F8, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_SaveCachedPose_2' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_LinkedAnimGraph) == 0x001900, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_LinkedAnimGraph' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_IdentityPose_1) == 0x0019B8, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_IdentityPose_1' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_SaveCachedPose_1) == 0x0019C8, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_SaveCachedPose_1' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_SaveCachedPose) == 0x001AD0, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_SaveCachedPose' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_UseCachedPose_3) == 0x001BD8, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_UseCachedPose_3' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_UseCachedPose_2) == 0x001C00, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_UseCachedPose_2' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_UseCachedPose_1) == 0x001C28, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_UseCachedPose_1' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_IdentityPose) == 0x001C50, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_IdentityPose' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_LocalToComponentSpace) == 0x001C60, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_LocalToComponentSpace' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_ComponentToLocalSpace) == 0x001C80, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_ComponentToLocalSpace' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_Root) == 0x001CA0, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_Root' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_TwoBoneIK_GSC) == 0x001CC0, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_TwoBoneIK_GSC' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_CopyBone_1) == 0x001E38, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_CopyBone_1' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_CopyBone) == 0x001F28, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_CopyBone' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_SmoothCopyBone_GSC) == 0x002018, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_SmoothCopyBone_GSC' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_ModifyBone_2) == 0x002178, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_ModifyBone_2' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_ModifyBone_1) == 0x0022A0, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_ModifyBone_1' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_ModifyBone) == 0x0023C8, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_ModifyBone' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_UseCachedPose) == 0x0024F0, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_UseCachedPose' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_SequencePlayer) == 0x002518, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_SequencePlayer' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_DeadBody_C, AnimGraphNode_LayeredBoneBlend) == 0x002560, "Member 'UAnimBP_Player_DeadBody_C::AnimGraphNode_LayeredBoneBlend' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_DeadBody_C, __CustomProperty_CutsceneData_7C281A534D7FB851623A079F48912BDE) == 0x002640, "Member 'UAnimBP_Player_DeadBody_C::__CustomProperty_CutsceneData_7C281A534D7FB851623A079F48912BDE' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_DeadBody_C, __CustomProperty_StealthData_7C281A534D7FB851623A079F48912BDE) == 0x002648, "Member 'UAnimBP_Player_DeadBody_C::__CustomProperty_StealthData_7C281A534D7FB851623A079F48912BDE' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_DeadBody_C, __CustomProperty_ShadowData_7C281A534D7FB851623A079F48912BDE) == 0x002668, "Member 'UAnimBP_Player_DeadBody_C::__CustomProperty_ShadowData_7C281A534D7FB851623A079F48912BDE' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_DeadBody_C, __CustomProperty_VaultingData_7C281A534D7FB851623A079F48912BDE) == 0x002698, "Member 'UAnimBP_Player_DeadBody_C::__CustomProperty_VaultingData_7C281A534D7FB851623A079F48912BDE' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_DeadBody_C, __CustomProperty_AnimPlayerUnfocusableTargetData_7C281A534D7FB851623A079F48912BDE) == 0x002750, "Member 'UAnimBP_Player_DeadBody_C::__CustomProperty_AnimPlayerUnfocusableTargetData_7C281A534D7FB851623A079F48912BDE' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_DeadBody_C, __CustomProperty_DialogData_7C281A534D7FB851623A079F48912BDE) == 0x002754, "Member 'UAnimBP_Player_DeadBody_C::__CustomProperty_DialogData_7C281A534D7FB851623A079F48912BDE' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_DeadBody_C, __CustomProperty_DodgeData_7C281A534D7FB851623A079F48912BDE) == 0x002760, "Member 'UAnimBP_Player_DeadBody_C::__CustomProperty_DodgeData_7C281A534D7FB851623A079F48912BDE' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_DeadBody_C, __CustomProperty_GuitarData_7C281A534D7FB851623A079F48912BDE) == 0x0027C8, "Member 'UAnimBP_Player_DeadBody_C::__CustomProperty_GuitarData_7C281A534D7FB851623A079F48912BDE' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_DeadBody_C, __CustomProperty_HitData_7C281A534D7FB851623A079F48912BDE) == 0x0027F0, "Member 'UAnimBP_Player_DeadBody_C::__CustomProperty_HitData_7C281A534D7FB851623A079F48912BDE' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_DeadBody_C, __CustomProperty_DetectorData_7C281A534D7FB851623A079F48912BDE) == 0x002870, "Member 'UAnimBP_Player_DeadBody_C::__CustomProperty_DetectorData_7C281A534D7FB851623A079F48912BDE' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_DeadBody_C, __CustomProperty_WeaponPushbackData_7C281A534D7FB851623A079F48912BDE) == 0x002998, "Member 'UAnimBP_Player_DeadBody_C::__CustomProperty_WeaponPushbackData_7C281A534D7FB851623A079F48912BDE' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_DeadBody_C, __CustomProperty_CollectionData_7C281A534D7FB851623A079F48912BDE) == 0x002A18, "Member 'UAnimBP_Player_DeadBody_C::__CustomProperty_CollectionData_7C281A534D7FB851623A079F48912BDE' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_DeadBody_C, __CustomProperty_StateData_7C281A534D7FB851623A079F48912BDE) == 0x002D40, "Member 'UAnimBP_Player_DeadBody_C::__CustomProperty_StateData_7C281A534D7FB851623A079F48912BDE' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_DeadBody_C, __CustomProperty_WeaponData_7C281A534D7FB851623A079F48912BDE) == 0x002D80, "Member 'UAnimBP_Player_DeadBody_C::__CustomProperty_WeaponData_7C281A534D7FB851623A079F48912BDE' has a wrong offset!");
 
 }
 

@@ -47,14 +47,16 @@ class UTypedElementSelectionSet final : public UObject
 {
 public:
 	uint8                                         Pad_28[0x800];                                     // 0x0028(0x0800)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void(class UTypedElementSelectionSet* SelectionSet)> OnPreSelectionChange;                              // 0x0828(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void(class UTypedElementSelectionSet* SelectionSet)> OnSelectionChange;                                 // 0x0838(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnPreSelectionChange;                              // 0x0828(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             OnSelectionChange;                                 // 0x0838(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 	uint8                                         Pad_848[0x50];                                     // 0x0848(0x0050)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	bool ClearSelection(const struct FTypedElementSelectionOptions& InSelectionOptions);
 	bool DeselectElement(const struct FScriptTypedElementHandle& InElementHandle, const struct FTypedElementSelectionOptions& InSelectionOptions);
 	bool DeselectElements(const TArray<struct FScriptTypedElementHandle>& InElementHandles, const struct FTypedElementSelectionOptions& InSelectionOptions);
+	void OnChangeDynamic__DelegateSignature(const class UTypedElementSelectionSet* SelectionSet);
+	void OnPreChangeDynamic__DelegateSignature(const class UTypedElementSelectionSet* SelectionSet);
 	void RestoreSelectionState(const struct FTypedElementSelectionSetState& InSelectionState);
 	bool SelectElement(const struct FScriptTypedElementHandle& InElementHandle, const struct FTypedElementSelectionOptions& InSelectionOptions);
 	bool SelectElements(const TArray<struct FScriptTypedElementHandle>& InElementHandles, const struct FTypedElementSelectionOptions& InSelectionOptions);

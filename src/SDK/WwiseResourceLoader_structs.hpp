@@ -76,6 +76,19 @@ static_assert(offsetof(FWwiseAcousticTextureCookedData, AbsorptionHigh) == 0x000
 static_assert(offsetof(FWwiseAcousticTextureCookedData, ShortId) == 0x000010, "Member 'FWwiseAcousticTextureCookedData::ShortId' has a wrong offset!");
 static_assert(offsetof(FWwiseAcousticTextureCookedData, DebugName) == 0x000014, "Member 'FWwiseAcousticTextureCookedData::DebugName' has a wrong offset!");
 
+// ScriptStruct WwiseResourceLoader.WwiseGameParameterCookedData
+// 0x000C (0x000C - 0x0000)
+struct FWwiseGameParameterCookedData final
+{
+public:
+	int32                                         ShortId;                                           // 0x0000(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnTemplate, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   DebugName;                                         // 0x0004(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnTemplate, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(FWwiseGameParameterCookedData) == 0x000004, "Wrong alignment on FWwiseGameParameterCookedData");
+static_assert(sizeof(FWwiseGameParameterCookedData) == 0x00000C, "Wrong size on FWwiseGameParameterCookedData");
+static_assert(offsetof(FWwiseGameParameterCookedData, ShortId) == 0x000000, "Member 'FWwiseGameParameterCookedData::ShortId' has a wrong offset!");
+static_assert(offsetof(FWwiseGameParameterCookedData, DebugName) == 0x000004, "Member 'FWwiseGameParameterCookedData::DebugName' has a wrong offset!");
+
 // ScriptStruct WwiseResourceLoader.WwiseAudioDeviceShareSetCookedData
 // 0x000C (0x000C - 0x0000)
 struct FWwiseAudioDeviceShareSetCookedData final
@@ -88,24 +101,6 @@ static_assert(alignof(FWwiseAudioDeviceShareSetCookedData) == 0x000004, "Wrong a
 static_assert(sizeof(FWwiseAudioDeviceShareSetCookedData) == 0x00000C, "Wrong size on FWwiseAudioDeviceShareSetCookedData");
 static_assert(offsetof(FWwiseAudioDeviceShareSetCookedData, ShortId) == 0x000000, "Member 'FWwiseAudioDeviceShareSetCookedData::ShortId' has a wrong offset!");
 static_assert(offsetof(FWwiseAudioDeviceShareSetCookedData, DebugName) == 0x000004, "Member 'FWwiseAudioDeviceShareSetCookedData::DebugName' has a wrong offset!");
-
-// ScriptStruct WwiseResourceLoader.WwiseAuxBusCookedData
-// 0x0030 (0x0030 - 0x0000)
-struct FWwiseAuxBusCookedData final
-{
-public:
-	int32                                         AuxBusId;                                          // 0x0000(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnTemplate, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FWwiseSoundBankCookedData>      SoundBanks;                                        // 0x0008(0x0010)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnTemplate, EditConst, NativeAccessSpecifierPublic)
-	TArray<struct FWwiseMediaCookedData>          Media;                                             // 0x0018(0x0010)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnTemplate, EditConst, NativeAccessSpecifierPublic)
-	class FName                                   DebugName;                                         // 0x0028(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnTemplate, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(FWwiseAuxBusCookedData) == 0x000008, "Wrong alignment on FWwiseAuxBusCookedData");
-static_assert(sizeof(FWwiseAuxBusCookedData) == 0x000030, "Wrong size on FWwiseAuxBusCookedData");
-static_assert(offsetof(FWwiseAuxBusCookedData, AuxBusId) == 0x000000, "Member 'FWwiseAuxBusCookedData::AuxBusId' has a wrong offset!");
-static_assert(offsetof(FWwiseAuxBusCookedData, SoundBanks) == 0x000008, "Member 'FWwiseAuxBusCookedData::SoundBanks' has a wrong offset!");
-static_assert(offsetof(FWwiseAuxBusCookedData, Media) == 0x000018, "Member 'FWwiseAuxBusCookedData::Media' has a wrong offset!");
-static_assert(offsetof(FWwiseAuxBusCookedData, DebugName) == 0x000028, "Member 'FWwiseAuxBusCookedData::DebugName' has a wrong offset!");
 
 // ScriptStruct WwiseResourceLoader.WwiseGroupValueCookedData
 // 0x0014 (0x0014 - 0x0000)
@@ -170,18 +165,23 @@ static_assert(offsetof(FWwiseEventCookedData, RequiredGroupValueSet) == 0x000048
 static_assert(offsetof(FWwiseEventCookedData, DestroyOptions) == 0x000098, "Member 'FWwiseEventCookedData::DestroyOptions' has a wrong offset!");
 static_assert(offsetof(FWwiseEventCookedData, DebugName) == 0x00009C, "Member 'FWwiseEventCookedData::DebugName' has a wrong offset!");
 
-// ScriptStruct WwiseResourceLoader.WwiseTriggerCookedData
-// 0x000C (0x000C - 0x0000)
-struct FWwiseTriggerCookedData final
+// ScriptStruct WwiseResourceLoader.WwiseAuxBusCookedData
+// 0x0030 (0x0030 - 0x0000)
+struct FWwiseAuxBusCookedData final
 {
 public:
-	int32                                         TriggerId;                                         // 0x0000(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnTemplate, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   DebugName;                                         // 0x0004(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnTemplate, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         AuxBusId;                                          // 0x0000(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnTemplate, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FWwiseSoundBankCookedData>      SoundBanks;                                        // 0x0008(0x0010)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnTemplate, EditConst, NativeAccessSpecifierPublic)
+	TArray<struct FWwiseMediaCookedData>          Media;                                             // 0x0018(0x0010)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnTemplate, EditConst, NativeAccessSpecifierPublic)
+	class FName                                   DebugName;                                         // 0x0028(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnTemplate, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(FWwiseTriggerCookedData) == 0x000004, "Wrong alignment on FWwiseTriggerCookedData");
-static_assert(sizeof(FWwiseTriggerCookedData) == 0x00000C, "Wrong size on FWwiseTriggerCookedData");
-static_assert(offsetof(FWwiseTriggerCookedData, TriggerId) == 0x000000, "Member 'FWwiseTriggerCookedData::TriggerId' has a wrong offset!");
-static_assert(offsetof(FWwiseTriggerCookedData, DebugName) == 0x000004, "Member 'FWwiseTriggerCookedData::DebugName' has a wrong offset!");
+static_assert(alignof(FWwiseAuxBusCookedData) == 0x000008, "Wrong alignment on FWwiseAuxBusCookedData");
+static_assert(sizeof(FWwiseAuxBusCookedData) == 0x000030, "Wrong size on FWwiseAuxBusCookedData");
+static_assert(offsetof(FWwiseAuxBusCookedData, AuxBusId) == 0x000000, "Member 'FWwiseAuxBusCookedData::AuxBusId' has a wrong offset!");
+static_assert(offsetof(FWwiseAuxBusCookedData, SoundBanks) == 0x000008, "Member 'FWwiseAuxBusCookedData::SoundBanks' has a wrong offset!");
+static_assert(offsetof(FWwiseAuxBusCookedData, Media) == 0x000018, "Member 'FWwiseAuxBusCookedData::Media' has a wrong offset!");
+static_assert(offsetof(FWwiseAuxBusCookedData, DebugName) == 0x000028, "Member 'FWwiseAuxBusCookedData::DebugName' has a wrong offset!");
 
 // ScriptStruct WwiseResourceLoader.WwiseObjectInfo
 // 0x0020 (0x0020 - 0x0000)
@@ -213,37 +213,6 @@ static_assert(alignof(FWwiseEventInfo) == 0x000004, "Wrong alignment on FWwiseEv
 static_assert(sizeof(FWwiseEventInfo) == 0x000024, "Wrong size on FWwiseEventInfo");
 static_assert(offsetof(FWwiseEventInfo, SwitchContainerLoading) == 0x000020, "Member 'FWwiseEventInfo::SwitchContainerLoading' has a wrong offset!");
 static_assert(offsetof(FWwiseEventInfo, DestroyOptions) == 0x000021, "Member 'FWwiseEventInfo::DestroyOptions' has a wrong offset!");
-
-// ScriptStruct WwiseResourceLoader.WwiseShareSetCookedData
-// 0x0030 (0x0030 - 0x0000)
-struct FWwiseShareSetCookedData final
-{
-public:
-	int32                                         ShareSetId;                                        // 0x0000(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnTemplate, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FWwiseSoundBankCookedData>      SoundBanks;                                        // 0x0008(0x0010)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnTemplate, EditConst, NativeAccessSpecifierPublic)
-	TArray<struct FWwiseMediaCookedData>          Media;                                             // 0x0018(0x0010)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnTemplate, EditConst, NativeAccessSpecifierPublic)
-	class FName                                   DebugName;                                         // 0x0028(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnTemplate, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(FWwiseShareSetCookedData) == 0x000008, "Wrong alignment on FWwiseShareSetCookedData");
-static_assert(sizeof(FWwiseShareSetCookedData) == 0x000030, "Wrong size on FWwiseShareSetCookedData");
-static_assert(offsetof(FWwiseShareSetCookedData, ShareSetId) == 0x000000, "Member 'FWwiseShareSetCookedData::ShareSetId' has a wrong offset!");
-static_assert(offsetof(FWwiseShareSetCookedData, SoundBanks) == 0x000008, "Member 'FWwiseShareSetCookedData::SoundBanks' has a wrong offset!");
-static_assert(offsetof(FWwiseShareSetCookedData, Media) == 0x000018, "Member 'FWwiseShareSetCookedData::Media' has a wrong offset!");
-static_assert(offsetof(FWwiseShareSetCookedData, DebugName) == 0x000028, "Member 'FWwiseShareSetCookedData::DebugName' has a wrong offset!");
-
-// ScriptStruct WwiseResourceLoader.WwiseGameParameterCookedData
-// 0x000C (0x000C - 0x0000)
-struct FWwiseGameParameterCookedData final
-{
-public:
-	int32                                         ShortId;                                           // 0x0000(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnTemplate, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   DebugName;                                         // 0x0004(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnTemplate, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(FWwiseGameParameterCookedData) == 0x000004, "Wrong alignment on FWwiseGameParameterCookedData");
-static_assert(sizeof(FWwiseGameParameterCookedData) == 0x00000C, "Wrong size on FWwiseGameParameterCookedData");
-static_assert(offsetof(FWwiseGameParameterCookedData, ShortId) == 0x000000, "Member 'FWwiseGameParameterCookedData::ShortId' has a wrong offset!");
-static_assert(offsetof(FWwiseGameParameterCookedData, DebugName) == 0x000004, "Member 'FWwiseGameParameterCookedData::DebugName' has a wrong offset!");
 
 // ScriptStruct WwiseResourceLoader.WwiseGroupValueInfo
 // 0x0004 (0x0024 - 0x0020)
@@ -285,19 +254,6 @@ static_assert(sizeof(FWwiseLanguageId) == 0x00000C, "Wrong size on FWwiseLanguag
 static_assert(offsetof(FWwiseLanguageId, LanguageId) == 0x000000, "Member 'FWwiseLanguageId::LanguageId' has a wrong offset!");
 static_assert(offsetof(FWwiseLanguageId, LanguageName) == 0x000004, "Member 'FWwiseLanguageId::LanguageName' has a wrong offset!");
 
-// ScriptStruct WwiseResourceLoader.WwiseSharedLanguageId
-// 0x0018 (0x0018 - 0x0000)
-struct alignas(0x08) FWwiseSharedLanguageId final
-{
-public:
-	uint8                                         Pad_0[0x10];                                       // 0x0000(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
-	EWwiseLanguageRequirement                     LanguageRequirement;                               // 0x0010(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnTemplate, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_11[0x7];                                       // 0x0011(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(FWwiseSharedLanguageId) == 0x000008, "Wrong alignment on FWwiseSharedLanguageId");
-static_assert(sizeof(FWwiseSharedLanguageId) == 0x000018, "Wrong size on FWwiseSharedLanguageId");
-static_assert(offsetof(FWwiseSharedLanguageId, LanguageRequirement) == 0x000010, "Member 'FWwiseSharedLanguageId::LanguageRequirement' has a wrong offset!");
-
 // ScriptStruct WwiseResourceLoader.WwiseLocalizedAuxBusCookedData
 // 0x0060 (0x0060 - 0x0000)
 struct FWwiseLocalizedAuxBusCookedData final
@@ -329,6 +285,24 @@ static_assert(sizeof(FWwiseLocalizedEventCookedData) == 0x000060, "Wrong size on
 static_assert(offsetof(FWwiseLocalizedEventCookedData, EventLanguageMap) == 0x000000, "Member 'FWwiseLocalizedEventCookedData::EventLanguageMap' has a wrong offset!");
 static_assert(offsetof(FWwiseLocalizedEventCookedData, DebugName) == 0x000050, "Member 'FWwiseLocalizedEventCookedData::DebugName' has a wrong offset!");
 static_assert(offsetof(FWwiseLocalizedEventCookedData, EventId) == 0x000058, "Member 'FWwiseLocalizedEventCookedData::EventId' has a wrong offset!");
+
+// ScriptStruct WwiseResourceLoader.WwiseShareSetCookedData
+// 0x0030 (0x0030 - 0x0000)
+struct FWwiseShareSetCookedData final
+{
+public:
+	int32                                         ShareSetId;                                        // 0x0000(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnTemplate, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FWwiseSoundBankCookedData>      SoundBanks;                                        // 0x0008(0x0010)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnTemplate, EditConst, NativeAccessSpecifierPublic)
+	TArray<struct FWwiseMediaCookedData>          Media;                                             // 0x0018(0x0010)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnTemplate, EditConst, NativeAccessSpecifierPublic)
+	class FName                                   DebugName;                                         // 0x0028(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnTemplate, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(FWwiseShareSetCookedData) == 0x000008, "Wrong alignment on FWwiseShareSetCookedData");
+static_assert(sizeof(FWwiseShareSetCookedData) == 0x000030, "Wrong size on FWwiseShareSetCookedData");
+static_assert(offsetof(FWwiseShareSetCookedData, ShareSetId) == 0x000000, "Member 'FWwiseShareSetCookedData::ShareSetId' has a wrong offset!");
+static_assert(offsetof(FWwiseShareSetCookedData, SoundBanks) == 0x000008, "Member 'FWwiseShareSetCookedData::SoundBanks' has a wrong offset!");
+static_assert(offsetof(FWwiseShareSetCookedData, Media) == 0x000018, "Member 'FWwiseShareSetCookedData::Media' has a wrong offset!");
+static_assert(offsetof(FWwiseShareSetCookedData, DebugName) == 0x000028, "Member 'FWwiseShareSetCookedData::DebugName' has a wrong offset!");
 
 // ScriptStruct WwiseResourceLoader.WwiseLocalizedShareSetCookedData
 // 0x0060 (0x0060 - 0x0000)
@@ -385,6 +359,19 @@ public:
 static_assert(alignof(FWwiseSharedGroupValueKey) == 0x000008, "Wrong alignment on FWwiseSharedGroupValueKey");
 static_assert(sizeof(FWwiseSharedGroupValueKey) == 0x000010, "Wrong size on FWwiseSharedGroupValueKey");
 
+// ScriptStruct WwiseResourceLoader.WwiseSharedLanguageId
+// 0x0018 (0x0018 - 0x0000)
+struct alignas(0x08) FWwiseSharedLanguageId final
+{
+public:
+	uint8                                         Pad_0[0x10];                                       // 0x0000(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
+	EWwiseLanguageRequirement                     LanguageRequirement;                               // 0x0010(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnTemplate, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_11[0x7];                                       // 0x0011(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(FWwiseSharedLanguageId) == 0x000008, "Wrong alignment on FWwiseSharedLanguageId");
+static_assert(sizeof(FWwiseSharedLanguageId) == 0x000018, "Wrong size on FWwiseSharedLanguageId");
+static_assert(offsetof(FWwiseSharedLanguageId, LanguageRequirement) == 0x000010, "Member 'FWwiseSharedLanguageId::LanguageRequirement' has a wrong offset!");
+
 // ScriptStruct WwiseResourceLoader.WwiseSharedPlatformId
 // 0x0010 (0x0010 - 0x0000)
 struct alignas(0x08) FWwiseSharedPlatformId final
@@ -394,6 +381,19 @@ public:
 };
 static_assert(alignof(FWwiseSharedPlatformId) == 0x000008, "Wrong alignment on FWwiseSharedPlatformId");
 static_assert(sizeof(FWwiseSharedPlatformId) == 0x000010, "Wrong size on FWwiseSharedPlatformId");
+
+// ScriptStruct WwiseResourceLoader.WwiseTriggerCookedData
+// 0x000C (0x000C - 0x0000)
+struct FWwiseTriggerCookedData final
+{
+public:
+	int32                                         TriggerId;                                         // 0x0000(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnTemplate, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   DebugName;                                         // 0x0004(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnTemplate, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(FWwiseTriggerCookedData) == 0x000004, "Wrong alignment on FWwiseTriggerCookedData");
+static_assert(sizeof(FWwiseTriggerCookedData) == 0x00000C, "Wrong size on FWwiseTriggerCookedData");
+static_assert(offsetof(FWwiseTriggerCookedData, TriggerId) == 0x000000, "Member 'FWwiseTriggerCookedData::TriggerId' has a wrong offset!");
+static_assert(offsetof(FWwiseTriggerCookedData, DebugName) == 0x000004, "Member 'FWwiseTriggerCookedData::DebugName' has a wrong offset!");
 
 }
 

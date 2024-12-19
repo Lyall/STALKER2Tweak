@@ -21,11 +21,11 @@ namespace SDK
 struct FSessionServicePing final
 {
 public:
-	class FString                                 username;                                          // 0x0000(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 Username;                                          // 0x0000(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FSessionServicePing) == 0x000008, "Wrong alignment on FSessionServicePing");
 static_assert(sizeof(FSessionServicePing) == 0x000010, "Wrong size on FSessionServicePing");
-static_assert(offsetof(FSessionServicePing, username) == 0x000000, "Member 'FSessionServicePing::username' has a wrong offset!");
+static_assert(offsetof(FSessionServicePing, Username) == 0x000000, "Member 'FSessionServicePing::Username' has a wrong offset!");
 
 // ScriptStruct SessionMessages.SessionServicePong
 // 0x0090 (0x0090 - 0x0000)

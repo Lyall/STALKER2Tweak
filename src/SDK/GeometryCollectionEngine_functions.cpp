@@ -647,9 +647,9 @@ void UGeometryCollectionComponent::ApplyInternalStrain(int32 ItemIndex, const st
 // (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // float                                   Radius                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FVector                          position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FVector                          Position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UGeometryCollectionComponent::ApplyKinematicField(float Radius, const struct FVector& position)
+void UGeometryCollectionComponent::ApplyKinematicField(float Radius, const struct FVector& Position)
 {
 	static class UFunction* Func = nullptr;
 
@@ -659,7 +659,7 @@ void UGeometryCollectionComponent::ApplyKinematicField(float Radius, const struc
 	Params::GeometryCollectionComponent_ApplyKinematicField Parms{};
 
 	Parms.Radius = Radius;
-	Parms.position = std::move(position);
+	Parms.Position = std::move(Position);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -830,6 +830,46 @@ void UGeometryCollectionComponent::GetMassAndExtents(int32 ItemIndex, float* Out
 
 	if (OutExtents != nullptr)
 		*OutExtents = std::move(Parms.OutExtents);
+}
+
+
+// DelegateFunction GeometryCollectionEngine.GeometryCollectionComponent.NotifyGeometryCollectionPhysicsLoadingStateChange__DelegateSignature
+// (MulticastDelegate, Public, Delegate)
+// Parameters:
+// class UGeometryCollectionComponent*     FracturedComponent                                     (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UGeometryCollectionComponent::NotifyGeometryCollectionPhysicsLoadingStateChange__DelegateSignature(class UGeometryCollectionComponent* FracturedComponent)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("GeometryCollectionComponent", "NotifyGeometryCollectionPhysicsLoadingStateChange__DelegateSignature");
+
+	Params::GeometryCollectionComponent_NotifyGeometryCollectionPhysicsLoadingStateChange__DelegateSignature Parms{};
+
+	Parms.FracturedComponent = FracturedComponent;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// DelegateFunction GeometryCollectionEngine.GeometryCollectionComponent.NotifyGeometryCollectionPhysicsStateChange__DelegateSignature
+// (MulticastDelegate, Public, Delegate)
+// Parameters:
+// class UGeometryCollectionComponent*     FracturedComponent                                     (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UGeometryCollectionComponent::NotifyGeometryCollectionPhysicsStateChange__DelegateSignature(class UGeometryCollectionComponent* FracturedComponent)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("GeometryCollectionComponent", "NotifyGeometryCollectionPhysicsStateChange__DelegateSignature");
+
+	Params::GeometryCollectionComponent_NotifyGeometryCollectionPhysicsStateChange__DelegateSignature Parms{};
+
+	Parms.FracturedComponent = FracturedComponent;
+
+	UObject::ProcessEvent(Func, &Parms);
 }
 
 

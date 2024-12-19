@@ -43,7 +43,7 @@ public:
 	void DeleteTriangle(const struct FTriangleID& TriangleID, TArray<struct FEdgeID>* OrphanedEdges, TArray<struct FVertexInstanceID>* OrphanedVertexInstances, TArray<struct FPolygonGroupID>* OrphanedPolygonGroupsPtr);
 	void DeleteVertex(const struct FVertexID& VertexID);
 	void DeleteVertexInstance(const struct FVertexInstanceID& VertexInstanceID, TArray<struct FVertexID>* OrphanedVertices);
-	void empty();
+	void Empty();
 	void ReserveNewEdges(int32 NumberOfNewEdges);
 	void ReserveNewPolygonGroups(int32 NumberOfNewPolygonGroups);
 	void ReserveNewPolygons(const int32 NumberOfNewPolygons);
@@ -53,7 +53,7 @@ public:
 	void ReversePolygonFacing(const struct FPolygonID& PolygonID);
 	void SetPolygonPolygonGroup(const struct FPolygonID& PolygonID, const struct FPolygonGroupID& PolygonGroupID);
 	void SetPolygonVertexInstances(const struct FPolygonID& PolygonID, const TArray<struct FVertexInstanceID>& VertexInstanceIDs);
-	void SetVertexPosition(const struct FVertexID& VertexID, const struct FVector& position);
+	void SetVertexPosition(const struct FVertexID& VertexID, const struct FVector& Position);
 
 	void GetEdgeConnectedPolygons(const struct FEdgeID& EdgeID, TArray<struct FPolygonID>* OutConnectedPolygonIDs) const;
 	void GetEdgeConnectedTriangles(const struct FEdgeID& EdgeID, TArray<struct FTriangleID>* OutConnectedTriangleIDs) const;

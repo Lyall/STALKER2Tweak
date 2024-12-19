@@ -10,9 +10,9 @@
 
 #include "Basic.hpp"
 
-#include "AnimBP_Player_WeaponAutoCover_structs.hpp"
-#include "AnimGraphRuntime_structs.hpp"
 #include "Engine_structs.hpp"
+#include "AnimGraphRuntime_structs.hpp"
+#include "AnimBP_Player_WeaponAutoCover_structs.hpp"
 #include "Stalker2_classes.hpp"
 
 
@@ -20,80 +20,80 @@ namespace SDK
 {
 
 // AnimBlueprintGeneratedClass AnimBP_Player_WeaponAutoCover.AnimBP_Player_WeaponAutoCover_C
-// 0x1640 (0x2AB0 - 0x1470)
+// 0x1640 (0x2AC0 - 0x1480)
 class UAnimBP_Player_WeaponAutoCover_C final : public UAnimInstancePlayer
 {
 public:
-	struct FPointerToUberGraphFrame               UberGraphFrame;                                    // 0x1470(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
-	struct AnimBP_Player_WeaponAutoCover::FAnimBlueprintGeneratedMutableData m_AnimBlueprintMutables;                           // 0x1478(0x00E8)(HasGetValueTypeHash)
-	struct FAnimSubsystemInstance                 AnimBlueprintExtension_PropertyAccess;             // 0x1560(0x0008)()
-	struct FAnimSubsystemInstance                 AnimBlueprintExtension_Base;                       // 0x1568(0x0008)()
-	struct FAnimNode_Root                         AnimGraphNode_Root;                                // 0x1570(0x0020)()
-	struct FAnimNode_LinkedInputPose              AnimGraphNode_LinkedInputPose;                     // 0x1590(0x00C8)()
-	struct FAnimNode_BlendListByBool              AnimGraphNode_BlendListByBool_2;                   // 0x1658(0x0048)()
-	struct FAnimNode_RefPose                      AnimGraphNode_IdentityPose_1;                      // 0x16A0(0x0010)()
-	struct FAnimNode_SequencePlayer               AnimGraphNode_SequencePlayer_12;                   // 0x16B0(0x0048)()
-	struct FAnimNode_LayeredBoneBlend             AnimGraphNode_LayeredBoneBlend_1;                  // 0x16F8(0x00E0)()
-	struct FAnimNode_SequencePlayer               AnimGraphNode_SequencePlayer_11;                   // 0x17D8(0x0048)()
-	struct FAnimNode_LayeredBoneBlend             AnimGraphNode_LayeredBoneBlend;                    // 0x1820(0x00E0)()
-	struct FAnimNode_BlendSpacePlayer             AnimGraphNode_BlendSpacePlayer_5;                  // 0x1900(0x0070)()
-	struct FAnimNode_BlendSpacePlayer             AnimGraphNode_BlendSpacePlayer_4;                  // 0x1970(0x0070)()
-	struct FAnimNode_BlendSpacePlayer             AnimGraphNode_BlendSpacePlayer_3;                  // 0x19E0(0x0070)()
-	struct FAnimNode_BlendListByPointer_GSC       AnimGraphNode_BlendListByPointer_GSC_10;           // 0x1A50(0x0048)()
-	struct FAnimNode_BlendSpacePlayer             AnimGraphNode_BlendSpacePlayer_2;                  // 0x1A98(0x0070)()
-	struct FAnimNode_BlendListByPointer_GSC       AnimGraphNode_BlendListByPointer_GSC_9;            // 0x1B08(0x0048)()
-	struct FAnimNode_BlendSpacePlayer             AnimGraphNode_BlendSpacePlayer_1;                  // 0x1B50(0x0070)()
-	struct FAnimNode_BlendSpacePlayer             AnimGraphNode_BlendSpacePlayer;                    // 0x1BC0(0x0070)()
-	struct FAnimNode_SequencePlayer               AnimGraphNode_SequencePlayer_10;                   // 0x1C30(0x0048)()
-	struct FAnimNode_SequenceEvaluator            AnimGraphNode_SequenceEvaluator_10;                // 0x1C78(0x0040)()
-	struct FAnimNode_BlendListByPointer_GSC       AnimGraphNode_BlendListByPointer_GSC_8;            // 0x1CB8(0x0048)()
-	struct FAnimNode_SequenceEvaluator            AnimGraphNode_SequenceEvaluator_9;                 // 0x1D00(0x0040)()
-	struct FAnimNode_BlendListByPointer_GSC       AnimGraphNode_BlendListByPointer_GSC_7;            // 0x1D40(0x0048)()
-	struct FAnimNode_SequenceEvaluator            AnimGraphNode_SequenceEvaluator_8;                 // 0x1D88(0x0040)()
-	struct FAnimNode_BlendListByPointer_GSC       AnimGraphNode_BlendListByPointer_GSC_6;            // 0x1DC8(0x0048)()
-	struct FAnimNode_SequenceEvaluator            AnimGraphNode_SequenceEvaluator_7;                 // 0x1E10(0x0040)()
-	struct FAnimNode_SequenceEvaluator            AnimGraphNode_SequenceEvaluator_6;                 // 0x1E50(0x0040)()
-	struct FAnimNode_ApplyAdditive                AnimGraphNode_ApplyAdditive_2;                     // 0x1E90(0x00C8)()
-	struct FAnimNode_ApplyAdditive                AnimGraphNode_ApplyAdditive_1;                     // 0x1F58(0x00C8)()
-	struct FAnimNode_UseCachedPose                AnimGraphNode_UseCachedPose_2;                     // 0x2020(0x0028)()
-	struct FAnimNode_MakeDynamicAdditive          AnimGraphNode_MakeDynamicAdditive_1;               // 0x2048(0x0038)()
-	struct FAnimNode_SequenceEvaluator            AnimGraphNode_SequenceEvaluator_5;                 // 0x2080(0x0040)()
-	struct FAnimNode_BlendListByPointer_GSC       AnimGraphNode_BlendListByPointer_GSC_5;            // 0x20C0(0x0048)()
-	struct FAnimNode_SequenceEvaluator            AnimGraphNode_SequenceEvaluator_4;                 // 0x2108(0x0040)()
-	struct FAnimNode_BlendListByPointer_GSC       AnimGraphNode_BlendListByPointer_GSC_4;            // 0x2148(0x0048)()
-	struct FAnimNode_SequencePlayer               AnimGraphNode_SequencePlayer_9;                    // 0x2190(0x0048)()
-	struct FAnimNode_BlendListByPointer_GSC       AnimGraphNode_BlendListByPointer_GSC_3;            // 0x21D8(0x0048)()
-	struct FAnimNode_SequencePlayer               AnimGraphNode_SequencePlayer_8;                    // 0x2220(0x0048)()
-	struct FAnimNode_BlendListByPointer_GSC       AnimGraphNode_BlendListByPointer_GSC_2;            // 0x2268(0x0048)()
-	struct FAnimNode_SequencePlayer               AnimGraphNode_SequencePlayer_7;                    // 0x22B0(0x0048)()
-	struct FAnimNode_BlendListByPointer_GSC       AnimGraphNode_BlendListByPointer_GSC_1;            // 0x22F8(0x0048)()
-	struct FAnimNode_SequenceEvaluator            AnimGraphNode_SequenceEvaluator_3;                 // 0x2340(0x0040)()
-	struct FAnimNode_SequenceEvaluator            AnimGraphNode_SequenceEvaluator_2;                 // 0x2380(0x0040)()
-	struct FAnimNode_BlendListByPointer_GSC       AnimGraphNode_BlendListByPointer_GSC;              // 0x23C0(0x0048)()
-	struct FAnimNode_UseCachedPose                AnimGraphNode_UseCachedPose_1;                     // 0x2408(0x0028)()
-	struct FAnimNode_MakeDynamicAdditive          AnimGraphNode_MakeDynamicAdditive;                 // 0x2430(0x0038)()
-	struct FAnimNode_SequencePlayer               AnimGraphNode_SequencePlayer_6;                    // 0x2468(0x0048)()
-	struct FAnimNode_SequencePlayer               AnimGraphNode_SequencePlayer_5;                    // 0x24B0(0x0048)()
-	struct FAnimNode_SequencePlayer               AnimGraphNode_SequencePlayer_4;                    // 0x24F8(0x0048)()
-	struct FAnimNode_SequenceEvaluator            AnimGraphNode_SequenceEvaluator_1;                 // 0x2540(0x0040)()
-	struct FAnimNode_SequenceEvaluator            AnimGraphNode_SequenceEvaluator;                   // 0x2580(0x0040)()
-	struct FAnimNode_RefPose                      AnimGraphNode_IdentityPose;                        // 0x25C0(0x0010)()
-	struct FAnimNode_SequencePlayer               AnimGraphNode_SequencePlayer_3;                    // 0x25D0(0x0048)()
-	struct FAnimNode_BlendListByEnum              AnimGraphNode_BlendListByEnum;                     // 0x2618(0x0048)()
-	struct FAnimNode_SequencePlayer               AnimGraphNode_SequencePlayer_2;                    // 0x2660(0x0048)()
-	struct FAnimNode_StateResult                  AnimGraphNode_StateResult;                         // 0x26A8(0x0020)()
-	struct FAnimNode_StateMachine                 AnimGraphNode_StateMachine;                        // 0x26C8(0x00C8)()
-	struct FAnimNode_ApplyAdditive                AnimGraphNode_ApplyAdditive;                       // 0x2790(0x00C8)()
-	struct FAnimNode_SaveCachedPose               AnimGraphNode_SaveCachedPose;                      // 0x2858(0x0108)()
-	struct FAnimNode_UseCachedPose                AnimGraphNode_UseCachedPose;                       // 0x2960(0x0028)()
-	struct FAnimNode_BlendListByBool              AnimGraphNode_BlendListByBool_1;                   // 0x2988(0x0048)()
-	struct FAnimNode_SequencePlayer               AnimGraphNode_SequencePlayer_1;                    // 0x29D0(0x0048)()
-	struct FAnimNode_SequencePlayer               AnimGraphNode_SequencePlayer;                      // 0x2A18(0x0048)()
-	struct FAnimNode_BlendListByBool              AnimGraphNode_BlendListByBool;                     // 0x2A60(0x0048)()
+	struct FPointerToUberGraphFrame               UberGraphFrame;                                    // 0x1480(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
+	struct AnimBP_Player_WeaponAutoCover::FAnimBlueprintGeneratedMutableData __AnimBlueprintMutables;                           // 0x1488(0x00E8)(HasGetValueTypeHash)
+	struct FAnimSubsystemInstance                 AnimBlueprintExtension_PropertyAccess;             // 0x1570(0x0008)()
+	struct FAnimSubsystemInstance                 AnimBlueprintExtension_Base;                       // 0x1578(0x0008)()
+	struct FAnimNode_Root                         AnimGraphNode_Root;                                // 0x1580(0x0020)()
+	struct FAnimNode_LinkedInputPose              AnimGraphNode_LinkedInputPose;                     // 0x15A0(0x00C8)()
+	struct FAnimNode_BlendListByBool              AnimGraphNode_BlendListByBool_2;                   // 0x1668(0x0048)()
+	struct FAnimNode_RefPose                      AnimGraphNode_IdentityPose_1;                      // 0x16B0(0x0010)()
+	struct FAnimNode_SequencePlayer               AnimGraphNode_SequencePlayer_12;                   // 0x16C0(0x0048)()
+	struct FAnimNode_LayeredBoneBlend             AnimGraphNode_LayeredBoneBlend_1;                  // 0x1708(0x00E0)()
+	struct FAnimNode_SequencePlayer               AnimGraphNode_SequencePlayer_11;                   // 0x17E8(0x0048)()
+	struct FAnimNode_LayeredBoneBlend             AnimGraphNode_LayeredBoneBlend;                    // 0x1830(0x00E0)()
+	struct FAnimNode_BlendSpacePlayer             AnimGraphNode_BlendSpacePlayer_5;                  // 0x1910(0x0070)()
+	struct FAnimNode_BlendSpacePlayer             AnimGraphNode_BlendSpacePlayer_4;                  // 0x1980(0x0070)()
+	struct FAnimNode_BlendSpacePlayer             AnimGraphNode_BlendSpacePlayer_3;                  // 0x19F0(0x0070)()
+	struct FAnimNode_BlendListByPointer_GSC       AnimGraphNode_BlendListByPointer_GSC_10;           // 0x1A60(0x0048)()
+	struct FAnimNode_BlendSpacePlayer             AnimGraphNode_BlendSpacePlayer_2;                  // 0x1AA8(0x0070)()
+	struct FAnimNode_BlendListByPointer_GSC       AnimGraphNode_BlendListByPointer_GSC_9;            // 0x1B18(0x0048)()
+	struct FAnimNode_BlendSpacePlayer             AnimGraphNode_BlendSpacePlayer_1;                  // 0x1B60(0x0070)()
+	struct FAnimNode_BlendSpacePlayer             AnimGraphNode_BlendSpacePlayer;                    // 0x1BD0(0x0070)()
+	struct FAnimNode_SequencePlayer               AnimGraphNode_SequencePlayer_10;                   // 0x1C40(0x0048)()
+	struct FAnimNode_SequenceEvaluator            AnimGraphNode_SequenceEvaluator_10;                // 0x1C88(0x0040)()
+	struct FAnimNode_BlendListByPointer_GSC       AnimGraphNode_BlendListByPointer_GSC_8;            // 0x1CC8(0x0048)()
+	struct FAnimNode_SequenceEvaluator            AnimGraphNode_SequenceEvaluator_9;                 // 0x1D10(0x0040)()
+	struct FAnimNode_BlendListByPointer_GSC       AnimGraphNode_BlendListByPointer_GSC_7;            // 0x1D50(0x0048)()
+	struct FAnimNode_SequenceEvaluator            AnimGraphNode_SequenceEvaluator_8;                 // 0x1D98(0x0040)()
+	struct FAnimNode_BlendListByPointer_GSC       AnimGraphNode_BlendListByPointer_GSC_6;            // 0x1DD8(0x0048)()
+	struct FAnimNode_SequenceEvaluator            AnimGraphNode_SequenceEvaluator_7;                 // 0x1E20(0x0040)()
+	struct FAnimNode_SequenceEvaluator            AnimGraphNode_SequenceEvaluator_6;                 // 0x1E60(0x0040)()
+	struct FAnimNode_ApplyAdditive                AnimGraphNode_ApplyAdditive_2;                     // 0x1EA0(0x00C8)()
+	struct FAnimNode_ApplyAdditive                AnimGraphNode_ApplyAdditive_1;                     // 0x1F68(0x00C8)()
+	struct FAnimNode_UseCachedPose                AnimGraphNode_UseCachedPose_2;                     // 0x2030(0x0028)()
+	struct FAnimNode_MakeDynamicAdditive          AnimGraphNode_MakeDynamicAdditive_1;               // 0x2058(0x0038)()
+	struct FAnimNode_SequenceEvaluator            AnimGraphNode_SequenceEvaluator_5;                 // 0x2090(0x0040)()
+	struct FAnimNode_BlendListByPointer_GSC       AnimGraphNode_BlendListByPointer_GSC_5;            // 0x20D0(0x0048)()
+	struct FAnimNode_SequenceEvaluator            AnimGraphNode_SequenceEvaluator_4;                 // 0x2118(0x0040)()
+	struct FAnimNode_BlendListByPointer_GSC       AnimGraphNode_BlendListByPointer_GSC_4;            // 0x2158(0x0048)()
+	struct FAnimNode_SequencePlayer               AnimGraphNode_SequencePlayer_9;                    // 0x21A0(0x0048)()
+	struct FAnimNode_BlendListByPointer_GSC       AnimGraphNode_BlendListByPointer_GSC_3;            // 0x21E8(0x0048)()
+	struct FAnimNode_SequencePlayer               AnimGraphNode_SequencePlayer_8;                    // 0x2230(0x0048)()
+	struct FAnimNode_BlendListByPointer_GSC       AnimGraphNode_BlendListByPointer_GSC_2;            // 0x2278(0x0048)()
+	struct FAnimNode_SequencePlayer               AnimGraphNode_SequencePlayer_7;                    // 0x22C0(0x0048)()
+	struct FAnimNode_BlendListByPointer_GSC       AnimGraphNode_BlendListByPointer_GSC_1;            // 0x2308(0x0048)()
+	struct FAnimNode_SequenceEvaluator            AnimGraphNode_SequenceEvaluator_3;                 // 0x2350(0x0040)()
+	struct FAnimNode_SequenceEvaluator            AnimGraphNode_SequenceEvaluator_2;                 // 0x2390(0x0040)()
+	struct FAnimNode_BlendListByPointer_GSC       AnimGraphNode_BlendListByPointer_GSC;              // 0x23D0(0x0048)()
+	struct FAnimNode_UseCachedPose                AnimGraphNode_UseCachedPose_1;                     // 0x2418(0x0028)()
+	struct FAnimNode_MakeDynamicAdditive          AnimGraphNode_MakeDynamicAdditive;                 // 0x2440(0x0038)()
+	struct FAnimNode_SequencePlayer               AnimGraphNode_SequencePlayer_6;                    // 0x2478(0x0048)()
+	struct FAnimNode_SequencePlayer               AnimGraphNode_SequencePlayer_5;                    // 0x24C0(0x0048)()
+	struct FAnimNode_SequencePlayer               AnimGraphNode_SequencePlayer_4;                    // 0x2508(0x0048)()
+	struct FAnimNode_SequenceEvaluator            AnimGraphNode_SequenceEvaluator_1;                 // 0x2550(0x0040)()
+	struct FAnimNode_SequenceEvaluator            AnimGraphNode_SequenceEvaluator;                   // 0x2590(0x0040)()
+	struct FAnimNode_RefPose                      AnimGraphNode_IdentityPose;                        // 0x25D0(0x0010)()
+	struct FAnimNode_SequencePlayer               AnimGraphNode_SequencePlayer_3;                    // 0x25E0(0x0048)()
+	struct FAnimNode_BlendListByEnum              AnimGraphNode_BlendListByEnum;                     // 0x2628(0x0048)()
+	struct FAnimNode_SequencePlayer               AnimGraphNode_SequencePlayer_2;                    // 0x2670(0x0048)()
+	struct FAnimNode_StateResult                  AnimGraphNode_StateResult;                         // 0x26B8(0x0020)()
+	struct FAnimNode_StateMachine                 AnimGraphNode_StateMachine;                        // 0x26D8(0x00C8)()
+	struct FAnimNode_ApplyAdditive                AnimGraphNode_ApplyAdditive;                       // 0x27A0(0x00C8)()
+	struct FAnimNode_SaveCachedPose               AnimGraphNode_SaveCachedPose;                      // 0x2868(0x0108)()
+	struct FAnimNode_UseCachedPose                AnimGraphNode_UseCachedPose;                       // 0x2970(0x0028)()
+	struct FAnimNode_BlendListByBool              AnimGraphNode_BlendListByBool_1;                   // 0x2998(0x0048)()
+	struct FAnimNode_SequencePlayer               AnimGraphNode_SequencePlayer_1;                    // 0x29E0(0x0048)()
+	struct FAnimNode_SequencePlayer               AnimGraphNode_SequencePlayer;                      // 0x2A28(0x0048)()
+	struct FAnimNode_BlendListByBool              AnimGraphNode_BlendListByBool;                     // 0x2A70(0x0048)()
 
 public:
-	void AnimGraph(const struct FPoseLink& Idle, struct FPoseLink* AnimGraph_0);
 	void ExecuteUbergraph_AnimBP_Player_WeaponAutoCover(int32 EntryPoint);
+	void AnimGraph(const struct FPoseLink& Idle, struct FPoseLink* AnimGraph_0);
 
 public:
 	static class UClass* StaticClass()
@@ -106,73 +106,73 @@ public:
 	}
 };
 static_assert(alignof(UAnimBP_Player_WeaponAutoCover_C) == 0x000010, "Wrong alignment on UAnimBP_Player_WeaponAutoCover_C");
-static_assert(sizeof(UAnimBP_Player_WeaponAutoCover_C) == 0x002AB0, "Wrong size on UAnimBP_Player_WeaponAutoCover_C");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, UberGraphFrame) == 0x001470, "Member 'UAnimBP_Player_WeaponAutoCover_C::UberGraphFrame' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, m_AnimBlueprintMutables) == 0x001478, "Member 'UAnimBP_Player_WeaponAutoCover_C::m_AnimBlueprintMutables' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimBlueprintExtension_PropertyAccess) == 0x001560, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimBlueprintExtension_PropertyAccess' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimBlueprintExtension_Base) == 0x001568, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimBlueprintExtension_Base' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_Root) == 0x001570, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_Root' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_LinkedInputPose) == 0x001590, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_LinkedInputPose' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_BlendListByBool_2) == 0x001658, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_BlendListByBool_2' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_IdentityPose_1) == 0x0016A0, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_IdentityPose_1' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequencePlayer_12) == 0x0016B0, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequencePlayer_12' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_LayeredBoneBlend_1) == 0x0016F8, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_LayeredBoneBlend_1' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequencePlayer_11) == 0x0017D8, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequencePlayer_11' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_LayeredBoneBlend) == 0x001820, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_LayeredBoneBlend' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_BlendSpacePlayer_5) == 0x001900, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_BlendSpacePlayer_5' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_BlendSpacePlayer_4) == 0x001970, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_BlendSpacePlayer_4' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_BlendSpacePlayer_3) == 0x0019E0, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_BlendSpacePlayer_3' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_BlendListByPointer_GSC_10) == 0x001A50, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_BlendListByPointer_GSC_10' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_BlendSpacePlayer_2) == 0x001A98, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_BlendSpacePlayer_2' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_BlendListByPointer_GSC_9) == 0x001B08, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_BlendListByPointer_GSC_9' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_BlendSpacePlayer_1) == 0x001B50, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_BlendSpacePlayer_1' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_BlendSpacePlayer) == 0x001BC0, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_BlendSpacePlayer' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequencePlayer_10) == 0x001C30, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequencePlayer_10' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequenceEvaluator_10) == 0x001C78, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequenceEvaluator_10' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_BlendListByPointer_GSC_8) == 0x001CB8, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_BlendListByPointer_GSC_8' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequenceEvaluator_9) == 0x001D00, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequenceEvaluator_9' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_BlendListByPointer_GSC_7) == 0x001D40, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_BlendListByPointer_GSC_7' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequenceEvaluator_8) == 0x001D88, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequenceEvaluator_8' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_BlendListByPointer_GSC_6) == 0x001DC8, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_BlendListByPointer_GSC_6' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequenceEvaluator_7) == 0x001E10, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequenceEvaluator_7' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequenceEvaluator_6) == 0x001E50, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequenceEvaluator_6' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_ApplyAdditive_2) == 0x001E90, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_ApplyAdditive_2' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_ApplyAdditive_1) == 0x001F58, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_ApplyAdditive_1' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_UseCachedPose_2) == 0x002020, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_UseCachedPose_2' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_MakeDynamicAdditive_1) == 0x002048, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_MakeDynamicAdditive_1' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequenceEvaluator_5) == 0x002080, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequenceEvaluator_5' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_BlendListByPointer_GSC_5) == 0x0020C0, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_BlendListByPointer_GSC_5' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequenceEvaluator_4) == 0x002108, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequenceEvaluator_4' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_BlendListByPointer_GSC_4) == 0x002148, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_BlendListByPointer_GSC_4' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequencePlayer_9) == 0x002190, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequencePlayer_9' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_BlendListByPointer_GSC_3) == 0x0021D8, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_BlendListByPointer_GSC_3' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequencePlayer_8) == 0x002220, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequencePlayer_8' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_BlendListByPointer_GSC_2) == 0x002268, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_BlendListByPointer_GSC_2' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequencePlayer_7) == 0x0022B0, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequencePlayer_7' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_BlendListByPointer_GSC_1) == 0x0022F8, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_BlendListByPointer_GSC_1' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequenceEvaluator_3) == 0x002340, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequenceEvaluator_3' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequenceEvaluator_2) == 0x002380, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequenceEvaluator_2' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_BlendListByPointer_GSC) == 0x0023C0, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_BlendListByPointer_GSC' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_UseCachedPose_1) == 0x002408, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_UseCachedPose_1' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_MakeDynamicAdditive) == 0x002430, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_MakeDynamicAdditive' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequencePlayer_6) == 0x002468, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequencePlayer_6' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequencePlayer_5) == 0x0024B0, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequencePlayer_5' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequencePlayer_4) == 0x0024F8, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequencePlayer_4' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequenceEvaluator_1) == 0x002540, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequenceEvaluator_1' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequenceEvaluator) == 0x002580, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequenceEvaluator' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_IdentityPose) == 0x0025C0, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_IdentityPose' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequencePlayer_3) == 0x0025D0, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequencePlayer_3' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_BlendListByEnum) == 0x002618, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_BlendListByEnum' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequencePlayer_2) == 0x002660, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequencePlayer_2' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_StateResult) == 0x0026A8, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_StateResult' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_StateMachine) == 0x0026C8, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_StateMachine' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_ApplyAdditive) == 0x002790, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_ApplyAdditive' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SaveCachedPose) == 0x002858, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SaveCachedPose' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_UseCachedPose) == 0x002960, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_UseCachedPose' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_BlendListByBool_1) == 0x002988, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_BlendListByBool_1' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequencePlayer_1) == 0x0029D0, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequencePlayer_1' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequencePlayer) == 0x002A18, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequencePlayer' has a wrong offset!");
-static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_BlendListByBool) == 0x002A60, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_BlendListByBool' has a wrong offset!");
+static_assert(sizeof(UAnimBP_Player_WeaponAutoCover_C) == 0x002AC0, "Wrong size on UAnimBP_Player_WeaponAutoCover_C");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, UberGraphFrame) == 0x001480, "Member 'UAnimBP_Player_WeaponAutoCover_C::UberGraphFrame' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, __AnimBlueprintMutables) == 0x001488, "Member 'UAnimBP_Player_WeaponAutoCover_C::__AnimBlueprintMutables' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimBlueprintExtension_PropertyAccess) == 0x001570, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimBlueprintExtension_PropertyAccess' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimBlueprintExtension_Base) == 0x001578, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimBlueprintExtension_Base' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_Root) == 0x001580, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_Root' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_LinkedInputPose) == 0x0015A0, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_LinkedInputPose' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_BlendListByBool_2) == 0x001668, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_BlendListByBool_2' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_IdentityPose_1) == 0x0016B0, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_IdentityPose_1' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequencePlayer_12) == 0x0016C0, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequencePlayer_12' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_LayeredBoneBlend_1) == 0x001708, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_LayeredBoneBlend_1' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequencePlayer_11) == 0x0017E8, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequencePlayer_11' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_LayeredBoneBlend) == 0x001830, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_LayeredBoneBlend' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_BlendSpacePlayer_5) == 0x001910, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_BlendSpacePlayer_5' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_BlendSpacePlayer_4) == 0x001980, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_BlendSpacePlayer_4' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_BlendSpacePlayer_3) == 0x0019F0, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_BlendSpacePlayer_3' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_BlendListByPointer_GSC_10) == 0x001A60, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_BlendListByPointer_GSC_10' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_BlendSpacePlayer_2) == 0x001AA8, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_BlendSpacePlayer_2' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_BlendListByPointer_GSC_9) == 0x001B18, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_BlendListByPointer_GSC_9' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_BlendSpacePlayer_1) == 0x001B60, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_BlendSpacePlayer_1' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_BlendSpacePlayer) == 0x001BD0, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_BlendSpacePlayer' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequencePlayer_10) == 0x001C40, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequencePlayer_10' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequenceEvaluator_10) == 0x001C88, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequenceEvaluator_10' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_BlendListByPointer_GSC_8) == 0x001CC8, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_BlendListByPointer_GSC_8' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequenceEvaluator_9) == 0x001D10, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequenceEvaluator_9' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_BlendListByPointer_GSC_7) == 0x001D50, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_BlendListByPointer_GSC_7' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequenceEvaluator_8) == 0x001D98, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequenceEvaluator_8' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_BlendListByPointer_GSC_6) == 0x001DD8, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_BlendListByPointer_GSC_6' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequenceEvaluator_7) == 0x001E20, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequenceEvaluator_7' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequenceEvaluator_6) == 0x001E60, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequenceEvaluator_6' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_ApplyAdditive_2) == 0x001EA0, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_ApplyAdditive_2' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_ApplyAdditive_1) == 0x001F68, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_ApplyAdditive_1' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_UseCachedPose_2) == 0x002030, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_UseCachedPose_2' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_MakeDynamicAdditive_1) == 0x002058, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_MakeDynamicAdditive_1' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequenceEvaluator_5) == 0x002090, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequenceEvaluator_5' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_BlendListByPointer_GSC_5) == 0x0020D0, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_BlendListByPointer_GSC_5' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequenceEvaluator_4) == 0x002118, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequenceEvaluator_4' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_BlendListByPointer_GSC_4) == 0x002158, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_BlendListByPointer_GSC_4' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequencePlayer_9) == 0x0021A0, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequencePlayer_9' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_BlendListByPointer_GSC_3) == 0x0021E8, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_BlendListByPointer_GSC_3' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequencePlayer_8) == 0x002230, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequencePlayer_8' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_BlendListByPointer_GSC_2) == 0x002278, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_BlendListByPointer_GSC_2' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequencePlayer_7) == 0x0022C0, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequencePlayer_7' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_BlendListByPointer_GSC_1) == 0x002308, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_BlendListByPointer_GSC_1' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequenceEvaluator_3) == 0x002350, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequenceEvaluator_3' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequenceEvaluator_2) == 0x002390, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequenceEvaluator_2' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_BlendListByPointer_GSC) == 0x0023D0, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_BlendListByPointer_GSC' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_UseCachedPose_1) == 0x002418, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_UseCachedPose_1' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_MakeDynamicAdditive) == 0x002440, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_MakeDynamicAdditive' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequencePlayer_6) == 0x002478, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequencePlayer_6' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequencePlayer_5) == 0x0024C0, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequencePlayer_5' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequencePlayer_4) == 0x002508, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequencePlayer_4' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequenceEvaluator_1) == 0x002550, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequenceEvaluator_1' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequenceEvaluator) == 0x002590, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequenceEvaluator' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_IdentityPose) == 0x0025D0, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_IdentityPose' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequencePlayer_3) == 0x0025E0, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequencePlayer_3' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_BlendListByEnum) == 0x002628, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_BlendListByEnum' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequencePlayer_2) == 0x002670, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequencePlayer_2' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_StateResult) == 0x0026B8, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_StateResult' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_StateMachine) == 0x0026D8, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_StateMachine' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_ApplyAdditive) == 0x0027A0, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_ApplyAdditive' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SaveCachedPose) == 0x002868, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SaveCachedPose' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_UseCachedPose) == 0x002970, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_UseCachedPose' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_BlendListByBool_1) == 0x002998, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_BlendListByBool_1' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequencePlayer_1) == 0x0029E0, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequencePlayer_1' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_SequencePlayer) == 0x002A28, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_SequencePlayer' has a wrong offset!");
+static_assert(offsetof(UAnimBP_Player_WeaponAutoCover_C, AnimGraphNode_BlendListByBool) == 0x002A70, "Member 'UAnimBP_Player_WeaponAutoCover_C::AnimGraphNode_BlendListByBool' has a wrong offset!");
 
 }
 

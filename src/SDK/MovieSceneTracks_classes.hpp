@@ -23,77 +23,22 @@
 namespace SDK
 {
 
-// Class MovieSceneTracks.MovieSceneCVarSection
-// 0x0058 (0x0148 - 0x00F0)
-class UMovieSceneCVarSection final : public UMovieSceneSection
+// Class MovieSceneTracks.MovieSceneConstrainedSection
+// 0x0000 (0x0028 - 0x0028)
+class IMovieSceneConstrainedSection final : public IInterface
 {
-public:
-	uint8                                         Pad_F0[0x8];                                       // 0x00F0(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FMovieSceneCVarOverrides               ConsoleVariables;                                  // 0x00F8(0x0050)(Edit, NativeAccessSpecifierPublic)
-
-public:
-	void SetFromString(const class FString& InString);
-
-	class FString GetString() const;
-
 public:
 	static class UClass* StaticClass()
 	{
-		return StaticClassImpl<"MovieSceneCVarSection">();
+		return StaticClassImpl<"MovieSceneConstrainedSection">();
 	}
-	static class UMovieSceneCVarSection* GetDefaultObj()
+	static class IMovieSceneConstrainedSection* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UMovieSceneCVarSection>();
+		return GetDefaultObjImpl<IMovieSceneConstrainedSection>();
 	}
 };
-static_assert(alignof(UMovieSceneCVarSection) == 0x000008, "Wrong alignment on UMovieSceneCVarSection");
-static_assert(sizeof(UMovieSceneCVarSection) == 0x000148, "Wrong size on UMovieSceneCVarSection");
-static_assert(offsetof(UMovieSceneCVarSection, ConsoleVariables) == 0x0000F8, "Member 'UMovieSceneCVarSection::ConsoleVariables' has a wrong offset!");
-
-// Class MovieSceneTracks.MovieSceneBaseCacheSection
-// 0x0008 (0x00F8 - 0x00F0)
-class UMovieSceneBaseCacheSection : public UMovieSceneSection
-{
-public:
-	uint8                                         Pad_F0[0x8];                                       // 0x00F0(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		return StaticClassImpl<"MovieSceneBaseCacheSection">();
-	}
-	static class UMovieSceneBaseCacheSection* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UMovieSceneBaseCacheSection>();
-	}
-};
-static_assert(alignof(UMovieSceneBaseCacheSection) == 0x000008, "Wrong alignment on UMovieSceneBaseCacheSection");
-static_assert(sizeof(UMovieSceneBaseCacheSection) == 0x0000F8, "Wrong size on UMovieSceneBaseCacheSection");
-
-// Class MovieSceneTracks.MovieSceneFadeSection
-// 0x0128 (0x0218 - 0x00F0)
-class UMovieSceneFadeSection final : public UMovieSceneSection
-{
-public:
-	struct FMovieSceneFloatChannel                FloatCurve;                                        // 0x00F0(0x0110)(NativeAccessSpecifierPublic)
-	struct FLinearColor                           FadeColor;                                         // 0x0200(0x0010)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         bFadeAudio : 1;                                    // 0x0210(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         Pad_211[0x7];                                      // 0x0211(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		return StaticClassImpl<"MovieSceneFadeSection">();
-	}
-	static class UMovieSceneFadeSection* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UMovieSceneFadeSection>();
-	}
-};
-static_assert(alignof(UMovieSceneFadeSection) == 0x000008, "Wrong alignment on UMovieSceneFadeSection");
-static_assert(sizeof(UMovieSceneFadeSection) == 0x000218, "Wrong size on UMovieSceneFadeSection");
-static_assert(offsetof(UMovieSceneFadeSection, FloatCurve) == 0x0000F0, "Member 'UMovieSceneFadeSection::FloatCurve' has a wrong offset!");
-static_assert(offsetof(UMovieSceneFadeSection, FadeColor) == 0x000200, "Member 'UMovieSceneFadeSection::FadeColor' has a wrong offset!");
+static_assert(alignof(IMovieSceneConstrainedSection) == 0x000008, "Wrong alignment on IMovieSceneConstrainedSection");
+static_assert(sizeof(IMovieSceneConstrainedSection) == 0x000028, "Wrong size on IMovieSceneConstrainedSection");
 
 // Class MovieSceneTracks.MovieSceneParameterSection
 // 0x0068 (0x0158 - 0x00F0)
@@ -143,27 +88,116 @@ static_assert(offsetof(UMovieSceneParameterSection, VectorParameterNamesAndCurve
 static_assert(offsetof(UMovieSceneParameterSection, ColorParameterNamesAndCurves) == 0x000138, "Member 'UMovieSceneParameterSection::ColorParameterNamesAndCurves' has a wrong offset!");
 static_assert(offsetof(UMovieSceneParameterSection, TransformParameterNamesAndCurves) == 0x000148, "Member 'UMovieSceneParameterSection::TransformParameterNamesAndCurves' has a wrong offset!");
 
-// Class MovieSceneTracks.MovieSceneParticleTrack
-// 0x0018 (0x00B0 - 0x0098)
-class UMovieSceneParticleTrack final : public UMovieSceneNameableTrack
+// Class MovieSceneTracks.MovieSceneFloatPerlinNoiseChannelContainer
+// 0x0068 (0x00C0 - 0x0058)
+class UMovieSceneFloatPerlinNoiseChannelContainer final : public UMovieSceneChannelOverrideContainer
 {
 public:
-	uint8                                         Pad_98[0x8];                                       // 0x0098(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class UMovieSceneSection*>             ParticleSections;                                  // 0x00A0(0x0010)(ExportObject, ZeroConstructor, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPrivate)
+	struct FMovieSceneFloatPerlinNoiseChannel     PerlinNoiseChannel;                                // 0x0058(0x0068)(Edit, NativeAccessSpecifierPrivate)
 
 public:
 	static class UClass* StaticClass()
 	{
-		return StaticClassImpl<"MovieSceneParticleTrack">();
+		return StaticClassImpl<"MovieSceneFloatPerlinNoiseChannelContainer">();
 	}
-	static class UMovieSceneParticleTrack* GetDefaultObj()
+	static class UMovieSceneFloatPerlinNoiseChannelContainer* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UMovieSceneParticleTrack>();
+		return GetDefaultObjImpl<UMovieSceneFloatPerlinNoiseChannelContainer>();
 	}
 };
-static_assert(alignof(UMovieSceneParticleTrack) == 0x000008, "Wrong alignment on UMovieSceneParticleTrack");
-static_assert(sizeof(UMovieSceneParticleTrack) == 0x0000B0, "Wrong size on UMovieSceneParticleTrack");
-static_assert(offsetof(UMovieSceneParticleTrack, ParticleSections) == 0x0000A0, "Member 'UMovieSceneParticleTrack::ParticleSections' has a wrong offset!");
+static_assert(alignof(UMovieSceneFloatPerlinNoiseChannelContainer) == 0x000008, "Wrong alignment on UMovieSceneFloatPerlinNoiseChannelContainer");
+static_assert(sizeof(UMovieSceneFloatPerlinNoiseChannelContainer) == 0x0000C0, "Wrong size on UMovieSceneFloatPerlinNoiseChannelContainer");
+static_assert(offsetof(UMovieSceneFloatPerlinNoiseChannelContainer, PerlinNoiseChannel) == 0x000058, "Member 'UMovieSceneFloatPerlinNoiseChannelContainer::PerlinNoiseChannel' has a wrong offset!");
+
+// Class MovieSceneTracks.MovieSceneBaseCacheSection
+// 0x0008 (0x00F8 - 0x00F0)
+class UMovieSceneBaseCacheSection : public UMovieSceneSection
+{
+public:
+	uint8                                         Pad_F0[0x8];                                       // 0x00F0(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		return StaticClassImpl<"MovieSceneBaseCacheSection">();
+	}
+	static class UMovieSceneBaseCacheSection* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UMovieSceneBaseCacheSection>();
+	}
+};
+static_assert(alignof(UMovieSceneBaseCacheSection) == 0x000008, "Wrong alignment on UMovieSceneBaseCacheSection");
+static_assert(sizeof(UMovieSceneBaseCacheSection) == 0x0000F8, "Wrong size on UMovieSceneBaseCacheSection");
+
+// Class MovieSceneTracks.MovieSceneParticleSection
+// 0x0108 (0x01F8 - 0x00F0)
+class UMovieSceneParticleSection final : public UMovieSceneSection
+{
+public:
+	struct FMovieSceneParticleChannel             ParticleKeys;                                      // 0x00F0(0x0108)(NativeAccessSpecifierPublic)
+
+public:
+	static class UClass* StaticClass()
+	{
+		return StaticClassImpl<"MovieSceneParticleSection">();
+	}
+	static class UMovieSceneParticleSection* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UMovieSceneParticleSection>();
+	}
+};
+static_assert(alignof(UMovieSceneParticleSection) == 0x000008, "Wrong alignment on UMovieSceneParticleSection");
+static_assert(sizeof(UMovieSceneParticleSection) == 0x0001F8, "Wrong size on UMovieSceneParticleSection");
+static_assert(offsetof(UMovieSceneParticleSection, ParticleKeys) == 0x0000F0, "Member 'UMovieSceneParticleSection::ParticleKeys' has a wrong offset!");
+
+// Class MovieSceneTracks.MovieSceneDoublePerlinNoiseChannelContainer
+// 0x0068 (0x00C0 - 0x0058)
+class UMovieSceneDoublePerlinNoiseChannelContainer final : public UMovieSceneChannelOverrideContainer
+{
+public:
+	struct FMovieSceneDoublePerlinNoiseChannel    PerlinNoiseChannel;                                // 0x0058(0x0068)(Edit, NativeAccessSpecifierPrivate)
+
+public:
+	static class UClass* StaticClass()
+	{
+		return StaticClassImpl<"MovieSceneDoublePerlinNoiseChannelContainer">();
+	}
+	static class UMovieSceneDoublePerlinNoiseChannelContainer* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UMovieSceneDoublePerlinNoiseChannelContainer>();
+	}
+};
+static_assert(alignof(UMovieSceneDoublePerlinNoiseChannelContainer) == 0x000008, "Wrong alignment on UMovieSceneDoublePerlinNoiseChannelContainer");
+static_assert(sizeof(UMovieSceneDoublePerlinNoiseChannelContainer) == 0x0000C0, "Wrong size on UMovieSceneDoublePerlinNoiseChannelContainer");
+static_assert(offsetof(UMovieSceneDoublePerlinNoiseChannelContainer, PerlinNoiseChannel) == 0x000058, "Member 'UMovieSceneDoublePerlinNoiseChannelContainer::PerlinNoiseChannel' has a wrong offset!");
+
+// Class MovieSceneTracks.MovieSceneCinematicShotSection
+// 0x0028 (0x0158 - 0x0130)
+class UMovieSceneCinematicShotSection final : public UMovieSceneSubSection
+{
+public:
+	class FString                                 ShotDisplayName;                                   // 0x0130(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	class FText                                   DisplayName;                                       // 0x0140(0x0018)(Deprecated, NativeAccessSpecifierPrivate)
+
+public:
+	void SetShotDisplayName(const class FString& InShotDisplayName);
+
+	class FString GetShotDisplayName() const;
+
+public:
+	static class UClass* StaticClass()
+	{
+		return StaticClassImpl<"MovieSceneCinematicShotSection">();
+	}
+	static class UMovieSceneCinematicShotSection* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UMovieSceneCinematicShotSection>();
+	}
+};
+static_assert(alignof(UMovieSceneCinematicShotSection) == 0x000008, "Wrong alignment on UMovieSceneCinematicShotSection");
+static_assert(sizeof(UMovieSceneCinematicShotSection) == 0x000158, "Wrong size on UMovieSceneCinematicShotSection");
+static_assert(offsetof(UMovieSceneCinematicShotSection, ShotDisplayName) == 0x000130, "Member 'UMovieSceneCinematicShotSection::ShotDisplayName' has a wrong offset!");
+static_assert(offsetof(UMovieSceneCinematicShotSection, DisplayName) == 0x000140, "Member 'UMovieSceneCinematicShotSection::DisplayName' has a wrong offset!");
 
 // Class MovieSceneTracks.MovieScenePropertyTrack
 // 0x0030 (0x00C8 - 0x0098)
@@ -244,48 +278,6 @@ public:
 };
 static_assert(alignof(IMovieSceneTransformOrigin) == 0x000008, "Wrong alignment on IMovieSceneTransformOrigin");
 static_assert(sizeof(IMovieSceneTransformOrigin) == 0x000028, "Wrong size on IMovieSceneTransformOrigin");
-
-// Class MovieSceneTracks.MovieSceneDoublePerlinNoiseChannelContainer
-// 0x0068 (0x00C0 - 0x0058)
-class UMovieSceneDoublePerlinNoiseChannelContainer final : public UMovieSceneChannelOverrideContainer
-{
-public:
-	struct FMovieSceneDoublePerlinNoiseChannel    PerlinNoiseChannel;                                // 0x0058(0x0068)(Edit, NativeAccessSpecifierPrivate)
-
-public:
-	static class UClass* StaticClass()
-	{
-		return StaticClassImpl<"MovieSceneDoublePerlinNoiseChannelContainer">();
-	}
-	static class UMovieSceneDoublePerlinNoiseChannelContainer* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UMovieSceneDoublePerlinNoiseChannelContainer>();
-	}
-};
-static_assert(alignof(UMovieSceneDoublePerlinNoiseChannelContainer) == 0x000008, "Wrong alignment on UMovieSceneDoublePerlinNoiseChannelContainer");
-static_assert(sizeof(UMovieSceneDoublePerlinNoiseChannelContainer) == 0x0000C0, "Wrong size on UMovieSceneDoublePerlinNoiseChannelContainer");
-static_assert(offsetof(UMovieSceneDoublePerlinNoiseChannelContainer, PerlinNoiseChannel) == 0x000058, "Member 'UMovieSceneDoublePerlinNoiseChannelContainer::PerlinNoiseChannel' has a wrong offset!");
-
-// Class MovieSceneTracks.MovieSceneFloatPerlinNoiseChannelContainer
-// 0x0068 (0x00C0 - 0x0058)
-class UMovieSceneFloatPerlinNoiseChannelContainer final : public UMovieSceneChannelOverrideContainer
-{
-public:
-	struct FMovieSceneFloatPerlinNoiseChannel     PerlinNoiseChannel;                                // 0x0058(0x0068)(Edit, NativeAccessSpecifierPrivate)
-
-public:
-	static class UClass* StaticClass()
-	{
-		return StaticClassImpl<"MovieSceneFloatPerlinNoiseChannelContainer">();
-	}
-	static class UMovieSceneFloatPerlinNoiseChannelContainer* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UMovieSceneFloatPerlinNoiseChannelContainer>();
-	}
-};
-static_assert(alignof(UMovieSceneFloatPerlinNoiseChannelContainer) == 0x000008, "Wrong alignment on UMovieSceneFloatPerlinNoiseChannelContainer");
-static_assert(sizeof(UMovieSceneFloatPerlinNoiseChannelContainer) == 0x0000C0, "Wrong size on UMovieSceneFloatPerlinNoiseChannelContainer");
-static_assert(offsetof(UMovieSceneFloatPerlinNoiseChannelContainer, PerlinNoiseChannel) == 0x000058, "Member 'UMovieSceneFloatPerlinNoiseChannelContainer::PerlinNoiseChannel' has a wrong offset!");
 
 // Class MovieSceneTracks.MovieSceneInterrogatedPropertyInstantiatorSystem
 // 0x01B0 (0x01F0 - 0x0040)
@@ -531,8 +523,8 @@ public:
 	uint8                                         Pad_603[0x5];                                      // 0x0603(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
 	class USoundAttenuation*                      AttenuationSettings;                               // 0x0608(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 	TDelegate<void(TArray<struct FSubtitleCue>& Subtitles, float CueDuration)> OnQueueSubtitles;                                  // 0x0610(0x0010)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	TMulticastInlineDelegate<void()>              OnAudioFinished;                                   // 0x0620(0x0010)(ZeroConstructor, InstancedReference, NativeAccessSpecifierPrivate)
-	TMulticastInlineDelegate<void(class USoundWave* PlayingSoundWave, float PlaybackPercent)> OnAudioPlaybackPercent;                            // 0x0630(0x0010)(ZeroConstructor, InstancedReference, NativeAccessSpecifierPrivate)
+	FMulticastInlineDelegateProperty_             OnAudioFinished;                                   // 0x0620(0x0010)(ZeroConstructor, InstancedReference, NativeAccessSpecifierPrivate)
+	FMulticastInlineDelegateProperty_             OnAudioPlaybackPercent;                            // 0x0630(0x0010)(ZeroConstructor, InstancedReference, NativeAccessSpecifierPrivate)
 
 public:
 	void SetSound(class USoundBase* InSound);
@@ -709,34 +701,6 @@ static_assert(alignof(UMovieSceneCameraShakeSourceTriggerSection) == 0x000008, "
 static_assert(sizeof(UMovieSceneCameraShakeSourceTriggerSection) == 0x0001E8, "Wrong size on UMovieSceneCameraShakeSourceTriggerSection");
 static_assert(offsetof(UMovieSceneCameraShakeSourceTriggerSection, Channel) == 0x0000F0, "Member 'UMovieSceneCameraShakeSourceTriggerSection::Channel' has a wrong offset!");
 
-// Class MovieSceneTracks.MovieSceneCinematicShotSection
-// 0x0028 (0x0158 - 0x0130)
-class UMovieSceneCinematicShotSection final : public UMovieSceneSubSection
-{
-public:
-	class FString                                 ShotDisplayName;                                   // 0x0130(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	class FText                                   DisplayName;                                       // 0x0140(0x0018)(Deprecated, NativeAccessSpecifierPrivate)
-
-public:
-	void SetShotDisplayName(const class FString& InShotDisplayName);
-
-	class FString GetShotDisplayName() const;
-
-public:
-	static class UClass* StaticClass()
-	{
-		return StaticClassImpl<"MovieSceneCinematicShotSection">();
-	}
-	static class UMovieSceneCinematicShotSection* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UMovieSceneCinematicShotSection>();
-	}
-};
-static_assert(alignof(UMovieSceneCinematicShotSection) == 0x000008, "Wrong alignment on UMovieSceneCinematicShotSection");
-static_assert(sizeof(UMovieSceneCinematicShotSection) == 0x000158, "Wrong size on UMovieSceneCinematicShotSection");
-static_assert(offsetof(UMovieSceneCinematicShotSection, ShotDisplayName) == 0x000130, "Member 'UMovieSceneCinematicShotSection::ShotDisplayName' has a wrong offset!");
-static_assert(offsetof(UMovieSceneCinematicShotSection, DisplayName) == 0x000140, "Member 'UMovieSceneCinematicShotSection::DisplayName' has a wrong offset!");
-
 // Class MovieSceneTracks.MovieSceneColorSection
 // 0x0448 (0x0538 - 0x00F0)
 class UMovieSceneColorSection final : public UMovieSceneSection
@@ -765,22 +729,32 @@ static_assert(offsetof(UMovieSceneColorSection, GreenCurve) == 0x000208, "Member
 static_assert(offsetof(UMovieSceneColorSection, BlueCurve) == 0x000318, "Member 'UMovieSceneColorSection::BlueCurve' has a wrong offset!");
 static_assert(offsetof(UMovieSceneColorSection, AlphaCurve) == 0x000428, "Member 'UMovieSceneColorSection::AlphaCurve' has a wrong offset!");
 
-// Class MovieSceneTracks.MovieSceneConstrainedSection
-// 0x0000 (0x0028 - 0x0028)
-class IMovieSceneConstrainedSection final : public IInterface
+// Class MovieSceneTracks.MovieSceneCVarSection
+// 0x0058 (0x0148 - 0x00F0)
+class UMovieSceneCVarSection final : public UMovieSceneSection
 {
+public:
+	uint8                                         Pad_F0[0x8];                                       // 0x00F0(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FMovieSceneCVarOverrides               ConsoleVariables;                                  // 0x00F8(0x0050)(Edit, NativeAccessSpecifierPublic)
+
+public:
+	void SetFromString(const class FString& InString);
+
+	class FString GetString() const;
+
 public:
 	static class UClass* StaticClass()
 	{
-		return StaticClassImpl<"MovieSceneConstrainedSection">();
+		return StaticClassImpl<"MovieSceneCVarSection">();
 	}
-	static class IMovieSceneConstrainedSection* GetDefaultObj()
+	static class UMovieSceneCVarSection* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<IMovieSceneConstrainedSection>();
+		return GetDefaultObjImpl<UMovieSceneCVarSection>();
 	}
 };
-static_assert(alignof(IMovieSceneConstrainedSection) == 0x000008, "Wrong alignment on IMovieSceneConstrainedSection");
-static_assert(sizeof(IMovieSceneConstrainedSection) == 0x000028, "Wrong size on IMovieSceneConstrainedSection");
+static_assert(alignof(UMovieSceneCVarSection) == 0x000008, "Wrong alignment on UMovieSceneCVarSection");
+static_assert(sizeof(UMovieSceneCVarSection) == 0x000148, "Wrong size on UMovieSceneCVarSection");
+static_assert(offsetof(UMovieSceneCVarSection, ConsoleVariables) == 0x0000F8, "Member 'UMovieSceneCVarSection::ConsoleVariables' has a wrong offset!");
 
 // Class MovieSceneTracks.MovieSceneDataLayerSection
 // 0x0030 (0x0120 - 0x00F0)
@@ -954,6 +928,31 @@ static_assert(alignof(UMovieSceneEventTriggerSection) == 0x000008, "Wrong alignm
 static_assert(sizeof(UMovieSceneEventTriggerSection) == 0x0001F0, "Wrong size on UMovieSceneEventTriggerSection");
 static_assert(offsetof(UMovieSceneEventTriggerSection, EventChannel) == 0x0000F8, "Member 'UMovieSceneEventTriggerSection::EventChannel' has a wrong offset!");
 
+// Class MovieSceneTracks.MovieSceneFadeSection
+// 0x0128 (0x0218 - 0x00F0)
+class UMovieSceneFadeSection final : public UMovieSceneSection
+{
+public:
+	struct FMovieSceneFloatChannel                FloatCurve;                                        // 0x00F0(0x0110)(NativeAccessSpecifierPublic)
+	struct FLinearColor                           FadeColor;                                         // 0x0200(0x0010)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         bFadeAudio : 1;                                    // 0x0210(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         Pad_211[0x7];                                      // 0x0211(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		return StaticClassImpl<"MovieSceneFadeSection">();
+	}
+	static class UMovieSceneFadeSection* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UMovieSceneFadeSection>();
+	}
+};
+static_assert(alignof(UMovieSceneFadeSection) == 0x000008, "Wrong alignment on UMovieSceneFadeSection");
+static_assert(sizeof(UMovieSceneFadeSection) == 0x000218, "Wrong size on UMovieSceneFadeSection");
+static_assert(offsetof(UMovieSceneFadeSection, FloatCurve) == 0x0000F0, "Member 'UMovieSceneFadeSection::FloatCurve' has a wrong offset!");
+static_assert(offsetof(UMovieSceneFadeSection, FadeColor) == 0x000200, "Member 'UMovieSceneFadeSection::FadeColor' has a wrong offset!");
+
 // Class MovieSceneTracks.MovieSceneFloatSection
 // 0x0128 (0x0218 - 0x00F0)
 class UMovieSceneFloatSection final : public UMovieSceneSection
@@ -1069,27 +1068,6 @@ public:
 };
 static_assert(alignof(IMovieSceneParameterSectionExtender) == 0x000008, "Wrong alignment on IMovieSceneParameterSectionExtender");
 static_assert(sizeof(IMovieSceneParameterSectionExtender) == 0x000028, "Wrong size on IMovieSceneParameterSectionExtender");
-
-// Class MovieSceneTracks.MovieSceneParticleSection
-// 0x0108 (0x01F8 - 0x00F0)
-class UMovieSceneParticleSection final : public UMovieSceneSection
-{
-public:
-	struct FMovieSceneParticleChannel             ParticleKeys;                                      // 0x00F0(0x0108)(NativeAccessSpecifierPublic)
-
-public:
-	static class UClass* StaticClass()
-	{
-		return StaticClassImpl<"MovieSceneParticleSection">();
-	}
-	static class UMovieSceneParticleSection* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UMovieSceneParticleSection>();
-	}
-};
-static_assert(alignof(UMovieSceneParticleSection) == 0x000008, "Wrong alignment on UMovieSceneParticleSection");
-static_assert(sizeof(UMovieSceneParticleSection) == 0x0001F8, "Wrong size on UMovieSceneParticleSection");
-static_assert(offsetof(UMovieSceneParticleSection, ParticleKeys) == 0x0000F0, "Member 'UMovieSceneParticleSection::ParticleKeys' has a wrong offset!");
 
 // Class MovieSceneTracks.MovieScenePrimitiveMaterialSection
 // 0x0140 (0x0230 - 0x00F0)
@@ -1876,11 +1854,11 @@ static_assert(alignof(UMovieSceneLevelVisibilitySystem) == 0x000008, "Wrong alig
 static_assert(sizeof(UMovieSceneLevelVisibilitySystem) == 0x0001A8, "Wrong size on UMovieSceneLevelVisibilitySystem");
 
 // Class MovieSceneTracks.MovieSceneMaterialParameterCollectionSystem
-// 0x0028 (0x0068 - 0x0040)
+// 0x0020 (0x0060 - 0x0040)
 class UMovieSceneMaterialParameterCollectionSystem final : public UMovieSceneEntitySystem
 {
 public:
-	uint8                                         Pad_40[0x28];                                      // 0x0040(0x0028)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_40[0x20];                                      // 0x0040(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -1893,15 +1871,15 @@ public:
 	}
 };
 static_assert(alignof(UMovieSceneMaterialParameterCollectionSystem) == 0x000008, "Wrong alignment on UMovieSceneMaterialParameterCollectionSystem");
-static_assert(sizeof(UMovieSceneMaterialParameterCollectionSystem) == 0x000068, "Wrong size on UMovieSceneMaterialParameterCollectionSystem");
+static_assert(sizeof(UMovieSceneMaterialParameterCollectionSystem) == 0x000060, "Wrong size on UMovieSceneMaterialParameterCollectionSystem");
 
 // Class MovieSceneTracks.MovieSceneMaterialParameterSystem
-// 0x02F8 (0x0338 - 0x0040)
+// 0x0318 (0x0358 - 0x0040)
 class UMovieSceneMaterialParameterSystem final : public UMovieSceneEntitySystem
 {
 public:
-	uint8                                         Pad_40[0x2F0];                                     // 0x0040(0x02F0)(Fixing Size After Last Property [ Dumper-7 ])
-	class UMovieScenePiecewiseDoubleBlenderSystem* DoubleBlenderSystem;                               // 0x0330(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_40[0x310];                                     // 0x0040(0x0310)(Fixing Size After Last Property [ Dumper-7 ])
+	class UMovieScenePiecewiseDoubleBlenderSystem* DoubleBlenderSystem;                               // 0x0350(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -1914,8 +1892,8 @@ public:
 	}
 };
 static_assert(alignof(UMovieSceneMaterialParameterSystem) == 0x000008, "Wrong alignment on UMovieSceneMaterialParameterSystem");
-static_assert(sizeof(UMovieSceneMaterialParameterSystem) == 0x000338, "Wrong size on UMovieSceneMaterialParameterSystem");
-static_assert(offsetof(UMovieSceneMaterialParameterSystem, DoubleBlenderSystem) == 0x000330, "Member 'UMovieSceneMaterialParameterSystem::DoubleBlenderSystem' has a wrong offset!");
+static_assert(sizeof(UMovieSceneMaterialParameterSystem) == 0x000358, "Wrong size on UMovieSceneMaterialParameterSystem");
+static_assert(offsetof(UMovieSceneMaterialParameterSystem, DoubleBlenderSystem) == 0x000350, "Member 'UMovieSceneMaterialParameterSystem::DoubleBlenderSystem' has a wrong offset!");
 
 // Class MovieSceneTracks.MovieSceneMotionVectorSimulationSystem
 // 0x0058 (0x0098 - 0x0040)
@@ -2042,8 +2020,8 @@ static_assert(sizeof(UMovieScenePiecewiseIntegerBlenderSystem) == 0x0000B0, "Wro
 class UMovieSceneAsyncAction_SequencePrediction final : public UBlueprintAsyncActionBase
 {
 public:
-	TMulticastInlineDelegate<void(const struct FTransform& PredictedTransform)> Result;                                            // 0x0030(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void()>              Failure;                                           // 0x0040(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             Result;                                            // 0x0030(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             Failure;                                           // 0x0040(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 	uint8                                         Pad_50[0x10];                                      // 0x0050(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
 	class UMovieSceneSequencePlayer*              SequencePlayer;                                    // 0x0060(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 	class USceneComponent*                        SceneComponent;                                    // 0x0068(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
@@ -2880,6 +2858,28 @@ public:
 static_assert(alignof(UMovieSceneParticleParameterTrack) == 0x000008, "Wrong alignment on UMovieSceneParticleParameterTrack");
 static_assert(sizeof(UMovieSceneParticleParameterTrack) == 0x0000B0, "Wrong size on UMovieSceneParticleParameterTrack");
 static_assert(offsetof(UMovieSceneParticleParameterTrack, Sections) == 0x0000A0, "Member 'UMovieSceneParticleParameterTrack::Sections' has a wrong offset!");
+
+// Class MovieSceneTracks.MovieSceneParticleTrack
+// 0x0018 (0x00B0 - 0x0098)
+class UMovieSceneParticleTrack final : public UMovieSceneNameableTrack
+{
+public:
+	uint8                                         Pad_98[0x8];                                       // 0x0098(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<class UMovieSceneSection*>             ParticleSections;                                  // 0x00A0(0x0010)(ExportObject, ZeroConstructor, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPrivate)
+
+public:
+	static class UClass* StaticClass()
+	{
+		return StaticClassImpl<"MovieSceneParticleTrack">();
+	}
+	static class UMovieSceneParticleTrack* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UMovieSceneParticleTrack>();
+	}
+};
+static_assert(alignof(UMovieSceneParticleTrack) == 0x000008, "Wrong alignment on UMovieSceneParticleTrack");
+static_assert(sizeof(UMovieSceneParticleTrack) == 0x0000B0, "Wrong size on UMovieSceneParticleTrack");
+static_assert(offsetof(UMovieSceneParticleTrack, ParticleSections) == 0x0000A0, "Member 'UMovieSceneParticleTrack::ParticleSections' has a wrong offset!");
 
 // Class MovieSceneTracks.MovieScenePrimitiveMaterialTrack
 // 0x0008 (0x00D0 - 0x00C8)

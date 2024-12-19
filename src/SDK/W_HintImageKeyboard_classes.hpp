@@ -17,7 +17,7 @@ namespace SDK
 {
 
 // WidgetBlueprintGeneratedClass W_HintImageKeyboard.W_HintImageKeyboard_C
-// 0x0000 (0x02C0 - 0x02C0)
+// 0x0000 (0x02D8 - 0x02D8)
 class UW_HintImageKeyboard_C final : public UHintImageKeyboard
 {
 public:
@@ -31,7 +31,7 @@ public:
 	}
 };
 static_assert(alignof(UW_HintImageKeyboard_C) == 0x000008, "Wrong alignment on UW_HintImageKeyboard_C");
-static_assert(sizeof(UW_HintImageKeyboard_C) == 0x0002C0, "Wrong size on UW_HintImageKeyboard_C");
+static_assert(sizeof(UW_HintImageKeyboard_C) == 0x0002D8, "Wrong size on UW_HintImageKeyboard_C");
 
 }
 

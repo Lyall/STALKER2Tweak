@@ -10,8 +10,8 @@
 
 #include "Basic.hpp"
 
-#include "WwiseResourceLoader_structs.hpp"
 #include "Engine_classes.hpp"
+#include "WwiseResourceLoader_structs.hpp"
 
 
 namespace SDK

@@ -96,7 +96,7 @@ public:
 	void SetFloatArrayParameter(class FName InName, const TArray<float>& InValue);
 	void SetFloatParameter(class FName InName, float InFloat);
 	void SetIntArrayParameter(class FName InName, const TArray<int32>& InValue);
-	void SetIntParameter(class FName InName, int32 inInt);
+	void SetIntParameter(class FName InName, int32 InInt);
 	void SetObjectArrayParameter(class FName InName, const TArray<class UObject*>& InValue);
 	void SetObjectParameter(class FName InName, class UObject* InValue);
 	void SetParameters_Blueprint(const TArray<struct FAudioParameter>& InParameters);

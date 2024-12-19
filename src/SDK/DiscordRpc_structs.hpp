@@ -29,17 +29,17 @@ enum class EDiscordJoinResponseCodes : uint8
 struct FDiscordUserData final
 {
 public:
-	class FString                                 userId;                                            // 0x0000(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 username;                                          // 0x0010(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 discriminator;                                     // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 avatar;                                            // 0x0030(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 UserId;                                            // 0x0000(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 Username;                                          // 0x0010(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 Discriminator;                                     // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 Avatar;                                            // 0x0030(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FDiscordUserData) == 0x000008, "Wrong alignment on FDiscordUserData");
 static_assert(sizeof(FDiscordUserData) == 0x000040, "Wrong size on FDiscordUserData");
-static_assert(offsetof(FDiscordUserData, userId) == 0x000000, "Member 'FDiscordUserData::userId' has a wrong offset!");
-static_assert(offsetof(FDiscordUserData, username) == 0x000010, "Member 'FDiscordUserData::username' has a wrong offset!");
-static_assert(offsetof(FDiscordUserData, discriminator) == 0x000020, "Member 'FDiscordUserData::discriminator' has a wrong offset!");
-static_assert(offsetof(FDiscordUserData, avatar) == 0x000030, "Member 'FDiscordUserData::avatar' has a wrong offset!");
+static_assert(offsetof(FDiscordUserData, UserId) == 0x000000, "Member 'FDiscordUserData::UserId' has a wrong offset!");
+static_assert(offsetof(FDiscordUserData, Username) == 0x000010, "Member 'FDiscordUserData::Username' has a wrong offset!");
+static_assert(offsetof(FDiscordUserData, Discriminator) == 0x000020, "Member 'FDiscordUserData::Discriminator' has a wrong offset!");
+static_assert(offsetof(FDiscordUserData, Avatar) == 0x000030, "Member 'FDiscordUserData::Avatar' has a wrong offset!");
 
 // ScriptStruct DiscordRpc.DiscordRichPresence
 // 0x00B8 (0x00B8 - 0x0000)
@@ -47,38 +47,38 @@ struct FDiscordRichPresence final
 {
 public:
 	class FString                                 State;                                             // 0x0000(0x0010)(BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 details;                                           // 0x0010(0x0010)(BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         startTimestamp;                                    // 0x0020(0x0004)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         endTimestamp;                                      // 0x0024(0x0004)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 largeImageKey;                                     // 0x0028(0x0010)(BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 largeImageText;                                    // 0x0038(0x0010)(BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 smallImageKey;                                     // 0x0048(0x0010)(BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 smallImageText;                                    // 0x0058(0x0010)(BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 partyId;                                           // 0x0068(0x0010)(BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         partySize;                                         // 0x0078(0x0004)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         partyMax;                                          // 0x007C(0x0004)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 matchSecret;                                       // 0x0080(0x0010)(BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 joinSecret;                                        // 0x0090(0x0010)(BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 spectateSecret;                                    // 0x00A0(0x0010)(BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 Details;                                           // 0x0010(0x0010)(BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         StartTimestamp;                                    // 0x0020(0x0004)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         EndTimestamp;                                      // 0x0024(0x0004)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 LargeImageKey;                                     // 0x0028(0x0010)(BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 LargeImageText;                                    // 0x0038(0x0010)(BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 SmallImageKey;                                     // 0x0048(0x0010)(BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 SmallImageText;                                    // 0x0058(0x0010)(BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 PartyId;                                           // 0x0068(0x0010)(BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         PartySize;                                         // 0x0078(0x0004)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         PartyMax;                                          // 0x007C(0x0004)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 MatchSecret;                                       // 0x0080(0x0010)(BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 JoinSecret;                                        // 0x0090(0x0010)(BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 SpectateSecret;                                    // 0x00A0(0x0010)(BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          Instance;                                          // 0x00B0(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_B1[0x7];                                       // 0x00B1(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(FDiscordRichPresence) == 0x000008, "Wrong alignment on FDiscordRichPresence");
 static_assert(sizeof(FDiscordRichPresence) == 0x0000B8, "Wrong size on FDiscordRichPresence");
 static_assert(offsetof(FDiscordRichPresence, State) == 0x000000, "Member 'FDiscordRichPresence::State' has a wrong offset!");
-static_assert(offsetof(FDiscordRichPresence, details) == 0x000010, "Member 'FDiscordRichPresence::details' has a wrong offset!");
-static_assert(offsetof(FDiscordRichPresence, startTimestamp) == 0x000020, "Member 'FDiscordRichPresence::startTimestamp' has a wrong offset!");
-static_assert(offsetof(FDiscordRichPresence, endTimestamp) == 0x000024, "Member 'FDiscordRichPresence::endTimestamp' has a wrong offset!");
-static_assert(offsetof(FDiscordRichPresence, largeImageKey) == 0x000028, "Member 'FDiscordRichPresence::largeImageKey' has a wrong offset!");
-static_assert(offsetof(FDiscordRichPresence, largeImageText) == 0x000038, "Member 'FDiscordRichPresence::largeImageText' has a wrong offset!");
-static_assert(offsetof(FDiscordRichPresence, smallImageKey) == 0x000048, "Member 'FDiscordRichPresence::smallImageKey' has a wrong offset!");
-static_assert(offsetof(FDiscordRichPresence, smallImageText) == 0x000058, "Member 'FDiscordRichPresence::smallImageText' has a wrong offset!");
-static_assert(offsetof(FDiscordRichPresence, partyId) == 0x000068, "Member 'FDiscordRichPresence::partyId' has a wrong offset!");
-static_assert(offsetof(FDiscordRichPresence, partySize) == 0x000078, "Member 'FDiscordRichPresence::partySize' has a wrong offset!");
-static_assert(offsetof(FDiscordRichPresence, partyMax) == 0x00007C, "Member 'FDiscordRichPresence::partyMax' has a wrong offset!");
-static_assert(offsetof(FDiscordRichPresence, matchSecret) == 0x000080, "Member 'FDiscordRichPresence::matchSecret' has a wrong offset!");
-static_assert(offsetof(FDiscordRichPresence, joinSecret) == 0x000090, "Member 'FDiscordRichPresence::joinSecret' has a wrong offset!");
-static_assert(offsetof(FDiscordRichPresence, spectateSecret) == 0x0000A0, "Member 'FDiscordRichPresence::spectateSecret' has a wrong offset!");
+static_assert(offsetof(FDiscordRichPresence, Details) == 0x000010, "Member 'FDiscordRichPresence::Details' has a wrong offset!");
+static_assert(offsetof(FDiscordRichPresence, StartTimestamp) == 0x000020, "Member 'FDiscordRichPresence::StartTimestamp' has a wrong offset!");
+static_assert(offsetof(FDiscordRichPresence, EndTimestamp) == 0x000024, "Member 'FDiscordRichPresence::EndTimestamp' has a wrong offset!");
+static_assert(offsetof(FDiscordRichPresence, LargeImageKey) == 0x000028, "Member 'FDiscordRichPresence::LargeImageKey' has a wrong offset!");
+static_assert(offsetof(FDiscordRichPresence, LargeImageText) == 0x000038, "Member 'FDiscordRichPresence::LargeImageText' has a wrong offset!");
+static_assert(offsetof(FDiscordRichPresence, SmallImageKey) == 0x000048, "Member 'FDiscordRichPresence::SmallImageKey' has a wrong offset!");
+static_assert(offsetof(FDiscordRichPresence, SmallImageText) == 0x000058, "Member 'FDiscordRichPresence::SmallImageText' has a wrong offset!");
+static_assert(offsetof(FDiscordRichPresence, PartyId) == 0x000068, "Member 'FDiscordRichPresence::PartyId' has a wrong offset!");
+static_assert(offsetof(FDiscordRichPresence, PartySize) == 0x000078, "Member 'FDiscordRichPresence::PartySize' has a wrong offset!");
+static_assert(offsetof(FDiscordRichPresence, PartyMax) == 0x00007C, "Member 'FDiscordRichPresence::PartyMax' has a wrong offset!");
+static_assert(offsetof(FDiscordRichPresence, MatchSecret) == 0x000080, "Member 'FDiscordRichPresence::MatchSecret' has a wrong offset!");
+static_assert(offsetof(FDiscordRichPresence, JoinSecret) == 0x000090, "Member 'FDiscordRichPresence::JoinSecret' has a wrong offset!");
+static_assert(offsetof(FDiscordRichPresence, SpectateSecret) == 0x0000A0, "Member 'FDiscordRichPresence::SpectateSecret' has a wrong offset!");
 static_assert(offsetof(FDiscordRichPresence, Instance) == 0x0000B0, "Member 'FDiscordRichPresence::Instance' has a wrong offset!");
 
 }

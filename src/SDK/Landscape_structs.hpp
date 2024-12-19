@@ -376,6 +376,20 @@ static_assert(offsetof(FSubcomponentBakedFoliage, Ranges) == 0x000010, "Member '
 static_assert(offsetof(FSubcomponentBakedFoliage, InstancingRNGSeed) == 0x00005C, "Member 'FSubcomponentBakedFoliage::InstancingRNGSeed' has a wrong offset!");
 static_assert(offsetof(FSubcomponentBakedFoliage, NumTransforms) == 0x000060, "Member 'FSubcomponentBakedFoliage::NumTransforms' has a wrong offset!");
 
+// ScriptStruct Landscape.LandscapeProxyMaterialOverride
+// 0x0010 (0x0010 - 0x0000)
+struct FLandscapeProxyMaterialOverride final
+{
+public:
+	struct FPerPlatformInt                        LODIndex;                                          // 0x0000(0x0004)(Edit, NoDestructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class UMaterialInterface*                     Material;                                          // 0x0008(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(FLandscapeProxyMaterialOverride) == 0x000008, "Wrong alignment on FLandscapeProxyMaterialOverride");
+static_assert(sizeof(FLandscapeProxyMaterialOverride) == 0x000010, "Wrong size on FLandscapeProxyMaterialOverride");
+static_assert(offsetof(FLandscapeProxyMaterialOverride, LODIndex) == 0x000000, "Member 'FLandscapeProxyMaterialOverride::LODIndex' has a wrong offset!");
+static_assert(offsetof(FLandscapeProxyMaterialOverride, Material) == 0x000008, "Member 'FLandscapeProxyMaterialOverride::Material' has a wrong offset!");
+
 // ScriptStruct Landscape.HISMOrISMBakedFoliage
 // 0x0068 (0x0068 - 0x0000)
 struct FHISMOrISMBakedFoliage final
@@ -1076,6 +1090,19 @@ static_assert(sizeof(FLandscapeLayerComponentData) == 0x000038, "Wrong size on F
 static_assert(offsetof(FLandscapeLayerComponentData, HeightmapData) == 0x000000, "Member 'FLandscapeLayerComponentData::HeightmapData' has a wrong offset!");
 static_assert(offsetof(FLandscapeLayerComponentData, WeightmapData) == 0x000008, "Member 'FLandscapeLayerComponentData::WeightmapData' has a wrong offset!");
 
+// ScriptStruct Landscape.PhysicalMaterialInput
+// 0x0030 (0x0030 - 0x0000)
+struct FPhysicalMaterialInput final
+{
+public:
+	class UPhysicalMaterial*                      PhysicalMaterial;                                  // 0x0000(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FExpressionInput                       Input;                                             // 0x0008(0x0028)(NoDestructor, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(FPhysicalMaterialInput) == 0x000008, "Wrong alignment on FPhysicalMaterialInput");
+static_assert(sizeof(FPhysicalMaterialInput) == 0x000030, "Wrong size on FPhysicalMaterialInput");
+static_assert(offsetof(FPhysicalMaterialInput, PhysicalMaterial) == 0x000000, "Member 'FPhysicalMaterialInput::PhysicalMaterial' has a wrong offset!");
+static_assert(offsetof(FPhysicalMaterialInput, Input) == 0x000008, "Member 'FPhysicalMaterialInput::Input' has a wrong offset!");
+
 // ScriptStruct Landscape.GizmoSelectData
 // 0x0050 (0x0050 - 0x0000)
 struct alignas(0x08) FGizmoSelectData final
@@ -1310,33 +1337,6 @@ public:
 };
 static_assert(alignof(FLandscapeImportLayerInfo) == 0x000001, "Wrong alignment on FLandscapeImportLayerInfo");
 static_assert(sizeof(FLandscapeImportLayerInfo) == 0x000001, "Wrong size on FLandscapeImportLayerInfo");
-
-// ScriptStruct Landscape.LandscapeProxyMaterialOverride
-// 0x0010 (0x0010 - 0x0000)
-struct FLandscapeProxyMaterialOverride final
-{
-public:
-	struct FPerPlatformInt                        LODIndex;                                          // 0x0000(0x0004)(Edit, NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UMaterialInterface*                     Material;                                          // 0x0008(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(FLandscapeProxyMaterialOverride) == 0x000008, "Wrong alignment on FLandscapeProxyMaterialOverride");
-static_assert(sizeof(FLandscapeProxyMaterialOverride) == 0x000010, "Wrong size on FLandscapeProxyMaterialOverride");
-static_assert(offsetof(FLandscapeProxyMaterialOverride, LODIndex) == 0x000000, "Member 'FLandscapeProxyMaterialOverride::LODIndex' has a wrong offset!");
-static_assert(offsetof(FLandscapeProxyMaterialOverride, Material) == 0x000008, "Member 'FLandscapeProxyMaterialOverride::Material' has a wrong offset!");
-
-// ScriptStruct Landscape.PhysicalMaterialInput
-// 0x0030 (0x0030 - 0x0000)
-struct FPhysicalMaterialInput final
-{
-public:
-	class UPhysicalMaterial*                      PhysicalMaterial;                                  // 0x0000(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FExpressionInput                       Input;                                             // 0x0008(0x0028)(NoDestructor, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(FPhysicalMaterialInput) == 0x000008, "Wrong alignment on FPhysicalMaterialInput");
-static_assert(sizeof(FPhysicalMaterialInput) == 0x000030, "Wrong size on FPhysicalMaterialInput");
-static_assert(offsetof(FPhysicalMaterialInput, PhysicalMaterial) == 0x000000, "Member 'FPhysicalMaterialInput::PhysicalMaterial' has a wrong offset!");
-static_assert(offsetof(FPhysicalMaterialInput, Input) == 0x000008, "Member 'FPhysicalMaterialInput::Input' has a wrong offset!");
 
 }
 
